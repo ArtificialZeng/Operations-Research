@@ -1,0 +1,44 @@
+{
+  "case": "p01",
+  "mode": "linked",
+  "lock_sha256": "ac6e8e220a4b5ed30186dc14c98572c74cfe48e36c9659bb582042a35dd0f8b5",
+  "cpu": 18,
+  "input_sha256": "ce90c54559f0f341f03cbb2d91ef0ca0a3148217243cb016e8a00d37fbda351b",
+  "eta_ticks": null,
+  "variables": 44010,
+  "equations": 4000,
+  "inequalities": 42000,
+  "numeric": {
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "iterations": 22,
+    "objective": 2275.704227573786,
+    "seconds_before_certificate": 2.332015702999996
+  },
+  "certificate": {
+    "lower": "993313149261992936213/436486050000000000",
+    "upper": "9348829640391352564157/4108104000000000000",
+    "relative_gap": "4734123796589/158930103886652993590669",
+    "original_same_primal": "9348829640391352564157/4108104000000000000",
+    "rounded_opening": [
+      1000000000,
+      1000000000,
+      633846154,
+      1000000000,
+      1000000000,
+      0,
+      1000000000,
+      1000000000,
+      1000000000,
+      1000000000
+    ],
+    "grid": 1000000000,
+    "opening_cost": "126913076927/62500000",
+    "dual_grid": 100000000,
+    "scenarios": 200,
+    "trimmed_flow_grid_ticks": 0,
+    "positive_hinge_scenarios": null
+  },
+  "elapsed_seconds": 2.361149848999986,
+  "within_budget": true
+}
