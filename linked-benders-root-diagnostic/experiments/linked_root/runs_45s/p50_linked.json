@@ -1,0 +1,21 @@
+{
+  "case": "p50",
+  "mode": "linked",
+  "lock_sha256": "ac6e8e220a4b5ed30186dc14c98572c74cfe48e36c9659bb582042a35dd0f8b5",
+  "cpu": 26,
+  "input_sha256": "957d0068abbda7e02d767fb93290dd6b8ebf30a172718a4cd03565f715106ba7",
+  "eta_ticks": null,
+  "variables": 558030,
+  "equations": 18000,
+  "inequalities": 546000,
+  "numeric": {
+    "status": 1,
+    "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Feasible)",
+    "iterations": 25,
+    "objective": null,
+    "seconds_before_certificate": 41.11102182900001
+  },
+  "certificate": null,
+  "elapsed_seconds": 41.111022984000016,
+  "within_budget": true
+}

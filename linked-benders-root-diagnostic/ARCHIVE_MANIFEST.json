@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "target_repository": "ArtificialZeng/Operations-Research",
+  "archive_folder": "linked-benders-root-diagnostic",
+  "status": "closed_reproducibility_archive",
+  "authored_date": "2026-11-24",
+  "scope_disclaimer": "Reproducibility archive of the closed continuous fractional-root linked LP and linked Benders diagnostics on adapted public Diaz instances (p01, p26, p50). Preserves p50 deterministic-equivalent timeouts and negative/mixed Benders findings (p01 single-cut gain does not transfer to equal-disaggregation multi-cut; p26 multi-cut ties 8 vs. 8 with both certificates valid). Not a claim of journal readiness or integer-search speedup.",
+  "line_ending_policy": "Preserve exact original LF/CRLF byte sequences (disable git autocrlf conversion on staging/checkout) so locked SHA-256 digests in experiments/linked_root/runs_45s/lock.json, experiments/diaz_lost_sales/manifest.json, and pilot runtime records remain exact.",
+  "runtime_dependencies": {
+    "python": "3.14.10 (exact recorded environment)",
+    "packages": [
+      {
+        "name": "numpy",
+        "tested_version": "2.5.3",
+        "required_by": [
+          "experiments/linked_root/root_model.py",
+          "experiments/linked_root/certify.py",
+          "experiments/linked_root/run_root.py",
+          "experiments/bodur_holmberg_transfer/independent.py",
+          "antigravity/native_linked_root_execution_20261124/linked_benders_pilot.py"
+        ]
+      },
+      {
+        "name": "scipy",
+        "tested_version": "1.18.1",
+        "required_by": [
+          "experiments/linked_root/root_model.py",
+          "antigravity/native_linked_root_execution_20261124/linked_benders_pilot.py"
+        ]
+      },
+      {
+        "name": "ortools",
+        "tested_version": "top-level import dependency",
+        "required_by": [
+          "experiments/bodur_holmberg_transfer/independent.py"
+        ],
+        "note": "Imported at module top-level by independent.py (min_cost_flow) even though run_root.py only instantiates the Instance dataclass; preserved unmodified to keep lock.json source SHA-256 intact."
+      }
+    ]
+  },
+  "external_public_sources": {
+    "repository": "https://github.com/MCDMSociety/MOrepo-Gadegaard16",
+    "commit": "5d5a64e1f9e43a2484de52dacc9148a81df5d30d",
+    "reconstruction_policy": "Raw matrix bytes and adapted p*.json files are NOT republished in the archive PR. Clean-clone replay runs prepare_archive_inputs.py to download pinned public raw files, verify raw_sha256, apply experiments/diaz_lost_sales/seal_inputs.py (raw_source, adapt, encode — never seal_inputs.main), and verify exact instance_sha256 against experiments/diaz_lost_sales/manifest.json.",
+    "cases": {
+      "p01": {
+        "raw_file": "Gadegaard16_SSCFLP_Diaz_p01_0.raw",
+        "raw_url": "https://raw.githubusercontent.com/MCDMSociety/MOrepo-Gadegaard16/5d5a64e1f9e43a2484de52dacc9148a81df5d30d/instances/raw/SSCFLP/Gadegaard16_SSCFLP_Diaz_p01_0.raw",
+        "raw_bytes": 1310,
+        "raw_sha256": "9ce4bf0cdf7f9eec5fa28ba52d6ef905fef20beaae71a9e588fbe9156e321d6e",
+        "reconstructed_destination": "experiments/diaz_lost_sales/p01.json",
+        "expected_instance_sha256": "ce90c54559f0f341f03cbb2d91ef0ca0a3148217243cb016e8a00d37fbda351b"
+      },
+      "p26": {
+        "raw_file": "Gadegaard16_SSCFLP_Diaz_p26_0.raw",
+        "raw_url": "https://raw.githubusercontent.com/MCDMSociety/MOrepo-Gadegaard16/5d5a64e1f9e43a2484de52dacc9148a81df5d30d/instances/raw/SSCFLP/Gadegaard16_SSCFLP_Diaz_p26_0.raw",
+        "raw_bytes": 6167,
+        "raw_sha256": "2a4681f0f23ff40e9ed8c80d6af9b99eb78b5b09c9211c29ac3363a275c1ba3c",
+        "reconstructed_destination": "experiments/diaz_lost_sales/p26.json",
+        "expected_instance_sha256": "c8573d88fe95131ab6b473c0fa1dbb29d7381918044ca845c34bbe59df420e66"
+      },
+      "p50": {
+        "raw_file": "Gadegaard16_SSCFLP_Diaz_p50_0.raw",
+        "raw_url": "https://raw.githubusercontent.com/MCDMSociety/MOrepo-Gadegaard16/5d5a64e1f9e43a2484de52dacc9148a81df5d30d/instances/raw/SSCFLP/Gadegaard16_SSCFLP_Diaz_p50_0.raw",
+        "raw_bytes": 16248,
+        "raw_sha256": "ce29c3e32f4fb5815b8c3d1ea5a870bd6f483cf9a5efae5289bd89211d45fa41",
+        "reconstructed_destination": "experiments/diaz_lost_sales/p50.json",
+        "expected_instance_sha256": "957d0068abbda7e02d767fb93290dd6b8ebf30a172718a4cd03565f715106ba7"
+      }
+    }
+  },
+  "excluded_items": [
+    "Raw Diaz matrix files (Gadegaard16_SSCFLP_Diaz_*_0.raw) and adapted experiments/diaz_lost_sales/p*.json (reconstructed on demand via prepare_archive_inputs.py)",
+    "All JSONL conversation traces and native review logs (experiments/linked_root/native_review/*, *.jsonl)",
+    "Handoff operational prompts, live status scratchpad, and separate future proposals (pilot_authoring_prompt.txt, STATUS.md, NEXT_RESEARCH.md)",
+    "Unrelated integer-search experiments, credentials, user data, and PDFs"
+  ],
+  "files": [
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/ARCHIVE.gitattributes",
+      "destination": ".gitattributes",
+      "role": "git_line_ending_preservation",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/ARCHIVE_README.md",
+      "destination": "README.md",
+      "role": "archive_readme",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/ARCHIVE_MANIFEST.json",
+      "destination": "ARCHIVE_MANIFEST.json",
+      "role": "archive_manifest",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/prepare_archive_inputs.py",
+      "destination": "prepare_archive_inputs.py",
+      "role": "input_reconstruction_helper",
+      "expected_sha256": null
+    },
+    {
+      "source": "experiments/bodur_holmberg_transfer/independent.py",
+      "destination": "experiments/bodur_holmberg_transfer/independent.py",
+      "role": "import_dependency_instance_dataclass",
+      "expected_sha256": "67be42288315cc4db7e0c51429ac0d2c4c1e50ff2e75c677292198c578a3abb1"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/PROTOCOL.md",
+      "destination": "experiments/diaz_lost_sales/PROTOCOL.md",
+      "role": "diaz_adaptation_provenance",
+      "expected_sha256": "2017773086ff3717d7414db397b08db97d93b0e2681e030d74b844a824ba3a50"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/manifest.json",
+      "destination": "experiments/diaz_lost_sales/manifest.json",
+      "role": "diaz_pinned_source_manifest",
+      "expected_sha256": "9be4fb7962061b5b5a42fc2ff5f67add0788f7e199bc7b577e9c7779aaeeb126"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/seal_inputs.py",
+      "destination": "experiments/diaz_lost_sales/seal_inputs.py",
+      "role": "diaz_exact_adapter",
+      "expected_sha256": "0d11f6b2c08d406f145647b6303fc0fa81c3701ed53ab658e98ea23216704ca3"
+    },
+    {
+      "source": "experiments/linked_root/PROTOCOL.md",
+      "destination": "experiments/linked_root/PROTOCOL.md",
+      "role": "root_de_protocol",
+      "expected_sha256": "0aa782fee44887dbe26cdc57bf35a35d06e81bd9a177088721f3b17f1526c238"
+    },
+    {
+      "source": "experiments/linked_root/root_model.py",
+      "destination": "experiments/linked_root/root_model.py",
+      "role": "root_de_model",
+      "expected_sha256": "b730a6ef4f10b71f97fee15402484f79829b29e133f9b1736dfc5c3c371ab0e6"
+    },
+    {
+      "source": "experiments/linked_root/certify.py",
+      "destination": "experiments/linked_root/certify.py",
+      "role": "exact_rational_certificate_verifier",
+      "expected_sha256": "b87b70bb361e81d0a77d9a247483734f10655fafd7db9c81396d283b4eae1dda"
+    },
+    {
+      "source": "experiments/linked_root/run_root.py",
+      "destination": "experiments/linked_root/run_root.py",
+      "role": "root_de_runner_and_sealed_loader",
+      "expected_sha256": "4814d318c1166b93d723b02d2fc346ef13ad5d644b815f610ee6d0a23f7bed6a"
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/lock.json",
+      "destination": "experiments/linked_root/runs_45s/lock.json",
+      "role": "root_de_lock_manifest",
+      "expected_sha256": "ac6e8e220a4b5ed30186dc14c98572c74cfe48e36c9659bb582042a35dd0f8b5"
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p01_plain.json",
+      "destination": "experiments/linked_root/runs_45s/p01_plain.json",
+      "role": "root_de_certified_result",
+      "expected_sha256": null
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p01_linked.json",
+      "destination": "experiments/linked_root/runs_45s/p01_linked.json",
+      "role": "root_de_certified_reference",
+      "expected_sha256": "3b06040209fcb726194ebefc9ace058994a8848b2623c1c88f7ea097062ce451"
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p01_linked_separated.json",
+      "destination": "experiments/linked_root/runs_45s/p01_linked_separated.json",
+      "role": "root_de_certified_reference",
+      "expected_sha256": "633c3b58866db709fc997d4ba45f91bcb0421c683dcd278cb47368fc54448a46"
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p26_plain.json",
+      "destination": "experiments/linked_root/runs_45s/p26_plain.json",
+      "role": "root_de_certified_result",
+      "expected_sha256": null
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p26_linked.json",
+      "destination": "experiments/linked_root/runs_45s/p26_linked.json",
+      "role": "root_de_certified_reference",
+      "expected_sha256": "526549b706d22222d564ea87b0939549a605b78b11bd3d7890d021d621818948"
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p26_linked_separated.json",
+      "destination": "experiments/linked_root/runs_45s/p26_linked_separated.json",
+      "role": "root_de_certified_reference",
+      "expected_sha256": "3547fae818b311bbc7c6c058ff8cdb6a3af7b77f177b3eeb13699ac2d663b865"
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p50_plain.json",
+      "destination": "experiments/linked_root/runs_45s/p50_plain.json",
+      "role": "root_de_certified_result",
+      "expected_sha256": null
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p50_linked.json",
+      "destination": "experiments/linked_root/runs_45s/p50_linked.json",
+      "role": "root_de_timeout_preserved",
+      "expected_sha256": null
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p50_linked_separated.json",
+      "destination": "experiments/linked_root/runs_45s/p50_linked_separated.json",
+      "role": "root_de_timeout_preserved",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/RESULT_AND_DECISION.md",
+      "destination": "antigravity/native_linked_root_execution_20261124/RESULT_AND_DECISION.md",
+      "role": "root_de_diagnostic_report",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/LINKED_BENDERS_PILOT.md",
+      "destination": "antigravity/native_linked_root_execution_20261124/LINKED_BENDERS_PILOT.md",
+      "role": "p01_benders_protocol",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/linked_benders_pilot.py",
+      "destination": "antigravity/native_linked_root_execution_20261124/linked_benders_pilot.py",
+      "role": "p01_benders_pilot_and_shared_library",
+      "expected_sha256": "eff17d9a81ef08b06705b6d64034f18dedcc4577c7350779b1ddd4ea7be3ed53"
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/pilot_smoke_result.json",
+      "destination": "antigravity/native_linked_root_execution_20261124/pilot_smoke_result.json",
+      "role": "p01_benders_smoke_result",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/pilot_full_result.json",
+      "destination": "antigravity/native_linked_root_execution_20261124/pilot_full_result.json",
+      "role": "p01_benders_full_result",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/PILOT_RESULTS.md",
+      "destination": "antigravity/native_linked_root_execution_20261124/PILOT_RESULTS.md",
+      "role": "p01_benders_decision_report",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/P26_MULTICUT_PROTOCOL.md",
+      "destination": "antigravity/native_linked_root_execution_20261124/P26_MULTICUT_PROTOCOL.md",
+      "role": "p26_multicut_protocol",
+      "expected_sha256": "2111174e79ff1e251f8cde7d2501a10c3d15455be14a5c66e60778098cba11f2"
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/linked_benders_p26.py",
+      "destination": "antigravity/native_linked_root_execution_20261124/linked_benders_p26.py",
+      "role": "p26_multicut_wrapper",
+      "expected_sha256": "37fa60b055a90fe8305c52bdc0920bbdfdec5002cf27557191ca4a26473aa0cf"
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/p26_multicut_result.json",
+      "destination": "antigravity/native_linked_root_execution_20261124/p26_multicut_result.json",
+      "role": "p26_multicut_result",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/P26_RESULTS.md",
+      "destination": "antigravity/native_linked_root_execution_20261124/P26_RESULTS.md",
+      "role": "p26_multicut_closure_report",
+      "expected_sha256": null
+    }
+  ]
+}

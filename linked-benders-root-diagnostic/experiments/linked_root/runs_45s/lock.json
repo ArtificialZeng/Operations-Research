@@ -1,0 +1,122 @@
+{
+  "cases": {
+    "p01": {
+      "cpu": 18,
+      "order": [
+        "plain",
+        "linked",
+        "linked_separated"
+      ],
+      "profile": {
+        "raw_file": "Gadegaard16_SSCFLP_Diaz_p01_0.raw",
+        "raw_sha256": "9ce4bf0cdf7f9eec5fa28ba52d6ef905fef20beaae71a9e588fbe9156e321d6e",
+        "raw_url": "https://raw.githubusercontent.com/MCDMSociety/MOrepo-Gadegaard16/5d5a64e1f9e43a2484de52dacc9148a81df5d30d/instances/raw/SSCFLP/Gadegaard16_SSCFLP_Diaz_p01_0.raw",
+        "raw_bytes": 1310,
+        "file": "p01.json",
+        "instance_sha256": "ce90c54559f0f341f03cbb2d91ef0ca0a3148217243cb016e8a00d37fbda351b",
+        "dimensions": [
+          10,
+          20,
+          200
+        ],
+        "nominal_total": 376,
+        "all_open_real_capacity": 538,
+        "nominal_capacity_ratio": "269/188",
+        "minimum_total_demand": "276",
+        "peak_demand": "476",
+        "dummy_capacity": 476,
+        "uniform_penalty_exact": "3171/143",
+        "quantity_scale": 10,
+        "cost_scale": 34918884,
+        "capacity_lattice_source_units": 1,
+        "exact_reachable_capacities": 337,
+        "scenario_sha256": "433a6131e8d52315a17b5af8d018432a1d70bec4e0ebc5476dad83b8d4f60c16",
+        "distinct_scenario_rows": 200,
+        "scenarios_have_exact_nominal_means": true
+      }
+    },
+    "p26": {
+      "cpu": 22,
+      "order": [
+        "linked_separated",
+        "plain",
+        "linked"
+      ],
+      "profile": {
+        "raw_file": "Gadegaard16_SSCFLP_Diaz_p26_0.raw",
+        "raw_sha256": "2a4681f0f23ff40e9ed8c80d6af9b99eb78b5b09c9211c29ac3363a275c1ba3c",
+        "raw_url": "https://raw.githubusercontent.com/MCDMSociety/MOrepo-Gadegaard16/5d5a64e1f9e43a2484de52dacc9148a81df5d30d/instances/raw/SSCFLP/Gadegaard16_SSCFLP_Diaz_p26_0.raw",
+        "raw_bytes": 6167,
+        "file": "p26.json",
+        "instance_sha256": "c8573d88fe95131ab6b473c0fa1dbb29d7381918044ca845c34bbe59df420e66",
+        "dimensions": [
+          20,
+          50,
+          200
+        ],
+        "nominal_total": 975,
+        "all_open_real_capacity": 1678,
+        "nominal_capacity_ratio": "1678/975",
+        "minimum_total_demand": "7387/10",
+        "peak_demand": "12113/10",
+        "dummy_capacity": 1212,
+        "uniform_penalty_exact": "5069/205",
+        "quantity_scale": 10,
+        "cost_scale": 5025930109200,
+        "capacity_lattice_source_units": 1,
+        "exact_reachable_capacities": 1519,
+        "scenario_sha256": "6e89a15bf245222501fcd029f182ea9a0e774040d99c246e8ccac6710d783b70",
+        "distinct_scenario_rows": 200,
+        "scenarios_have_exact_nominal_means": true
+      }
+    },
+    "p50": {
+      "cpu": 26,
+      "order": [
+        "linked",
+        "linked_separated",
+        "plain"
+      ],
+      "profile": {
+        "raw_file": "Gadegaard16_SSCFLP_Diaz_p50_0.raw",
+        "raw_sha256": "ce29c3e32f4fb5815b8c3d1ea5a870bd6f483cf9a5efae5289bd89211d45fa41",
+        "raw_url": "https://raw.githubusercontent.com/MCDMSociety/MOrepo-Gadegaard16/5d5a64e1f9e43a2484de52dacc9148a81df5d30d/instances/raw/SSCFLP/Gadegaard16_SSCFLP_Diaz_p50_0.raw",
+        "raw_bytes": 16248,
+        "file": "p50.json",
+        "instance_sha256": "957d0068abbda7e02d767fb93290dd6b8ebf30a172718a4cd03565f715106ba7",
+        "dimensions": [
+          30,
+          90,
+          200
+        ],
+        "nominal_total": 1773,
+        "all_open_real_capacity": 6145,
+        "nominal_capacity_ratio": "6145/1773",
+        "minimum_total_demand": "13687/10",
+        "peak_demand": "21773/10",
+        "dummy_capacity": 2178,
+        "uniform_penalty_exact": "5683/30",
+        "quantity_scale": 10,
+        "cost_scale": 2329089562800,
+        "capacity_lattice_source_units": 1,
+        "exact_reachable_capacities": 5782,
+        "scenario_sha256": "1b8bfd97d5ee7c59dbbcbda1d114fde436f27e5989921a42601453ef3cb32280",
+        "distinct_scenario_rows": 200,
+        "scenarios_have_exact_nominal_means": true
+      }
+    }
+  },
+  "seconds": 45,
+  "input_manifest_sha256": "9be4fb7962061b5b5a42fc2ff5f67add0788f7e199bc7b577e9c7779aaeeb126",
+  "runtime": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "source_sha256": {
+    "run_root.py": "4814d318c1166b93d723b02d2fc346ef13ad5d644b815f610ee6d0a23f7bed6a",
+    "root_model.py": "b730a6ef4f10b71f97fee15402484f79829b29e133f9b1736dfc5c3c371ab0e6",
+    "certify.py": "b87b70bb361e81d0a77d9a247483734f10655fafd7db9c81396d283b4eae1dda",
+    "PROTOCOL.md": "0aa782fee44887dbe26cdc57bf35a35d06e81bd9a177088721f3b17f1526c238",
+    "../bodur_holmberg_transfer/independent.py": "67be42288315cc4db7e0c51429ac0d2c4c1e50ff2e75c677292198c578a3abb1"
+  }
+}
