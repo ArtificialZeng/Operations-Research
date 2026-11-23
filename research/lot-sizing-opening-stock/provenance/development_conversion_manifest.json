@@ -1,0 +1,96 @@
+{
+  "source_doi": "10.1287/ijoc.2016.0691",
+  "source_download": "https://www.dropbox.com/sh/qrlkspnlfmty4fb/AACJuf7uC4v-LAMNyXG9mqvia?dl=1",
+  "source_archive": "fragkos2016_horizon_decomposition.zip",
+  "source_archive_sha256": "0c05853fb22ebe3888c374e724fa679536aede59f964a5c701b046485a1512ec",
+  "source_archive_readme_sha256": "fecfdeaabf06f65d5f48c27498db7ae482823cf6c7fcb24bf99fdd157e845562",
+  "source_manifest_sha256": "e7203e06b1de232aa79e1d2fcda2c7a9f9639664447cc3a6f1337b1178e3ff9c",
+  "scope": "Six preselected Section 6.5 inputs in original item and period order. No optimization performed.",
+  "mapping": {
+    "capacity": "Each original period capacity is preserved",
+    "item_parameters": "Source variable time, holding cost, setup time and setup cost are constant across periods",
+    "opening_inventory_cost": "Setup cost + inventory holding cost + 1 per the author README",
+    "variable_production_cost": "Zero; the published data supply no field",
+    "numeric_precision": "Source decimal values round-trip through JSON without changing their decimal representation"
+  },
+  "cases": {
+    "two1": {
+      "file": "two1.json",
+      "sha256": "02af870037354c8e8e57b1f041bf84cd4ac4392937767238c23002c4978c1a7c",
+      "bytes": 5190,
+      "num_products": 2,
+      "num_periods": 100,
+      "source_member": "Section 6.5 Instances/two1.dat",
+      "source_sha256": "306934a4a98f6715eb0ed39b35bfb0284358f8b4afde0e9bd8edb4cb737c4bac",
+      "source_bytes": 1572,
+      "sum_period_capacity": 25001,
+      "total_demand": 22678,
+      "opening_cost_rule": "setup cost + inventory holding cost + 1"
+    },
+    "two2": {
+      "file": "two2.json",
+      "sha256": "d25c5d224102c228894ccb53ef19225ad72a4df12577fe8eb7f953e0e9e7a969",
+      "bytes": 5220,
+      "num_products": 2,
+      "num_periods": 100,
+      "source_member": "Section 6.5 Instances/two2.dat",
+      "source_sha256": "c9943639d964c83e01fc6af83ffa2f6eb4963af8b281bac958f5dda9db2afdef",
+      "source_bytes": 1600,
+      "sum_period_capacity": 24913,
+      "total_demand": 26984,
+      "opening_cost_rule": "setup cost + inventory holding cost + 1"
+    },
+    "six1": {
+      "file": "six1.json",
+      "sha256": "6e25cd48bc4eef82da173e25cdf99861363a890e386b8342ac76a731650650fd",
+      "bytes": 15513,
+      "num_products": 6,
+      "num_periods": 100,
+      "source_member": "Section 6.5 Instances/six1.dat",
+      "source_sha256": "7af99dddfbf586cc6bddfcb47a54f3efc86f6cfdc572c21d6146e7b6cb5c3c3f",
+      "source_bytes": 3481,
+      "sum_period_capacity": 75077,
+      "total_demand": 67677,
+      "opening_cost_rule": "setup cost + inventory holding cost + 1"
+    },
+    "six2": {
+      "file": "six2.json",
+      "sha256": "78df835050c191d8edf1b295a563c0211d9bd795afb5835efeb564f7b4bb7bfc",
+      "bytes": 15520,
+      "num_products": 6,
+      "num_periods": 100,
+      "source_member": "Section 6.5 Instances/six2.dat",
+      "source_sha256": "942c58154e0b1919b41428625bb758aacf9ecdacd8c509c171ba34c5b0eec281",
+      "source_bytes": 3486,
+      "sum_period_capacity": 75065,
+      "total_demand": 67776,
+      "opening_cost_rule": "setup cost + inventory holding cost + 1"
+    },
+    "ten1": {
+      "file": "ten1.json",
+      "sha256": "18d33c40d848feb6c3691f3e21eeec1e69cd37fb4a67304520c2409f98e14e5e",
+      "bytes": 23555,
+      "num_products": 10,
+      "num_periods": 100,
+      "source_member": "Section 6.5 Instances/ten1.dat",
+      "source_sha256": "29b4c52f61e05401085aa09dacd6aefcc5b3a7a4ca0554bfd77bf3bd2de15e9b",
+      "source_bytes": 5505,
+      "sum_period_capacity": 140039,
+      "total_demand": 113871,
+      "opening_cost_rule": "setup cost + inventory holding cost + 1"
+    },
+    "ten2": {
+      "file": "ten2.json",
+      "sha256": "d79717ae815604c4d7abb05c3614beca66c707506d9ebe1ab743309fe1a53f34",
+      "bytes": 23518,
+      "num_products": 10,
+      "num_periods": 100,
+      "source_member": "Section 6.5 Instances/ten2.dat",
+      "source_sha256": "180d4309d7091da61b74cd03688b2009560e4884b788dc587dea10c7a0c69363",
+      "source_bytes": 5470,
+      "sum_period_capacity": 139748,
+      "total_demand": 113008,
+      "opening_cost_rule": "setup cost + inventory holding cost + 1"
+    }
+  }
+}
