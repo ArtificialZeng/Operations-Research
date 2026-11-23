@@ -1,0 +1,25 @@
+{
+  "revision": "ef42a2eac13595453f986d9df0b62e86e75ab596",
+  "checker": {
+    "url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/bodur2017/feasibility_check.py",
+    "bytes": 18849,
+    "sha256": "77a6e2333ac8c732cd7243cb3241e55dbcbed38ee1b16f33cb26fdaea5732a39"
+  },
+  "cases": {
+    "tiny": {
+      "url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/bodur2017/instance/tiny_instance.json",
+      "bytes": 409993,
+      "sha256": "cf74a4525c390d9998703c659cc5cfa043677d9271cf7dd0264fec8762fd7e37"
+    },
+    "large_1": {
+      "url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/bodur2017/instance/large_instance_1.json",
+      "bytes": 2281278,
+      "sha256": "0153dd4dc3a60cebb5c1fa8236892d19d97eab7681a7de2fadf33c69afe4bbdc"
+    },
+    "large_4": {
+      "url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/bodur2017/instance/large_instance_4.json",
+      "bytes": 2290630,
+      "sha256": "617fe58d66108e7777998d52a1cdc061b03fb12944fae67783ffa7e03eeae318"
+    }
+  }
+}

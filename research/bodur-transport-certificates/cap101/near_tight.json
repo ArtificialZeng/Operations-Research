@@ -1,0 +1,92 @@
+{
+  "source": "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/cap101.txt",
+  "source_sha256": "7f1d0e32808b8c1bd9e3f49ee42dd758abb5a157da63ed52182f22bd14919ebe",
+  "highs": "1.15.1",
+  "scenario_sha256": "356c9c12866aaf49c0cccf5e2e6740d0e698228dcc67a0972d1fa8adef888a21",
+  "count": 1500,
+  "original_peak_milliunits": 69245200,
+  "original_one_facility_milliunits": 58268000,
+  "open_zero_based": [
+    0,
+    10
+  ],
+  "open_capacity_milliunits": 116536000,
+  "original_capacity_to_peak": 1.682946976830163,
+  "stressed_peak_milliunits": 110986669,
+  "capacity_to_peak": 1.0499999779252769,
+  "demand_multiplier": [
+    11653600000,
+    7270746000
+  ],
+  "runs": [
+    {
+      "repeat": 1,
+      "first_arm": "highs",
+      "tree_batch": {
+        "wall_s": 0.022088894000034998,
+        "cpu_s": 0.021090692999999994,
+        "lp_calls": 3,
+        "fallback_calls": 0,
+        "simplex_iterations": 61,
+        "tree_attempts": 3,
+        "trees_rejected": 0,
+        "first_tree_hits": 1470,
+        "certified_hits": 1498
+      },
+      "highs_sequential": {
+        "wall_s": 0.05225039200001902,
+        "cpu_s": 0.05154614699999999,
+        "lp_calls": 1500,
+        "simplex_iterations": 103
+      },
+      "max_abs_cost_error": 1.862645149230957e-09
+    },
+    {
+      "repeat": 2,
+      "first_arm": "batch",
+      "tree_batch": {
+        "wall_s": 0.01818020000001752,
+        "cpu_s": 0.018633273000000006,
+        "lp_calls": 3,
+        "fallback_calls": 0,
+        "simplex_iterations": 61,
+        "tree_attempts": 3,
+        "trees_rejected": 0,
+        "first_tree_hits": 1470,
+        "certified_hits": 1498
+      },
+      "highs_sequential": {
+        "wall_s": 0.04961552299999994,
+        "cpu_s": 0.05086680100000002,
+        "lp_calls": 1500,
+        "simplex_iterations": 103
+      },
+      "max_abs_cost_error": 1.862645149230957e-09
+    },
+    {
+      "repeat": 3,
+      "first_arm": "highs",
+      "tree_batch": {
+        "wall_s": 0.018583247999970354,
+        "cpu_s": 0.019051890000000016,
+        "lp_calls": 3,
+        "fallback_calls": 0,
+        "simplex_iterations": 61,
+        "tree_attempts": 3,
+        "trees_rejected": 0,
+        "first_tree_hits": 1470,
+        "certified_hits": 1498
+      },
+      "highs_sequential": {
+        "wall_s": 0.05072010100002444,
+        "cpu_s": 0.05199776500000003,
+        "lp_calls": 1500,
+        "simplex_iterations": 103
+      },
+      "max_abs_cost_error": 1.862645149230957e-09
+    }
+  ],
+  "batch_median_wall_s": 0.018583247999970354,
+  "highs_median_wall_s": 0.05072010100002444,
+  "wall_speedup": 2.7293453222012296
+}
