@@ -1,0 +1,120 @@
+{
+  "frontieror_revision": "ef42a2eac13595453f986d9df0b62e86e75ab596",
+  "checker_url": "https://huggingface.co/datasets/frontieror/FrontierOR/resolve/ef42a2eac13595453f986d9df0b62e86e75ab596/tasks/degraeve2007/feasibility_check.py",
+  "checker_sha256": "852bfa355d8d4a1eba3371c32e34cee6c74bd0fc25939a971fedea3f8e78a0fb",
+  "runtime": {
+    "solver": {
+      "python": "3.14.10",
+      "packages": {
+        "absl-py": "2.5.0",
+        "annotated-types": "0.8.0",
+        "cpsat-logutils": "1.0.0",
+        "highspy": "1.15.1",
+        "immutabledict": "4.3.1",
+        "networkx": "3.7",
+        "numpy": "2.5.3",
+        "orloge": "1.0.0",
+        "ortools": "9.15.6755",
+        "pandas": "3.0.6",
+        "protobuf": "6.33.6",
+        "pulp": "4.0.0",
+        "pydantic": "2.13.5",
+        "pydantic-core": "2.46.5",
+        "pyomo": "6.10.1",
+        "python-dateutil": "2.9.0.post0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "typing-extensions": "4.16.0",
+        "typing-inspection": "0.4.4"
+      }
+    },
+    "checker": "Python 3.12.16"
+  },
+  "scope": {
+    "platform": "Linux x86-64",
+    "lane_cpus": 2,
+    "memory_max_bytes": 4294967296,
+    "memory_swap_max_bytes": 0,
+    "pids_max": 256,
+    "process_wall_limit_seconds": 10,
+    "solver_network": "loopback only; no routes"
+  },
+  "batches": {
+    "fragkos_reserved_core_10s": {
+      "summary_sha256": "4b35df622ab3740b64783885ab79c10bc9fdaaa934ffb8677602b6061ccd8b35",
+      "recorded_sources": {
+        "warm_solver.py": "22950ed5c06b101a0ea07c805b8f423c0a6f245e063d3ed0b2f79d92b498591f",
+        "opening_incumbent.py": "e0bee531172a49a5b9fa6874320ac0073c3c2560dc1c7edff0de886ce78da2a8"
+      },
+      "replay_solver": "cutoff_solver.py",
+      "rows": 176,
+      "counts_by_variant_and_status": {
+        "cold/ok": 44,
+        "cutoff/ok": 44,
+        "fallback/ok": 44,
+        "warm/ok": 44
+      }
+    },
+    "fragkos_reserved_windows_10s": {
+      "summary_sha256": "6ddfae16457c46aec3c27b26de2c68838c27717fd3c44da280e621cf2e21664c",
+      "recorded_sources": {
+        "warm_solver.py": "cd91ad6e1bf06dd26b7329c8c5700d75757499c5776adc5f86084d2343423e51",
+        "opening_incumbent.py": "e0bee531172a49a5b9fa6874320ac0073c3c2560dc1c7edff0de886ce78da2a8",
+        "cutoff_solver.py": "22950ed5c06b101a0ea07c805b8f423c0a6f245e063d3ed0b2f79d92b498591f",
+        "window_policy.py": "ccc66f24e9935f8a675f0a0ebabcf577df27bfde4f38d603184b34d1a5fd4581"
+      },
+      "replay_solver": "window_solver.py",
+      "rows": 88,
+      "counts_by_variant_and_status": {
+        "adaptive_original/solver_or_setup_failed": 44,
+        "window/ok": 44
+      }
+    },
+    "fragkos_reserved_window_repair_10s": {
+      "summary_sha256": "cce2d591e4e933cdcdb4b1c949e4d0bb1ae3734271f8d756c2e0ac8c07610014",
+      "recorded_sources": {
+        "warm_solver.py": "cd91ad6e1bf06dd26b7329c8c5700d75757499c5776adc5f86084d2343423e51",
+        "opening_incumbent.py": "e0bee531172a49a5b9fa6874320ac0073c3c2560dc1c7edff0de886ce78da2a8",
+        "cutoff_solver.py": "22950ed5c06b101a0ea07c805b8f423c0a6f245e063d3ed0b2f79d92b498591f",
+        "window_policy.py": "babbf2090855e218548c5457722d9541e7cf8bef9e5d92f2f360078d248a4d0b"
+      },
+      "replay_solver": "window_solver.py",
+      "rows": 44,
+      "counts_by_variant_and_status": {
+        "adaptive_repaired/ok": 44
+      }
+    },
+    "fragkos_followup_stock_only_10s": {
+      "summary_sha256": "802b4b80e2f4e6eaef437546269ce9bc3f1ca43175a17083df79f6ebca053c32",
+      "recorded_sources": {
+        "warm_solver.py": "cd91ad6e1bf06dd26b7329c8c5700d75757499c5776adc5f86084d2343423e51",
+        "opening_incumbent.py": "e0bee531172a49a5b9fa6874320ac0073c3c2560dc1c7edff0de886ce78da2a8",
+        "cutoff_solver.py": "22950ed5c06b101a0ea07c805b8f423c0a6f245e063d3ed0b2f79d92b498591f",
+        "window_policy.py": "f8d9656e812ea1af11bc50f6036e92b97c6ebeb2297a10e444368ad8361cb420"
+      },
+      "replay_solver": "window_solver.py",
+      "rows": 44,
+      "counts_by_variant_and_status": {
+        "adaptive_stock_only/ok": 43,
+        "adaptive_stock_only/solver_or_setup_failed": 1
+      }
+    },
+    "fragkos_followup_without_stock_10s": {
+      "summary_sha256": "79f137beb932713e9606963550a91cc404aabb59ba8860aef43c1dc2d042716b",
+      "recorded_sources": {
+        "warm_solver.py": "cd91ad6e1bf06dd26b7329c8c5700d75757499c5776adc5f86084d2343423e51",
+        "opening_incumbent.py": "e0bee531172a49a5b9fa6874320ac0073c3c2560dc1c7edff0de886ce78da2a8",
+        "cutoff_solver.py": "22950ed5c06b101a0ea07c805b8f423c0a6f245e063d3ed0b2f79d92b498591f",
+        "window_policy.py": "f7dfdfe4bd68a40f5bc5b111b5bebb10bb14fe7feeed9e19babd4901c8cc552f"
+      },
+      "replay_solver": "window_solver.py",
+      "rows": 44,
+      "counts_by_variant_and_status": {
+        "adaptive_without_stock/ok": 44
+      }
+    }
+  },
+  "rows": 396,
+  "checker_passed_normal_exit": 351,
+  "failed": 45
+}

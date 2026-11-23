@@ -1,0 +1,93 @@
+{
+  "title": "Opening stock and window order in capacitated lot sizing",
+  "cohort": "44 original Section 6.5 instances from Fragkos, Degraeve, and De Reyck (2016)",
+  "recorded_rows": 396,
+  "normal_exit_and_checker_pass": 351,
+  "failed": 45,
+  "external_inputs": {
+    "author_archive_sha256": "0c05853fb22ebe3888c374e724fa679536aede59f964a5c701b046485a1512ec",
+    "frontieror_checker_sha256": "852bfa355d8d4a1eba3371c32e34cee6c74bd0fc25939a971fedea3f8e78a0fb"
+  },
+  "files": {
+    "README.md": {
+      "bytes": 6545,
+      "sha256": "27d0e85aa5783533afd1fa665cd4f5ce857bcbc9a94bd967826705e06adf893d"
+    },
+    "RESERVED_PROTOCOL.md": {
+      "bytes": 2520,
+      "sha256": "18fd5f0854fb561365194b420f9e5c488da9578e30db20670993fb9c436be79c"
+    },
+    "RESERVED_RESULT.md": {
+      "bytes": 3202,
+      "sha256": "704980d4761d9eacb48fcbe6eda1a9ccaad88132787b4b1575b732ebc3b99697"
+    },
+    "WINDOW_ABLATION.md": {
+      "bytes": 3635,
+      "sha256": "09ed93855640489edd753b3602c1ba36481c2f22bab4d5b948e383a0086c7885"
+    },
+    "convert_fragkos.py": {
+      "bytes": 3303,
+      "sha256": "0cf33383e46274f8b57b9a7fad7cba00aa0143360d99319b177f7e66c2cb2bfd"
+    },
+    "cutoff_solver.py": {
+      "bytes": 20663,
+      "sha256": "22950ed5c06b101a0ea07c805b8f423c0a6f245e063d3ed0b2f79d92b498591f"
+    },
+    "historical/convert.py": {
+      "bytes": 8859,
+      "sha256": "32955cc8f4d1b7895555ec4e4a6d8335d135dbc9ae7e289829bd29437f5b2a83"
+    },
+    "opening_incumbent.py": {
+      "bytes": 7162,
+      "sha256": "e0bee531172a49a5b9fa6874320ac0073c3c2560dc1c7edff0de886ce78da2a8"
+    },
+    "policies/checkpoint_1.py": {
+      "bytes": 4465,
+      "sha256": "ccc66f24e9935f8a675f0a0ebabcf577df27bfde4f38d603184b34d1a5fd4581"
+    },
+    "policies/policy_matrix_compat.py": {
+      "bytes": 4438,
+      "sha256": "babbf2090855e218548c5457722d9541e7cf8bef9e5d92f2f360078d248a4d0b"
+    },
+    "policies/policy_stock_only.py": {
+      "bytes": 3061,
+      "sha256": "f8d9656e812ea1af11bc50f6036e92b97c6ebeb2297a10e444368ad8361cb420"
+    },
+    "policies/policy_without_stock.py": {
+      "bytes": 3080,
+      "sha256": "f7dfdfe4bd68a40f5bc5b111b5bebb10bb14fe7feeed9e19babd4901c8cc552f"
+    },
+    "provenance/author_archive.json": {
+      "bytes": 16428,
+      "sha256": "e7203e06b1de232aa79e1d2fcda2c7a9f9639664447cc3a6f1337b1178e3ff9c"
+    },
+    "provenance/conversion_manifest.json": {
+      "bytes": 27467,
+      "sha256": "b263139c1a2a92cd9fad5a12a39f41dfbd229229433eccb356ee6246f3d5b949"
+    },
+    "provenance/development_conversion_manifest.json": {
+      "bytes": 4207,
+      "sha256": "4753536432364edad6e4f0bdb7309ef5ae5861398a3a3c8878591fafcf5a8a13"
+    },
+    "provenance/replays.json": {
+      "bytes": 4911,
+      "sha256": "bfb52b0f91ab59096cf510592988aefdda258c3fe81d1848a81807dffe8aa200"
+    },
+    "replay_case.py": {
+      "bytes": 5793,
+      "sha256": "213e99ef209741f3dd38fad7a957403d9c6c9bec658d1772ab9549d4622174ef"
+    },
+    "requirements.txt": {
+      "bytes": 29,
+      "sha256": "7d92b1edd3e1487b183ecdd469ef34144a6f5951e268e944f28c71b6558f79a9"
+    },
+    "results.csv": {
+      "bytes": 197433,
+      "sha256": "ed1a79d516574f4b7f23dfd69a99f5bba3f5de81e2ce4f221c54a8c4be587a9f"
+    },
+    "window_solver.py": {
+      "bytes": 10020,
+      "sha256": "cd91ad6e1bf06dd26b7329c8c5700d75757499c5776adc5f86084d2343423e51"
+    }
+  }
+}

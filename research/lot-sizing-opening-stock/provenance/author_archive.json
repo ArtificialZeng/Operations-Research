@@ -1,0 +1,458 @@
+{
+  "scope": "Official author-benchmark source freeze only. No optimization, extraction or redistribution.",
+  "paper": "Fragkos, Degraeve, and De Reyck (2016), A Horizon Decomposition Approach for the Capacitated Lot-Sizing Problem with Setup Times",
+  "paper_doi": "10.1287/ijoc.2016.0691",
+  "publisher_supplement": "https://pubsonline.informs.org/doi/suppl/10.1287/ijoc.2016.0691",
+  "author_share": "https://www.dropbox.com/sh/qrlkspnlfmty4fb/AACJuf7uC4v-LAMNyXG9mqvia",
+  "author_download": "https://www.dropbox.com/sh/qrlkspnlfmty4fb/AACJuf7uC4v-LAMNyXG9mqvia?dl=1",
+  "verified_utc": "2026-11-23T18:08:49.178540+00:00",
+  "license_status": "Publicly downloadable via the author link; redistribution license not established.",
+  "archive": {
+    "name": "fragkos2016_horizon_decomposition.zip",
+    "bytes": 2762555,
+    "sha256": "0c05853fb22ebe3888c374e724fa679536aede59f964a5c701b046485a1512ec",
+    "entry_count": 529,
+    "zip_readme_sha256": "fecfdeaabf06f65d5f48c27498db7ae482823cf6c7fcb24bf99fdd157e845562"
+  },
+  "section": "Section 6.5 Instances",
+  "paper_family": {
+    "planning_periods": 100,
+    "item_counts": [
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "mean_nominal_capacity_utilization": 1.2,
+    "opening_stock_may_be_required": true
+  },
+  "intended_next_subset": [
+    "two1.dat",
+    "two2.dat",
+    "six1.dat",
+    "six2.dat",
+    "ten1.dat",
+    "ten2.dat"
+  ],
+  "selection_rule": "Use consecutive IDs 1 and 2 for the prespecified 2-, 6-, and 10-item size strata, before consulting any solver outcomes.",
+  "files": {
+    "eight1.dat": {
+      "member": "Section 6.5 Instances/eight1.dat",
+      "bytes": 4494,
+      "sha256": "32ba983d922e4119f18c37f2c7da8869ef94438089d057e623bbb579a4537fa5",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "eight10.dat": {
+      "member": "Section 6.5 Instances/eight10.dat",
+      "bytes": 4524,
+      "sha256": "45eb15dca261b0c9f09bfce8e265c1372344398568f921d8f071aa8a26392033",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "eight2.dat": {
+      "member": "Section 6.5 Instances/eight2.dat",
+      "bytes": 4504,
+      "sha256": "11386d0c7bf2ce780a312f834822abdee10688c567f60f9b4c0ded795604b583",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "eight3.dat": {
+      "member": "Section 6.5 Instances/eight3.dat",
+      "bytes": 4510,
+      "sha256": "f9ad8f74257427010df7318c501640584af4cabc781d25c3141bce7b7c695e79",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "eight4.dat": {
+      "member": "Section 6.5 Instances/eight4.dat",
+      "bytes": 4496,
+      "sha256": "58e8e2f9bb4c25730bd1712e703d8b0e42ebb04e23c2287e5250af0c19c1fd94",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "eight5.dat": {
+      "member": "Section 6.5 Instances/eight5.dat",
+      "bytes": 4538,
+      "sha256": "3e72ef14ec6e920117f6249b21ecba63f29e52ec6abf13bcd8c7cda9fa26f75e",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "eight6.dat": {
+      "member": "Section 6.5 Instances/eight6.dat",
+      "bytes": 4506,
+      "sha256": "44d87dd0f332e932aeef4415049272f29a920b5999a631c5fd7b3053b2d77c02",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "eight7.dat": {
+      "member": "Section 6.5 Instances/eight7.dat",
+      "bytes": 4473,
+      "sha256": "59b7d4edfc86226e9ac6299198508801421220367f9ebe92831e92203d90023f",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "eight8.dat": {
+      "member": "Section 6.5 Instances/eight8.dat",
+      "bytes": 4486,
+      "sha256": "3cb83f5f07a966b82ff3dbfe7ee8505f139866552e5e918450bb8b3a9186017c",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "eight9.dat": {
+      "member": "Section 6.5 Instances/eight9.dat",
+      "bytes": 4510,
+      "sha256": "612dbb10d972fccd6896b31bf625d53e1bb4c51730e3c0aaba44d8b4ee4afbd5",
+      "items_from_filename": 8,
+      "format_line_count": 19,
+      "first_nonempty_line": "8\t100"
+    },
+    "four1.dat": {
+      "member": "Section 6.5 Instances/four1.dat",
+      "bytes": 2557,
+      "sha256": "c033e3c56f5073db55215c3db42d9b76ff4e65a316a356d58ebe62e4ce53aba4",
+      "items_from_filename": 4,
+      "format_line_count": 11,
+      "first_nonempty_line": "4\t100"
+    },
+    "four10.dat": {
+      "member": "Section 6.5 Instances/four10.dat",
+      "bytes": 2529,
+      "sha256": "e223e298b1eca7c57422d60b51ab34fa1b47cd519acaef72c521893f719eb8b0",
+      "items_from_filename": 4,
+      "format_line_count": 11,
+      "first_nonempty_line": "4\t100"
+    },
+    "four2.dat": {
+      "member": "Section 6.5 Instances/four2.dat",
+      "bytes": 2561,
+      "sha256": "b53e93893440482677793653df230d467d4074f31eb34d2b6e839fcb40c3e89d",
+      "items_from_filename": 4,
+      "format_line_count": 11,
+      "first_nonempty_line": "4\t100"
+    },
+    "four3.dat": {
+      "member": "Section 6.5 Instances/four3.dat",
+      "bytes": 2536,
+      "sha256": "726dcbd75e904cff7fd645fe6d7a8c9e8ba6759ea9fc33c7052eb70d49fc9966",
+      "items_from_filename": 4,
+      "format_line_count": 11,
+      "first_nonempty_line": "4\t100"
+    },
+    "four4.dat": {
+      "member": "Section 6.5 Instances/four4.dat",
+      "bytes": 2546,
+      "sha256": "784a559cc993d0a81f001ec3b5b2f8c0d4393b147d359540fcfcba317fa4abeb",
+      "items_from_filename": 4,
+      "format_line_count": 11,
+      "first_nonempty_line": "4\t100"
+    },
+    "four5.dat": {
+      "member": "Section 6.5 Instances/four5.dat",
+      "bytes": 2556,
+      "sha256": "ed40cd3e720fea595dada7ea16bd4a1f9eac0709d701d8e2082dadac1aec9d04",
+      "items_from_filename": 4,
+      "format_line_count": 11,
+      "first_nonempty_line": "4\t100"
+    },
+    "four6.dat": {
+      "member": "Section 6.5 Instances/four6.dat",
+      "bytes": 2554,
+      "sha256": "62f34bd8955b03dc9dcadeaace4d91bb1ac98ee904a4405ca7d9a25d7c1670ae",
+      "items_from_filename": 4,
+      "format_line_count": 11,
+      "first_nonempty_line": "4\t100"
+    },
+    "four7.dat": {
+      "member": "Section 6.5 Instances/four7.dat",
+      "bytes": 2545,
+      "sha256": "48377f1bcc7546c7185343edc30e373eae719fcf6ae732b64e2a1da015d8ef5c",
+      "items_from_filename": 4,
+      "format_line_count": 11,
+      "first_nonempty_line": "4\t100"
+    },
+    "four8.dat": {
+      "member": "Section 6.5 Instances/four8.dat",
+      "bytes": 2548,
+      "sha256": "4c4b10f4d172e8ad2a31cb70ae8de5ee68c522004aa63a92d32b68d4490cfa61",
+      "items_from_filename": 4,
+      "format_line_count": 12,
+      "first_nonempty_line": "4\t100"
+    },
+    "four9.dat": {
+      "member": "Section 6.5 Instances/four9.dat",
+      "bytes": 2542,
+      "sha256": "7398aa1780442d97e2e65b63b88effb02a0a760c545194045e27b71783a58f3f",
+      "items_from_filename": 4,
+      "format_line_count": 11,
+      "first_nonempty_line": "4\t100"
+    },
+    "six1.dat": {
+      "member": "Section 6.5 Instances/six1.dat",
+      "bytes": 3481,
+      "sha256": "7af99dddfbf586cc6bddfcb47a54f3efc86f6cfdc572c21d6146e7b6cb5c3c3f",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "six10.dat": {
+      "member": "Section 6.5 Instances/six10.dat",
+      "bytes": 3518,
+      "sha256": "96865dbabebe7dfb3f92ff8a3ca5063dcbf70e3e29592871b6b40cf82061430e",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "six2.dat": {
+      "member": "Section 6.5 Instances/six2.dat",
+      "bytes": 3486,
+      "sha256": "942c58154e0b1919b41428625bb758aacf9ecdacd8c509c171ba34c5b0eec281",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "six3.dat": {
+      "member": "Section 6.5 Instances/six3.dat",
+      "bytes": 3496,
+      "sha256": "bbbdd41fed6e685a0d4262aa7ac9a42a066b1bae5c587a79ec88cf6a6605ca9c",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "six4.dat": {
+      "member": "Section 6.5 Instances/six4.dat",
+      "bytes": 3470,
+      "sha256": "dbb41ad94750838036878c7923568d90a615d9e5f4a15b287a9e1b2ba2cfd1ea",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "six5.dat": {
+      "member": "Section 6.5 Instances/six5.dat",
+      "bytes": 3488,
+      "sha256": "e5b328492600d23823cce72007f85e0eb94623e80d02605bf286afebe8d196ed",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "six6.dat": {
+      "member": "Section 6.5 Instances/six6.dat",
+      "bytes": 3506,
+      "sha256": "1acf54ca9cd890f12728d78c4f4113c604d11dc4216adeeb7dbf1c6e968da406",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "six7.dat": {
+      "member": "Section 6.5 Instances/six7.dat",
+      "bytes": 3510,
+      "sha256": "aed1e616f7c70f3040973e34cb478136dcc7515dad2a28bed536292fe83dda1c",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "six8.dat": {
+      "member": "Section 6.5 Instances/six8.dat",
+      "bytes": 3515,
+      "sha256": "e3bf09df49f9b1e3dce615ead2cd6b06fadf0254d44d5582c94f80d6f7df7805",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "six9.dat": {
+      "member": "Section 6.5 Instances/six9.dat",
+      "bytes": 3487,
+      "sha256": "cdd16494e933df6cea6a3e3dff48aa124a07b7d077b108fd815d471beb854815",
+      "items_from_filename": 6,
+      "format_line_count": 15,
+      "first_nonempty_line": "6\t100"
+    },
+    "ten1.dat": {
+      "member": "Section 6.5 Instances/ten1.dat",
+      "bytes": 5505,
+      "sha256": "29b4c52f61e05401085aa09dacd6aefcc5b3a7a4ca0554bfd77bf3bd2de15e9b",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "ten10.dat": {
+      "member": "Section 6.5 Instances/ten10.dat",
+      "bytes": 5498,
+      "sha256": "b259c4649a1dd7628bf9e4f2fffbd1002e9aeeb79bcb22dd18059512d40dfbfd",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "ten2.dat": {
+      "member": "Section 6.5 Instances/ten2.dat",
+      "bytes": 5470,
+      "sha256": "180d4309d7091da61b74cd03688b2009560e4884b788dc587dea10c7a0c69363",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "ten3.dat": {
+      "member": "Section 6.5 Instances/ten3.dat",
+      "bytes": 5492,
+      "sha256": "952f04b4abb4bbc03a392878bd9d7d2c0a89c1a9283077a2bce613d1891b2ac3",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "ten4.dat": {
+      "member": "Section 6.5 Instances/ten4.dat",
+      "bytes": 5510,
+      "sha256": "779c48e71bd5af66ef1af7decb85337c9b787273caa20bc2999ba96a52673550",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "ten5.dat": {
+      "member": "Section 6.5 Instances/ten5.dat",
+      "bytes": 5507,
+      "sha256": "1b9ecd29aabd8cc9fa730ac43b7478354293c0c607117e0dc46c354d891744ca",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "ten6.dat": {
+      "member": "Section 6.5 Instances/ten6.dat",
+      "bytes": 5545,
+      "sha256": "7c6d64c244cc791947d9feea7b089a58d9bcb60139a59e489642a2892b046112",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "ten7.dat": {
+      "member": "Section 6.5 Instances/ten7.dat",
+      "bytes": 5522,
+      "sha256": "2ca25ee36996298129ff0a14e502c81576c999cdbd47e46f07433d1ecc6555b3",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "ten8.dat": {
+      "member": "Section 6.5 Instances/ten8.dat",
+      "bytes": 5513,
+      "sha256": "e17b417744e010a9fb341305c506b6b6791732e5c87ad60809dfa6106520f5b9",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "ten9.dat": {
+      "member": "Section 6.5 Instances/ten9.dat",
+      "bytes": 5497,
+      "sha256": "87c503c541c8f5cae33832cda902bc4a2ee21da05c0c5fe7256e4e1ef3f57045",
+      "items_from_filename": 10,
+      "format_line_count": 23,
+      "first_nonempty_line": "10\t100"
+    },
+    "two1.dat": {
+      "member": "Section 6.5 Instances/two1.dat",
+      "bytes": 1572,
+      "sha256": "306934a4a98f6715eb0ed39b35bfb0284358f8b4afde0e9bd8edb4cb737c4bac",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    },
+    "two10.dat": {
+      "member": "Section 6.5 Instances/two10.dat",
+      "bytes": 1573,
+      "sha256": "4120f1fef5414f4035ff80067041f76cc43131c8893e9afbc83c0c67f6e95029",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    },
+    "two2.dat": {
+      "member": "Section 6.5 Instances/two2.dat",
+      "bytes": 1600,
+      "sha256": "c9943639d964c83e01fc6af83ffa2f6eb4963af8b281bac958f5dda9db2afdef",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    },
+    "two3.dat": {
+      "member": "Section 6.5 Instances/two3.dat",
+      "bytes": 1581,
+      "sha256": "39121687c7b28417e46708fbf536b1326c95392a8d8078a2c95bb83fc1eecdcc",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    },
+    "two4.dat": {
+      "member": "Section 6.5 Instances/two4.dat",
+      "bytes": 1574,
+      "sha256": "b0fd83d64e52dacf9aed604b486a138137da3320d652784f0ad88f571093fddc",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    },
+    "two5.dat": {
+      "member": "Section 6.5 Instances/two5.dat",
+      "bytes": 1574,
+      "sha256": "6c598e6af73ce481a1ec7f8b71d7b154fd616beacb455cf38bd2b29685eccea3",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    },
+    "two6.dat": {
+      "member": "Section 6.5 Instances/two6.dat",
+      "bytes": 1573,
+      "sha256": "98df91e3392abee6fb7927e9e93dc7a5bef8244a798953250db619d202c6c6a1",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    },
+    "two7.dat": {
+      "member": "Section 6.5 Instances/two7.dat",
+      "bytes": 1577,
+      "sha256": "02ba9ea827c438448331a879179eb9955eadc73d5373d2921156dd48f2104b82",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    },
+    "two8.dat": {
+      "member": "Section 6.5 Instances/two8.dat",
+      "bytes": 1585,
+      "sha256": "2cb53a94befb008966122118329682514374dc087f0a6d7a1f3f0115cea8912e",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    },
+    "two9.dat": {
+      "member": "Section 6.5 Instances/two9.dat",
+      "bytes": 1570,
+      "sha256": "0ab43d8fc3f9cf3edd01293ab58fe1ffaa253466df0cd964f2f4b70d4e7d3597",
+      "items_from_filename": 2,
+      "format_line_count": 7,
+      "first_nonempty_line": "2\t100"
+    }
+  },
+  "format": {
+    "verified_files": 50,
+    "format_source": "README.txt in official ZIP",
+    "lines_in_order": [
+      "item count and planning periods",
+      "dummy field (one token)",
+      "one capacity for each of the 100 periods",
+      "n rows of production time, inventory holding cost, setup time, setup cost",
+      "n rows each with 100 nonnegative integer demands"
+    ],
+    "blank_columns": "Whitespace-separated; discard spreadsheet-like trailing tabulation.",
+    "dummy_values": {
+      "1": 50
+    },
+    "opening_cost": "Author convention per item is setup cost + inventory holding cost + 1.",
+    "variable_production_cost": "No variable production cost field is supplied by the original DAT format."
+  }
+}
