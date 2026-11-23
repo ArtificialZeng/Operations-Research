@@ -1,0 +1,111 @@
+{
+  "scope": "Source and verified descriptive results for public-data graph bisection",
+  "files": {
+    "README.md": {
+      "sha256": "b54b7efa942cc63e037e6d5e164cd1cfebe6f3f7ed22fd5449e3eaf763d9bc78",
+      "bytes": 5904
+    },
+    "armbruster_contract.py": {
+      "sha256": "f59a1a15c33844ec3fd41cc76796981045ae69b5e3c3301663e25ce35c28cde5",
+      "bytes": 2888
+    },
+    "baseline.py": {
+      "sha256": "3bd02fbcb0f55c00190fb34cb9a0901771f9a35ccdcc0741dec78ea490639507",
+      "bytes": 11415
+    },
+    "boundary_milp_candidate.py": {
+      "sha256": "657a4deeec6525e0c96a521b28a0121f99ed1389de70582d57bea82400cb5001",
+      "bytes": 18679
+    },
+    "historical/boundary_pre_seed.py": {
+      "sha256": "8703da30443e543cd75db32002a93570c05e9b2cc584d0f5fe47570441bae4a3",
+      "bytes": 16758
+    },
+    "historical/kahip_initial.py": {
+      "sha256": "17b345e24d29198a246e169f52d01bbec58c2b0e25164b02b04379515c710ee0",
+      "bytes": 8497
+    },
+    "metis_exact_baseline.py": {
+      "sha256": "bf204b6dd9149df2ebf649edecaea3f9599b4c1139c27b6117fbdb7020d80842",
+      "bytes": 6829
+    },
+    "native_refinement.py": {
+      "sha256": "fe4915858e3dad1a6a39ec396a7605ac9b917853a37f21c13b2a64d32e085b4b",
+      "bytes": 30733
+    },
+    "prepare_de2010.py": {
+      "sha256": "4c222eea5536db9c8020755dc8e58648b361e0c0cf6429ac26ef7b74c736d32a",
+      "bytes": 6443
+    },
+    "requirements.txt": {
+      "sha256": "56eb8ac3dcd17ca7ab720b6c62b501a346feb974e668cbdc9f52f88f9fee9464",
+      "bytes": 226
+    },
+    "results.csv": {
+      "sha256": "fbc8e0dcb54d92e433886393ab3744efa2a9dcf2e2916b00f39403dc27b24ba7",
+      "bytes": 26070
+    }
+  },
+  "runtime": {
+    "solver_python": "3.14.10",
+    "checker_python": "3.12.16",
+    "solver_platform": "Linux x86-64",
+    "vcpu": 2,
+    "memory_gib": 4,
+    "solver_network": false,
+    "delaware_original_conversion": {
+      "python": "3.11.18",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1"
+    }
+  },
+  "data": {
+    "frontieror_revision": "ef42a2eac13595453f986d9df0b62e86e75ab596",
+    "frontieror_slug": "armbruster2012",
+    "instance_sha256": {
+      "tiny_instance": "3073ada84a73a37e87562d8feda12827e030aa113230da66c6b696e853568a07",
+      "large_instance_1": "c0693597763183241f0fcf013969a6bf6db2fe298211857ef397c210a344423c",
+      "large_instance_2": "3b4919ec19594a2d926209fd1d4e0e2578d4828ef77403e1b3c0d3d3126d949c",
+      "large_instance_3": "78ca74bfe2f6cb9a8e27a3c56a2df88c6175f9c0ebf80497da4b8e1c572f8127",
+      "large_instance_4": "c129092a6fff3eea6067ff4eed6459c704abff7aba1f209ad40c1ca503021850",
+      "large_instance_5": "3f310ed486da0e599066627ecf95e1d1516281d2969501690e6de574f435d814",
+      "de2010": "317a485700381401353c7075a188ff8c88a089f09bc5bacf9308c8b3f9503f4c"
+    },
+    "frontieror_checker_sha256": "20ac890c404887a3c953edf241883a0101aad4b07302a75c8541d5a04dce78fa",
+    "delaware_source_record": "https://sparse.tamu.edu/DIMACS10/de2010",
+    "delaware_source_download": "https://www.cise.ufl.edu/research/sparse/mat/DIMACS10/de2010.mat",
+    "delaware_mat": {
+      "file": "de2010.mat",
+      "bytes": 1094066,
+      "sha256": "2d3cf9f532dce52d9207c3d393a5fbf7bae0d8c7e421c7a508c28b78a687ff95"
+    },
+    "delaware_statistics": {
+      "num_nodes": 24115,
+      "num_edges": 58028,
+      "total_node_weight": 897934,
+      "bisection_capacity_F": 448967,
+      "zero_population_vertices": 8182
+    }
+  },
+  "result_scope": {
+    "csv_rows": 61,
+    "unique_measured_records": 60,
+    "delaware_seed_sweep": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "delaware_best_seed": 4,
+    "delaware_best_seed_cut": 2588362,
+    "delaware_best_seed_witness_sha256": "73873a5bf1c3e597c80798a09e4a59cecd94cab7c7c696c8f18c99411a12a427",
+    "delaware_best_seed_pair_cut": [
+      2588362,
+      2588362
+    ]
+  }
+}
