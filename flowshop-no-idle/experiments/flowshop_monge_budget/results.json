@@ -1,0 +1,393 @@
+{
+  "exhaustive": {
+    "matrices": 375,
+    "subsets": 5752,
+    "budget_checks": 1014,
+    "monge_checks": 2674
+  },
+  "paired": [
+    {
+      "case": "public_ruiz_1",
+      "dimensions": [
+        14,
+        89
+      ],
+      "source_sha256": "a5339af2edc0a08b59e59309c4215381ba840fc27364bed3d4244249652a1e64",
+      "budget": 12,
+      "graph_arcs": 15,
+      "build_cpu": 0.0001258979999999854,
+      "dense_cpu": 0.004802400000000012,
+      "checkpoint_cpu": 2.3554000000008957e-05,
+      "envelope_cpu": 3.6418999999981994e-05,
+      "objective": 8565,
+      "cost": 1,
+      "added": [
+        7
+      ],
+      "states": 18
+    },
+    {
+      "case": "public_ruiz_1",
+      "dimensions": [
+        14,
+        89
+      ],
+      "source_sha256": "a5339af2edc0a08b59e59309c4215381ba840fc27364bed3d4244249652a1e64",
+      "budget": 7,
+      "graph_arcs": 15,
+      "build_cpu": 0.0001258979999999854,
+      "dense_cpu": 0.0026154850000000007,
+      "checkpoint_cpu": 1.9786999999993338e-05,
+      "envelope_cpu": 3.065800000001673e-05,
+      "objective": 8565,
+      "cost": 1,
+      "added": [
+        7
+      ],
+      "states": 18
+    },
+    {
+      "case": "public_ruiz_2",
+      "dimensions": [
+        14,
+        89
+      ],
+      "source_sha256": "510b5d253e711ea0b4b16b511cd41f0f240cdd0efca888d795cd0148b18e36df",
+      "budget": 12,
+      "graph_arcs": 13,
+      "build_cpu": 9.280600000000083e-05,
+      "dense_cpu": 0.0003133540000000157,
+      "checkpoint_cpu": 1.8846000000016794e-05,
+      "envelope_cpu": 3.472600000001269e-05,
+      "objective": 9018,
+      "cost": 0,
+      "added": [],
+      "states": 13
+    },
+    {
+      "case": "public_ruiz_2",
+      "dimensions": [
+        14,
+        89
+      ],
+      "source_sha256": "510b5d253e711ea0b4b16b511cd41f0f240cdd0efca888d795cd0148b18e36df",
+      "budget": 0,
+      "graph_arcs": 13,
+      "build_cpu": 9.280600000000083e-05,
+      "dense_cpu": 0.0003222410000000009,
+      "checkpoint_cpu": 1.8414999999993853e-05,
+      "envelope_cpu": 2.8372999999998205e-05,
+      "objective": 9018,
+      "cost": 0,
+      "added": [],
+      "states": 13
+    },
+    {
+      "case": "public_ruiz_3",
+      "dimensions": [
+        11,
+        63
+      ],
+      "source_sha256": "0499b184331768ee26f1cc8184944e936e099457994b5777c8aa044603b082a3",
+      "budget": 12,
+      "graph_arcs": 15,
+      "build_cpu": 0.00010214400000002621,
+      "dense_cpu": 0.00275566200000002,
+      "checkpoint_cpu": 1.5228000000006015e-05,
+      "envelope_cpu": 1.987800000000095e-05,
+      "objective": 6027,
+      "cost": 0,
+      "added": [],
+      "states": 10
+    },
+    {
+      "case": "public_ruiz_3",
+      "dimensions": [
+        11,
+        63
+      ],
+      "source_sha256": "0499b184331768ee26f1cc8184944e936e099457994b5777c8aa044603b082a3",
+      "budget": 25,
+      "graph_arcs": 15,
+      "build_cpu": 0.00010214400000002621,
+      "dense_cpu": 0.004831073999999991,
+      "checkpoint_cpu": 2.2853999999988828e-05,
+      "envelope_cpu": 4.057700000001385e-05,
+      "objective": 6224,
+      "cost": 13,
+      "added": [
+        1
+      ],
+      "states": 29
+    },
+    {
+      "case": "public_ruiz_4",
+      "dimensions": [
+        14,
+        89
+      ],
+      "source_sha256": "8d453c611ba621b4e305bf8ca388913cdf63d5df9c75330edf4d6297555d1f88",
+      "budget": 12,
+      "graph_arcs": 28,
+      "build_cpu": 0.00028938800000000153,
+      "dense_cpu": 0.004813459999999992,
+      "checkpoint_cpu": 1.5098999999990648e-05,
+      "envelope_cpu": 2.0207999999993786e-05,
+      "objective": 7808,
+      "cost": 6,
+      "added": [
+        5
+      ],
+      "states": 12
+    },
+    {
+      "case": "public_ruiz_4",
+      "dimensions": [
+        14,
+        89
+      ],
+      "source_sha256": "8d453c611ba621b4e305bf8ca388913cdf63d5df9c75330edf4d6297555d1f88",
+      "budget": 42,
+      "graph_arcs": 28,
+      "build_cpu": 0.00028938800000000153,
+      "dense_cpu": 0.016503820999999974,
+      "checkpoint_cpu": 3.972499999999046e-05,
+      "envelope_cpu": 0.00010005000000001818,
+      "objective": 8082,
+      "cost": 42,
+      "added": [
+        1,
+        4
+      ],
+      "states": 99
+    },
+    {
+      "case": "public_ruiz_5",
+      "dimensions": [
+        11,
+        63
+      ],
+      "source_sha256": "c0e8d73abece021d175f1a3eed1fb4a96b54840fe33f694d53f26d3a825a5804",
+      "budget": 12,
+      "graph_arcs": 10,
+      "build_cpu": 6.397200000002323e-05,
+      "dense_cpu": 0.00017178499999997987,
+      "checkpoint_cpu": 1.484800000001174e-05,
+      "envelope_cpu": 2.159099999998748e-05,
+      "objective": 6290,
+      "cost": 0,
+      "added": [],
+      "states": 10
+    },
+    {
+      "case": "public_ruiz_5",
+      "dimensions": [
+        11,
+        63
+      ],
+      "source_sha256": "c0e8d73abece021d175f1a3eed1fb4a96b54840fe33f694d53f26d3a825a5804",
+      "budget": 0,
+      "graph_arcs": 10,
+      "build_cpu": 6.397200000002323e-05,
+      "dense_cpu": 0.00017270699999999417,
+      "checkpoint_cpu": 1.5258999999989697e-05,
+      "envelope_cpu": 2.139100000003724e-05,
+      "objective": 6290,
+      "cost": 0,
+      "added": [],
+      "states": 10
+    },
+    {
+      "case": "synthetic_17",
+      "dimensions": [
+        36,
+        200
+      ],
+      "source_sha256": null,
+      "budget": 12,
+      "graph_arcs": 630,
+      "build_cpu": 0.022434098000000013,
+      "dense_cpu": 0.029149543,
+      "checkpoint_cpu": 0.00010481800000000652,
+      "envelope_cpu": 0.00012344399999997258,
+      "objective": 25474,
+      "cost": 12,
+      "added": [
+        4,
+        13,
+        22,
+        28,
+        32
+      ],
+      "states": 95
+    },
+    {
+      "case": "synthetic_17",
+      "dimensions": [
+        36,
+        200
+      ],
+      "source_sha256": null,
+      "budget": 132,
+      "graph_arcs": 630,
+      "build_cpu": 0.022434098000000013,
+      "dense_cpu": 0.39765510699999995,
+      "checkpoint_cpu": 0.005333326000000138,
+      "envelope_cpu": 0.0073737410000001,
+      "objective": 31980,
+      "cost": 129,
+      "added": [
+        1,
+        4,
+        7,
+        9,
+        12,
+        15,
+        18,
+        20,
+        22,
+        24,
+        25,
+        28,
+        33
+      ],
+      "states": 3256
+    },
+    {
+      "case": "synthetic_18",
+      "dimensions": [
+        80,
+        22
+      ],
+      "source_sha256": null,
+      "budget": 12,
+      "graph_arcs": 3160,
+      "build_cpu": 0.018629028000000103,
+      "dense_cpu": 0.006893541999999808,
+      "checkpoint_cpu": 0.000199819000000101,
+      "envelope_cpu": 0.00024259999999998172,
+      "objective": 11659,
+      "cost": 12,
+      "added": [
+        6,
+        43,
+        56,
+        66,
+        71,
+        78
+      ],
+      "states": 164
+    },
+    {
+      "case": "synthetic_18",
+      "dimensions": [
+        80,
+        22
+      ],
+      "source_sha256": null,
+      "budget": 373,
+      "graph_arcs": 3160,
+      "build_cpu": 0.018629028000000103,
+      "dense_cpu": 0.35284670400000007,
+      "checkpoint_cpu": 0.10013940499999974,
+      "envelope_cpu": 0.03960794900000009,
+      "objective": 17788,
+      "cost": 371,
+      "added": [
+        2,
+        6,
+        7,
+        10,
+        12,
+        16,
+        19,
+        21,
+        22,
+        25,
+        26,
+        28,
+        31,
+        35,
+        36,
+        39,
+        43,
+        47,
+        51,
+        54,
+        57,
+        60,
+        61,
+        64,
+        66,
+        68,
+        71,
+        74,
+        77,
+        78
+      ],
+      "states": 23611
+    },
+    {
+      "case": "synthetic_19",
+      "dimensions": [
+        50,
+        60
+      ],
+      "source_sha256": null,
+      "budget": 12,
+      "graph_arcs": 625,
+      "build_cpu": 0.0058945189999999315,
+      "dense_cpu": 0.011104610999999931,
+      "checkpoint_cpu": 7.872899999972205e-05,
+      "envelope_cpu": 0.00015083599999998754,
+      "objective": 12570,
+      "cost": 12,
+      "added": [
+        2,
+        17,
+        21,
+        44
+      ],
+      "states": 105
+    },
+    {
+      "case": "synthetic_19",
+      "dimensions": [
+        50,
+        60
+      ],
+      "source_sha256": null,
+      "budget": 205,
+      "graph_arcs": 625,
+      "build_cpu": 0.0058945189999999315,
+      "dense_cpu": 0.4343521909999999,
+      "checkpoint_cpu": 0.01405526200000029,
+      "envelope_cpu": 0.010263466999999693,
+      "objective": 19042,
+      "cost": 205,
+      "added": [
+        2,
+        5,
+        7,
+        8,
+        11,
+        13,
+        17,
+        21,
+        22,
+        24,
+        26,
+        28,
+        31,
+        32,
+        36,
+        38,
+        39,
+        41,
+        42,
+        44
+      ],
+      "states": 7438
+    }
+  ]
+}
