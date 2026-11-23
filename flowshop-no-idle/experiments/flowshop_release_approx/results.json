@@ -1,0 +1,1166 @@
+{
+  "randomized": {
+    "matrices": 200,
+    "feasible_lock_sets": 3933,
+    "approximation_certificates": 400,
+    "positive_instances": 115,
+    "conditional_relative_certificates": 115,
+    "zero_certified": 170
+  },
+  "masking_family": [
+    {
+      "masking_threshold": 1,
+      "exact_increment": 436,
+      "best_source_slack": 0,
+      "coarse_lower": 430,
+      "coarse_upper": 509
+    },
+    {
+      "masking_threshold": 218,
+      "exact_increment": 219,
+      "best_source_slack": 217,
+      "coarse_lower": 213,
+      "coarse_upper": 292
+    },
+    {
+      "masking_threshold": 436,
+      "exact_increment": 1,
+      "best_source_slack": 435,
+      "coarse_lower": 0,
+      "coarse_upper": 74
+    },
+    {
+      "masking_threshold": 437,
+      "exact_increment": 0,
+      "best_source_slack": 0,
+      "coarse_lower": 0,
+      "coarse_upper": 73
+    }
+  ],
+  "case_comparisons": [
+    {
+      "case": "ruiz_1_with_synthetic_clock_data",
+      "source_sha256": "a5339af2edc0a08b59e59309c4215381ba840fc27364bed3d4244249652a1e64",
+      "n_machines": 14,
+      "n_jobs": 89,
+      "budget": 90,
+      "worst_delay": 841,
+      "exact_cpu_seconds": 0.0016192169999999506,
+      "approx_cpu_seconds": 0.0017899009999999826,
+      "lower": 841,
+      "upper": 841,
+      "baseline": 8936,
+      "witness": [
+        2,
+        7,
+        11
+      ],
+      "cost": 64,
+      "eta": "1/4",
+      "clock_certificates": [
+        {
+          "clock": -1,
+          "baseline_contribution": 8936,
+          "slack": 0,
+          "largest_edge_reward": 364,
+          "source_gain": 841,
+          "physical": 841,
+          "upper": 841,
+          "status": "approximate"
+        },
+        {
+          "clock": 0,
+          "baseline_contribution": 8923,
+          "slack": 13,
+          "largest_edge_reward": 364,
+          "upper": 828,
+          "status": "pruned"
+        },
+        {
+          "clock": 1,
+          "baseline_contribution": 8390,
+          "slack": 546,
+          "largest_edge_reward": 364,
+          "upper": 268,
+          "status": "pruned"
+        },
+        {
+          "clock": 2,
+          "baseline_contribution": 8387,
+          "slack": 549,
+          "largest_edge_reward": 364,
+          "upper": 94,
+          "status": "pruned"
+        },
+        {
+          "clock": 3,
+          "baseline_contribution": 8029,
+          "slack": 907,
+          "largest_edge_reward": 364,
+          "upper": -264,
+          "status": "pruned"
+        },
+        {
+          "clock": 4,
+          "baseline_contribution": 7578,
+          "slack": 1358,
+          "largest_edge_reward": 364,
+          "upper": -715,
+          "status": "pruned"
+        },
+        {
+          "clock": 5,
+          "baseline_contribution": 7517,
+          "slack": 1419,
+          "largest_edge_reward": 364,
+          "upper": -818,
+          "status": "pruned"
+        },
+        {
+          "clock": 6,
+          "baseline_contribution": 7524,
+          "slack": 1412,
+          "largest_edge_reward": 364,
+          "upper": -999,
+          "status": "pruned"
+        },
+        {
+          "clock": 7,
+          "baseline_contribution": 6964,
+          "slack": 1972,
+          "largest_edge_reward": 364,
+          "upper": -1608,
+          "status": "pruned"
+        },
+        {
+          "clock": 8,
+          "baseline_contribution": 6568,
+          "slack": 2368,
+          "largest_edge_reward": 364,
+          "upper": -2004,
+          "status": "pruned"
+        },
+        {
+          "clock": 9,
+          "baseline_contribution": 6432,
+          "slack": 2504,
+          "largest_edge_reward": 364,
+          "upper": -2140,
+          "status": "pruned"
+        },
+        {
+          "clock": 10,
+          "baseline_contribution": 6428,
+          "slack": 2508,
+          "largest_edge_reward": 358,
+          "upper": -2150,
+          "status": "pruned"
+        },
+        {
+          "clock": 12,
+          "baseline_contribution": 6475,
+          "slack": 2461,
+          "largest_edge_reward": 0,
+          "upper": -2461,
+          "status": "pruned"
+        },
+        {
+          "clock": 11,
+          "baseline_contribution": 6234,
+          "slack": 2702,
+          "largest_edge_reward": 0,
+          "upper": -2702,
+          "status": "pruned"
+        },
+        {
+          "clock": 13,
+          "baseline_contribution": 5343,
+          "slack": 3593,
+          "largest_edge_reward": 0,
+          "upper": -3593,
+          "status": "pruned"
+        }
+      ]
+    },
+    {
+      "case": "ruiz_2_with_synthetic_clock_data",
+      "source_sha256": "510b5d253e711ea0b4b16b511cd41f0f240cdd0efca888d795cd0148b18e36df",
+      "n_machines": 14,
+      "n_jobs": 89,
+      "budget": 111,
+      "worst_delay": 1325,
+      "exact_cpu_seconds": 0.001565656999999998,
+      "approx_cpu_seconds": 0.0020414380000000065,
+      "lower": 1325,
+      "upper": 1442,
+      "baseline": 8842,
+      "witness": [
+        2,
+        5,
+        8,
+        12
+      ],
+      "cost": 111,
+      "eta": "1/4",
+      "clock_certificates": [
+        {
+          "clock": 0,
+          "baseline_contribution": 8842,
+          "slack": 0,
+          "largest_edge_reward": 521,
+          "source_gain": 1325,
+          "physical": 1325,
+          "upper": 1442,
+          "status": "approximate"
+        },
+        {
+          "clock": -1,
+          "baseline_contribution": 8732,
+          "slack": 110,
+          "largest_edge_reward": 521,
+          "source_gain": 1325,
+          "physical": 1325,
+          "upper": 1341,
+          "status": "approximate"
+        },
+        {
+          "clock": 1,
+          "baseline_contribution": 8382,
+          "slack": 460,
+          "largest_edge_reward": 521,
+          "upper": 983,
+          "status": "pruned"
+        },
+        {
+          "clock": 2,
+          "baseline_contribution": 8106,
+          "slack": 736,
+          "largest_edge_reward": 521,
+          "upper": 470,
+          "status": "pruned"
+        },
+        {
+          "clock": 3,
+          "baseline_contribution": 8045,
+          "slack": 797,
+          "largest_edge_reward": 521,
+          "upper": 409,
+          "status": "pruned"
+        },
+        {
+          "clock": 4,
+          "baseline_contribution": 7835,
+          "slack": 1007,
+          "largest_edge_reward": 521,
+          "upper": 199,
+          "status": "pruned"
+        },
+        {
+          "clock": 5,
+          "baseline_contribution": 7887,
+          "slack": 955,
+          "largest_edge_reward": 521,
+          "upper": 17,
+          "status": "pruned"
+        },
+        {
+          "clock": 6,
+          "baseline_contribution": 7986,
+          "slack": 856,
+          "largest_edge_reward": 521,
+          "upper": -28,
+          "status": "pruned"
+        },
+        {
+          "clock": 7,
+          "baseline_contribution": 7204,
+          "slack": 1638,
+          "largest_edge_reward": 521,
+          "upper": -810,
+          "status": "pruned"
+        },
+        {
+          "clock": 9,
+          "baseline_contribution": 6870,
+          "slack": 1972,
+          "largest_edge_reward": 521,
+          "upper": -1379,
+          "status": "pruned"
+        },
+        {
+          "clock": 8,
+          "baseline_contribution": 6699,
+          "slack": 2143,
+          "largest_edge_reward": 521,
+          "upper": -1550,
+          "status": "pruned"
+        },
+        {
+          "clock": 10,
+          "baseline_contribution": 6490,
+          "slack": 2352,
+          "largest_edge_reward": 521,
+          "upper": -1759,
+          "status": "pruned"
+        },
+        {
+          "clock": 11,
+          "baseline_contribution": 6088,
+          "slack": 2754,
+          "largest_edge_reward": 224,
+          "upper": -2530,
+          "status": "pruned"
+        },
+        {
+          "clock": 12,
+          "baseline_contribution": 6178,
+          "slack": 2664,
+          "largest_edge_reward": 0,
+          "upper": -2664,
+          "status": "pruned"
+        },
+        {
+          "clock": 13,
+          "baseline_contribution": 5893,
+          "slack": 2949,
+          "largest_edge_reward": 0,
+          "upper": -2949,
+          "status": "pruned"
+        }
+      ]
+    },
+    {
+      "case": "ruiz_3_with_synthetic_clock_data",
+      "source_sha256": "0499b184331768ee26f1cc8184944e936e099457994b5777c8aa044603b082a3",
+      "n_machines": 11,
+      "n_jobs": 63,
+      "budget": 58,
+      "worst_delay": 642,
+      "exact_cpu_seconds": 0.0006639479999999698,
+      "approx_cpu_seconds": 0.0010599880000000117,
+      "lower": 642,
+      "upper": 714,
+      "baseline": 6659,
+      "witness": [
+        1,
+        2,
+        5
+      ],
+      "cost": 53,
+      "eta": "1/4",
+      "clock_certificates": [
+        {
+          "clock": 0,
+          "baseline_contribution": 6659,
+          "slack": 0,
+          "largest_edge_reward": 314,
+          "source_gain": 642,
+          "physical": 642,
+          "upper": 714,
+          "status": "approximate"
+        },
+        {
+          "clock": -1,
+          "baseline_contribution": 6554,
+          "slack": 105,
+          "largest_edge_reward": 314,
+          "source_gain": 642,
+          "physical": 642,
+          "upper": 608,
+          "status": "approximate"
+        },
+        {
+          "clock": 1,
+          "baseline_contribution": 6135,
+          "slack": 524,
+          "largest_edge_reward": 245,
+          "upper": 52,
+          "status": "pruned"
+        },
+        {
+          "clock": 3,
+          "baseline_contribution": 5728,
+          "slack": 931,
+          "largest_edge_reward": 245,
+          "upper": -504,
+          "status": "pruned"
+        },
+        {
+          "clock": 2,
+          "baseline_contribution": 5681,
+          "slack": 978,
+          "largest_edge_reward": 245,
+          "upper": -551,
+          "status": "pruned"
+        },
+        {
+          "clock": 4,
+          "baseline_contribution": 5531,
+          "slack": 1128,
+          "largest_edge_reward": 245,
+          "upper": -701,
+          "status": "pruned"
+        },
+        {
+          "clock": 5,
+          "baseline_contribution": 5326,
+          "slack": 1333,
+          "largest_edge_reward": 245,
+          "upper": -1088,
+          "status": "pruned"
+        },
+        {
+          "clock": 6,
+          "baseline_contribution": 5176,
+          "slack": 1483,
+          "largest_edge_reward": 245,
+          "upper": -1238,
+          "status": "pruned"
+        },
+        {
+          "clock": 7,
+          "baseline_contribution": 4680,
+          "slack": 1979,
+          "largest_edge_reward": 245,
+          "upper": -1734,
+          "status": "pruned"
+        },
+        {
+          "clock": 8,
+          "baseline_contribution": 4711,
+          "slack": 1948,
+          "largest_edge_reward": 0,
+          "upper": -1948,
+          "status": "pruned"
+        },
+        {
+          "clock": 9,
+          "baseline_contribution": 4363,
+          "slack": 2296,
+          "largest_edge_reward": 0,
+          "upper": -2296,
+          "status": "pruned"
+        },
+        {
+          "clock": 10,
+          "baseline_contribution": 4266,
+          "slack": 2393,
+          "largest_edge_reward": 0,
+          "upper": -2393,
+          "status": "pruned"
+        }
+      ]
+    },
+    {
+      "case": "synthetic_18_machines",
+      "source_sha256": null,
+      "n_machines": 18,
+      "n_jobs": 36,
+      "budget": 139,
+      "worst_delay": 903,
+      "exact_cpu_seconds": 0.001857989999999976,
+      "approx_cpu_seconds": 0.0014315619999999973,
+      "lower": 903,
+      "upper": 920,
+      "baseline": 6336,
+      "witness": [
+        3,
+        7,
+        10,
+        13,
+        16
+      ],
+      "cost": 123,
+      "eta": "1/4",
+      "clock_certificates": [
+        {
+          "clock": 0,
+          "baseline_contribution": 6336,
+          "slack": 0,
+          "largest_edge_reward": 247,
+          "source_gain": 903,
+          "physical": 903,
+          "upper": 920,
+          "status": "approximate"
+        },
+        {
+          "clock": 2,
+          "baseline_contribution": 6311,
+          "slack": 25,
+          "largest_edge_reward": 247,
+          "upper": 895,
+          "status": "pruned"
+        },
+        {
+          "clock": -1,
+          "baseline_contribution": 6309,
+          "slack": 27,
+          "largest_edge_reward": 247,
+          "upper": 893,
+          "status": "pruned"
+        },
+        {
+          "clock": 1,
+          "baseline_contribution": 6077,
+          "slack": 259,
+          "largest_edge_reward": 247,
+          "upper": 661,
+          "status": "pruned"
+        },
+        {
+          "clock": 3,
+          "baseline_contribution": 5398,
+          "slack": 938,
+          "largest_edge_reward": 185,
+          "upper": -265,
+          "status": "pruned"
+        },
+        {
+          "clock": 5,
+          "baseline_contribution": 5158,
+          "slack": 1178,
+          "largest_edge_reward": 185,
+          "upper": -522,
+          "status": "pruned"
+        },
+        {
+          "clock": 4,
+          "baseline_contribution": 5049,
+          "slack": 1287,
+          "largest_edge_reward": 185,
+          "upper": -614,
+          "status": "pruned"
+        },
+        {
+          "clock": 6,
+          "baseline_contribution": 4786,
+          "slack": 1550,
+          "largest_edge_reward": 185,
+          "upper": -894,
+          "status": "pruned"
+        },
+        {
+          "clock": 7,
+          "baseline_contribution": 4669,
+          "slack": 1667,
+          "largest_edge_reward": 185,
+          "upper": -1156,
+          "status": "pruned"
+        },
+        {
+          "clock": 9,
+          "baseline_contribution": 4548,
+          "slack": 1788,
+          "largest_edge_reward": 185,
+          "upper": -1277,
+          "status": "pruned"
+        },
+        {
+          "clock": 8,
+          "baseline_contribution": 4429,
+          "slack": 1907,
+          "largest_edge_reward": 185,
+          "upper": -1396,
+          "status": "pruned"
+        },
+        {
+          "clock": 10,
+          "baseline_contribution": 4296,
+          "slack": 2040,
+          "largest_edge_reward": 185,
+          "upper": -1674,
+          "status": "pruned"
+        },
+        {
+          "clock": 11,
+          "baseline_contribution": 3970,
+          "slack": 2366,
+          "largest_edge_reward": 185,
+          "upper": -2000,
+          "status": "pruned"
+        },
+        {
+          "clock": 12,
+          "baseline_contribution": 3873,
+          "slack": 2463,
+          "largest_edge_reward": 185,
+          "upper": -2097,
+          "status": "pruned"
+        },
+        {
+          "clock": 13,
+          "baseline_contribution": 3767,
+          "slack": 2569,
+          "largest_edge_reward": 185,
+          "upper": -2384,
+          "status": "pruned"
+        },
+        {
+          "clock": 14,
+          "baseline_contribution": 3543,
+          "slack": 2793,
+          "largest_edge_reward": 185,
+          "upper": -2608,
+          "status": "pruned"
+        },
+        {
+          "clock": 15,
+          "baseline_contribution": 3466,
+          "slack": 2870,
+          "largest_edge_reward": 185,
+          "upper": -2685,
+          "status": "pruned"
+        },
+        {
+          "clock": 16,
+          "baseline_contribution": 3002,
+          "slack": 3334,
+          "largest_edge_reward": 0,
+          "upper": -3334,
+          "status": "pruned"
+        },
+        {
+          "clock": 17,
+          "baseline_contribution": 2739,
+          "slack": 3597,
+          "largest_edge_reward": 0,
+          "upper": -3597,
+          "status": "pruned"
+        }
+      ]
+    },
+    {
+      "case": "synthetic_25_machines",
+      "source_sha256": null,
+      "n_machines": 25,
+      "n_jobs": 36,
+      "budget": 173,
+      "worst_delay": 1712,
+      "exact_cpu_seconds": 0.004156335999999983,
+      "approx_cpu_seconds": 0.0030065469999999705,
+      "lower": 1712,
+      "upper": 1752,
+      "baseline": 6893,
+      "witness": [
+        3,
+        7,
+        13,
+        15,
+        17,
+        20,
+        22
+      ],
+      "cost": 169,
+      "eta": "1/4",
+      "clock_certificates": [
+        {
+          "clock": 0,
+          "baseline_contribution": 6893,
+          "slack": 0,
+          "largest_edge_reward": 515,
+          "source_gain": 1712,
+          "physical": 1712,
+          "upper": 1752,
+          "status": "approximate"
+        },
+        {
+          "clock": -1,
+          "baseline_contribution": 6742,
+          "slack": 151,
+          "largest_edge_reward": 515,
+          "upper": 1601,
+          "status": "pruned"
+        },
+        {
+          "clock": 2,
+          "baseline_contribution": 6579,
+          "slack": 314,
+          "largest_edge_reward": 515,
+          "upper": 1438,
+          "status": "pruned"
+        },
+        {
+          "clock": 1,
+          "baseline_contribution": 6537,
+          "slack": 356,
+          "largest_edge_reward": 515,
+          "upper": 1396,
+          "status": "pruned"
+        },
+        {
+          "clock": 3,
+          "baseline_contribution": 6219,
+          "slack": 674,
+          "largest_edge_reward": 515,
+          "upper": 838,
+          "status": "pruned"
+        },
+        {
+          "clock": 4,
+          "baseline_contribution": 6155,
+          "slack": 738,
+          "largest_edge_reward": 515,
+          "upper": 735,
+          "status": "pruned"
+        },
+        {
+          "clock": 5,
+          "baseline_contribution": 5980,
+          "slack": 913,
+          "largest_edge_reward": 515,
+          "upper": 559,
+          "status": "pruned"
+        },
+        {
+          "clock": 6,
+          "baseline_contribution": 5791,
+          "slack": 1102,
+          "largest_edge_reward": 515,
+          "upper": 370,
+          "status": "pruned"
+        },
+        {
+          "clock": 7,
+          "baseline_contribution": 5212,
+          "slack": 1681,
+          "largest_edge_reward": 515,
+          "upper": -312,
+          "status": "pruned"
+        },
+        {
+          "clock": 8,
+          "baseline_contribution": 5151,
+          "slack": 1742,
+          "largest_edge_reward": 515,
+          "upper": -373,
+          "status": "pruned"
+        },
+        {
+          "clock": 9,
+          "baseline_contribution": 5041,
+          "slack": 1852,
+          "largest_edge_reward": 515,
+          "upper": -483,
+          "status": "pruned"
+        },
+        {
+          "clock": 10,
+          "baseline_contribution": 4901,
+          "slack": 1992,
+          "largest_edge_reward": 515,
+          "upper": -623,
+          "status": "pruned"
+        },
+        {
+          "clock": 11,
+          "baseline_contribution": 4681,
+          "slack": 2212,
+          "largest_edge_reward": 515,
+          "upper": -843,
+          "status": "pruned"
+        },
+        {
+          "clock": 12,
+          "baseline_contribution": 4398,
+          "slack": 2495,
+          "largest_edge_reward": 515,
+          "upper": -1159,
+          "status": "pruned"
+        },
+        {
+          "clock": 13,
+          "baseline_contribution": 4330,
+          "slack": 2563,
+          "largest_edge_reward": 515,
+          "upper": -1344,
+          "status": "pruned"
+        },
+        {
+          "clock": 15,
+          "baseline_contribution": 4386,
+          "slack": 2507,
+          "largest_edge_reward": 515,
+          "upper": -1590,
+          "status": "pruned"
+        },
+        {
+          "clock": 14,
+          "baseline_contribution": 4267,
+          "slack": 2626,
+          "largest_edge_reward": 515,
+          "upper": -1697,
+          "status": "pruned"
+        },
+        {
+          "clock": 16,
+          "baseline_contribution": 4019,
+          "slack": 2874,
+          "largest_edge_reward": 515,
+          "upper": -1957,
+          "status": "pruned"
+        },
+        {
+          "clock": 17,
+          "baseline_contribution": 3877,
+          "slack": 3016,
+          "largest_edge_reward": 515,
+          "upper": -2452,
+          "status": "pruned"
+        },
+        {
+          "clock": 18,
+          "baseline_contribution": 3781,
+          "slack": 3112,
+          "largest_edge_reward": 515,
+          "upper": -2548,
+          "status": "pruned"
+        },
+        {
+          "clock": 19,
+          "baseline_contribution": 3581,
+          "slack": 3312,
+          "largest_edge_reward": 236,
+          "upper": -3027,
+          "status": "pruned"
+        },
+        {
+          "clock": 20,
+          "baseline_contribution": 3691,
+          "slack": 3202,
+          "largest_edge_reward": 49,
+          "upper": -3153,
+          "status": "pruned"
+        },
+        {
+          "clock": 21,
+          "baseline_contribution": 3255,
+          "slack": 3638,
+          "largest_edge_reward": 49,
+          "upper": -3589,
+          "status": "pruned"
+        },
+        {
+          "clock": 22,
+          "baseline_contribution": 3193,
+          "slack": 3700,
+          "largest_edge_reward": 0,
+          "upper": -3700,
+          "status": "pruned"
+        },
+        {
+          "clock": 23,
+          "baseline_contribution": 3187,
+          "slack": 3706,
+          "largest_edge_reward": 0,
+          "upper": -3706,
+          "status": "pruned"
+        },
+        {
+          "clock": 24,
+          "baseline_contribution": 2829,
+          "slack": 4064,
+          "largest_edge_reward": 0,
+          "upper": -4064,
+          "status": "pruned"
+        }
+      ]
+    },
+    {
+      "case": "synthetic_32_machines",
+      "source_sha256": null,
+      "n_machines": 32,
+      "n_jobs": 36,
+      "budget": 209,
+      "worst_delay": 2821,
+      "exact_cpu_seconds": 0.00718255000000001,
+      "approx_cpu_seconds": 0.008991958000000022,
+      "lower": 2821,
+      "upper": 2821,
+      "baseline": 8207,
+      "witness": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        14,
+        16,
+        18,
+        19,
+        23,
+        25,
+        30
+      ],
+      "cost": 183,
+      "eta": "1/4",
+      "clock_certificates": [
+        {
+          "clock": 0,
+          "baseline_contribution": 8207,
+          "slack": 0,
+          "largest_edge_reward": 457,
+          "source_gain": 2821,
+          "physical": 2821,
+          "upper": 2821,
+          "status": "approximate"
+        },
+        {
+          "clock": -1,
+          "baseline_contribution": 8027,
+          "slack": 180,
+          "largest_edge_reward": 457,
+          "upper": 2641,
+          "status": "pruned"
+        },
+        {
+          "clock": 1,
+          "baseline_contribution": 7763,
+          "slack": 444,
+          "largest_edge_reward": 457,
+          "upper": 2377,
+          "status": "pruned"
+        },
+        {
+          "clock": 2,
+          "baseline_contribution": 7816,
+          "slack": 391,
+          "largest_edge_reward": 457,
+          "upper": 2370,
+          "status": "pruned"
+        },
+        {
+          "clock": 4,
+          "baseline_contribution": 7703,
+          "slack": 504,
+          "largest_edge_reward": 457,
+          "upper": 2077,
+          "status": "pruned"
+        },
+        {
+          "clock": 3,
+          "baseline_contribution": 7497,
+          "slack": 710,
+          "largest_edge_reward": 457,
+          "upper": 2031,
+          "status": "pruned"
+        },
+        {
+          "clock": 5,
+          "baseline_contribution": 7277,
+          "slack": 930,
+          "largest_edge_reward": 457,
+          "upper": 1632,
+          "status": "pruned"
+        },
+        {
+          "clock": 7,
+          "baseline_contribution": 7095,
+          "slack": 1112,
+          "largest_edge_reward": 457,
+          "upper": 983,
+          "status": "pruned"
+        },
+        {
+          "clock": 6,
+          "baseline_contribution": 6912,
+          "slack": 1295,
+          "largest_edge_reward": 457,
+          "upper": 888,
+          "status": "pruned"
+        },
+        {
+          "clock": 9,
+          "baseline_contribution": 7008,
+          "slack": 1199,
+          "largest_edge_reward": 457,
+          "upper": 778,
+          "status": "pruned"
+        },
+        {
+          "clock": 8,
+          "baseline_contribution": 6844,
+          "slack": 1363,
+          "largest_edge_reward": 457,
+          "upper": 614,
+          "status": "pruned"
+        },
+        {
+          "clock": 11,
+          "baseline_contribution": 6133,
+          "slack": 2074,
+          "largest_edge_reward": 457,
+          "upper": -97,
+          "status": "pruned"
+        },
+        {
+          "clock": 10,
+          "baseline_contribution": 5888,
+          "slack": 2319,
+          "largest_edge_reward": 457,
+          "upper": -342,
+          "status": "pruned"
+        },
+        {
+          "clock": 12,
+          "baseline_contribution": 5684,
+          "slack": 2523,
+          "largest_edge_reward": 457,
+          "upper": -770,
+          "status": "pruned"
+        },
+        {
+          "clock": 13,
+          "baseline_contribution": 5620,
+          "slack": 2587,
+          "largest_edge_reward": 457,
+          "upper": -834,
+          "status": "pruned"
+        },
+        {
+          "clock": 14,
+          "baseline_contribution": 5746,
+          "slack": 2461,
+          "largest_edge_reward": 457,
+          "upper": -906,
+          "status": "pruned"
+        },
+        {
+          "clock": 15,
+          "baseline_contribution": 5367,
+          "slack": 2840,
+          "largest_edge_reward": 457,
+          "upper": -1319,
+          "status": "pruned"
+        },
+        {
+          "clock": 16,
+          "baseline_contribution": 5362,
+          "slack": 2845,
+          "largest_edge_reward": 457,
+          "upper": -1462,
+          "status": "pruned"
+        },
+        {
+          "clock": 17,
+          "baseline_contribution": 5093,
+          "slack": 3114,
+          "largest_edge_reward": 457,
+          "upper": -1731,
+          "status": "pruned"
+        },
+        {
+          "clock": 18,
+          "baseline_contribution": 4780,
+          "slack": 3427,
+          "largest_edge_reward": 457,
+          "upper": -2056,
+          "status": "pruned"
+        },
+        {
+          "clock": 19,
+          "baseline_contribution": 4622,
+          "slack": 3585,
+          "largest_edge_reward": 457,
+          "upper": -2515,
+          "status": "pruned"
+        },
+        {
+          "clock": 20,
+          "baseline_contribution": 4611,
+          "slack": 3596,
+          "largest_edge_reward": 457,
+          "upper": -2526,
+          "status": "pruned"
+        },
+        {
+          "clock": 21,
+          "baseline_contribution": 4602,
+          "slack": 3605,
+          "largest_edge_reward": 457,
+          "upper": -2535,
+          "status": "pruned"
+        },
+        {
+          "clock": 22,
+          "baseline_contribution": 4133,
+          "slack": 4074,
+          "largest_edge_reward": 368,
+          "upper": -3093,
+          "status": "pruned"
+        },
+        {
+          "clock": 24,
+          "baseline_contribution": 4110,
+          "slack": 4097,
+          "largest_edge_reward": 341,
+          "upper": -3484,
+          "status": "pruned"
+        },
+        {
+          "clock": 23,
+          "baseline_contribution": 3944,
+          "slack": 4263,
+          "largest_edge_reward": 341,
+          "upper": -3650,
+          "status": "pruned"
+        },
+        {
+          "clock": 25,
+          "baseline_contribution": 3771,
+          "slack": 4436,
+          "largest_edge_reward": 272,
+          "upper": -4164,
+          "status": "pruned"
+        },
+        {
+          "clock": 26,
+          "baseline_contribution": 3656,
+          "slack": 4551,
+          "largest_edge_reward": 272,
+          "upper": -4279,
+          "status": "pruned"
+        },
+        {
+          "clock": 27,
+          "baseline_contribution": 3536,
+          "slack": 4671,
+          "largest_edge_reward": 272,
+          "upper": -4399,
+          "status": "pruned"
+        },
+        {
+          "clock": 28,
+          "baseline_contribution": 3527,
+          "slack": 4680,
+          "largest_edge_reward": 176,
+          "upper": -4504,
+          "status": "pruned"
+        },
+        {
+          "clock": 29,
+          "baseline_contribution": 3105,
+          "slack": 5102,
+          "largest_edge_reward": 96,
+          "upper": -5006,
+          "status": "pruned"
+        },
+        {
+          "clock": 30,
+          "baseline_contribution": 3105,
+          "slack": 5102,
+          "largest_edge_reward": 0,
+          "upper": -5102,
+          "status": "pruned"
+        },
+        {
+          "clock": 31,
+          "baseline_contribution": 3015,
+          "slack": 5192,
+          "largest_edge_reward": 0,
+          "upper": -5192,
+          "status": "pruned"
+        }
+      ]
+    }
+  ]
+}

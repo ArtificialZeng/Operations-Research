@@ -1,0 +1,188 @@
+{
+  "models": 160,
+  "queries": 395,
+  "source_terms": 13586,
+  "source_decompositions": 2082,
+  "retention_sets_tested": 9873,
+  "cuts": 224,
+  "multi_clock_cuts": 20,
+  "protected_queries": 124,
+  "positive_tolerances": 249,
+  "maximum_cuts": 2,
+  "hitting_set_instances": 240,
+  "overlapping_clock_supports": {
+    "problem": {
+      "processing": [
+        [
+          6,
+          2
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          6,
+          1
+        ]
+      ],
+      "job_ready": [
+        0,
+        0
+      ],
+      "machine_ready": [
+        0,
+        100,
+        100,
+        107,
+        0
+      ],
+      "material_ready": [
+        [
+          0,
+          0
+        ],
+        [
+          100,
+          106
+        ],
+        [
+          108,
+          105
+        ],
+        [
+          112,
+          110
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "setup": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "setup_ready": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "transfer": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "lead": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "optional_lock": 3,
+    "makespans": [
+      120,
+      121
+    ],
+    "scenario_supports": [
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "minimum_retained": [
+      2
+    ],
+    "greedy_retained": [
+      1,
+      3
+    ]
+  },
+  "cardinality_gap": {
+    "models": 96,
+    "one_clock": 53,
+    "two_clocks": 43,
+    "encodings_checked": 192
+  }
+}

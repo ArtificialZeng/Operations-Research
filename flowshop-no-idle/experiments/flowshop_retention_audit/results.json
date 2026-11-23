@@ -1,0 +1,81 @@
+{
+  "seed": 874392031,
+  "sources": {
+    "flowshop_retention_audit/audit_retention.py": "c435e21c77576b36337b40919bc646a9b722064ad8e9ea82087c64e5777b64ad",
+    "flowshop_local_availability/clock_retention.py": "771c41a95c4093f6a27045aebd00141f100a03a8e6f2a64c0198a7fb9e01aa04",
+    "flowshop_local_availability/local_timing.py": "f76de523140cb0af3d3ec01e523021ba48122def70063873091e349b6a657bf0",
+    "flowshop_monge_budget/monge_budget.py": "658d50bd91ad3da8da6cd2b6aafa4ee7df5589682530cce8f120358a3dd3975b"
+  },
+  "cardinality_gap": {
+    "models": 112,
+    "machine_and_material_encodings": 224,
+    "optimum_one": 60,
+    "optimum_two": 52,
+    "feasible_scenarios": 2452,
+    "sub_one_retention_candidates_checked": 1984
+  },
+  "target_one_corner": {
+    "target": 1,
+    "feasible_item_sets": [
+      [],
+      [
+        0
+      ]
+    ],
+    "full": [
+      9,
+      11
+    ],
+    "first_only": [
+      9,
+      11
+    ],
+    "terminal_only": [
+      9,
+      9
+    ],
+    "retained": [
+      0
+    ]
+  },
+  "positive_tolerance_corner": {
+    "profits": [
+      2,
+      4
+    ],
+    "weights": [
+      1,
+      2
+    ],
+    "target_profit": 4,
+    "tolerance": 5,
+    "time_scale": 6,
+    "cases": [
+      {
+        "budget": 1,
+        "retained": [
+          4
+        ]
+      },
+      {
+        "budget": 2,
+        "retained": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  "retention": {
+    "models": 84,
+    "retention_queries": 193,
+    "isolated_sources": 3291,
+    "lock_scenarios": 591,
+    "direct_retention_evaluations": 1899,
+    "violated_master_cuts": 29,
+    "nonzero_tolerances": 152,
+    "protected_cases": 94,
+    "zero_price_lock_cases": 75
+  },
+  "complete_four_clock_hypergraphs": 32768
+}

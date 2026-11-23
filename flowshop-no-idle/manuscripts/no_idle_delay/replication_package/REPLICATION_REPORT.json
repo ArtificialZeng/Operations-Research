@@ -1,0 +1,131 @@
+{
+  "lemmas_and_theorem1": {
+    "anti_monge_checks": 1599,
+    "b_monotone_checks": 585,
+    "exact_queries_verified": 64
+  },
+  "corollary1": {
+    "submodularity_checks": 390,
+    "singleton_queries_verified": 50
+  },
+  "theorem2_and_appendix_d": {
+    "toy_examples": "passed",
+    "knapsack_reductions_verified": 80
+  },
+  "theorem3": {
+    "certificate_checks": 80,
+    "fptas_rho0_checks": 25,
+    "large_128bit_budget_check": {
+      "exact_delta": 3,
+      "L": 3,
+      "U": 3
+    }
+  },
+  "corollary2_absolute_and_shifted": {
+    "fptas_shifted_checks": 75,
+    "dyadic_separation_checks": 2
+  },
+  "theorems4_5_and_appendices": {
+    "theorem4_reductions_verified": 30,
+    "theorem5_suffix_queries_verified": 231,
+    "propositionA1_instances_verified": 35,
+    "arbitrary_deletion_oracle_verified": 30,
+    "min_retention_verified": 60,
+    "proposition7_gap_verified": 40
+  },
+  "appendices_e_and_f": {
+    "appendix_E_examples": "passed (sharpness, why_suffix, why_inflationarity)",
+    "appendix_F_examples": "passed (2D_budget_tightening, 4stage_dual_gap)",
+    "appendix_E_random_cascades_verified": 50,
+    "appendix_F_random_cascades_verified": 50,
+    "appendix_F_singleton_optimality_certified": 42,
+    "appendix_F_exact_dual_strictly_tighter_than_lam0": 0
+  },
+  "boundary_counterexamples": {
+    "heterogeneous_release_counterexample": [
+      102,
+      111
+    ],
+    "local_release_counterexample": [
+      102,
+      111
+    ],
+    "mid_horizon_outage_counterexample": [
+      22,
+      22,
+      22,
+      23
+    ],
+    "permutation_reopt_nonsubmodular": [
+      9,
+      9,
+      9,
+      10
+    ]
+  },
+  "archived_tables_crosscheck": {
+    "status": "all_archived_tables_verified",
+    "table2_medians": {
+      "small_cold": {
+        "checkpoint_sparse": 6.39,
+        "checkpoint_plain": 8.58,
+        "checkpoint_envelope": 8.46
+      },
+      "large_cold": {
+        "checkpoint_sparse": 23.43,
+        "checkpoint_plain": 29.56,
+        "checkpoint_envelope": 28.31
+      },
+      "same_tariff_scan_cold": {
+        "checkpoint_sparse": 23.41,
+        "checkpoint_plain": 29.43,
+        "checkpoint_envelope": 28.26
+      },
+      "mixed_tariffs_cold": {
+        "checkpoint_sparse": 61.27,
+        "checkpoint_plain": 63.46,
+        "checkpoint_envelope": 53.0
+      }
+    },
+    "outer_search_mean_improvement_pct": {
+      "0.15s": 0.239,
+      "0.45s": 0.109
+    },
+    "masking_intervals": [
+      [
+        436,
+        430,
+        509
+      ],
+      [
+        219,
+        213,
+        292
+      ],
+      [
+        1,
+        0,
+        74
+      ],
+      [
+        0,
+        0,
+        73
+      ]
+    ],
+    "deletion_env_ms": [
+      59.6,
+      62.6,
+      117.6,
+      49.8
+    ],
+    "deletion_cold_ms": [
+      110.6,
+      105.3,
+      196.3,
+      154.8
+    ]
+  },
+  "elapsed_seconds": 0.776,
+  "all_checks_passed": true
+}

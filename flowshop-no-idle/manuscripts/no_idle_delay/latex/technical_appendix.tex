@@ -1,0 +1,240 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,setspace}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[round,authoryear]{natbib}
+\setcitestyle{aysep={}}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\setcounter{theorem}{5}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{appprop}{Proposition}[section]
+
+\title{Electronic Companion to ``A Single Availability Date Changes the Approximability of Delay in Fixed-Order Flow Shops''}
+\author{}
+\date{}
+\hypersetup{pdftitle={Electronic Companion to A Single Availability Date Changes the Approximability of Delay in Fixed-Order Flow Shops},pdfauthor={}}
+
+\begin{document}
+\onehalfspacing
+\maketitle
+
+\appendix
+
+\noindent Companion to \emph{A single availability date changes the approximability of delay in fixed-order flow shops}. Main-sequence theorem numbering continues from Theorem~5 of the main manuscript; appendix-specific results are numbered by section.
+
+\section{Operation-Level Timing}
+\label{app:local}
+
+The recurrence also admits a deterministic transport lag $d_i(t)$, a material availability date $A_i(t)$, a setup availability date $U_i(t)$, and a setup anticipation allowance $\ell_i(t)\in[0,s_i(t)]$ for each operation. Setup may begin at most $\ell_i(t)$ before the material is available. Set $E_i(t)=P_i(t-1)+\ell_i(t)$ and $\kappa_i(t)=\max\{R_i,A_i(t)-E_i(t),U_i(t)-P_i(t-1)\}$. The completion vector for a machine permitting idle time is
+\[
+P_i(t)+\max_{u\le t}\{V(u)+d_i(u)-E_i(u),\kappa_i(u)\}.
+\]
+For a no-idle machine replace each prefix by the full row. The model allows zero anticipation and full anticipation as special cases. Transport is specified as an input lower bound on the delay from the preceding operation. The theorem assumes independent transport and lower timing bounds. Existing max-plus applications treat broader time windows and industrial constraints, including upper transfer bounds and synchronized batch operations in a bakery \citep[][\S3]{Marce2026}, \citet{Wang2007}, \citet[][\S4]{Zorzenon2022}, and \citet{Robillard2024}. Those constraints can couple a machine's availability to downstream starts, so that our forward recurrence cannot evaluate the same physical schedule.
+
+\begin{appprop}
+\label{prop:local}
+The exact and source-approximation bounds of Theorems~1 and~3 are unchanged. An $O(mn)$ pass finds a minimum-cardinality subset of the local lower-bound entries $\kappa_i(t)$ that preserves every completion time under every feasible set of additional requirements.
+\end{appprop}
+
+\begin{proof}
+In the homogeneous calculation, each component is shifted by the common offset $d_i(u)-E_i(u)$ before a prefix maximum. The difference between the two incoming vectors is unchanged by this offset, so Lemma~1 applies. A segment contributes the local sources in that segment and Lemma~2 again applies by inclusion of their shared suffixes. This proves the exact bound. For approximation, combine the absolute inputs on each machine as the single vector $\kappa_i$. For a source at machine $h$, place its origin before $h$. The first arc either selects $h$ at its original cost, or skips it and uses its completion vector permitting idle time. When $h$ is compulsory, the first arc must select it. Each first arc is evaluated by propagating the source to its destination, scanning through the next compulsory machine once. Subsequent arcs use the common homogeneous graph. Reweighting by the compulsory-only profile again gives nonnegative arc rewards. A retained edge can be embedded by including just its endpoints and compulsory positions. The addition of the virtual origin gives at most $m$ edges per source path. The rounding and slack arguments from Theorem~3 follow.
+
+For the linear pass, compute the compulsory-only completion matrix with all sources. For an idle-permitted row write $H_{t-1}$ for the previous prefix maximum and $v_t=V(t)+d_i(t)-E_i(t)$ for the current upstream term. Keep the local entry at $t$ exactly when $\kappa_i(t)>\max(H_{t-1},v_t)$. The entry then creates a strict record that no previous or upstream term at that position can produce. Induction over the row shows that keeping these entries preserves its baseline completion profile. For a compulsory row, keep one maximizing local entry if and only if the local maximum exceeds the upstream maximum. Since any valid reduction preserves the same compulsory-only incoming vector at each row, every row-wise lower bound on the number of retained entries must hold jointly. The construction meets all these lower bounds.
+
+For an additional set of no-idle requirements, the upstream vector can only increase relative to the compulsory-only baseline. Every omitted clock was dominated in the corresponding baseline prefix by the retained clocks or upstream terms. This dominance survives an increase in upstream terms. A newly selected row uses its final prefix inequality, and a compulsory row uses its original full-row inequality. Thus the reduced input preserves the entire schedule's completion matrix by induction. An empty minimum support certifies the single-source FPTAS region.
+\end{proof}
+
+For two machines with processing rows $(1,1)$ and $(100,1)$, release only the first machine's second operation at time $10$ and set the other timing inputs to zero. The baseline makespan is $102$, with or without this release. Requiring the first machine to run without idle time raises the makespan to $111$ when the release is present and leaves it at $102$ otherwise. This example explains both why the local source's first machine remains selectable and why comparing just the baseline makespan cannot certify clock redundancy. The local formulation agreed with an independent operation-level simulator for 5,182 sets in 360 small models, and an additional 3,975 sets were used to check the redundancy test.
+
+\subsection{Connection to Switched Max-Plus Cascades}
+
+Write $\oplus$ for coordinatewise maximum. In each stage let the open map be $A_i x\oplus B_i z_i$, with max-plus matrix products. A selected stage applies a max-plus linear map $K_i$ to this open output, with $K_i y\ge y$ componentwise. For any reduced local vector $z_i'\le z_i$, equality of all stage outputs in the compulsory-only mode implies equality under every combination of additional selections. To see this, use effective matrices $\bar A_i,\bar B_i$ in the compulsory-only mode, incorporating $K_i$ at compulsory stages. Equality there says that $\bar B_i z_i$ is dominated by $\bar A_i x_i^0\oplus\bar B_i z_i'$, where $x_i^0$ is the upstream baseline. Under added selections, $x_i\ge x_i^0$. Dominance still holds. Any newly applied $K_i$ preserves this equality, and induction yields the result.
+
+In the compulsory-only profile, each output whose upstream term is too small must retain a local clock attaining that output. For a given stage each clock covers the coordinates it attains. The smallest number of retained clocks is therefore a sum of per-stage minimum set covers. The one-stage set-cover equivalence for max-plus sparsity is established \citep[][Theorem~1]{Tsiamis2018}. The added conclusion here is that maintaining the compulsory-only profile preserves all subsequent switch patterns in the stated composition class. Prefix maxima make the specific flow-shop cover solvable by the record test above. If an optional mode introduces a new input directly, baseline agreement alone can fail. For example, an open scalar output $x$ agrees under deletion of any clock $z$, while a selected output $\max(x,z)$ distinguishes deletion when $z>x$.
+
+\section{Arbitrary Clock Reductions and Minimum Retention}
+\label{app:deletion}
+
+\subsection{A Pseudo-Polynomial Test for Arbitrary Clock Removal}
+
+\begin{theorem}
+\label{thm:arb_deletion}
+For any specified subset of local clock vectors, deciding whether their deletion preserves every budget-feasible makespan takes $O(m^2n+m^2(B+1))$ arithmetic work. The problem is weakly coNP-complete.
+\end{theorem}
+
+\begin{proof}
+Use the graph of Section~2 with only retained clocks in the absolute coefficient $b_{\mathrm{ret}}(i,j)$. A source from a removed vector may first synchronize with the reduced schedule at a selected machine $j$, with the terminal sink again allowed. If it fails to strictly dominate the reduced start at its first synchronization, its contribution remains dominated at every later machine by monotonicity. If it does dominate, selecting only $j$ up to that point preserves the removed source at $j$ and weakly decreases the competing reduced start. For each possible $j$, it therefore suffices to seed states using the maximum contribution of removed sources injected since the previous compulsory checkpoint, with all intervening machines open. These sources can be propagated cumulatively to form every seed in one sweep. A seed is admitted exactly when it exceeds the reduced start under the compulsory set with $j$ selected, and pays the cost of $j$.
+
+At a checkpoint $i$ that a surviving removed source reaches with start $z_i$, the reduced prefix is strictly below it. At the next checkpoint $j$, the homogeneous part of that reduced prefix remains strictly smaller. A new retained source can still mask the difference, so the edge is allowed precisely when $z_i+a(i,j)>b_{\mathrm{ret}}(i,j)$. Among prefixes with the same checkpoint and expenditure, retaining only the largest surviving $z_i$ preserves all possible continuations because the guard is monotone in $z_i$. States follow the ordered graph, and a terminal state yields a counterexample to equivalence. Conversely, a removed source that strictly wins at the terminal cannot have lost at an earlier common checkpoint. Removing unnecessary locks before its seed leaves at least one feasible guarded path, hence the test finds a witness. Segment preprocessing takes $O(m^2n)$ and there are $O(m^2(B+1))$ edge and expenditure pairs. CoNP-hardness already holds for the two-clock subclass of Theorem~4, and a failing witness is still a feasible lock set with two independently computable makespans.
+\end{proof}
+
+On 270 random matrices, the arbitrary-deletion recurrence agreed with 2,554 enumerated budget-and-deletion queries. A two-item instance demonstrates why the singleton property is special to suffix removal. With the first clock present, the empty set and the two singletons have makespan $21$, while the pair has $22$. Deleting the first clock while retaining the final clock gives makespan $21$ in all four cases.
+
+The same recurrence tests whether the maximum error is at least an integer $d\ge 1$. Demand a seed advantage of at least $d$ and use the guard $z_i+a(i,j)\ge b_{\mathrm{ret}}(i,j)+d$. The homogeneous portion preserves the same margin. For an upper bound $U$, use the full makespan with every individually affordable machine locked minus the reduced compulsory-only makespan. Binary search then finds the exact maximum error in $O(m^2n+m^2(B+1)\log(U+1))$ arithmetic work, sharing precomputed coefficients and seed margins. Any finite-factor relative approximation for this error in the general class would decide whether the error is positive, which Theorem~4 makes NP-complete.
+
+\subsection{A Uniform Threshold and Reusable Preprocessing}
+
+Let $Z_0(j)$ and $R_0(j)$ be the full and reduced start at $j$ when the prefix uses only compulsory locks and $j$ itself is locked. One forward scan computes all hypothetical starts in each formulation. If $Z_0(j)\ge R_0(j)+d$, seed the state at $j$ with $Z_0(j)$ and the cost of $j$. This seed describes a valid prefix. It dominates the isolated-source seed of Theorem~\ref{thm:arb_deletion} because the full compulsory-only prefix includes every removed source admitted there. For any witness to a terminal error of at least $d$, take a maximizing removed source and its first common checkpoint $j$. Dropping earlier optional locks leaves the source's contribution at $j$ unchanged and weakly decreases the reduced start, so the new seed covers this witness. Later lock choices leave the start at the seed unchanged.
+
+For a surviving prefix at $i$, let $x_i$ be its actual reduced start and $z_i$ its stored full contribution, with $z_i\ge x_i+d$. The arrival $v=z_i+a(i,j)$ automatically exceeds the reduced homogeneous arrival $x_i+a(i,j)$ by at least $d$. For the next checkpoint $j$, the remaining guard is equivalent to $v\ge R_0(j)+d$. Necessity follows because the actual reduced start at $j$ is at least $R_0(j)$ by monotonicity under added locks. For sufficiency, the new retained-clock floor is $b_{\mathrm{ret}}(i,j)\le b_{\mathrm{ret}}(\ell,j)\le R_0(j)$, where $\ell$ is the compulsory checkpoint at the left of the interval. The first inequality follows from inclusion of the retained sources and identical open propagation from each of them to $j$. Therefore both terms in the actual reduced start are at most $v-d$. A feasible path returned by backtracking gives a full schedule whose start is at least the propagated contribution at every selected checkpoint and a reduced schedule whose start is at least $d$ smaller than that contribution.
+
+For each expenditure in a compulsory interval, query one anti-Monge upper envelope, then compare its maximum with the destination's common threshold $R_0(j)+d$. Each row is inserted once. Binary-search envelopes give $O(m(B+1)\log(m+1))$ work per threshold, independent of the number of retained clocks \citep[with online triangular matrix search yielding the corresponding $O(m(B+1))$ theoretical bound;][]{Galil1990}. Compute the homogeneous arcs and $Z_0$ once in $O(m^2n)$ time with $O(m^2)$ extra storage. A deletion, cost, and budget query then takes $O(mn)$ setup for $R_0$ and, if needed, the makespan upper bound. Bisection for the maximum adds $O(m(B+1)\log(m+1)\log(U+1))$ work.
+
+The reference and envelope recurrences matched all 2,554 enumerated deletion queries, including independently checked witnesses, and 5,122 reduced baseline starts matched direct operation simulation. A separate implementation agreed with exhaustive operation simulation on 10,223 threshold tests and verified all checkpoints of 5,919 positive certificates. Four synthetic eight-query batches were timed three times each. Shared preprocessing and the envelope took $59.6$, $62.6$, $117.6$, and $49.8$ median CPU milliseconds, compared with $110.6$, $105.3$, $196.3$, and $154.8$ for the direct recurrence with fresh preprocessing. Against the direct recurrence with shared preprocessing, the envelope was slightly slower on the smallest machine count and faster on the other three, including the batch retaining 37 or 38 clocks.
+
+\subsection{Selecting the Fewest Clocks to Meet a Makespan Tolerance}
+
+Fix a nonnegative integer tolerance $\varepsilon$ and permit some clocks to be protected. We seek the fewest additional whole machine clock vectors whose retention changes the makespan by at most $\varepsilon$ for every budget-feasible $S$. For a fixed $S$, write $v_{-1}(S)$ for the terminal contribution of the entry vector alone and $v_h(S)$ for that of local clock $h$ alone. Max-plus superposition gives $C(S)=\max_h v_h(S)$, with the entry included. The reduced makespan takes the same maximum over the retained clocks and the permanent entry. If the entry or a protected clock reaches $C(S)-\varepsilon$, scenario $S$ imposes no requirement. Otherwise the retained set must hit $H_S=\{h:v_h(S)\ge C(S)-\varepsilon\}$. This is the standard max-plus support-covering relation \citep{Tsiamis2018}, applied here to an implicitly defined family of feasible lock scenarios.
+
+All $v_h(S)$ can be obtained together in one backward sweep. Give the last completion terminal weight zero and the other final outputs weight $-\infty$. If $w_t$ is the terminal weight of output $t$ of a machine, add $w_t$ to its processing-prefix duration $P(t)$. A machine permitting idle time gives input position $u$ the suffix maximum over $t\ge u$. A no-idle machine gives every input position the maximum over all $t$. These coefficients applied to the local clock vector give $v_h(S)$. Subtracting the machine's upstream offsets gives the weight vector for its incoming completions. This follows by transposing the max-plus forward recurrence and computes every contribution in $O(mn)$ arithmetic operations.
+
+An exact constraint-generation method starts with an empty family of cuts, minimizes cardinality over the current hitting-set master, and invokes the uniform-threshold deletion oracle at $d=\varepsilon+1$. A witness supplies a cut $H_S$ violated by the current solution. If the oracle finds no witness, the candidate meets the tolerance for every scenario and the exact master value proves minimum cardinality. Each iteration adds a previously absent cut. With shared preprocessing the separation and cut extraction together take $O(mn+m(B+1)\log(m+1))$ per iteration. The hitting-set search and the number of cuts can be exponential.
+
+\begin{proposition}
+\label{prop:retention_gap}
+At zero tolerance it is weakly coNP-complete to decide whether at most one clock vector suffices, even with two jobs, no protected clocks, and only two nonzero initial availability dates. On that class, two is the best polynomial-time approximation factor unless $P=NP$.
+\end{proposition}
+
+\begin{proof}
+Use Theorem~4 with target $T\ge 2$, ensured by doubling all item profits and the target. At the empty lock set the terminal clock forces $H=C_0+K+T-1>C_0+K$. Removing it gives a makespan at most $C_0+K$ even with all other clocks present. The terminal clock is therefore required. By Theorem~4, it suffices alone exactly if no feasible knapsack selection reaches the target. Otherwise both clocks are required, and retaining both suffices because the other initial dates are zero and redundant. This gap rules out a factor below two. A factor of two is achieved by the linear suffix test of Theorem~5 with the cut at the first machine. Return the empty set if that test permits it and both nonzero clocks otherwise. For membership in coNP, provide one violating lock set for each admissible retained set of size at most one. There are at most $m+1$ such sets, and both makespans can be computed directly for each. Alternatively, call the pseudo-polynomial deletion oracle for each such set.
+\end{proof}
+
+The same gap holds at any fixed nonnegative integer tolerance $\varepsilon$. Multiply all processing times and availability dates in the construction by $\varepsilon+1$. A zero error stays zero; any positive error exceeds the tolerance. Use the same all-delete test with the scaled tolerance in the factor-two algorithm.
+
+Repeatedly deleting any currently redundant clock can miss a minimum. A two-job, five-machine instance with one optional lock has two relevant support sets, $\{3,4\}$ and $\{2,3\}$ in one-based indexing. Keeping only clock $3$ preserves both makespans. Deleting clock $3$ first is also safe, after which clocks $2$ and $4$ are both necessary. In 395 small exhaustive queries the method matched minimum cardinality and every selected set passed direct operation simulation. Independent isolated-source propagation checked 13,586 contributions. The finite cuts also reproduced the exhaustive optimum in every query. The one-versus-two gap matched knapsack enumeration in 96 instances under both the machine-clock and operation-clock encodings.
+
+\section{Supplementary Computational Checks}
+\label{app:comp}
+
+The comparison below keeps the permutation fixed. It uses five previously available public Ruiz matrix prefixes and four new synthetic matrices, with three timings per condition in a pinned Linux Python process. Costs are experimental. These checks do not use private competition instances. The comparator caches the job-position row prefixes and, like the machine-based methods, reuses a frontier computed at the maximum budget for a sweep with fixed costs. Table~\ref{tab:app_speedups} shows the median over matrices of per-matrix CPU speedups, including initial graph construction. The exact values of all 54 distinct queries were checked independently. A large-integer low-cardinality check included 742 feasible subsets and direct recomputation of 51 distinct returned witnesses.
+
+
+The envelope lost to the plain machine recurrence on all nine matrices in the three-cost batch. In a separate 80-machine, 24-job synthetic example with machine and job releases and anticipatory setups, the binary-search envelope took $33.6$ CPU ms versus $141.1$ ms for the plain machine recurrence after a common $27.6$ ms of preprocessing. Across additional small cases, independent fixed-order simulation agreed on 18,351 enumerated sets under machine or job releases. The source intervals were checked on 200 further small matrices, with 3,933 feasible sets and 400 certificates. In a masking example with true increases $436,219,1,0$, the coarse intervals were $[430,509]$, $[213,292]$, $[0,74]$, and $[0,73]$. The source algorithm was slower on four of six timing examples. The exact budget recurrence took $0.66$--$7.18$ CPU ms.
+
+A separate permutation-search experiment compared the same exact scoring strategy implemented with job-position states or machine checkpoints. Improvements in mean final worst makespan were $0.239\%$ and $0.109\%$ with $0.15$ and $0.45$ CPU seconds per instance, respectively. The observed speedup therefore supports fixed-order scoring and budget sweeps. Substantial outcome improvements for permutation optimization have not been established.
+
+\section{Equivalent Sources of Terminal Masking}
+\label{app:masking}
+
+The threshold in Theorem~2 can also be implemented by a single anticipatory setup before the terminal machine's first job with all initial availability dates set to zero. Increasing this setup increases the terminal processing offsets and occupied duration by the same amount, preserving the job-arrival branch and raising the competing floor.
+
+Intermediate completions can depend on an operation-level date even when final makespan is unchanged. Consider processing rows $(1,1),(1,1),(100,1)$, job releases $(0,3)$, and a date of $10$ for the middle machine's second operation. Only the first machine is eligible for a no-idle requirement. With and without the middle date, the makespans are $103$ for the empty set and $105$ for the singleton. The middle machine's second completion changes.
+
+\section{Suffix Deletion with Imperfect Synchronization}
+\label{app:sync_suffix}
+
+Let a feedforward max-plus cascade have stages $i=1,\ldots,m$, a finite initial state, and an open update $y_i=A_i x_{i-1}\oplus b_i$. Every row of $A_i$ has at least one finite entry and every $b_i$ is finite before deletion. A selected stage applies $K_i$ to $y_i$ to obtain $x_i$, while an open stage sets $x_i=y_i$. Assume $K_i$ has finite entries and $K_i y\ge y$ componentwise. Compulsory stages are always selected. The optional selection has nonnegative costs and a total budget. The scalar observation at the end is a max-plus linear functional with at least one finite coefficient. Delete every $b_i$ on a specified suffix by replacing it with the vector of $-\infty$ entries. For optional set $S$, let $E(S)$ be the difference between full and reduced observations.
+
+For a finite matrix $K$, define its projective diameter by
+
+\[
+D(K)=\max_{r,s,p,q}(K_{rp}+K_{sq}-K_{rq}-K_{sp}).
+\]
+
+This is the largest possible spread of the coordinates of $Kx-Ky$ over finite vectors $x,y$. Indeed, $(Kx)_r-(Kx)_s$ lies between the smallest and largest of the column differences $K_{rp}-K_{sp}$. A vector concentrating on a maximizing column and another on a minimizing column attain these extremal differences. In particular, a max-plus rank-one switch has diameter zero. Projective diameter and memory loss are established \citep{Mairesse1997,Merlet2010}. See \citet[\S2]{Depersin2017} for the cross-difference formula.
+
+\begin{appprop}
+\label{prop:sync_suffix}
+Let $E_1$ be the largest error among the compulsory-only schedule and all affordable single optional switches on the deleted suffix. Then $E_1\le\max_S E(S)\le E_1+D_{\max}$, where $D_{\max}$ is the maximum diameter of a compulsory or affordable optional switch on the deleted suffix, with maximum zero if no such switch exists. The coefficient one on $D_{\max}$ is sharp. Evaluating $E_1$ takes linear work in the supplied matrix and vector entries through a forward sweep for each version and one backward sweep common to both versions.
+\end{appprop}
+
+\begin{proof}
+For any feasible $S$ with positive error, a deleted local source at some stage $h$ attains the full observation by max-plus superposition. Let $j\ge h$ be the first selected stage at or after its injection. Stage $h$ counts if it is selected because $b_h$ enters before the switch. If there is no selected stage, take the terminal readout as a scalar switch with diameter zero. Apply the switch at $j$ to the isolated source and to the reduced trajectory, obtaining vectors $u,v$. Write $d_- = \min_r(u_r-v_r)$ and $d_+ = \max_r(u_r-v_r)$. The difference $d_+-d_-$ is at most $D(K_j)$. With no clock terms after $j$, the common downstream propagation is monotone and commutes with adding a constant vector. Therefore $E(S)\le d_+$. In the scalar readout case, the same inequality holds with $d_+=d_-$ equal to the terminal gap.
+
+Retain only the compulsory switches and $j$, with $j$ omitted from the optional set if it was compulsory or is the readout. The isolated source reaches $j$ unchanged because nothing in the interval from its injection through $j$ changed. The reduced state at $j$ can only decrease by monotonicity and inflationarity. With this smaller selection, the post-switch source still dominates the new reduced state shifted by $d_-$. Homogeneous downstream propagation preserves the inequality through the terminal readout, while the full trajectory dominates its isolated source. Thus the new error is at least $d_-$. This implies $E(S)\le E_1+D(K_j)$. Monotonicity under clock removal gives nonnegative errors, maintaining the bound when no positive error occurs.
+
+To compute all candidate errors, sweep the two trajectories with compulsory switches only, saving the open output at each optional stage. In the backward sweep, keep the max-plus row vector that maps a stage output to the terminal observation through the compulsory-only suffix. Each version has a scalar contribution from its own later clock terms. Accumulate the two scalar contributions in parallel during that same sweep. Apply the candidate switch to each saved state and take the maximum of its weighted output and the corresponding scalar. This gives both terminal observations with the switch alone. Transposed max-plus multiplication scans each matrix entry once per sweep, and a candidate matrix is applied only to its own saved states. This proves the stated bound for evaluating $E_1$. The upper bound can also retain the diameter of each possible first switch separately.
+\end{proof}
+
+\noindent\textbf{Sharpness.} Let $d>0$, $x_0=(0,0)$, and take both open matrices to be the max-plus identity. Let $b_1=(0,d)$ and $b_2=(0,0)$, remove both, and observe the first terminal coordinate. The two optional switches cost one each and the budget is two. Set
+
+\[
+K_1=\begin{pmatrix}0&-d\\ d&d\end{pmatrix},\qquad K_2=\begin{pmatrix}0&-d\\0&0\end{pmatrix}.
+\]
+
+Both switches are inflationary and each has diameter $d$. The full and reduced observations both equal zero for the empty set and either singleton. With both switches selected, the full observation is $d$ and the reduced observation is zero. Hence $E_1=0$ and the maximum error is $d$. For the flow shop, the no-idle switch on an open completion vector is $K_i(t,u)=P_i(t)-P_i(u)$. Its entries are finite, it has diagonal zero, and its diameter is zero. Applying it replaces every normalized prefix maximum by the full-row maximum. Theorem~5 is therefore the zero-diameter case.
+
+\noindent\textbf{Why a suffix.} Consider three scalar stages with identity open transitions, $x_0=0$, and local clocks $(b_1,b_2,b_3)=(1,0,2)$. Each of the first two stages can add one unit when selected, both switches are affordable together, and the observation is $x_3$. Delete $b_1$ and retain the last clock. The full and reduced observations both equal two for the empty set and either singleton. Selecting both gives full observation three and reduced observation two. All switches have diameter zero. The retained terminal clock therefore invalidates a zero-error certificate based on singletons alone.
+
+\noindent\textbf{Why inflationarity.} Consider again three scalar stages with identity open transitions. Set $x_0=2$ and $(b_1,b_2,b_3)=(0,0,1)$, delete all three clocks, and let each of the first two optional switches subtract one unit. Both switches are affordable together and have diameter zero. The full and reduced observations agree for the empty set and either singleton. With both switches selected the deleted source produces full observation one, while the reduced observation is zero. Removing a deflationary switch can raise the reduced trajectory, so zero diameter alone gives no singleton guarantee for this broader class.
+
+\section{Error Certificates for Nonconsecutive Clock Deletion}
+\label{app:nonconsecutive_deletion}
+
+Use the cascade and selection model of Appendix~\ref{app:sync_suffix}, and now partition the local clock terms at every stage into retained and deleted terms. A stage may have both kinds, for example when only some coordinates of a local clock are removed. For a feasible selection $S$, let $E(S)$ be its observation error, let $E^*=\max_S E(S)$, and let $E_1$ be the maximum of the compulsory-only error $E_0$ and the errors of all affordable singleton selections. The empty and singleton evaluations still take linear work by the forward and backward sweeps in Appendix~\ref{app:sync_suffix}.
+
+For each compulsory or individually affordable stage $j$, let $S_j$ consist of the compulsory switches together with $j$, and write $c_j$ for the optional cost of $j$ (zero if compulsory). Let $V_j$ be the reduced state just after $j$ under $S_j$. Starting immediately after the last compulsory stage strictly before $j$, propagate the maximum of all deleted inputs through the open updates, without adding retained inputs or the initial state. Include deleted inputs at $j$ and apply $K_j$ there to get $U_j$. Omit a candidate if $U_j$ has no finite coordinate. Otherwise $U_j$ is finite because $K_j$ is finite. Define $g_j=\max_r(U_{jr}-V_{jr})$.
+
+For fixed later switches $T$, let $H_j^T$ denote the homogeneous readout from just after $j$ and let $C_j^T$ be the readout from retained inputs strictly after $j$ with no incoming state at $j$. Use $H_j$ and $C_j$ when only later compulsory switches are selected. Suppose $F_j$ is any upper bound on $H_j^T(U_j)$ for later selections of cost at most $B-c_j$. Define
+
+\[
+q_j=\begin{cases}
+\min\{g_j,F_j-C_j\}, & C_j> -\infty,\\
+g_j, & C_j=-\infty.
+\end{cases}
+\]
+
+\begin{appprop}
+\label{prop:clock_deletion_certificate}
+The upper bound $Q=\max\{E_1,\max_j q_j\}$ certifies $E_1\le E^*\le Q$. In particular $Q=E_1$ establishes that the best singleton or compulsory-only selection is globally optimal. For every candidate with $C_j> -\infty$, put $a_j=F_j-H_j(U_j)$; put $a_j=0$ otherwise. Then $q_j\le E(S_j)+\max\{D(K_j),a_j\}$. Thus the two contributions to this additive bound enter through a maximum. If no retained input reaches the readout from strictly after a candidate stage in the compulsory-only schedule, the corresponding bound uses only the diameter.
+\end{appprop}
+
+\begin{proof}
+Fix a feasible $S$ with positive error. Max-plus superposition ensures that some deleted source attains the full observation. If there is no selected stage at or after that source, keeping only the compulsory switches preserves its isolated contribution and weakly lowers the reduced observation, so $E(S)\le E_0$. Otherwise let $j$ be its first selected stage in $S$. The source entered after the previous compulsory stage and encountered only open updates before $j$. Its post-switch contribution is at most $U_j$. By inflationarity, the reduced state at $j$ under $S$ is at least $V_j$. For the later selection $T$ in $S$, the full observation is therefore at most $H_j^T(U_j)$ and the reduced observation is at least $\max\{H_j^T(V_j),C_j^T\}$. Monotonicity and translation equivariance of $H_j^T$ give $E(S)\le g_j$. Also $C_j^T\ge C_j$ and $T$ costs at most $B-c_j$, giving $E(S)\le F_j-C_j$ whenever $C_j$ is finite. This proves the certificate.
+
+Write $d_j=\min_r(U_{jr}-V_{jr})$. Both vectors are outputs of $K_j$, so $g_j\le d_j+D(K_j)$ by the projective diameter formula. Under $S_j$, the full observation is at least $H_j(U_j)$, since all pooled deleted sources are present and follow the stated open transitions. The reduced observation equals $\max\{H_j(V_j),C_j\}$. Thus $E(S_j)\ge\min\{d_j,H_j(U_j)-C_j\}$ when $C_j$ is finite, and $E(S_j)\ge d_j$ otherwise. Comparing the two terms inside each minimum gives the claimed maximum of the two additions.
+\end{proof}
+
+\noindent\textbf{Budget bounds from backward sweeps.} For a multiplier $\lambda\ge0$, form the max-plus row $R_j^\lambda$ that evaluates
+
+\[
+R_j^\lambda x=\max_T\{ H_j^T(x)-\lambda c(T)\},
+\]
+
+where $T$ ranges over subsets of later individually affordable optional stages, with all compulsory switches present. Initialize the row at the terminal readout. At an optional stage $i$, take the entrywise maximum of $R_i^\lambda A_i$ and $R_i^\lambda K_i A_i-\lambda c_i$. At a compulsory stage use only $R_i^\lambda K_i A_i$, and at an unaffordable stage use only $R_i^\lambda A_i$. Row-by-matrix multiplication is max-plus, and the scalar subtraction applies to every finite entry. Max-plus distributivity gives the recursion by separating suffix selections according to the decision at $i$. For any finite nonempty set $\Lambda$ of nonnegative multipliers, a valid choice is
+
+\[
+F_j=\min_{\lambda\in\Lambda}\bigl(R_j^\lambda U_j+\lambda(B-c_j)\bigr).
+\]
+
+The switch cost is charged once per selected stage because a homogeneous path crosses each stage once. This uses standard Lagrangian relaxation for resource-constrained paths \citep{Handler1980}. Moreover, because $\phi_j(\lambda)=R_j^\lambda U_j+\lambda(B-c_j)$ is a piecewise-linear convex function of $\lambda\ge0$ whose subgradient $(B-c_j)-c(T^*(\lambda))$ is recovered by backtracking one maximizing suffix selection $T^*(\lambda)$, standard one-dimensional convex chord search \citep{Handler1980} computes the exact Lagrangian infimum $\inf_{\lambda\ge0}\phi_j(\lambda)$ without fixing $\Lambda$ in advance. The certificate combines that relaxation with the retained-source floor and the first-switch coordinate bound. At $\lambda=0$, inflationarity makes the relaxed continuation equal to the one with every individually affordable later switch. Including positive multipliers can improve the bound without enumerating feasible selections. Compute $U_j$ in a forward sweep that clears the deleted-source state to all $-\infty$ after recording each compulsory candidate. Compute $C_j$, $H_j$, and the singletons as in Appendix~\ref{app:sync_suffix}, then evaluate the penalized rows in one backward sweep per multiplier. If $N$ counts the supplied matrix and vector entries, this takes $O((1+|\Lambda|)N)$ arithmetic operations. Computing the certificate $Q$ does not require explicitly computing any projective diameter.
+
+\noindent\textbf{Sharpness and effect of the budget.} Let $d>0$, $x_0=(0,0)$, and take two open matrices equal to the max-plus identity. Remove $b_1=(d,0)$, retain $b_2=(d,0)$, and observe the first coordinate. Each optional switch costs one. Take $K_1$ to have all entries zero and take
+
+\[
+K_2=\begin{pmatrix}0&d\\-d&0\end{pmatrix}.
+\]
+
+Both switches are inflationary and rank one. The full and reduced observations agree for the compulsory-only selection and both singletons. The pair gives full observation $2d$ and reduced observation $d$. For $j=1$, the vectors are $U_1=(d,d)$ and $V_1=(0,0)$, with $H_1(U_1)=C_1=d$. At budget two, $F_1=2d$ using $\lambda=0$, so the certificate and the additive bound attain the true error $d$. At budget one, the same multiplier still gives $q_1=d$. Including $\lambda=d$ yields $F_1=d$ because the residual budget at $j=1$ is zero and paying for the second switch exactly offsets its readout gain. Here $g_2=0$, so the strengthened certificate proves $E^*=0$. This gives a family in which ignoring residual budget leaves an arbitrarily large positive upper bound for an invariant observation.
+
+\noindent\textbf{Limitation of the relaxation.} Even optimizing over every multiplier can leave an arbitrarily large gap with rank-one switches. Take four two-dimensional identity open stages and initial state $(0,0)$. Delete $b_1=(d,0)$, retain $b_2=b_3=(0,0)$ and $b_4=(0,4d)$, and read the final second coordinate. The first three stages are optional with costs $1,2,2$, the last is open, and the budget is four. Set $K_1$ to the matrix with every entry $d$, and set both $K_2$ and $K_3$ to $\bigl(\begin{smallmatrix}2d&4d\\0&2d\end{smallmatrix}\bigr)$. If stage one is open, the first selected switch among stages two and three yields second coordinate $2d$ in both versions, and the second yields $4d$. If stage one is selected, at most one of stages two and three can be selected, giving a second coordinate at most $4d$ even in the full cascade. The final clock makes every feasible observation equal to $4d$. In contrast, $U_1=(2d,2d)$, $V_1=(d,d)$, and $C_1=4d$. Each later switch fits the residual budget of three individually. The infimum of the relaxed upper bound on the homogeneous readout is $2d+\inf_{\lambda\ge0}\{3\lambda+2\max(0,2d-2\lambda)\}=5d$. The certificate therefore has $q_1=d$ although $E^*=0$.
+
+\clearpage
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\clearpage
+\begin{table}[!ht]
+\centering
+\small
+\caption{Median paired CPU speedups across nine fixed-order matrices (including preprocessing).}
+\label{tab:app_speedups}
+\begin{tabular}{lrrr}
+\toprule
+Query workload & Sparse states & Plain states & Binary-search envelope \\
+\midrule
+Cold, smallest budget & $6.39\times$ & $8.58\times$ & $8.46\times$ \\
+Cold, largest budget & $23.43\times$ & $29.56\times$ & $28.31\times$ \\
+Several budgets, one set of costs & $23.41\times$ & $29.43\times$ & $28.26\times$ \\
+All budgets, three sets of costs & $61.27\times$ & $63.46\times$ & $53.00\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}
