@@ -1,0 +1,161 @@
+{
+  "archive_id": "randomization_support_audit_stage0_20261124",
+  "status": "FROZEN_LIMITED_NEGATIVE_DIAGNOSTIC_ARCHIVE",
+  "decision": "STOP_OR_REFRAME_STAGE0_GATE_FAILED",
+  "base_branch": "main",
+  "base_sha": "940709d372ae3716e09daf771d5438d07232d022",
+  "archive_branch": "archive/randomization-support-audit-stage0-20261124",
+  "native_run_receipt": {
+    "real_pid": 34272,
+    "wall_time_s": 948.402,
+    "precision": "torch.bfloat16 (BF16, non-quantized)",
+    "models": [
+      "Qwen/Qwen2.5-1.5B-Instruct@989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "ibm-granite/granite-3.1-2b-instruct@bbc2aed595bd38bd770263dc3ab831db9794441d"
+    ],
+    "initial_crash_pid": 20288,
+    "initial_runner_sha256": "eb664be6f9f58c6b84f221036cd45f705839f81450f2ee7774be04248cce4267",
+    "patched_runner_sha256": "b83468242770cdb97c7572e50d83f70c78d0066879a4f180358d83947b4d89ab",
+    "patch_scope": "Added 3 None keys (extracted_unit_col, extracted_block_col, extracted_quota_rule) to schema-is-None diag dict only; conditions/protocol/models/verifier untouched.",
+    "close_prior_no_priority": "Gao & Xiao (2026) https://arxiv.org/html/2611.25198v1 section 4.1",
+    "counterfactual_cross_table_test": "NOT_RUN_OUT_OF_SCOPE"
+  },
+  "archived_files": [
+    {
+      "path": "research/randomization_support_audit/README.md",
+      "bytes": 3734,
+      "sha256": "af0c62ff1eb6dc3c8b232e4e8f7eec10381a5e154990061ded9b215e9bd32227"
+    },
+    {
+      "path": "research/randomization_support_audit/STATUS.md",
+      "bytes": 4080,
+      "sha256": "77dfca30ca8ddaaf7f7b844c83b10c29815e51c990ab366b37c4f06a566dc277"
+    },
+    {
+      "path": "research/randomization_support_audit/LICENSES_AND_PROVENANCE.md",
+      "bytes": 4155,
+      "sha256": "8e2672dd8e9af1623d9580fe96f103031d77f9758161f6375e1bf766bf1e0297"
+    },
+    {
+      "path": "research/randomization_support_audit/STAGE0_FEASIBILITY_AND_OVERLAP.md",
+      "bytes": 9791,
+      "sha256": "bc0e556f78dbe751ecb2fb2147fa40eaff5e074c1b1a5a05b7bcd491dd30ccab"
+    },
+    {
+      "path": "research/randomization_support_audit/STAGE0_SCREEN_PROTOCOL.md",
+      "bytes": 5960,
+      "sha256": "c22c6b6d9a3e7203d76a3107e52abd2ebe4fa48c84918500e51af2060ec268c9"
+    },
+    {
+      "path": "research/randomization_support_audit/STAGE0_SCREEN_RESULT.md",
+      "bytes": 14016,
+      "sha256": "5f548599dcb438e39c878dcbe1b751031e8d9bdd0de648fcd214e58f10e541b0"
+    },
+    {
+      "path": "research/randomization_support_audit/fetch_pscl_rockthevote.py",
+      "bytes": 1726,
+      "sha256": "360cb9e1b2a121a5e977f85d39360093a20dee4af89cdd2998bed7edacfdcf4d"
+    },
+    {
+      "path": "research/randomization_support_audit/extract_abaluck_metadata.py",
+      "bytes": 4362,
+      "sha256": "fb461b97f4a217de13edcaff6a13703c99a224800ae665dde5464946aac68d61"
+    },
+    {
+      "path": "research/randomization_support_audit/verify_both_trials.py",
+      "bytes": 5919,
+      "sha256": "f1a5c4f19dfb09c1ca5745662fafe8126dbf160d6808ea91a1f1e7ce76343d35"
+    },
+    {
+      "path": "research/randomization_support_audit/oracle_support_enumerator.py",
+      "bytes": 25664,
+      "sha256": "24d0873a21cc520e1de8d807ab6f63d05fa57e2cdc6ace76afca65b58df522f2"
+    },
+    {
+      "path": "research/randomization_support_audit/check_model_routes.py",
+      "bytes": 1274,
+      "sha256": "f93e07768be0ea97f62c1dfd516afdc08a72eaf9db7910f02f65f4da22d7a047"
+    },
+    {
+      "path": "research/randomization_support_audit/check_model_family2.py",
+      "bytes": 1248,
+      "sha256": "a2b33cf0f60e8de220bd1e571c1a4654f053adada19fc6f5d6e6173397b1592b"
+    },
+    {
+      "path": "research/randomization_support_audit/run_stage0_support_screen.py",
+      "bytes": 30698,
+      "sha256": "b83468242770cdb97c7572e50d83f70c78d0066879a4f180358d83947b4d89ab"
+    },
+    {
+      "path": "research/randomization_support_audit/audit_stage0_results.py",
+      "bytes": 3840,
+      "sha256": "2ce7ddcf5e1bf216f62353c1f9194319277ffaa22f4629d1478e5dc3e36dc621"
+    },
+    {
+      "path": "research/randomization_support_audit/stage0_screen_outputs/stage0_screen_summary.json",
+      "bytes": 16829,
+      "sha256": "d2f5de11be8db0ede04d4d7e4859b376664cac00ed251a822ec6ec2d82cbda90"
+    },
+    {
+      "path": "research/randomization_support_audit/stage0_screen_outputs/stage0_screen_per_case.json",
+      "bytes": 105870,
+      "sha256": "2d888580e1a9fec9363d531a9d70116d43f0d0d035fa13521c5b12b8a08b85de"
+    }
+  ],
+  "local_only_not_redistributed": [
+    {
+      "local_path": "STAGE0_ORACLE_CASES_12.json",
+      "bytes": 76935,
+      "sha256": "96d0ee402501bf474c5553cb953ad19c57db59b56ca00761ff94de5abb7866f5",
+      "redistributed": false
+    },
+    {
+      "local_path": "STAGE0_MATCHED_40_CASES.json",
+      "bytes": 254594,
+      "sha256": "dde8d95694b0c6bfc9e806d3d88d3b9b3fe4ffb327ff96ad6aaff9192d25d9f1",
+      "redistributed": false
+    },
+    {
+      "local_path": "stage0_screen_outputs/raw_responses_qwen25_1p5b.jsonl",
+      "bytes": 104669,
+      "sha256": "8aabba2e8e6e09c54687e213c70897bcd71c376ab9419fb9459ed04cb47b3ea6",
+      "redistributed": false
+    },
+    {
+      "local_path": "stage0_screen_outputs/raw_responses_granite31_2b.jsonl",
+      "bytes": 113493,
+      "sha256": "daf99f1b8b8b1f416b90fb10c971ec3a9d95a1f4901a1771867c1fbe8a248a41",
+      "redistributed": false
+    },
+    {
+      "local_path": "raw_sources/pscl_RockTheVote.rda",
+      "bytes": 1550,
+      "sha256": "851400e266058e24cb46b964a401bf687933a26a1f2657a8630b86302f29ae4d",
+      "redistributed": false
+    },
+    {
+      "local_path": "raw_sources/pscl_RockTheVote.Rd",
+      "bytes": 4103,
+      "sha256": "978b44ea4097e68f28219501a4de5f0aa02e1c2e24e85b24003440bd3a80ce5c",
+      "redistributed": false
+    },
+    {
+      "local_path": "raw_sources/abaluck2022_bd_mask_rct/01_data/00_common/01_clean/union_reg_sample.dta",
+      "bytes": 101009,
+      "sha256": "61c4784c70fcd5dbea84bfd3a39abb64dc3c9879524b5d294f3159b74ad654a9",
+      "redistributed": false
+    },
+    {
+      "local_path": "raw_sources/abaluck2022_bd_mask_rct/01_data/00_common/00_raw/union_baseline_blood_stats.dta",
+      "bytes": 26430,
+      "sha256": "f7f8a8d05701f504fb74341cfebd771b39fa5346392698d42cf5fbabaa304cb4",
+      "redistributed": false
+    },
+    {
+      "local_path": "raw_sources/abaluck2022_bd_mask_rct/02_code/05_bloodEndline/robustness/10a_reg_rand_inf_symp_sero.do",
+      "bytes": 3117,
+      "sha256": "647aceac42a07d4deb658c68f94aef25846a7dc9dbc28a837a900b4bd9c84abe",
+      "redistributed": false
+    }
+  ]
+}
