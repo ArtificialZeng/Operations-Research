@@ -1,0 +1,400 @@
+[
+  {
+    "file": "alexandria_pbe_mp-2657_TiO2_rutile.yaml.bz2",
+    "label": "TiO2_rutile",
+    "sha256": "909768fd2401ae656a80624b330465e738f053692f77a0d3521e2f199b975fea",
+    "n_prim": 6,
+    "max_residual_force_eV_A": 0.02006,
+    "st_111": {
+      "n_supercell_atoms": 6,
+      "n_force_calls": 4,
+      "atom_force_evals": 24,
+      "wall_s": 0.8659
+    },
+    "st_222": {
+      "n_supercell_atoms": 48,
+      "n_force_calls": 4,
+      "atom_force_evals": 192,
+      "wall_s": 0.6842
+    },
+    "st_333": {
+      "n_supercell_atoms": 162,
+      "n_force_calls": 4,
+      "atom_force_evals": 648,
+      "wall_s": 1.2876
+    },
+    "q_recs": [
+      {
+        "q_name": "X_half",
+        "L": 2,
+        "n_at_min": 12,
+        "f_111": 2.22514,
+        "f_222": 2.34877,
+        "f_comm_proj": 2.34877,
+        "f_comm_min": 2.34877,
+        "ray_001_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 5.515848,
+          "freq_thz": 2.348584,
+          "n_supercell_atoms": 12,
+          "n_force_calls": 2,
+          "atom_force_evals": 24,
+          "wall_s": 0.0662
+        },
+        "ray_001_sin": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 5.515834,
+          "freq_thz": 2.348581,
+          "n_supercell_atoms": 12,
+          "n_force_calls": 2,
+          "atom_force_evals": 24,
+          "wall_s": 0.065
+        },
+        "ray_002_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.002,
+          "omega2_thz2": 5.516546,
+          "freq_thz": 2.348733,
+          "n_supercell_atoms": 12,
+          "n_force_calls": 2,
+          "atom_force_evals": 24,
+          "wall_s": 0.0652
+        },
+        "err_vs_full_comm_thz": 0.000184,
+        "cos_sin_diff_thz": 3e-06,
+        "f_dft_proj": -0.19115,
+        "f_dft_min": -1.10409
+      },
+      {
+        "q_name": "R_half",
+        "L": 2,
+        "n_at_min": 12,
+        "f_111": 2.34652,
+        "f_222": 2.14469,
+        "f_comm_proj": 2.14469,
+        "f_comm_min": 2.14469,
+        "ray_001_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 4.598848,
+          "freq_thz": 2.144493,
+          "n_supercell_atoms": 12,
+          "n_force_calls": 2,
+          "atom_force_evals": 24,
+          "wall_s": 0.065
+        },
+        "ray_001_sin": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 4.598848,
+          "freq_thz": 2.144493,
+          "n_supercell_atoms": 12,
+          "n_force_calls": 2,
+          "atom_force_evals": 24,
+          "wall_s": 0.0653
+        },
+        "ray_002_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.002,
+          "omega2_thz2": 4.600141,
+          "freq_thz": 2.144794,
+          "n_supercell_atoms": 12,
+          "n_force_calls": 2,
+          "atom_force_evals": 24,
+          "wall_s": 0.0635
+        },
+        "err_vs_full_comm_thz": 0.000202,
+        "cos_sin_diff_thz": 0.0,
+        "f_dft_proj": 2.03438,
+        "f_dft_min": 2.02801
+      },
+      {
+        "q_name": "NonSC_3a",
+        "L": 3,
+        "n_at_min": 18,
+        "f_111": 1.84982,
+        "f_222": 1.97573,
+        "f_comm_proj": 1.98018,
+        "f_comm_min": 1.98017,
+        "ray_001_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 3.920266,
+          "freq_thz": 1.979966,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0736
+        },
+        "ray_001_sin": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 3.920301,
+          "freq_thz": 1.979975,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0735
+        },
+        "ray_002_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.002,
+          "omega2_thz2": 3.920657,
+          "freq_thz": 1.980065,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0715
+        },
+        "err_vs_full_comm_thz": 0.000213,
+        "cos_sin_diff_thz": 9e-06,
+        "f_dft_proj": -0.77754,
+        "f_dft_min": -1.60526
+      },
+      {
+        "q_name": "NonSC_3b",
+        "L": 3,
+        "n_at_min": 18,
+        "f_111": 2.0387,
+        "f_222": 2.22302,
+        "f_comm_proj": 2.22688,
+        "f_comm_min": -1.70146,
+        "ray_001_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 4.958056,
+          "freq_thz": 2.226669,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0717
+        },
+        "ray_001_sin": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 4.95806,
+          "freq_thz": 2.22667,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0711
+        },
+        "ray_002_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.002,
+          "omega2_thz2": 4.958477,
+          "freq_thz": 2.226764,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0704
+        },
+        "err_vs_full_comm_thz": 0.000207,
+        "cos_sin_diff_thz": 1e-06,
+        "f_dft_proj": -0.62077,
+        "f_dft_min": -1.25295
+      }
+    ]
+  },
+  {
+    "file": "alexandria_pbe_mp-7000_SiO2_quartz.yaml.bz2",
+    "label": "SiO2_quartz",
+    "sha256": "8603f40989d8be03eb065337043b34458aaa0c78401374f00b979e513bc4d9d0",
+    "n_prim": 9,
+    "max_residual_force_eV_A": 0.030322,
+    "st_111": {
+      "n_supercell_atoms": 9,
+      "n_force_calls": 10,
+      "atom_force_evals": 90,
+      "wall_s": 0.2906
+    },
+    "st_222": {
+      "n_supercell_atoms": 72,
+      "n_force_calls": 10,
+      "atom_force_evals": 720,
+      "wall_s": 0.7705
+    },
+    "st_333": {
+      "n_supercell_atoms": 243,
+      "n_force_calls": 10,
+      "atom_force_evals": 2430,
+      "wall_s": 2.1256
+    },
+    "q_recs": [
+      {
+        "q_name": "X_half",
+        "L": 2,
+        "n_at_min": 18,
+        "f_111": 2.1443,
+        "f_222": 1.82994,
+        "f_comm_proj": 1.82994,
+        "f_comm_min": 1.82994,
+        "ray_001_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 3.349121,
+          "freq_thz": 1.83006,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0727
+        },
+        "ray_001_sin": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 3.349121,
+          "freq_thz": 1.83006,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0351
+        },
+        "ray_002_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.002,
+          "omega2_thz2": 3.34913,
+          "freq_thz": 1.830063,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0687
+        },
+        "err_vs_full_comm_thz": 0.000119,
+        "cos_sin_diff_thz": 0.0,
+        "f_dft_proj": 1.84066,
+        "f_dft_min": 1.83776
+      },
+      {
+        "q_name": "R_half",
+        "L": 2,
+        "n_at_min": 18,
+        "f_111": -3.55363,
+        "f_222": 1.55822,
+        "f_comm_proj": 1.55822,
+        "f_comm_min": 1.55822,
+        "ray_001_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 2.428972,
+          "freq_thz": 1.558516,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0682
+        },
+        "ray_001_sin": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 2.428972,
+          "freq_thz": 1.558516,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0326
+        },
+        "ray_002_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.002,
+          "omega2_thz2": 2.429539,
+          "freq_thz": 1.558698,
+          "n_supercell_atoms": 18,
+          "n_force_calls": 2,
+          "atom_force_evals": 36,
+          "wall_s": 0.0683
+        },
+        "err_vs_full_comm_thz": 0.000299,
+        "cos_sin_diff_thz": 0.0,
+        "f_dft_proj": 1.87103,
+        "f_dft_min": 1.68552
+      },
+      {
+        "q_name": "NonSC_3a",
+        "L": 3,
+        "n_at_min": 27,
+        "f_111": 1.99947,
+        "f_222": 1.40702,
+        "f_comm_proj": 1.69706,
+        "f_comm_min": 1.62163,
+        "ray_001_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 2.880451,
+          "freq_thz": 1.697189,
+          "n_supercell_atoms": 27,
+          "n_force_calls": 2,
+          "atom_force_evals": 54,
+          "wall_s": 0.0823
+        },
+        "ray_001_sin": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 2.880453,
+          "freq_thz": 1.69719,
+          "n_supercell_atoms": 27,
+          "n_force_calls": 2,
+          "atom_force_evals": 54,
+          "wall_s": 0.0818
+        },
+        "ray_002_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.002,
+          "omega2_thz2": 2.880492,
+          "freq_thz": 1.697201,
+          "n_supercell_atoms": 27,
+          "n_force_calls": 2,
+          "atom_force_evals": 54,
+          "wall_s": 0.0792
+        },
+        "err_vs_full_comm_thz": 0.000131,
+        "cos_sin_diff_thz": 1e-06,
+        "f_dft_proj": 1.62353,
+        "f_dft_min": 1.61549
+      },
+      {
+        "q_name": "NonSC_3b",
+        "L": 3,
+        "n_at_min": 27,
+        "f_111": 3.80815,
+        "f_222": 2.35202,
+        "f_comm_proj": 2.37216,
+        "f_comm_min": 2.29961,
+        "ray_001_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 5.628615,
+          "freq_thz": 2.37247,
+          "n_supercell_atoms": 27,
+          "n_force_calls": 2,
+          "atom_force_evals": 54,
+          "wall_s": 0.0798
+        },
+        "ray_001_sin": {
+          "valid_quadrature": true,
+          "h_ang": 0.001,
+          "omega2_thz2": 5.628604,
+          "freq_thz": 2.372468,
+          "n_supercell_atoms": 27,
+          "n_force_calls": 2,
+          "atom_force_evals": 54,
+          "wall_s": 0.0811
+        },
+        "ray_002_cos": {
+          "valid_quadrature": true,
+          "h_ang": 0.002,
+          "omega2_thz2": 5.629066,
+          "freq_thz": 2.372565,
+          "n_supercell_atoms": 27,
+          "n_force_calls": 2,
+          "atom_force_evals": 54,
+          "wall_s": 0.0834
+        },
+        "err_vs_full_comm_thz": 0.000313,
+        "cos_sin_diff_thz": 2e-06,
+        "f_dft_proj": 2.4124,
+        "f_dft_min": 2.40598
+      }
+    ]
+  }
+]
