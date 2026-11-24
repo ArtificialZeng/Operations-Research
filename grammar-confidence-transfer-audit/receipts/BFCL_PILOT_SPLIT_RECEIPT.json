@@ -1,0 +1,475 @@
+{
+  "upstream_repo": "https://github.com/ShishirPatil/gorilla",
+  "upstream_commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "upstream_license": "Apache-2.0",
+  "source_file_hashes": {
+    "data/BFCL_v4_simple_python.json": {
+      "bytes": 283673,
+      "sha256": "6cb4c932a8db34e27cc88b30d95522a57439b998054a843755cdc48ce07e49d7"
+    },
+    "possible_answer/BFCL_v4_simple_python.json": {
+      "bytes": 64026,
+      "sha256": "7381929c55bb6c9d0a9476bf3c92d24969994ffb3ffb58b0207f917e9510326d"
+    },
+    "data/BFCL_v4_multiple.json": {
+      "bytes": 316782,
+      "sha256": "e37760f8c7bfa64845e51824f56e34a8aaca4dfcc0a12c782a35d0ff3a734e77"
+    },
+    "possible_answer/BFCL_v4_multiple.json": {
+      "bytes": 32453,
+      "sha256": "b3f2d34d244296653b8eaffedf42ce15c8cb11287435beaa81264eba5fc4f3a9"
+    }
+  },
+  "benign_screen": {
+    "total_raw_examples": 600,
+    "kept_benign_examples": 516,
+    "dropped_non_readonly_or_sensitive": 84,
+    "dropped_examples": [
+      {
+        "id": "simple_python_39",
+        "category": "simple_python",
+        "matched_token": "charge"
+      },
+      {
+        "id": "simple_python_43",
+        "category": "simple_python",
+        "matched_token": "wire"
+      },
+      {
+        "id": "simple_python_44",
+        "category": "simple_python",
+        "matched_token": "charge"
+      },
+      {
+        "id": "simple_python_86",
+        "category": "simple_python",
+        "matched_token": "transfer"
+      },
+      {
+        "id": "simple_python_87",
+        "category": "simple_python",
+        "matched_token": "order"
+      },
+      {
+        "id": "simple_python_94",
+        "category": "simple_python",
+        "matched_token": "Update"
+      },
+      {
+        "id": "simple_python_129",
+        "category": "simple_python",
+        "matched_token": "payment"
+      },
+      {
+        "id": "simple_python_135",
+        "category": "simple_python",
+        "matched_token": "purchase"
+      },
+      {
+        "id": "simple_python_150",
+        "category": "simple_python",
+        "matched_token": "deposit"
+      },
+      {
+        "id": "simple_python_153",
+        "category": "simple_python",
+        "matched_token": "deposit"
+      },
+      {
+        "id": "simple_python_156",
+        "category": "simple_python",
+        "matched_token": "crime"
+      },
+      {
+        "id": "simple_python_158",
+        "category": "simple_python",
+        "matched_token": "criminal"
+      },
+      {
+        "id": "simple_python_159",
+        "category": "simple_python",
+        "matched_token": "Criminal"
+      },
+      {
+        "id": "simple_python_160",
+        "category": "simple_python",
+        "matched_token": "court"
+      },
+      {
+        "id": "simple_python_161",
+        "category": "simple_python",
+        "matched_token": "crime"
+      },
+      {
+        "id": "simple_python_164",
+        "category": "simple_python",
+        "matched_token": "crime"
+      },
+      {
+        "id": "simple_python_165",
+        "category": "simple_python",
+        "matched_token": "crime"
+      },
+      {
+        "id": "simple_python_166",
+        "category": "simple_python",
+        "matched_token": "charge"
+      },
+      {
+        "id": "simple_python_167",
+        "category": "simple_python",
+        "matched_token": "Court"
+      },
+      {
+        "id": "simple_python_169",
+        "category": "simple_python",
+        "matched_token": "court"
+      },
+      {
+        "id": "simple_python_171",
+        "category": "simple_python",
+        "matched_token": "court"
+      },
+      {
+        "id": "simple_python_177",
+        "category": "simple_python",
+        "matched_token": "lawsuit"
+      },
+      {
+        "id": "simple_python_178",
+        "category": "simple_python",
+        "matched_token": "lawsuit"
+      },
+      {
+        "id": "simple_python_179",
+        "category": "simple_python",
+        "matched_token": "court"
+      },
+      {
+        "id": "simple_python_181",
+        "category": "simple_python",
+        "matched_token": "lawsuit"
+      },
+      {
+        "id": "simple_python_182",
+        "category": "simple_python",
+        "matched_token": "lawsuit"
+      },
+      {
+        "id": "simple_python_184",
+        "category": "simple_python",
+        "matched_token": "lawsuit"
+      },
+      {
+        "id": "simple_python_206",
+        "category": "simple_python",
+        "matched_token": "court"
+      },
+      {
+        "id": "simple_python_211",
+        "category": "simple_python",
+        "matched_token": "Send"
+      },
+      {
+        "id": "simple_python_213",
+        "category": "simple_python",
+        "matched_token": "Book"
+      },
+      {
+        "id": "simple_python_216",
+        "category": "simple_python",
+        "matched_token": "text"
+      },
+      {
+        "id": "simple_python_262",
+        "category": "simple_python",
+        "matched_token": "Modify"
+      },
+      {
+        "id": "simple_python_288",
+        "category": "simple_python",
+        "matched_token": "Book"
+      },
+      {
+        "id": "simple_python_344",
+        "category": "simple_python",
+        "matched_token": "Weapon"
+      },
+      {
+        "id": "simple_python_370",
+        "category": "simple_python",
+        "matched_token": "Order"
+      },
+      {
+        "id": "simple_python_373",
+        "category": "simple_python",
+        "matched_token": "buy"
+      },
+      {
+        "id": "simple_python_380",
+        "category": "simple_python",
+        "matched_token": "Book"
+      },
+      {
+        "id": "simple_python_382",
+        "category": "simple_python",
+        "matched_token": "Book"
+      },
+      {
+        "id": "simple_python_383",
+        "category": "simple_python",
+        "matched_token": "book"
+      },
+      {
+        "id": "simple_python_384",
+        "category": "simple_python",
+        "matched_token": "Book"
+      },
+      {
+        "id": "simple_python_385",
+        "category": "simple_python",
+        "matched_token": "Book"
+      },
+      {
+        "id": "simple_python_386",
+        "category": "simple_python",
+        "matched_token": "Book"
+      },
+      {
+        "id": "simple_python_387",
+        "category": "simple_python",
+        "matched_token": "Book"
+      },
+      {
+        "id": "multiple_10",
+        "category": "multiple",
+        "matched_token": "delete"
+      },
+      {
+        "id": "multiple_33",
+        "category": "multiple",
+        "matched_token": "order"
+      },
+      {
+        "id": "multiple_38",
+        "category": "multiple",
+        "matched_token": "book"
+      },
+      {
+        "id": "multiple_39",
+        "category": "multiple",
+        "matched_token": "order"
+      },
+      {
+        "id": "multiple_41",
+        "category": "multiple",
+        "matched_token": "charge"
+      },
+      {
+        "id": "multiple_46",
+        "category": "multiple",
+        "matched_token": "order"
+      },
+      {
+        "id": "multiple_59",
+        "category": "multiple",
+        "matched_token": "criminal"
+      },
+      {
+        "id": "multiple_67",
+        "category": "multiple",
+        "matched_token": "text"
+      },
+      {
+        "id": "multiple_68",
+        "category": "multiple",
+        "matched_token": "book"
+      },
+      {
+        "id": "multiple_74",
+        "category": "multiple",
+        "matched_token": "book"
+      },
+      {
+        "id": "multiple_76",
+        "category": "multiple",
+        "matched_token": "order"
+      },
+      {
+        "id": "multiple_81",
+        "category": "multiple",
+        "matched_token": "Book"
+      },
+      {
+        "id": "multiple_87",
+        "category": "multiple",
+        "matched_token": "update"
+      },
+      {
+        "id": "multiple_93",
+        "category": "multiple",
+        "matched_token": "Book"
+      },
+      {
+        "id": "multiple_94",
+        "category": "multiple",
+        "matched_token": "book"
+      },
+      {
+        "id": "multiple_103",
+        "category": "multiple",
+        "matched_token": "court"
+      },
+      {
+        "id": "multiple_105",
+        "category": "multiple",
+        "matched_token": "Book"
+      },
+      {
+        "id": "multiple_106",
+        "category": "multiple",
+        "matched_token": "charge"
+      },
+      {
+        "id": "multiple_108",
+        "category": "multiple",
+        "matched_token": "payment"
+      },
+      {
+        "id": "multiple_113",
+        "category": "multiple",
+        "matched_token": "purchase"
+      },
+      {
+        "id": "multiple_114",
+        "category": "multiple",
+        "matched_token": "Modify"
+      },
+      {
+        "id": "multiple_118",
+        "category": "multiple",
+        "matched_token": "book"
+      },
+      {
+        "id": "multiple_119",
+        "category": "multiple",
+        "matched_token": "purchase"
+      },
+      {
+        "id": "multiple_120",
+        "category": "multiple",
+        "matched_token": "order"
+      },
+      {
+        "id": "multiple_134",
+        "category": "multiple",
+        "matched_token": "crime"
+      },
+      {
+        "id": "multiple_135",
+        "category": "multiple",
+        "matched_token": "court"
+      },
+      {
+        "id": "multiple_136",
+        "category": "multiple",
+        "matched_token": "crime"
+      },
+      {
+        "id": "multiple_141",
+        "category": "multiple",
+        "matched_token": "lawsuit"
+      },
+      {
+        "id": "multiple_149",
+        "category": "multiple",
+        "matched_token": "text"
+      },
+      {
+        "id": "multiple_154",
+        "category": "multiple",
+        "matched_token": "Update"
+      },
+      {
+        "id": "multiple_169",
+        "category": "multiple",
+        "matched_token": "purchase"
+      },
+      {
+        "id": "multiple_173",
+        "category": "multiple",
+        "matched_token": "order"
+      },
+      {
+        "id": "multiple_180",
+        "category": "multiple",
+        "matched_token": "book"
+      },
+      {
+        "id": "multiple_182",
+        "category": "multiple",
+        "matched_token": "Send"
+      },
+      {
+        "id": "multiple_188",
+        "category": "multiple",
+        "matched_token": "text"
+      },
+      {
+        "id": "multiple_190",
+        "category": "multiple",
+        "matched_token": "Book"
+      },
+      {
+        "id": "multiple_191",
+        "category": "multiple",
+        "matched_token": "Book"
+      },
+      {
+        "id": "multiple_194",
+        "category": "multiple",
+        "matched_token": "lawsuit"
+      },
+      {
+        "id": "multiple_195",
+        "category": "multiple",
+        "matched_token": "lawsuit"
+      },
+      {
+        "id": "multiple_196",
+        "category": "multiple",
+        "matched_token": "charge"
+      },
+      {
+        "id": "multiple_197",
+        "category": "multiple",
+        "matched_token": "purchase"
+      }
+    ]
+  },
+  "clustering_and_disjoint_split": {
+    "split_seed": 20261124,
+    "total_connected_tool_family_clusters": 144,
+    "pilot_dev": {
+      "n_examples": 100,
+      "n_simple_python": 60,
+      "n_multiple": 40,
+      "n_clusters": 70,
+      "n_distinct_tool_families": 113,
+      "file": "bfcl_stage0_pilot_dataset.json",
+      "sha256": "191e8e8c8c9c00f0f7dacd0a98b6f592b02e878e444da0016e99f1e31c1cd446"
+    },
+    "future_blind_test": {
+      "n_examples": 416,
+      "n_simple_python": 297,
+      "n_multiple": 119,
+      "n_clusters": 74,
+      "n_distinct_tool_families": 243,
+      "sealed_ids_file": "bfcl_future_blind_test_ids_sealed.json",
+      "sealed_ids_sha256": "64268a3c286eaacd45f51a470cb619ff3027019e27f7f5632b7d1f7a56139e0a"
+    },
+    "zero_id_overlap": true,
+    "zero_exact_function_name_overlap": true,
+    "zero_tool_family_root_overlap": true
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "purpose": "Pre-launch Stage-0c fixture gate: fixed typed JSON canonicalization, exact AST equivalence on all 48 sealed neutral_menu outputs, Ye26 SMT span compatibility, and Stage-0b prompt neutrality.",
+  "script_sha256": "90bd257794ee9bbcd7d06e28223713bf019aa42781c989d699774f92df8320cc",
+  "all_fixtures_passed": true,
+  "sealed_hashes_verified": {
+    "bfcl_stage0_pilot_dataset.json": "191e8e8c8c9c00f0f7dacd0a98b6f592b02e878e444da0016e99f1e31c1cd446",
+    "bfcl_future_blind_test_ids_sealed.json": "64268a3c286eaacd45f51a470cb619ff3027019e27f7f5632b7d1f7a56139e0a",
+    "grammar_utils.py": "d063e5e347bf2928f1c6f22becafd67611f711842960276e1399359dab966423",
+    "select_stage0b_subset_and_verify.py": "0a0d9b95cedc580b8fdff00ac44277b6e0409c411dcc0dc4138a1fed168defa1",
+    "STAGE0B_SUBSET_24_RECEIPT.json": "65bcba4a28ee39bf3ff7f4173e773c110c076a136f663cda7dcde57f928cbf46",
+    "STAGE0B_FIXTURE_RECEIPT.json": "04ee945695311cc738406e5a769556b14ed0bbc7e8212b85ac86cdc36d456d65",
+    "stage0b_outputs/stage0b_per_instance.jsonl": "724e921058677ee9b32d5a2e1fc74083af9d6dd29717c32bd6a9bc33ce489c9e",
+    "stage0b_outputs/stage0b_summary.json": "9036772bb510bac388dc123dadaef89a1cf037a40ba0806ecef0cbc5b352812d"
+  },
+  "unit_fixture_fixed_root_order_sorted_args_list_order_types_passed": true,
+  "neutral_prompt_hygiene_verified_all_24": true,
+  "n_sealed_outputs_ast_verified": 48,
+  "all_48_canonical_ast_verdicts_identical_to_sealed_stage0b": true,
+  "all_48_canonical_smt_spans_parsed_ok": true,
+  "n_items_total": 24,
+  "n_pairs_identical_canonical_string_deduplicated": 21,
+  "n_pairs_distinct_canonical_strings": 3,
+  "n_unique_canonical_strings_to_score": 27,
+  "non_equal_canonical_pairs": [
+    {
+      "id": "multiple_25",
+      "category": "multiple",
+      "tool_family_cluster": "multiple_25",
+      "compact_ast_correct": true,
+      "optws_ast_correct": true,
+      "canonical_compact": "{\"name\": \"video_games.store_price\", \"arguments\": {\"game_title\": \"Assassins Creed Valhalla\", \"platform\": \"PlayStation\"}}",
+      "canonical_optws": "{\"name\": \"video_games.store_price\", \"arguments\": {\"game_title\": \"Assassins Creed Valhalla\", \"platform\": \"PlayStation\", \"region\": \"United States\"}}"
+    },
+    {
+      "id": "multiple_48",
+      "category": "multiple",
+      "tool_family_cluster": "multiple_48",
+      "compact_ast_correct": true,
+      "optws_ast_correct": true,
+      "canonical_compact": "{\"name\": \"library.find_nearby\", \"arguments\": {\"location\": \"New York City, NY\", \"preferences\": [\"Pet-friendly\", \"Disabled Access\"]}}",
+      "canonical_optws": "{\"name\": \"library.find_nearby\", \"arguments\": {\"location\": \"New York City\", \"preferences\": [\"Pet-friendly\", \"Disabled Access\"]}}"
+    },
+    {
+      "id": "simple_python_202",
+      "category": "simple_python",
+      "tool_family_cluster": "multiple_189",
+      "compact_ast_correct": false,
+      "optws_ast_correct": true,
+      "canonical_compact": "{\"name\": \"calculate_emission_savings\", \"arguments\": {\"energy_type\": \"renewable energy sources\", \"region\": \"California\", \"usage_duration\": 3}}",
+      "canonical_optws": "{\"name\": \"calculate_emission_savings\", \"arguments\": {\"energy_type\": \"renewable\", \"region\": \"California\", \"usage_duration\": 3}}"
+    }
+  ],
+  "epistemic_note": "Identical-serialization score equality on deduplicated pairs is by construction and is NOT empirical novelty."
+}

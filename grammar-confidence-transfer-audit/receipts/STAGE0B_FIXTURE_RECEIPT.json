@@ -1,0 +1,19 @@
+{
+  "purpose": "Pre-launch Stage-0b fixture check: prompt hygiene, zero-leakage menu enum, whitespace-only AST equivalence, all-24 grammar compilation, and float64 algebra identity.",
+  "script_sha256": "0a0d9b95cedc580b8fdff00ac44277b6e0409c411dcc0dc4138a1fed168defa1",
+  "subset_receipt_sha256": "65bcba4a28ee39bf3ff7f4173e773c110c076a136f663cda7dcde57f928cbf46",
+  "all_fixtures_passed": true,
+  "neutral_prompt_has_no_json_format_example": true,
+  "compact_prompt_has_compact_example": true,
+  "menu_enum_independent_of_ground_truth": true,
+  "sample_multiple_menu_names": [
+    "AmazonGameStore.recommend",
+    "BoardGameGeek.recommend"
+  ],
+  "all_offered_names_accepted_by_both_menu_grammars": true,
+  "spaced_json_rejected_by_compact_menu_accepted_by_optws_menu": true,
+  "unoffered_name_rejected_by_both_menu_grammars": true,
+  "all_24_item_menu_grammars_compiled_cleanly": true,
+  "max_algebra_identity_err_compact_menu": 3.552713678800501e-15,
+  "max_algebra_identity_err_optws_menu": 3.552713678800501e-15
+}

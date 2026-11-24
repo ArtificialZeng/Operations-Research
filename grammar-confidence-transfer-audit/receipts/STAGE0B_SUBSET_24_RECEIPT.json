@@ -1,0 +1,267 @@
+{
+  "selection_rule": "Deterministic outcome-independent sort by sha256('stage0b_20261124:' + id); first 12 simple_python + first 12 multiple from sealed bfcl_stage0_pilot_dataset.json (zero reading of Stage-0 outcomes; future_blind_test untouched).",
+  "pilot_dataset_sha256": "191e8e8c8c9c00f0f7dacd0a98b6f592b02e878e444da0016e99f1e31c1cd446",
+  "n_selected": 24,
+  "n_simple_python": 12,
+  "n_multiple": 12,
+  "selected_items": [
+    {
+      "id": "multiple_189",
+      "category": "multiple",
+      "sha256_rank_key": "1b61513fc086162d523955baad147d8423772398556f8777d6f3ff86481d0f74",
+      "tool_family_cluster": "multiple_189",
+      "n_offered_functions": 2,
+      "offered_function_names_canonical": [
+        "calculate_emission_savings",
+        "timezone.convert"
+      ]
+    },
+    {
+      "id": "multiple_19",
+      "category": "multiple",
+      "sha256_rank_key": "2800df77919bec84fc6392438275716942f6d512a3ae262eda1f97b4adbfe62d",
+      "tool_family_cluster": "multiple_19",
+      "n_offered_functions": 3,
+      "offered_function_names_canonical": [
+        "religion_history.get_councils",
+        "religion_history.get_reformations",
+        "religion_history.get_schisms"
+      ]
+    },
+    {
+      "id": "multiple_22",
+      "category": "multiple",
+      "sha256_rank_key": "264321a513b85dca54d01877794ba361dc15dbfa79da0efe08a424d01895f843",
+      "tool_family_cluster": "multiple_22",
+      "n_offered_functions": 3,
+      "offered_function_names_canonical": [
+        "sports_data.basketball.most_points_career",
+        "sports_data.basketball.most_points_single_game",
+        "sports_data.basketball.most_points_single_season"
+      ]
+    },
+    {
+      "id": "multiple_25",
+      "category": "multiple",
+      "sha256_rank_key": "41fe8edabc40b50d067006b397c5c914c9ad00f7f6561e99c17870bf5a04828f",
+      "tool_family_cluster": "multiple_25",
+      "n_offered_functions": 3,
+      "offered_function_names_canonical": [
+        "video_games.on_sale",
+        "video_games.store_currency",
+        "video_games.store_price"
+      ]
+    },
+    {
+      "id": "multiple_30",
+      "category": "multiple",
+      "sha256_rank_key": "3b459be18451d1366d1efac2ded5e7d0aa60d8c91585c05b1b3eae3c286d1659",
+      "tool_family_cluster": "multiple_30",
+      "n_offered_functions": 3,
+      "offered_function_names_canonical": [
+        "circle.area",
+        "rectangle.area",
+        "triangle.area"
+      ]
+    },
+    {
+      "id": "multiple_35",
+      "category": "multiple",
+      "sha256_rank_key": "1db92f9b81e4fdcce5bf6c0e4eec1c324e43ef46a63052dc5a7c33daa8dba0f0",
+      "tool_family_cluster": "multiple_35",
+      "n_offered_functions": 2,
+      "offered_function_names_canonical": [
+        "calculate_gcd",
+        "calculate_lcm"
+      ]
+    },
+    {
+      "id": "multiple_47",
+      "category": "multiple",
+      "sha256_rank_key": "3d3fb2b27cfaf2b2f9a2c16798582550d9a42a4299dd30b990d60a8c28dc7fb5",
+      "tool_family_cluster": "multiple_47",
+      "n_offered_functions": 2,
+      "offered_function_names_canonical": [
+        "correlation.calculate",
+        "cosine_similarity.calculate"
+      ]
+    },
+    {
+      "id": "multiple_48",
+      "category": "multiple",
+      "sha256_rank_key": "31fb6e7d6ba6489f8cad647cf43127a36c1407ec33dd57ab602efd3e5a4da67e",
+      "tool_family_cluster": "multiple_48",
+      "n_offered_functions": 2,
+      "offered_function_names_canonical": [
+        "library.find_nearby",
+        "store.find_nearby"
+      ]
+    },
+    {
+      "id": "multiple_60",
+      "category": "multiple",
+      "sha256_rank_key": "3d5880ecb95e670427cae678e0001f99d4f29df9062036c4e90098e5af6a89e3",
+      "tool_family_cluster": "multiple_153",
+      "n_offered_functions": 3,
+      "offered_function_names_canonical": [
+        "event_search",
+        "humidity_temperature_forecast",
+        "movie_showtimes"
+      ]
+    },
+    {
+      "id": "multiple_70",
+      "category": "multiple",
+      "sha256_rank_key": "1a5a0d3554b5493d3eb16ab63523186c67a6caf7c6750a5123ecbd4384922697",
+      "tool_family_cluster": "multiple_18",
+      "n_offered_functions": 3,
+      "offered_function_names_canonical": [
+        "european_history.get_culture",
+        "european_history.get_events",
+        "european_history.get_monarchs"
+      ]
+    },
+    {
+      "id": "multiple_86",
+      "category": "multiple",
+      "sha256_rank_key": "17094970605608ae8d1b823aecaaec005b4d50f181b39270099ef41a53add571",
+      "tool_family_cluster": "multiple_86",
+      "n_offered_functions": 2,
+      "offered_function_names_canonical": [
+        "AmazonGameStore.recommend",
+        "BoardGameGeek.recommend"
+      ]
+    },
+    {
+      "id": "multiple_88",
+      "category": "multiple",
+      "sha256_rank_key": "3b4593cf7069788df157d3dd648a21501e29dcdba177acd5037637d68dfae7d8",
+      "tool_family_cluster": "multiple_25",
+      "n_offered_functions": 2,
+      "offered_function_names_canonical": [
+        "video_games.get_player_count",
+        "video_games.get_sales"
+      ]
+    },
+    {
+      "id": "simple_python_100",
+      "category": "simple_python",
+      "sha256_rank_key": "10b1817d860a74bf1b8e6c84fdf3cb5384cf509282352f2ed9ff91fb25abfac7",
+      "tool_family_cluster": "simple_python_100",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "light_travel_time"
+      ]
+    },
+    {
+      "id": "simple_python_11",
+      "category": "simple_python",
+      "sha256_rank_key": "217245465066e88ebabc308d6a76d1a5d0172bdeb020acc616438589c303e5c4",
+      "tool_family_cluster": "multiple_30",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "calculate_triangle_area"
+      ]
+    },
+    {
+      "id": "simple_python_111",
+      "category": "simple_python",
+      "sha256_rank_key": "0c187acd5d60c1c9f2d9b7b592b0fa750f166fc99688eabb8b088a7f0c8e32d4",
+      "tool_family_cluster": "multiple_53",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "random.normalvariate"
+      ]
+    },
+    {
+      "id": "simple_python_175",
+      "category": "simple_python",
+      "sha256_rank_key": "278465eec6982eafa40c808c1950bd22b441705d9128614046961afb37839a81",
+      "tool_family_cluster": "multiple_58",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "lawyer.get_experience"
+      ]
+    },
+    {
+      "id": "simple_python_202",
+      "category": "simple_python",
+      "sha256_rank_key": "03986721f7d5cfe2bc73ebd7754b68de585693910eba4e1ea9c61c91269d9646",
+      "tool_family_cluster": "multiple_189",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "calculate_emission_savings"
+      ]
+    },
+    {
+      "id": "simple_python_25",
+      "category": "simple_python",
+      "sha256_rank_key": "16f640a0aa6e5e4a955d2722491a6b688539792e69146dd01cb9a9dfadd277fa",
+      "tool_family_cluster": "multiple_42",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "calculate_final_velocity"
+      ]
+    },
+    {
+      "id": "simple_python_272",
+      "category": "simple_python",
+      "sha256_rank_key": "24bd7f178c689d77b0b45d97acf867c346eba2282c5c60202ab3b0218ea14167",
+      "tool_family_cluster": "multiple_30",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "calculate_circle_dimensions"
+      ]
+    },
+    {
+      "id": "simple_python_334",
+      "category": "simple_python",
+      "sha256_rank_key": "26f1ca0641be2b4d3fe5710a32d95f3f9d8e4a52508518d975eb984133301c2f",
+      "tool_family_cluster": "simple_python_334",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "blackjack.check_winner"
+      ]
+    },
+    {
+      "id": "simple_python_378",
+      "category": "simple_python",
+      "sha256_rank_key": "22beb2de9a75e26094633e1f565e16a6a09bf91334b1a8cea59e9a293502393a",
+      "tool_family_cluster": "multiple_189",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "timezone.convert"
+      ]
+    },
+    {
+      "id": "simple_python_51",
+      "category": "simple_python",
+      "sha256_rank_key": "0d5e5122018e96c1aa617f8150eac7f0e1e5b4256111796d932952efb5d24fa6",
+      "tool_family_cluster": "multiple_153",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "calculate_entropy_change"
+      ]
+    },
+    {
+      "id": "simple_python_54",
+      "category": "simple_python",
+      "sha256_rank_key": "11dba8460a293aa2544aab9fe8c7c3f43a2cf9f3ba38bcccea265e0a51e41e70",
+      "tool_family_cluster": "simple_python_54",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "get_protein_sequence"
+      ]
+    },
+    {
+      "id": "simple_python_93",
+      "category": "simple_python",
+      "sha256_rank_key": "064454bb152303497b72b6bce148efc3816c22314b222e97a2e5cef96ace263e",
+      "tool_family_cluster": "simple_python_93",
+      "n_offered_functions": 1,
+      "offered_function_names_canonical": [
+        "get_theater_movie_releases"
+      ]
+    }
+  ]
+}

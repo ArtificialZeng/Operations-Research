@@ -1,0 +1,271 @@
+{
+  "archive_name": "grammar-confidence-transfer-audit",
+  "archive_date": "2026-11-24",
+  "status": "FROZEN_EXPLORATORY_NEGATIVE_RESEARCH_ARCHIVE",
+  "model_pinned": {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "license": "Apache-2.0",
+    "commit_sha": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "model_safetensors_bytes": 3087467144,
+    "model_safetensors_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+  },
+  "upstream_benchmark_pinned": {
+    "repo": "https://github.com/ShishirPatil/gorilla",
+    "commit_sha": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+    "license": "Apache-2.0",
+    "checkout_omitted_from_archive": true
+  },
+  "sealed_blind_split_omitted": {
+    "filename": "bfcl_future_blind_test_ids_sealed.json",
+    "n_items": 416,
+    "n_disjoint_clusters": 74,
+    "sha256": "64268a3c286eaacd45f51a470cb619ff3027019e27f7f5632b7d1f7a56139e0a",
+    "opened_or_decoded": false,
+    "omitted_from_public_archive": true
+  },
+  "exclusions": [
+    "bfcl_upstream/ checkout (pinned by commit & license only)",
+    "model weights & Hugging Face caches",
+    ".venv/ virtual environment & Python __pycache__",
+    "bfcl_future_blind_test_ids_sealed.json (all 416 blind IDs excluded; checksum preserved above)",
+    "internal scratch/status notes, PDFs, and media",
+    "all local private filesystem paths and absolute file URLs"
+  ],
+  "n_files_listed": 31,
+  "total_bytes_listed": 3597749,
+  "files": [
+    {
+      "path": "PROVENANCE_AND_INTERPRETATION.md",
+      "bytes": 5253,
+      "sha256": "1630722f1a025c41323f9a48441a7f15c49e13c77d0e8b579f40ead5487d1066",
+      "local_sealed_sha256": "edaa29de7b5672a99558b2fd4665db2fb992ba296ecf7aebe56d10441d5739ce",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file:// links to portable relative archive links (local sealed SHA-256 preserved)."
+    },
+    {
+      "path": "README.md",
+      "bytes": 10049,
+      "sha256": "3ce20795cabdca7ba59126b5d69c5ff544ee6ed3372e63892c188fcc69887526",
+      "byte_identical_to_local_sealed": null,
+      "note": "Top-level portable archive README."
+    },
+    {
+      "path": "code/build_bfcl_pilot_split.py",
+      "bytes": 11653,
+      "sha256": "e44df10e22e3b9fe8be3af9d22348e50b2da3bca0ed3fabf4cf16f527f8201da",
+      "local_sealed_sha256": "24256c697b7ad68c777aeb82a2ad39039367432198e0c793957f908546877f90",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path and added explicit pinned HF revision kwarg (local executed script SHA-256 preserved in local_sealed_sha256)."
+    },
+    {
+      "path": "code/grammar_utils.py",
+      "bytes": 18696,
+      "sha256": "d089f6c30a9b102d4ac6ac838eb172e17f35a429c8f8f5156b333fb0e1a86788",
+      "local_sealed_sha256": "d063e5e347bf2928f1c6f22becafd67611f711842960276e1399359dab966423",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path and added explicit pinned HF revision kwarg (local executed script SHA-256 preserved in local_sealed_sha256)."
+    },
+    {
+      "path": "code/select_stage0b_subset_and_verify.py",
+      "bytes": 13342,
+      "sha256": "b45ae484f9178dc4f20d09ea8c04ce05463142c5cda3cd3ac7d31491f77ea697",
+      "local_sealed_sha256": "0a0d9b95cedc580b8fdff00ac44277b6e0409c411dcc0dc4138a1fed168defa1",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path and added explicit pinned HF revision kwarg (local executed script SHA-256 preserved in local_sealed_sha256)."
+    },
+    {
+      "path": "code/stage0_grammar_confidence_pilot.py",
+      "bytes": 33990,
+      "sha256": "a5c9403764ce9a7221973ed9e35655433d0cd11b788c9f3f2c726fc335ca1811",
+      "local_sealed_sha256": "4f366ffb06617f2fcb2f36661c6c9b503096a47dd709450603faf095da9a7cb9",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path and added explicit pinned HF revision kwarg (local executed script SHA-256 preserved in local_sealed_sha256)."
+    },
+    {
+      "path": "code/stage0b_mechanism_followup.py",
+      "bytes": 51736,
+      "sha256": "4f1c558f5c5ed360ca73a0f738e4859f1409c078237ed0a2c31b198c6be19adf",
+      "local_sealed_sha256": "9c866ba0f08080f57556ec92dc8fc0af6274a814a2a93ded2e55bfc3d57cbb1a",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path and added explicit pinned HF revision kwarg (local executed script SHA-256 preserved in local_sealed_sha256)."
+    },
+    {
+      "path": "code/stage0c_canonical_replay_pilot.py",
+      "bytes": 40399,
+      "sha256": "887a27c8f9246c22c7e60fa2fc1902c3959755730c6dc5cef29b21d413dcf501",
+      "local_sealed_sha256": "13d25dd12dbfb34b88a30b67f15a04cd36c8c9ac2eee9731a8c81d665aec24e0",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path and added explicit pinned HF revision kwarg (local executed script SHA-256 preserved in local_sealed_sha256)."
+    },
+    {
+      "path": "code/verify_grammar_mask_algebra.py",
+      "bytes": 11214,
+      "sha256": "8eb957d709dc4eaf08da29e55cb445418eedd90b863934c7d8eb4052c256a1c2",
+      "local_sealed_sha256": "e48745d4b7217ca3bce3d209d14d79bea15e1ae08a102dbc0d92d921baea0dd8",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path and added explicit pinned HF revision kwarg (local executed script SHA-256 preserved in local_sealed_sha256)."
+    },
+    {
+      "path": "code/verify_stage0c_canonical_fixture.py",
+      "bytes": 10748,
+      "sha256": "d391473acc6d919cd40c21ac7641ce1a6d50afc08f19967c0961d13e5dc313b6",
+      "local_sealed_sha256": "90bd257794ee9bbcd7d06e28223713bf019aa42781c989d699774f92df8320cc",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path and added explicit pinned HF revision kwarg (local executed script SHA-256 preserved in local_sealed_sha256)."
+    },
+    {
+      "path": "data/bfcl_stage0_pilot_dataset.json",
+      "bytes": 209128,
+      "sha256": "191e8e8c8c9c00f0f7dacd0a98b6f592b02e878e444da0016e99f1e31c1cd446",
+      "local_sealed_sha256": "191e8e8c8c9c00f0f7dacd0a98b6f592b02e878e444da0016e99f1e31c1cd446",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "outputs/stage0/stage0_pilot_per_instance.jsonl",
+      "bytes": 741678,
+      "sha256": "06c90359910592d3d43916c50479abadc15a5cac2d9600ada8b2b0e2566b6aa8",
+      "local_sealed_sha256": "06c90359910592d3d43916c50479abadc15a5cac2d9600ada8b2b0e2566b6aa8",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "outputs/stage0/stage0_pilot_summary.json",
+      "bytes": 88134,
+      "sha256": "a39963f0cf7d00a1ef4c2c0864708883a7f01072e364580c6e7fd3d4e7b8af6c",
+      "local_sealed_sha256": "a39963f0cf7d00a1ef4c2c0864708883a7f01072e364580c6e7fd3d4e7b8af6c",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "outputs/stage0b/stage0b_per_instance.jsonl",
+      "bytes": 734749,
+      "sha256": "724e921058677ee9b32d5a2e1fc74083af9d6dd29717c32bd6a9bc33ce489c9e",
+      "local_sealed_sha256": "724e921058677ee9b32d5a2e1fc74083af9d6dd29717c32bd6a9bc33ce489c9e",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "outputs/stage0b/stage0b_prefix_logit_inspection.json",
+      "bytes": 1012594,
+      "sha256": "78b826ecf3134f76246296b4c8043ecab5c813776281b778cd52b26cf58ce861",
+      "local_sealed_sha256": "78b826ecf3134f76246296b4c8043ecab5c813776281b778cd52b26cf58ce861",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "outputs/stage0b/stage0b_summary.json",
+      "bytes": 370040,
+      "sha256": "9036772bb510bac388dc123dadaef89a1cf037a40ba0806ecef0cbc5b352812d",
+      "local_sealed_sha256": "9036772bb510bac388dc123dadaef89a1cf037a40ba0806ecef0cbc5b352812d",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "outputs/stage0c/stage0c_per_instance.jsonl",
+      "bytes": 57455,
+      "sha256": "1f8528905f5e1c15a1e000299a36b0ef3f23f39ea8f726af2e4e06673d991fb5",
+      "local_sealed_sha256": "1f8528905f5e1c15a1e000299a36b0ef3f23f39ea8f726af2e4e06673d991fb5",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "outputs/stage0c/stage0c_summary.json",
+      "bytes": 90620,
+      "sha256": "d47422dfdba372826c53097481032ba5b31a5c8df38e3a1038809649b8c4b797",
+      "local_sealed_sha256": "d47422dfdba372826c53097481032ba5b31a5c8df38e3a1038809649b8c4b797",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "protocols/STAGE0B_AMENDMENT_PROTOCOL.md",
+      "bytes": 8599,
+      "sha256": "b44177d7f03ab7a359aa95ea863b650fe83eb892966ccac6b6f53b4e9617289c",
+      "local_sealed_sha256": "41291369ff4aec5d9d4ebbb7697c9aec5d69be6bf26b94b31bfce09aefa41732",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file:// links to portable relative archive links (local sealed SHA-256 preserved)."
+    },
+    {
+      "path": "protocols/STAGE0C_CANONICAL_REPLAY_PROTOCOL.md",
+      "bytes": 5134,
+      "sha256": "7d587c92d70f4b027b31fa1ad188fa893992df85aea75018f4cf61b6428988c9",
+      "local_sealed_sha256": "eafecf8ff023f800e78a10fa63dddc8bfc38cf941d8b31f2b525fad3c50f3efe",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file:// links to portable relative archive links (local sealed SHA-256 preserved)."
+    },
+    {
+      "path": "protocols/STAGE0_PROTOCOL.md",
+      "bytes": 8334,
+      "sha256": "4bbf62ab754e6480a66a136180b2bc64706dc3cfeb00d3abc4dcf88bd5afc27e",
+      "local_sealed_sha256": "9c4573d847d18a683c22440390d6e9b11d44691d45321e6ede5217894ec065b6",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file:// links to portable relative archive links (local sealed SHA-256 preserved)."
+    },
+    {
+      "path": "receipts/BFCL_PILOT_SPLIT_RECEIPT.json",
+      "bytes": 12185,
+      "sha256": "3d6e0be091e3f6a85c7985dcb29b364268df1e6d039f86895daf309e13943f57",
+      "local_sealed_sha256": "3d6e0be091e3f6a85c7985dcb29b364268df1e6d039f86895daf309e13943f57",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "receipts/MODEL_TRANSPORT_RECEIPT.json",
+      "bytes": 959,
+      "sha256": "d36ca3d5baa3003acfb04952bbe5db6ff2df34cb6a4ba72aeadec913cbfd22d2",
+      "local_sealed_sha256": "74cdd02fae04f8328eef6a323f3e80e2f02d52a2b0f8d200c2674b629071c8ad",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Redacted local Windows user home path in snapshot_path to <HF_CACHE>/...; original local receipt SHA-256 preserved."
+    },
+    {
+      "path": "receipts/STAGE0B_FIXTURE_RECEIPT.json",
+      "bytes": 1037,
+      "sha256": "04ee945695311cc738406e5a769556b14ed0bbc7e8212b85ac86cdc36d456d65",
+      "local_sealed_sha256": "04ee945695311cc738406e5a769556b14ed0bbc7e8212b85ac86cdc36d456d65",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "receipts/STAGE0B_SUBSET_24_RECEIPT.json",
+      "bytes": 9308,
+      "sha256": "65bcba4a28ee39bf3ff7f4173e773c110c076a136f663cda7dcde57f928cbf46",
+      "local_sealed_sha256": "65bcba4a28ee39bf3ff7f4173e773c110c076a136f663cda7dcde57f928cbf46",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "receipts/STAGE0C_CANONICAL_FIXTURE_RECEIPT.json",
+      "bytes": 3520,
+      "sha256": "a24f4885af86a03fd2b9481e02e5872eae57a04be97b4d46d354eb843307c172",
+      "local_sealed_sha256": "a24f4885af86a03fd2b9481e02e5872eae57a04be97b4d46d354eb843307c172",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "receipts/STAGE0_ALGEBRA_AND_GRAMMAR_FIXTURE_RECEIPT.json",
+      "bytes": 1981,
+      "sha256": "e4945f6a42bc2959783506f908e32bdb4d6e66b827b8c507459ab84d60ca34ef",
+      "local_sealed_sha256": "e4945f6a42bc2959783506f908e32bdb4d6e66b827b8c507459ab84d60ca34ef",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "reports/STAGE0B_MECHANISM_RESULT.md",
+      "bytes": 12090,
+      "sha256": "e7265f121c4e71bb2f86731f769420138565fd9cd72149821284993413ea3958",
+      "local_sealed_sha256": "99d0ad63ce94366f9717da96f7f508b7073f33c432e4e1d2b5fbd9333d6e6b4b",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file:// links to portable relative archive links (local sealed SHA-256 preserved)."
+    },
+    {
+      "path": "reports/STAGE0C_CANONICAL_REPLAY_RESULT.md",
+      "bytes": 9778,
+      "sha256": "8962362d7d219874bb47746e8cd5ef924a178d704d4ea66c917715fa5c7ed77e",
+      "local_sealed_sha256": "fb6ca5b40da1ea8c81495098e34b720b1f403ef9330d028a3c1c84f42125d254",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file:// links to portable relative archive links (local sealed SHA-256 preserved)."
+    },
+    {
+      "path": "reports/STAGE0_PILOT_RESULT.md",
+      "bytes": 13126,
+      "sha256": "4fa6c6bd46b9a51334a348f5c4d68d7f6c95f692ee8f606632578661e08b7f0f",
+      "local_sealed_sha256": "123d839b87a9a18afcc7c7c5d2bfcc3b6f3754aa948dc57b2462bd44d8864f05",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file:// links to portable relative archive links (local sealed SHA-256 preserved)."
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 220,
+      "sha256": "18e9a9f53bbf8cb7ca57612ef74cef78803d9efe4eb1b2014927cdf1bf4d3097",
+      "byte_identical_to_local_sealed": null,
+      "note": "Archive dependency specification."
+    }
+  ]
+}
