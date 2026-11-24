@@ -1,0 +1,211 @@
+{
+  "python": "3.14.10 (main, Nov 11 2026, 00:18:44) [Clang 23.1.3 ]",
+  "executable": "/home/ailab/frontieror_letelier_runtime_20261124/python/cpython-3.14.10-linux-x86_64-gnu/bin/python3.14",
+  "installed_versions": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "highspy": "1.15.1",
+    "ortools": "9.15.6755",
+    "pyscipopt": null,
+    "pulp": "4.0.0",
+    "pyomo": "6.10.1"
+  },
+  "ortools_math_opt": {
+    "available": true,
+    "backends": {
+      "GSCIP": {
+        "solver_type": "GSCIP",
+        "single_tree_lazy_supported": true,
+        "termination": "OPTIMAL",
+        "objective": 6.0,
+        "best_objective_bound": 6.0,
+        "solution": {
+          "x1": 1.0,
+          "x2": 1.0,
+          "theta": 0.0
+        },
+        "callback_calls": 9,
+        "lazy_cuts_added": 2,
+        "solve_calls": 1,
+        "node_count": 1,
+        "simplex_iterations": 0,
+        "solve_time_seconds": 0.010254,
+        "trace": [
+          {
+            "call": 1,
+            "x1": 0.0,
+            "x2": 0.0,
+            "theta": 0.0,
+            "cut": "theta + 10*x1 >= 10"
+          },
+          {
+            "call": 2,
+            "x1": 1.0,
+            "x2": 1.0,
+            "theta": 100.0,
+            "cut": null
+          },
+          {
+            "call": 3,
+            "x1": 1.0,
+            "x2": 0.0,
+            "theta": 50.0,
+            "cut": null
+          },
+          {
+            "call": 4,
+            "x1": 1.0,
+            "x2": 0.0,
+            "theta": 50.0,
+            "cut": null
+          },
+          {
+            "call": 5,
+            "x1": 1.0,
+            "x2": 1.0,
+            "theta": 53.0,
+            "cut": null
+          },
+          {
+            "call": 6,
+            "x1": 1.0,
+            "x2": 0.0,
+            "theta": 53.0,
+            "cut": null
+          },
+          {
+            "call": 7,
+            "x1": 1.0,
+            "x2": 1.0,
+            "theta": 0.0,
+            "cut": null
+          },
+          {
+            "call": 8,
+            "x1": 1.0,
+            "x2": 0.0,
+            "theta": 0.0,
+            "cut": "theta + 10*x2 >= 10"
+          },
+          {
+            "call": 9,
+            "x1": 1.0,
+            "x2": 1.0,
+            "theta": 0.0,
+            "cut": null
+          }
+        ]
+      },
+      "HIGHS": {
+        "solver_type": "HIGHS",
+        "single_tree_lazy_supported": false,
+        "error": "AttributeError: 'StatusNotOk' object has no attribute 'canonical_code'"
+      },
+      "GLPK": {
+        "solver_type": "GLPK",
+        "single_tree_lazy_supported": false,
+        "error": "AttributeError: 'StatusNotOk' object has no attribute 'canonical_code'"
+      },
+      "CP_SAT": {
+        "solver_type": "CP_SAT",
+        "single_tree_lazy_supported": false,
+        "error": "AttributeError: 'StatusNotOk' object has no attribute 'canonical_code'"
+      }
+    },
+    "solve_signature": "(opt_model: ortools.math_opt.python.model.Model, solver_type: ortools.math_opt.python.parameters.SolverType, *, params: ortools.math_opt.python.parameters.SolveParameters | None = None, model_params: ortools.math_opt.python.model_parameters.ModelSolveParameters | None = None, msg_cb: Callable[[Sequence[str]], NoneType] | None = None, callback_reg: ortools.math_opt.python.callback.CallbackRegistration | None = None, cb: Callable[[ortools.math_opt.python.callback.CallbackData], ortools.math_opt.python.callback.CallbackResult] | None = None, streamable_init_args: ortools.math_opt.python.init_arguments.StreamableSolverInitArguments | None = None, remove_names: bool = False, interrupter: ortools.util.python.solve_interrupter.SolveInterrupter | None = None) -> ortools.math_opt.python.result.SolveResult",
+    "event_enum_name": "Event",
+    "callback_events": [
+      "UNSPECIFIED",
+      "PRESOLVE",
+      "SIMPLEX",
+      "MIP",
+      "MIP_SOLUTION",
+      "MIP_NODE",
+      "BARRIER"
+    ],
+    "callback_result_methods": [
+      "add_generated_constraint",
+      "add_lazy_constraint",
+      "add_user_cut",
+      "terminate",
+      "to_proto"
+    ],
+    "callback_reg_fields": [
+      "add_cuts",
+      "add_lazy_constraints",
+      "mip_node_filter",
+      "mip_solution_filter",
+      "to_proto"
+    ],
+    "solver_types": [
+      "GSCIP",
+      "GUROBI",
+      "GLOP",
+      "CP_SAT",
+      "PDLP",
+      "GLPK",
+      "OSQP",
+      "ECOS",
+      "SCS",
+      "HIGHS",
+      "SANTORINI"
+    ],
+    "gscip_multicut_with_scipy_lp": {
+      "passed": true,
+      "termination": "OPTIMAL",
+      "objective": 6.0,
+      "best_objective_bound": 6.0,
+      "callback_calls": 7,
+      "lazy_cuts_added": 2,
+      "scipy_lp_solves_inside_cb": 14,
+      "node_count": 1
+    }
+  },
+  "highspy_lazy_standalone": {
+    "available": true,
+    "highs_version": "1.15.1",
+    "cbMipDefineLazyConstraints_type": "HighsCallback",
+    "cbMipDefineLazyConstraints_dir": [
+      "callback_type",
+      "callbacks",
+      "clear",
+      "fire",
+      "highs",
+      "subscribe",
+      "unsubscribe",
+      "unsubscribe_by_data",
+      "user_callback_data"
+    ],
+    "cbMipSolution_dir": [
+      "callback_type",
+      "callbacks",
+      "clear",
+      "fire",
+      "highs",
+      "subscribe",
+      "unsubscribe",
+      "unsubscribe_by_data",
+      "user_callback_data"
+    ],
+    "callbacks_dir": [
+      "append",
+      "clear",
+      "copy",
+      "count",
+      "extend",
+      "index",
+      "insert",
+      "pop",
+      "remove",
+      "reverse",
+      "sort"
+    ],
+    "coexists_with_scipy": true,
+    "coexists_with_ortools_after_highspy": "ERROR: /home/ailab/frontieror_letelier_runtime_20261124/site314/ortools/graph/python/../../../ortools/.libs/libortools.so.9: undefined symbol: _Z19setLocalOptionValueRK15HighsLogOptionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS_RSt6vectorIP12OptionRecordSaISD_EES7_",
+    "lazy_cb_invocations": 0,
+    "lazy_cb_first_event": null,
+    "model_status": "HighsModelStatus.kOptimal",
+    "objective_without_cuts": 0.0,
+    "version": "1.15.1"
+  }
+}
