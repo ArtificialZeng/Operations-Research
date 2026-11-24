@@ -1,0 +1,204 @@
+{
+  "protocol": "STAGE0_LINEPILOT_PROTOCOL.md",
+  "protocol_sha256": "b05506fb7c112e35d16075cf052041019a7ce55198f868d90ae2fd081e9ec518",
+  "scope_disclosure": "Pinned-code (RayanA07/LinePilot 8fb89a62fb0565290b72ba61cb073d732d8e7578) balanced SINGLE-line Full diagnostic (N = 30 non-bridge single-line Full base_ids: 10 matplotlib, 10 plotly, 10 altair). Do NOT compare this single-line diagnostic directly with paper Table 3's DigitizerBench-Full (2,980 images) 0.672 FPC-NRMSE / 38.2% TU.",
+  "real_pid": 53928,
+  "cpu_only": true,
+  "wall_time_s": 26.576408199995058,
+  "runtime_s": {
+    "arm_a_default_ocr_total_s": 15.60083520002081,
+    "arm_a_default_ocr_mean_per_img_s": 0.5200278400006937,
+    "arm_b_oracle_axis_total_s": 6.603666799899656,
+    "arm_b_oracle_axis_mean_per_img_s": 0.22012222666332187
+  },
+  "pixel_path_identity_verification": {
+    "arm_a_default_ocr": {
+      "checked": 4,
+      "exact_match": 4,
+      "max_abs_px_diff": 0.0
+    },
+    "arm_b_oracle_axis": {
+      "checked": 30,
+      "exact_match": 30,
+      "max_abs_px_diff": 0.0
+    }
+  },
+  "source_and_code_hashes": {
+    "upstream_linepilot_commit": "8fb89a62fb0565290b72ba61cb073d732d8e7578",
+    "digitizerbench_commit": "8b4a3190d5991414dad92049671de75754dd9f44",
+    "PORTABLE_OCR_RECEIPT_json": "a8f3d81f7b5a67e7542eb48400618e853cf792492a09cad5b2226597f72200a6",
+    "STAGE0_SINGLE_DEV_30_RECEIPT_json": "91c324e95724d649a56197d697647027743ffec68dfefb93921bf9c5cae49b47",
+    "STAGE0_PRELAUNCH_FIXTURES_RECEIPT_json": "84d291555b1bc5d7cd93ff7333819fe3c9e601083f747f075f4d8cbb89fc1aed",
+    "eval_digitizerbench_sec43_py": "b0f1aea660c1878a91debe5c2d74010c9c2848c9395e1c5e5501774fdef7cece",
+    "run_linepilot_stage0_diagnostic_py": "13bc671f13d2e4195a267476bf3b41c7266e04a9c0b2a0b98c2755aeef08e4cd"
+  },
+  "overall_sec43_dev30": {
+    "arm_a_default_ocr": {
+      "n_images": 30,
+      "fpc_nrmse": 0.9375798543893007,
+      "output_success_pct": 13.333333333333334,
+      "output_success_count": 4,
+      "trusted_usability_pct": 10.0,
+      "trusted_count": 3,
+      "dppl": 1444.75
+    },
+    "arm_b_oracle_axis": {
+      "n_images": 30,
+      "fpc_nrmse": 0.11959800817659781,
+      "output_success_pct": 100.0,
+      "output_success_count": 30,
+      "trusted_usability_pct": 100.0,
+      "trusted_count": 30,
+      "dppl": 1012.1333333333333
+    },
+    "paired_fpc_nrmse_reduction_ocr_minus_oracle": 0.8179818462127031,
+    "paired_fpc_nrmse_reduction_ci95": [
+      0.7072330742861037,
+      0.9125928877169278
+    ],
+    "net_newly_trusted_count": 27,
+    "newly_trusted_count": 27,
+    "lost_trust_count": 0,
+    "paired_tu_gain_pp": 90.0,
+    "paired_tu_gain_pp_ci95": [
+      76.66666666666667,
+      100.0
+    ],
+    "n_improved_fpc_gt_0.01": 30,
+    "n_worsened_fpc_gt_0.01": 0
+  },
+  "by_renderer": {
+    "matplotlib": {
+      "arm_a_default_ocr": {
+        "n_images": 10,
+        "fpc_nrmse": 0.9337489522456279,
+        "output_success_pct": 10.0,
+        "output_success_count": 1,
+        "trusted_usability_pct": 10.0,
+        "trusted_count": 1,
+        "dppl": 2201.0
+      },
+      "arm_b_oracle_axis": {
+        "n_images": 10,
+        "fpc_nrmse": 0.02483111419937602,
+        "output_success_pct": 100.0,
+        "output_success_count": 10,
+        "trusted_usability_pct": 100.0,
+        "trusted_count": 10,
+        "dppl": 1079.0
+      },
+      "fpc_nrmse_reduction": 0.9089178380462519,
+      "net_newly_trusted": 9
+    },
+    "plotly": {
+      "arm_a_default_ocr": {
+        "n_images": 10,
+        "fpc_nrmse": 0.9493672594939054,
+        "output_success_pct": 10.0,
+        "output_success_count": 1,
+        "trusted_usability_pct": 10.0,
+        "trusted_count": 1,
+        "dppl": 1650.0
+      },
+      "arm_b_oracle_axis": {
+        "n_images": 10,
+        "fpc_nrmse": 0.1837707980892896,
+        "output_success_pct": 100.0,
+        "output_success_count": 10,
+        "trusted_usability_pct": 100.0,
+        "trusted_count": 10,
+        "dppl": 807.8
+      },
+      "fpc_nrmse_reduction": 0.7655964614046158,
+      "net_newly_trusted": 9
+    },
+    "altair": {
+      "arm_a_default_ocr": {
+        "n_images": 10,
+        "fpc_nrmse": 0.9296233514283688,
+        "output_success_pct": 20.0,
+        "output_success_count": 2,
+        "trusted_usability_pct": 10.0,
+        "trusted_count": 1,
+        "dppl": 964.0
+      },
+      "arm_b_oracle_axis": {
+        "n_images": 10,
+        "fpc_nrmse": 0.15019211224112777,
+        "output_success_pct": 100.0,
+        "output_success_count": 10,
+        "trusted_usability_pct": 100.0,
+        "trusted_count": 10,
+        "dppl": 1149.6
+      },
+      "fpc_nrmse_reduction": 0.7794312391872411,
+      "net_newly_trusted": 9
+    }
+  },
+  "by_curve_color_black_vs_colored": {
+    "colored_non_black_R2": {
+      "arm_a_default_ocr": {
+        "n_images": 25,
+        "fpc_nrmse": 0.9532464846958133,
+        "output_success_pct": 8.0,
+        "output_success_count": 2,
+        "trusted_usability_pct": 8.0,
+        "trusted_count": 2,
+        "dppl": 1925.5
+      },
+      "arm_b_oracle_axis": {
+        "n_images": 25,
+        "fpc_nrmse": 0.07922585417505797,
+        "output_success_pct": 100.0,
+        "output_success_count": 25,
+        "trusted_usability_pct": 100.0,
+        "trusted_count": 25,
+        "dppl": 932.92
+      },
+      "fpc_nrmse_reduction": 0.8740206305207553,
+      "net_newly_trusted": 23
+    },
+    "black_curve_R2_000000": {
+      "arm_a_default_ocr": {
+        "n_images": 5,
+        "fpc_nrmse": 0.8592467028567377,
+        "output_success_pct": 40.0,
+        "output_success_count": 2,
+        "trusted_usability_pct": 20.0,
+        "trusted_count": 1,
+        "dppl": 964.0
+      },
+      "arm_b_oracle_axis": {
+        "n_images": 5,
+        "fpc_nrmse": 0.321458778184297,
+        "output_success_pct": 100.0,
+        "output_success_count": 5,
+        "trusted_usability_pct": 100.0,
+        "trusted_count": 5,
+        "dppl": 1408.2
+      },
+      "fpc_nrmse_reduction": 0.5377879246724406,
+      "net_newly_trusted": 4
+    }
+  },
+  "arm_a_ocr_error_categories": {
+    "axis_calibration_snap_failed": 14,
+    "axis_ocr_missing_ticks": 7,
+    "ok": 4,
+    "axis_ocr_degenerate_same_endpoint": 5
+  },
+  "diagnostic_buckets": {
+    "axis_bottleneck_rescued_cleanly": 18,
+    "axis_bottleneck_partial_rescue": 10,
+    "non_axis_color_or_curve_error": 2
+  },
+  "prespecified_stage0_advance_gate": {
+    "criterion": "Mean FPC-NRMSE reduction >= 0.080 AND net newly trusted usable plots >= 3 (out of 30) under fixed-tracker oracle-axis diagnostic.",
+    "observed_fpc_nrmse_reduction": 0.8179818462127031,
+    "observed_net_newly_trusted": 27,
+    "passes_advance_gate": true,
+    "recommendation": "PROPOSE_MULTISCALE_OCR_CANDIDATE_PENDING_REVIEW"
+  },
+  "per_image_jsonl": "linepilot_stage0_dev30_per_image.jsonl",
+  "per_image_jsonl_sha256": "321c926a5deea77c1ea43008ae8b2e1117f8f734aad6c541dec8c1c9defac716"
+}
