@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "target_repository": "ArtificialZeng/Operations-Research",
+  "archive_folder": "linked-benders-integer-diagnostic",
+  "status": "closed_reproducibility_archive",
+  "authored_date": "2026-11-24",
+  "scope_disclaimer": "Standalone reproducibility archive of the closed single-tree lazy integer (x in {0,1}^n) linked Benders diagnostic on adapted public Diaz instances (p26, p50) using open-source OR-Tools 9.15.6755 (GSCIP, solve_calls == 1) + SciPy HiGHS dual-simplex callbacks. Preserves the p26 3-arm pilot pass (17 vs. 26 vs. 43 sweeps, 9.70 s vs. 15.55 s vs. 24.16 s; including orig_multi_floor's 1 tiny unseparated callback discrepancy of 1.09127e-05 matching max_subproblem_duality_err) and the p50 4-arm formal closure (5 vs. 5 sweeps against matched single-cut control A3 orig_single_hinge_floor, 5.04 s vs. 5.42 s vs. 6.25 s vs. 6.59 s, shared exact-optimal mechanical cold seed, lightly sampled 5-6 layout regime). Because p26 did not include A3, p50 blocks generalization/attribution of price separation without identifying what caused the p26 speedup. Not a journal submission or general advantage claim. Smoke artifacts, raw matrices, adapted p*.json inputs, prompts, logs, and PDFs are excluded.",
+  "line_ending_policy": "Preserve exact original LF/CRLF byte sequences via .gitattributes ('* -text') so all locked SHA-256 digests and provenance chains remain exact on checkout.",
+  "runtime_dependencies": {
+    "python": "3.14.10 (exact recorded environment)",
+    "packages": [
+      {
+        "name": "ortools",
+        "tested_version": "9.15.6755",
+        "required_by": [
+          "antigravity/native_linked_integer_20261124/probe_solver_capabilities.py",
+          "antigravity/native_linked_integer_20261124/linked_benders_integer_p26.py",
+          "antigravity/native_linked_integer_20261124/linked_benders_integer_p50.py",
+          "experiments/bodur_holmberg_transfer/independent.py",
+          "experiments/bodur_holmberg_transfer/holdout30/grouped.py"
+        ]
+      },
+      {
+        "name": "scipy",
+        "tested_version": "1.18.1",
+        "required_by": [
+          "antigravity/native_linked_root_execution_20261124/linked_benders_pilot.py",
+          "antigravity/native_linked_integer_20261124/linked_benders_integer_p26.py",
+          "antigravity/native_linked_integer_20261124/linked_benders_integer_p50.py",
+          "experiments/linked_root/root_model.py"
+        ]
+      },
+      {
+        "name": "numpy",
+        "tested_version": "2.5.3",
+        "required_by": [
+          "experiments/linked_root/certify.py",
+          "experiments/linked_root/run_root.py",
+          "experiments/linked_root/root_model.py",
+          "experiments/liu_lost_sales/solve.py",
+          "experiments/bodur_holmberg_transfer/independent.py",
+          "experiments/bodur_holmberg_transfer/holdout30/grouped.py",
+          "antigravity/native_linked_root_execution_20261124/linked_benders_pilot.py",
+          "antigravity/native_linked_integer_20261124/linked_benders_integer_p26.py",
+          "antigravity/native_linked_integer_20261124/linked_benders_integer_p50.py"
+        ]
+      },
+      {
+        "name": "networkx",
+        "tested_version": "3.7",
+        "required_by": [
+          "experiments/liu_lost_sales/solve.py",
+          "antigravity/native_linked_integer_20261124/evaluate_p26_integer_run.py",
+          "antigravity/native_linked_integer_20261124/evaluate_p50_integer_run.py"
+        ]
+      }
+    ]
+  },
+  "external_public_sources": {
+    "repository": "https://github.com/MCDMSociety/MOrepo-Gadegaard16",
+    "commit": "5d5a64e1f9e43a2484de52dacc9148a81df5d30d",
+    "reconstruction_policy": "Raw matrix bytes and adapted p26.json / p50.json files are NOT republished in this archive. Clean-clone replay runs prepare_archive_inputs.py to download pinned upstream public raw files (or read --raw-dir), verify raw_sha256, apply byte-identical experiments/diaz_lost_sales/seal_inputs.py (raw_source, adapt, encode — never seal_inputs.main), and verify exact instance_sha256 against experiments/diaz_lost_sales/manifest.json.",
+    "cases": {
+      "p26": {
+        "raw_file": "Gadegaard16_SSCFLP_Diaz_p26_0.raw",
+        "raw_url": "https://raw.githubusercontent.com/MCDMSociety/MOrepo-Gadegaard16/5d5a64e1f9e43a2484de52dacc9148a81df5d30d/instances/raw/SSCFLP/Gadegaard16_SSCFLP_Diaz_p26_0.raw",
+        "raw_bytes": 6167,
+        "raw_sha256": "2a4681f0f23ff40e9ed8c80d6af9b99eb78b5b09c9211c29ac3363a275c1ba3c",
+        "reconstructed_destination": "experiments/diaz_lost_sales/p26.json",
+        "expected_instance_sha256": "c8573d88fe95131ab6b473c0fa1dbb29d7381918044ca845c34bbe59df420e66"
+      },
+      "p50": {
+        "raw_file": "Gadegaard16_SSCFLP_Diaz_p50_0.raw",
+        "raw_url": "https://raw.githubusercontent.com/MCDMSociety/MOrepo-Gadegaard16/5d5a64e1f9e43a2484de52dacc9148a81df5d30d/instances/raw/SSCFLP/Gadegaard16_SSCFLP_Diaz_p50_0.raw",
+        "raw_bytes": 16248,
+        "raw_sha256": "ce29c3e32f4fb5815b8c3d1ea5a870bd6f483cf9a5efae5289bd89211d45fa41",
+        "reconstructed_destination": "experiments/diaz_lost_sales/p50.json",
+        "expected_instance_sha256": "957d0068abbda7e02d767fb93290dd6b8ebf30a172718a4cd03565f715106ba7"
+      }
+    }
+  },
+  "excluded_items": [
+    "All 10 s plumbing smoke JSONs (p26_integer_smoke_*.json, p50_integer_smoke_*.json) — non-decision plumbing only",
+    "Raw Diaz matrix files (Gadegaard16_SSCFLP_Diaz_*_0.raw) and adapted experiments/diaz_lost_sales/p*.json (reconstructed on demand via prepare_archive_inputs.py)",
+    "Live operational status scratchpad (STATUS.md), prompts, conversation/task logs, credentials, user data, and PDFs"
+  ],
+  "files": [
+    {
+      "source": "antigravity/native_linked_integer_20261124/ARCHIVE.gitattributes",
+      "destination": ".gitattributes",
+      "role": "git_line_ending_preservation",
+      "expected_sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/ARCHIVE_README.md",
+      "destination": "README.md",
+      "role": "archive_readme",
+      "expected_sha256": "f9acdb7999ed48de3a057acea9fb9c8940a977caff0cc59e36e40efa593f3cd1"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/ARCHIVE_MANIFEST.json",
+      "destination": "ARCHIVE_MANIFEST.json",
+      "role": "archive_manifest",
+      "expected_sha256": null
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/prepare_archive_inputs.py",
+      "destination": "prepare_archive_inputs.py",
+      "role": "input_reconstruction_helper",
+      "expected_sha256": "ae10c379a291f52de159771e64588f9ca1a456efaeb208b5eaf0dd4216c48c38"
+    },
+    {
+      "source": "experiments/bodur_holmberg_transfer/independent.py",
+      "destination": "experiments/bodur_holmberg_transfer/independent.py",
+      "role": "import_dependency_instance_dataclass",
+      "expected_sha256": "67be42288315cc4db7e0c51429ac0d2c4c1e50ff2e75c677292198c578a3abb1"
+    },
+    {
+      "source": "experiments/bodur_holmberg_transfer/holdout30/grouped.py",
+      "destination": "experiments/bodur_holmberg_transfer/holdout30/grouped.py",
+      "role": "import_dependency_exact_demand_potentials",
+      "expected_sha256": "e11cafcf403f2812378659e98d6785e2492db3c9d8663df860e61196c5e20f27"
+    },
+    {
+      "source": "experiments/liu_lost_sales/solve.py",
+      "destination": "experiments/liu_lost_sales/solve.py",
+      "role": "exact_200_scenario_fixed_layout_verifier",
+      "expected_sha256": "92663fb47f07fa9d6490d1f697753117d22fe603c47aec3cde92d9790c843f20"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/PROTOCOL.md",
+      "destination": "experiments/diaz_lost_sales/PROTOCOL.md",
+      "role": "diaz_adaptation_provenance",
+      "expected_sha256": "2017773086ff3717d7414db397b08db97d93b0e2681e030d74b844a824ba3a50"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/manifest.json",
+      "destination": "experiments/diaz_lost_sales/manifest.json",
+      "role": "diaz_pinned_source_manifest",
+      "expected_sha256": "9be4fb7962061b5b5a42fc2ff5f67add0788f7e199bc7b577e9c7779aaeeb126"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/lock.json",
+      "destination": "experiments/diaz_lost_sales/lock.json",
+      "role": "diaz_p50_provenance_lock",
+      "expected_sha256": "5dbeac7a49f06f2969008aa70a5529466f724d67767bc69831dbd19704c434a3"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/seal_inputs.py",
+      "destination": "experiments/diaz_lost_sales/seal_inputs.py",
+      "role": "diaz_exact_adapter",
+      "expected_sha256": "0d11f6b2c08d406f145647b6303fc0fa81c3701ed53ab658e98ea23216704ca3"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/p26_class9_finite.json",
+      "destination": "experiments/diaz_lost_sales/p26_class9_finite.json",
+      "role": "post_run_sealed_p26_exact_ip_reference",
+      "expected_sha256": "7c0a9e1c513336b3b416a838235885e0305772ee7d3c9c1c1fe3f678c17cfaba"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/p50_rival_continuation.json",
+      "destination": "experiments/diaz_lost_sales/p50_rival_continuation.json",
+      "role": "post_run_sealed_p50_exact_ip_reference",
+      "expected_sha256": "571642a37fc74ef660c6e356b9f9443b26e4db65cae142e175655f14e79b8d4c"
+    },
+    {
+      "source": "experiments/diaz_lost_sales/p50_separated.json",
+      "destination": "experiments/diaz_lost_sales/p50_separated.json",
+      "role": "post_run_sealed_p50_prior_provenance",
+      "expected_sha256": "d61e7a2e9f952ed3d24e47d7a7fe68c681407dffbf6c8939305d000cfc7731b4"
+    },
+    {
+      "source": "experiments/linked_root/root_model.py",
+      "destination": "experiments/linked_root/root_model.py",
+      "role": "import_dependency_root_model",
+      "expected_sha256": "b730a6ef4f10b71f97fee15402484f79829b29e133f9b1736dfc5c3c371ab0e6"
+    },
+    {
+      "source": "experiments/linked_root/certify.py",
+      "destination": "experiments/linked_root/certify.py",
+      "role": "exact_rational_certificate_verifier",
+      "expected_sha256": "b87b70bb361e81d0a77d9a247483734f10655fafd7db9c81396d283b4eae1dda"
+    },
+    {
+      "source": "experiments/linked_root/run_root.py",
+      "destination": "experiments/linked_root/run_root.py",
+      "role": "sealed_case_loader",
+      "expected_sha256": "4814d318c1166b93d723b02d2fc346ef13ad5d644b815f610ee6d0a23f7bed6a"
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p26_linked_separated.json",
+      "destination": "experiments/linked_root/runs_45s/p26_linked_separated.json",
+      "role": "post_run_sealed_p26_lp_upper_reference",
+      "expected_sha256": "3547fae818b311bbc7c6c058ff8cdb6a3af7b77f177b3eeb13699ac2d663b865"
+    },
+    {
+      "source": "experiments/linked_root/runs_45s/p50_linked_separated.json",
+      "destination": "experiments/linked_root/runs_45s/p50_linked_separated.json",
+      "role": "post_run_sealed_p50_lp_timeout_reference",
+      "expected_sha256": "d5436d3c73133c3e1e1f0c92a60ce1566503ff33944cde0c913f60fcc2469b54"
+    },
+    {
+      "source": "antigravity/native_linked_root_execution_20261124/linked_benders_pilot.py",
+      "destination": "antigravity/native_linked_root_execution_20261124/linked_benders_pilot.py",
+      "role": "shared_linked_oracle_library",
+      "expected_sha256": "eff17d9a81ef08b06705b6d64034f18dedcc4577c7350779b1ddd4ea7be3ed53"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/probe_solver_capabilities.py",
+      "destination": "antigravity/native_linked_integer_20261124/probe_solver_capabilities.py",
+      "role": "solver_capability_probe_script",
+      "expected_sha256": "ada179d3d5557657994a30e5df5afe2fd6c448e2031c2328af47da68bf3f0d59"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/solver_capability_probe.json",
+      "destination": "antigravity/native_linked_integer_20261124/solver_capability_probe.json",
+      "role": "solver_capability_probe_evidence",
+      "expected_sha256": "1261fea61f46a3b1c16e957a15eff3feb5ddeb26c55fc6f03fe2a4e7aab66628"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/INTEGER_KILL_TEST_PROTOCOL.md",
+      "destination": "antigravity/native_linked_integer_20261124/INTEGER_KILL_TEST_PROTOCOL.md",
+      "role": "p26_preregistered_protocol",
+      "expected_sha256": "43235b0764c84e3ce4f0f3fe62eb2a834a458c6cca434d4abacb2ab610513739"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/linked_benders_integer_p26.py",
+      "destination": "antigravity/native_linked_integer_20261124/linked_benders_integer_p26.py",
+      "role": "p26_cold_single_tree_worker",
+      "expected_sha256": "de44a7ea171864c05a8ad5741956b4e984cd97faeb504bf7a73a2db3b9fdb4b5"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/evaluate_p26_integer_run.py",
+      "destination": "antigravity/native_linked_integer_20261124/evaluate_p26_integer_run.py",
+      "role": "p26_post_run_exact_evaluator",
+      "expected_sha256": "785f49b85183836b692817f74a260c04d93f72e10bb7d68984112e1208fd3c95"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/p26_integer_raw.json",
+      "destination": "antigravity/native_linked_integer_20261124/p26_integer_raw.json",
+      "role": "p26_full_60s_cold_raw_output",
+      "expected_sha256": "d4885ee45c35a229ab002b027a169f84df6ca1408efc4433dff2f7545539efaa"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/p26_integer_evaluated.json",
+      "destination": "antigravity/native_linked_integer_20261124/p26_integer_evaluated.json",
+      "role": "p26_full_60s_exact_evaluated_output",
+      "expected_sha256": "2a0615ffb4ddb9fc6dd6fe8882c48946b9b4fb9aaf3708a2366713f63544b791"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/P26_INTEGER_RESULTS.md",
+      "destination": "antigravity/native_linked_integer_20261124/P26_INTEGER_RESULTS.md",
+      "role": "p26_results_report",
+      "expected_sha256": "e726a31cb25905e2671b3f590e188ccea954deb728261a7ad22d80cc00d72993"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/P50_VALIDATION_PROTOCOL.md",
+      "destination": "antigravity/native_linked_integer_20261124/P50_VALIDATION_PROTOCOL.md",
+      "role": "p50_preregistered_4arm_protocol",
+      "expected_sha256": "e5e78d2a5d1ce9267298989959922a0e88b5b7e40b67de7908680a4ad8efdeb2"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/linked_benders_integer_p50.py",
+      "destination": "antigravity/native_linked_integer_20261124/linked_benders_integer_p50.py",
+      "role": "p50_cold_4arm_single_tree_worker",
+      "expected_sha256": "36f96e7a3f39a34c0294aca93c659a234f5eedbf19c1354f3b34a1e36065ce5c"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/evaluate_p50_integer_run.py",
+      "destination": "antigravity/native_linked_integer_20261124/evaluate_p50_integer_run.py",
+      "role": "p50_post_run_exact_evaluator",
+      "expected_sha256": "c8fcf7b511d673ffdb19132b24d1c0badaf64dd719442ef020715097d868f704"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/p50_integer_raw.json",
+      "destination": "antigravity/native_linked_integer_20261124/p50_integer_raw.json",
+      "role": "p50_full_120s_cold_raw_output",
+      "expected_sha256": "f89be8e0b090ed1c0c13c5ec843df04ce2d525db08abea67657edb112b076336"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/p50_integer_evaluated.json",
+      "destination": "antigravity/native_linked_integer_20261124/p50_integer_evaluated.json",
+      "role": "p50_full_120s_exact_evaluated_output",
+      "expected_sha256": "1c7735d592e8fd3a6c760f6a31ac66097e77033d5cdf93207aa115d202d9af61"
+    },
+    {
+      "source": "antigravity/native_linked_integer_20261124/P50_VALIDATION_RESULTS.md",
+      "destination": "antigravity/native_linked_integer_20261124/P50_VALIDATION_RESULTS.md",
+      "role": "p50_closure_report",
+      "expected_sha256": "95df0ff9d42e1457ae3acf5382d86eae8775c4fad79ed9918eed2953d029551a"
+    }
+  ]
+}

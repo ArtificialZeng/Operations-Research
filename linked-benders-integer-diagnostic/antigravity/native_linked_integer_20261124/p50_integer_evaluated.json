@@ -1,0 +1,325 @@
+{
+  "evaluator": "post_run_p50_4arm_integer_evaluator",
+  "note": "Executed strictly after cold worker termination. Independently reprices distinct final binary layouts on all 200 original scenarios via frozen experiments/liu_lost_sales/solve.py:verify. All GSCIP termination statuses, dual bounds, and MIP gaps are numeric floating-point diagnostics and not exact rational global proofs. Smoke runs carry zero scientific gate decision.",
+  "raw_worker_json": "/mnt/d/AI_Science/antigravity/native_linked_integer_20261124/p50_integer_raw.json",
+  "raw_worker_sha256": "f89be8e0b090ed1c0c13c5ec843df04ce2d525db08abea67657edb112b076336",
+  "evaluator_sha256": "c8fcf7b511d673ffdb19132b24d1c0badaf64dd719442ef020715097d868f704",
+  "reused_verifier_file": "/mnt/d/AI_Science/experiments/liu_lost_sales/solve.py",
+  "reused_verifier_sha256": "92663fb47f07fa9d6490d1f697753117d22fe603c47aec3cde92d9790c843f20",
+  "sealed_ip_reference_file": "/mnt/d/AI_Science/experiments/diaz_lost_sales/p50_rival_continuation.json",
+  "sealed_ip_reference_sha256": "571642a37fc74ef660c6e356b9f9443b26e4db65cae142e175655f14e79b8d4c",
+  "sealed_ip_reference_provenance": {
+    "lock_file": "/mnt/d/AI_Science/experiments/diaz_lost_sales/lock.json",
+    "lock_sha256": "5dbeac7a49f06f2969008aa70a5529466f724d67767bc69831dbd19704c434a3",
+    "manifest_file": "/mnt/d/AI_Science/experiments/diaz_lost_sales/manifest.json",
+    "manifest_sha256": "9be4fb7962061b5b5a42fc2ff5f67add0788f7e199bc7b577e9c7779aaeeb126",
+    "prior_file": "/mnt/d/AI_Science/experiments/diaz_lost_sales/p50_separated.json",
+    "prior_sha256": "d61e7a2e9f952ed3d24e47d7a7fe68c681407dffbf6c8939305d000cfc7731b4",
+    "instance_sha256": "957d0068abbda7e02d767fb93290dd6b8ebf30a172718a4cd03565f715106ba7",
+    "global_optimum_certified": true
+  },
+  "sealed_p50_exact_ip_optimum": "110941759969/16087500",
+  "sealed_p50_exact_ip_optimum_float": 6896.146695819736,
+  "sealed_p50_lp_upper": null,
+  "reprice_seconds_cap_per_layout": 60.0,
+  "cold_seed_post_run_repricing": {
+    "bits": "000000001100100011110100000000",
+    "layout_with_dummy": [
+      8,
+      9,
+      12,
+      16,
+      17,
+      18,
+      19,
+      21,
+      30
+    ],
+    "arms_sharing_layout": [
+      "orig_single",
+      "orig_multi_floor",
+      "orig_single_hinge_floor",
+      "sep_single_hinge"
+    ],
+    "exact_repricing_complete": true,
+    "exact_scenarios": 200,
+    "exact_original_objective": "110941759969/16087500",
+    "exact_original_objective_float": 6896.146695819736,
+    "witness_sha256": "171fc81c3e115e0eab4d22b77418ef17983e26a99fba5eeb64dc63e7ecfd058a",
+    "reprice_seconds": 0.8860589640000001,
+    "reused_from_final_layout_repricing": true
+  },
+  "cold_seed_already_optimal": true,
+  "distinct_final_layouts_repriced": {
+    "000000001100100011110100000000": {
+      "bits": "000000001100100011110100000000",
+      "layout_with_dummy": [
+        8,
+        9,
+        12,
+        16,
+        17,
+        18,
+        19,
+        21,
+        30
+      ],
+      "arms_sharing_layout": [
+        "orig_single",
+        "orig_multi_floor",
+        "orig_single_hinge_floor",
+        "sep_single_hinge"
+      ],
+      "exact_repricing_complete": true,
+      "exact_scenarios": 200,
+      "exact_original_objective": "110941759969/16087500",
+      "exact_original_objective_float": 6896.146695819736,
+      "witness_sha256": "171fc81c3e115e0eab4d22b77418ef17983e26a99fba5eeb64dc63e7ecfd058a",
+      "reprice_seconds": 0.8860589640000001
+    }
+  },
+  "all_arms_valid": true,
+  "per_arm": {
+    "orig_single": {
+      "valid": true,
+      "seed_matched": true,
+      "numerical_integrity_ok": true,
+      "incumbent_objective_source": "exact_200_scenario_liu_verify",
+      "exact_repricing_complete": true,
+      "evaluated_incumbent_objective": "110941759969/16087500",
+      "evaluated_incumbent_objective_float": 6896.146695819736,
+      "grid_repaired_fallback_objective": "110941759969/16087500",
+      "trimmed_flow_grid_ticks": 0,
+      "exact_certified_cut_lp_lower": "40403342210190679784606989/6049583280000000000000",
+      "exact_certified_cut_lp_lower_float": 6678.698406180249,
+      "numeric_mip_dual_bound_diagnostic_not_exact_proof": 6896.146695819736,
+      "numeric_mip_gap_diagnostic": 0.0,
+      "post_run_exact_reference_incumbent_gap": "0",
+      "post_run_exact_reference_incumbent_gap_float": 0.0,
+      "qualifies_exact_zero_incumbent_gap": true,
+      "sound_incumbent_ge_sealed_ip_opt": true,
+      "sound_grid_ge_exact_reprice": true,
+      "sound_cut_lp_le_incumbent": true,
+      "sound_cut_lp_le_sealed_lp_upper": true,
+      "termination": {
+        "reason": "OPTIMAL",
+        "limit": null,
+        "detail": "underlying gSCIP status: OPTIMAL",
+        "reached_numeric_optimal_diagnostic": true,
+        "hit_mathopt_time_limit": false,
+        "hit_own_callback_deadline": false,
+        "hit_time_or_deadline": false
+      },
+      "unique_binary_layouts_evaluated": 6,
+      "before_certification_seconds": 6.246016358000006,
+      "worker_total_certification_seconds": 1.5017973889999965,
+      "observed_sampled_hinge_activity": {
+        "scope_note": "Observed strictly across the unique binary layouts sampled/evaluated by this arm (not unsampled layouts).",
+        "sampled_unique_layouts": 6,
+        "sampled_layouts_with_positive_hinge": 4,
+        "mean_positive_hinge_scenarios_across_sampled_layouts": 82.0,
+        "max_positive_hinge_scenarios_sampled": 200,
+        "final_layout_positive_hinge_scenarios": 0
+      },
+      "discrepancy_summary": {
+        "max_integrality_deviation": 7.521681556912649e-16,
+        "large_integrality_deviation_calls": 0,
+        "unseparated_material_discrepancy_calls": 0,
+        "max_unseparated_material_discrepancy": 0.0,
+        "max_unseparated_sum_discrepancy": 0.0,
+        "max_subproblem_duality_err": 1.3642420526593924e-12,
+        "max_pointwise_identity_diff": 5.820766091346741e-11
+      }
+    },
+    "orig_multi_floor": {
+      "valid": true,
+      "seed_matched": true,
+      "numerical_integrity_ok": true,
+      "incumbent_objective_source": "exact_200_scenario_liu_verify",
+      "exact_repricing_complete": true,
+      "evaluated_incumbent_objective": "110941759969/16087500",
+      "evaluated_incumbent_objective_float": 6896.146695819736,
+      "grid_repaired_fallback_objective": "110941759969/16087500",
+      "trimmed_flow_grid_ticks": 0,
+      "exact_certified_cut_lp_lower": "50440720650380909518081147/7393935120000000000000",
+      "exact_certified_cut_lp_lower_float": 6821.904686983636,
+      "numeric_mip_dual_bound_diagnostic_not_exact_proof": 6896.146695819735,
+      "numeric_mip_gap_diagnostic": 1.3188447721453492e-16,
+      "post_run_exact_reference_incumbent_gap": "0",
+      "post_run_exact_reference_incumbent_gap_float": 0.0,
+      "qualifies_exact_zero_incumbent_gap": true,
+      "sound_incumbent_ge_sealed_ip_opt": true,
+      "sound_grid_ge_exact_reprice": true,
+      "sound_cut_lp_le_incumbent": true,
+      "sound_cut_lp_le_sealed_lp_upper": true,
+      "termination": {
+        "reason": "OPTIMAL",
+        "limit": null,
+        "detail": "underlying gSCIP status: OPTIMAL",
+        "reached_numeric_optimal_diagnostic": true,
+        "hit_mathopt_time_limit": false,
+        "hit_own_callback_deadline": false,
+        "hit_time_or_deadline": false
+      },
+      "unique_binary_layouts_evaluated": 6,
+      "before_certification_seconds": 6.588977372000002,
+      "worker_total_certification_seconds": 1.554328462000008,
+      "observed_sampled_hinge_activity": {
+        "scope_note": "Observed strictly across the unique binary layouts sampled/evaluated by this arm (not unsampled layouts).",
+        "sampled_unique_layouts": 6,
+        "sampled_layouts_with_positive_hinge": 3,
+        "mean_positive_hinge_scenarios_across_sampled_layouts": 65.83333333333333,
+        "max_positive_hinge_scenarios_sampled": 200,
+        "final_layout_positive_hinge_scenarios": 0
+      },
+      "discrepancy_summary": {
+        "max_integrality_deviation": 2.4424906541753444e-15,
+        "large_integrality_deviation_calls": 0,
+        "unseparated_material_discrepancy_calls": 0,
+        "max_unseparated_material_discrepancy": 0.0,
+        "max_unseparated_sum_discrepancy": 0.0,
+        "max_subproblem_duality_err": 1.3642420526593924e-12,
+        "max_pointwise_identity_diff": 5.820766091346741e-11
+      }
+    },
+    "orig_single_hinge_floor": {
+      "valid": true,
+      "seed_matched": true,
+      "numerical_integrity_ok": true,
+      "incumbent_objective_source": "exact_200_scenario_liu_verify",
+      "exact_repricing_complete": true,
+      "evaluated_incumbent_objective": "110941759969/16087500",
+      "evaluated_incumbent_objective_float": 6896.146695819736,
+      "grid_repaired_fallback_objective": "110941759969/16087500",
+      "trimmed_flow_grid_ticks": 0,
+      "exact_certified_cut_lp_lower": "3105990297800662197751088423/465817912560000000000000",
+      "exact_certified_cut_lp_lower_float": 6667.820652776191,
+      "numeric_mip_dual_bound_diagnostic_not_exact_proof": 6896.146695819734,
+      "numeric_mip_gap_diagnostic": 2.6376895442906984e-16,
+      "post_run_exact_reference_incumbent_gap": "0",
+      "post_run_exact_reference_incumbent_gap_float": 0.0,
+      "qualifies_exact_zero_incumbent_gap": true,
+      "sound_incumbent_ge_sealed_ip_opt": true,
+      "sound_grid_ge_exact_reprice": true,
+      "sound_cut_lp_le_incumbent": true,
+      "sound_cut_lp_le_sealed_lp_upper": true,
+      "termination": {
+        "reason": "OPTIMAL",
+        "limit": null,
+        "detail": "underlying gSCIP status: OPTIMAL",
+        "reached_numeric_optimal_diagnostic": true,
+        "hit_mathopt_time_limit": false,
+        "hit_own_callback_deadline": false,
+        "hit_time_or_deadline": false
+      },
+      "unique_binary_layouts_evaluated": 5,
+      "before_certification_seconds": 5.418793588,
+      "worker_total_certification_seconds": 1.5491884240000005,
+      "observed_sampled_hinge_activity": {
+        "scope_note": "Observed strictly across the unique binary layouts sampled/evaluated by this arm (not unsampled layouts).",
+        "sampled_unique_layouts": 5,
+        "sampled_layouts_with_positive_hinge": 2,
+        "mean_positive_hinge_scenarios_across_sampled_layouts": 60.0,
+        "max_positive_hinge_scenarios_sampled": 200,
+        "final_layout_positive_hinge_scenarios": 0
+      },
+      "discrepancy_summary": {
+        "max_integrality_deviation": 2.5115517714551776e-16,
+        "large_integrality_deviation_calls": 0,
+        "unseparated_material_discrepancy_calls": 0,
+        "max_unseparated_material_discrepancy": 0.0,
+        "max_unseparated_sum_discrepancy": 0.0,
+        "max_subproblem_duality_err": 7.389644451905042e-13,
+        "max_pointwise_identity_diff": 0.0
+      }
+    },
+    "sep_single_hinge": {
+      "valid": true,
+      "seed_matched": true,
+      "numerical_integrity_ok": true,
+      "incumbent_objective_source": "exact_200_scenario_liu_verify",
+      "exact_repricing_complete": true,
+      "evaluated_incumbent_objective": "110941759969/16087500",
+      "evaluated_incumbent_objective_float": 6896.146695819736,
+      "grid_repaired_fallback_objective": "110941759969/16087500",
+      "trimmed_flow_grid_ticks": 0,
+      "exact_certified_cut_lp_lower": "397245064596113287410473401/58227239070000000000000",
+      "exact_certified_cut_lp_lower_float": 6822.323554076652,
+      "numeric_mip_dual_bound_diagnostic_not_exact_proof": 6896.146695819736,
+      "numeric_mip_gap_diagnostic": 0.0,
+      "post_run_exact_reference_incumbent_gap": "0",
+      "post_run_exact_reference_incumbent_gap_float": 0.0,
+      "qualifies_exact_zero_incumbent_gap": true,
+      "sound_incumbent_ge_sealed_ip_opt": true,
+      "sound_grid_ge_exact_reprice": true,
+      "sound_cut_lp_le_incumbent": true,
+      "sound_cut_lp_le_sealed_lp_upper": true,
+      "termination": {
+        "reason": "OPTIMAL",
+        "limit": null,
+        "detail": "underlying gSCIP status: OPTIMAL",
+        "reached_numeric_optimal_diagnostic": true,
+        "hit_mathopt_time_limit": false,
+        "hit_own_callback_deadline": false,
+        "hit_time_or_deadline": false
+      },
+      "unique_binary_layouts_evaluated": 5,
+      "before_certification_seconds": 5.041805650000001,
+      "worker_total_certification_seconds": 1.5126731279999888,
+      "observed_sampled_hinge_activity": {
+        "scope_note": "Observed strictly across the unique binary layouts sampled/evaluated by this arm (not unsampled layouts).",
+        "sampled_unique_layouts": 5,
+        "sampled_layouts_with_positive_hinge": 2,
+        "mean_positive_hinge_scenarios_across_sampled_layouts": 60.0,
+        "max_positive_hinge_scenarios_sampled": 200,
+        "final_layout_positive_hinge_scenarios": 0
+      },
+      "discrepancy_summary": {
+        "max_integrality_deviation": 2.765067265267221e-16,
+        "large_integrality_deviation_calls": 0,
+        "unseparated_material_discrepancy_calls": 0,
+        "max_unseparated_material_discrepancy": 0.0,
+        "max_unseparated_sum_discrepancy": 0.0,
+        "max_subproblem_duality_err": 9.947598300641403e-14,
+        "max_pointwise_identity_diff": 0.0
+      }
+    }
+  },
+  "preregistered_gate": {
+    "branch": "branch_1_qualifying_optimality_antecedent_holds",
+    "opt_flags_numeric_plus_exact_zero_gap": {
+      "orig_single": true,
+      "orig_multi_floor": true,
+      "orig_single_hinge_floor": true,
+      "sep_single_hinge": true
+    },
+    "cold_seed_already_optimal": true,
+    "all_four_tie_exact_optimum": true,
+    "sweeps": {
+      "orig_single": 6,
+      "orig_multi_floor": 6,
+      "orig_single_hinge_floor": 5,
+      "sep_single_hinge": 5
+    },
+    "seconds": {
+      "orig_single": 6.246016358000006,
+      "orig_multi_floor": 6.588977372000002,
+      "orig_single_hinge_floor": 5.418793588,
+      "sep_single_hinge": 5.041805650000001
+    },
+    "meets_sweep_reduction_vs_orig": {
+      "orig_single": false,
+      "orig_multi_floor": false,
+      "orig_single_hinge_floor": false
+    },
+    "meets_time_reduction_vs_orig": {
+      "orig_single": false,
+      "orig_multi_floor": true,
+      "orig_single_hinge_floor": false
+    },
+    "a3_control_blocked_separation_attribution_on_p50": true,
+    "passed_p50_attribution_gate": false,
+    "verdict": "close_separation_superiority_on_p50"
+  },
+  "evaluator_wall_seconds": 0.9230524950000074
+}

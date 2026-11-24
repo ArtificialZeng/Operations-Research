@@ -1,0 +1,171 @@
+{
+  "evaluator": "post_run_p26_integer_evaluator",
+  "note": "Executed strictly after cold worker termination. Independently reprices distinct final binary layouts on all 200 original scenarios via frozen experiments/liu_lost_sales/solve.py:verify. Post-run reference incumbent gap is separate from SCIP floating-point dual bounds and does not constitute a solver-side exact optimality proof.",
+  "raw_worker_json": "/mnt/d/AI_Science/antigravity/native_linked_integer_20261124/p26_integer_raw.json",
+  "raw_worker_sha256": "d4885ee45c35a229ab002b027a169f84df6ca1408efc4433dff2f7545539efaa",
+  "evaluator_sha256": "785f49b85183836b692817f74a260c04d93f72e10bb7d68984112e1208fd3c95",
+  "reused_verifier_file": "/mnt/d/AI_Science/experiments/liu_lost_sales/solve.py",
+  "reused_verifier_sha256": "92663fb47f07fa9d6490d1f697753117d22fe603c47aec3cde92d9790c843f20",
+  "sealed_ip_reference_file": "/mnt/d/AI_Science/experiments/diaz_lost_sales/p26_class9_finite.json",
+  "sealed_ip_reference_sha256": "7c0a9e1c513336b3b416a838235885e0305772ee7d3c9c1c1fe3f678c17cfaba",
+  "sealed_p26_exact_ip_optimum": "135321426758663/24344775000",
+  "sealed_p26_exact_ip_optimum_float": 5558.540867954746,
+  "sealed_p26_lp_upper": "99105505765317713183013847/17917754400000000000000",
+  "reprice_seconds_cap_per_layout": 30.0,
+  "distinct_final_layouts_repriced": {
+    "11111101011101110011": {
+      "bits": "11111101011101110011",
+      "layout_with_dummy": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        18,
+        19,
+        20
+      ],
+      "arms_sharing_layout": [
+        "orig_single",
+        "orig_multi_floor",
+        "sep_single_hinge"
+      ],
+      "exact_repricing_complete": true,
+      "exact_scenarios": 200,
+      "exact_original_objective": "135321426758663/24344775000",
+      "exact_original_objective_float": 5558.540867954746,
+      "witness_sha256": "e8614f6d21b379fdca755a2a774fb8e4ef5594c7190165ca441b9416312e6c7c",
+      "reprice_seconds": 0.894478351999993
+    }
+  },
+  "all_arms_valid": true,
+  "per_arm": {
+    "orig_single": {
+      "valid": true,
+      "incumbent_objective_source": "exact_200_scenario_liu_verify",
+      "exact_repricing_complete": true,
+      "evaluated_incumbent_objective": "135321426758663/24344775000",
+      "evaluated_incumbent_objective_float": 5558.540867954746,
+      "grid_repaired_fallback_objective": "135321426758663/24344775000",
+      "trimmed_flow_grid_ticks": 0,
+      "exact_certified_cut_lp_lower": "1845692038222265212256898539/335062007280000000000000",
+      "exact_certified_cut_lp_lower_float": 5508.508867374757,
+      "numeric_mip_dual_bound_diagnostic_not_exact_proof": 5558.540867954747,
+      "numeric_mip_gap_diagnostic": -1.636211234887574e-16,
+      "post_run_exact_reference_incumbent_gap": "0",
+      "post_run_exact_reference_incumbent_gap_float": 0.0,
+      "qualifies_exact_zero_incumbent_gap": true,
+      "sound_incumbent_ge_sealed_ip_opt": true,
+      "sound_grid_ge_exact_reprice": true,
+      "sound_cut_lp_le_sealed_lp_upper": true,
+      "termination": {
+        "reason": "OPTIMAL",
+        "limit": null,
+        "detail": "underlying gSCIP status: OPTIMAL",
+        "reached_numeric_optimal": true,
+        "hit_mathopt_time_limit": false,
+        "hit_own_callback_deadline": false,
+        "hit_time_or_deadline": false
+      },
+      "unique_binary_layouts_evaluated": 43,
+      "before_certification_seconds": 24.162458705000006
+    },
+    "orig_multi_floor": {
+      "valid": true,
+      "incumbent_objective_source": "exact_200_scenario_liu_verify",
+      "exact_repricing_complete": true,
+      "evaluated_incumbent_objective": "135321426758663/24344775000",
+      "evaluated_incumbent_objective_float": 5558.540867954746,
+      "grid_repaired_fallback_objective": "135321426758663/24344775000",
+      "trimmed_flow_grid_ticks": 0,
+      "exact_certified_cut_lp_lower": "123363380285734909459003951/22337467152000000000000",
+      "exact_certified_cut_lp_lower_float": 5522.711211897159,
+      "numeric_mip_dual_bound_diagnostic_not_exact_proof": 5558.540867954746,
+      "numeric_mip_gap_diagnostic": 0.0,
+      "post_run_exact_reference_incumbent_gap": "0",
+      "post_run_exact_reference_incumbent_gap_float": 0.0,
+      "qualifies_exact_zero_incumbent_gap": true,
+      "sound_incumbent_ge_sealed_ip_opt": true,
+      "sound_grid_ge_exact_reprice": true,
+      "sound_cut_lp_le_sealed_lp_upper": true,
+      "termination": {
+        "reason": "OPTIMAL",
+        "limit": null,
+        "detail": "underlying gSCIP status: OPTIMAL",
+        "reached_numeric_optimal": true,
+        "hit_mathopt_time_limit": false,
+        "hit_own_callback_deadline": false,
+        "hit_time_or_deadline": false
+      },
+      "unique_binary_layouts_evaluated": 26,
+      "before_certification_seconds": 15.552061589000004
+    },
+    "sep_single_hinge": {
+      "valid": true,
+      "incumbent_objective_source": "exact_200_scenario_liu_verify",
+      "exact_repricing_complete": true,
+      "evaluated_incumbent_objective": "135321426758663/24344775000",
+      "evaluated_incumbent_objective_float": 5558.540867954746,
+      "grid_repaired_fallback_objective": "135321426758663/24344775000",
+      "trimmed_flow_grid_ticks": 0,
+      "exact_certified_cut_lp_lower": "67547167072905899376228493/12258366120000000000000",
+      "exact_certified_cut_lp_lower_float": 5510.291209421464,
+      "numeric_mip_dual_bound_diagnostic_not_exact_proof": 5558.540867954745,
+      "numeric_mip_gap_diagnostic": 1.636211234887574e-16,
+      "post_run_exact_reference_incumbent_gap": "0",
+      "post_run_exact_reference_incumbent_gap_float": 0.0,
+      "qualifies_exact_zero_incumbent_gap": true,
+      "sound_incumbent_ge_sealed_ip_opt": true,
+      "sound_grid_ge_exact_reprice": true,
+      "sound_cut_lp_le_sealed_lp_upper": true,
+      "termination": {
+        "reason": "OPTIMAL",
+        "limit": null,
+        "detail": "underlying gSCIP status: OPTIMAL",
+        "reached_numeric_optimal": true,
+        "hit_mathopt_time_limit": false,
+        "hit_own_callback_deadline": false,
+        "hit_time_or_deadline": false
+      },
+      "unique_binary_layouts_evaluated": 17,
+      "before_certification_seconds": 9.698492387000016
+    }
+  },
+  "preregistered_gate": {
+    "branch": "branch_1_both_optimal_with_exact_zero_incumbent_gap",
+    "opt_flags": {
+      "orig_single": true,
+      "orig_multi_floor": true,
+      "sep_single_hinge": true
+    },
+    "sweeps": {
+      "orig_single": 43,
+      "orig_multi_floor": 26,
+      "sep_single_hinge": 17
+    },
+    "seconds": {
+      "orig_single": 24.162458705000006,
+      "orig_multi_floor": 15.552061589000004,
+      "sep_single_hinge": 9.698492387000016
+    },
+    "min_orig_sweeps_all": 26,
+    "min_orig_seconds_all": 15.552061589000004,
+    "meets_sweep_reduction_vs_a1": true,
+    "meets_sweep_reduction_vs_a2": true,
+    "meets_time_reduction_vs_a1": true,
+    "meets_time_reduction_vs_a2": true,
+    "meets_sweep_reduction_gate": true,
+    "meets_time_reduction_gate": true,
+    "advance_to_p50": true,
+    "verdict": "advance_to_p50"
+  },
+  "evaluator_wall_seconds": 0.9202069330000029
+}
