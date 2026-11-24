@@ -1,0 +1,373 @@
+{
+  "stage": "stage_0_prerule_only_dot_refund_rule_and_bts_audit",
+  "staged_projection": "metadata_and_prerule_counts_only_no_raw_records_or_copied_excerpts",
+  "zero_post_rule_bytes_downloaded_or_analyzed": true,
+  "federal_register_89_FR_32760": {
+    "document_number": "2024-07177",
+    "citation": "89 FR 32760",
+    "title": "Refunds and Other Consumer Protections",
+    "publication_date": "2024-04-26",
+    "effective_on": "2024-06-25",
+    "cfr_references": [
+      {
+        "chapter": null,
+        "citation_url": null,
+        "part": "259",
+        "title": 14
+      },
+      {
+        "chapter": null,
+        "citation_url": null,
+        "part": "260",
+        "title": 14
+      },
+      {
+        "chapter": null,
+        "citation_url": null,
+        "part": "262",
+        "title": 14
+      },
+      {
+        "chapter": null,
+        "citation_url": null,
+        "part": "399",
+        "title": 14
+      }
+    ],
+    "html_url": "https://www.federalregister.gov/documents/2024/04/26/2024-07177/refunds-and-other-consumer-protections",
+    "mentions_three_hours_domestic": true,
+    "mentions_october_28_2024": true
+  },
+  "federal_register_91_FR_41556_enforcement_note": {
+    "document_number": "2026-13675",
+    "citation": "91 FR 41556",
+    "title": "Airline Refunds and Other Consumer Protections",
+    "publication_date": "2026-07-07",
+    "html_url": "https://www.federalregister.gov/documents/2026/07/07/2026-13675/airline-refunds-and-other-consumer-protections",
+    "scope_note": "One-year pause through 2027-07-07 for merely renumbered flights under 14 CFR Parts 260 and 399."
+  },
+  "primary_literature_crossref": {
+    "forbes_lederman_tombe_2015_aej": {
+      "doi": "10.1257/mic.20130164",
+      "title": [
+        "Quality Disclosure Programs and Internal Organizational Practices: Evidence from Airline Flight Delays"
+      ],
+      "container_title": [
+        "American Economic Journal: Microeconomics"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2015,
+            5,
+            1
+          ]
+        ]
+      }
+    },
+    "kleven_2016_are_bunching": {
+      "doi": "10.1146/annurev-economics-080315-015234",
+      "title": [
+        "Bunching"
+      ],
+      "container_title": [
+        "Annual Review of Economics"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2016,
+            10,
+            31
+          ]
+        ]
+      }
+    },
+    "tarmac_delay_rule_cancellations_empirical": {
+      "doi": "10.31691/kasl35.2.6.",
+      "title": [
+        "Article 61bis of the Aviation Business Act and the Legal Principles for the Aviation Consumers Protection- Comparison with the U.S. \u201cTarmac Delay Rule\u201d -"
+      ],
+      "container_title": [
+        "The Korean Journal of Air &amp; Space Law and Policy"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2020,
+            6,
+            30
+          ]
+        ]
+      }
+    },
+    "tarmac_delay_rule_fukui_nagata": {
+      "doi": "10.1016/j.ecotra.2014.02.004",
+      "title": [
+        "Flight cancellation as a reaction to the tarmac delay rule: An unintended consequence of enhanced passenger protection"
+      ],
+      "container_title": [
+        "Economics of Transportation"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2014,
+            3
+          ]
+        ]
+      }
+    }
+  },
+  "bts_48month_head_inventory": {
+    "marketing_carrier": {
+      "total_months_checked": 48,
+      "http_200_count": 48,
+      "first_available": "2022-09",
+      "last_available": "2026-08",
+      "pre_announcement_2022_09_to_2024_03_count": 19,
+      "transition_2024_04_to_2024_10_count": 7,
+      "post_compliance_2024_11_to_2026_08_count": 22,
+      "missing_months": [],
+      "sample_month_headers": {
+        "2022-09": {
+          "bytes": 30119040,
+          "last_modified": "Fri, 02 Dec 2022 13:42:58 GMT"
+        },
+        "2023-10": {
+          "bytes": 33025323,
+          "last_modified": "Fri, 05 Jan 2024 14:04:42 GMT"
+        },
+        "2024-03": {
+          "bytes": 32914089,
+          "last_modified": "Wed, 29 May 2024 16:25:52 GMT"
+        },
+        "2024-10": {
+          "bytes": 33184224,
+          "last_modified": "Thu, 16 Jan 2025 19:10:27 GMT"
+        },
+        "2024-11": {
+          "bytes": 31833594,
+          "last_modified": "Tue, 18 Feb 2025 18:43:52 GMT"
+        },
+        "2025-10": {
+          "bytes": 35550100,
+          "last_modified": "Tue, 13 Jan 2026 14:49:55 GMT"
+        },
+        "2026-06": {
+          "bytes": 37040545,
+          "last_modified": "Wed, 12 Aug 2026 12:15:23 GMT"
+        },
+        "2026-08": {
+          "bytes": 37619433,
+          "last_modified": "Mon, 26 Oct 2026 20:49:23 GMT"
+        }
+      }
+    },
+    "reporting_carrier": {
+      "total_months_checked": 48,
+      "http_200_count": 48,
+      "first_available": "2022-09",
+      "last_available": "2026-08",
+      "pre_announcement_2022_09_to_2024_03_count": 19,
+      "transition_2024_04_to_2024_10_count": 7,
+      "post_compliance_2024_11_to_2026_08_count": 22,
+      "missing_months": [],
+      "sample_month_headers": {
+        "2022-09": {
+          "bytes": 27239747,
+          "last_modified": "Fri, 02 Dec 2022 13:47:22 GMT"
+        },
+        "2023-10": {
+          "bytes": 29452902,
+          "last_modified": "Fri, 05 Jan 2024 14:05:17 GMT"
+        },
+        "2024-03": {
+          "bytes": 29313663,
+          "last_modified": "Wed, 29 May 2024 16:26:08 GMT"
+        },
+        "2024-10": {
+          "bytes": 29418453,
+          "last_modified": "Thu, 16 Jan 2025 19:10:50 GMT"
+        },
+        "2024-11": {
+          "bytes": 28149354,
+          "last_modified": "Tue, 18 Feb 2025 18:44:14 GMT"
+        },
+        "2025-10": {
+          "bytes": 30723803,
+          "last_modified": "Tue, 13 Jan 2026 14:50:17 GMT"
+        },
+        "2026-06": {
+          "bytes": 31606062,
+          "last_modified": "Wed, 12 Aug 2026 12:15:44 GMT"
+        },
+        "2026-08": {
+          "bytes": 32030583,
+          "last_modified": "Mon, 26 Oct 2026 20:49:33 GMT"
+        }
+      }
+    }
+  },
+  "prerule_2month_schema_and_count_capacity_audit": {
+    "note": "Strictly pre-rule months ONLY (2023-10, 2024-03); zero post-announcement or post-compliance bytes downloaded.",
+    "monthly_audits": {
+      "2023-10": {
+        "download_seconds": 70.345,
+        "zip_bytes": 33025323,
+        "csv_name": "On_Time_Marketing_Carrier_On_Time_Performance_(Beginning_January_2018)_2023_10.csv",
+        "num_columns": 120,
+        "verified_key_columns_present": {
+          "FlightDate": true,
+          "Marketing_Airline_Network": true,
+          "Operating_Airline": true,
+          "Tail_Number": true,
+          "Origin": true,
+          "Dest": true,
+          "CRSDepTime": true,
+          "DepDelay": true,
+          "CRSArrTime": true,
+          "ArrDelay": true,
+          "Cancelled": true,
+          "CancellationCode": true,
+          "Diverted": true,
+          "CRSElapsedTime": true,
+          "ActualElapsedTime": true,
+          "TaxiOut": true,
+          "TaxiIn": true,
+          "CarrierDelay": true,
+          "WeatherDelay": true,
+          "NASDelay": true,
+          "SecurityDelay": true,
+          "LateAircraftDelay": true
+        },
+        "total_flights": 635538,
+        "cancelled_flights": 2189,
+        "cancellation_rate_pct": 0.344,
+        "cancellation_codes": {
+          "A": 1059,
+          "B": 1000,
+          "C": 130
+        },
+        "diverted_flights": 875,
+        "dep_delay_nonnull_rate_operating": 1.00021,
+        "arr_delay_nonnull_rate_completed": 1.0,
+        "tail_nonnull_rate": 0.99931,
+        "same_day_prior_leg_tail_linkage_rate": 0.7628,
+        "marketing_carriers_count": 10,
+        "marketing_carriers_flights": {
+          "AA": 153035,
+          "WN": 128588,
+          "DL": 128532,
+          "UA": 113864,
+          "AS": 32331,
+          "NK": 23294,
+          "B6": 22066,
+          "F9": 17270,
+          "G4": 9643,
+          "HA": 6915
+        },
+        "operating_carriers_count": 21,
+        "prerule_window_counts": {
+          "dep_delay_120_to_240_min": 8001,
+          "dep_delay_165_to_179_min": 986,
+          "dep_delay_180_to_194_min": 803,
+          "dep_delay_mod5_share_in_120_240_exact_null_is_0.20": 0.2108,
+          "arr_delay_120_to_240_min": 7567,
+          "arr_delay_mod5_share_in_120_240_exact_null_is_0.20": 0.1972,
+          "pure_airborne_placebo_dep_lt120_arr_120_240": 649
+        }
+      },
+      "2024-03": {
+        "download_seconds": 86.827,
+        "zip_bytes": 32914089,
+        "csv_name": "On_Time_Marketing_Carrier_On_Time_Performance_(Beginning_January_2018)_2024_3.csv",
+        "num_columns": 120,
+        "verified_key_columns_present": {
+          "FlightDate": true,
+          "Marketing_Airline_Network": true,
+          "Operating_Airline": true,
+          "Tail_Number": true,
+          "Origin": true,
+          "Dest": true,
+          "CRSDepTime": true,
+          "DepDelay": true,
+          "CRSArrTime": true,
+          "ArrDelay": true,
+          "Cancelled": true,
+          "CancellationCode": true,
+          "Diverted": true,
+          "CRSElapsedTime": true,
+          "ActualElapsedTime": true,
+          "TaxiOut": true,
+          "TaxiIn": true,
+          "CarrierDelay": true,
+          "WeatherDelay": true,
+          "NASDelay": true,
+          "SecurityDelay": true,
+          "LateAircraftDelay": true
+        },
+        "total_flights": 628786,
+        "cancelled_flights": 5377,
+        "cancellation_rate_pct": 0.855,
+        "cancellation_codes": {
+          "A": 1196,
+          "C": 523,
+          "B": 3658
+        },
+        "diverted_flights": 1329,
+        "dep_delay_nonnull_rate_operating": 1.0003,
+        "arr_delay_nonnull_rate_completed": 1.0,
+        "tail_nonnull_rate": 0.99838,
+        "same_day_prior_leg_tail_linkage_rate": 0.7566,
+        "marketing_carriers_count": 10,
+        "marketing_carriers_flights": {
+          "AA": 155274,
+          "DL": 125895,
+          "WN": 125272,
+          "UA": 110590,
+          "AS": 32495,
+          "NK": 22885,
+          "B6": 21565,
+          "F9": 17324,
+          "G4": 11031,
+          "HA": 6455
+        },
+        "operating_carriers_count": 21,
+        "prerule_window_counts": {
+          "dep_delay_120_to_240_min": 12922,
+          "dep_delay_165_to_179_min": 1491,
+          "dep_delay_180_to_194_min": 1223,
+          "dep_delay_mod5_share_in_120_240_exact_null_is_0.20": 0.2068,
+          "arr_delay_120_to_240_min": 12752,
+          "arr_delay_mod5_share_in_120_240_exact_null_is_0.20": 0.2101,
+          "pure_airborne_placebo_dep_lt120_arr_120_240": 1691
+        }
+      }
+    },
+    "projected_planning_power_from_prerule_counts_only": {
+      "avg_monthly_total_flights_prerule": 632162.0,
+      "avg_monthly_dep_120_240_prerule": 10461.5,
+      "avg_monthly_dep_165_179_prerule": 1238.5,
+      "avg_monthly_dep_180_194_prerule": 1013.0,
+      "avg_monthly_pure_airborne_placebo_120_240_prerule": 1170.0,
+      "projected_22m_post_dep_120_240_flights": 230153,
+      "projected_22m_post_dep_165_179_flights": 27247,
+      "projected_19m_pre_dep_165_179_flights": 23532,
+      "planning_assumption_mde_diff_in_bunching": {
+        "cluster_deff_1x": {
+          "se_log_excess_mass": 0.0089,
+          "mde_80pct_twosided_pct_excess_mass_in_165_179": 2.49
+        },
+        "cluster_deff_2x": {
+          "se_log_excess_mass": 0.01259,
+          "mde_80pct_twosided_pct_excess_mass_in_165_179": 3.53
+        },
+        "cluster_deff_4x": {
+          "se_log_excess_mass": 0.0178,
+          "mde_80pct_twosided_pct_excess_mass_in_165_179": 4.99
+        }
+      }
+    }
+  }
+}
