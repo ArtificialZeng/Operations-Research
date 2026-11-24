@@ -1,0 +1,96 @@
+{
+  "protocol": "STAGE0_XBRL_PRECISION_PROTOCOL.md",
+  "protocol_sha256": "63e909a2d24d5e48555cb4b15d81c835211e5b7595c822bf9d0db4d3f3b9e49c",
+  "real_pid": 29936,
+  "wall_time_s": 54.76354430001811,
+  "input_and_code_hashes": {
+    "filings_2025_json": "f74e1da4adc6cd7c9513bf4a59cf7953c203faeae5c3f410cc9bfa1a0965885f",
+    "xbrl_interval_core_py": "0d8235401b06ac3801c2a8700a51327ec36be575b0988e2d5f2116a963b3d024",
+    "STAGE0_XBRL_FIXTURE_RECEIPT_json": "057ac1b77c2972f15316f5f82c7648e3c0679a98ae5827af9887cb856ae49999",
+    "SPAIN_ESEF_2025_COHORT_20_RECEIPT_json": "d8d2829c10a2fa356bea238441e8b2aa368c8bc5af6046dd03ba443c983775e0",
+    "run_spain_esef_2025_audit_py": "44de79af5d3dc2f6b53138f0cc9d99d515dc56c68d65ad5409522432d6604bca",
+    "spain_esef_2025_per_filing_jsonl": "8d659e930335a288a7ac468afd052c4c150bd69bc68a6a745dbb24be383b7f37"
+  },
+  "cohort_denominators": {
+    "n_spain_esef_v0_unique_leis_in_2025_index": 121,
+    "n_selected_bounded_cohort": 20,
+    "n_downloaded_successfully": 20,
+    "n_revenue_eligible": 12,
+    "n_revenue_excluded": 8,
+    "revenue_exclusion_reasons": {
+      "no_undimensioned_full_fy_Revenue_facts": 8
+    },
+    "revenue_decimals_pairs": {
+      "(-3, -3)": 12
+    },
+    "revenue_currencies": {
+      "EUR": 12
+    },
+    "n_gross_margin_eligible": 2,
+    "n_gross_margin_excluded": 18,
+    "gross_margin_exclusion_reasons": {
+      "revenue_ineligible": 8,
+      "no_undimensioned_full_fy_GrossProfit_facts": 10
+    }
+  },
+  "primary_1pct_yoy_revenue_growth": {
+    "n_eligible": 12,
+    "round_to_nearest_counts": {
+      "uniquely_identified_below": 7,
+      "uniquely_identified_above": 5
+    },
+    "truncation_counts": {
+      "uniquely_identified_below": 7,
+      "uniquely_identified_above": 5
+    },
+    "conservative_label_counts": {
+      "conservative_uniquely_identified_below": 7,
+      "conservative_uniquely_identified_above": 5
+    },
+    "n_strict_non_tie_flips_round_to_nearest": 0,
+    "n_strict_non_tie_flips_truncation": 0,
+    "n_strict_non_tie_flips_either_rule": 0,
+    "strict_non_tie_flip_cases": [],
+    "exact_displayed_tie_cases": [],
+    "endpoint_touch_only_cases": []
+  },
+  "secondary_0pct_yoy_revenue_growth": {
+    "n_eligible": 12,
+    "round_to_nearest_counts": {
+      "uniquely_identified_below": 6,
+      "uniquely_identified_above": 6
+    },
+    "truncation_counts": {
+      "uniquely_identified_below": 6,
+      "uniquely_identified_above": 6
+    },
+    "conservative_label_counts": {
+      "conservative_uniquely_identified_below": 6,
+      "conservative_uniquely_identified_above": 6
+    },
+    "n_strict_non_tie_flips_round_to_nearest": 0,
+    "n_strict_non_tie_flips_truncation": 0,
+    "n_strict_non_tie_flips_either_rule": 0,
+    "strict_non_tie_flip_cases": [],
+    "exact_displayed_tie_cases": [],
+    "endpoint_touch_only_cases": []
+  },
+  "secondary_gross_margin_change": {
+    "n_eligible": 2,
+    "round_to_nearest_counts": {
+      "uniquely_identified_below": 2
+    },
+    "truncation_counts": {
+      "uniquely_identified_below": 2
+    },
+    "conservative_label_counts": {
+      "conservative_uniquely_identified_below": 2
+    },
+    "n_strict_non_tie_flips_round_to_nearest": 0,
+    "n_strict_non_tie_flips_truncation": 0,
+    "n_strict_non_tie_flips_either_rule": 0,
+    "strict_non_tie_flip_cases": [],
+    "exact_displayed_tie_cases": [],
+    "endpoint_touch_only_cases": []
+  }
+}

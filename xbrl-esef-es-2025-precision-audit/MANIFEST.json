@@ -1,0 +1,299 @@
+{
+  "archive_name": "xbrl-esef-es-2025-precision-audit",
+  "archive_date": "2026-11-24",
+  "status": "FROZEN_EARLY_STAGE0_FEASIBILITY_ARCHIVE",
+  "execution_receipts": {
+    "first_run_pid": 40104,
+    "first_run_interruption": "http.client.InvalidURL on filing 17/20 due to unencoded spaces in report_url path",
+    "first_run_runner_sha256": "e7b693a4ff8ab176d580ae88080d73cd962660375334fd9ef8a2a05f6f58de42",
+    "resumed_run_pid": 29936,
+    "resumed_run_runner_sha256": "44de79af5d3dc2f6b53138f0cc9d99d515dc56c68d65ad5409522432d6604bca",
+    "patch_scope": "URL path percent-encoding only (urllib.parse.quote inside polite_download_xhtml); zero protocol/cohort/parser/interval-math changes",
+    "locked_protocol_local_sha256": "63e909a2d24d5e48555cb4b15d81c835211e5b7595c822bf9d0db4d3f3b9e49c",
+    "summary_json_sha256": "ed644fd17fe6ee58841ad7b3e4f37e5082089f368e374a22c8dbd7d6ea01c6ce"
+  },
+  "omitted_public_source_snapshots": {
+    "filings_2025_index": {
+      "url": "https://filings.xbrl.org/indexes/filings-2025.json",
+      "last_modified": "Thu, 19 Nov 2026 19:22:24 GMT",
+      "bytes": 3851051,
+      "sha256": "f74e1da4adc6cd7c9513bf4a59cf7953c203faeae5c3f410cc9bfa1a0965885f"
+    },
+    "external_schema_example_2026_outside_cohort": {
+      "xhtml_url": "https://filings.xbrl.org/9598000ANNAL42UJ7X28/2026-09-30/ESEF/ES/0/9598000ANNAL42UJ7X28-2026-09-30-1-es/reports/9598000ANNAL42UJ7X28-2026-09-30-1-es.xhtml",
+      "xhtml_sha256": "887b27cf5ecde5d85f911a1bdaa9d2bb6ac0491a125ca510869b5d29f23ed835",
+      "oim_json_url": "https://filings.xbrl.org/9598000ANNAL42UJ7X28/2026-09-30/ESEF/ES/0/9598000ANNAL42UJ7X28-2026-09-30-1-es.json"
+    },
+    "omitted_20_raw_cohort_xhtml_filings": [
+      {
+        "cohort_idx": 1,
+        "lei": "95980079E2NBJT967T79",
+        "fxo_id": "95980079E2NBJT967T79-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/95980079E2NBJT967T79/2025-12-31/ESEF/ES/0/95980079E2NBJT967T79-2025-12-31-1-es/reports/95980079E2NBJT967T79-2025-12-31-1-es.xhtml",
+        "bytes": 30001803,
+        "sha256": "cb6dc94286669b3d968739d7aa5b5626fddce26030927725e0e287fe7c178c75"
+      },
+      {
+        "cohort_idx": 2,
+        "lei": "959800RG37G8456RGX60",
+        "fxo_id": "959800RG37G8456RGX60-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/959800RG37G8456RGX60/2025-12-31/ESEF/ES/0/959800RG37G8456RGX60-2025-12-31-1-es/reports/959800RG37G8456RGX60-2025-12-31-1-es.xhtml",
+        "bytes": 71577999,
+        "sha256": "ec7d91b2c30b60bfa252144645f8bbb38ef90b75867e0c5b860f942ce024f1ba"
+      },
+      {
+        "cohort_idx": 3,
+        "lei": "959800XKAB9VNAVN9425",
+        "fxo_id": "959800XKAB9VNAVN9425-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/959800XKAB9VNAVN9425/2025-12-31/ESEF/ES/0/959800XKAB9VNAVN9425-2025-12-31-1-es/reports/959800XKAB9VNAVN9425-2025-12-31-1-es.xhtml",
+        "bytes": 90843993,
+        "sha256": "7ee6569f4ed6b621e92e79069ada3adb7f10936ae57240dd1b3def72c28ab139"
+      },
+      {
+        "cohort_idx": 4,
+        "lei": "9598005HY5DEFPU2SM35",
+        "fxo_id": "9598005HY5DEFPU2SM35-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/9598005HY5DEFPU2SM35/2025-12-31/ESEF/ES/0/9598005HY5DEFPU2SM35-2025-12-31-1-es/reports/9598005HY5DEFPU2SM35-2025-12-31-1-es.xhtml",
+        "bytes": 30441318,
+        "sha256": "8f6cb0f33f9b2bfa6114e96e8c2bdbd36e8c18dd8cd70cde27ecb168266755f1"
+      },
+      {
+        "cohort_idx": 5,
+        "lei": "95980020140005491929",
+        "fxo_id": "95980020140005491929-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/95980020140005491929/2025-12-31/ESEF/ES/0/95980020140005491929-2025-12-31-1-es/reports/95980020140005491929-2025-12-31-1-es.xhtml",
+        "bytes": 7814073,
+        "sha256": "2c5e70caaf80e9ad694a529d19994444dc6cdc601d60631d9ba32ef80a81c032"
+      },
+      {
+        "cohort_idx": 6,
+        "lei": "959800EXHG00L95ZAK22",
+        "fxo_id": "959800EXHG00L95ZAK22-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/959800EXHG00L95ZAK22/2025-12-31/ESEF/ES/0/959800EXHG00L95ZAK22-2025-12-31-es/reports/959800EXHG00L95ZAK22-2025-12-31-es.xhtml",
+        "bytes": 24113162,
+        "sha256": "6a514a56c40d91e1f9b2fac6099987280f1147770a25468e056639c3bbeb87a1"
+      },
+      {
+        "cohort_idx": 7,
+        "lei": "95980020140005684765",
+        "fxo_id": "95980020140005684765-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/95980020140005684765/2025-12-31/ESEF/ES/0/95980020140005684765-2025-12-31-1-es/reports/95980020140005684765-2025-12-31-1-es.xhtml",
+        "bytes": 74863851,
+        "sha256": "4710c55d2a4b7ee0e7d98d2ca527a2f9df556015c5f823841f17e1f5d2e1ba74"
+      },
+      {
+        "cohort_idx": 8,
+        "lei": "959800JRKSZ6YZD4EL80",
+        "fxo_id": "959800JRKSZ6YZD4EL80-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/959800JRKSZ6YZD4EL80/2025-12-31/ESEF/ES/0/959800JRKSZ6YZD4EL80-2025-12-31-1-es/reports/959800JRKSZ6YZD4EL80-2025-12-31-1-es.xhtml",
+        "bytes": 106283734,
+        "sha256": "7017dce17a339e05a5bea8947b56b74069e000b31ccd543db966ba11fe56b07c"
+      },
+      {
+        "cohort_idx": 9,
+        "lei": "549300N94L4D5NDBFG97",
+        "fxo_id": "549300N94L4D5NDBFG97-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/549300N94L4D5NDBFG97/2025-12-31/ESEF/ES/0/549300N94L4D5NDBFG97-2025-12-31-1-es/reports/549300N94L4D5NDBFG97-2025-12-31-1-es.xhtml",
+        "bytes": 22788271,
+        "sha256": "126189f1b7b8e651bc18f72c64200fa857d1a0fe6f495ce68fa6c7baf292c79e"
+      },
+      {
+        "cohort_idx": 10,
+        "lei": "95980037JECHVQDJDT59",
+        "fxo_id": "95980037JECHVQDJDT59-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/95980037JECHVQDJDT59/2025-12-31/ESEF/ES/0/95980037JECHVQDJDT59-2025-12-31-1-es/reports/95980037JECHVQDJDT59-2025-12-31-1-es.xhtml",
+        "bytes": 14670032,
+        "sha256": "d9da4c3dc75582d74ea64c5edf068784db3a2720381fcb44b8ecc90813d17831"
+      },
+      {
+        "cohort_idx": 11,
+        "lei": "95980020140005204809",
+        "fxo_id": "95980020140005204809-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/95980020140005204809/2025-12-31/ESEF/ES/0/95980020140005204809-2025-12-31-1-es/reports/95980020140005204809-2025-12-31-1-es.xhtml",
+        "bytes": 19572281,
+        "sha256": "1ced0873e57cfd4f987c6739ba7f0729038a46f510c8153a9fca8f9d2333bdbe"
+      },
+      {
+        "cohort_idx": 12,
+        "lei": "5493000LM0MZ4JPMGM90",
+        "fxo_id": "5493000LM0MZ4JPMGM90-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/5493000LM0MZ4JPMGM90/2025-12-31/ESEF/ES/0/5493000LM0MZ4JPMGM90-2025-12-31-1-es/reports/5493000LM0MZ4JPMGM90-2025-12-31-1-es.xhtml",
+        "bytes": 19356896,
+        "sha256": "33f9ecbff29dd75885e1205ee90260fbe0706292c242314a63c1bcd98136ddc5"
+      },
+      {
+        "cohort_idx": 13,
+        "lei": "959800QETXHEMRSX9V59",
+        "fxo_id": "959800QETXHEMRSX9V59-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/959800QETXHEMRSX9V59/2025-12-31/ESEF/ES/0/959800QETXHEMRSX9V59-2025-12-31-1-es/reports/959800QETXHEMRSX9V59-2025-12-31-1-es.xhtml",
+        "bytes": 15094641,
+        "sha256": "b11171cad4d48d50238b0b32e54da478ba22d848a1e38cda60e47ebc5f0b02d1"
+      },
+      {
+        "cohort_idx": 14,
+        "lei": "7CUNS533WID6K7DGFI87",
+        "fxo_id": "7CUNS533WID6K7DGFI87-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/7CUNS533WID6K7DGFI87/2025-12-31/ESEF/ES/0/7CUNS533WID6K7DGFI87-2025-12-31-1-es/reports/7CUNS533WID6K7DGFI87-2025-12-31-1-es.xhtml",
+        "bytes": 101314804,
+        "sha256": "bd3876fb7f26ecd2d560b7ed0860c96cda878d146cb463a463197e486d3fdab4"
+      },
+      {
+        "cohort_idx": 15,
+        "lei": "959800H2P9S8MS95DT42",
+        "fxo_id": "959800H2P9S8MS95DT42-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/959800H2P9S8MS95DT42/2025-12-31/ESEF/ES/0/959800H2P9S8MS95DT42-2025-12-31-1-es/reports/959800H2P9S8MS95DT42-2025-12-31-1-es.xhtml",
+        "bytes": 49038058,
+        "sha256": "7ba9f3f36101611c2d1d3d4361dc2576bf548da5cfcd2a213937c4a12ac98e55"
+      },
+      {
+        "cohort_idx": 16,
+        "lei": "95980020140005319366",
+        "fxo_id": "95980020140005319366-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/95980020140005319366/2025-12-31/ESEF/ES/0/95980020140005319366-2025-12-31-1-es/reports/CCAADeoleoSAConsolidado2025InfAud-2026-12-31-1-en.xhtml",
+        "bytes": 119121634,
+        "sha256": "6074496fe3c614e3a6e84b16a10ee798c407d640bdb59c2c3f75afbf0b106ad6"
+      },
+      {
+        "cohort_idx": 17,
+        "lei": "95980020140005436930",
+        "fxo_id": "95980020140005436930-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/95980020140005436930/2025-12-31/ESEF/ES/0/2026-04-24%2010-46-29%20-%20Merged/reports/95980020140005436930-2025-12-31-1-es.xhtml",
+        "bytes": 54775511,
+        "sha256": "f986203bd4fcb1d39c8195fc9eea5491cb9ad55e205f2064977c60e3e41c22d7"
+      },
+      {
+        "cohort_idx": 18,
+        "lei": "959800GQ29X3QTKYUM69",
+        "fxo_id": "959800GQ29X3QTKYUM69-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/959800GQ29X3QTKYUM69/2025-12-31/ESEF/ES/0/959800GQ29X3QTKYUM69-2025-12-31-1-es/reports/959800GQ29X3QTKYUM69-2025-12-31-1-es.xhtml",
+        "bytes": 15442598,
+        "sha256": "37e4b5c621122b6e401ec7c146fd59e037c3a234776da9954214f99e27583746"
+      },
+      {
+        "cohort_idx": 19,
+        "lei": "95980020140005693107",
+        "fxo_id": "95980020140005693107-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/95980020140005693107/2025-12-31/ESEF/ES/0/95980020140005693107-2025-12-31-1-es/reports/95980020140005693107-2025-12-31-1-es.xhtml",
+        "bytes": 32437584,
+        "sha256": "74bde10370fcdb40819a2076aead89c34d43fb1060b93779b56f5850038ad493"
+      },
+      {
+        "cohort_idx": 20,
+        "lei": "95980020140005491250",
+        "fxo_id": "95980020140005491250-2025-12-31-ESEF-ES-0",
+        "public_url": "https://filings.xbrl.org/95980020140005491250/2025-12-31/ESEF/ES/0/95980020140005491250-2025-12-31-1-es/reports/95980020140005491250-2025-12-31-1-es.xhtml",
+        "bytes": 30573902,
+        "sha256": "f33d091c7244da7763fee78f74b54ea206eb3c1107602972f97c1fb1921482d2"
+      }
+    ]
+  },
+  "exclusions": [
+    "raw 3.85 MB filings-2025.json index mirror (source URL and SHA-256 preserved above)",
+    "all 20 raw downloaded .xhtml filings and external 2026 schema example raw files (public URLs and SHA-256s preserved above)",
+    "API docs HTML mirror, .venv/, Python caches, internal notes/drafts, private filesystem paths, and author contact emails"
+  ],
+  "n_files_listed": 13,
+  "total_bytes_listed": 196626,
+  "files": [
+    {
+      "path": "PROVENANCE_AND_ERRATA.md",
+      "bytes": 4032,
+      "sha256": "280965174d46c9c506f9c002bd4294cad8679026bc903dc92bb5cd1da59e74c6",
+      "local_sealed_sha256": "6da5c85b73c24cd467ce37dbadb67fbfad811a4b067b6c250a7d0438444717b9",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file links to portable relative archive links (locked local SHA-256 preserved)."
+    },
+    {
+      "path": "README.md",
+      "bytes": 6596,
+      "sha256": "5286f32d621f0b56ad37597bd2937b1aa32e64ce619c4de83039248a4c8a5f67",
+      "byte_identical_to_local_sealed": null,
+      "note": "Top-level portable archive README."
+    },
+    {
+      "path": "code/run_spain_esef_2025_audit.py",
+      "bytes": 21597,
+      "sha256": "c109d14ea226f4b168a1c135913001bdaaf9f4da5468d87624686e0a20e300e5",
+      "local_sealed_sha256": "44de79af5d3dc2f6b53138f0cc9d99d515dc56c68d65ad5409522432d6604bca",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path.",
+      "note": "Prelaunch PID=40104 runner SHA-256 was e7b693a4ff8ab176d580ae88080d73cd962660375334fd9ef8a2a05f6f58de42; resumed PID=29936 URL-encoding-only patched runner SHA-256 was 44de79af5d3dc2f6b53138f0cc9d99d515dc56c68d65ad5409522432d6604bca.",
+      "local_prelaunch_pid40104_sha256": "e7b693a4ff8ab176d580ae88080d73cd962660375334fd9ef8a2a05f6f58de42",
+      "local_resumed_pid29936_sha256": "44de79af5d3dc2f6b53138f0cc9d99d515dc56c68d65ad5409522432d6604bca"
+    },
+    {
+      "path": "code/select_esef_es_2025_cohort.py",
+      "bytes": 3867,
+      "sha256": "d0ad4dddf51e50dd020bb0d9458ae8a7054497e10319af7b453a3eba6b3ebb92",
+      "local_sealed_sha256": "1908b82f121f26318324ac6f27a4406e4127cc71d287ba571d3c971ccfed9627",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path."
+    },
+    {
+      "path": "code/verify_xbrl_interval_fixtures.py",
+      "bytes": 13386,
+      "sha256": "99d6423254a1526e0f1bbadc1055c4cb47e90fabd9c9f1a7872fd966126f9363",
+      "local_sealed_sha256": "928430a533ed4a12f6ea8764a4a399f3dd6c69557635e0a5a60aa4554c4421a6",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Replaced local Windows BASE path with portable relative/env path."
+    },
+    {
+      "path": "code/xbrl_interval_core.py",
+      "bytes": 34163,
+      "sha256": "0d8235401b06ac3801c2a8700a51327ec36be575b0988e2d5f2116a963b3d024",
+      "local_sealed_sha256": "0d8235401b06ac3801c2a8700a51327ec36be575b0988e2d5f2116a963b3d024",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "outputs/spain_esef_2025_per_filing.jsonl",
+      "bytes": 75687,
+      "sha256": "8d659e930335a288a7ac468afd052c4c150bd69bc68a6a745dbb24be383b7f37",
+      "local_sealed_sha256": "8d659e930335a288a7ac468afd052c4c150bd69bc68a6a745dbb24be383b7f37",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "outputs/spain_esef_2025_summary.json",
+      "bytes": 3494,
+      "sha256": "ed644fd17fe6ee58841ad7b3e4f37e5082089f368e374a22c8dbd7d6ea01c6ce",
+      "local_sealed_sha256": "ed644fd17fe6ee58841ad7b3e4f37e5082089f368e374a22c8dbd7d6ea01c6ce",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "protocols/STAGE0_XBRL_PRECISION_PROTOCOL.md",
+      "bytes": 6631,
+      "sha256": "8f528aae91c7ae9ea716f9d39aedc5b19664b914fe672857414e59790157954b",
+      "local_sealed_sha256": "63e909a2d24d5e48555cb4b15d81c835211e5b7595c822bf9d0db4d3f3b9e49c",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file links to portable relative archive links (locked local SHA-256 preserved)."
+    },
+    {
+      "path": "receipts/SPAIN_ESEF_2025_COHORT_20_RECEIPT.json",
+      "bytes": 16470,
+      "sha256": "d8d2829c10a2fa356bea238441e8b2aa368c8bc5af6046dd03ba443c983775e0",
+      "local_sealed_sha256": "d8d2829c10a2fa356bea238441e8b2aa368c8bc5af6046dd03ba443c983775e0",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "receipts/STAGE0_XBRL_FIXTURE_RECEIPT.json",
+      "bytes": 1435,
+      "sha256": "057ac1b77c2972f15316f5f82c7648e3c0679a98ae5827af9887cb856ae49999",
+      "local_sealed_sha256": "057ac1b77c2972f15316f5f82c7648e3c0679a98ae5827af9887cb856ae49999",
+      "byte_identical_to_local_sealed": true
+    },
+    {
+      "path": "reports/STAGE0_XBRL_FEASIBILITY_RESULT.md",
+      "bytes": 9190,
+      "sha256": "ab3b5d226b0e761318a399d69b4290985db47dd096af86007f0dc14dd0d0826c",
+      "local_sealed_sha256": "47bfedeb5677be1ab0e1141d5686a8eb3346cc4ebf917d9a3fd11ab4de85fed7",
+      "byte_identical_to_local_sealed": false,
+      "portability_transform": "Converted local file links to portable relative archive links (locked local SHA-256 preserved)."
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 78,
+      "sha256": "6ec9597f63a29614944cf69f3f7cd839fad6de774ce19c90f0644bccbc5dfbf9",
+      "byte_identical_to_local_sealed": null,
+      "note": "Minimal runtime dependency."
+    }
+  ]
+}

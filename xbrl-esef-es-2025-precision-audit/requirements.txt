@@ -1,0 +1,2 @@
+# Python 3.12+ (exact arithmetic uses stdlib decimal/fractions)
+lxml==6.1.3

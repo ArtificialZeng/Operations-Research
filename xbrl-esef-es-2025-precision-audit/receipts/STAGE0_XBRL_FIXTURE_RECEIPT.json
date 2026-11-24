@@ -1,0 +1,26 @@
+{
+  "purpose": "Pre-launch fixture verification for XBRL Calculations 1.1 interval engine, ixt transforms, duplicate conflict rules, and schema-example XHTML vs official XBRL-JSON parity (outside frozen 2025 sample).",
+  "xbrl_interval_core_py_sha256": "0d8235401b06ac3801c2a8700a51327ec36be575b0988e2d5f2116a963b3d024",
+  "verify_script_sha256": "928430a533ed4a12f6ea8764a4a399f3dd6c69557635e0a5a60aa4554c4421a6",
+  "all_fixtures_passed": true,
+  "synthetic_fixtures": {
+    "ixt_transforms_and_error_rejections": true,
+    "exact_displayed_tie_separated_from_flip": true,
+    "strict_non_tie_flip_both_rules_witness_verified": true,
+    "endpoint_touch_only_separated_from_flip": true,
+    "single_rule_flip_vs_convention_label": true,
+    "gross_margin_change_witness_verified": true,
+    "duplicate_conflict_detection_verified": true
+  },
+  "schema_example_outside_2025_parity": {
+    "xhtml_sha256": "887b27cf5ecde5d85f911a1bdaa9d2bb6ac0491a125ca510869b5d29f23ed835",
+    "oim_json_sha256": "362f05761b60e8f0b8a5bcc3a4eb6ef24fc616b9b589ac080f48c642c4851c27",
+    "xhtml_matches_official_oim_json_value_and_decimals_4_of_4": true,
+    "revenue_fy2026_exact": "13837002000",
+    "revenue_fy2026_decimals": -3,
+    "revenue_fy2025_exact": "13536241000",
+    "revenue_fy2025_decimals": -3,
+    "smoke_1pct_nearest": "uniquely_identified_above",
+    "smoke_1pct_truncation": "uniquely_identified_above"
+  }
+}
