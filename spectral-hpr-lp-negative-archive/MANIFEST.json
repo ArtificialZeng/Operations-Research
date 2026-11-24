@@ -1,0 +1,88 @@
+{
+  "archive_id": "spectral_hpr_lp_20261124",
+  "status": "FROZEN_NEGATIVE_METHOD_ARCHIVE",
+  "date": "2026-11-24",
+  "repo_target": "ArtificialZeng/Operations-Research",
+  "pdf_included": false,
+  "historical_skill_note": "Initial arXiv retrieval for this frozen route used local literature-search-arxiv skill; preserved for provenance only.",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 4478,
+      "sha256": "36ddd5a7e72f00e58a9d7ce5107667b672b8626fbd00bbcba928f5fce96a922e",
+      "sealed": false
+    },
+    {
+      "file": "STATUS.md",
+      "bytes": 3748,
+      "sha256": "b620afa7a50871bbb17cca8a301f07bfb5a31d9164c977107064106b2b461beb",
+      "sealed": false
+    },
+    {
+      "file": "ERRATA.md",
+      "bytes": 5390,
+      "sha256": "b400d0161f5a0646bd4cacfde66c21bad34f1b072072667f7b86e1c771e02263",
+      "sealed": false
+    },
+    {
+      "file": "OVERLAP_AND_SELECTION.md",
+      "bytes": 15792,
+      "sha256": "585a815adb615d7bfd0ce61a1f822af3cff7ebaadf80cbc9a69bd4f942b18a6d",
+      "sealed": false
+    },
+    {
+      "file": "THEORY_THEOREMS_1_TO_3.md",
+      "bytes": 10609,
+      "sha256": "44c2515b2e1069745ac519e699a61bfb38fa55511a7c10e9a0cd45640bc0f316",
+      "sealed": false
+    },
+    {
+      "file": "STAGE0_PROTOCOL.md",
+      "bytes": 8403,
+      "sha256": "e00c2be981162f0b41f25524275ab0cbb936bf0601cfb38cbc5a186260662d42",
+      "sealed": true
+    },
+    {
+      "file": "stage0_cheap_failure_test.py",
+      "bytes": 60635,
+      "sha256": "95fbc47a070e466a373dbaedbf73818f06f8c245da2397e46dcb3282e76f1bd7",
+      "sealed": true
+    },
+    {
+      "file": "stage0_results.json",
+      "bytes": 63658,
+      "sha256": "4612cc9fbe7c618cd26fc8edf0ead4566f9d663eb75b915ec46f7587b70aad56",
+      "sealed": true
+    },
+    {
+      "file": "STAGE0_DIAGNOSTIC_RESULT.md",
+      "bytes": 7535,
+      "sha256": "dc104fb8b3471f718889166eb53feb1a106b454ced21928ea2c5c411dcbf54fe",
+      "sealed": false
+    },
+    {
+      "file": "stage0b_matched_spmv_ablation.py",
+      "bytes": 26026,
+      "sha256": "b524d1ebeb63fbc4dea367a2f5cf9ace240c12d6e2b9c4b8a5d7343e6c0f2d8c",
+      "sealed": false
+    },
+    {
+      "file": "stage0b_matched_spmv_ablation.json",
+      "bytes": 44768,
+      "sha256": "3709c7b26b5fa9f186dc03e37e0873540c2ccbcff3b75f4d74ea93f0f6b15e23",
+      "sealed": false
+    },
+    {
+      "file": "STAGE0B_SPMV_ABLATION.md",
+      "bytes": 4871,
+      "sha256": "a2df67f97f74c0bfcf0d4dbcad93fcfedfe90cc239adb4bce206c2f2a1564f85",
+      "sealed": false
+    },
+    {
+      "file": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "sealed": false
+    }
+  ]
+}

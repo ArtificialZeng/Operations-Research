@@ -1,0 +1,1474 @@
+{
+  "family_summary": {
+    "F1_FactorEq": {
+      "gm_spmv_1e6": {
+        "HPR-Native": 29238.252306526945,
+        "HPR-Slack": 29238.252306526945,
+        "cuPDLPx-ASB": 20169.109337599795,
+        "Spec-HPR": 18187.781427361937
+      },
+      "gm_spmv_1e4": {
+        "HPR-Native": 4685.0881340430915,
+        "HPR-Slack": 4685.0881340430915,
+        "cuPDLPx-ASB": 10957.545757894604,
+        "Spec-HPR": 2723.5955250983893
+      },
+      "spmv_speedup_Spec_vs_Native_1e6": 1.6075766262805717,
+      "spmv_speedup_Spec_vs_Slack_1e6": 1.6075766262805717,
+      "spmv_speedup_Spec_vs_ASB_1e6": 1.108937305968342,
+      "spmv_speedup_Spec_vs_Native_1e4": 1.7201849874069843,
+      "spmv_speedup_Spec_vs_ASB_1e4": 4.023191276721886
+    },
+    "F2_LinkedMCF": {
+      "gm_spmv_1e6": {
+        "HPR-Native": 7112.7054288582995,
+        "HPR-Slack": 9129.279568747495,
+        "cuPDLPx-ASB": 6599.318392902281,
+        "Spec-HPR": 7694.043783942932
+      },
+      "gm_spmv_1e4": {
+        "HPR-Native": 1622.4599397676125,
+        "HPR-Slack": 3656.309596653525,
+        "cuPDLPx-ASB": 1633.2658773566677,
+        "Spec-HPR": 3318.0206214035784
+      },
+      "spmv_speedup_Spec_vs_Native_1e6": 0.9244430664278444,
+      "spmv_speedup_Spec_vs_Slack_1e6": 1.1865385517820715,
+      "spmv_speedup_Spec_vs_ASB_1e6": 0.8577178111040534,
+      "spmv_speedup_Spec_vs_Native_1e4": 0.4889842845766536,
+      "spmv_speedup_Spec_vs_ASB_1e4": 0.49224102671964975
+    },
+    "F3_FactorIneq": {
+      "gm_spmv_1e6": {
+        "HPR-Native": 6791.485417204727,
+        "HPR-Slack": 10032.842179160578,
+        "cuPDLPx-ASB": 3207.530311436265,
+        "Spec-HPR": 6912.406814806552
+      },
+      "gm_spmv_1e4": {
+        "HPR-Native": 1382.875383220638,
+        "HPR-Slack": 3493.519349235901,
+        "cuPDLPx-ASB": 1745.224982499646,
+        "Spec-HPR": 2455.026822503707
+      },
+      "spmv_speedup_Spec_vs_Native_1e6": 0.9825066144338022,
+      "spmv_speedup_Spec_vs_Slack_1e6": 1.4514253064026807,
+      "spmv_speedup_Spec_vs_ASB_1e6": 0.46402510693752186,
+      "spmv_speedup_Spec_vs_Native_1e4": 0.5632832075579288,
+      "spmv_speedup_Spec_vs_ASB_1e4": 0.7108781731027344
+    },
+    "F4_FlatControl": {
+      "gm_spmv_1e6": {
+        "HPR-Native": 7768.763312632433,
+        "HPR-Slack": 10231.434235263338,
+        "cuPDLPx-ASB": 7829.65989701849,
+        "Spec-HPR": 11041.676284006977
+      },
+      "gm_spmv_1e4": {
+        "HPR-Native": 1239.8314894147463,
+        "HPR-Slack": 1483.3204605484163,
+        "cuPDLPx-ASB": 1212.4596788802191,
+        "Spec-HPR": 1676.6824108643264
+      },
+      "spmv_speedup_Spec_vs_Native_1e6": 0.7035854985066798,
+      "spmv_speedup_Spec_vs_Slack_1e6": 0.9266196519529183,
+      "spmv_speedup_Spec_vs_ASB_1e6": 0.7091006560624452,
+      "spmv_speedup_Spec_vs_Native_1e4": 0.7394551773079171,
+      "spmv_speedup_Spec_vs_ASB_1e4": 0.723130195094728
+    }
+  },
+  "instances": [
+    {
+      "name": "f1_eq_m300_k1",
+      "family": "F1_FactorEq",
+      "f_star": 34.33324572666685,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 6080,
+          "iters_1e4": 1560,
+          "spmv_1e4": 3277,
+          "spmv": {
+            "scaling": 22,
+            "setup": 18,
+            "sweep": 12160,
+            "kkt_restart": 456,
+            "asb_power": 0,
+            "total": 12656
+          },
+          "time_setup": 0.007211999996798113,
+          "time_solve": 0.24287059999187477,
+          "time_total": 0.2500825999886729,
+          "max_kkt": 9.939692248539946e-07,
+          "p_obj": 34.33326383377961,
+          "restarts": 10,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 6080,
+          "iters_1e4": 1560,
+          "spmv_1e4": 3277,
+          "spmv": {
+            "scaling": 22,
+            "setup": 18,
+            "sweep": 12160,
+            "kkt_restart": 456,
+            "asb_power": 0,
+            "total": 12656
+          },
+          "time_setup": 0.006063799999537878,
+          "time_solve": 0.22181540000019595,
+          "time_total": 0.22787919999973383,
+          "max_kkt": 9.939692382149576e-07,
+          "p_obj": 34.33326383378009,
+          "restarts": 10,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 3160,
+          "iters_1e4": 1560,
+          "spmv_1e4": 3277,
+          "spmv": {
+            "scaling": 22,
+            "setup": 18,
+            "sweep": 6320,
+            "kkt_restart": 237,
+            "asb_power": 60,
+            "total": 6657
+          },
+          "time_setup": 0.005945100012468174,
+          "time_solve": 0.12758920001215301,
+          "time_total": 0.1335343000246212,
+          "max_kkt": 6.239482688062102e-07,
+          "p_obj": 34.33298050867485,
+          "restarts": 8,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 4480,
+          "iters_1e4": 1360,
+          "spmv_1e4": 2984,
+          "spmv": {
+            "scaling": 22,
+            "setup": 140,
+            "sweep": 8960,
+            "kkt_restart": 336,
+            "asb_power": 0,
+            "total": 9458
+          },
+          "time_setup": 0.0075594999943859875,
+          "time_solve": 0.18115239999315236,
+          "time_total": 0.18871189998753835,
+          "max_kkt": 9.493327555100619e-07,
+          "p_obj": 34.33324850911025,
+          "restarts": 9,
+          "extra": {
+            "spectral_ratio": 1.7823957161536235
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 4840,
+          "time_total": 0.0881260000023758,
+          "obj": 34.33292013223531
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 4736,
+          "time_solve": 0.13121419999515638,
+          "time_build": 0.008266699995147064,
+          "obj": 34.33295236258443
+        }
+      }
+    },
+    {
+      "name": "f1_eq_m400_k4",
+      "family": "F1_FactorEq",
+      "f_star": -2668.3598223067515,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 18320,
+          "iters_1e4": 3600,
+          "spmv_1e4": 7504,
+          "spmv": {
+            "scaling": 22,
+            "setup": 12,
+            "sweep": 36640,
+            "kkt_restart": 1374,
+            "asb_power": 0,
+            "total": 38048
+          },
+          "time_setup": 0.008939000006648712,
+          "time_solve": 1.206997000001138,
+          "time_total": 1.2159360000077868,
+          "max_kkt": 9.776380656788045e-07,
+          "p_obj": -2668.3740655601905,
+          "restarts": 13,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 18320,
+          "iters_1e4": 3600,
+          "spmv_1e4": 7504,
+          "spmv": {
+            "scaling": 22,
+            "setup": 12,
+            "sweep": 36640,
+            "kkt_restart": 1374,
+            "asb_power": 0,
+            "total": 38048
+          },
+          "time_setup": 0.008337899998878129,
+          "time_solve": 1.1058961000089766,
+          "time_total": 1.1142340000078548,
+          "max_kkt": 9.77638065614117e-07,
+          "p_obj": -2668.3740655601887,
+          "restarts": 13,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 11320,
+          "iters_1e4": 5400,
+          "spmv_1e4": 11239,
+          "spmv": {
+            "scaling": 22,
+            "setup": 12,
+            "sweep": 22640,
+            "kkt_restart": 849,
+            "asb_power": 180,
+            "total": 23703
+          },
+          "time_setup": 0.008249699996667914,
+          "time_solve": 0.7342114999919431,
+          "time_total": 0.742461199988611,
+          "max_kkt": 9.5375587187704e-07,
+          "p_obj": -2668.3583719545354,
+          "restarts": 15,
+          "extra": {
+            "asb_boosts": 3
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 7440,
+          "iters_1e4": 1960,
+          "spmv_1e4": 4229,
+          "spmv": {
+            "scaling": 22,
+            "setup": 140,
+            "sweep": 14880,
+            "kkt_restart": 558,
+            "asb_power": 0,
+            "total": 15600
+          },
+          "time_setup": 0.011161800008267164,
+          "time_solve": 0.48149790000752546,
+          "time_total": 0.4926597000157926,
+          "max_kkt": 8.897227979468414e-07,
+          "p_obj": -2668.358640446727,
+          "restarts": 12,
+          "extra": {
+            "spectral_ratio": 2.783180954790219
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 10640,
+          "time_total": 0.41092009999556467,
+          "obj": -2668.372271537521
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 15104,
+          "time_solve": 0.8157865999964997,
+          "time_build": 0.01406709999719169,
+          "obj": -2668.3592042844284
+        }
+      }
+    },
+    {
+      "name": "f1_eq_m500_k8",
+      "family": "F1_FactorEq",
+      "f_star": 7560.57084623684,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "MAX_ITER",
+          "iters": 25000,
+          "iters_1e4": 2000,
+          "spmv_1e4": 4182,
+          "spmv": {
+            "scaling": 22,
+            "setup": 10,
+            "sweep": 50000,
+            "kkt_restart": 1875,
+            "asb_power": 0,
+            "total": 51907
+          },
+          "time_setup": 0.01917140001023654,
+          "time_solve": 3.1096977000124753,
+          "time_total": 3.128869100022712,
+          "max_kkt": 2.119658844012962e-05,
+          "p_obj": 7560.120215547887,
+          "restarts": 13,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "MAX_ITER",
+          "iters": 25000,
+          "iters_1e4": 2000,
+          "spmv_1e4": 4182,
+          "spmv": {
+            "scaling": 22,
+            "setup": 10,
+            "sweep": 50000,
+            "kkt_restart": 1875,
+            "asb_power": 0,
+            "total": 51907
+          },
+          "time_setup": 0.017180399998323992,
+          "time_solve": 3.003507199988235,
+          "time_total": 3.020687599986559,
+          "max_kkt": 2.1196588443076687e-05,
+          "p_obj": 7560.120215547888,
+          "restarts": 13,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "MAX_ITER",
+          "iters": 25000,
+          "iters_1e4": 17200,
+          "spmv_1e4": 35722,
+          "spmv": {
+            "scaling": 22,
+            "setup": 10,
+            "sweep": 50000,
+            "kkt_restart": 1875,
+            "asb_power": 90,
+            "total": 51997
+          },
+          "time_setup": 0.018334399996092543,
+          "time_solve": 3.14937810000265,
+          "time_total": 3.1677124999987427,
+          "max_kkt": 1.2543897349358192e-05,
+          "p_obj": 7560.552431744237,
+          "restarts": 15,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 19560,
+          "iters_1e4": 680,
+          "spmv_1e4": 1601,
+          "spmv": {
+            "scaling": 22,
+            "setup": 168,
+            "sweep": 39120,
+            "kkt_restart": 1467,
+            "asb_power": 0,
+            "total": 40777
+          },
+          "time_setup": 0.02394810000259895,
+          "time_solve": 2.4571720999956597,
+          "time_total": 2.4811201999982586,
+          "max_kkt": 9.775006282882387e-07,
+          "p_obj": 7560.574297676184,
+          "restarts": 13,
+          "extra": {
+            "spectral_ratio": 4.661407808576032
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 51680,
+          "time_total": 4.413291100005154,
+          "obj": 7560.548653746689
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 55744,
+          "time_solve": 6.652990000002319,
+          "time_build": 0.027853999999933876,
+          "obj": 7560.573415560851
+        }
+      }
+    },
+    {
+      "name": "f2_mcf_small",
+      "family": "F2_LinkedMCF",
+      "f_star": 813.3307986145029,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 5120,
+          "iters_1e4": 600,
+          "spmv_1e4": 1297,
+          "spmv": {
+            "scaling": 22,
+            "setup": 30,
+            "sweep": 10240,
+            "kkt_restart": 384,
+            "asb_power": 0,
+            "total": 10676
+          },
+          "time_setup": 0.004770599989569746,
+          "time_solve": 0.15046230000734795,
+          "time_total": 0.1552328999969177,
+          "max_kkt": 8.397907458936869e-07,
+          "p_obj": 813.3303569878759,
+          "restarts": 11,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 3920,
+          "iters_1e4": 960,
+          "spmv_1e4": 2046,
+          "spmv": {
+            "scaling": 22,
+            "setup": 32,
+            "sweep": 7840,
+            "kkt_restart": 294,
+            "asb_power": 0,
+            "total": 8188
+          },
+          "time_setup": 0.004825399999390356,
+          "time_solve": 0.10669210000196472,
+          "time_total": 0.11151750000135507,
+          "max_kkt": 5.980830566804716e-07,
+          "p_obj": 813.3292611500026,
+          "restarts": 11,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 3880,
+          "iters_1e4": 600,
+          "spmv_1e4": 1297,
+          "spmv": {
+            "scaling": 22,
+            "setup": 30,
+            "sweep": 7760,
+            "kkt_restart": 291,
+            "asb_power": 210,
+            "total": 8313
+          },
+          "time_setup": 0.004567199997836724,
+          "time_solve": 0.12153309999848716,
+          "time_total": 0.12610029999632388,
+          "max_kkt": 8.903354345498415e-07,
+          "p_obj": 813.3278829741612,
+          "restarts": 11,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 3520,
+          "iters_1e4": 920,
+          "spmv_1e4": 2071,
+          "spmv": {
+            "scaling": 22,
+            "setup": 140,
+            "sweep": 7040,
+            "kkt_restart": 264,
+            "asb_power": 0,
+            "total": 7466
+          },
+          "time_setup": 0.00582120000035502,
+          "time_solve": 0.10965790000045672,
+          "time_total": 0.11547910000081174,
+          "max_kkt": 8.075512013517008e-07,
+          "p_obj": 813.3228552553018,
+          "restarts": 10,
+          "extra": {
+            "spectral_ratio": 1.1124989994976469
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 3600,
+          "time_total": 0.03568980000272859,
+          "obj": 813.3304546935253
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 3200,
+          "time_solve": 0.047183899994706735,
+          "time_build": 0.0038754999986849725,
+          "obj": 813.3294706332003
+        }
+      }
+    },
+    {
+      "name": "f2_mcf_med",
+      "family": "F2_LinkedMCF",
+      "f_star": 885.4717069380928,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 2160,
+          "iters_1e4": 1000,
+          "spmv_1e4": 2119,
+          "spmv": {
+            "scaling": 22,
+            "setup": 22,
+            "sweep": 4320,
+            "kkt_restart": 162,
+            "asb_power": 0,
+            "total": 4526
+          },
+          "time_setup": 0.005982599992421456,
+          "time_solve": 0.08372310000413563,
+          "time_total": 0.08970569999655709,
+          "max_kkt": 7.29396369786362e-07,
+          "p_obj": 885.4584515059854,
+          "restarts": 8,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 2680,
+          "iters_1e4": 1560,
+          "spmv_1e4": 3283,
+          "spmv": {
+            "scaling": 22,
+            "setup": 24,
+            "sweep": 5360,
+            "kkt_restart": 201,
+            "asb_power": 0,
+            "total": 5607
+          },
+          "time_setup": 0.005831699992995709,
+          "time_solve": 0.09500200000184122,
+          "time_total": 0.10083369999483693,
+          "max_kkt": 9.88547481439166e-07,
+          "p_obj": 885.4581015052877,
+          "restarts": 9,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 2120,
+          "iters_1e4": 920,
+          "spmv_1e4": 1953,
+          "spmv": {
+            "scaling": 22,
+            "setup": 22,
+            "sweep": 4240,
+            "kkt_restart": 159,
+            "asb_power": 90,
+            "total": 4533
+          },
+          "time_setup": 0.005474799996591173,
+          "time_solve": 0.08314079999399837,
+          "time_total": 0.08861559999058954,
+          "max_kkt": 8.385664911722602e-07,
+          "p_obj": 885.458592882788,
+          "restarts": 9,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 2360,
+          "iters_1e4": 1400,
+          "spmv_1e4": 3067,
+          "spmv": {
+            "scaling": 22,
+            "setup": 140,
+            "sweep": 4720,
+            "kkt_restart": 177,
+            "asb_power": 0,
+            "total": 5059
+          },
+          "time_setup": 0.007128500001272187,
+          "time_solve": 0.09202779999759514,
+          "time_total": 0.09915629999886733,
+          "max_kkt": 7.918752317438488e-07,
+          "p_obj": 885.4585855899152,
+          "restarts": 8,
+          "extra": {
+            "spectral_ratio": 1.3144997746477014
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 1400,
+          "time_total": 0.02780160000838805,
+          "obj": 885.4573322581737
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 1216,
+          "time_solve": 0.033997599995927885,
+          "time_build": 0.006488300001365133,
+          "obj": 885.4580729259676
+        }
+      }
+    },
+    {
+      "name": "f2_mcf_large",
+      "family": "F2_LinkedMCF",
+      "f_star": 1265.2446948158968,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 3560,
+          "iters_1e4": 720,
+          "spmv_1e4": 1554,
+          "spmv": {
+            "scaling": 22,
+            "setup": 38,
+            "sweep": 7120,
+            "kkt_restart": 267,
+            "asb_power": 0,
+            "total": 7447
+          },
+          "time_setup": 0.0066039000084856525,
+          "time_solve": 0.15691209999204148,
+          "time_total": 0.16351600000052713,
+          "max_kkt": 6.949486969150941e-07,
+          "p_obj": 1265.2349842985952,
+          "restarts": 9,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 7960,
+          "iters_1e4": 3480,
+          "spmv_1e4": 7277,
+          "spmv": {
+            "scaling": 22,
+            "setup": 34,
+            "sweep": 15920,
+            "kkt_restart": 597,
+            "asb_power": 0,
+            "total": 16573
+          },
+          "time_setup": 0.006330300006084144,
+          "time_solve": 0.3285450999974273,
+          "time_total": 0.33487540000351146,
+          "max_kkt": 7.568374222075809e-07,
+          "p_obj": 1265.2454273693195,
+          "restarts": 12,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 3560,
+          "iters_1e4": 800,
+          "spmv_1e4": 1720,
+          "spmv": {
+            "scaling": 22,
+            "setup": 38,
+            "sweep": 7120,
+            "kkt_restart": 267,
+            "asb_power": 180,
+            "total": 7627
+          },
+          "time_setup": 0.006099899997934699,
+          "time_solve": 0.16169550000631716,
+          "time_total": 0.16779540000425186,
+          "max_kkt": 1.01570611162712e-07,
+          "p_obj": 1265.2401158512926,
+          "restarts": 11,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 5720,
+          "iters_1e4": 2680,
+          "spmv_1e4": 5751,
+          "spmv": {
+            "scaling": 22,
+            "setup": 168,
+            "sweep": 11440,
+            "kkt_restart": 429,
+            "asb_power": 0,
+            "total": 12059
+          },
+          "time_setup": 0.008135700001730584,
+          "time_solve": 0.2627926999994088,
+          "time_total": 0.2709284000011394,
+          "max_kkt": 1.6017673574470492e-07,
+          "p_obj": 1265.2447761973563,
+          "restarts": 11,
+          "extra": {
+            "spectral_ratio": 1.4790250567095198
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 4000,
+          "time_total": 0.09808089998841751,
+          "obj": 1265.2420882744923
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 4416,
+          "time_solve": 0.14137579999805894,
+          "time_build": 0.008648899995023385,
+          "obj": 1265.2444815497213
+        }
+      }
+    },
+    {
+      "name": "f3_ineq_m300_k2",
+      "family": "F3_FactorIneq",
+      "f_star": -5065.512832565861,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 1080,
+          "iters_1e4": 280,
+          "spmv_1e4": 619,
+          "spmv": {
+            "scaling": 22,
+            "setup": 16,
+            "sweep": 2160,
+            "kkt_restart": 81,
+            "asb_power": 0,
+            "total": 2279
+          },
+          "time_setup": 0.006214399996679276,
+          "time_solve": 0.043322099998476915,
+          "time_total": 0.04953649999515619,
+          "max_kkt": 3.19860606370739e-07,
+          "p_obj": -5065.512170522117,
+          "restarts": 6,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 1320,
+          "iters_1e4": 560,
+          "spmv_1e4": 1200,
+          "spmv": {
+            "scaling": 22,
+            "setup": 16,
+            "sweep": 2640,
+            "kkt_restart": 99,
+            "asb_power": 0,
+            "total": 2777
+          },
+          "time_setup": 0.006054900004528463,
+          "time_solve": 0.05105059999914374,
+          "time_total": 0.057105500003672205,
+          "max_kkt": 8.263457594284629e-07,
+          "p_obj": -5065.511596851074,
+          "restarts": 6,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 640,
+          "iters_1e4": 280,
+          "spmv_1e4": 619,
+          "spmv": {
+            "scaling": 22,
+            "setup": 16,
+            "sweep": 1280,
+            "kkt_restart": 48,
+            "asb_power": 60,
+            "total": 1426
+          },
+          "time_setup": 0.005924400000367314,
+          "time_solve": 0.02678659999219235,
+          "time_total": 0.032710999992559664,
+          "max_kkt": 5.325820098000666e-07,
+          "p_obj": -5065.512380791455,
+          "restarts": 5,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 1280,
+          "iters_1e4": 480,
+          "spmv_1e4": 1158,
+          "spmv": {
+            "scaling": 22,
+            "setup": 140,
+            "sweep": 2560,
+            "kkt_restart": 96,
+            "asb_power": 0,
+            "total": 2818
+          },
+          "time_setup": 0.007512299998779781,
+          "time_solve": 0.05403359999763779,
+          "time_total": 0.061545899996417575,
+          "max_kkt": 3.731380069304009e-07,
+          "p_obj": -5065.512882810006,
+          "restarts": 7,
+          "extra": {
+            "spectral_ratio": 1.949606701086412
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 880,
+          "time_total": 0.018640599999343976,
+          "obj": -5065.512898188181
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 576,
+          "time_solve": 0.01949140000215266,
+          "time_build": 0.0070032999938121065,
+          "obj": -5065.512656891586
+        }
+      }
+    },
+    {
+      "name": "f3_ineq_m400_k4",
+      "family": "F3_FactorIneq",
+      "f_star": -6885.111691172167,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 1800,
+          "iters_1e4": 800,
+          "spmv_1e4": 1694,
+          "spmv": {
+            "scaling": 22,
+            "setup": 12,
+            "sweep": 3600,
+            "kkt_restart": 135,
+            "asb_power": 0,
+            "total": 3769
+          },
+          "time_setup": 0.00879480000003241,
+          "time_solve": 0.11777709999296349,
+          "time_total": 0.1265718999929959,
+          "max_kkt": 4.5256747335643165e-07,
+          "p_obj": -6885.108359487486,
+          "restarts": 7,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 3360,
+          "iters_1e4": 1960,
+          "spmv_1e4": 4101,
+          "spmv": {
+            "scaling": 22,
+            "setup": 12,
+            "sweep": 6720,
+            "kkt_restart": 252,
+            "asb_power": 0,
+            "total": 7006
+          },
+          "time_setup": 0.00899099999514874,
+          "time_solve": 0.21820270000898745,
+          "time_total": 0.2271937000041362,
+          "max_kkt": 8.595642885178268e-07,
+          "p_obj": -6885.112122874989,
+          "restarts": 10,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 1320,
+          "iters_1e4": 1160,
+          "spmv_1e4": 2441,
+          "spmv": {
+            "scaling": 22,
+            "setup": 12,
+            "sweep": 2640,
+            "kkt_restart": 99,
+            "asb_power": 30,
+            "total": 2803
+          },
+          "time_setup": 0.008298100001411512,
+          "time_solve": 0.08713299999362789,
+          "time_total": 0.0954310999950394,
+          "max_kkt": 5.848754958776202e-07,
+          "p_obj": -6885.1059387664445,
+          "restarts": 6,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 1440,
+          "iters_1e4": 1240,
+          "spmv_1e4": 2735,
+          "spmv": {
+            "scaling": 22,
+            "setup": 140,
+            "sweep": 2880,
+            "kkt_restart": 108,
+            "asb_power": 0,
+            "total": 3150
+          },
+          "time_setup": 0.011535400000866503,
+          "time_solve": 0.09856500000751112,
+          "time_total": 0.11010040000837762,
+          "max_kkt": 8.509975216217671e-07,
+          "p_obj": -6885.105926370525,
+          "restarts": 7,
+          "extra": {
+            "spectral_ratio": 2.810904957338134
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kUnknown",
+          "iters": 560,
+          "time_total": 0.026713800005381927,
+          "obj": -6885.111863459797
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 384,
+          "time_solve": 0.026935300003970042,
+          "time_build": 0.013770299992756918,
+          "obj": -6885.111523796178
+        }
+      }
+    },
+    {
+      "name": "f3_ineq_m500_k8",
+      "family": "F3_FactorIneq",
+      "f_star": -8797.096520722727,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 17560,
+          "iters_1e4": 1200,
+          "spmv_1e4": 2522,
+          "spmv": {
+            "scaling": 22,
+            "setup": 10,
+            "sweep": 35120,
+            "kkt_restart": 1317,
+            "asb_power": 0,
+            "total": 36469
+          },
+          "time_setup": 0.02064069999323692,
+          "time_solve": 2.216635499993572,
+          "time_total": 2.237276199986809,
+          "max_kkt": 9.766208148288895e-07,
+          "p_obj": -8797.092221201672,
+          "restarts": 14,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "MAX_ITER",
+          "iters": 25000,
+          "iters_1e4": 4160,
+          "spmv_1e4": 8664,
+          "spmv": {
+            "scaling": 22,
+            "setup": 10,
+            "sweep": 50000,
+            "kkt_restart": 1875,
+            "asb_power": 0,
+            "total": 51907
+          },
+          "time_setup": 0.0184439000004204,
+          "time_solve": 3.114936999991187,
+          "time_total": 3.1333808999916073,
+          "max_kkt": 3.98196288052706e-06,
+          "p_obj": -8797.109765939182,
+          "restarts": 20,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 3920,
+          "iters_1e4": 1680,
+          "spmv_1e4": 3518,
+          "spmv": {
+            "scaling": 22,
+            "setup": 10,
+            "sweep": 7840,
+            "kkt_restart": 294,
+            "asb_power": 90,
+            "total": 8256
+          },
+          "time_setup": 0.016813599999295548,
+          "time_solve": 0.5054355000029318,
+          "time_total": 0.5222491000022274,
+          "max_kkt": 9.034423583860037e-07,
+          "p_obj": -8797.09951505331,
+          "restarts": 9,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 17840,
+          "iters_1e4": 2160,
+          "spmv_1e4": 4672,
+          "spmv": {
+            "scaling": 22,
+            "setup": 168,
+            "sweep": 35680,
+            "kkt_restart": 1338,
+            "asb_power": 0,
+            "total": 37208
+          },
+          "time_setup": 0.022713400001521222,
+          "time_solve": 2.3576042000058806,
+          "time_total": 2.380317600007402,
+          "max_kkt": 9.296151172647912e-07,
+          "p_obj": -8797.09377786621,
+          "restarts": 18,
+          "extra": {
+            "spectral_ratio": 4.279483487348914
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 2920,
+          "time_total": 0.25790140000754036,
+          "obj": -8797.098530736126
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 896,
+          "time_solve": 0.12092000000120606,
+          "time_build": 0.028242599990335293,
+          "obj": -8797.095389997627
+        }
+      }
+    },
+    {
+      "name": "f4_flat_eq300",
+      "family": "F4_FlatControl",
+      "f_star": -753.0590724876487,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 3960,
+          "iters_1e4": 640,
+          "spmv_1e4": 1430,
+          "spmv": {
+            "scaling": 22,
+            "setup": 80,
+            "sweep": 7920,
+            "kkt_restart": 297,
+            "asb_power": 0,
+            "total": 8319
+          },
+          "time_setup": 0.004988400003639981,
+          "time_solve": 0.11590829999477137,
+          "time_total": 0.12089669999841135,
+          "max_kkt": 8.279445940199822e-07,
+          "p_obj": -753.0590377518131,
+          "restarts": 8,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 3960,
+          "iters_1e4": 640,
+          "spmv_1e4": 1430,
+          "spmv": {
+            "scaling": 22,
+            "setup": 80,
+            "sweep": 7920,
+            "kkt_restart": 297,
+            "asb_power": 0,
+            "total": 8319
+          },
+          "time_setup": 0.004781700001331046,
+          "time_solve": 0.10370209999382496,
+          "time_total": 0.108483799995156,
+          "max_kkt": 8.279445940195542e-07,
+          "p_obj": -753.0590377518133,
+          "restarts": 8,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 3680,
+          "iters_1e4": 680,
+          "spmv_1e4": 1513,
+          "spmv": {
+            "scaling": 22,
+            "setup": 80,
+            "sweep": 7360,
+            "kkt_restart": 276,
+            "asb_power": 120,
+            "total": 7858
+          },
+          "time_setup": 0.004836099993553944,
+          "time_solve": 0.11177709999901708,
+          "time_total": 0.11661319999257103,
+          "max_kkt": 8.135448474612987e-07,
+          "p_obj": -753.059028280517,
+          "restarts": 8,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 4240,
+          "iters_1e4": 680,
+          "spmv_1e4": 1573,
+          "spmv": {
+            "scaling": 22,
+            "setup": 140,
+            "sweep": 8480,
+            "kkt_restart": 318,
+            "asb_power": 0,
+            "total": 8960
+          },
+          "time_setup": 0.005493899996508844,
+          "time_solve": 0.12498719998984598,
+          "time_total": 0.13048109998635482,
+          "max_kkt": 9.742800001150163e-07,
+          "p_obj": -753.0590220637692,
+          "restarts": 8,
+          "extra": {
+            "spectral_ratio": 1.0
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 7720,
+          "time_total": 0.07438350000302307,
+          "obj": -753.0590313429755
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 5184,
+          "time_solve": 0.08069089999480639,
+          "time_build": 0.004033600009279326,
+          "obj": -753.0590344822072
+        }
+      }
+    },
+    {
+      "name": "f4_flat_mix400",
+      "family": "F4_FlatControl",
+      "f_star": -1226.4514002346973,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 6880,
+          "iters_1e4": 640,
+          "spmv_1e4": 1430,
+          "spmv": {
+            "scaling": 22,
+            "setup": 80,
+            "sweep": 13760,
+            "kkt_restart": 516,
+            "asb_power": 0,
+            "total": 14378
+          },
+          "time_setup": 0.005343299999367446,
+          "time_solve": 0.2223288999957731,
+          "time_total": 0.22767219999514055,
+          "max_kkt": 9.619855727609304e-07,
+          "p_obj": -1226.4513692418448,
+          "restarts": 10,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 12160,
+          "iters_1e4": 640,
+          "spmv_1e4": 1430,
+          "spmv": {
+            "scaling": 22,
+            "setup": 80,
+            "sweep": 24320,
+            "kkt_restart": 912,
+            "asb_power": 0,
+            "total": 25334
+          },
+          "time_setup": 0.00549229999887757,
+          "time_solve": 0.38382190000265837,
+          "time_total": 0.38931420000153594,
+          "max_kkt": 8.787419605716087e-07,
+          "p_obj": -1226.451382024653,
+          "restarts": 12,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 8360,
+          "iters_1e4": 560,
+          "spmv_1e4": 1264,
+          "spmv": {
+            "scaling": 22,
+            "setup": 80,
+            "sweep": 16720,
+            "kkt_restart": 627,
+            "asb_power": 210,
+            "total": 17659
+          },
+          "time_setup": 0.005638400005409494,
+          "time_solve": 0.2945026999950642,
+          "time_total": 0.30014110000047367,
+          "max_kkt": 8.852905278542785e-07,
+          "p_obj": -1226.4513920864351,
+          "restarts": 11,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 12760,
+          "iters_1e4": 680,
+          "spmv_1e4": 1573,
+          "spmv": {
+            "scaling": 22,
+            "setup": 140,
+            "sweep": 25520,
+            "kkt_restart": 957,
+            "asb_power": 0,
+            "total": 26639
+          },
+          "time_setup": 0.006577099993592128,
+          "time_solve": 0.4384852000075625,
+          "time_total": 0.44506230000115465,
+          "max_kkt": 9.49872623002405e-07,
+          "p_obj": -1226.451401023074,
+          "restarts": 12,
+          "extra": {
+            "spectral_ratio": 1.0
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 7960,
+          "time_total": 0.10352059999422636,
+          "obj": -1226.4513723523921
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 7168,
+          "time_solve": 0.14078169999993406,
+          "time_build": 0.0053672000067308545,
+          "obj": -1226.4514057726233
+        }
+      }
+    },
+    {
+      "name": "f4_flat_ineq400",
+      "family": "F4_FlatControl",
+      "f_star": -1466.899351632964,
+      "arms": {
+        "HPR-Native": {
+          "mode": "HPR-Native",
+          "status": "OPTIMAL",
+          "iters": 1840,
+          "iters_1e4": 400,
+          "spmv_1e4": 932,
+          "spmv": {
+            "scaling": 22,
+            "setup": 80,
+            "sweep": 3680,
+            "kkt_restart": 138,
+            "asb_power": 0,
+            "total": 3920
+          },
+          "time_setup": 0.0054099999979371205,
+          "time_solve": 0.06016619999718387,
+          "time_total": 0.06557619999512099,
+          "max_kkt": 6.065061540071663e-07,
+          "p_obj": -1466.899238208628,
+          "restarts": 7,
+          "extra": {}
+        },
+        "HPR-Slack": {
+          "mode": "HPR-Slack",
+          "status": "OPTIMAL",
+          "iters": 2400,
+          "iters_1e4": 720,
+          "spmv_1e4": 1596,
+          "spmv": {
+            "scaling": 22,
+            "setup": 80,
+            "sweep": 4800,
+            "kkt_restart": 180,
+            "asb_power": 0,
+            "total": 5082
+          },
+          "time_setup": 0.0055111999972723424,
+          "time_solve": 0.07583970000268891,
+          "time_total": 0.08135089999996126,
+          "max_kkt": 8.757046255823623e-07,
+          "p_obj": -1466.8992367695519,
+          "restarts": 8,
+          "extra": {}
+        },
+        "cuPDLPx-ASB": {
+          "mode": "cuPDLPx-ASB",
+          "status": "OPTIMAL",
+          "iters": 1560,
+          "iters_1e4": 400,
+          "spmv_1e4": 932,
+          "spmv": {
+            "scaling": 22,
+            "setup": 80,
+            "sweep": 3120,
+            "kkt_restart": 117,
+            "asb_power": 120,
+            "total": 3459
+          },
+          "time_setup": 0.005163900001207367,
+          "time_solve": 0.05296709999674931,
+          "time_total": 0.05813099999795668,
+          "max_kkt": 4.918239134396211e-07,
+          "p_obj": -1466.8992573031107,
+          "restarts": 7,
+          "extra": {
+            "asb_boosts": 1
+          }
+        },
+        "Spec-HPR": {
+          "mode": "Spec-HPR",
+          "status": "OPTIMAL",
+          "iters": 2640,
+          "iters_1e4": 840,
+          "spmv_1e4": 1905,
+          "spmv": {
+            "scaling": 22,
+            "setup": 140,
+            "sweep": 5280,
+            "kkt_restart": 198,
+            "asb_power": 0,
+            "total": 5640
+          },
+          "time_setup": 0.006650499999523163,
+          "time_solve": 0.09431899999617599,
+          "time_total": 0.10096949999569915,
+          "max_kkt": 9.013563713864809e-07,
+          "p_obj": -1466.8992371122145,
+          "restarts": 8,
+          "extra": {
+            "spectral_ratio": 1.0
+          }
+        }
+      },
+      "official": {
+        "highs_pdlp_off": {
+          "solver": "HiGHS-1.16.0-PDLP(presolve=off)",
+          "status": "HighsModelStatus.kOptimal",
+          "iters": 4200,
+          "time_total": 0.0559036000049673,
+          "obj": -1466.8993441335194
+        },
+        "ortools_pdlp_off": {
+          "solver": "OR-Tools-9.15-PDLP(no_glop_presolve)",
+          "status": "OPTIMAL",
+          "iters": 2688,
+          "time_solve": 0.05754029999661725,
+          "time_build": 0.005390999998780899,
+          "obj": -1466.899345119259
+        }
+      }
+    }
+  ]
+}
