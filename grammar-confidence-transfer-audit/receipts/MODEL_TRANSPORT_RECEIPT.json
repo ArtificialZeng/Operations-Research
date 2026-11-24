@@ -1,0 +1,15 @@
+{
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "license": "Apache-2.0",
+  "pinned_commit": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "pinned_url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/model.safetensors",
+  "transport": "native Windows curl.exe -fL -C - (anonymous HTTP 206 resumable HTTPS, zero credentials)",
+  "expected_bytes": 3087467144,
+  "observed_bytes": 3087467144,
+  "expected_sha256_x_linked_etag": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+  "observed_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+  "verified_exact_match": true,
+  "resume_elapsed_s": 533.52,
+  "snapshot_path": "<HF_CACHE>/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/model.safetensors",
+  "local_unredacted_receipt_sha256": "74cdd02fae04f8328eef6a323f3e80e2f02d52a2b0f8d200c2674b629071c8ad"
+}

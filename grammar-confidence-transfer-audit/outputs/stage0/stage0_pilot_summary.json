@@ -1,0 +1,2599 @@
+{
+  "protocol": "STAGE0_PROTOCOL.md",
+  "real_pid": 42516,
+  "wall_time_s": 1019.5804181999993,
+  "model_metadata": {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "license": "Apache-2.0",
+    "commit_hash": "unknown",
+    "dtype": "torch.bfloat16",
+    "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "vocab_size": 151936,
+    "eos_token_ids": [
+      151645
+    ],
+    "max_new_tokens": 192
+  },
+  "backend_versions_and_licenses": {
+    "xgrammar": {
+      "version": "0.2.9",
+      "license": "Apache-2.0"
+    },
+    "transformers": {
+      "version": "5.24.0",
+      "license": "Apache-2.0"
+    },
+    "torch": {
+      "version": "2.11.0+cu128",
+      "license": "BSD-3-Clause"
+    },
+    "tokenizers": {
+      "version": "0.23.3",
+      "license": "Apache-2.0"
+    },
+    "bfcl_upstream": {
+      "commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+      "license": "Apache-2.0"
+    }
+  },
+  "source_and_input_hashes": {
+    "grammar_utils_py": "d063e5e347bf2928f1c6f22becafd67611f711842960276e1399359dab966423",
+    "stage0_grammar_confidence_pilot_py": "4f366ffb06617f2fcb2f36661c6c9b503096a47dd709450603faf095da9a7cb9",
+    "STAGE0_PROTOCOL_md": "9c4573d847d18a683c22440390d6e9b11d44691d45321e6ede5217894ec065b6",
+    "BFCL_PILOT_SPLIT_RECEIPT_json": "3d6e0be091e3f6a85c7985dcb29b364268df1e6d039f86895daf309e13943f57",
+    "STAGE0_ALGEBRA_AND_GRAMMAR_FIXTURE_RECEIPT_json": "e4945f6a42bc2959783506f908e32bdb4d6e66b827b8c507459ab84d60ca34ef",
+    "bfcl_stage0_pilot_dataset_json": "191e8e8c8c9c00f0f7dacd0a98b6f592b02e878e444da0016e99f1e31c1cd446",
+    "stage0_pilot_per_instance_jsonl": "06c90359910592d3d43916c50479abadc15a5cac2d9600ada8b2b0e2566b6aa8"
+  },
+  "max_algebra_identity_abs_err_observed": 2.2093428290343044e-13,
+  "power_diagnostic": {
+    "pilot_n": 100,
+    "n_tool_family_clusters": 70,
+    "G_compact_n_correct": 2,
+    "G_compact_n_error": 98,
+    "approx_unpaired_auroc_se_at_0.5": 0.2071847248328931,
+    "note": "Small pilot (N=100, 70 tool-family clusters); underpowered for subtle AUROC differences (<0.08), informative for large scale/calibration/threshold-transfer shifts."
+  },
+  "all_generated_cases_N100": {
+    "unconstrained": {
+      "n_total": 100,
+      "json_valid_count": 100,
+      "call_schema_valid_count": 100,
+      "ast_correct_count": 95,
+      "ast_correct_simple": 58,
+      "ast_correct_multiple": 37,
+      "stopped_reason_counts": {
+        "eos": 100
+      },
+      "score_metrics_all_N": {
+        "pre_nll_all_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.743157894736842,
+          "aurc": 0.019537037643852853,
+          "e_aurc": 0.01801652255715588,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.013922466660348144,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.007492452342310519,
+          "std_finite": 0.009121210843177113
+        },
+        "pre_nll_all_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7726315789473683,
+          "aurc": 0.017456043276456744,
+          "e_aurc": 0.01593552818975977,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.4432364142444841,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.23652715699336227,
+          "std_finite": 0.28102284243732206
+        },
+        "post_nll_all_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.743157894736842,
+          "aurc": 0.019537037643852853,
+          "e_aurc": 0.01801652255715588,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.013922466660348144,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.007492452342310519,
+          "std_finite": 0.009121210843177113
+        },
+        "post_nll_all_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7726315789473683,
+          "aurc": 0.017456043276456744,
+          "e_aurc": 0.01593552818975977,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.4432364142444841,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.23652715699336227,
+          "std_finite": 0.28102284243732206
+        },
+        "pre_gnll_smt_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8757894736842105,
+          "aurc": 0.008485123998723075,
+          "e_aurc": 0.006964608912026104,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.006116271340108226,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.005869970460770863,
+          "std_finite": 0.013349347568190426
+        },
+        "pre_gnll_smt_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8989473684210526,
+          "aurc": 0.007079788597538119,
+          "e_aurc": 0.005559273510841147,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.09888921490946427,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.0855636908678756,
+          "std_finite": 0.18404651202084052
+        },
+        "post_gnll_smt_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8757894736842105,
+          "aurc": 0.008485123998723075,
+          "e_aurc": 0.006964608912026104,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.006116271340108226,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.005869970460770863,
+          "std_finite": 0.013349347568190426
+        },
+        "post_gnll_smt_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8989473684210526,
+          "aurc": 0.007079788597538119,
+          "e_aurc": 0.005559273510841147,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.09888921490946427,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.0855636908678756,
+          "std_finite": 0.18404651202084052
+        },
+        "pre_gnll_smt_val_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8926315789473683,
+          "aurc": 0.007471318792454409,
+          "e_aurc": 0.005950803705757437,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.007340321047649476,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.008019008882533119,
+          "std_finite": 0.0189906626518263
+        },
+        "post_gnll_smt_val_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8926315789473683,
+          "aurc": 0.007471318792454409,
+          "e_aurc": 0.005950803705757437,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.007340321047649476,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.008019008882533119,
+          "std_finite": 0.0189906626518263
+        },
+        "pre_nll_syntax_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.5978947368421053,
+          "aurc": 0.0296745580168032,
+          "e_aurc": 0.02815404293010623,
+          "risk_at_target_cov": 0.0375,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.017396791806214985,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.008564186212540131,
+          "std_finite": 0.01110462048395506
+        },
+        "post_nll_syntax_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.5978947368421053,
+          "aurc": 0.0296745580168032,
+          "e_aurc": 0.02815404293010623,
+          "risk_at_target_cov": 0.0375,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.017396791806214985,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.008564186212540131,
+          "std_finite": 0.01110462048395506
+        },
+        "neg_logz_all_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.5,
+          "aurc": 0.04564985024586679,
+          "e_aurc": 0.04412933515916982,
+          "risk_at_target_cov": 0.05,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": -0.0,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.0,
+          "std_finite": 0.0
+        },
+        "neg_logz_all_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.5,
+          "aurc": 0.04564985024586679,
+          "e_aurc": 0.04412933515916982,
+          "risk_at_target_cov": 0.05,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": -0.0,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.0,
+          "std_finite": 0.0
+        },
+        "h_pre_first": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7010526315789475,
+          "aurc": 0.04004804587029517,
+          "e_aurc": 0.0385275307835982,
+          "risk_at_target_cov": 0.0125,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.0908962766341006,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.05966180056311623,
+          "std_finite": 0.05527964215430477
+        },
+        "h_post_first": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7010526315789475,
+          "aurc": 0.04004804587029517,
+          "e_aurc": 0.0385275307835982,
+          "risk_at_target_cov": 0.0125,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.0908962766341006,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.05966180056311623,
+          "std_finite": 0.05527964215430477
+        },
+        "h_pre_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7473684210526316,
+          "aurc": 0.019315442232245208,
+          "e_aurc": 0.017794927145548235,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.030334394625757842,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.017479692216641217,
+          "std_finite": 0.016951194749851815
+        },
+        "h_post_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7473684210526316,
+          "aurc": 0.019315442232245208,
+          "e_aurc": 0.017794927145548235,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.030334394625757842,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.017479692216641217,
+          "std_finite": 0.016951194749851815
+        }
+      }
+    },
+    "G_compact": {
+      "n_total": 100,
+      "json_valid_count": 100,
+      "call_schema_valid_count": 100,
+      "ast_correct_count": 2,
+      "ast_correct_simple": 1,
+      "ast_correct_multiple": 1,
+      "stopped_reason_counts": {
+        "grammar_terminated": 100
+      },
+      "score_metrics_all_N": {
+        "pre_nll_all_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.8979591836734694,
+          "aurc": 0.949536863762504,
+          "e_aurc": 0.04328441411529649,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.35450981521163,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 2.588656766868586,
+          "std_finite": 1.1081377127056762
+        },
+        "pre_nll_all_sum": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9489795918367347,
+          "aurc": 0.926451223095981,
+          "e_aurc": 0.02019877344877352,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 59.06777987071005,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 56.57804822303044,
+          "std_finite": 3.659753080629003
+        },
+        "post_nll_all_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.39981807735292535,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.2678867264776385,
+          "std_finite": 0.14314588656878643
+        },
+        "post_nll_all_sum": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 7.475108286299205,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 5.93500876179632,
+          "std_finite": 2.5330590961392283
+        },
+        "pre_gnll_smt_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7755102040816326,
+          "aurc": 0.960115115808929,
+          "e_aurc": 0.05386266616172153,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.8066199457540626,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 3.3874068813555636,
+          "std_finite": 3.6676994320866263
+        },
+        "pre_gnll_smt_sum": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 29.91110142841765,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 28.168505138983868,
+          "std_finite": 2.6719344882950185
+        },
+        "post_gnll_smt_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9948979591836735,
+          "aurc": 0.9112524496472075,
+          "e_aurc": 0.0050000000000000044,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.7042150480465349,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.5095761524073213,
+          "std_finite": 0.4475781369009019
+        },
+        "post_gnll_smt_sum": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9948979591836735,
+          "aurc": 0.9112524496472075,
+          "e_aurc": 0.0050000000000000044,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 6.266375796898378,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 4.692716045790405,
+          "std_finite": 2.3685379798927597
+        },
+        "pre_gnll_smt_val_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7448979591836735,
+          "aurc": 0.9591737547311822,
+          "e_aurc": 0.052921305083974635,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 4.336941072638305,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 4.007856726601609,
+          "std_finite": 3.6635086085412425
+        },
+        "post_gnll_smt_val_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9897959183673469,
+          "aurc": 0.9145857829805409,
+          "e_aurc": 0.008333333333333415,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.8328419543143566,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.5844167559175457,
+          "std_finite": 0.4304236109660763
+        },
+        "pre_nll_syntax_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9387755102040816,
+          "aurc": 0.9453754655202234,
+          "e_aurc": 0.03912301587301592,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.016257632700709,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 2.4806118904583903,
+          "std_finite": 0.6029473176869261
+        },
+        "post_nll_syntax_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.16242059440048018,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.10996170915086081,
+          "std_finite": 0.07136247580672857
+        },
+        "neg_logz_all_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.8112244897959184,
+          "aurc": 0.963380892384983,
+          "e_aurc": 0.05712844273777551,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 2.8801657671327914,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 2.3207700403909355,
+          "std_finite": 1.0134358158931385
+        },
+        "neg_logz_all_sum": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7806122448979592,
+          "aurc": 0.963031469780161,
+          "e_aurc": 0.05677902013295344,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 52.98729988109448,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 50.64303946123375,
+          "std_finite": 3.304163150600389
+        },
+        "h_pre_first": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.41326530612244894,
+          "aurc": 0.9885878101161907,
+          "e_aurc": 0.08233536046898315,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.0908962766341006,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.05966180056311623,
+          "std_finite": 0.05527964215430477
+        },
+        "h_post_first": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.44897959183673464,
+          "aurc": 0.9857321137458667,
+          "e_aurc": 0.07947966409865914,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.0017279728220375495,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.0011378269081250233,
+          "std_finite": 0.000865700389393181
+        },
+        "h_pre_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.7640317549240643,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.4891395647011887,
+          "std_finite": 0.2995465696410496
+        },
+        "h_post_mean": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.8710720642000535,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.6144003672155796,
+          "std_finite": 0.31803575101519643
+        }
+      }
+    },
+    "G_optws": {
+      "n_total": 100,
+      "json_valid_count": 100,
+      "call_schema_valid_count": 100,
+      "ast_correct_count": 95,
+      "ast_correct_simple": 58,
+      "ast_correct_multiple": 37,
+      "stopped_reason_counts": {
+        "grammar_terminated": 100
+      },
+      "score_metrics_all_N": {
+        "pre_nll_all_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.743157894736842,
+          "aurc": 0.019537037643852853,
+          "e_aurc": 0.01801652255715588,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.013922466660348144,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.007492452342310519,
+          "std_finite": 0.009121210843177113
+        },
+        "pre_nll_all_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7726315789473683,
+          "aurc": 0.017456043276456744,
+          "e_aurc": 0.01593552818975977,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.4432364142444841,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.23652715699336227,
+          "std_finite": 0.28102284243732206
+        },
+        "post_nll_all_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.743157894736842,
+          "aurc": 0.019537037643852853,
+          "e_aurc": 0.01801652255715588,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.013920406501233834,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.007490257098872201,
+          "std_finite": 0.009121043811046732
+        },
+        "post_nll_all_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7726315789473683,
+          "aurc": 0.017456043276456744,
+          "e_aurc": 0.01593552818975977,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.44303354130869393,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.23645184915858508,
+          "std_finite": 0.2810061306675061
+        },
+        "pre_gnll_smt_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8757894736842105,
+          "aurc": 0.008485123998723075,
+          "e_aurc": 0.006964608912026104,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.006116271340108226,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.005869970460770863,
+          "std_finite": 0.013349347568190426
+        },
+        "pre_gnll_smt_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8989473684210526,
+          "aurc": 0.007079788597538119,
+          "e_aurc": 0.005559273510841147,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.09888921490946427,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.0855636908678756,
+          "std_finite": 0.18404651202084052
+        },
+        "post_gnll_smt_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8757894736842105,
+          "aurc": 0.008485123998723075,
+          "e_aurc": 0.006964608912026104,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.006116267920463792,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.005869697516103071,
+          "std_finite": 0.013349289593019663
+        },
+        "post_gnll_smt_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8989473684210526,
+          "aurc": 0.007079788597538119,
+          "e_aurc": 0.005559273510841147,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.09888552561849095,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.08555905264303743,
+          "std_finite": 0.18404402858084537
+        },
+        "pre_gnll_smt_val_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8926315789473683,
+          "aurc": 0.007471318792454409,
+          "e_aurc": 0.005950803705757437,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.007340321047649476,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.008019008882533119,
+          "std_finite": 0.0189906626518263
+        },
+        "post_gnll_smt_val_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8926315789473683,
+          "aurc": 0.007471318792454409,
+          "e_aurc": 0.005950803705757437,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.0073403088432913086,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.008018633175818905,
+          "std_finite": 0.018990587768296412
+        },
+        "pre_nll_syntax_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.5978947368421053,
+          "aurc": 0.0296745580168032,
+          "e_aurc": 0.02815404293010623,
+          "risk_at_target_cov": 0.0375,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.017396791806214985,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.008564186212540131,
+          "std_finite": 0.01110462048395506
+        },
+        "post_nll_syntax_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.5978947368421053,
+          "aurc": 0.0296745580168032,
+          "e_aurc": 0.02815404293010623,
+          "risk_at_target_cov": 0.0375,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.017393808737807426,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.008560547831031978,
+          "std_finite": 0.011104646022657594
+        },
+        "neg_logz_all_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8505263157894737,
+          "aurc": 0.009829214887275615,
+          "e_aurc": 0.008308699800578643,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 2.125045392993552e-06,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 2.195243399373455e-06,
+          "std_finite": 4.903721896098971e-06
+        },
+        "neg_logz_all_sum": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.8378947368421054,
+          "aurc": 0.010936868520711504,
+          "e_aurc": 0.009416353434014531,
+          "risk_at_target_cov": 0.0125,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 7.605916609511231e-05,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 7.530783352090485e-05,
+          "std_finite": 0.00016660961734910875
+        },
+        "h_pre_first": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7010526315789475,
+          "aurc": 0.04004804587029517,
+          "e_aurc": 0.0385275307835982,
+          "risk_at_target_cov": 0.0125,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.0908962766341006,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.05966180056311623,
+          "std_finite": 0.05527964215430477
+        },
+        "h_post_first": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7010526315789475,
+          "aurc": 0.04004804587029517,
+          "e_aurc": 0.0385275307835982,
+          "risk_at_target_cov": 0.0125,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.09086338920190273,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.05960327581551259,
+          "std_finite": 0.05526802103162565
+        },
+        "h_pre_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7473684210526316,
+          "aurc": 0.019315442232245208,
+          "e_aurc": 0.017794927145548235,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.030334394625757842,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.017479692216641217,
+          "std_finite": 0.016951194749851815
+        },
+        "h_post_mean": {
+          "n": 100,
+          "n_correct": 95,
+          "n_error": 5,
+          "base_error_rate": 0.05,
+          "auroc": 0.7473684210526316,
+          "aurc": 0.019315442232245208,
+          "e_aurc": 0.017794927145548235,
+          "risk_at_target_cov": 0.025,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.030318772536589007,
+          "n_nan_filled_max_unc": 0,
+          "mean_finite": 0.01745504404628288,
+          "std_finite": 0.016947038880231226
+        }
+      }
+    },
+    "parsed_call_equal_compact_vs_optws_count": 2,
+    "ast_flip_compact_correct_optws_wrong": 0,
+    "ast_flip_optws_correct_compact_wrong": 93
+  },
+  "all_generated_cross_grammar_transfer_N100": {
+    "post_nll_all_mean": {
+      "spearman_rho_C_vs_W": 0.12704470447044702,
+      "kendall_tau_C_vs_W": 0.09252525252525254,
+      "mean_diff_C_minus_W": 0.2603964693787663,
+      "transfer_compact_to_optws": {
+        "tau_from_source": 0.39981807735292535,
+        "source_in_grammar_risk_at_80": 0.975,
+        "target_in_grammar_risk_at_80": 0.025,
+        "transferred_n_accepted": 100,
+        "transferred_coverage": 1.0,
+        "coverage_shift_vs_80": 0.19999999999999996,
+        "transferred_selective_risk": 0.05,
+        "risk_shift_vs_target_in_grammar": 0.025
+      },
+      "transfer_optws_to_compact": {
+        "tau_from_source": 0.013920406501233834,
+        "source_in_grammar_risk_at_80": 0.025,
+        "target_in_grammar_risk_at_80": 0.975,
+        "transferred_n_accepted": 0,
+        "transferred_coverage": 0.0,
+        "coverage_shift_vs_80": -0.8,
+        "transferred_selective_risk": NaN,
+        "risk_shift_vs_target_in_grammar": NaN
+      },
+      "cluster_bootstrap": {
+        "n_clusters": 70,
+        "n_boot": 2000,
+        "diff_auroc_A_minus_B_ci95": [
+          0.026010237068965505,
+          0.5744934640522874
+        ],
+        "diff_aurc_A_minus_B_ci95": [
+          0.7677167805300333,
+          0.9883383463832349
+        ],
+        "diff_risk80_A_minus_B_ci95": [
+          0.8903729071537291,
+          0.9883720930232558
+        ],
+        "transfer_A_to_B_cov_ci95": [
+          1.0,
+          1.0
+        ],
+        "transfer_B_to_A_cov_ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "post_nll_all_sum": {
+      "spearman_rho_C_vs_W": 0.06209420942094209,
+      "kendall_tau_C_vs_W": 0.04000000000000001,
+      "mean_diff_C_minus_W": 5.698556912637734,
+      "transfer_compact_to_optws": {
+        "tau_from_source": 7.475108286299205,
+        "source_in_grammar_risk_at_80": 0.975,
+        "target_in_grammar_risk_at_80": 0.025,
+        "transferred_n_accepted": 100,
+        "transferred_coverage": 1.0,
+        "coverage_shift_vs_80": 0.19999999999999996,
+        "transferred_selective_risk": 0.05,
+        "risk_shift_vs_target_in_grammar": 0.025
+      },
+      "transfer_optws_to_compact": {
+        "tau_from_source": 0.44303354130869393,
+        "source_in_grammar_risk_at_80": 0.025,
+        "target_in_grammar_risk_at_80": 0.975,
+        "transferred_n_accepted": 0,
+        "transferred_coverage": 0.0,
+        "coverage_shift_vs_80": -0.8,
+        "transferred_selective_risk": NaN,
+        "risk_shift_vs_target_in_grammar": NaN
+      },
+      "cluster_bootstrap": {
+        "n_clusters": 70,
+        "n_boot": 2000,
+        "diff_auroc_A_minus_B_ci95": [
+          0.009048672566371714,
+          0.5358667247386759
+        ],
+        "diff_aurc_A_minus_B_ci95": [
+          0.7708968172671394,
+          0.9901641487313204
+        ],
+        "diff_risk80_A_minus_B_ci95": [
+          0.8903729071537291,
+          0.9883720930232558
+        ],
+        "transfer_A_to_B_cov_ci95": [
+          1.0,
+          1.0
+        ],
+        "transfer_B_to_A_cov_ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "post_gnll_smt_mean": {
+      "spearman_rho_C_vs_W": -0.18894689468946893,
+      "kendall_tau_C_vs_W": -0.13131313131313133,
+      "mean_diff_C_minus_W": 0.5037064548912182,
+      "transfer_compact_to_optws": {
+        "tau_from_source": 0.7042150480465349,
+        "source_in_grammar_risk_at_80": 0.975,
+        "target_in_grammar_risk_at_80": 0.025,
+        "transferred_n_accepted": 100,
+        "transferred_coverage": 1.0,
+        "coverage_shift_vs_80": 0.19999999999999996,
+        "transferred_selective_risk": 0.05,
+        "risk_shift_vs_target_in_grammar": 0.025
+      },
+      "transfer_optws_to_compact": {
+        "tau_from_source": 0.006116267920463792,
+        "source_in_grammar_risk_at_80": 0.025,
+        "target_in_grammar_risk_at_80": 0.975,
+        "transferred_n_accepted": 0,
+        "transferred_coverage": 0.0,
+        "coverage_shift_vs_80": -0.8,
+        "transferred_selective_risk": NaN,
+        "risk_shift_vs_target_in_grammar": NaN
+      },
+      "cluster_bootstrap": {
+        "n_clusters": 70,
+        "n_boot": 2000,
+        "diff_auroc_A_minus_B_ci95": [
+          0.007986470301786112,
+          0.25462310765349033
+        ],
+        "diff_aurc_A_minus_B_ci95": [
+          0.7915961778677063,
+          0.9949206025328681
+        ],
+        "diff_risk80_A_minus_B_ci95": [
+          0.8947368421052632,
+          0.9888888888888889
+        ],
+        "transfer_A_to_B_cov_ci95": [
+          1.0,
+          1.0
+        ],
+        "transfer_B_to_A_cov_ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "post_gnll_smt_sum": {
+      "spearman_rho_C_vs_W": -0.13959795979597958,
+      "kendall_tau_C_vs_W": -0.09494949494949496,
+      "mean_diff_C_minus_W": 4.607156993147368,
+      "transfer_compact_to_optws": {
+        "tau_from_source": 6.266375796898378,
+        "source_in_grammar_risk_at_80": 0.975,
+        "target_in_grammar_risk_at_80": 0.025,
+        "transferred_n_accepted": 100,
+        "transferred_coverage": 1.0,
+        "coverage_shift_vs_80": 0.19999999999999996,
+        "transferred_selective_risk": 0.05,
+        "risk_shift_vs_target_in_grammar": 0.025
+      },
+      "transfer_optws_to_compact": {
+        "tau_from_source": 0.09888552561849095,
+        "source_in_grammar_risk_at_80": 0.025,
+        "target_in_grammar_risk_at_80": 0.975,
+        "transferred_n_accepted": 0,
+        "transferred_coverage": 0.0,
+        "coverage_shift_vs_80": -0.8,
+        "transferred_selective_risk": NaN,
+        "risk_shift_vs_target_in_grammar": NaN
+      },
+      "cluster_bootstrap": {
+        "n_clusters": 70,
+        "n_boot": 2000,
+        "diff_auroc_A_minus_B_ci95": [
+          0.0,
+          0.2213408119658119
+        ],
+        "diff_aurc_A_minus_B_ci95": [
+          0.7937501918226733,
+          0.9959057166394413
+        ],
+        "diff_risk80_A_minus_B_ci95": [
+          0.8985228539576365,
+          0.9894736842105263
+        ],
+        "transfer_A_to_B_cov_ci95": [
+          1.0,
+          1.0
+        ],
+        "transfer_B_to_A_cov_ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pre_nll_all_mean": {
+      "spearman_rho_C_vs_W": 0.07589558955895588,
+      "kendall_tau_C_vs_W": 0.051313131313131324,
+      "mean_diff_C_minus_W": 2.581164314526276,
+      "transfer_compact_to_optws": {
+        "tau_from_source": 3.35450981521163,
+        "source_in_grammar_risk_at_80": 0.975,
+        "target_in_grammar_risk_at_80": 0.025,
+        "transferred_n_accepted": 100,
+        "transferred_coverage": 1.0,
+        "coverage_shift_vs_80": 0.19999999999999996,
+        "transferred_selective_risk": 0.05,
+        "risk_shift_vs_target_in_grammar": 0.025
+      },
+      "transfer_optws_to_compact": {
+        "tau_from_source": 0.013922466660348144,
+        "source_in_grammar_risk_at_80": 0.025,
+        "target_in_grammar_risk_at_80": 0.975,
+        "transferred_n_accepted": 0,
+        "transferred_coverage": 0.0,
+        "coverage_shift_vs_80": -0.8,
+        "transferred_selective_risk": NaN,
+        "risk_shift_vs_target_in_grammar": NaN
+      },
+      "cluster_bootstrap": {
+        "n_clusters": 70,
+        "n_boot": 2000,
+        "diff_auroc_A_minus_B_ci95": [
+          -0.1254654255319149,
+          0.46985948129251687
+        ],
+        "diff_aurc_A_minus_B_ci95": [
+          0.8352841306979165,
+          0.9883383463832349
+        ],
+        "diff_risk80_A_minus_B_ci95": [
+          0.8903729071537291,
+          0.9883720930232558
+        ],
+        "transfer_A_to_B_cov_ci95": [
+          1.0,
+          1.0
+        ],
+        "transfer_B_to_A_cov_ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pre_gnll_smt_mean": {
+      "spearman_rho_C_vs_W": -0.2009000900090009,
+      "kendall_tau_C_vs_W": -0.1478787878787879,
+      "mean_diff_C_minus_W": 3.381536910894793,
+      "transfer_compact_to_optws": {
+        "tau_from_source": 3.8066199457540626,
+        "source_in_grammar_risk_at_80": 0.975,
+        "target_in_grammar_risk_at_80": 0.025,
+        "transferred_n_accepted": 100,
+        "transferred_coverage": 1.0,
+        "coverage_shift_vs_80": 0.19999999999999996,
+        "transferred_selective_risk": 0.05,
+        "risk_shift_vs_target_in_grammar": 0.025
+      },
+      "transfer_optws_to_compact": {
+        "tau_from_source": 0.006116271340108226,
+        "source_in_grammar_risk_at_80": 0.025,
+        "target_in_grammar_risk_at_80": 0.975,
+        "transferred_n_accepted": 0,
+        "transferred_coverage": 0.0,
+        "coverage_shift_vs_80": -0.8,
+        "transferred_selective_risk": NaN,
+        "risk_shift_vs_target_in_grammar": NaN
+      },
+      "cluster_bootstrap": {
+        "n_clusters": 70,
+        "n_boot": 2000,
+        "diff_auroc_A_minus_B_ci95": [
+          -0.4043060928433269,
+          0.1736106842349905
+        ],
+        "diff_aurc_A_minus_B_ci95": [
+          0.8704191166462656,
+          0.9949206025328681
+        ],
+        "diff_risk80_A_minus_B_ci95": [
+          0.8947368421052632,
+          0.9888888888888889
+        ],
+        "transfer_A_to_B_cov_ci95": [
+          1.0,
+          1.0
+        ],
+        "transfer_B_to_A_cov_ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "neg_logz_all_mean": {
+      "spearman_rho_C_vs_W": -0.09131713171317131,
+      "kendall_tau_C_vs_W": -0.05979797979797981,
+      "mean_diff_C_minus_W": 2.3207678451475355,
+      "transfer_compact_to_optws": {
+        "tau_from_source": 2.8801657671327914,
+        "source_in_grammar_risk_at_80": 0.975,
+        "target_in_grammar_risk_at_80": 0.025,
+        "transferred_n_accepted": 100,
+        "transferred_coverage": 1.0,
+        "coverage_shift_vs_80": 0.19999999999999996,
+        "transferred_selective_risk": 0.05,
+        "risk_shift_vs_target_in_grammar": 0.025
+      },
+      "transfer_optws_to_compact": {
+        "tau_from_source": 2.125045392993552e-06,
+        "source_in_grammar_risk_at_80": 0.025,
+        "target_in_grammar_risk_at_80": 0.975,
+        "transferred_n_accepted": 0,
+        "transferred_coverage": 0.0,
+        "coverage_shift_vs_80": -0.8,
+        "transferred_selective_risk": NaN,
+        "risk_shift_vs_target_in_grammar": NaN
+      },
+      "cluster_bootstrap": {
+        "n_clusters": 70,
+        "n_boot": 2000,
+        "diff_auroc_A_minus_B_ci95": [
+          -0.24926270961397104,
+          0.15612668980635716
+        ],
+        "diff_aurc_A_minus_B_ci95": [
+          0.8873880210168075,
+          0.993816989075474
+        ],
+        "diff_risk80_A_minus_B_ci95": [
+          0.894736842105263,
+          0.9899015151515151
+        ],
+        "transfer_A_to_B_cov_ci95": [
+          1.0,
+          1.0
+        ],
+        "transfer_B_to_A_cov_ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "h_post_first": {
+      "spearman_rho_C_vs_W": 0.24753955049721912,
+      "kendall_tau_C_vs_W": 0.1849457366615228,
+      "mean_diff_C_minus_W": -0.058465448907387564,
+      "transfer_compact_to_optws": {
+        "tau_from_source": 0.0017279728220375495,
+        "source_in_grammar_risk_at_80": 0.975,
+        "target_in_grammar_risk_at_80": 0.0125,
+        "transferred_n_accepted": 0,
+        "transferred_coverage": 0.0,
+        "coverage_shift_vs_80": -0.8,
+        "transferred_selective_risk": NaN,
+        "risk_shift_vs_target_in_grammar": NaN
+      },
+      "transfer_optws_to_compact": {
+        "tau_from_source": 0.09086338920190273,
+        "source_in_grammar_risk_at_80": 0.0125,
+        "target_in_grammar_risk_at_80": 0.975,
+        "transferred_n_accepted": 100,
+        "transferred_coverage": 1.0,
+        "coverage_shift_vs_80": 0.19999999999999996,
+        "transferred_selective_risk": 0.98,
+        "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+      },
+      "cluster_bootstrap": {
+        "n_clusters": 70,
+        "n_boot": 2000,
+        "diff_auroc_A_minus_B_ci95": [
+          -0.694801619165718,
+          0.285427544492581
+        ],
+        "diff_aurc_A_minus_B_ci95": [
+          0.858587658439552,
+          0.9939501325793351
+        ],
+        "diff_risk80_A_minus_B_ci95": [
+          0.9027493169398907,
+          1.0
+        ],
+        "transfer_A_to_B_cov_ci95": [
+          0.0,
+          0.0
+        ],
+        "transfer_B_to_A_cov_ci95": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "fixed_path_paired_shared_forward": {
+    "n_fixed_paths_both_accepted": 100,
+    "n_of_total": 100,
+    "n_correct": 2,
+    "n_error": 98,
+    "scores": {
+      "pre_nll_all_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.8979591836734694,
+          "aurc": 0.949536863762504,
+          "e_aurc": 0.04328441411529649,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.3747421730569966
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.8979591836734694,
+          "aurc": 0.949536863762504,
+          "e_aurc": 0.04328441411529649,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.3747421730569966
+        },
+        "mean_C": 2.590780008949756,
+        "mean_W": 2.590780008949756,
+        "mean_diff_C_minus_W": 0.0,
+        "spearman_rho_C_vs_W": 0.9999999999999999,
+        "kendall_tau_C_vs_W": 1.0,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 3.3747421730569966,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 80,
+          "transferred_coverage": 0.8,
+          "coverage_shift_vs_80": 0.0,
+          "transferred_selective_risk": 0.975,
+          "risk_shift_vs_target_in_grammar": 0.0
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 3.3747421730569966,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 80,
+          "transferred_coverage": 0.8,
+          "coverage_shift_vs_80": 0.0,
+          "transferred_selective_risk": 0.975,
+          "risk_shift_vs_target_in_grammar": 0.0
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.7912087912087912,
+            0.8210526315789474
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            0.7912087912087912,
+            0.8210526315789474
+          ]
+        }
+      },
+      "post_nll_all_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.4014277443467756
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.8979591836734694,
+          "aurc": 0.949536863762504,
+          "e_aurc": 0.04328441411529649,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.352242434914666
+        },
+        "mean_C": 0.2695819124378237,
+        "mean_W": 2.5796793642211124,
+        "mean_diff_C_minus_W": -2.3100974517832893,
+        "spearman_rho_C_vs_W": 0.7432223222322231,
+        "kendall_tau_C_vs_W": 0.5426262626262627,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 0.4014277443467756,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 3.352242434914666,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.009263586015922504,
+            0.23452781786115126
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            -0.09254350177947707,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "post_nll_all_sum": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 7.4742003207593415
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9540816326530612,
+          "aurc": 0.9255421321868902,
+          "e_aurc": 0.019289682539682662,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 58.82040386694104
+        },
+        "mean_C": 5.97307264669129,
+        "mean_W": 56.47186682684853,
+        "mean_diff_C_minus_W": -50.49879418015724,
+        "spearman_rho_C_vs_W": 0.562076207620762,
+        "kendall_tau_C_vs_W": 0.4048484848484849,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 7.4742003207593415,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 58.82040386694104,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.0,
+            0.13971059254175253
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            -0.06119814090883857,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "pre_gnll_smt_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7755102040816326,
+          "aurc": 0.960115115808929,
+          "e_aurc": 0.05386266616172153,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.7991453050146937
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7755102040816326,
+          "aurc": 0.960115115808929,
+          "e_aurc": 0.05386266616172153,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.7991453050146937
+        },
+        "mean_C": 3.3864488415796385,
+        "mean_W": 3.3864488415796385,
+        "mean_diff_C_minus_W": 0.0,
+        "spearman_rho_C_vs_W": 0.9999999999999999,
+        "kendall_tau_C_vs_W": 1.0,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 3.7991453050146937,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 80,
+          "transferred_coverage": 0.8,
+          "coverage_shift_vs_80": 0.0,
+          "transferred_selective_risk": 0.975,
+          "risk_shift_vs_target_in_grammar": 0.0
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 3.7991453050146937,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 80,
+          "transferred_coverage": 0.8,
+          "coverage_shift_vs_80": 0.0,
+          "transferred_selective_risk": 0.975,
+          "risk_shift_vs_target_in_grammar": 0.0
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.7912087912087912,
+            0.8210526315789474
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            0.7912087912087912,
+            0.8210526315789474
+          ]
+        }
+      },
+      "post_gnll_smt_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9948979591836735,
+          "aurc": 0.9112524496472075,
+          "e_aurc": 0.0050000000000000044,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.7134783258114471
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7755102040816326,
+          "aurc": 0.960115115808929,
+          "e_aurc": 0.05386266616172153,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.797949834852392
+        },
+        "mean_C": 0.5110755704185914,
+        "mean_W": 3.3860648207648727,
+        "mean_diff_C_minus_W": -2.8749892503462813,
+        "spearman_rho_C_vs_W": 0.7780498049804979,
+        "kendall_tau_C_vs_W": 0.5947474747474748,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 0.7134783258114471,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 3.797949834852392,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.017248875562218925,
+            0.4834785903751422
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            -0.11090808859866227,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.0,
+            0.038834951456310676
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "post_gnll_smt_sum": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9897959183673469,
+          "aurc": 0.9145857829805409,
+          "e_aurc": 0.008333333333333415,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 6.340263960906596
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 30.056582995362323
+        },
+        "mean_C": 4.715073406606707,
+        "mean_W": 28.189101064929705,
+        "mean_diff_C_minus_W": -23.474027658322992,
+        "spearman_rho_C_vs_W": 0.862166216621662,
+        "kendall_tau_C_vs_W": 0.6977777777777779,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 6.340263960906596,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 30.056582995362323,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            -0.04299696719051554,
+            0.0
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            0.0,
+            0.031508737877301934
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "pre_gnll_smt_val_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7397959183673469,
+          "aurc": 0.9616737547311821,
+          "e_aurc": 0.05542130508397458,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 4.3396865672382186
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7397959183673469,
+          "aurc": 0.9616737547311821,
+          "e_aurc": 0.05542130508397458,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 4.3396865672382186
+        },
+        "mean_C": 4.006977589890814,
+        "mean_W": 4.006977589890814,
+        "mean_diff_C_minus_W": 0.0,
+        "spearman_rho_C_vs_W": 0.9999999999999999,
+        "kendall_tau_C_vs_W": 1.0,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 4.3396865672382186,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 80,
+          "transferred_coverage": 0.8,
+          "coverage_shift_vs_80": 0.0,
+          "transferred_selective_risk": 0.975,
+          "risk_shift_vs_target_in_grammar": 0.0
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 4.3396865672382186,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 80,
+          "transferred_coverage": 0.8,
+          "coverage_shift_vs_80": 0.0,
+          "transferred_selective_risk": 0.975,
+          "risk_shift_vs_target_in_grammar": 0.0
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.7912087912087912,
+            0.820231921636416
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            0.7912087912087912,
+            0.820231921636416
+          ]
+        }
+      },
+      "post_gnll_smt_val_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9948979591836735,
+          "aurc": 0.9112524496472075,
+          "e_aurc": 0.0050000000000000044,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.8131292471592407
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7397959183673469,
+          "aurc": 0.9616737547311821,
+          "e_aurc": 0.05542130508397458,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 4.33951447043763
+        },
+        "mean_C": 0.5861003623167607,
+        "mean_W": 4.006525778289579,
+        "mean_diff_C_minus_W": -3.4204254159728187,
+        "spearman_rho_C_vs_W": 0.7356375637563756,
+        "kendall_tau_C_vs_W": 0.5543434343434345,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 0.8131292471592407,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 4.33951447043763,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.017248875562218925,
+            0.5494505494505495
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            -0.11317407407011806,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.0,
+            0.01031470428648939
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "pre_nll_syntax_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9285714285714286,
+          "aurc": 0.94904213218689,
+          "e_aurc": 0.042789682539682516,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.000995720326624
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9285714285714286,
+          "aurc": 0.94904213218689,
+          "e_aurc": 0.042789682539682516,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 3.000995720326624
+        },
+        "mean_C": 2.4827779554042078,
+        "mean_W": 2.4827779554042078,
+        "mean_diff_C_minus_W": 0.0,
+        "spearman_rho_C_vs_W": 0.9999999999999999,
+        "kendall_tau_C_vs_W": 1.0,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 3.000995720326624,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 80,
+          "transferred_coverage": 0.8,
+          "coverage_shift_vs_80": 0.0,
+          "transferred_selective_risk": 0.975,
+          "risk_shift_vs_target_in_grammar": 0.0
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 3.000995720326624,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 80,
+          "transferred_coverage": 0.8,
+          "coverage_shift_vs_80": 0.0,
+          "transferred_selective_risk": 0.975,
+          "risk_shift_vs_target_in_grammar": 0.0
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.7912087912087912,
+            0.8202247191011236
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            0.7912087912087912,
+            0.8202247191011236
+          ]
+        }
+      },
+      "post_nll_syntax_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.16949649633021258
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9285714285714286,
+          "aurc": 0.94904213218689,
+          "e_aurc": 0.042789682539682516,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 2.996468838147406
+        },
+        "mean_C": 0.11146032085968047,
+        "mean_W": 2.467157386061535,
+        "mean_diff_C_minus_W": -2.3556970652018547,
+        "spearman_rho_C_vs_W": 0.5710051005100509,
+        "kendall_tau_C_vs_W": 0.3963636363636364,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 0.16949649633021258,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 2.996468838147406,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.02382024882024884,
+            0.1304130434782609
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            -0.08330575064555323,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "neg_logz_all_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.8112244897959184,
+          "aurc": 0.963380892384983,
+          "e_aurc": 0.05712844273777551,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 2.8925339744672462
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.596938775510204,
+          "aurc": 0.9811943743397059,
+          "e_aurc": 0.07494192469249839,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.002160464843659657
+        },
+        "mean_C": 2.3211980965119197,
+        "mean_W": 0.01110064472863071,
+        "mean_diff_C_minus_W": 2.3100974517832893,
+        "spearman_rho_C_vs_W": 0.48201620162016195,
+        "kendall_tau_C_vs_W": 0.3224242424242425,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 2.8925339744672462,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 0.002160464843659657,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            -0.0897410845139228,
+            0.5
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            -0.06101743429097846,
+            0.0042972593739114195
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            1.0,
+            1.0
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "neg_logz_all_sum": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7653061224489797,
+          "aurc": 0.9637817824755958,
+          "e_aurc": 0.057529332828388235,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 52.852991205725004
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.5714285714285714,
+          "aurc": 0.9822792055390154,
+          "e_aurc": 0.07602675589180785,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.04447318651117338
+        },
+        "mean_C": 50.645746379853954,
+        "mean_W": 0.14695219969670822,
+        "mean_diff_C_minus_W": 50.49879418015725,
+        "spearman_rho_C_vs_W": 0.18505850585058506,
+        "kendall_tau_C_vs_W": 0.12404040404040406,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 52.852991205725004,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 0.04447318651117338,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.053777971519907014,
+            0.32607474352711285
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            -0.05881057411652647,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            1.0,
+            1.0
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "neg_logz_smt_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.7244897959183674,
+          "aurc": 0.9667689928264203,
+          "e_aurc": 0.060516543179212734,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 2.959199389330678
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9897959183673469,
+          "aurc": 0.9212524496472075,
+          "e_aurc": 0.015000000000000013,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.0005933419232603876
+        },
+        "mean_C": 2.8753732711610285,
+        "mean_W": 0.0003840208147471616,
+        "mean_diff_C_minus_W": 2.8749892503462813,
+        "spearman_rho_C_vs_W": 0.2421002100210021,
+        "kendall_tau_C_vs_W": 0.16484848484848486,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 2.959199389330678,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 0.0005933419232603876,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            -0.5505337078651685,
+            -0.02275369978858346
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            0.0,
+            0.1164343159579331
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            1.0,
+            1.0
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "neg_logz_syntax_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.9132653061224489,
+          "aurc": 0.9523797945245525,
+          "e_aurc": 0.046127344877344933,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 2.8442518743976013
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.5102040816326531,
+          "aurc": 0.9853280121808949,
+          "e_aurc": 0.07907556253368742,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.0032346849712559214
+        },
+        "mean_C": 2.371317634544521,
+        "mean_W": 0.01562056934266674,
+        "mean_diff_C_minus_W": 2.3556970652018547,
+        "spearman_rho_C_vs_W": 0.45832583258325826,
+        "kendall_tau_C_vs_W": 0.3066666666666667,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 2.8442518743976013,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 0.0032346849712559214,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.26881720430107525,
+            0.550506235337696
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            -0.08942149900660736,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            1.0,
+            1.0
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "h_post_first": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.5127551020408163,
+          "aurc": 0.9825409171517769,
+          "e_aurc": 0.07628846750456941,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.0017279728220375495
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 0.5153061224489797,
+          "aurc": 0.9846829023931231,
+          "e_aurc": 0.07843045274591554,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.08277002529971302
+        },
+        "mean_C": 0.0011196791872650563,
+        "mean_W": 0.058737952887110347,
+        "mean_diff_C_minus_W": -0.05761827369984528,
+        "spearman_rho_C_vs_W": 0.25674308681119157,
+        "kendall_tau_C_vs_W": 0.19135073361194405,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 0.0017279728220375495,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 0,
+          "transferred_coverage": 0.0,
+          "coverage_shift_vs_80": -0.8,
+          "transferred_selective_risk": NaN,
+          "risk_shift_vs_target_in_grammar": NaN
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 0.08277002529971302,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 100,
+          "transferred_coverage": 1.0,
+          "coverage_shift_vs_80": 0.19999999999999996,
+          "transferred_selective_risk": 0.98,
+          "risk_shift_vs_target_in_grammar": 0.0050000000000000044
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            -0.1821967751874294,
+            0.1601941747572816
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            -0.011363818743242897,
+            0.0072764895130872954
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.012499999999999956
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "h_post_mean": {
+        "G_compact": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.8962798084344654
+        },
+        "G_optws": {
+          "n": 100,
+          "n_correct": 2,
+          "n_error": 98,
+          "base_error_rate": 0.98,
+          "auroc": 1.0,
+          "aurc": 0.9062524496472075,
+          "e_aurc": 0.0,
+          "risk_at_target_cov": 0.975,
+          "target_cov": 0.8,
+          "k_at_target_cov": 80,
+          "threshold_at_target_cov": 0.7194713778611024
+        },
+        "mean_C": 0.615639230414336,
+        "mean_W": 0.47950065461291635,
+        "mean_diff_C_minus_W": 0.13613857580141975,
+        "spearman_rho_C_vs_W": 0.9868346834683468,
+        "kendall_tau_C_vs_W": 0.9078787878787881,
+        "transfer_compact_to_optws": {
+          "tau_from_source": 0.8962798084344654,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 90,
+          "transferred_coverage": 0.9,
+          "coverage_shift_vs_80": 0.09999999999999998,
+          "transferred_selective_risk": 0.9777777777777777,
+          "risk_shift_vs_target_in_grammar": 0.002777777777777768
+        },
+        "transfer_optws_to_compact": {
+          "tau_from_source": 0.7194713778611024,
+          "source_in_grammar_risk_at_80": 0.975,
+          "target_in_grammar_risk_at_80": 0.975,
+          "transferred_n_accepted": 67,
+          "transferred_coverage": 0.67,
+          "coverage_shift_vs_80": -0.13,
+          "transferred_selective_risk": 0.9701492537313433,
+          "risk_shift_vs_target_in_grammar": -0.004850746268656669
+        },
+        "cluster_bootstrap": {
+          "n_clusters": 70,
+          "n_boot": 2000,
+          "diff_auroc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_aurc_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "diff_risk80_A_minus_B_ci95": [
+            0.0,
+            0.0
+          ],
+          "transfer_A_to_B_cov_ci95": [
+            0.8395006613756614,
+            0.9500123762376237
+          ],
+          "transfer_B_to_A_cov_ci95": [
+            0.587700228832952,
+            0.7241379310344828
+          ]
+        }
+      }
+    }
+  }
+}

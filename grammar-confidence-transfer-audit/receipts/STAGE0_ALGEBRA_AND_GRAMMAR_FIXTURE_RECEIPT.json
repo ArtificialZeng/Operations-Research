@@ -1,0 +1,70 @@
+{
+  "purpose": "Pre-launch fixture verification of grammar equivalence, float64 pre/post mask algebra, Ye26 SMT spans, and BFCL inert AST checking.",
+  "model_tokenizer_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "vocab_size": 151665,
+  "backend_versions": {
+    "xgrammar": "0.2.9",
+    "transformers": "5.24.0",
+    "torch": "2.15.0+cpu",
+    "tokenizers": "0.23.3"
+  },
+  "source_hashes": {
+    "grammar_utils_py": "d063e5e347bf2928f1c6f22becafd67611f711842960276e1399359dab966423",
+    "verify_grammar_mask_algebra_py": "e48745d4b7217ca3bce3d209d14d79bea15e1ae08a102dbc0d92d921baea0dd8"
+  },
+  "all_fixtures_passed": true,
+  "grammar_equivalence": {
+    "G_compact_accepts_compact": true,
+    "G_optws_accepts_compact": true,
+    "G_compact_rejects_spaced": true,
+    "G_optws_accepts_spaced": true,
+    "G_optws_accepts_pretty": true
+  },
+  "algebra_identity_pre_eq_post_minus_logZ": {
+    "n_steps_compact_path": 23,
+    "max_abs_err_G_compact": 3.552713678800501e-15,
+    "max_abs_err_G_optws": 3.552713678800501e-15,
+    "threshold": 1e-12,
+    "n_steps_strictly_larger_mass_optws": 21,
+    "max_log_retained_mass_gap": 10.552760694186373,
+    "subset_invariant_all_steps": true
+  },
+  "smt_span_check": {
+    "compact_smt_ye26_tokens": [
+      "calculate",
+      "_triangle",
+      "_area",
+      "base",
+      "1",
+      "0",
+      "height",
+      "5",
+      "unit",
+      "units"
+    ],
+    "spaced_smt_ye26_tokens": [
+      "calculate",
+      "_triangle",
+      "_area",
+      "base",
+      "1",
+      "0",
+      "height",
+      "5",
+      "unit",
+      "units"
+    ],
+    "compact_n_ye26": 10,
+    "compact_n_val": 7,
+    "compact_n_syntax": 12
+  },
+  "bfcl_inert_ast_unit_tests": {
+    "compact_valid": true,
+    "spaced_valid": true,
+    "wrong_fn_rejected": true,
+    "wrong_val_rejected": true,
+    "wrong_type_rejected": true,
+    "missing_required_rejected": true,
+    "bad_json_rejected": true
+  }
+}
