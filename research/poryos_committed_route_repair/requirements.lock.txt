@@ -1,0 +1,18 @@
+# Python 3.12.16 (main, Nov 11 2026, 00:20:04) [MSC v.1944 64 bit (AMD64)]
+# Workspace-local isolated CPU environment used for Stage-0 native run (PID 56384)
+annotated-types==0.8.0
+cloudpickle==3.1.3
+joblib==1.6.0
+mamut-routing-lib==0.12.0
+narwhals==2.29.0
+numpy==2.5.5
+pandas==3.1.1
+pydantic==2.14.4
+pydantic_core==2.50.5
+python-dateutil==4.0.0
+scikit-learn==1.9.1
+scipy==1.18.1
+threadpoolctl==3.8.0
+typing-inspection==0.4.5
+typing_extensions==4.16.0
+tzdata==2026.6

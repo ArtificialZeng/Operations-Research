@@ -1,0 +1,89 @@
+{
+  "archive_name": "poryos_committed_route_repair_stage0_negative_archive",
+  "status": "FROZEN_LIMITED_NEGATIVE_FEASIBILITY_ARCHIVE",
+  "decision": "STOP_STAGE0_INSUFFICIENT_GENUINE_REPAIR_CASES",
+  "date_sealed": "2026-11-24",
+  "upstream_pins": {
+    "poryos2026_repo": "https://github.com/ANR-MAMUT/MAMUT-routing-Poryos2026",
+    "poryos2026_commit": "0400ed2c3a27ed36f725034a38873b69d3af1dea",
+    "poryos2026_license": "ODbL-1.0",
+    "osm_attribution": "Data from OpenStreetMap and its contributors, https://www.openstreetmap.org/copyright",
+    "mamut_routing_lib_version": "0.12.0",
+    "mamut_routing_lib_commit": "0c30b33b3a3fd0a94a27362bcbb5acd871b374c8",
+    "kayros_reference_commit": "d5eb0c1b338bbef493d86a89da022bd2135298dc",
+    "blauth2024_unopened": true
+  },
+  "sealed_receipts": {
+    "real_pid": 56384,
+    "wall_time_s": 1317.615,
+    "pre_erratum_protocol_sha256": "28bc316cb87cb3389573481d5e163d6cf5b48265bdd4bc0c0fe55c490a4a61fb",
+    "protocol_erratum_v1_1_sha256": "447430fb58b65a9cb0dffdeced9691b9736a43affe89ee03eb4ced4224b427c6",
+    "runner_sha256": "51b5b522b9dcbdca25f2ff72cba30e8bcbdc639e9feb42bfd4a407a9ecda8ce7",
+    "summary_json_sha256": "2fd842d21fe3fe403479d3bb3236ea7a07ba0ca2d031dd8e3abd0215fc10397a",
+    "per_case_jsonl_sha256": "9f3e3baeeb7c403d2dd3ea465118749808fd084ff0aa18be802dfe13993fadf7",
+    "exposure_scan_json_sha256": "4789d263ffd6e99e6a7d34a95e3b9bc265ed839fae18fd62f4e92db450440097",
+    "n_sidecars_verified": 150
+  },
+  "files": [
+    {
+      "path": "research/poryos_committed_route_repair/LICENSES_AND_PROVENANCE.md",
+      "bytes": 2163,
+      "sha256": "459fb786ce56e53e25e9ead3aab35ad6237589bc08b47ea1091ebad994b5ccad"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/README.md",
+      "bytes": 4985,
+      "sha256": "2239222996d33a1f952ffeae432769501d4e5bb71f39e3cca0281a99cbc2ff52"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/STAGE0_PORYOS_EXPOSURE_SCAN.json",
+      "bytes": 33612,
+      "sha256": "4789d263ffd6e99e6a7d34a95e3b9bc265ed839fae18fd62f4e92db450440097"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/STAGE0_PORYOS_FEASIBILITY_PROTOCOL.md",
+      "bytes": 11322,
+      "sha256": "447430fb58b65a9cb0dffdeced9691b9736a43affe89ee03eb4ced4224b427c6"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/STAGE0_PORYOS_FEASIBILITY_RESULT.md",
+      "bytes": 16654,
+      "sha256": "43e586a916d3eecd200579cef2a16bea978a4539ad88490d14e06ebc4b252e33"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/STATUS.md",
+      "bytes": 4602,
+      "sha256": "f3b7e94bb9361d50d774a79775b2bdb73da5ca3f1f33906e8355826611c2c0e8"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/requirements.lock.txt",
+      "bytes": 467,
+      "sha256": "ee937c7a7a91c824522f8d96c4b535e409f47ad3a911bda3fd6f881afe29893b"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/run_stage0_poryos_feasibility.py",
+      "bytes": 52985,
+      "sha256": "51b5b522b9dcbdca25f2ff72cba30e8bcbdc639e9feb42bfd4a407a9ecda8ce7"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/stage0_outputs/stage0_poryos_feasibility_summary.json",
+      "bytes": 31640,
+      "sha256": "2fd842d21fe3fe403479d3bb3236ea7a07ba0ca2d031dd8e3abd0215fc10397a"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/stage0_outputs/stage0_poryos_per_case.jsonl",
+      "bytes": 51343,
+      "sha256": "9f3e3baeeb7c403d2dd3ea465118749808fd084ff0aa18be802dfe13993fadf7"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/stage0_scan_poryos_congestion_exposure.py",
+      "bytes": 5228,
+      "sha256": "f9f54679bbc22507f37a5e3f6c937d5afbc533808aa2335fa70ca74d6884b071"
+    },
+    {
+      "path": "research/poryos_committed_route_repair/stage0_smoke_checker.py",
+      "bytes": 5806,
+      "sha256": "93299e796972777c01a7c5c07731342542fb2e824321c31ce6187b6775aa241b"
+    }
+  ]
+}
