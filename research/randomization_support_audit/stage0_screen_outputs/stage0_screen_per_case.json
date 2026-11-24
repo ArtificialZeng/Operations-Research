@@ -1,0 +1,3341 @@
+{
+  "qwen25_1p5b": [
+    {
+      "case_id": "RTV_01",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "raw_neg_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "elapsed_s": 2.729
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "1": 359,
+          "2": 990,
+          "3": 244,
+          "4": 177,
+          "5": 107,
+          "6": 75,
+          "7": 194
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_02",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "raw_neg_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "elapsed_s": 2.853
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "4": 167,
+          "5": 226,
+          "6": 373,
+          "7": 263,
+          "8": 100,
+          "20": 349,
+          "25": 472
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(4==4)",
+      "ev_neg_code": "unblocked_total_only_check(4==4)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_03",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "raw_neg_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "elapsed_s": 2.76
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "7": 268,
+          "8": 404,
+          "9": 370
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_04",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "raw_neg_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "elapsed_s": 2.796
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "10": 548,
+          "11": 137,
+          "12": 159,
+          "20": 164,
+          "21": 163,
+          "22": 216
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(4==4)",
+      "ev_neg_code": "unblocked_total_only_check(4==4)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_05",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "raw_neg_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "elapsed_s": 2.818
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "12": 55,
+          "13": 226,
+          "14": 26,
+          "25": 526,
+          "26": 381,
+          "27": 127
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_06",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "raw_neg_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "elapsed_s": 2.793
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "14": 104,
+          "15": 245,
+          "16": 534,
+          "17": 321
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_07",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "raw_neg_sha256": "e4806b7a05d8409289efa7e6757ec36e5c0ddc2d45d62ec2ff44391d71c4152e",
+        "elapsed_s": 2.752
+      },
+      "extract_schema": null,
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "unparseable_schema_json",
+      "ev_neg_code": "unparseable_schema_json",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": null,
+        "extracted_block_col": null,
+        "extracted_quota_rule": null,
+        "unit_col_ok": false,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_08",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "21": 132,
+          "22": 294,
+          "23": 147,
+          "24": 170,
+          "25": 166
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_09",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "24": 33,
+          "26": 150,
+          "27": 180,
+          "28": 162
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_10",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "28": 139,
+          "29": 39,
+          "30": 161,
+          "31": 879
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_11",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "31": 471,
+          "32": 529,
+          "33": 388,
+          "34": 685,
+          "35": 156,
+          "36": 161,
+          "37": 154,
+          "38": 315,
+          "39": 124,
+          "40": 228
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_12",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "34": 21,
+          "35": 24,
+          "36": 28,
+          "37": 32,
+          "38": 35
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_13",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "n",
+        "quota_rule": "total_only",
+        "block_quotas": {
+          "37": 20,
+          "38": 39,
+          "39": 13
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ADMISSIBLE",
+      "ev_pos_code": "unblocked_total_only_check(3==3)",
+      "ev_neg_code": "unblocked_total_only_check(3==3)",
+      "ev_false_accept": true,
+      "ev_valid_accept": true,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "n",
+        "extracted_quota_rule": "total_only",
+        "unit_col_ok": true,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_01",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "elapsed_s": 2.581
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "17": 1,
+          "24": 1,
+          "26": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(24:0!=1,26:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_02",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "d1cef597803a14be598f1b05219841b2a49c11e34bfaf200accf3aec93f057e0",
+        "elapsed_s": 2.717
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "18": 1,
+          "21": 1,
+          "27": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(18:2!=1,21:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_03",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "elapsed_s": 2.575
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "19": 1,
+          "20": 1,
+          "30": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(20:0!=1,30:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_04",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "d1cef597803a14be598f1b05219841b2a49c11e34bfaf200accf3aec93f057e0",
+        "raw_neg_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "elapsed_s": 2.696
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "31": 1,
+          "39": 1,
+          "43": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(39:2!=1,43:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_05",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "d1cef597803a14be598f1b05219841b2a49c11e34bfaf200accf3aec93f057e0",
+        "elapsed_s": 2.709
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "38": 2,
+          "41": 2,
+          "44": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(38:1!=2,41:1!=2,44:1!=2)",
+      "ev_neg_code": "extracted_block_violation(38:1!=2,44:0!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_06",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "elapsed_s": 2.635
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "35": 2,
+          "36": 2,
+          "40": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(35:1!=2,36:1!=2,40:1!=2)",
+      "ev_neg_code": "extracted_block_violation(35:0!=2,40:1!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_07",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "d1cef597803a14be598f1b05219841b2a49c11e34bfaf200accf3aec93f057e0",
+        "elapsed_s": 2.754
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "60": 2,
+          "61": 2,
+          "65": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(60:1!=2,61:1!=2,65:1!=2)",
+      "ev_neg_code": "extracted_block_violation(60:0!=2,65:1!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_08",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "26bc8bcb6c394eb1e6e1f4d45e903b351f5997ba05d8eb375b4e8d1cdfa2b888",
+        "raw_neg_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "elapsed_s": 2.615
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "82": 2,
+          "86": 2,
+          "89": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(82:1!=2,86:1!=2,89:1!=2)",
+      "ev_neg_code": "extracted_block_violation(82:0!=2,89:1!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_09",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "elapsed_s": 2.648
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "4041283": 1,
+          "4041284": 1,
+          "4041286": 1,
+          "4041287": 1,
+          "4041291": 1,
+          "4041301": 1
+        }
+      },
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "incomplete_block_quotas_missing:['95', '96', '101']",
+      "ev_neg_code": "incomplete_block_quotas_missing:['95', '96', '101']",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_10",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "elapsed_s": 2.655
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "4044305": 1,
+          "4044306": 1,
+          "4044304": 1,
+          "4044307": 1,
+          "4044324": 1,
+          "4044325": 1
+        }
+      },
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "incomplete_block_quotas_missing:['104', '106', '115']",
+      "ev_neg_code": "incomplete_block_quotas_missing:['104', '106', '115']",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_11",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "elapsed_s": 2.63
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "4044302": 1,
+          "4044303": 1,
+          "4044336": 1,
+          "4044337": 1,
+          "4044334": 1,
+          "4044335": 1
+        }
+      },
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "incomplete_block_quotas_missing:['105', '120', '121']",
+      "ev_neg_code": "incomplete_block_quotas_missing:['105', '120', '121']",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_12",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "elapsed_s": 2.632
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "110": 2,
+          "114": 2,
+          "122": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(110:1!=2,114:1!=2,122:1!=2)",
+      "ev_neg_code": "extracted_block_violation(110:1!=2,122:0!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_13",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ILLEGAL",
+        "neg_verdict": "ILLEGAL",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "e411ca033d0279494dabdc6b3550e11647f72dd1bb2bd4c2f07aeed44a647b0c",
+        "raw_neg_sha256": "6cbfa014f54131df729cf364e0d59e4a2fbe681fde3673c99e68a310ea507e1b",
+        "elapsed_s": 2.64
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "108": 2,
+          "111": 1,
+          "113": 1
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(108:1!=2)",
+      "ev_neg_code": "extracted_block_violation(108:1!=2,111:0!=1,113:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_14",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "4050348": 1,
+          "4050350": 1,
+          "4050364": 1,
+          "4050365": 1,
+          "4050370": 1,
+          "4050371": 1
+        }
+      },
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "incomplete_block_quotas_missing:['128', '134', '136']",
+      "ev_neg_code": "incomplete_block_quotas_missing:['128', '134', '136']",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_15",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "126": 2,
+          "135": 2,
+          "138": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(126:1!=2,135:1!=2,138:1!=2)",
+      "ev_neg_code": "extracted_block_violation(126:1!=2,135:0!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_16",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "125": 2,
+          "133": 2,
+          "137": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(125:1!=2,133:1!=2,137:1!=2)",
+      "ev_neg_code": "extracted_block_violation(125:1!=2,137:0!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_17",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "143": 2,
+          "144": 2,
+          "146": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(143:1!=2,144:1!=2,146:1!=2)",
+      "ev_neg_code": "extracted_block_violation(143:0!=2,144:1!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_18",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "4065396": 1,
+          "4065402": 1,
+          "4065398": 1,
+          "4065401": 1,
+          "4065410": 1,
+          "4065411": 1
+        }
+      },
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "incomplete_block_quotas_missing:['153', '155', '159']",
+      "ev_neg_code": "incomplete_block_quotas_missing:['153', '155', '159']",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_19",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "4065394": 1,
+          "4065395": 1,
+          "4065408": 1,
+          "4065415": 1,
+          "4065418": 1,
+          "4065420": 1
+        }
+      },
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "incomplete_block_quotas_missing:['151', '156', '161']",
+      "ev_neg_code": "incomplete_block_quotas_missing:['151', '156', '161']",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_20",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "4065403": 1,
+          "4065405": 1,
+          "4065419": 1,
+          "4065421": 1,
+          "4065416": 1,
+          "4065417": 1
+        }
+      },
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "incomplete_block_quotas_missing:['154', '162', '164']",
+      "ev_neg_code": "incomplete_block_quotas_missing:['154', '162', '164']",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_21",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "177": 2,
+          "178": 2,
+          "179": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(177:1!=2,178:1!=2,179:1!=2)",
+      "ev_neg_code": "extracted_block_violation(177:1!=2,178:0!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_22",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "189": 1,
+          "196": 1,
+          "205": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(189:2!=1,205:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_23",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "190": 2,
+          "201": 2,
+          "202": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(190:1!=2,201:1!=2,202:1!=2)",
+      "ev_neg_code": "extracted_block_violation(190:1!=2,201:0!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_24",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "206": 2,
+          "210": 2,
+          "212": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(206:1!=2,210:1!=2,212:1!=2)",
+      "ev_neg_code": "extracted_block_violation(206:1!=2,212:0!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_25",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "191": 2,
+          "199": 2,
+          "204": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(191:1!=2,199:1!=2,204:1!=2)",
+      "ev_neg_code": "extracted_block_violation(191:0!=2,199:1!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_26",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "5064507": 1,
+          "5064512": 1,
+          "5064514": 1,
+          "5064516": 1,
+          "5064520": 1,
+          "5064522": 1
+        }
+      },
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "incomplete_block_quotas_missing:['209', '211', '214']",
+      "ev_neg_code": "incomplete_block_quotas_missing:['209', '211', '214']",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_27",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ILLEGAL",
+      "direct_neg": "ILLEGAL",
+      "direct_false_accept": false,
+      "direct_valid_accept": false,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "192": 2,
+          "200": 2,
+          "203": 2
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(192:1!=2,200:1!=2,203:1!=2)",
+      "ev_neg_code": "extracted_block_violation(200:0!=2,203:1!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    }
+  ],
+  "granite31_2b": [
+    {
+      "case_id": "RTV_01",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "c0a0f750aa4ad349133794f51f1b846b9d317588f1c2e49af8c3a6f23a3fc91b",
+        "raw_neg_sha256": "340513851ae7e66c38e32d07e9bce6122a5c7a9a8630b4e9b23b5f594b436dd3",
+        "elapsed_s": 7.708
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "strata",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "1": 35,
+          "2": 2,
+          "3": 1,
+          "6": 2,
+          "8": 2,
+          "20": 2,
+          "59": 1,
+          "49": 1,
+          "50": 1,
+          "60": 1
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(1:1!=35,2:1!=2)",
+      "ev_neg_code": "extracted_block_violation(1:1!=35,2:0!=2,3:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "strata",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_02",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "fde075364eccbb87ed3c1b0a96954b3036f73b017e5d51ec63c69254956d2779",
+        "raw_neg_sha256": "c4186c1bdbd79e75e8a0203d4715117e6632d7393db8f8e33365548415347a72",
+        "elapsed_s": 7.872
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "strata",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "4": 1,
+          "3": 263,
+          "5": 1,
+          "6": 1,
+          "8": 2,
+          "25": 2,
+          "20": 2,
+          "38": 1,
+          "23": 1,
+          "48": 1
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(6:2!=1)",
+      "ev_neg_code": "extracted_block_violation(4:0!=1,5:2!=1,6:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "strata",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_03",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "124cb5e24047e2de5c96481c3b16153689b341aa0aa34e41f85f568f2e9cc12d",
+        "raw_neg_sha256": "ce66865de2ff5d3da6abfbb0466163331e4e5527d30088adb2f97b6a53815b80",
+        "elapsed_s": 6.953
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "strata",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "7": 268,
+          "8": 470,
+          "9": 370,
+          "10": 289,
+          "25": 2,
+          "37": 404,
+          "71": 177,
+          "84": 581,
+          "29": 1,
+          "83": 289
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(7:1!=268,8:1!=470,9:1!=370)",
+      "ev_neg_code": "extracted_block_violation(7:0!=268,8:2!=470,9:1!=370)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "strata",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_04",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "8d7ffde5636d932d25c4fc69b6e366e544428f146cb3b6a8e07d22108192997e",
+        "raw_neg_sha256": "7533a33c52e7d70e9bf6d5174ed90db61b08a94f117ba745abd5926d799ab57f",
+        "elapsed_s": 7.946
+      },
+      "extract_schema": null,
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "unparseable_schema_json",
+      "ev_neg_code": "unparseable_schema_json",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": null,
+        "extracted_block_col": null,
+        "extracted_quota_rule": null,
+        "unit_col_ok": false,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_05",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "520d0fe2efa6178089bfec2a487f8cc589680aaed3427f0ff2a02da820f6c0ee",
+        "raw_neg_sha256": "d73a076c329218a5a72727a14ca7392f8115eaecf6d4fbb0d6c8e5376b5d53d8",
+        "elapsed_s": 7.954
+      },
+      "extract_schema": null,
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "unparseable_schema_json",
+      "ev_neg_code": "unparseable_schema_json",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": null,
+        "extracted_block_col": null,
+        "extracted_quota_rule": null,
+        "unit_col_ok": false,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_06",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "97606139b9aa016998b3878c3ee22f0d86a032e30c63c204f01c858367d31e3c",
+        "raw_neg_sha256": "97606139b9aa016998b3878c3ee22f0d86a032e30c63c204f01c858367d31e3c",
+        "elapsed_s": 6.889
+      },
+      "extract_schema": null,
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "unparseable_schema_json",
+      "ev_neg_code": "unparseable_schema_json",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": null,
+        "extracted_block_col": null,
+        "extracted_quota_rule": null,
+        "unit_col_ok": false,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_07",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "97606139b9aa016998b3878c3ee22f0d86a032e30c63c204f01c858367d31e3c",
+        "raw_neg_sha256": "3bdd0cb909ee6be6cd234bc0f5a4ff855a454650290e7c75184c98f7e31c9c6a",
+        "elapsed_s": 6.839
+      },
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "strata",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "17": 1,
+          "18": 1,
+          "19": 1,
+          "20": 1,
+          "25": 2,
+          "3": 2,
+          "8": 2,
+          "41": 1,
+          "43": 1,
+          "56": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(17:2!=1,19:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "strata",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "RTV_08",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "strata",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "21": 1,
+          "22": 1,
+          "23": 1,
+          "25": 1,
+          "34": 1,
+          "05": 1,
+          "27": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(21:0!=1,23:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "strata",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "RTV_09",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": null,
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "unparseable_schema_json",
+      "ev_neg_code": "unparseable_schema_json",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": null,
+        "extracted_block_col": null,
+        "extracted_quota_rule": null,
+        "unit_col_ok": false,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_10",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": null,
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "unparseable_schema_json",
+      "ev_neg_code": "unparseable_schema_json",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": null,
+        "extracted_block_col": null,
+        "extracted_quota_rule": null,
+        "unit_col_ok": false,
+        "block_col_ok": false,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_11",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "strata",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "3": 1,
+          "8": 1,
+          "25": 1,
+          "6": 1,
+          "20": 1,
+          "31": 1,
+          "32": 1,
+          "33": 1,
+          "34": 1,
+          "35": 1,
+          "40": 2,
+          "41": 2,
+          "42": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(32:0!=1,33:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "strata",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "RTV_12",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "strata",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "34": 2,
+          "35": 2,
+          "36": 2,
+          "37": 1,
+          "38": 1,
+          "6": 2,
+          "8": 2,
+          "20": 2,
+          "25": 2,
+          "63": 1,
+          "64": 1
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(34:1!=2,35:1!=2,36:1!=2)",
+      "ev_neg_code": "extracted_block_violation(35:1!=2,36:0!=2)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "strata",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "RTV_13",
+      "trial": "RockTheVote_2008",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "market_id",
+        "block_col": "strata",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "3": 1,
+          "8": 1,
+          "25": 1,
+          "6": 2,
+          "20": 2,
+          "37": 1,
+          "38": 1,
+          "39": 1,
+          "40": 2,
+          "41": 1,
+          "61": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(37:2!=1,39:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "market_id",
+        "extracted_block_col": "strata",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_01",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "f8c1e63eb941dbb4be774135e0e42c4e4e13e334dfbcb040a118eb9d006deee1",
+        "raw_neg_sha256": "cceec033fed294430923c6a6591b7c684fe5f055f9490de0be2e94c25e84d18e",
+        "elapsed_s": 8.345
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "17": 0,
+          "24": 0,
+          "26": 0
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(17:1!=0,24:1!=0,26:1!=0)",
+      "ev_neg_code": "extracted_block_violation(17:1!=0,26:2!=0)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_02",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "2eabf35f65769604830f9aed0ca0c7c9012f9cf13a387303cecbff8a940efcd6",
+        "raw_neg_sha256": "e1749c357a356b83478e8a21d9d23b1209bbe77428f561c9cb171d5e87ebb791",
+        "elapsed_s": 8.073
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "18": 1,
+          "21": 1,
+          "27": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(18:2!=1,21:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_03",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "2e8af0fc2f6ae94aecbf6841839c12b378acf489101adc96ab8dc957acaa84a2",
+        "raw_neg_sha256": "f8c1e63eb941dbb4be774135e0e42c4e4e13e334dfbcb040a118eb9d006deee1",
+        "elapsed_s": 8.3
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "19": 1,
+          "20": 1
+        }
+      },
+      "ev_pos": "SCHEMA_ERROR",
+      "ev_neg": "SCHEMA_ERROR",
+      "ev_pos_code": "incomplete_block_quotas_missing:['30']",
+      "ev_neg_code": "incomplete_block_quotas_missing:['30']",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_04",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "cceec033fed294430923c6a6591b7c684fe5f055f9490de0be2e94c25e84d18e",
+        "raw_neg_sha256": "c0b58f0751d551a7e3463ed3876f5881751c3bd3bacdf69734a0d1235d231247",
+        "elapsed_s": 8.437
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "31": 1,
+          "39": 1,
+          "43": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(39:2!=1,43:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_05",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "8995a5155303a8b5c8f0bd2f624d6618768620cd723ceea82bdd620c30990ab9",
+        "raw_neg_sha256": "afdabef504a4d7f080992f7ed75a62ef03f66bbd987c9cbb05a25253525e618c",
+        "elapsed_s": 6.879
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "38": 1,
+          "41": 1,
+          "44": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(41:2!=1,44:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_06",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "10af210686a46f8978439005b785663838c29d38bd03afa1ab3e5f3b3e6f312b",
+        "raw_neg_sha256": "4810334e18e23b47bc61867796eb8878bb50b796597fd274fc5f07583048d1b3",
+        "elapsed_s": 8.57
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "35": 1,
+          "36": 1,
+          "40": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(35:0!=1,36:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_07",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "a09aaed52fbd04a2184c2c9226f0b24793f37df463762b765343e37510b6b196",
+        "raw_neg_sha256": "0210a693f9787d1ce652190c8e3764961365e6867cdb3bd50f612d3106e06d7d",
+        "elapsed_s": 8.534
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "60": 1,
+          "61": 1,
+          "65": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(60:0!=1,61:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_08",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "382a4df6eb9d1095b6f975cdbf7082a8428f8253ed8c5967af533550299487ec",
+        "raw_neg_sha256": "fcc684658ed7d6ee9a4ed4171e6311744ba791a14d6328f876c8a0f5564401fc",
+        "elapsed_s": 7.924
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "82": 0,
+          "86": 0,
+          "89": 0
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(82:1!=0,86:1!=0,89:1!=0)",
+      "ev_neg_code": "extracted_block_violation(86:2!=0,89:1!=0)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_09",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "afdabef504a4d7f080992f7ed75a62ef03f66bbd987c9cbb05a25253525e618c",
+        "raw_neg_sha256": "afdabef504a4d7f080992f7ed75a62ef03f66bbd987c9cbb05a25253525e618c",
+        "elapsed_s": 6.303
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "95": 1,
+          "96": 1,
+          "101": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(101:0!=1,96:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_10",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "07c28db217de368d921888887e464ed4148370a4c5e7494ea76a512f996d7757",
+        "raw_neg_sha256": "7997883c770e19b8842351536c737627c04c5a9d84fe01b73b615519ba27f7fc",
+        "elapsed_s": 6.07
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "104": 1,
+          "106": 1,
+          "115": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(106:2!=1,115:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_11",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "a09aaed52fbd04a2184c2c9226f0b24793f37df463762b765343e37510b6b196",
+        "raw_neg_sha256": "afdabef504a4d7f080992f7ed75a62ef03f66bbd987c9cbb05a25253525e618c",
+        "elapsed_s": 6.855
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "105": 1,
+          "120": 1,
+          "121": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(105:0!=1,120:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_12",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "dd6180a0983f81998a11277c47ecfb94353c701a8db485abfa5c72b466814642",
+        "raw_neg_sha256": "ecae0b74dee494b798d5ba76192617d55c91e3817f48e44a54881059a2b0df70",
+        "elapsed_s": 7.504
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "110": 1,
+          "114": 1,
+          "122": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(114:2!=1,122:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_13",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": {
+        "pos_verdict": "ADMISSIBLE",
+        "neg_verdict": "ADMISSIBLE",
+        "pos_flip": false,
+        "neg_flip": false,
+        "raw_pos_sha256": "75d06c09754f6964c91ef49b8d8fd52e2d75c5a131b75a1caf8192fff9276416",
+        "raw_neg_sha256": "fcc684658ed7d6ee9a4ed4171e6311744ba791a14d6328f876c8a0f5564401fc",
+        "elapsed_s": 7.92
+      },
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "108": 1,
+          "111": 1,
+          "113": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(111:0!=1,113:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_14",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "128": 0,
+          "134": 0,
+          "136": 0
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(128:1!=0,134:1!=0,136:1!=0)",
+      "ev_neg_code": "extracted_block_violation(128:2!=0,136:1!=0)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_15",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "126": 1,
+          "135": 1,
+          "138": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(135:0!=1,138:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_16",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "125": 1,
+          "133": 1,
+          "137": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(133:2!=1,137:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_17",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "143": 1,
+          "144": 1,
+          "146": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(143:0!=1,146:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_18",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "153": 1,
+          "155": 1,
+          "159": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(153:0!=1,159:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_19",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "151": 1,
+          "156": 1,
+          "161": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(156:0!=1,161:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_20",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "154": 0,
+          "162": 0,
+          "164": 0
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(154:1!=0,162:1!=0,164:1!=0)",
+      "ev_neg_code": "extracted_block_violation(162:2!=0,164:1!=0)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_21",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "177": 1,
+          "178": 1,
+          "179": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(178:0!=1,179:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_22",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "189": 1,
+          "196": 1,
+          "205": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(189:2!=1,205:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_23",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "190": 0,
+          "201": 0,
+          "202": 0
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(190:1!=0,201:1!=0,202:1!=0)",
+      "ev_neg_code": "extracted_block_violation(190:1!=0,202:2!=0)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_24",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "206": 1,
+          "210": 1,
+          "212": 0
+        }
+      },
+      "ev_pos": "ILLEGAL",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_violation(212:1!=0)",
+      "ev_neg_code": "extracted_block_violation(210:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": false,
+      "ev_paired_exact": false,
+      "ev_schema_error": true,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": false
+      }
+    },
+    {
+      "case_id": "BDM_25",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "191": 1,
+          "199": 1,
+          "204": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(191:0!=1,204:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_26",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "209": 1,
+          "211": 1,
+          "214": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(209:0!=1,214:2!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    },
+    {
+      "case_id": "BDM_27",
+      "trial": "Bangladesh_Mask_CRT_2022",
+      "direct_pos": "ADMISSIBLE",
+      "direct_neg": "ADMISSIBLE",
+      "direct_false_accept": true,
+      "direct_valid_accept": true,
+      "direct_paired_exact": false,
+      "direct_parse_fail": false,
+      "reordered": null,
+      "extract_schema": {
+        "unit_col": "union",
+        "block_col": "pairID",
+        "quota_rule": "fixed_per_block",
+        "block_quotas": {
+          "192": 1,
+          "200": 1,
+          "203": 1
+        }
+      },
+      "ev_pos": "ADMISSIBLE",
+      "ev_neg": "ILLEGAL",
+      "ev_pos_code": "extracted_block_satisfied",
+      "ev_neg_code": "extracted_block_violation(192:2!=1,200:0!=1)",
+      "ev_false_accept": false,
+      "ev_valid_accept": true,
+      "ev_paired_exact": true,
+      "ev_schema_error": false,
+      "ev_diag": {
+        "extracted_unit_col": "union",
+        "extracted_block_col": "pairID",
+        "extracted_quota_rule": "fixed_per_block",
+        "unit_col_ok": true,
+        "block_col_ok": true,
+        "quotas_ok": true
+      }
+    }
+  ]
+}
