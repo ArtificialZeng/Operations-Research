@@ -1,0 +1,1268 @@
+{
+  "archive_id": "dfl_mdkp_capacity_pairing_audit_20261124",
+  "status": "FROZEN_BENCHMARK_INTEGRITY_RESEARCH_ARTIFACT",
+  "date": "2026-11-24",
+  "repo_target": "ArtificialZeng/Operations-Research",
+  "archive_dir": "dfl-mdkp-capacity-pairing-audit",
+  "branch": "research/dfl-mdkp-capacity-pairing-audit-20261124",
+  "upstream_dependency": {
+    "repo": "https://github.com/JayMan91/OdeceDFLforConstraintsNeurips25",
+    "commit": "1b432e03ce9ded1e504df60fd4c44cf936334d4f",
+    "license": "Apache-2.0",
+    "vendored_checkout_included": false,
+    "pinned_source_files": {
+      "KnapsackCapaExp.py": {
+        "bytes": 7365,
+        "sha256": "faffe92415df659360603ec90494be496a8d89168ba1e1e7b60d38b54f2ed971"
+      },
+      "KnapsackWeightExp.py": {
+        "bytes": 8142,
+        "sha256": "cda3778233570e9c987ab657ce6b36a821c11580b4b6f18c4442afcc2d75569a"
+      },
+      "MDKP_CapaExp.sh": {
+        "bytes": 692,
+        "sha256": "29e08746be2449bf207636f71699f2f997f7520128afbda0fa65eb411ba6fd15"
+      },
+      "MDKP_WeightExp.sh": {
+        "bytes": 861,
+        "sha256": "7a13a4a8a2962f6761226701fe6af58bd46a486ff5e71f54a8b319e68c3c23a5"
+      },
+      "src/odece.py": {
+        "bytes": 12415,
+        "sha256": "07c0161ba5bcbfae848ec68a90fa5d7d28567c42bec9161a089a81ff17bedf48"
+      },
+      "src/pfl.py": {
+        "bytes": 23682,
+        "sha256": "3cf21d21aa8c3afb437a892aa4c97472b1cf010fdcd18443ef644179ed786b61"
+      },
+      "OptProblems/knapsack/kpdata.py": {
+        "bytes": 5708,
+        "sha256": "bd21081c6f1861c7c2d5421a29e1415832541ab08b0f528fdf6673c972a8ef30"
+      },
+      "OptProblems/knapsack/kpdataset.py": {
+        "bytes": 2122,
+        "sha256": "ea7be9b763d6678c21d0b933367ce1ee3aa0bcfbffae2ffc12a8b0ceca4c86fd"
+      },
+      "OptProblems/knapsack/kpsolver.py": {
+        "bytes": 8912,
+        "sha256": "f1fc217c11daa5ab02e7de52c416428ce10016c1845b216e1faaea8c4beb63f5"
+      },
+      "ML/TorchML.py": {
+        "bytes": 6871,
+        "sha256": "6cb64787154cde4a57bb35ddc3e4ae369901ed4ff394a40132ac7ec2d19f0775"
+      }
+    }
+  },
+  "exclusions": [
+    "official_odece_repo/ (upstream Apache-2.0 checkout omitted; pinned by commit + file SHA-256 above)",
+    "internal coordination notes excluded",
+    "__pycache__/, binaries, caches, secrets, editor files",
+    "stage1a_seed12_per_instance/ (28 intermediate CP-SAT sweep JSONs, 3.67 MB; summary & incremental JSONL retained)",
+    "stage1b_multiseed_13_15/seed_*/per_instance/ non-highs_*.json (84 intermediate CP-SAT sweep JSONs, 10.52 MB; all 25 confirmatory HiGHS per-instance JSONs, summaries & incremental JSONLs retained)"
+  ],
+  "pdf_included": false,
+  "local_skills_invoked": false,
+  "files": [
+    {
+      "order": 1,
+      "stage": "00_archive_meta",
+      "role": "readme",
+      "file": "README.md",
+      "bytes": 11088,
+      "sha256": "9905e14335ceebb9d0179a769aacce273d143288e041816208ac98d156db7504"
+    },
+    {
+      "order": 2,
+      "stage": "00_archive_meta",
+      "role": "gitattributes",
+      "file": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "order": 3,
+      "stage": "00_archive_meta",
+      "role": "dependencies",
+      "file": "requirements.txt",
+      "bytes": 482,
+      "sha256": "a22cad82c6a968dee83b3a6bd9d0a13f822621dc7e9e7188f5003e1977f98ced"
+    },
+    {
+      "order": 4,
+      "stage": "00_archive_meta",
+      "role": "manifest_verifier",
+      "file": "verify_manifest.py",
+      "bytes": 2790,
+      "sha256": "5b167efb99439934b20cbfda3dbedd6dadfe42552b73fc7bf374e277afd1d2aa"
+    },
+    {
+      "order": 5,
+      "stage": "00_overview",
+      "role": "status",
+      "file": "STATUS.md",
+      "bytes": 9870,
+      "sha256": "3d16b2cc58bbab3d4b07f9c8269111ce4aedcbb52c9faa08d3d00e3bd228b7f6",
+      "original_workspace_sha256": "158228474962cbd8349bc7c88b66fbc34dbbbc9d1aa3ec3ff8c7f8739a6eddfb",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 6,
+      "stage": "00_overview",
+      "role": "selection_note",
+      "file": "SELECTION_AND_OVERLAP.md",
+      "bytes": 5384,
+      "sha256": "209977ba814362920f6c6a658e3aa8e33517bedea5fac19dd96c086c2609f3a0"
+    },
+    {
+      "order": 7,
+      "stage": "01_source_provenance",
+      "role": "verifier_script",
+      "file": "source_index_discrepancy_receipt.py",
+      "bytes": 6409,
+      "sha256": "5a57757091766cfa9340b7420d2e6c609064f0d22b2f61289ad66590bdd4f990"
+    },
+    {
+      "order": 8,
+      "stage": "01_source_provenance",
+      "role": "receipt",
+      "file": "SOURCE_INDEX_RECEIPT.json",
+      "bytes": 5463,
+      "sha256": "9b181f19ab9af5747ad6755427ab52c0f9d3dbc942210737a96f94f5b9af54b9"
+    },
+    {
+      "order": 9,
+      "stage": "01_source_provenance",
+      "role": "verifier_script",
+      "file": "mdkp_capacity_signal_receipt.py",
+      "bytes": 7867,
+      "sha256": "33f0a6ddd57134badf6a6aa7466332685806c14573f9256cabbdfec16f366f3f"
+    },
+    {
+      "order": 10,
+      "stage": "01_source_provenance",
+      "role": "receipt",
+      "file": "MDKP_CAPACITY_SIGNAL_RECEIPT.json",
+      "bytes": 4541,
+      "sha256": "4aa2f10e55f96b1b9782d19ce5006767aae23bf64ae451c8c17a6729cb130eaf"
+    },
+    {
+      "order": 11,
+      "stage": "02_trackA_stage0_seed11",
+      "role": "protocol",
+      "file": "STAGE0_PROTOCOL.md",
+      "bytes": 4864,
+      "sha256": "3ec85d5fe838ae002b8c5059a674478aaeffd778221ac537882a782921cf5dc1"
+    },
+    {
+      "order": 12,
+      "stage": "02_trackA_stage0_seed11",
+      "role": "script",
+      "file": "stage0_mdkp_falsifier.py",
+      "bytes": 23298,
+      "sha256": "11b9599c164052f3372934f71ac42ddfaf5c728f72c9545dfe37273d5521db74"
+    },
+    {
+      "order": 13,
+      "stage": "02_trackA_stage0_seed11",
+      "role": "results",
+      "file": "stage0_mdkp_results.json",
+      "bytes": 12780,
+      "sha256": "cbdd69a4625f312df8e4b74b47aeb3df1db03af5b66f50a503836f535f8557c4"
+    },
+    {
+      "order": 14,
+      "stage": "02_trackA_stage0_seed11",
+      "role": "report",
+      "file": "STAGE0_DIAGNOSTIC_RESULT.md",
+      "bytes": 5947,
+      "sha256": "df7204e7b9e7aba34444fb74a56fd903bd0ce9d24c6d05c0fdd42aedf42d15b6"
+    },
+    {
+      "order": 15,
+      "stage": "02_trackA_stage0_seed11",
+      "role": "errata",
+      "file": "STAGE0_EXPLORATORY_ERRATA.md",
+      "bytes": 4425,
+      "sha256": "1c7aaf19a771d9a2f198927930a3340075c2b50abb7baba5867cc0c60b3e3483"
+    },
+    {
+      "order": 16,
+      "stage": "03_trackA_stage1a_seed12",
+      "role": "protocol",
+      "file": "STAGE1A_PROTOCOL.md",
+      "bytes": 6525,
+      "sha256": "00298b70f21d2797f7059c5ab3bfefce3dc3a0aed3072d877ec3449706b98993"
+    },
+    {
+      "order": 17,
+      "stage": "03_trackA_stage1a_seed12",
+      "role": "script",
+      "file": "stage1a_fresh_seed12_audit.py",
+      "bytes": 44345,
+      "sha256": "9f7d618136944ce47e40b7eafcb906379ec068604a9f854ae4ebbc31db79496d"
+    },
+    {
+      "order": 18,
+      "stage": "03_trackA_stage1a_seed12",
+      "role": "results",
+      "file": "stage1a_seed12_summary.json",
+      "bytes": 89026,
+      "sha256": "48eb3a20b48cd7a8d50fa9e2950143cb6f0823d6ff1dd0c555604e76e5386c54"
+    },
+    {
+      "order": 19,
+      "stage": "03_trackA_stage1a_seed12",
+      "role": "incremental_log",
+      "file": "stage1a_seed12_incremental.jsonl",
+      "bytes": 40831,
+      "sha256": "5ebd08636c4094bdd339a9994599f230a280ee597ef6e4a2b324a0d0161a7f0f"
+    },
+    {
+      "order": 20,
+      "stage": "03_trackA_stage1a_seed12",
+      "role": "report",
+      "file": "STAGE1A_SEED12_RESULT.md",
+      "bytes": 12873,
+      "sha256": "1575bf01232503fd6a8acf349770f33613ecb5383b9d7b483f6511229be3a5f8",
+      "original_workspace_sha256": "3e04bcbeea978e2762bccc7a17da78e0567602429de8de3fc6a1be81c6626c5d",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 21,
+      "stage": "03_trackA_stage1a_seed12",
+      "role": "parity_script",
+      "file": "verify_odece_pytorch_parity.py",
+      "bytes": 14133,
+      "sha256": "61772c0e274bbcb425cec01613a8301278b3adf8ecbee6cfd5fce95dc16d5b50"
+    },
+    {
+      "order": 22,
+      "stage": "03_trackA_stage1a_seed12",
+      "role": "parity_receipt",
+      "file": "ODECE_PYTORCH_PARITY_RECEIPT.json",
+      "bytes": 5893,
+      "sha256": "82d6090f414f0362dd5a09ca11729b0c6f104e8991e04ca5fe238db2b62cc304"
+    },
+    {
+      "order": 23,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "protocol",
+      "file": "STAGE1B_PROTOCOL.md",
+      "bytes": 6664,
+      "sha256": "28a00396570ab07e26b6b5c2648d51af72635c35f9c573b4a5b41486bd841d5e",
+      "original_workspace_sha256": "b32aa18cd76d396aa1a0e8f156ac09d83b5a23a22ecfb5610600344908a1c4e8",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 24,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "script",
+      "file": "stage1b_multiseed_13_15.py",
+      "bytes": 48781,
+      "sha256": "8097ce79825eec64010900c0cbd886ac89103369ece8b8e29d762998a6d2a4b5"
+    },
+    {
+      "order": 25,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "results",
+      "file": "stage1b_multiseed_13_15/stage1b_aggregate_summary.json",
+      "bytes": 96349,
+      "sha256": "60936fcd183d68944610a8b3acb87f4da9926765c59211b48c9630209a86c634"
+    },
+    {
+      "order": 26,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "report",
+      "file": "STAGE1B_MULTISEED_13_15_RESULT.md",
+      "bytes": 15090,
+      "sha256": "040e432535052b1a0b77fc71192f67910a13c70a51125071dd518b86418213ee",
+      "original_workspace_sha256": "a8c44221e89ab02b5cfd4b51650f834f1b932ab4020c8bd6f8d0be9dd2219af8",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 27,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_summary",
+      "file": "stage1b_multiseed_13_15/seed_13/summary.json",
+      "bytes": 106760,
+      "sha256": "31f0c1cd7da72c46d625b0e521065df566bebbbb46538c8226f8556640a7170b"
+    },
+    {
+      "order": 28,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_incremental_log",
+      "file": "stage1b_multiseed_13_15/seed_13/incremental.jsonl",
+      "bytes": 41187,
+      "sha256": "83d35680aca5fb2372cd970b220c56e294ee1a1b6dc89c332f3881b8c2c62b13"
+    },
+    {
+      "order": 29,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_13/per_instance/highs_MSE.json",
+      "bytes": 132514,
+      "sha256": "6d7572d0009a4b4131d2a959ddd9c4b344ed61aad8a10907902016b1a99a1d10"
+    },
+    {
+      "order": 30,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_13/per_instance/highs_MSEplusValShift_g_0.60.json",
+      "bytes": 131603,
+      "sha256": "92a094cf6ecc197e0a792be52e478aef2befcdbeacda825651aebba1e64687ab"
+    },
+    {
+      "order": 31,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_13/per_instance/highs_MSEplusValShift_g_1.25.json",
+      "bytes": 130843,
+      "sha256": "9186d1d59b7b0a28925d653fcf26d62229ba067c2fc9845110e8a9eb33765863"
+    },
+    {
+      "order": 32,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_13/per_instance/highs_ODECE_alpha_0.4.json",
+      "bytes": 132877,
+      "sha256": "76b9f5a1a0a32d35ba207c197e68bdb4943f91734136529cf1b637e33fa34b55"
+    },
+    {
+      "order": 33,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_13/per_instance/highs_ODECE_alpha_0.6.json",
+      "bytes": 131271,
+      "sha256": "e79b2c2ac1146b3911c100e488b4637572b7a00e8b90f9b0cda501010745f175"
+    },
+    {
+      "order": 34,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_13/per_instance/highs_ODECE_alpha_0.7.json",
+      "bytes": 131459,
+      "sha256": "0cb8e1f1d72f1b9724966141794d4d1772278bff6fc6d5ca40f97bd8852d0ffe"
+    },
+    {
+      "order": 35,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_13/per_instance/highs_Uniform-Pinball_t_0.50.json",
+      "bytes": 132680,
+      "sha256": "95478bccf2bbe559fb8b9b5d1a82f38042268a0d6274788dc3a1f47b89c104d0"
+    },
+    {
+      "order": 36,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_13/per_instance/highs_Uniform-Pinball_t_0.80.json",
+      "bytes": 131542,
+      "sha256": "4bc11929c61ce843ebb06c16e773bd28c864363b634a7cd48f3c086547389ed4"
+    },
+    {
+      "order": 37,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_13_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_13/per_instance/highs_Uniform-Pinball_t_0.85.json",
+      "bytes": 131452,
+      "sha256": "45dd792a2d73322f97aca7b3f141603752e8859f3c8361cbd6eaebd4236853cb"
+    },
+    {
+      "order": 38,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_14_summary",
+      "file": "stage1b_multiseed_13_15/seed_14/summary.json",
+      "bytes": 104554,
+      "sha256": "adf078f7343a9f47cea56fa56b4862b3cdc1bd49ed93c9c6527810b72ccaf022"
+    },
+    {
+      "order": 39,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_14_incremental_log",
+      "file": "stage1b_multiseed_13_15/seed_14/incremental.jsonl",
+      "bytes": 41173,
+      "sha256": "db2385ddb0be257116f228aa7ed3b85c2eadb248766fd444399bdba973e42995"
+    },
+    {
+      "order": 40,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_14_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_14/per_instance/highs_MSEplusValShift_g_0.15.json",
+      "bytes": 132311,
+      "sha256": "4ed9ef3e8cc1c9b47a763efec8d5096971bb2181ca4691241cafc490288f575d"
+    },
+    {
+      "order": 41,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_14_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_14/per_instance/highs_MSEplusValShift_g_0.75.json",
+      "bytes": 131621,
+      "sha256": "8b1e28697c8929ecb6c3cefd9469f8af21bbd703ed8d48669ae73565d537e771"
+    },
+    {
+      "order": 42,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_14_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_14/per_instance/highs_MSEplusValShift_g_0.90.json",
+      "bytes": 131466,
+      "sha256": "e0fab6ebf2d90d03e1705304a2b2db3eb3f472d6555d588dca0d5914da2e5628"
+    },
+    {
+      "order": 43,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_14_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_14/per_instance/highs_ODECE_alpha_0.4.json",
+      "bytes": 132998,
+      "sha256": "b4c4f55f1b4657cc1d5ca30a80e2aa68e82363eadc742d590e1c7c5fe7c69ef2"
+    },
+    {
+      "order": 44,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_14_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_14/per_instance/highs_ODECE_alpha_0.8.json",
+      "bytes": 131535,
+      "sha256": "d1342e62f1d5c4156dfec3b1e4183108e378dc5561d4f4c52f789df2b7416799"
+    },
+    {
+      "order": 45,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_14_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_14/per_instance/highs_Uniform-Pinball_t_0.55.json",
+      "bytes": 132686,
+      "sha256": "940330f9259e3f59df0f2a9a418f02827048808bea25c2cc2c17de54e315a07d"
+    },
+    {
+      "order": 46,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_14_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_14/per_instance/highs_Uniform-Pinball_t_0.80.json",
+      "bytes": 131719,
+      "sha256": "25f2175a86e443bf4a866eb9930a1efdbea06b84bde7b9574f1b63c85634ae3f"
+    },
+    {
+      "order": 47,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_summary",
+      "file": "stage1b_multiseed_13_15/seed_15/summary.json",
+      "bytes": 106729,
+      "sha256": "0dd0d88ef8d08e3c04da05b0ba404d41f253c2c1764a350813484d02796d2256"
+    },
+    {
+      "order": 48,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_incremental_log",
+      "file": "stage1b_multiseed_13_15/seed_15/incremental.jsonl",
+      "bytes": 41159,
+      "sha256": "312dc6a86d016a3acb9e1ff245be76ee8d6b53efb0304e6f0c60967df01c1220"
+    },
+    {
+      "order": 49,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_15/per_instance/highs_MSE.json",
+      "bytes": 132579,
+      "sha256": "64158f0567d059b4131e5719df9935b19b7630a18a4858f9e98157c29dd9a6ff"
+    },
+    {
+      "order": 50,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_15/per_instance/highs_MSEplusValShift_g_0.45.json",
+      "bytes": 131742,
+      "sha256": "62ee46e50da08c723a19b3db30d3d80fd43db715a6b43349095d6f8287c6ce8c"
+    },
+    {
+      "order": 51,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_15/per_instance/highs_MSEplusValShift_g_0.75.json",
+      "bytes": 131464,
+      "sha256": "e4d938b9f10b81ead8faa513158f7b2c5501eb98ea6a4761f81e4519a69fe101"
+    },
+    {
+      "order": 52,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_15/per_instance/highs_ODECE_alpha_0.4.json",
+      "bytes": 133141,
+      "sha256": "d8eafba54ec4ad61f1871168d03fd5384389e194bd3f6f206a61fccac496c998"
+    },
+    {
+      "order": 53,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_15/per_instance/highs_ODECE_alpha_0.6.json",
+      "bytes": 131706,
+      "sha256": "465048b01c7e76c478f39a31853077bdece3d780ed0b0dc95f781fd9fcc54377"
+    },
+    {
+      "order": 54,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_15/per_instance/highs_ODECE_alpha_0.8.json",
+      "bytes": 131504,
+      "sha256": "8e818e1624c26f4848d203f21b3c507d9de651ba933bc3c6c24bc0c27c6301cc"
+    },
+    {
+      "order": 55,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_15/per_instance/highs_Uniform-Pinball_t_0.50.json",
+      "bytes": 132891,
+      "sha256": "c168394760eed7c6288cbe92b56e608c0a55b1910ad0a386a64c5b05e41d6f05"
+    },
+    {
+      "order": 56,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_15/per_instance/highs_Uniform-Pinball_t_0.65.json",
+      "bytes": 132119,
+      "sha256": "081101184df519cee9af761553a9aa085832cfe6abfb2d39f380e01948bd06d9"
+    },
+    {
+      "order": 57,
+      "stage": "04_trackA_stage1b_seeds13_15",
+      "role": "seed_15_highs_per_instance",
+      "file": "stage1b_multiseed_13_15/seed_15/per_instance/highs_Uniform-Pinball_t_0.80.json",
+      "bytes": 131532,
+      "sha256": "a264666668d64cb6b9bf92dd0858c6fdc21a02eb2bdc516bfeb8aa804a6f9cb9"
+    },
+    {
+      "order": 58,
+      "stage": "05_trackB_stage2a_seeds11_15",
+      "role": "protocol",
+      "file": "STAGE2A_CAPACITY_PAIRING_PROTOCOL.md",
+      "bytes": 3639,
+      "sha256": "ab8914faf63a8f15781a6d1ddda8603dcb02e6139851ef4201a5f72a82b9de78"
+    },
+    {
+      "order": 59,
+      "stage": "05_trackB_stage2a_seeds11_15",
+      "role": "script",
+      "file": "stage2a_capacity_pairing_test.py",
+      "bytes": 12895,
+      "sha256": "5be2487b90c3c529d17fe8620b9ffd8eeebfe8e4f2e4f61850fc994730a7bf14"
+    },
+    {
+      "order": 60,
+      "stage": "05_trackB_stage2a_seeds11_15",
+      "role": "results",
+      "file": "stage2a_capacity_pairing_results.json",
+      "bytes": 16790,
+      "sha256": "8a0c8dd81241fe91d8a1d636db34b4ec37d527b904bad51e5021d97cb13cdf6b"
+    },
+    {
+      "order": 61,
+      "stage": "06_trackB_stage2b_seeds11_15",
+      "role": "protocol",
+      "file": "STAGE2B_CAPACITY_INTERVENTION_PROTOCOL.md",
+      "bytes": 4817,
+      "sha256": "376af7a46bd98f7f9f2b6df3b7d121949d034ca0c74811020714a881754a205f",
+      "original_workspace_sha256": "92f4d2254a5a933261bfe38e4495560ef7b186850e030c361edc70954e379b16",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 62,
+      "stage": "06_trackB_stage2b_seeds11_15",
+      "role": "script",
+      "file": "stage2b_capacity_downstream_intervention.py",
+      "bytes": 26335,
+      "sha256": "855620aed9426270b9496bed47aa3bfb61220fb683a6278c68809fc639f17c24"
+    },
+    {
+      "order": 63,
+      "stage": "06_trackB_stage2b_seeds11_15",
+      "role": "results",
+      "file": "stage2b_capacity_downstream_results.json",
+      "bytes": 140853,
+      "sha256": "ccd9c27dfd35d887a314af3e6a49eb7d2aeacff8747563ab396a7de965bd90fe"
+    },
+    {
+      "order": 64,
+      "stage": "06_trackB_stage2b_seeds11_15",
+      "role": "report",
+      "file": "STAGE2_CAPACITY_INTERVENTION_RESULT.md",
+      "bytes": 11817,
+      "sha256": "476868b90656ac6413e77fb8c7c8a794108c1c7145f90ce6ad8ace7333b8c37c",
+      "original_workspace_sha256": "c23680fe9e6a9155a3c6fc2d35434c53facb2b9f158e8c0e392bb6e08a26baf8",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 65,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "parity_script",
+      "file": "verify_odece_capacity_pytorch_parity.py",
+      "bytes": 14802,
+      "sha256": "2dd84659099faa74a23eb0605d09331196c806da661b9fc5ae7fa9410eacccd8"
+    },
+    {
+      "order": 66,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "parity_receipt",
+      "file": "ODECE_CAPACITY_PYTORCH_PARITY_RECEIPT.json",
+      "bytes": 4198,
+      "sha256": "7207e16baccff8b7a65ea559f64b695b7c8cd50f4b698f20611c4eb4396e5132"
+    },
+    {
+      "order": 67,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "parity_audit_log",
+      "file": "ODECE_CAPACITY_PARITY_AUDIT_LOG.json",
+      "bytes": 3158,
+      "sha256": "0d29328a8240e694230bc2b4e86dcca05c84184955b7ad9c19a531cae6eb8d6c"
+    },
+    {
+      "order": 68,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "errata",
+      "file": "STAGE2C_PARITY_AND_TIMING_ERRATUM.md",
+      "bytes": 3431,
+      "sha256": "cf0d5027662644599b766ee524205da10c3c347cc1c2fe8dacfc76cdc1fb2355",
+      "original_workspace_sha256": "b98929086f71ce69ed614ea50733c8f69abbca1a5e8e063b574fd6b3db890042",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 69,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "protocol",
+      "file": "STAGE2C_ODECE_CAPACITY_PROTOCOL.md",
+      "bytes": 5934,
+      "sha256": "428feeb1e8d52493fc578517b22d548708c0684f60d9f4933557604f72550943",
+      "original_workspace_sha256": "d36e4d7117e3447c82a3ec7793faccc826d7e38618e7013beb81d9acb24247da",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 70,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "script",
+      "file": "stage2c_odece_capacity_seed16.py",
+      "bytes": 34767,
+      "sha256": "433d67566c8271e5c1259e4717c72b737bfc0f0f5ce7c4e3308e15a255f13f11"
+    },
+    {
+      "order": 71,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "report",
+      "file": "STAGE2C_ODECE_CAPACITY_SEED16_RESULT.md",
+      "bytes": 7872,
+      "sha256": "6773260eb79b04c622b94b65c8f24b7e4da0da1576a5123ec8b77c10a399c07b",
+      "original_workspace_sha256": "d95fca1fbf7698f7670ad1d72412db06db1c4cd5a9f3a6beabd59834fad62b4e",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 72,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/arm_output_ODECE-Clean_a0.5.json",
+      "bytes": 10578,
+      "sha256": "2996b5ad437613c4ac5735ef45a27b38fb53b69711f93c7236eb491c2cfe0624"
+    },
+    {
+      "order": 73,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/arm_output_ODECE-Mispaired_a0.5.json",
+      "bytes": 10616,
+      "sha256": "e2fdca3b7717732dfec19bb797192a1f14100cec2639079e002a53a72081f43a"
+    },
+    {
+      "order": 74,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/final_weights_ODECE-Clean_a0.5.json",
+      "bytes": 1005,
+      "sha256": "3f83de43fbafd69dc992683fa50676bb456b36884d75d4ff5c3a025f672d2688"
+    },
+    {
+      "order": 75,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/final_weights_ODECE-Mispaired_a0.5.json",
+      "bytes": 1003,
+      "sha256": "2fb466e9e7e505b778e0ecc07dd2ad53b9a8efe58a6c8e4af0356ff6fc27fae9"
+    },
+    {
+      "order": 76,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/paired_init_weights.json",
+      "bytes": 950,
+      "sha256": "d31f23cbd3206bb19d6fdd8a5fea36ca7287524f78825a83958c0617ff9d70f9"
+    },
+    {
+      "order": 77,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/per_instance_highs_raw_ODECE-Clean_a0.5.json",
+      "bytes": 106487,
+      "sha256": "c98a92e6d6c959abbf16d34225c86e4e4e690856fb2b2e51852464980e68e5a7"
+    },
+    {
+      "order": 78,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/per_instance_highs_raw_ODECE-Mispaired_a0.5.json",
+      "bytes": 105639,
+      "sha256": "101e630c74406b3e240d4d4cc287d130255b969c8425b1674d3a73699aeb073e"
+    },
+    {
+      "order": 79,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/per_instance_highs_valpin_ODECE-Clean_a0.5.json",
+      "bytes": 106487,
+      "sha256": "c98a92e6d6c959abbf16d34225c86e4e4e690856fb2b2e51852464980e68e5a7"
+    },
+    {
+      "order": 80,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/per_instance_highs_valpin_ODECE-Mispaired_a0.5.json",
+      "bytes": 105639,
+      "sha256": "101e630c74406b3e240d4d4cc287d130255b969c8425b1674d3a73699aeb073e"
+    },
+    {
+      "order": 81,
+      "stage": "07_trackB_stage2c_seed16",
+      "role": "seed16_artifact",
+      "file": "stage2c_odece_capacity_seed16/stage2c_seed16_summary.json",
+      "bytes": 31189,
+      "sha256": "bf3baeb20567d811a7fe400586f3a1ff8df6986fe67f72f4a98cae8eb71b61c0"
+    },
+    {
+      "order": 82,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "parity_gate_script",
+      "file": "verify_odece_capacity_direct_pytorch_gate.py",
+      "bytes": 14874,
+      "sha256": "ee93240b91bcf51ddfb323540a063967113e7477641b18f16b4abff05f5f7071"
+    },
+    {
+      "order": 83,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "parity_gate_receipt",
+      "file": "ODECE_CAPACITY_DIRECT_PYTORCH_GATE_RECEIPT.json",
+      "bytes": 5529,
+      "sha256": "573671e4875f3027620cf2971756df0fcb418de48bc47ccad09f5aa82cefd43a"
+    },
+    {
+      "order": 84,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "protocol",
+      "file": "STAGE2D_SEEDS_17_18_CONFIRMATION_PROTOCOL.md",
+      "bytes": 8961,
+      "sha256": "f44f0c9adb996802b6acfa6c58cfa38a3227e15f7ed2c08c4f605080a0f049e9",
+      "original_workspace_sha256": "72d9d7bab332183f742b0831b84bb516df416af7379bcd7a37396bd68422b77c",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 85,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "script",
+      "file": "stage2d_odece_capacity_seeds_17_18.py",
+      "bytes": 33628,
+      "sha256": "091194240f9749be211ee34218e4bbe60fb2546b84fa063bd901b4bd1d58621e"
+    },
+    {
+      "order": 86,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "results",
+      "file": "stage2d_seeds_17_18_summary.json",
+      "bytes": 70431,
+      "sha256": "cb2c7ba107b97eb3461b78ad5d67c7ebb012efb1a1cb94f1e38a1fc057401ca0"
+    },
+    {
+      "order": 87,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "report",
+      "file": "STAGE2D_SEEDS_17_18_CONFIRMATION_RESULT.md",
+      "bytes": 11119,
+      "sha256": "14017c8d78af078aedf0a3d05359caa50c4ff72d52d428dff8985bc61c82f5f8",
+      "original_workspace_sha256": "feb85a9d2d1460f5f5eb429274637b1d42fcdb6fb585269c92c3e665c5b73442",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 88,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/arm_output_ODECE-Clean_a0.5.json",
+      "bytes": 10595,
+      "sha256": "cbc942698ec307aaccab00f52997f58ecafc6218a54221a4396a80beb2582f70"
+    },
+    {
+      "order": 89,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/arm_output_ODECE-Mispaired_a0.5.json",
+      "bytes": 10570,
+      "sha256": "7e91b6ff7bbc41839230cad8d6b44f44bcaafa533372a3db1f670b03109ae259"
+    },
+    {
+      "order": 90,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/final_weights_ODECE-Clean_a0.5.json",
+      "bytes": 993,
+      "sha256": "b96ca33107ef8b74eb18119015018ca1a4132bbb68578f617939d82cf4ca1d04"
+    },
+    {
+      "order": 91,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/final_weights_ODECE-Mispaired_a0.5.json",
+      "bytes": 995,
+      "sha256": "57dae728057256f7cfa7fb171cc908e1a660df2f2bd10d9c033553f5df091c77"
+    },
+    {
+      "order": 92,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/paired_init_weights.json",
+      "bytes": 952,
+      "sha256": "a2935fdd54a84d927844cef5c6b8676f83557f89f6591debdfd03c2c40f613de"
+    },
+    {
+      "order": 93,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/per_instance_highs_raw_clipped_ODECE-Clean_a0.5.json",
+      "bytes": 106676,
+      "sha256": "2688dd6840b0855dd92bf4f8535a47dd1292e4178f6258a98de07e4e2b18e2bb"
+    },
+    {
+      "order": 94,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/per_instance_highs_raw_clipped_ODECE-Mispaired_a0.5.json",
+      "bytes": 106437,
+      "sha256": "59cb8a58601455af51feab6c01e820de0de3d69b4b467b5d83ad0bebcbf6cb6d"
+    },
+    {
+      "order": 95,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/per_instance_highs_raw_unclipped_ODECE-Clean_a0.5.json",
+      "bytes": 106676,
+      "sha256": "2688dd6840b0855dd92bf4f8535a47dd1292e4178f6258a98de07e4e2b18e2bb"
+    },
+    {
+      "order": 96,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/per_instance_highs_raw_unclipped_ODECE-Mispaired_a0.5.json",
+      "bytes": 106437,
+      "sha256": "59cb8a58601455af51feab6c01e820de0de3d69b4b467b5d83ad0bebcbf6cb6d"
+    },
+    {
+      "order": 97,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/per_instance_highs_valpin_ODECE-Clean_a0.5.json",
+      "bytes": 106676,
+      "sha256": "2688dd6840b0855dd92bf4f8535a47dd1292e4178f6258a98de07e4e2b18e2bb"
+    },
+    {
+      "order": 98,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/per_instance_highs_valpin_ODECE-Mispaired_a0.5.json",
+      "bytes": 106437,
+      "sha256": "59cb8a58601455af51feab6c01e820de0de3d69b4b467b5d83ad0bebcbf6cb6d"
+    },
+    {
+      "order": 99,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed17_artifact",
+      "file": "stage2d_odece_capacity_seed17/stage2d_seed17_summary.json",
+      "bytes": 30941,
+      "sha256": "4575b933de4fd08e2f719a737dffa55b57db695f0592e7fe11bfe6de7a121b42"
+    },
+    {
+      "order": 100,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/arm_output_ODECE-Clean_a0.5.json",
+      "bytes": 10572,
+      "sha256": "b84e0c8e5c27f8e5e0ba891baa5487946f021e4797e7c7ea4e5a747ddd62ca4c"
+    },
+    {
+      "order": 101,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/arm_output_ODECE-Mispaired_a0.5.json",
+      "bytes": 10617,
+      "sha256": "df515a4a9ceb6c5ca9506d4cb23119aa3eb81e160db4e2d6235108ec611a1dce"
+    },
+    {
+      "order": 102,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/final_weights_ODECE-Clean_a0.5.json",
+      "bytes": 994,
+      "sha256": "a067cca8182de0d43a2b527852de1705fb0136b66d607ce2da81c68e117a033d"
+    },
+    {
+      "order": 103,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/final_weights_ODECE-Mispaired_a0.5.json",
+      "bytes": 1003,
+      "sha256": "6eb7f0533fb7a741b9ea57163ff118dda55dd4f0c387d5993533ea65a8a3ea45"
+    },
+    {
+      "order": 104,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/paired_init_weights.json",
+      "bytes": 951,
+      "sha256": "a7e55c2c94e5837ea6ab9b38212c92a576228cc80c76daad888c423b53ab0cc9"
+    },
+    {
+      "order": 105,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/per_instance_highs_raw_clipped_ODECE-Clean_a0.5.json",
+      "bytes": 106398,
+      "sha256": "c25e87e30f0d25943aaccea6afb8eb33b742f7540fc0bb6b69b3117a99cd31d5"
+    },
+    {
+      "order": 106,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/per_instance_highs_raw_clipped_ODECE-Mispaired_a0.5.json",
+      "bytes": 105983,
+      "sha256": "69a78a8f5a79223822c227a8788a77bad996c488be3bb0d1cee53dcfcb9bea5f"
+    },
+    {
+      "order": 107,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/per_instance_highs_raw_unclipped_ODECE-Clean_a0.5.json",
+      "bytes": 106398,
+      "sha256": "c25e87e30f0d25943aaccea6afb8eb33b742f7540fc0bb6b69b3117a99cd31d5"
+    },
+    {
+      "order": 108,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/per_instance_highs_raw_unclipped_ODECE-Mispaired_a0.5.json",
+      "bytes": 105986,
+      "sha256": "27e5d322268cdd1a36afcf7ef607112d8f8818e1701a4d844a284c0629c4266d"
+    },
+    {
+      "order": 109,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/per_instance_highs_valpin_ODECE-Clean_a0.5.json",
+      "bytes": 106398,
+      "sha256": "c25e87e30f0d25943aaccea6afb8eb33b742f7540fc0bb6b69b3117a99cd31d5"
+    },
+    {
+      "order": 110,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/per_instance_highs_valpin_ODECE-Mispaired_a0.5.json",
+      "bytes": 105983,
+      "sha256": "69a78a8f5a79223822c227a8788a77bad996c488be3bb0d1cee53dcfcb9bea5f"
+    },
+    {
+      "order": 111,
+      "stage": "08_trackB_stage2d_seeds17_18",
+      "role": "seed18_artifact",
+      "file": "stage2d_odece_capacity_seed18/stage2d_seed18_summary.json",
+      "bytes": 30884,
+      "sha256": "4d158ca96b8cdb932325671e418c51ea3a35115b7e25f366946c4c0d0943b4ae"
+    },
+    {
+      "order": 112,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "synthetic_check_script",
+      "file": "verify_stage3_synthetic_loading_metrics.py",
+      "bytes": 13895,
+      "sha256": "c8a8b77bbc620c5c6e8e46500114c498425af8535b5afc522a303bb1b98e67a2"
+    },
+    {
+      "order": 113,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "synthetic_check_receipt",
+      "file": "STAGE3_SYNTHETIC_CHECK_RECEIPT.json",
+      "bytes": 1604,
+      "sha256": "8be296a61f0feb18f3689550ec324f7659b8c9a6c694f00356d25e4cf3765e09"
+    },
+    {
+      "order": 114,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "protocol",
+      "file": "STAGE3_CAPACITY_PFL_VS_ODECE_PROTOCOL.md",
+      "bytes": 9538,
+      "sha256": "f2ed374204e89fec9c56da3496587020a5ea4c5f4cbc07384624d84fc8715182",
+      "original_workspace_sha256": "dca02adc5e209bfaa6c215cf18c041ce79735862da054c31f18c71764da9ca66",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 115,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "script",
+      "file": "stage3_capacity_pfl_vs_odece_factorial.py",
+      "bytes": 43670,
+      "sha256": "b5002086a04b3b2a019784b0afc450777175f3e00035ae4f9f216ebaa8ca89c1"
+    },
+    {
+      "order": 116,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "results",
+      "file": "stage3_capacity_factorial_summary.json",
+      "bytes": 147399,
+      "sha256": "e773dff8546853d94cf15ccf20dd64907b764e63ec6eb6fb7cdad552f2c2bb18"
+    },
+    {
+      "order": 117,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "report",
+      "file": "STAGE3_CAPACITY_PFL_VS_ODECE_RESULT.md",
+      "bytes": 17003,
+      "sha256": "a7932c48259cdd8d1599c33996ca795b400598d8db36e5fb12b692169a99a7b8",
+      "original_workspace_sha256": "990b0ac883c35ec053ae1d743b229f564ec96b89cae77e29170fa054ec966412",
+      "path_link_sanitized": true,
+      "sanitization_note": "Converted local file:/// and absolute workspace directory paths to relative links only; zero rules, hashes, or numeric results altered."
+    },
+    {
+      "order": 118,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/final_weights_ODECE_Aligned.json",
+      "bytes": 998,
+      "sha256": "3adf60ada1e721487be9090cd464984402bbcc4a5457170c8f206395d2ba3185"
+    },
+    {
+      "order": 119,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/final_weights_ODECE_Released.json",
+      "bytes": 1003,
+      "sha256": "033268c659d31dd653ff74062aa36c7904dc45eed772930a1b0b014ccaa00cd3"
+    },
+    {
+      "order": 120,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/final_weights_PFL_Aligned.json",
+      "bytes": 1000,
+      "sha256": "1f00dcf34552d182c0edff24c77fb87f4d7cbe61d2d9e93d21e1993a461003d1"
+    },
+    {
+      "order": 121,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/final_weights_PFL_Released.json",
+      "bytes": 996,
+      "sha256": "dba06150482dfa23ec070db3b8a4bb8a45874512730644d22cdfa7e7463bfa34"
+    },
+    {
+      "order": 122,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/paired_init_weights.json",
+      "bytes": 960,
+      "sha256": "188eed622d1f625a6028f401e468650b2aff49c8d572573b14ae2e657626356a"
+    },
+    {
+      "order": 123,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/per_instance_highs_ODECE_Train_Aligned__Test_Aligned_unclipped.json",
+      "bytes": 147937,
+      "sha256": "fe7c8221091ed72137ee8c7143ad41683f0ca16a11067bcb65cc880b546b658e"
+    },
+    {
+      "order": 124,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/per_instance_highs_ODECE_Train_Aligned__Test_Released_unclipped.json",
+      "bytes": 146827,
+      "sha256": "8a724c3ff5add6d427eb09c0436ea590937aabd6ac888cf127719d6b8e0ad02b"
+    },
+    {
+      "order": 125,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/per_instance_highs_ODECE_Train_Released__Test_Aligned_unclipped.json",
+      "bytes": 147495,
+      "sha256": "d7a45e29f033c8f6bea613800034dba4a14036f41efa01dfa7ad2c62dad71278"
+    },
+    {
+      "order": 126,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/per_instance_highs_ODECE_Train_Released__Test_Released_unclipped.json",
+      "bytes": 147421,
+      "sha256": "8179cbd784bc3cf386a99b6907e03fb52b1f46f5881160fc4369fcbbeee77f4f"
+    },
+    {
+      "order": 127,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/per_instance_highs_PFL_Train_Aligned__Test_Aligned_unclipped.json",
+      "bytes": 145311,
+      "sha256": "221280479e09ec62a6193bd790208ce2468c1606a02da4c3d799d3e1488e8b3d"
+    },
+    {
+      "order": 128,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/per_instance_highs_PFL_Train_Aligned__Test_Released_unclipped.json",
+      "bytes": 144850,
+      "sha256": "b0f12a97a29d28e87dfafb413897706ba30511a754a580903bd58cc89c8b9f9b"
+    },
+    {
+      "order": 129,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/per_instance_highs_PFL_Train_Released__Test_Aligned_unclipped.json",
+      "bytes": 145411,
+      "sha256": "b434f355407ec566ef4ea561e4eb044d74d34ca1d195bccb84527a5f062f5a47"
+    },
+    {
+      "order": 130,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/per_instance_highs_PFL_Train_Released__Test_Released_unclipped.json",
+      "bytes": 145121,
+      "sha256": "13d68d459ec9c656a761d75a59cb94c0652520d65c544d67578ffaa8d9cc1d94"
+    },
+    {
+      "order": 131,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed11_artifact",
+      "file": "stage3_capacity_factorial_seed11/stage3_seed11_summary.json",
+      "bytes": 65804,
+      "sha256": "3c3147f39aa06978c11a9f2ff8836dea3599275f713cb2bd82fb1e41ff629b4a"
+    },
+    {
+      "order": 132,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/final_weights_ODECE_Aligned.json",
+      "bytes": 994,
+      "sha256": "ed4050537865c8d19938f75b6ec4911c84bce2a7badd5a1b19d15bd95ba1f4b8"
+    },
+    {
+      "order": 133,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/final_weights_ODECE_Released.json",
+      "bytes": 998,
+      "sha256": "1095b44dcd1759f90ae19c5c891b69a3373b371c83e0a50d6dc5b32907ceaefe"
+    },
+    {
+      "order": 134,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/final_weights_PFL_Aligned.json",
+      "bytes": 990,
+      "sha256": "539b336579857c95ec3de82fb22bfc181fdaec475d01a753dde72dbc2ee8caa5"
+    },
+    {
+      "order": 135,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/final_weights_PFL_Released.json",
+      "bytes": 993,
+      "sha256": "efda3f46ae263754fe6efee847ee571af427cab433d0e4e0d04ee51663b54690"
+    },
+    {
+      "order": 136,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/paired_init_weights.json",
+      "bytes": 950,
+      "sha256": "a423bae5d0068342846cd793845da8f97a1257b7db169fc2a00f517bb18ffdde"
+    },
+    {
+      "order": 137,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/per_instance_highs_ODECE_Train_Aligned__Test_Aligned_unclipped.json",
+      "bytes": 147866,
+      "sha256": "cf7af6a2ad241802fe1d15e83def004e2202158f6952ce8562a755f70bfae0e8"
+    },
+    {
+      "order": 138,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/per_instance_highs_ODECE_Train_Aligned__Test_Released_unclipped.json",
+      "bytes": 147014,
+      "sha256": "9761452b8bfc9e3d1a2ee2d72338a6a52d89b3415507bbc377591874e5002f82"
+    },
+    {
+      "order": 139,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/per_instance_highs_ODECE_Train_Released__Test_Aligned_unclipped.json",
+      "bytes": 147776,
+      "sha256": "373c9dfdcafc55ec91f6be5689b3a8478ef4a00cac9ccfcde34200738a64a528"
+    },
+    {
+      "order": 140,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/per_instance_highs_ODECE_Train_Released__Test_Released_unclipped.json",
+      "bytes": 147420,
+      "sha256": "41c22ac8c75aa30896358f302c4d63de66564d6341018a62a6f7691c37ccc91a"
+    },
+    {
+      "order": 141,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/per_instance_highs_PFL_Train_Aligned__Test_Aligned_unclipped.json",
+      "bytes": 144797,
+      "sha256": "8dda0d81567944c08140b6b78d77a76d9936dc57045758508e8171495a605712"
+    },
+    {
+      "order": 142,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/per_instance_highs_PFL_Train_Aligned__Test_Released_unclipped.json",
+      "bytes": 144729,
+      "sha256": "d18326c9c9e6820a46ed815245fe6a472ba6498444c1121909c43d2c5c853ca7"
+    },
+    {
+      "order": 143,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/per_instance_highs_PFL_Train_Released__Test_Aligned_unclipped.json",
+      "bytes": 144723,
+      "sha256": "0ef7c9defd3eab0cefd72de72a5ccb214750c5c58c8b7ea2b598bc520fab0020"
+    },
+    {
+      "order": 144,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/per_instance_highs_PFL_Train_Released__Test_Released_unclipped.json",
+      "bytes": 144727,
+      "sha256": "50622d0c534c786119bfe3706a58537a94c25679b657bd321bd0ae53fc20db25"
+    },
+    {
+      "order": 145,
+      "stage": "09_trackB_stage3_factorial_seeds11_15",
+      "role": "seed15_artifact",
+      "file": "stage3_capacity_factorial_seed15/stage3_seed15_summary.json",
+      "bytes": 66073,
+      "sha256": "183e509724de30734d8531ea9964f0cb3fde3459e8c527292d0c3cde3e62eddf"
+    }
+  ],
+  "total_files_excluding_manifest": 145,
+  "total_bytes_excluding_manifest": 9242831
+}

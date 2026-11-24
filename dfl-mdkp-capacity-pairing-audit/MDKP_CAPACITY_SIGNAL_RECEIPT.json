@@ -1,0 +1,129 @@
+{
+  "purpose": "Cheap supervised target-signal verification comparing upstream KnapsackCapaExp.py unsplit indexing vs clean joint indexing.",
+  "seed": 11,
+  "reserved_seeds_untouched": [
+    13,
+    14,
+    15
+  ],
+  "scope_note": "Measures supervised X -> capacity target signal ONLY. Does NOT claim impact on published downstream DFL rankings.",
+  "upstream_reference": "official_odece_repo/KnapsackCapaExp.py lines 64-75 (commit 1b432e03)",
+  "configs": [
+    {
+      "config": {
+        "label": "KnapsackCapaExp_default(items=100,deg=4,noise=0.1)",
+        "num_items": 100,
+        "deg": 4,
+        "noise_width": 0.1
+      },
+      "capacity_stats": {
+        "shape": [
+          1500,
+          3
+        ],
+        "mean": 49.83844444444444,
+        "std": 1.1000554643704825,
+        "min": 33.0,
+        "max": 50.0,
+        "unique_rows_of_1500": 35
+      },
+      "upstream_unsplit_alignment": {
+        "train_misaligned_X_to_capacity": "899/900",
+        "val_misaligned_X_to_capacity": "100/100",
+        "test_misaligned_X_to_capacity": "500/500",
+        "test_capacity_identical_to_train_prefix_0_499": true,
+        "val_capacity_identical_to_train_prefix_0_99": true
+      },
+      "upstream_unsplit_signal": {
+        "mse_const_train_mean_test": 1.3220896296296296,
+        "mse_ols_train": 1.155408375982157,
+        "mse_ols_test": 1.3161510700869272,
+        "r2_ols_train": 0.010312896709879005,
+        "r2_ols_test": 0.004271655800793139,
+        "oos_r2_vs_train_mean": 0.004491797991310165,
+        "test_pearson_r_per_dim": [
+          0.12711014429184164,
+          0.04597467708083774,
+          0.04061088566032473
+        ],
+        "test_pearson_r_mean": 0.0712319023443347,
+        "mse_ridge1_test": 1.316151046221534,
+        "r2_ridge1_test": 0.004271673856052316
+      },
+      "clean_joint_split_signal": {
+        "mse_const_train_mean_test": 1.1935022222222225,
+        "mse_ols_train": 1.005044037490398,
+        "mse_ols_test": 1.0137185546408694,
+        "r2_ols_train": 0.20220998840952475,
+        "r2_ols_test": 0.14930424315656932,
+        "oos_r2_vs_train_mean": 0.1506353857025987,
+        "test_pearson_r_per_dim": [
+          0.25754662765266345,
+          0.4215503126427286,
+          0.10932266931780914
+        ],
+        "test_pearson_r_mean": 0.2628065365377337,
+        "mse_ridge1_test": 1.013718149617023,
+        "r2_ridge1_test": 0.14930458304584715
+      }
+    },
+    {
+      "config": {
+        "label": "MDKP_Weights_regime(items=50,deg=6,noise=0.25)",
+        "num_items": 50,
+        "deg": 6,
+        "noise_width": 0.25
+      },
+      "capacity_stats": {
+        "shape": [
+          1500,
+          3
+        ],
+        "mean": 19.60088888888889,
+        "std": 5.596332061556915,
+        "min": 7.0,
+        "max": 25.0,
+        "unique_rows_of_1500": 483
+      },
+      "upstream_unsplit_alignment": {
+        "train_misaligned_X_to_capacity": "899/900",
+        "val_misaligned_X_to_capacity": "100/100",
+        "test_misaligned_X_to_capacity": "500/500",
+        "test_capacity_identical_to_train_prefix_0_499": true,
+        "val_capacity_identical_to_train_prefix_0_99": true
+      },
+      "upstream_unsplit_signal": {
+        "mse_const_train_mean_test": 10.445606995884773,
+        "mse_ols_train": 10.541453192518782,
+        "mse_ols_test": 10.620977524547694,
+        "r2_ols_train": 0.011529437780221308,
+        "r2_ols_test": -0.017194968995426718,
+        "oos_r2_vs_train_mean": -0.016788926553718886,
+        "test_pearson_r_per_dim": [
+          0.02372865056373514,
+          -0.06246738992620578,
+          -0.01886365351924763
+        ],
+        "test_pearson_r_mean": -0.019200797627239422,
+        "mse_ridge1_test": 10.62097048312619,
+        "r2_ridge1_test": -0.017194294622610018
+      },
+      "clean_joint_split_signal": {
+        "mse_const_train_mean_test": 10.283623703703702,
+        "mse_ols_train": 4.5489787780488165,
+        "mse_ols_test": 4.564504085232727,
+        "r2_ols_train": 0.5830209605493135,
+        "r2_ols_test": 0.5553300833550951,
+        "oos_r2_vs_train_mean": 0.5561385541957553,
+        "test_pearson_r_per_dim": [
+          0.7687042618753979,
+          0.7745046830666198,
+          0.6257714938334173
+        ],
+        "test_pearson_r_mean": 0.7229934795918117,
+        "mse_ridge1_test": 4.564504189527113,
+        "r2_ridge1_test": 0.5553300731948292
+      }
+    }
+  ]
+}

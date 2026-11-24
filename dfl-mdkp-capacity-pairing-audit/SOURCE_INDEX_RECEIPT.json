@@ -1,0 +1,148 @@
+{
+  "upstream_repo": "https://github.com/JayMan91/OdeceDFLforConstraintsNeurips25",
+  "upstream_commit": "1b432e03ce9ded1e504df60fd4c44cf936334d4f",
+  "upstream_license": "Apache-2.0",
+  "code_references": {
+    "KnapsackWeightExp.py": "lines 71-83 (train_test_split splits only X, w; capacity & costs passed unsplit)",
+    "KnapsackCapaExp.py": "lines 64-75 (train_test_split splits only X, w; target capacity & costs passed unsplit)",
+    "kpdata.py": "lines 46-47 & 74 (capacity & costs vary per instance under default fixed_cost=False, noise_width=0.25)",
+    "kpdataset.py": "lines 32 & 55-56 (indexes self.capacity[i] and self.costs[i] for i in 0..len(X)-1)"
+  },
+  "benchmarks": [
+    {
+      "benchmark": "MDKP-Weights",
+      "seed": 11,
+      "N_total": 1500,
+      "split_sizes": {
+        "train": 900,
+        "val": 100,
+        "test": 500
+      },
+      "fields": {
+        "X": {
+          "shape": [
+            1500,
+            10
+          ],
+          "varies_across_instances": true,
+          "unique_rows_of_1500": 1500,
+          "max_col_std_across_instances": 0.29515094729459157
+        },
+        "w": {
+          "shape": [
+            1500,
+            3,
+            50
+          ],
+          "varies_across_instances": true,
+          "unique_rows_of_1500": 1500,
+          "max_col_std_across_instances": 17.277095791313492
+        },
+        "costs": {
+          "shape": [
+            1500,
+            50
+          ],
+          "varies_across_instances": true,
+          "unique_rows_of_1500": 1500,
+          "max_col_std_across_instances": 27.338163104110908
+        },
+        "capacity": {
+          "shape": [
+            1500,
+            3
+          ],
+          "varies_across_instances": true,
+          "unique_rows_of_1500": 1500,
+          "max_col_std_across_instances": 83.5734096229177
+        }
+      },
+      "upstream_unsplit_index_behavior": {
+        "split_fields_in_upstream": [
+          "X",
+          "w"
+        ],
+        "unsplit_fields_passed_raw_to_all_three_datasets": [
+          "capacity",
+          "costs"
+        ],
+        "val_indices_reused_from_train_prefix": "0..99 (100/100 = 100.0% exact capacity & costs row reuse with train[0..99])",
+        "test_indices_reused_from_train_prefix": "0..499 (500/500 = 100.0% exact capacity & costs row reuse with train[0..499])",
+        "misaligned_X_to_capacity_cost_pairs_under_random_split": {
+          "train_misaligned_of_900": 899,
+          "val_misaligned_of_100": 100,
+          "test_misaligned_of_500": 500
+        }
+      },
+      "impact_on_supervised_target": "In KnapsackWeightExp.py, X and target w remain row-aligned, but varying costs[0..499] and varying capacity[0..499] are reused identically across train[0..499] and test[0..499] (and 0..99 in val) and paired with shuffled (X, w) rows."
+    },
+    {
+      "benchmark": "MDKP-Capacity",
+      "seed": 11,
+      "N_total": 1500,
+      "split_sizes": {
+        "train": 900,
+        "val": 100,
+        "test": 500
+      },
+      "fields": {
+        "X": {
+          "shape": [
+            1500,
+            10
+          ],
+          "varies_across_instances": true,
+          "unique_rows_of_1500": 1500,
+          "max_col_std_across_instances": 7.373985986787135
+        },
+        "w": {
+          "shape": [
+            1500,
+            3,
+            50
+          ],
+          "varies_across_instances": true,
+          "unique_rows_of_1500": 1500,
+          "max_col_std_across_instances": 0.29672220266699906
+        },
+        "costs": {
+          "shape": [
+            1500,
+            50
+          ],
+          "varies_across_instances": true,
+          "unique_rows_of_1500": 1500,
+          "max_col_std_across_instances": 26.90752661345286
+        },
+        "capacity": {
+          "shape": [
+            1500,
+            3
+          ],
+          "varies_across_instances": true,
+          "unique_rows_of_1500": 483,
+          "max_col_std_across_instances": 4.008840175855787
+        }
+      },
+      "upstream_unsplit_index_behavior": {
+        "split_fields_in_upstream": [
+          "X",
+          "w"
+        ],
+        "unsplit_fields_passed_raw_to_all_three_datasets": [
+          "capacity",
+          "costs"
+        ],
+        "val_indices_reused_from_train_prefix": "0..99 (100/100 = 100.0% exact capacity & costs row reuse with train[0..99])",
+        "test_indices_reused_from_train_prefix": "0..499 (500/500 = 100.0% exact capacity & costs row reuse with train[0..499])",
+        "misaligned_X_to_capacity_cost_pairs_under_random_split": {
+          "train_misaligned_of_900": 899,
+          "val_misaligned_of_100": 100,
+          "test_misaligned_of_500": 500
+        }
+      },
+      "impact_on_supervised_target": "In KnapsackCapaExp.py, target capacity is NOT passed to train_test_split, so X is decoupled from its own generated target capacity (~99.9% misaligned) and test reuses capacity[0..499] from train[0..499]."
+    }
+  ],
+  "our_adaptation_policy": "Jointly permute and split ALL four arrays (X, w, capacity, costs) with the identical index permutation into strictly disjoint 900 train / 100 val / 500 test splits. Because this corrects upstream unsplit indexing, all experiments are labeled as an aligned benchmark adaptation of ODECE (not reproduction of published scores)."
+}

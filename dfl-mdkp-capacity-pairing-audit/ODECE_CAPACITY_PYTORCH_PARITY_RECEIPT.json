@@ -1,0 +1,99 @@
+{
+  "purpose": "Pre-launch parity verification calling ACTUAL unmodified pinned official_odece_repo/src/odece.py on MDKP-Capacity (predict_indices=1) in torch.float64.",
+  "pinned_repo_commit": "1b432e03ce9ded1e504df60fd4c44cf936334d4f",
+  "torch_version": "2.15.0+cpu",
+  "seed_used": 11,
+  "fresh_seed16_and_reserved_17_18_untouched": true,
+  "capacity_parity_pass_float64": true,
+  "documented_upstream_guards": {
+    "guard1_empty_ipl": "When mask.sum()>0 and violation_pred_mask.sum()==0 (0 infeasible predicted solutions in batch), unmodified src/odece.py:L147+241 returns NaN via empty-tensor mean(); Guard 1 substitutes 0.0 and logs n_zero_infeas_batches.",
+    "guard2_mask_zero_tuple_swap": "When mask.sum()==0 (all predicted capacities negative -> INFEASIBLE), unmodified src/odece.py:L103-106 returns (loss_withtruesol, loss_ial) in swapped tuple order; at prespecified alpha=0.5, alpha == (1-alpha) == 0.5 so loss & gradient match exact 0.5*OPL + 0.5*0 to 1e-12."
+  },
+  "cases": [
+    {
+      "case": "realistic_mixed_capacity_batch_float64",
+      "alpha": 0.5,
+      "n_ok_mask": 32,
+      "true_sol_violations_strict_gt0": 1,
+      "max_true_sol_float64_excess": 1.7763568394002505e-15,
+      "pred_viol_count_histogram": {
+        "0": 16,
+        "1": 14,
+        "2": 2,
+        "3": 0
+      },
+      "empty_ipl_guard_triggered": false,
+      "loss_total": 1.7585309244890408,
+      "loss_opl_returned": 1.0829279016424316,
+      "loss_ipl_returned": 2.4339339473356496,
+      "autograd_vs_33param_fd_max_abs_err_W": 2.138178523125589e-10,
+      "autograd_vs_33param_fd_max_abs_err_b": 1.9523710426128105e-10,
+      "autograd_vs_analytic_max_abs_err_W": 1.5829781929710407e-10,
+      "autograd_vs_analytic_max_abs_err_b": 7.30132621029611e-12
+    },
+    {
+      "case": "partial_masked_infeasible_batch_float64",
+      "alpha": 0.5,
+      "n_ok_mask": 30,
+      "true_sol_violations_strict_gt0": 1,
+      "max_true_sol_float64_excess": 1.7763568394002505e-15,
+      "pred_viol_count_histogram": {
+        "0": 15,
+        "1": 13,
+        "2": 2,
+        "3": 0
+      },
+      "empty_ipl_guard_triggered": false,
+      "loss_total": 1.772787604536786,
+      "loss_opl_returned": 1.0829279016424316,
+      "loss_ipl_returned": 2.46244730743114,
+      "autograd_vs_33param_fd_max_abs_err_W": 2.0303048131609103e-10,
+      "autograd_vs_33param_fd_max_abs_err_b": 1.8636248100278863e-10,
+      "autograd_vs_analytic_max_abs_err_W": 1.5829693111868437e-10,
+      "autograd_vs_analytic_max_abs_err_b": 7.301242943569264e-12
+    },
+    {
+      "case": "all_masked_zero_branch_float64",
+      "alpha": 0.5,
+      "n_ok_mask": 0,
+      "true_sol_violations_strict_gt0": 1,
+      "max_true_sol_float64_excess": 1.7763568394002505e-15,
+      "pred_viol_count_histogram": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "empty_ipl_guard_triggered": false,
+      "loss_total": 0.5415639508212158,
+      "loss_opl_returned": 0.0,
+      "loss_ipl_returned": 1.0829279016424316,
+      "autograd_vs_33param_fd_max_abs_err_W": 8.930101103032939e-11,
+      "autograd_vs_33param_fd_max_abs_err_b": 8.993533695544897e-11,
+      "autograd_vs_analytic_max_abs_err_W": 1.5829848543091884e-10,
+      "autograd_vs_analytic_max_abs_err_b": 7.30127069914488e-12
+    },
+    {
+      "case": "all_pred_feasible_empty_ipl_guard_float64",
+      "alpha": 0.5,
+      "n_ok_mask": 32,
+      "true_sol_violations_strict_gt0": 1,
+      "max_true_sol_float64_excess": 1.7763568394002505e-15,
+      "pred_viol_count_histogram": {
+        "0": 32,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "empty_ipl_guard_triggered": true,
+      "loss_total": 0.5415639508212158,
+      "loss_opl_returned": 1.0829279016424316,
+      "loss_ipl_returned": 0.0,
+      "autograd_vs_33param_fd_max_abs_err_W": 8.930101103032939e-11,
+      "autograd_vs_33param_fd_max_abs_err_b": 8.993533695544897e-11,
+      "autograd_vs_analytic_max_abs_err_W": 1.5829848543091884e-10,
+      "autograd_vs_analytic_max_abs_err_b": 7.30127069914488e-12,
+      "unmodified_empty_ipl_is_nan": true
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "purpose": "Independent numerical loss, gradient, clipping, and Adam step parity check against ACTUAL unmodified pinned PyTorch official_odece_repo/src/odece.py.",
+  "pinned_repo_commit": "1b432e03ce9ded1e504df60fd4c44cf936334d4f",
+  "pinned_files_imported": [
+    "official_odece_repo/src/odece.py",
+    "official_odece_repo/OptProblems/knapsack/kpsolver.py",
+    "official_odece_repo/ML/TorchML.py"
+  ],
+  "torch_version": "2.15.0+cpu",
+  "seed_used": 12,
+  "reserved_seeds_untouched": [
+    13,
+    14,
+    15
+  ],
+  "independent_parity_pass_float64": true,
+  "parity_notes": {
+    "float64_exact_match": "Loss matches to 1.96e-12 abs (2.07e-13 rel); raw d_w_hat, gW, gb match to <=5.58e-12 abs; post-clip + 1 Adam step matches to <=5.96e-11 abs. The ~2e-12 residual is strictly PyTorch nn.Softplus(beta=5) default threshold=20 vs NumPy threshold=40.",
+    "float32_rounding_finding": "When true weights/capacities are cast to torch.float32, 2/32 tight binding true-optimal constraints round to w@x > cap by ~1e-5, triggering violation_true=1 and dropping 2 OPL terms in float32.",
+    "all_pred_feasible_edge_case": "When violation_pred_mask is all-False (0 infeasible predicted solutions in a batch), unmodified src/odece.py lines 147+241 produces NaN via empty-tensor mean(); our Stage-1a/1b implementation safely sets ial_val=0, d_ial=0 and logs any such batches."
+  },
+  "cases": [
+    {
+      "case": "realistic_mixed_batch_float64",
+      "dtype": "torch.float64",
+      "alpha": 0.6,
+      "n_batch": 32,
+      "n_ok_mask": 32,
+      "true_sol_violations": 0,
+      "pred_viol_count_histogram": {
+        "0": 15,
+        "1": 6,
+        "2": 8,
+        "3": 3
+      },
+      "both_branches_exercised": true,
+      "pytorch_loss_opl": 14.905323432744254,
+      "pytorch_loss_ipl": 5.774407887317318,
+      "pytorch_total_loss": 9.426874105488093,
+      "numpy_total_loss": 9.426874105490048,
+      "total_loss_abs_err": 1.9557688801796758e-12,
+      "total_loss_rel_err": 2.0746738084059863e-13,
+      "d_w_hat_err": {
+        "max_abs_err": 3.73348227333814e-12,
+        "max_rel_err": 2.6269100531192436e-10
+      },
+      "gW_raw_err": {
+        "max_abs_err": 5.178898976332391e-12,
+        "max_rel_err": 1.7537508211226869e-07
+      },
+      "gb_raw_err": {
+        "max_abs_err": 5.582950768356909e-12,
+        "max_rel_err": 1.753075168191492e-09
+      },
+      "grad_norm_before_clip": 2.2627032661275965,
+      "one_adam_step_W_err": {
+        "max_abs_err": 5.958955551221834e-11,
+        "max_rel_err": 4.37195000796822e-10
+      },
+      "one_adam_step_b_err": {
+        "max_abs_err": 2.0392576516314875e-12,
+        "max_rel_err": 4.619619431423582e-12
+      }
+    },
+    {
+      "case": "realistic_mixed_batch_float32",
+      "dtype": "torch.float32",
+      "alpha": 0.6,
+      "n_batch": 32,
+      "n_ok_mask": 32,
+      "true_sol_violations": 2,
+      "pred_viol_count_histogram": {
+        "0": 15,
+        "1": 6,
+        "2": 8,
+        "3": 3
+      },
+      "both_branches_exercised": false,
+      "pytorch_loss_opl": 14.37819766998291,
+      "pytorch_loss_ipl": 5.774406433105469,
+      "pytorch_total_loss": 9.216023445129395,
+      "numpy_total_loss": 9.426874105490048,
+      "total_loss_abs_err": 0.21085066036065392,
+      "total_loss_rel_err": 0.02287870268733822,
+      "d_w_hat_err": {
+        "max_abs_err": 0.004166667086999437,
+        "max_rel_err": 1.0
+      },
+      "gW_raw_err": {
+        "max_abs_err": 0.006953603631344396,
+        "max_rel_err": 1.7045184855619757
+      },
+      "gb_raw_err": {
+        "max_abs_err": 0.008333363284226347,
+        "max_rel_err": 0.19741696611724313
+      },
+      "grad_norm_before_clip": 2.323927640914917,
+      "one_adam_step_W_err": {
+        "max_abs_err": 0.09999824073910624,
+        "max_rel_err": 0.008337079314841017
+      },
+      "one_adam_step_b_err": {
+        "max_abs_err": 1.566702664490549e-06,
+        "max_rel_err": 5.032935022843729e-06
+      }
+    },
+    {
+      "case": "masked_unsolved_instances_float64",
+      "dtype": "torch.float64",
+      "alpha": 0.5,
+      "n_batch": 32,
+      "n_ok_mask": 30,
+      "true_sol_violations": 0,
+      "pred_viol_count_histogram": {
+        "0": 13,
+        "1": 6,
+        "2": 8,
+        "3": 3
+      },
+      "both_branches_exercised": true,
+      "pytorch_loss_opl": 14.905323432744254,
+      "pytorch_loss_ipl": 5.774407887317318,
+      "pytorch_total_loss": 10.339965660030785,
+      "numpy_total_loss": 10.33996566003243,
+      "total_loss_abs_err": 1.644906433284632e-12,
+      "total_loss_rel_err": 1.5908238841092384e-13,
+      "d_w_hat_err": {
+        "max_abs_err": 3.1112334930583074e-12,
+        "max_rel_err": 3.022730238154369e-10
+      },
+      "gW_raw_err": {
+        "max_abs_err": 4.315686696898524e-12,
+        "max_rel_err": 3.024762433600067e-08
+      },
+      "gb_raw_err": {
+        "max_abs_err": 4.652334073540487e-12,
+        "max_rel_err": 7.306925578853977e-09
+      },
+      "grad_norm_before_clip": 1.5193413441637356,
+      "one_adam_step_W_err": {
+        "max_abs_err": 3.312372598429647e-11,
+        "max_rel_err": 3.0079269463554465e-10
+      },
+      "one_adam_step_b_err": {
+        "max_abs_err": 3.306487028620353e-12,
+        "max_rel_err": 1.247561830316669e-10
+      }
+    },
+    {
+      "case": "all_pred_feasible_edge_case_float64",
+      "dtype": "torch.float64",
+      "alpha": 0.7,
+      "n_batch": 32,
+      "n_ok_mask": 32,
+      "pred_viol_count_histogram": {
+        "0": 32,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pytorch_loss_opl": 14.905323432744254,
+      "pytorch_loss_ipl": "NaN (empty violation_pred_mask in pinned src/odece.py line 147+241!)",
+      "pytorch_total_loss": "NaN"
+    }
+  ]
+}

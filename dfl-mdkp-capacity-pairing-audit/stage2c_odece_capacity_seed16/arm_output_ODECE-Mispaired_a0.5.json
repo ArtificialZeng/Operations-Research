@@ -1,0 +1,355 @@
+{
+  "arm_name": "ODECE-Mispaired(a=0.5)",
+  "checkpoint_sha256": "2fb466e9e7e505b778e0ecc07dd2ad53b9a8efe58a6c8e4af0356ff6fc27fae9",
+  "train_audit": {
+    "inloop_train_solves": 18000,
+    "inloop_solver_time_s": 19.76604720010073,
+    "train_wall_time_s": 20.752360500016948,
+    "train_status_counts": {
+      "OPTIMAL": 15831,
+      "INFEASIBLE": 2169
+    },
+    "n_batches": 580,
+    "n_zero_infeas_batches_guard1": 174,
+    "n_mask_zero_batches_guard2": 4,
+    "n_true_sol_ulp_viols_observed": 160,
+    "epoch_logs": [
+      {
+        "epoch": 1,
+        "mean_loss": 9.030938717170416,
+        "solvable_train_instances_of_900": 204,
+        "zero_infeas_batches": 20,
+        "mask_zero_batches": 4
+      },
+      {
+        "epoch": 2,
+        "mean_loss": 7.995630671951495,
+        "solvable_train_instances_of_900": 679,
+        "zero_infeas_batches": 3,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 3,
+        "mean_loss": 6.980643532151408,
+        "solvable_train_instances_of_900": 688,
+        "zero_infeas_batches": 7,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 4,
+        "mean_loss": 7.151297995628368,
+        "solvable_train_instances_of_900": 653,
+        "zero_infeas_batches": 7,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 5,
+        "mean_loss": 6.724016754425469,
+        "solvable_train_instances_of_900": 657,
+        "zero_infeas_batches": 12,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 6,
+        "mean_loss": 6.296490441995087,
+        "solvable_train_instances_of_900": 747,
+        "zero_infeas_batches": 6,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 7,
+        "mean_loss": 6.393852880699753,
+        "solvable_train_instances_of_900": 774,
+        "zero_infeas_batches": 8,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 8,
+        "mean_loss": 6.019245420767247,
+        "solvable_train_instances_of_900": 817,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 9,
+        "mean_loss": 5.910695913274518,
+        "solvable_train_instances_of_900": 838,
+        "zero_infeas_batches": 7,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 10,
+        "mean_loss": 6.144703738142882,
+        "solvable_train_instances_of_900": 865,
+        "zero_infeas_batches": 8,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 11,
+        "mean_loss": 5.068139496092386,
+        "solvable_train_instances_of_900": 883,
+        "zero_infeas_batches": 8,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 12,
+        "mean_loss": 5.515065428328543,
+        "solvable_train_instances_of_900": 887,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 13,
+        "mean_loss": 5.419610494983617,
+        "solvable_train_instances_of_900": 892,
+        "zero_infeas_batches": 6,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 14,
+        "mean_loss": 4.8663828429031515,
+        "solvable_train_instances_of_900": 892,
+        "zero_infeas_batches": 11,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 15,
+        "mean_loss": 5.175496414070572,
+        "solvable_train_instances_of_900": 894,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 16,
+        "mean_loss": 4.935643715274866,
+        "solvable_train_instances_of_900": 894,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 17,
+        "mean_loss": 5.348139645936491,
+        "solvable_train_instances_of_900": 891,
+        "zero_infeas_batches": 8,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 18,
+        "mean_loss": 5.436203873308499,
+        "solvable_train_instances_of_900": 892,
+        "zero_infeas_batches": 5,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 19,
+        "mean_loss": 5.326678727433537,
+        "solvable_train_instances_of_900": 892,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 20,
+        "mean_loss": 5.224044255349338,
+        "solvable_train_instances_of_900": 892,
+        "zero_infeas_batches": 13,
+        "mask_zero_batches": 0
+      }
+    ]
+  },
+  "Raw_Plugin_unclipped_highs": {
+    "test_metrics": {
+      "strict_01_infeasibility_rate": 0.026,
+      "strict_01_feasible_count": 487,
+      "unsolvable_rate": 0.006,
+      "strict_01_feasible_regret": 0.4288582972112466,
+      "official_frac_surrogate_posthoc_p1": 0.42564615886383944,
+      "official_frac_surrogate_posthoc_p021": 0.42467766127064904,
+      "strict_01_int_repair_posthoc_p1": 0.427294590895126,
+      "strict_01_int_repair_posthoc_p021": 0.42567496264957744,
+      "capacity_mse": 113.69810681801668,
+      "capacity_oos_r2_vs_shared_mean": -11.484482965351038,
+      "capacity_pearson_r_per_dim": [
+        0.29841431629559917,
+        0.039873633963327014,
+        0.3045460355682012
+      ]
+    },
+    "highs_status_counts": {
+      "kOptimal": 497,
+      "kInfeasible": 3
+    },
+    "highs_max_mip_gap": 9.900685610941095e-05,
+    "highs_max_integrality_err": 6.143409854652667e-12,
+    "n_neg_cap_dims_raw": 3
+  },
+  "Raw_Plugin_stage2b_clipped_highs": {
+    "test_metrics": {
+      "strict_01_infeasibility_rate": 0.02,
+      "strict_01_feasible_count": 490,
+      "unsolvable_rate": 0.0,
+      "strict_01_feasible_regret": 0.43235508314668797,
+      "official_frac_surrogate_posthoc_p1": 0.42564615886383944,
+      "official_frac_surrogate_posthoc_p021": 0.42467766127064904,
+      "strict_01_int_repair_posthoc_p1": 0.427294590895126,
+      "strict_01_int_repair_posthoc_p021": 0.42567496264957744,
+      "capacity_mse": 113.5040333805329,
+      "capacity_oos_r2_vs_shared_mean": -11.463172966511994,
+      "capacity_pearson_r_per_dim": [
+        0.29889680795471557,
+        0.039873633963327014,
+        0.3045460355682012
+      ]
+    },
+    "highs_status_counts": {
+      "kOptimal": 500
+    },
+    "highs_max_mip_gap": 9.900685610941095e-05,
+    "highs_max_integrality_err": 6.143409854652667e-12,
+    "n_neg_cap_dims_clipped": 3
+  },
+  "ValPinned_le10pct_highs": {
+    "selected_gamma": 0.0,
+    "used_fallback": false,
+    "val_metrics_cpsat": {
+      "strict_01_infeasibility_rate": 0.02,
+      "strict_01_feasible_count": 98,
+      "unsolvable_rate": 0.0,
+      "strict_01_feasible_regret": 0.4029996087497657,
+      "official_frac_surrogate_posthoc_p1": 0.3956178253444373,
+      "official_frac_surrogate_posthoc_p021": 0.3954678352585962,
+      "strict_01_int_repair_posthoc_p1": 0.3978836934864221,
+      "strict_01_int_repair_posthoc_p021": 0.39683868548449686,
+      "capacity_mse": 112.55255349783872,
+      "capacity_oos_r2_vs_shared_mean": -12.55366392547135,
+      "capacity_pearson_r_per_dim": [
+        0.3102270788311124,
+        0.05550545372491808,
+        0.3106190530315263
+      ]
+    },
+    "val_grid_summary": [
+      {
+        "gamma": 0.0,
+        "val_infeas": 0.02,
+        "val_frac_p1": 0.3956178253444373,
+        "val_int_p1": 0.3978836934864221,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.15,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.4309978254575983,
+        "val_int_p1": 0.4309978254575983,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.3,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.4640937679562899,
+        "val_int_p1": 0.4640937679562899,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.45,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.5021078515334555,
+        "val_int_p1": 0.5021078515334555,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.6,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.5377933458859272,
+        "val_int_p1": 0.5377933458859272,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.75,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.573428781954294,
+        "val_int_p1": 0.573428781954294,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.9,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.6049010394755284,
+        "val_int_p1": 0.6049010394755284,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 1.05,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.6387875409316501,
+        "val_int_p1": 0.6387875409316501,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 1.25,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.6857021663162176,
+        "val_int_p1": 0.6857021663162176,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 1.5,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.7405947620953441,
+        "val_int_p1": 0.7405947620953441,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 2.0,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.8460791603804887,
+        "val_int_p1": 0.8460791603804887,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      }
+    ],
+    "test_metrics": {
+      "strict_01_infeasibility_rate": 0.02,
+      "strict_01_feasible_count": 490,
+      "unsolvable_rate": 0.0,
+      "strict_01_feasible_regret": 0.43235508314668797,
+      "official_frac_surrogate_posthoc_p1": 0.42564615886383944,
+      "official_frac_surrogate_posthoc_p021": 0.42467766127064904,
+      "strict_01_int_repair_posthoc_p1": 0.427294590895126,
+      "strict_01_int_repair_posthoc_p021": 0.42567496264957744,
+      "capacity_mse": 113.5040333805329,
+      "capacity_oos_r2_vs_shared_mean": -11.463172966511994,
+      "capacity_pearson_r_per_dim": [
+        0.29889680795471557,
+        0.039873633963327014,
+        0.3045460355682012
+      ]
+    },
+    "highs_status_counts": {
+      "kOptimal": 500
+    },
+    "highs_max_mip_gap": 9.900685610941095e-05,
+    "highs_max_integrality_err": 6.143409854652667e-12,
+    "n_neg_cap_dims_clipped": 3
+  }
+}
