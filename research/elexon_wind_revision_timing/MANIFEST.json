@@ -1,0 +1,104 @@
+{
+  "archive_id": "elexon_wind_revision_timing_stage0_20261124",
+  "status": "FROZEN_LIMITED_NEGATIVE_DIAGNOSTIC_ARCHIVE",
+  "decision": "STOP_DEV_PILOT_GATE_FAILED_NO_HELDOUT_TOUCHED",
+  "authority_note": "Authored STAGE0_DEV_PILOT_RESULT.md and README.md are authoritative and supersede stale held_out_untouched metadata labels inside unmodified hashed JSONs (dev_pilot_summary.json, STAGE0_DEV_DATA_AUDIT.json).",
+  "data_licence_attribution": [
+    "Contains BMRS data (c) Elexon Limited copyright and database right 2026.",
+    "Contains BSC information licensed under the BSC Open Data Licence."
+  ],
+  "base_branch": "main",
+  "base_sha": "940709d372ae3716e09daf771d5438d07232d022",
+  "archive_branch": "archive/elexon-wind-revision-timing-stage0-20261124",
+  "native_run_receipt": {
+    "real_pid": 17528,
+    "wall_time_s": 26.606,
+    "eval_days": 298,
+    "eval_events": 61,
+    "x_base_implemented_columns": 54,
+    "protocol_prose_miscount": "49 / 47 (5 listed groups total 56 minus 2 duplicate level columns = 54)",
+    "nominal_future_window_disclosure": "2026-06-04..2026-11-23 was never bulk-fetched or scored for modeling, but earlier Stage-0 feasibility probes inspected 2026-10-15 (including raw 3-day FUELHH actuals around Oct 14-16), single-day probes on 2026-07-15/2026-09-15/2026-11-15, and unsaved 30-day Sept 2026 chunk row counts.",
+    "timing_mechanism_disclosure": "Unconditional corr(t*_new - t*_old, t*_actual - t*_new) shares t*_new with opposite signs mathematically; g4 flag is NOT causal evidence; no conditional timing mechanism or alternative first/second-half alignment was scored."
+  },
+  "archived_files": [
+    {
+      "path": "research/elexon_wind_revision_timing/README.md",
+      "bytes": 4078,
+      "sha256": "27c4d1672734be9095c717abaa40487a9d9c68a5f040eb074121f32491e7d9cf"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/STATUS.md",
+      "bytes": 2843,
+      "sha256": "5bf373b87b0d58bdc6733aca93502f964f09374823935c72e854ade15b9c7973"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/LICENSES_AND_PROVENANCE.md",
+      "bytes": 3004,
+      "sha256": "513e5d5319b1fd6bf655e4c43785f7fb9d3a76ff3bdea554d4718e0616b3da3c"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/STAGE0_FEASIBILITY_RECEIPT.md",
+      "bytes": 9399,
+      "sha256": "42a897d10a27df7354591be54fdbfcb3ae7d801cb2a5eefb74d8332ba919ea7c"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/STAGE0_DEV_PILOT_PROTOCOL.md",
+      "bytes": 7727,
+      "sha256": "08ee7169c7019335c69b43a4d6d528a0ab32bc575da3b5ff84891923d75b2361"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/STAGE0_DEV_PILOT_RESULT.md",
+      "bytes": 12973,
+      "sha256": "38e4fc2dd0b09cf16f0bc50b8182772094f53282291543a4e6a842b54add710e"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/STAGE0_DATA_FEASIBILITY_RECEIPT.json",
+      "bytes": 50636,
+      "sha256": "d9a9efbc3c0b0e4b794dd94c441d15ad360e531580c1443b29fd4b50298cf530"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/STAGE0_DEV_DATA_AUDIT.json",
+      "bytes": 27977,
+      "sha256": "3cd56379305a878e2960b2b2f2f77f596f78c38519998eabfe029eadd970ac2a"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/stage0_elexon_feasibility_probe.py",
+      "bytes": 15974,
+      "sha256": "abe4b489c6c67dc0e8b8ffd106eec532e757d6a346bdec8f27f5de8585b0094d"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/fetch_and_audit_dev_corpus.py",
+      "bytes": 20486,
+      "sha256": "8bfbcf3134ad80580456e0b57387c1f75c9df2caac9f16021775541a66d45a6c"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/run_dev_pilot.py",
+      "bytes": 32398,
+      "sha256": "d826b11e47c7157a6661b5bfec38a3c0c734a61b089631f02fc45dde7f0fa5fb"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/dev_pilot_outputs/dev_pilot_summary.json",
+      "bytes": 24138,
+      "sha256": "d58cfff7f1dcad4cd372fc30d8bb7351d3c82b93bde17d6771e371826a731458"
+    },
+    {
+      "path": "research/elexon_wind_revision_timing/dev_pilot_outputs/dev_pilot_per_day_predictions.jsonl",
+      "bytes": 133159,
+      "sha256": "f01e70af2117553893d7bec31519c8675c6bc054062e496daf5bf4dfa960be46"
+    }
+  ],
+  "excluded_local_only_summary": {
+    "raw_dev_chunks_dir": {
+      "n_files": 46,
+      "total_bytes": 44292367,
+      "per_file_sha256_recorded_in": "STAGE0_DEV_DATA_AUDIT.json"
+    },
+    "raw_receipts_dir": {
+      "n_files": 21,
+      "total_bytes": 687999,
+      "per_file_sha256_recorded_in": "STAGE0_DATA_FEASIBILITY_RECEIPT.json"
+    },
+    "literature_notes_dir": "excluded (third-party paper extracts)",
+    "venv_and_steering": "excluded (.venv, __pycache__, local steering notes)"
+  }
+}

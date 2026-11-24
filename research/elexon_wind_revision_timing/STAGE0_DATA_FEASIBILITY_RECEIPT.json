@@ -1,0 +1,1457 @@
+{
+  "purpose": "Stage-0 Authoritative Feasibility Receipt for Elexon BMRS WINDFOR x FUELHH",
+  "prespecified_dates": [
+    "2024-11-15",
+    "2025-05-15",
+    "2025-11-15",
+    "2026-04-15",
+    "2026-10-15"
+  ],
+  "requests": [
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2026-10-15T12%3A00%3A00Z&format=json",
+      "saved_file": "evo_2026-10-15T12Z.json",
+      "fetched_utc": "2026-11-24T11:30:22.525009+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 3526,
+      "sha256": "f3e35a416fe73bda6f881346b6e2f91bae03262866c2f42f5cf3fe6d95431db4"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2024-11-15T15%3A00%3A00Z&format=json",
+      "saved_file": "evo_2024-11-15T15Z.json",
+      "fetched_utc": "2026-11-24T11:30:25.029137+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 3526,
+      "sha256": "0a8c45a276d50cce4b71f6946e78afddd7a9a2fa65eed60bc10cae41cf619ff8"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2025-05-15T15%3A00%3A00Z&format=json",
+      "saved_file": "evo_2025-05-15T15Z.json",
+      "fetched_utc": "2026-11-24T11:30:27.049740+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 3502,
+      "sha256": "3a6ce99e8929d0e362fe73783df10477030ce0f0d46145fbf343145dcf3d8909"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2025-11-15T15%3A00%3A00Z&format=json",
+      "saved_file": "evo_2025-11-15T15Z.json",
+      "fetched_utc": "2026-11-24T11:30:29.197613+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 3519,
+      "sha256": "bdfb4a205451c9ba7f00f2fa8f48713eeff751c9b377e4d6edff7f7d4515a170"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2026-04-15T15%3A00%3A00Z&format=json",
+      "saved_file": "evo_2026-04-15T15Z.json",
+      "fetched_utc": "2026-11-24T11:30:31.433081+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 3526,
+      "sha256": "50d34837bc98a1fa93f4e2a18e180923143629c5b4ff6fde891d6342f784df1f"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2026-10-15T15%3A00%3A00Z&format=json",
+      "saved_file": "evo_2026-10-15T15Z.json",
+      "fetched_utc": "2026-11-24T11:30:33.749305+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 3526,
+      "sha256": "210822ebd6c6e65029bd209590abeff5f4e6507da2d7c7bf1018b621337be894"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2024-11-14T00%3A00%3A00Z&publishDateTimeTo=2024-11-15T11%3A00%3A00Z",
+      "saved_file": "windfor_stream_2024-11-15.json",
+      "fetched_utc": "2026-11-24T11:30:36.896319+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 98584,
+      "sha256": "c0423a703a25d6f536f407cb66cdee7379f08e2184e857fbb70916c6e0cf43d0"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2024-11-15&settlementDateTo=2024-11-15&fuelType=WIND",
+      "saved_file": "fuelhh_single_2024-11-15.json",
+      "fetched_utc": "2026-11-24T11:30:39.703690+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 8693,
+      "sha256": "de006d50e17735fe5abc5d6bb3dbb2b8aae6275aad2a26e49b642b63dd19585f"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2024-11-14&settlementDateTo=2024-11-16&fuelType=WIND",
+      "saved_file": "fuelhh_3day_2024-11-15.json",
+      "fetched_utc": "2026-11-24T11:30:42.135846+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 26096,
+      "sha256": "5972df7711c53e4cf40c6f9baf461a553fa0a8d079ab2a4b8a5edd9f21a739c0"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-05-14T00%3A00%3A00Z&publishDateTimeTo=2025-05-15T11%3A00%3A00Z",
+      "saved_file": "windfor_stream_2025-05-15.json",
+      "fetched_utc": "2026-11-24T11:30:45.288518+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 98113,
+      "sha256": "2629a5bb4c67eb03bcb14fac1a869734941238cdc4af169290dadd67168d81ba"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-05-15&settlementDateTo=2025-05-15&fuelType=WIND",
+      "saved_file": "fuelhh_single_2025-05-15.json",
+      "fetched_utc": "2026-11-24T11:30:49.114075+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 8680,
+      "sha256": "dd77cf32d38745b6e435620ef07c6d43ea5c8581832492a30310303d74bdb215"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-05-14&settlementDateTo=2025-05-16&fuelType=WIND",
+      "saved_file": "fuelhh_3day_2025-05-15.json",
+      "fetched_utc": "2026-11-24T11:30:51.487892+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 26038,
+      "sha256": "a36ebe91366a915e9809fff8ff284e688cc7c26084394aa5b654e7aa63fa9361"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-11-14T00%3A00%3A00Z&publishDateTimeTo=2025-11-15T11%3A00%3A00Z",
+      "saved_file": "windfor_stream_2025-11-15.json",
+      "fetched_utc": "2026-11-24T11:30:54.194821+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 98662,
+      "sha256": "641b01417ace6484a495a6766afdb857fe24183907a88127a8e13fc6ce56e326"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-11-15&settlementDateTo=2025-11-15&fuelType=WIND",
+      "saved_file": "fuelhh_single_2025-11-15.json",
+      "fetched_utc": "2026-11-24T11:30:57.314112+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 8709,
+      "sha256": "f47769658fbc75f8336ef8c9688a8ccb3d9429201df626fb0d6f4bd80b795fc9"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-11-14&settlementDateTo=2025-11-16&fuelType=WIND",
+      "saved_file": "fuelhh_3day_2025-11-15.json",
+      "fetched_utc": "2026-11-24T11:30:59.492069+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 26122,
+      "sha256": "36f74bcd2ca1f171b26d028d289686110215d4b0e43f4aba2bf467f08be62f79"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2026-04-14T00%3A00%3A00Z&publishDateTimeTo=2026-04-15T11%3A00%3A00Z",
+      "saved_file": "windfor_stream_2026-04-15.json",
+      "fetched_utc": "2026-11-24T11:31:02.988571+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 98768,
+      "sha256": "462867384504c11c02c0550f0a3cdcb6493bb60eb70fff101e4358fcfe9fc8ad"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2026-04-15&settlementDateTo=2026-04-15&fuelType=WIND",
+      "saved_file": "fuelhh_single_2026-04-15.json",
+      "fetched_utc": "2026-11-24T11:31:06.488998+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 8728,
+      "sha256": "14288035692a468ff10fec37edaa3bf58bed8a43aedf9d5f2b6fd90290354811"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2026-04-14&settlementDateTo=2026-04-16&fuelType=WIND",
+      "saved_file": "fuelhh_3day_2026-04-15.json",
+      "fetched_utc": "2026-11-24T11:31:08.788995+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 26127,
+      "sha256": "797e880e35ee1bc540c8ae6d22086e809943f566f3c0279a539e86c87436f842"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2026-10-14T00%3A00%3A00Z&publishDateTimeTo=2026-10-15T11%3A00%3A00Z",
+      "saved_file": "windfor_stream_2026-10-15.json",
+      "fetched_utc": "2026-11-24T11:31:13.317443+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 98729,
+      "sha256": "f701d8623d8682d9d61418238b54e2fcc340ef88e27015b1dca96ba40b543ea3"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2026-10-15&settlementDateTo=2026-10-15&fuelType=WIND",
+      "saved_file": "fuelhh_single_2026-10-15.json",
+      "fetched_utc": "2026-11-24T11:31:15.932820+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 8714,
+      "sha256": "850b3977c92aec5807789e13a37549ec27ca9454351394286f061c575def6075"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2026-10-14&settlementDateTo=2026-10-16&fuelType=WIND",
+      "saved_file": "fuelhh_3day_2026-10-15.json",
+      "fetched_utc": "2026-11-24T11:31:18.404086+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 26111,
+      "sha256": "6558bd18dcccbbdc97094fdcd05cf2ff35e6f6aa69ab0b70b44e92572622ecf6"
+    }
+  ],
+  "evolution_checks": {
+    "2026-10-15T12:00:00Z": {
+      "n_rows": 24,
+      "n_unique_publishTime": 24,
+      "duplicate_publishTimes": {},
+      "fields": [
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "min_publishTime": "2026-10-13T03:30:00Z",
+      "max_publishTime": "2026-10-15T23:30:00Z",
+      "publishTimes_le_11Z": [
+        "2026-10-13T03:30:00Z",
+        "2026-10-13T05:30:00Z",
+        "2026-10-13T08:30:00Z",
+        "2026-10-13T10:30:00Z",
+        "2026-10-13T12:30:00Z",
+        "2026-10-13T16:30:00Z",
+        "2026-10-13T19:30:00Z",
+        "2026-10-13T23:30:00Z",
+        "2026-10-14T03:30:00Z",
+        "2026-10-14T05:30:00Z",
+        "2026-10-14T08:30:00Z",
+        "2026-10-14T10:30:00Z",
+        "2026-10-14T12:30:00Z",
+        "2026-10-14T16:30:00Z",
+        "2026-10-14T19:30:00Z",
+        "2026-10-14T23:30:00Z",
+        "2026-10-15T03:30:00Z",
+        "2026-10-15T05:30:00Z",
+        "2026-10-15T08:30:00Z",
+        "2026-10-15T10:30:00Z"
+      ]
+    },
+    "2024-11-15T15:00:00Z": {
+      "n_rows": 24,
+      "n_unique_publishTime": 24,
+      "duplicate_publishTimes": {},
+      "fields": [
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "min_publishTime": "2024-11-13T02:30:00Z",
+      "max_publishTime": "2024-11-15T22:30:00Z",
+      "publishTimes_le_11Z": [
+        "2024-11-13T02:30:00Z",
+        "2024-11-13T04:30:00Z",
+        "2024-11-13T07:30:00Z",
+        "2024-11-13T09:30:00Z",
+        "2024-11-13T11:30:00Z",
+        "2024-11-13T15:30:00Z",
+        "2024-11-13T18:30:00Z",
+        "2024-11-13T22:30:00Z",
+        "2024-11-14T02:30:00Z",
+        "2024-11-14T04:30:00Z",
+        "2024-11-14T07:30:00Z",
+        "2024-11-14T09:30:00Z",
+        "2024-11-14T11:30:00Z",
+        "2024-11-14T15:30:00Z",
+        "2024-11-14T18:30:00Z",
+        "2024-11-14T22:30:00Z",
+        "2024-11-15T02:30:00Z",
+        "2024-11-15T04:30:00Z",
+        "2024-11-15T07:30:00Z",
+        "2024-11-15T09:30:00Z"
+      ]
+    },
+    "2025-05-15T15:00:00Z": {
+      "n_rows": 24,
+      "n_unique_publishTime": 24,
+      "duplicate_publishTimes": {},
+      "fields": [
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "min_publishTime": "2025-05-13T03:30:00Z",
+      "max_publishTime": "2025-05-15T23:30:00Z",
+      "publishTimes_le_11Z": [
+        "2025-05-13T03:30:00Z",
+        "2025-05-13T05:30:00Z",
+        "2025-05-13T08:30:00Z",
+        "2025-05-13T10:30:00Z",
+        "2025-05-13T12:30:00Z",
+        "2025-05-13T16:30:00Z",
+        "2025-05-13T19:30:00Z",
+        "2025-05-13T23:30:00Z",
+        "2025-05-14T03:30:00Z",
+        "2025-05-14T05:30:00Z",
+        "2025-05-14T08:30:00Z",
+        "2025-05-14T10:30:00Z",
+        "2025-05-14T12:30:00Z",
+        "2025-05-14T16:30:00Z",
+        "2025-05-14T19:30:00Z",
+        "2025-05-14T23:30:00Z",
+        "2025-05-15T03:30:00Z",
+        "2025-05-15T05:30:00Z",
+        "2025-05-15T08:30:00Z",
+        "2025-05-15T10:30:00Z"
+      ]
+    },
+    "2025-11-15T15:00:00Z": {
+      "n_rows": 24,
+      "n_unique_publishTime": 24,
+      "duplicate_publishTimes": {},
+      "fields": [
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "min_publishTime": "2025-11-13T02:30:00Z",
+      "max_publishTime": "2025-11-15T22:30:00Z",
+      "publishTimes_le_11Z": [
+        "2025-11-13T02:30:00Z",
+        "2025-11-13T04:30:00Z",
+        "2025-11-13T07:30:00Z",
+        "2025-11-13T09:30:00Z",
+        "2025-11-13T11:30:00Z",
+        "2025-11-13T15:30:00Z",
+        "2025-11-13T18:30:00Z",
+        "2025-11-13T22:30:00Z",
+        "2025-11-14T02:30:00Z",
+        "2025-11-14T04:30:00Z",
+        "2025-11-14T07:30:00Z",
+        "2025-11-14T09:30:00Z",
+        "2025-11-14T11:30:00Z",
+        "2025-11-14T15:30:00Z",
+        "2025-11-14T18:30:00Z",
+        "2025-11-14T22:30:00Z",
+        "2025-11-15T02:30:00Z",
+        "2025-11-15T04:30:00Z",
+        "2025-11-15T07:30:00Z",
+        "2025-11-15T09:30:00Z"
+      ]
+    },
+    "2026-04-15T15:00:00Z": {
+      "n_rows": 24,
+      "n_unique_publishTime": 24,
+      "duplicate_publishTimes": {},
+      "fields": [
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "min_publishTime": "2026-04-13T03:30:00Z",
+      "max_publishTime": "2026-04-15T23:30:00Z",
+      "publishTimes_le_11Z": [
+        "2026-04-13T03:30:00Z",
+        "2026-04-13T05:30:00Z",
+        "2026-04-13T08:30:00Z",
+        "2026-04-13T10:30:00Z",
+        "2026-04-13T12:30:00Z",
+        "2026-04-13T16:30:00Z",
+        "2026-04-13T19:30:00Z",
+        "2026-04-13T23:30:00Z",
+        "2026-04-14T03:30:00Z",
+        "2026-04-14T05:30:00Z",
+        "2026-04-14T08:30:00Z",
+        "2026-04-14T10:30:00Z",
+        "2026-04-14T12:30:00Z",
+        "2026-04-14T16:30:00Z",
+        "2026-04-14T19:30:00Z",
+        "2026-04-14T23:30:00Z",
+        "2026-04-15T03:30:00Z",
+        "2026-04-15T05:30:00Z",
+        "2026-04-15T08:30:00Z",
+        "2026-04-15T10:30:00Z"
+      ]
+    },
+    "2026-10-15T15:00:00Z": {
+      "n_rows": 24,
+      "n_unique_publishTime": 24,
+      "duplicate_publishTimes": {},
+      "fields": [
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "min_publishTime": "2026-10-13T03:30:00Z",
+      "max_publishTime": "2026-10-15T23:30:00Z",
+      "publishTimes_le_11Z": [
+        "2026-10-13T03:30:00Z",
+        "2026-10-13T05:30:00Z",
+        "2026-10-13T08:30:00Z",
+        "2026-10-13T10:30:00Z",
+        "2026-10-13T12:30:00Z",
+        "2026-10-13T16:30:00Z",
+        "2026-10-13T19:30:00Z",
+        "2026-10-13T23:30:00Z",
+        "2026-10-14T03:30:00Z",
+        "2026-10-14T05:30:00Z",
+        "2026-10-14T08:30:00Z",
+        "2026-10-14T10:30:00Z",
+        "2026-10-14T12:30:00Z",
+        "2026-10-14T16:30:00Z",
+        "2026-10-14T19:30:00Z",
+        "2026-10-14T23:30:00Z",
+        "2026-10-15T03:30:00Z",
+        "2026-10-15T05:30:00Z",
+        "2026-10-15T08:30:00Z",
+        "2026-10-15T10:30:00Z"
+      ]
+    }
+  },
+  "date_reports": {
+    "2024-11-15": {
+      "windfor_stream_rows": 876,
+      "windfor_fields": [
+        "dataset",
+        "generation",
+        "publishTime",
+        "startTime"
+      ],
+      "windfor_n_vintages_Dprev00Z_to_D11Z": 12,
+      "windfor_publishTimes": [
+        "2024-11-14T02:30:00Z",
+        "2024-11-14T04:30:00Z",
+        "2024-11-14T07:30:00Z",
+        "2024-11-14T09:30:00Z",
+        "2024-11-14T11:30:00Z",
+        "2024-11-14T15:30:00Z",
+        "2024-11-14T18:30:00Z",
+        "2024-11-14T22:30:00Z",
+        "2024-11-15T02:30:00Z",
+        "2024-11-15T04:30:00Z",
+        "2024-11-15T07:30:00Z",
+        "2024-11-15T09:30:00Z"
+      ],
+      "windfor_duplicate_pub_start_pairs": 0,
+      "windfor_vintages_summary": [
+        {
+          "publishTime": "2024-11-14T18:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2024-11-13T21:00:00Z",
+          "max_startTime": "2024-11-16T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10744.0,
+          "gen_at_18Z": 12479.0
+        },
+        {
+          "publishTime": "2024-11-14T22:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2024-11-13T21:00:00Z",
+          "max_startTime": "2024-11-16T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10927.0,
+          "gen_at_18Z": 12723.0
+        },
+        {
+          "publishTime": "2024-11-15T02:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2024-11-14T21:00:00Z",
+          "max_startTime": "2024-11-17T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10572.0,
+          "gen_at_18Z": 12847.0
+        },
+        {
+          "publishTime": "2024-11-15T04:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2024-11-14T21:00:00Z",
+          "max_startTime": "2024-11-17T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10499.0,
+          "gen_at_18Z": 12728.0
+        },
+        {
+          "publishTime": "2024-11-15T07:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2024-11-14T21:00:00Z",
+          "max_startTime": "2024-11-17T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10294.0,
+          "gen_at_18Z": 12487.0
+        },
+        {
+          "publishTime": "2024-11-15T09:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2024-11-14T21:00:00Z",
+          "max_startTime": "2024-11-17T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10166.0,
+          "gen_at_18Z": 12527.0
+        }
+      ],
+      "windfor_consecutive_diffs_tail": [
+        {
+          "prev_pub": "2024-11-14T15:30:00Z",
+          "cur_pub": "2024-11-14T18:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 1266.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 504.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2024-11-14T18:30:00Z",
+          "cur_pub": "2024-11-14T22:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 1359.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 387.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2024-11-14T22:30:00Z",
+          "cur_pub": "2024-11-15T02:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 49,
+          "max_abs_diff_all_MW": 394.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 394.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2024-11-15T02:30:00Z",
+          "cur_pub": "2024-11-15T04:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 290.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 149.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2024-11-15T04:30:00Z",
+          "cur_pub": "2024-11-15T07:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 886.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 536.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2024-11-15T07:30:00Z",
+          "cur_pub": "2024-11-15T09:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 440.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 336.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        }
+      ],
+      "windfor_identical_consecutive_count": 0,
+      "xcheck_stream_vs_evo_15Z": {
+        "evo_vintages_in_window": 12,
+        "stream_vintages_in_window": 12,
+        "only_in_evo": [],
+        "only_in_stream": [],
+        "value_mismatches": []
+      },
+      "xcheck_stream_vs_evo_12Z": null,
+      "fuelhh_single_date_rows": 48,
+      "fuelhh_fields": [
+        "dataset",
+        "fuelType",
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "fuelhh_single_date_min_startTime": "2024-11-15T00:00:00Z",
+      "fuelhh_single_date_max_startTime": "2024-11-15T23:30:00Z",
+      "fuelhh_utc_day_halfhours_from_3day": 48,
+      "fuelhh_3day_duplicate_startTimes": 0,
+      "fuelhh_publish_lag_min_minmax": [
+        30.0,
+        30.0
+      ],
+      "windfor_vs_fuelhh_alignment": {
+        "latest_pub_le_11Z": "2024-11-15T09:30:00Z",
+        "n_hours_compared": 13,
+        "mae_vs_HH00_MW": 1449.9,
+        "mae_vs_avg_HH00_HH30_MW": 1385.3,
+        "mae_vs_avg_HHm30_HH00_MW": 1535.1,
+        "wf_15Z_MW": 10166.0,
+        "fh_1500Z_MW": 8247.0,
+        "fh_1530Z_MW": 8795.0,
+        "wf_18Z_MW": 12527.0,
+        "fh_1800Z_MW": 10730.0
+      }
+    },
+    "2025-05-15": {
+      "windfor_stream_rows": 876,
+      "windfor_fields": [
+        "dataset",
+        "generation",
+        "publishTime",
+        "startTime"
+      ],
+      "windfor_n_vintages_Dprev00Z_to_D11Z": 12,
+      "windfor_publishTimes": [
+        "2025-05-14T03:30:00Z",
+        "2025-05-14T05:30:00Z",
+        "2025-05-14T08:30:00Z",
+        "2025-05-14T10:30:00Z",
+        "2025-05-14T12:30:00Z",
+        "2025-05-14T16:30:00Z",
+        "2025-05-14T19:30:00Z",
+        "2025-05-14T23:30:00Z",
+        "2025-05-15T03:30:00Z",
+        "2025-05-15T05:30:00Z",
+        "2025-05-15T08:30:00Z",
+        "2025-05-15T10:30:00Z"
+      ],
+      "windfor_duplicate_pub_start_pairs": 0,
+      "windfor_vintages_summary": [
+        {
+          "publishTime": "2025-05-14T19:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-05-13T20:00:00Z",
+          "max_startTime": "2025-05-16T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 5777.0,
+          "gen_at_18Z": 5267.0
+        },
+        {
+          "publishTime": "2025-05-14T23:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-05-13T20:00:00Z",
+          "max_startTime": "2025-05-16T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 5886.0,
+          "gen_at_18Z": 5147.0
+        },
+        {
+          "publishTime": "2025-05-15T03:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-05-14T20:00:00Z",
+          "max_startTime": "2025-05-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 5862.0,
+          "gen_at_18Z": 5149.0
+        },
+        {
+          "publishTime": "2025-05-15T05:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-05-14T20:00:00Z",
+          "max_startTime": "2025-05-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 5721.0,
+          "gen_at_18Z": 5262.0
+        },
+        {
+          "publishTime": "2025-05-15T08:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-05-14T20:00:00Z",
+          "max_startTime": "2025-05-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 5304.0,
+          "gen_at_18Z": 5023.0
+        },
+        {
+          "publishTime": "2025-05-15T10:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-05-14T20:00:00Z",
+          "max_startTime": "2025-05-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 5277.0,
+          "gen_at_18Z": 4869.0
+        }
+      ],
+      "windfor_consecutive_diffs_tail": [
+        {
+          "prev_pub": "2025-05-14T16:30:00Z",
+          "cur_pub": "2025-05-14T19:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 405.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 359.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-05-14T19:30:00Z",
+          "cur_pub": "2025-05-14T23:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 268.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 212.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-05-14T23:30:00Z",
+          "cur_pub": "2025-05-15T03:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 49,
+          "max_abs_diff_all_MW": 375.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 375.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-05-15T03:30:00Z",
+          "cur_pub": "2025-05-15T05:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 820.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 289.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-05-15T05:30:00Z",
+          "cur_pub": "2025-05-15T08:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 546.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 472.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-05-15T08:30:00Z",
+          "cur_pub": "2025-05-15T10:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 316.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 316.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        }
+      ],
+      "windfor_identical_consecutive_count": 0,
+      "xcheck_stream_vs_evo_15Z": {
+        "evo_vintages_in_window": 12,
+        "stream_vintages_in_window": 12,
+        "only_in_evo": [],
+        "only_in_stream": [],
+        "value_mismatches": []
+      },
+      "xcheck_stream_vs_evo_12Z": null,
+      "fuelhh_single_date_rows": 48,
+      "fuelhh_fields": [
+        "dataset",
+        "fuelType",
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "fuelhh_single_date_min_startTime": "2025-05-14T23:00:00Z",
+      "fuelhh_single_date_max_startTime": "2025-05-15T22:30:00Z",
+      "fuelhh_utc_day_halfhours_from_3day": 48,
+      "fuelhh_3day_duplicate_startTimes": 0,
+      "fuelhh_publish_lag_min_minmax": [
+        30.0,
+        30.0
+      ],
+      "windfor_vs_fuelhh_alignment": {
+        "latest_pub_le_11Z": "2025-05-15T10:30:00Z",
+        "n_hours_compared": 13,
+        "mae_vs_HH00_MW": 585.3,
+        "mae_vs_avg_HH00_HH30_MW": 567.4,
+        "mae_vs_avg_HHm30_HH00_MW": 610.2,
+        "wf_15Z_MW": 5277.0,
+        "fh_1500Z_MW": 6348.0,
+        "fh_1530Z_MW": 6339.0,
+        "wf_18Z_MW": 4869.0,
+        "fh_1800Z_MW": 5025.0
+      }
+    },
+    "2025-11-15": {
+      "windfor_stream_rows": 876,
+      "windfor_fields": [
+        "dataset",
+        "generation",
+        "publishTime",
+        "startTime"
+      ],
+      "windfor_n_vintages_Dprev00Z_to_D11Z": 12,
+      "windfor_publishTimes": [
+        "2025-11-14T02:30:00Z",
+        "2025-11-14T04:30:00Z",
+        "2025-11-14T07:30:00Z",
+        "2025-11-14T09:30:00Z",
+        "2025-11-14T11:30:00Z",
+        "2025-11-14T15:30:00Z",
+        "2025-11-14T18:30:00Z",
+        "2025-11-14T22:30:00Z",
+        "2025-11-15T02:30:00Z",
+        "2025-11-15T04:30:00Z",
+        "2025-11-15T07:30:00Z",
+        "2025-11-15T09:30:00Z"
+      ],
+      "windfor_duplicate_pub_start_pairs": 0,
+      "windfor_vintages_summary": [
+        {
+          "publishTime": "2025-11-14T18:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-11-13T21:00:00Z",
+          "max_startTime": "2025-11-16T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10341.0,
+          "gen_at_18Z": 8989.0
+        },
+        {
+          "publishTime": "2025-11-14T22:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-11-13T21:00:00Z",
+          "max_startTime": "2025-11-16T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10763.0,
+          "gen_at_18Z": 9751.0
+        },
+        {
+          "publishTime": "2025-11-15T02:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-11-14T21:00:00Z",
+          "max_startTime": "2025-11-17T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10812.0,
+          "gen_at_18Z": 10145.0
+        },
+        {
+          "publishTime": "2025-11-15T04:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-11-14T21:00:00Z",
+          "max_startTime": "2025-11-17T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10877.0,
+          "gen_at_18Z": 10245.0
+        },
+        {
+          "publishTime": "2025-11-15T07:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-11-14T21:00:00Z",
+          "max_startTime": "2025-11-17T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10823.0,
+          "gen_at_18Z": 9779.0
+        },
+        {
+          "publishTime": "2025-11-15T09:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2025-11-14T21:00:00Z",
+          "max_startTime": "2025-11-17T21:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 10401.0,
+          "gen_at_18Z": 9293.0
+        }
+      ],
+      "windfor_consecutive_diffs_tail": [
+        {
+          "prev_pub": "2025-11-14T15:30:00Z",
+          "cur_pub": "2025-11-14T18:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 665.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 543.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-11-14T18:30:00Z",
+          "cur_pub": "2025-11-14T22:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 792.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 792.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-11-14T22:30:00Z",
+          "cur_pub": "2025-11-15T02:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 49,
+          "max_abs_diff_all_MW": 811.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 532.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-11-15T02:30:00Z",
+          "cur_pub": "2025-11-15T04:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 1066.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 197.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-11-15T04:30:00Z",
+          "cur_pub": "2025-11-15T07:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 628.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 554.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2025-11-15T07:30:00Z",
+          "cur_pub": "2025-11-15T09:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 681.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 681.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        }
+      ],
+      "windfor_identical_consecutive_count": 0,
+      "xcheck_stream_vs_evo_15Z": {
+        "evo_vintages_in_window": 12,
+        "stream_vintages_in_window": 12,
+        "only_in_evo": [],
+        "only_in_stream": [],
+        "value_mismatches": []
+      },
+      "xcheck_stream_vs_evo_12Z": null,
+      "fuelhh_single_date_rows": 48,
+      "fuelhh_fields": [
+        "dataset",
+        "fuelType",
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "fuelhh_single_date_min_startTime": "2025-11-15T00:00:00Z",
+      "fuelhh_single_date_max_startTime": "2025-11-15T23:30:00Z",
+      "fuelhh_utc_day_halfhours_from_3day": 48,
+      "fuelhh_3day_duplicate_startTimes": 0,
+      "fuelhh_publish_lag_min_minmax": [
+        30.0,
+        30.0
+      ],
+      "windfor_vs_fuelhh_alignment": {
+        "latest_pub_le_11Z": "2025-11-15T09:30:00Z",
+        "n_hours_compared": 13,
+        "mae_vs_HH00_MW": 755.5,
+        "mae_vs_avg_HH00_HH30_MW": 840.8,
+        "mae_vs_avg_HHm30_HH00_MW": 655.2,
+        "wf_15Z_MW": 10401.0,
+        "fh_1500Z_MW": 9656.0,
+        "fh_1530Z_MW": 9399.0,
+        "wf_18Z_MW": 9293.0,
+        "fh_1800Z_MW": 8369.0
+      }
+    },
+    "2026-04-15": {
+      "windfor_stream_rows": 876,
+      "windfor_fields": [
+        "dataset",
+        "generation",
+        "publishTime",
+        "startTime"
+      ],
+      "windfor_n_vintages_Dprev00Z_to_D11Z": 12,
+      "windfor_publishTimes": [
+        "2026-04-14T03:30:00Z",
+        "2026-04-14T05:30:00Z",
+        "2026-04-14T08:30:00Z",
+        "2026-04-14T10:30:00Z",
+        "2026-04-14T12:30:00Z",
+        "2026-04-14T16:30:00Z",
+        "2026-04-14T19:30:00Z",
+        "2026-04-14T23:30:00Z",
+        "2026-04-15T03:30:00Z",
+        "2026-04-15T05:30:00Z",
+        "2026-04-15T08:30:00Z",
+        "2026-04-15T10:30:00Z"
+      ],
+      "windfor_duplicate_pub_start_pairs": 0,
+      "windfor_vintages_summary": [
+        {
+          "publishTime": "2026-04-14T19:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-04-13T20:00:00Z",
+          "max_startTime": "2026-04-16T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 18312.0,
+          "gen_at_18Z": 18348.0
+        },
+        {
+          "publishTime": "2026-04-14T23:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-04-13T20:00:00Z",
+          "max_startTime": "2026-04-16T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 18437.0,
+          "gen_at_18Z": 18537.0
+        },
+        {
+          "publishTime": "2026-04-15T03:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-04-14T20:00:00Z",
+          "max_startTime": "2026-04-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 18016.0,
+          "gen_at_18Z": 18413.0
+        },
+        {
+          "publishTime": "2026-04-15T05:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-04-14T20:00:00Z",
+          "max_startTime": "2026-04-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 17920.0,
+          "gen_at_18Z": 18273.0
+        },
+        {
+          "publishTime": "2026-04-15T08:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-04-14T20:00:00Z",
+          "max_startTime": "2026-04-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 18006.0,
+          "gen_at_18Z": 18219.0
+        },
+        {
+          "publishTime": "2026-04-15T10:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-04-14T20:00:00Z",
+          "max_startTime": "2026-04-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 18301.0,
+          "gen_at_18Z": 18519.0
+        }
+      ],
+      "windfor_consecutive_diffs_tail": [
+        {
+          "prev_pub": "2026-04-14T16:30:00Z",
+          "cur_pub": "2026-04-14T19:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 395.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 319.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-04-14T19:30:00Z",
+          "cur_pub": "2026-04-14T23:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 1294.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 248.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-04-14T23:30:00Z",
+          "cur_pub": "2026-04-15T03:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 49,
+          "max_abs_diff_all_MW": 790.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 441.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-04-15T03:30:00Z",
+          "cur_pub": "2026-04-15T05:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 449.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 449.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-04-15T05:30:00Z",
+          "cur_pub": "2026-04-15T08:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 782.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 324.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-04-15T08:30:00Z",
+          "cur_pub": "2026-04-15T10:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 2235.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 342.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        }
+      ],
+      "windfor_identical_consecutive_count": 0,
+      "xcheck_stream_vs_evo_15Z": {
+        "evo_vintages_in_window": 12,
+        "stream_vintages_in_window": 12,
+        "only_in_evo": [],
+        "only_in_stream": [],
+        "value_mismatches": []
+      },
+      "xcheck_stream_vs_evo_12Z": null,
+      "fuelhh_single_date_rows": 48,
+      "fuelhh_fields": [
+        "dataset",
+        "fuelType",
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "fuelhh_single_date_min_startTime": "2026-04-14T23:00:00Z",
+      "fuelhh_single_date_max_startTime": "2026-04-15T22:30:00Z",
+      "fuelhh_utc_day_halfhours_from_3day": 48,
+      "fuelhh_3day_duplicate_startTimes": 0,
+      "fuelhh_publish_lag_min_minmax": [
+        30.0,
+        30.0
+      ],
+      "windfor_vs_fuelhh_alignment": {
+        "latest_pub_le_11Z": "2026-04-15T10:30:00Z",
+        "n_hours_compared": 13,
+        "mae_vs_HH00_MW": 3916.3,
+        "mae_vs_avg_HH00_HH30_MW": 3919.5,
+        "mae_vs_avg_HHm30_HH00_MW": 3911.3,
+        "wf_15Z_MW": 18301.0,
+        "fh_1500Z_MW": 14578.0,
+        "fh_1530Z_MW": 14672.0,
+        "wf_18Z_MW": 18519.0,
+        "fh_1800Z_MW": 15033.0
+      }
+    },
+    "2026-10-15": {
+      "windfor_stream_rows": 876,
+      "windfor_fields": [
+        "dataset",
+        "generation",
+        "publishTime",
+        "startTime"
+      ],
+      "windfor_n_vintages_Dprev00Z_to_D11Z": 12,
+      "windfor_publishTimes": [
+        "2026-10-14T03:30:00Z",
+        "2026-10-14T05:30:00Z",
+        "2026-10-14T08:30:00Z",
+        "2026-10-14T10:30:00Z",
+        "2026-10-14T12:30:00Z",
+        "2026-10-14T16:30:00Z",
+        "2026-10-14T19:30:00Z",
+        "2026-10-14T23:30:00Z",
+        "2026-10-15T03:30:00Z",
+        "2026-10-15T05:30:00Z",
+        "2026-10-15T08:30:00Z",
+        "2026-10-15T10:30:00Z"
+      ],
+      "windfor_duplicate_pub_start_pairs": 0,
+      "windfor_vintages_summary": [
+        {
+          "publishTime": "2026-10-14T19:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-10-13T20:00:00Z",
+          "max_startTime": "2026-10-16T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 13603.0,
+          "gen_at_18Z": 12145.0
+        },
+        {
+          "publishTime": "2026-10-14T23:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-10-13T20:00:00Z",
+          "max_startTime": "2026-10-16T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 13576.0,
+          "gen_at_18Z": 12035.0
+        },
+        {
+          "publishTime": "2026-10-15T03:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-10-14T20:00:00Z",
+          "max_startTime": "2026-10-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 13485.0,
+          "gen_at_18Z": 12130.0
+        },
+        {
+          "publishTime": "2026-10-15T05:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-10-14T20:00:00Z",
+          "max_startTime": "2026-10-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 13465.0,
+          "gen_at_18Z": 12073.0
+        },
+        {
+          "publishTime": "2026-10-15T08:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-10-14T20:00:00Z",
+          "max_startTime": "2026-10-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 13638.0,
+          "gen_at_18Z": 12097.0
+        },
+        {
+          "publishTime": "2026-10-15T10:30:00Z",
+          "n_delivery_points": 73,
+          "min_startTime": "2026-10-14T20:00:00Z",
+          "max_startTime": "2026-10-17T20:00:00Z",
+          "step_minutes_counts": {
+            "60": 72
+          },
+          "covers_D_11Z_to_23Z_hourly": "13/13",
+          "gen_at_15Z": 14100.0,
+          "gen_at_18Z": 12141.0
+        }
+      ],
+      "windfor_consecutive_diffs_tail": [
+        {
+          "prev_pub": "2026-10-14T16:30:00Z",
+          "cur_pub": "2026-10-14T19:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 495.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 354.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-10-14T19:30:00Z",
+          "cur_pub": "2026-10-14T23:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 1564.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 955.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-10-14T23:30:00Z",
+          "cur_pub": "2026-10-15T03:30:00Z",
+          "gap_hours": 4.0,
+          "n_shared_all": 49,
+          "max_abs_diff_all_MW": 797.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 797.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-10-15T03:30:00Z",
+          "cur_pub": "2026-10-15T05:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 1063.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 1063.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-10-15T05:30:00Z",
+          "cur_pub": "2026-10-15T08:30:00Z",
+          "gap_hours": 3.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 931.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 931.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        },
+        {
+          "prev_pub": "2026-10-15T08:30:00Z",
+          "cur_pub": "2026-10-15T10:30:00Z",
+          "gap_hours": 2.0,
+          "n_shared_all": 73,
+          "max_abs_diff_all_MW": 533.0,
+          "n_shared_day_D": 24,
+          "max_abs_diff_day_D_MW": 533.0,
+          "identical_on_shared_all": false,
+          "identical_on_day_D": false
+        }
+      ],
+      "windfor_identical_consecutive_count": 0,
+      "xcheck_stream_vs_evo_15Z": {
+        "evo_vintages_in_window": 12,
+        "stream_vintages_in_window": 12,
+        "only_in_evo": [],
+        "only_in_stream": [],
+        "value_mismatches": []
+      },
+      "xcheck_stream_vs_evo_12Z": {
+        "evo_vintages_in_window": 12,
+        "stream_vintages_in_window": 12,
+        "only_in_evo": [],
+        "only_in_stream": [],
+        "value_mismatches": []
+      },
+      "fuelhh_single_date_rows": 48,
+      "fuelhh_fields": [
+        "dataset",
+        "fuelType",
+        "generation",
+        "publishTime",
+        "settlementDate",
+        "settlementPeriod",
+        "startTime"
+      ],
+      "fuelhh_single_date_min_startTime": "2026-10-14T23:00:00Z",
+      "fuelhh_single_date_max_startTime": "2026-10-15T22:30:00Z",
+      "fuelhh_utc_day_halfhours_from_3day": 48,
+      "fuelhh_3day_duplicate_startTimes": 0,
+      "fuelhh_publish_lag_min_minmax": [
+        30.0,
+        30.0
+      ],
+      "windfor_vs_fuelhh_alignment": {
+        "latest_pub_le_11Z": "2026-10-15T10:30:00Z",
+        "n_hours_compared": 13,
+        "mae_vs_HH00_MW": 3632.9,
+        "mae_vs_avg_HH00_HH30_MW": 3727.6,
+        "mae_vs_avg_HHm30_HH00_MW": 3509.1,
+        "wf_15Z_MW": 14100.0,
+        "fh_1500Z_MW": 10527.0,
+        "fh_1530Z_MW": 10269.0,
+        "wf_18Z_MW": 12141.0,
+        "fh_1800Z_MW": 8102.0
+      }
+    }
+  }
+}
