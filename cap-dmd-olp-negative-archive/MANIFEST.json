@@ -1,0 +1,87 @@
+{
+  "archive_id": "cap_dmd_olp_20261124",
+  "status": "FROZEN_NEGATIVE_METHOD_ARCHIVE",
+  "date": "2026-11-24",
+  "repo_target": "ArtificialZeng/Operations-Research",
+  "suggested_branch": "archive/cap-dmd-olp-negative-20261124",
+  "pdf_included": false,
+  "local_skills_invoked": false,
+  "transport_blocker": "gh CLI not installed on Windows or WSL; GH_TOKEN/GITHUB_TOKEN unset in non-interactive shell.",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 3686,
+      "sha256": "38d8eb29ea9548063c2bad1bdbf5b975c158c6ad1e8303e7b1c4177b4bb3f102"
+    },
+    {
+      "file": "STATUS.md",
+      "bytes": 2455,
+      "sha256": "f80eccbec36cb534056823fbd72251c56ef07e719367fdd04654c658dcd89e37"
+    },
+    {
+      "file": "ERRATA.md",
+      "bytes": 4436,
+      "sha256": "deff52d7e771932412b40ccdf58e65d29d45bbcdfdc3c68bd14e7a6ddca6e897"
+    },
+    {
+      "file": "SELECTION_AND_GAP.md",
+      "bytes": 8738,
+      "sha256": "83a538e3c2718a55e86e198165c976f788ace4d4b5a36fedb6d6c690d10496be"
+    },
+    {
+      "file": "STAGE0_FALSIFIER_PROTOCOL.md",
+      "bytes": 4570,
+      "sha256": "fc97804f9e90e01531decf51681a8fd72d56b459a31554654e2ccd07a4247ffd"
+    },
+    {
+      "file": "STAGE0_DIAGNOSTIC_AND_ASYM_HYPOTHESIS.md",
+      "bytes": 4748,
+      "sha256": "07fc1569642fccefd849c55d5d8ebdf4c045c5f48bc9aaa11c7b5b2979e8b95d"
+    },
+    {
+      "file": "stage0_one_run_falsifier.py",
+      "bytes": 20327,
+      "sha256": "6329bb05726e1caba619380d7a9b0fef0c8020f6d90d306c274c5602cac38620"
+    },
+    {
+      "file": "stage0_falsifier_results.json",
+      "bytes": 22304,
+      "sha256": "5cc9f9d28ea42b857b53aa557ff9576c9ea46a72ff6285dee135272aa10cd479"
+    },
+    {
+      "file": "stage0_v2_binding_falsifier.py",
+      "bytes": 8659,
+      "sha256": "31bc52fa0f72ac10523a8caeb4e49c3519211ed505fa209b793a575766b842fa"
+    },
+    {
+      "file": "stage0_v2_binding_results.json",
+      "bytes": 30906,
+      "sha256": "86b56b39616b0b5b835a3b56ece2640704ef81fa6f8bb749f1892830432aef99"
+    },
+    {
+      "file": "stage0b_asym_cap_dmd_test.py",
+      "bytes": 13788,
+      "sha256": "023e5341542a6cf7bab3d9ca2e8ea7023f21c2da15a8a8c1ff64c663a512a3b3"
+    },
+    {
+      "file": "stage0b_asym_results.json",
+      "bytes": 26510,
+      "sha256": "99b356ad728d0ce14458e28427ba6645f4fb2b9d318024da5c630d5966302fd1"
+    },
+    {
+      "file": "stage0c_coord_drift_dmd_test.py",
+      "bytes": 11157,
+      "sha256": "656c40e3eaa83af98b3ea67de0edbf4dad7930da5f3f46094cefd4fad95da6ce"
+    },
+    {
+      "file": "stage0c_coord_drift_results.json",
+      "bytes": 24126,
+      "sha256": "ccca12459f816f78ff7bae8e6791386869d9f7349f5b9d35e0fbf200d67044e2"
+    },
+    {
+      "file": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    }
+  ]
+}
