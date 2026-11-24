@@ -1,0 +1,109 @@
+{
+  "dataset_id": "hakari-bench/NanoLongEmbed",
+  "pinned_revision": "ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e",
+  "tasks_downloaded": [
+    "NanoQMSum",
+    "NanoNarrativeQA"
+  ],
+  "terms_note": "Derived dataset from dwzhu/LongEmbed; corpus text kept strictly local as inert data and never republished.",
+  "files": [
+    {
+      "path": "build_nanolongembed.py",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/build_nanolongembed.py",
+      "bytes": 18790,
+      "sha256": "cb998c24eba98902cbf677b25d3c348d9564d86731ebfe44119a4ce85088da26",
+      "verified_against_hf_lfs_oid": false
+    },
+    {
+      "path": "metadata/NanoQMSum.json",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/metadata/NanoQMSum.json",
+      "bytes": 1132,
+      "sha256": "25a42a68707d05f7a8fdbf7789a19a79f30172a699b2e7195f94c3cae5549076",
+      "verified_against_hf_lfs_oid": false
+    },
+    {
+      "path": "metadata/NanoNarrativeQA.json",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/metadata/NanoNarrativeQA.json",
+      "bytes": 1153,
+      "sha256": "b550c7e8b97206e529de16fec704e96bea743f2e8069de6d0f355aba46e964bb",
+      "verified_against_hf_lfs_oid": false
+    },
+    {
+      "path": "reranking_hybrid_metadata.json",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/reranking_hybrid_metadata.json",
+      "bytes": 10534,
+      "sha256": "7d9f96132b4a074b3de9134c1431a27bc19b1e2d4a96351bc376a51417954f9b",
+      "verified_against_hf_lfs_oid": false
+    },
+    {
+      "path": "corpus/NanoQMSum-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/corpus/NanoQMSum-00000-of-00001.parquet",
+      "bytes": 4798098,
+      "sha256": "6cf19cbbb1a1dc6699d88ac2aa50a5b58c212b5413cba3320188790b820e3a3b",
+      "verified_against_hf_lfs_oid": true
+    },
+    {
+      "path": "queries/NanoQMSum-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/queries/NanoQMSum-00000-of-00001.parquet",
+      "bytes": 53695,
+      "sha256": "4ad12693b2514b532edcc297b5a2b71237a3e4326c4053e7196e8703aaccde5a",
+      "verified_against_hf_lfs_oid": true
+    },
+    {
+      "path": "qrels/NanoQMSum-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/qrels/NanoQMSum-00000-of-00001.parquet",
+      "bytes": 3041,
+      "sha256": "199d57a0fa6c46a785bf786a6ddd4e88cdb539cbf6ebb2d8ef86ad206355b929",
+      "verified_against_hf_lfs_oid": true
+    },
+    {
+      "path": "bm25/NanoQMSum-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/bm25/NanoQMSum-00000-of-00001.parquet",
+      "bytes": 414972,
+      "sha256": "f536b6af8c518ec70b75b2ee526556857bf02d126295ca78e261b43495f02277",
+      "verified_against_hf_lfs_oid": true
+    },
+    {
+      "path": "reranking_hybrid/NanoQMSum-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/reranking_hybrid/NanoQMSum-00000-of-00001.parquet",
+      "bytes": 212040,
+      "sha256": "ea789cb92e75620249073f7bb430c10ab48903f5a6b6c7fd03dada38eb0d2863",
+      "verified_against_hf_lfs_oid": true
+    },
+    {
+      "path": "corpus/NanoNarrativeQA-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/corpus/NanoNarrativeQA-00000-of-00001.parquet",
+      "bytes": 63177746,
+      "sha256": "202fde0a611328c708f22efaeb11adbf052b0c2568b40d41bcfc888a790509fd",
+      "verified_against_hf_lfs_oid": true
+    },
+    {
+      "path": "queries/NanoNarrativeQA-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/queries/NanoNarrativeQA-00000-of-00001.parquet",
+      "bytes": 10492,
+      "sha256": "c0103f218282b6e30fdd455ebeca469487452a9a4f56e7a9d7f11fa7e5ab782a",
+      "verified_against_hf_lfs_oid": true
+    },
+    {
+      "path": "qrels/NanoNarrativeQA-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/qrels/NanoNarrativeQA-00000-of-00001.parquet",
+      "bytes": 3283,
+      "sha256": "8cddeafa749f140a9e152e829d2458269e796fc3a773faa929266ff7d5a43dfd",
+      "verified_against_hf_lfs_oid": true
+    },
+    {
+      "path": "bm25/NanoNarrativeQA-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/bm25/NanoNarrativeQA-00000-of-00001.parquet",
+      "bytes": 762648,
+      "sha256": "43e8f21299f72f852bfdc8ad1847f25d1abebfb88a0f33de277d4240f63860d8",
+      "verified_against_hf_lfs_oid": true
+    },
+    {
+      "path": "reranking_hybrid/NanoNarrativeQA-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/reranking_hybrid/NanoNarrativeQA-00000-of-00001.parquet",
+      "bytes": 217296,
+      "sha256": "a13f118de2c1a3f4a3f605256bf497ead7ae41de33ab208c8ec95d2538cd88b7",
+      "verified_against_hf_lfs_oid": true
+    }
+  ]
+}

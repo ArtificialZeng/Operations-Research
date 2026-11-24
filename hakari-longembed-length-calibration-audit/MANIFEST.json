@@ -1,0 +1,485 @@
+{
+  "archive_name": "hakari-longembed-length-calibration-audit",
+  "date_sealed": "2026-11-24",
+  "status": "FROZEN_CLOSE_NO_MEANINGFUL_GAIN",
+  "stage0_native_receipt": {
+    "real_pid": 55912,
+    "summary_path": "outputs/hakari_stage0_summary.json",
+    "summary_sha256": "2fee379490cd163d4924128822e8f6db40946f898cc6d13d13927c723cbb4876",
+    "local_locked_protocol_sha256": "99c4c86c73b88af9aa09c1ac907e6fd3406f17fc20376893869604316971bdba"
+  },
+  "stage1_native_receipt": {
+    "real_pid": 40612,
+    "summary_path": "outputs/hakari_stage1_summary.json",
+    "summary_sha256": "22e10cfff3551ae0d7e8a771213202c855a8cf978014fc13ecd5a4ba2ccc7945",
+    "local_locked_protocol_sha256": "041fa82514d07f1c429b0cbf360b89eb930a9f4c0dc3b6cb8e2d26d70c41999f"
+  },
+  "archived_file_count_excluding_manifest": 29,
+  "archived_files": [
+    {
+      "path": "code/build_hakari_splits_and_fixtures.py",
+      "bytes": 10161,
+      "sha256": "e18eb6d65a1c9d22db1dcfd57edcd37e3a40840574ee7bb4ef3af1acb97985d6"
+    },
+    {
+      "path": "code/download_pinned_nanolongembed.py",
+      "bytes": 3676,
+      "sha256": "b55639cf798aa7eb89271249d5409f875f28460f7b72220cba667a83a12921cd"
+    },
+    {
+      "path": "code/hakari_retrieval_core.py",
+      "bytes": 21586,
+      "sha256": "1a936b34e6bd5546de8a677a7cdcd024107de69fa8649afa9e950680616885e3"
+    },
+    {
+      "path": "code/run_hakari_stage0_pilot.py",
+      "bytes": 28859,
+      "sha256": "35710317e0fe9861b9875c6cd612c38d6b8040ebd05f4248ecbe85e9e66938c9"
+    },
+    {
+      "path": "code/run_hakari_stage1_followup.py",
+      "bytes": 23061,
+      "sha256": "2ab6101d4a48d6f86b3be23bbab02463c4240b32aaea32bfd9cc339bc8f8b4cc"
+    },
+    {
+      "path": "code/stage1_build_splits_and_fixtures.py",
+      "bytes": 18856,
+      "sha256": "fccb36b028e5bdcfd4367cc85ab7d2970ba44320efe0a5b1c793e1a5e80f2b45"
+    },
+    {
+      "path": "code/stage1_countcal_top3_core.py",
+      "bytes": 13636,
+      "sha256": "ba471679d1ab738c4c62ea19b49652a3c6b828980f33f16d6277556460adece4"
+    },
+    {
+      "path": "code/stage1_download_longembed_qa.py",
+      "bytes": 10487,
+      "sha256": "517c8805af27ecdb1e3494457039c7aec043ad80c5f1d299266630d632ba64de"
+    },
+    {
+      "path": "outputs/FreshNarrativeQA_natural_per_query.jsonl",
+      "bytes": 27826,
+      "sha256": "3f7f8d8f180583f2afbf26bcb081aa3556fb9df2f2a8beb6b86f7fcb7d38cc34"
+    },
+    {
+      "path": "outputs/FreshQMSum_natural_per_query.jsonl",
+      "bytes": 27350,
+      "sha256": "7bded2b4c75005fd57dffa0e10a4af5d66060b05d9dffabcd4be029b3b948b74"
+    },
+    {
+      "path": "outputs/hakari_stage0_summary.json",
+      "bytes": 22798,
+      "sha256": "2fee379490cd163d4924128822e8f6db40946f898cc6d13d13927c723cbb4876"
+    },
+    {
+      "path": "outputs/hakari_stage1_summary.json",
+      "bytes": 21883,
+      "sha256": "22e10cfff3551ae0d7e8a771213202c855a8cf978014fc13ecd5a4ba2ccc7945"
+    },
+    {
+      "path": "outputs/NanoNarrativeQA_natural_heldout_per_query.jsonl",
+      "bytes": 22134,
+      "sha256": "b12db83ae53e33dcce659b787c6c6db5474d0453cfe98847bf9f8b33fb5f7104"
+    },
+    {
+      "path": "outputs/NanoQMSum_natural_heldout_per_query.jsonl",
+      "bytes": 22924,
+      "sha256": "57d4029f448847de513d7d315e4cf7fb9d0661c811245632b97cc1bcced10924"
+    },
+    {
+      "path": "protocols/STAGE0_HAKARI_PROTOCOL.md",
+      "bytes": 6519,
+      "sha256": "21b998c7845af16cfd7bb71dba468ac092b7902e27680b3731da034f1eb77037"
+    },
+    {
+      "path": "protocols/STAGE1_COUNTCAL_TOP3_PROTOCOL.md",
+      "bytes": 8156,
+      "sha256": "54658e4f3d25e12241df555eb51c9987f4fb6013f534522174442054f0d133b0"
+    },
+    {
+      "path": "PROVENANCE_AND_SCOPE.md",
+      "bytes": 9564,
+      "sha256": "218837a633fae40b2f09ed9d87a5aed2024827b9fe0aa5d42605e5980aa044a4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6406,
+      "sha256": "93cdc276859d9268f49819f01aaa6ec2579afb82a081e8d624e5710d434f3aec"
+    },
+    {
+      "path": "receipts/DATASET_DOWNLOAD_RECEIPT.json",
+      "bytes": 5779,
+      "sha256": "2f27e90e5d6cc95507f511ff003437e288db290393c1d1b616c7929cf1a03ab5"
+    },
+    {
+      "path": "receipts/HAKARI_STAGE0_FIXTURE_RECEIPT.json",
+      "bytes": 1676,
+      "sha256": "f1a7656ef17a3b1f52c0eb08fdbbf76ee4afbb13d470ceb2d5f5066ec6174599"
+    },
+    {
+      "path": "receipts/HAKARI_STAGE0_SPLITS_RECEIPT.json",
+      "bytes": 17276,
+      "sha256": "5d1118ea1b2c9419a618890569c95aac4ee6e32b60d9447dfee710e043e5f8e8"
+    },
+    {
+      "path": "receipts/LONGEMBED_STAGE1_QA_DOWNLOAD_RECEIPT.json",
+      "bytes": 1972,
+      "sha256": "15bb9348cd49b1ad85b1a437df76b44e4af86011551042ca5a6d8fc8a3ad86f6"
+    },
+    {
+      "path": "receipts/STAGE1_FRESH_SPLITS_RECEIPT.json",
+      "bytes": 32569,
+      "sha256": "7b02ad57b5867eb301f7b37f8f8a6d112a522764c577af56da47ff17bb343d55"
+    },
+    {
+      "path": "receipts/STAGE1_PARITY_AND_FIXTURES_RECEIPT.json",
+      "bytes": 3033,
+      "sha256": "1f93c8aeb91f00366a8b2d5acccfebbcb9a9c96ad9d0be5910d9e0c4a6b65bc9"
+    },
+    {
+      "path": "reports/BEFORE_AFTER_SUMMARY.md",
+      "bytes": 5294,
+      "sha256": "167e4b83a93bbc81a1ede96659b62ffca54c61ba08c67f4e80a46bda1e3d2526"
+    },
+    {
+      "path": "reports/STAGE0_HAKARI_RESULT.md",
+      "bytes": 19850,
+      "sha256": "5abb56a39160640a276cfcb0c2880f6d394c4f8d2be36f5b9ae60ff2c4ad5c34"
+    },
+    {
+      "path": "reports/STAGE1_COUNTCAL_TOP3_RESULT.md",
+      "bytes": 13737,
+      "sha256": "7567c68a35da176e6ea7ed1db0a2f50f05c9a51580b672a19a14fe3abfbf3434"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 70,
+      "sha256": "3eb1e0e51285e89caed1ecc132d086b303ecfeb586f9f3709a26174132495015"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 2320,
+      "sha256": "0d225e7e8862606e12cc472af947f1e63db3ec1377e580e46e2403018a7e3ef6"
+    }
+  ],
+  "portability_crosswalk": [
+    {
+      "archived_path": "receipts/DATASET_DOWNLOAD_RECEIPT.json",
+      "local_sha256": "2f27e90e5d6cc95507f511ff003437e288db290393c1d1b616c7929cf1a03ab5",
+      "archived_sha256": "2f27e90e5d6cc95507f511ff003437e288db290393c1d1b616c7929cf1a03ab5",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "receipts/LONGEMBED_STAGE1_QA_DOWNLOAD_RECEIPT.json",
+      "local_sha256": "15bb9348cd49b1ad85b1a437df76b44e4af86011551042ca5a6d8fc8a3ad86f6",
+      "archived_sha256": "15bb9348cd49b1ad85b1a437df76b44e4af86011551042ca5a6d8fc8a3ad86f6",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "receipts/HAKARI_STAGE0_SPLITS_RECEIPT.json",
+      "local_sha256": "5d1118ea1b2c9419a618890569c95aac4ee6e32b60d9447dfee710e043e5f8e8",
+      "archived_sha256": "5d1118ea1b2c9419a618890569c95aac4ee6e32b60d9447dfee710e043e5f8e8",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "receipts/HAKARI_STAGE0_FIXTURE_RECEIPT.json",
+      "local_sha256": "f1a7656ef17a3b1f52c0eb08fdbbf76ee4afbb13d470ceb2d5f5066ec6174599",
+      "archived_sha256": "f1a7656ef17a3b1f52c0eb08fdbbf76ee4afbb13d470ceb2d5f5066ec6174599",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "receipts/STAGE1_FRESH_SPLITS_RECEIPT.json",
+      "local_sha256": "7b02ad57b5867eb301f7b37f8f8a6d112a522764c577af56da47ff17bb343d55",
+      "archived_sha256": "7b02ad57b5867eb301f7b37f8f8a6d112a522764c577af56da47ff17bb343d55",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "receipts/STAGE1_PARITY_AND_FIXTURES_RECEIPT.json",
+      "local_sha256": "1f93c8aeb91f00366a8b2d5acccfebbcb9a9c96ad9d0be5910d9e0c4a6b65bc9",
+      "archived_sha256": "1f93c8aeb91f00366a8b2d5acccfebbcb9a9c96ad9d0be5910d9e0c4a6b65bc9",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "outputs/hakari_stage0_summary.json",
+      "local_sha256": "2fee379490cd163d4924128822e8f6db40946f898cc6d13d13927c723cbb4876",
+      "archived_sha256": "2fee379490cd163d4924128822e8f6db40946f898cc6d13d13927c723cbb4876",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "outputs/NanoQMSum_natural_heldout_per_query.jsonl",
+      "local_sha256": "57d4029f448847de513d7d315e4cf7fb9d0661c811245632b97cc1bcced10924",
+      "archived_sha256": "57d4029f448847de513d7d315e4cf7fb9d0661c811245632b97cc1bcced10924",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "outputs/NanoNarrativeQA_natural_heldout_per_query.jsonl",
+      "local_sha256": "b12db83ae53e33dcce659b787c6c6db5474d0453cfe98847bf9f8b33fb5f7104",
+      "archived_sha256": "b12db83ae53e33dcce659b787c6c6db5474d0453cfe98847bf9f8b33fb5f7104",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "outputs/hakari_stage1_summary.json",
+      "local_sha256": "22e10cfff3551ae0d7e8a771213202c855a8cf978014fc13ecd5a4ba2ccc7945",
+      "archived_sha256": "22e10cfff3551ae0d7e8a771213202c855a8cf978014fc13ecd5a4ba2ccc7945",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "outputs/FreshQMSum_natural_per_query.jsonl",
+      "local_sha256": "7bded2b4c75005fd57dffa0e10a4af5d66060b05d9dffabcd4be029b3b948b74",
+      "archived_sha256": "7bded2b4c75005fd57dffa0e10a4af5d66060b05d9dffabcd4be029b3b948b74",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "outputs/FreshNarrativeQA_natural_per_query.jsonl",
+      "local_sha256": "3f7f8d8f180583f2afbf26bcb081aa3556fb9df2f2a8beb6b86f7fcb7d38cc34",
+      "archived_sha256": "3f7f8d8f180583f2afbf26bcb081aa3556fb9df2f2a8beb6b86f7fcb7d38cc34",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "code/hakari_retrieval_core.py",
+      "local_sha256": "1a936b34e6bd5546de8a677a7cdcd024107de69fa8649afa9e950680616885e3",
+      "archived_sha256": "1a936b34e6bd5546de8a677a7cdcd024107de69fa8649afa9e950680616885e3",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "code/stage1_countcal_top3_core.py",
+      "local_sha256": "ba471679d1ab738c4c62ea19b49652a3c6b828980f33f16d6277556460adece4",
+      "archived_sha256": "ba471679d1ab738c4c62ea19b49652a3c6b828980f33f16d6277556460adece4",
+      "byte_identical": true,
+      "portability_edit": "none"
+    },
+    {
+      "archived_path": "code/download_pinned_nanolongembed.py",
+      "local_sha256": "f2b4dc56577b74fcb45b540602b2b8b1c8cbdc3e0b50beea9ae48925434b1d1c",
+      "archived_sha256": "b55639cf798aa7eb89271249d5409f875f28460f7b72220cba667a83a12921cd",
+      "byte_identical": false,
+      "portability_edit": "Replaced single hardcoded local workspace root path constant with Path(__file__).resolve().parent.parent; zero algorithmic or parameter changes."
+    },
+    {
+      "archived_path": "code/build_hakari_splits_and_fixtures.py",
+      "local_sha256": "31ae9258906438fbee526ef48174800a5e1e6eb4ea75e3d67709fe91b4f364dd",
+      "archived_sha256": "e18eb6d65a1c9d22db1dcfd57edcd37e3a40840574ee7bb4ef3af1acb97985d6",
+      "byte_identical": false,
+      "portability_edit": "Replaced single hardcoded local workspace root path constant with Path(__file__).resolve().parent.parent; zero algorithmic or parameter changes."
+    },
+    {
+      "archived_path": "code/run_hakari_stage0_pilot.py",
+      "local_sha256": "a0a49954ff63db745fb993994c57300a957505e1a0b8afecceda9f3ab47f4db5",
+      "archived_sha256": "35710317e0fe9861b9875c6cd612c38d6b8040ebd05f4248ecbe85e9e66938c9",
+      "byte_identical": false,
+      "portability_edit": "Replaced single hardcoded local workspace root path constant with Path(__file__).resolve().parent.parent; zero algorithmic or parameter changes."
+    },
+    {
+      "archived_path": "code/stage1_download_longembed_qa.py",
+      "local_sha256": "1c4d63a896a65ca3835dbc00d19ad01888fbe516c7320994fec07a05bdced16d",
+      "archived_sha256": "517c8805af27ecdb1e3494457039c7aec043ad80c5f1d299266630d632ba64de",
+      "byte_identical": false,
+      "portability_edit": "Replaced single hardcoded local workspace root path constant with Path(__file__).resolve().parent.parent; zero algorithmic or parameter changes."
+    },
+    {
+      "archived_path": "code/stage1_build_splits_and_fixtures.py",
+      "local_sha256": "81fd2a5f03806de1c9392b4ed0e97e4e2e5c819dca79a7677be0b069c0e9614a",
+      "archived_sha256": "fccb36b028e5bdcfd4367cc85ab7d2970ba44320efe0a5b1c793e1a5e80f2b45",
+      "byte_identical": false,
+      "portability_edit": "Replaced single hardcoded local workspace root path constant with Path(__file__).resolve().parent.parent; zero algorithmic or parameter changes."
+    },
+    {
+      "archived_path": "code/run_hakari_stage1_followup.py",
+      "local_sha256": "1bc9396cf9b5b57f74ef6ae987d8b33a5759a03fba4891186e4e38b035453861",
+      "archived_sha256": "2ab6101d4a48d6f86b3be23bbab02463c4240b32aaea32bfd9cc339bc8f8b4cc",
+      "byte_identical": false,
+      "portability_edit": "Replaced single hardcoded local workspace root path constant with Path(__file__).resolve().parent.parent; zero algorithmic or parameter changes."
+    },
+    {
+      "archived_path": "protocols/STAGE0_HAKARI_PROTOCOL.md",
+      "local_sha256": "99c4c86c73b88af9aa09c1ac907e6fd3406f17fc20376893869604316971bdba",
+      "archived_sha256": "21b998c7845af16cfd7bb71dba468ac092b7902e27680b3731da034f1eb77037",
+      "byte_identical": false,
+      "portability_edit": "Rewrote local absolute file URLs to portable relative archive paths (and official pinned HF README URL for excluded card mirror); zero text/number changes."
+    },
+    {
+      "archived_path": "protocols/STAGE1_COUNTCAL_TOP3_PROTOCOL.md",
+      "local_sha256": "041fa82514d07f1c429b0cbf360b89eb930a9f4c0dc3b6cb8e2d26d70c41999f",
+      "archived_sha256": "54658e4f3d25e12241df555eb51c9987f4fb6013f534522174442054f0d133b0",
+      "byte_identical": false,
+      "portability_edit": "Rewrote local absolute file URLs to portable relative archive paths (and official pinned HF README URL for excluded card mirror); zero text/number changes."
+    },
+    {
+      "archived_path": "reports/STAGE0_HAKARI_RESULT.md",
+      "local_sha256": "65ce60b37391d8412f29968eab1d0c0f73aca86d8b783fb55962aff77dea0e7b",
+      "archived_sha256": "5abb56a39160640a276cfcb0c2880f6d394c4f8d2be36f5b9ae60ff2c4ad5c34",
+      "byte_identical": false,
+      "portability_edit": "Rewrote local absolute file URLs to portable relative archive paths (and official pinned HF README URL for excluded card mirror); zero text/number changes."
+    },
+    {
+      "archived_path": "reports/STAGE1_COUNTCAL_TOP3_RESULT.md",
+      "local_sha256": "8f0f9272361ba9884e530507072678e71927557373dc086e077ded6700feb5f4",
+      "archived_sha256": "7567c68a35da176e6ea7ed1db0a2f50f05c9a51580b672a19a14fe3abfbf3434",
+      "byte_identical": false,
+      "portability_edit": "Rewrote local absolute file URLs to portable relative archive paths (and official pinned HF README URL for excluded card mirror); zero text/number changes."
+    }
+  ],
+  "excluded_external_sources_metadata_only": {
+    "note": "No corpus text, query/qrel mirrors, model weights, caches, or desktop prompts are archived. Upstream public URLs, pinned commits, byte lengths, and verified SHA-256 hashes are preserved below for reproducible local re-fetch under upstream dataset terms.",
+    "hakari_nanolongembed": {
+      "dataset_id": "hakari-bench/NanoLongEmbed",
+      "pinned_revision": "ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e",
+      "file_count": 14,
+      "files": [
+        {
+          "path": "build_nanolongembed.py",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/build_nanolongembed.py",
+          "bytes": 18790,
+          "sha256": "cb998c24eba98902cbf677b25d3c348d9564d86731ebfe44119a4ce85088da26",
+          "verified_against_hf_lfs_oid": false
+        },
+        {
+          "path": "metadata/NanoQMSum.json",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/metadata/NanoQMSum.json",
+          "bytes": 1132,
+          "sha256": "25a42a68707d05f7a8fdbf7789a19a79f30172a699b2e7195f94c3cae5549076",
+          "verified_against_hf_lfs_oid": false
+        },
+        {
+          "path": "metadata/NanoNarrativeQA.json",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/metadata/NanoNarrativeQA.json",
+          "bytes": 1153,
+          "sha256": "b550c7e8b97206e529de16fec704e96bea743f2e8069de6d0f355aba46e964bb",
+          "verified_against_hf_lfs_oid": false
+        },
+        {
+          "path": "reranking_hybrid_metadata.json",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/reranking_hybrid_metadata.json",
+          "bytes": 10534,
+          "sha256": "7d9f96132b4a074b3de9134c1431a27bc19b1e2d4a96351bc376a51417954f9b",
+          "verified_against_hf_lfs_oid": false
+        },
+        {
+          "path": "corpus/NanoQMSum-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/corpus/NanoQMSum-00000-of-00001.parquet",
+          "bytes": 4798098,
+          "sha256": "6cf19cbbb1a1dc6699d88ac2aa50a5b58c212b5413cba3320188790b820e3a3b",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "queries/NanoQMSum-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/queries/NanoQMSum-00000-of-00001.parquet",
+          "bytes": 53695,
+          "sha256": "4ad12693b2514b532edcc297b5a2b71237a3e4326c4053e7196e8703aaccde5a",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "qrels/NanoQMSum-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/qrels/NanoQMSum-00000-of-00001.parquet",
+          "bytes": 3041,
+          "sha256": "199d57a0fa6c46a785bf786a6ddd4e88cdb539cbf6ebb2d8ef86ad206355b929",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "bm25/NanoQMSum-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/bm25/NanoQMSum-00000-of-00001.parquet",
+          "bytes": 414972,
+          "sha256": "f536b6af8c518ec70b75b2ee526556857bf02d126295ca78e261b43495f02277",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "reranking_hybrid/NanoQMSum-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/reranking_hybrid/NanoQMSum-00000-of-00001.parquet",
+          "bytes": 212040,
+          "sha256": "ea789cb92e75620249073f7bb430c10ab48903f5a6b6c7fd03dada38eb0d2863",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "corpus/NanoNarrativeQA-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/corpus/NanoNarrativeQA-00000-of-00001.parquet",
+          "bytes": 63177746,
+          "sha256": "202fde0a611328c708f22efaeb11adbf052b0c2568b40d41bcfc888a790509fd",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "queries/NanoNarrativeQA-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/queries/NanoNarrativeQA-00000-of-00001.parquet",
+          "bytes": 10492,
+          "sha256": "c0103f218282b6e30fdd455ebeca469487452a9a4f56e7a9d7f11fa7e5ab782a",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "qrels/NanoNarrativeQA-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/qrels/NanoNarrativeQA-00000-of-00001.parquet",
+          "bytes": 3283,
+          "sha256": "8cddeafa749f140a9e152e829d2458269e796fc3a773faa929266ff7d5a43dfd",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "bm25/NanoNarrativeQA-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/bm25/NanoNarrativeQA-00000-of-00001.parquet",
+          "bytes": 762648,
+          "sha256": "43e8f21299f72f852bfdc8ad1847f25d1abebfb88a0f33de277d4240f63860d8",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "reranking_hybrid/NanoNarrativeQA-00000-of-00001.parquet",
+          "url": "https://huggingface.co/datasets/hakari-bench/NanoLongEmbed/resolve/ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e/reranking_hybrid/NanoNarrativeQA-00000-of-00001.parquet",
+          "bytes": 217296,
+          "sha256": "a13f118de2c1a3f4a3f605256bf497ead7ae41de33ab208c8ec95d2538cd88b7",
+          "verified_against_hf_lfs_oid": true
+        }
+      ]
+    },
+    "dwzhu_longembed_qa": {
+      "dataset_id": "dwzhu/LongEmbed",
+      "pinned_revision": "10039a580487dacecf79db69166e17ace3ede392",
+      "file_count": 5,
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://huggingface.co/datasets/dwzhu/LongEmbed/resolve/10039a580487dacecf79db69166e17ace3ede392/README.md",
+          "bytes": 7704,
+          "sha256": "26f72aa929a9c0ba48f9229a93fc561b2118032a8a0554e119f31da47f9b61e9",
+          "verified_against_hf_lfs_oid": false
+        },
+        {
+          "path": "qmsum/queries.jsonl",
+          "url": "https://huggingface.co/datasets/dwzhu/LongEmbed/resolve/10039a580487dacecf79db69166e17ace3ede392/qmsum/queries.jsonl",
+          "bytes": 734324,
+          "sha256": "8bc4637293908df8e3f4d9de936f93b84245db1bdf1be9e7605f24f9aa262129",
+          "verified_against_hf_lfs_oid": false
+        },
+        {
+          "path": "qmsum/qrels.jsonl",
+          "url": "https://huggingface.co/datasets/dwzhu/LongEmbed/resolve/10039a580487dacecf79db69166e17ace3ede392/qmsum/qrels.jsonl",
+          "bytes": 82040,
+          "sha256": "65a2dc5c1db95d7a0a7c0e49eb10f62d9ffd4e885c9fac84c300f00a954f22a3",
+          "verified_against_hf_lfs_oid": true
+        },
+        {
+          "path": "narrativeqa/queries.jsonl",
+          "url": "https://huggingface.co/datasets/dwzhu/LongEmbed/resolve/10039a580487dacecf79db69166e17ace3ede392/narrativeqa/queries.jsonl",
+          "bytes": 1001559,
+          "sha256": "b9e4468d0360470770b25b90554f577486d9501980480e01d5a780568a3163bf",
+          "verified_against_hf_lfs_oid": false
+        },
+        {
+          "path": "narrativeqa/qrels.jsonl",
+          "url": "https://huggingface.co/datasets/dwzhu/LongEmbed/resolve/10039a580487dacecf79db69166e17ace3ede392/narrativeqa/qrels.jsonl",
+          "bytes": 570785,
+          "sha256": "d498af1c2ffad0f14e6fe58ba00bd063f9e686f90fd8107d93266fa3e0fd3ddb",
+          "verified_against_hf_lfs_oid": true
+        }
+      ]
+    }
+  }
+}

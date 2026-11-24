@@ -1,0 +1,807 @@
+{
+  "source_dataset_id": "dwzhu/LongEmbed",
+  "source_pinned_revision": "10039a580487dacecf79db69166e17ace3ede392",
+  "nano_dataset_id": "hakari-bench/NanoLongEmbed",
+  "nano_pinned_revision": "ec27cccf70e6ac6afef6678b7645f0d2d02d3e1e",
+  "selection_rule": "Exclude ALL 200 Nano query IDs, ALL 200 Nano normalized query text SHA-256 hashes, AND ALL Nano positive document groups (122 in QMSum, 163 in NarrativeQA; covers dev, Stage-0 test, and unlabeled_bg_pool). Deduplicate remaining fresh queries by normalized query text hash. Sort eligible fresh relevant doc IDs ascending by sha256('hakari_stage1_fresh_doc_20261124:' + nano_task + ':' + doc_id), take the first 75 distinct fresh docs, and within each doc take the single query with minimum sha256('hakari_stage1_fresh_q_20261124:' + nano_task + ':' + qid) -> exact 1:1 group balance (75 fresh queries across 75 distinct fresh relevant docs).",
+  "tasks": {
+    "NanoQMSum": {
+      "orig_task": "qmsum",
+      "orig_total_queries": 1527,
+      "nano_excluded_queries": 200,
+      "nano_excluded_pos_doc_groups": 122,
+      "nano_corpus_size": 197,
+      "nano_corpus_unique_text_hashes": 197,
+      "exact_200_of_200_nano_mapping_verified": true,
+      "fresh_eligible_doc_groups_total": 75,
+      "fresh_eligible_dedup_queries_total": 559,
+      "fresh_selected_queries": 75,
+      "fresh_selected_doc_groups": 75,
+      "queries_per_doc_group": 1,
+      "disjointness_verified": {
+        "overlap_with_all_200_nano_qids": 0,
+        "overlap_with_all_200_nano_norm_qhashes": 0,
+        "overlap_with_all_nano_pos_docs": 0,
+        "overlap_with_dev_qids": 0,
+        "overlap_with_stage0_heldout_qids": 0,
+        "overlap_with_unlabeled_bg_qids": 0
+      },
+      "fresh_items": [
+        {
+          "query_id": "query_791",
+          "relevant_doc_id": "doc_164",
+          "norm_query_sha256": "7b4f1c957f671cd9c327e670dc4351b099f0ab45597a8d857b9430b4495c0956"
+        },
+        {
+          "query_id": "query_1015",
+          "relevant_doc_id": "doc_180",
+          "norm_query_sha256": "066cf039e49b493af342dd7d593125463cacf82526a0301f43a54b140b85e3ca"
+        },
+        {
+          "query_id": "query_1281",
+          "relevant_doc_id": "doc_163",
+          "norm_query_sha256": "42591574d9272bd89e8abc6c963f10857408b5daf674e506b6352a8806e1e554"
+        },
+        {
+          "query_id": "query_1150",
+          "relevant_doc_id": "doc_68",
+          "norm_query_sha256": "2a2eda024ed33e53f5ab228081726d29ddba4a2796c00969ea6007c3d5c2711e"
+        },
+        {
+          "query_id": "query_1381",
+          "relevant_doc_id": "doc_87",
+          "norm_query_sha256": "2d46c3f406dc0904b5cabd054d73aa0a156e973701cd0d59ff42b0fc07871124"
+        },
+        {
+          "query_id": "query_758",
+          "relevant_doc_id": "doc_9",
+          "norm_query_sha256": "6071f34c8888d49f9700892c498ad0fa5b730a0cd7c62005ff7bd2b9e3027a34"
+        },
+        {
+          "query_id": "query_924",
+          "relevant_doc_id": "doc_82",
+          "norm_query_sha256": "9bf1fc6038acde026091914926954918588cc73343a5e9c5b74879646c19d568"
+        },
+        {
+          "query_id": "query_1123",
+          "relevant_doc_id": "doc_118",
+          "norm_query_sha256": "a7dd95f8bec8186282665e24ea2bef9967ae8a76370b64226cfba498be46e518"
+        },
+        {
+          "query_id": "query_324",
+          "relevant_doc_id": "doc_38",
+          "norm_query_sha256": "1220d325634eab6bb9a06e4ee09bfdba17a05b50b8e1cabd2a0d782461b63b74"
+        },
+        {
+          "query_id": "query_366",
+          "relevant_doc_id": "doc_129",
+          "norm_query_sha256": "c9ddb23aa185de8b088dd19a152cc4ed13be090cb0ee031ee0a5906b7e0133c0"
+        },
+        {
+          "query_id": "query_1374",
+          "relevant_doc_id": "doc_170",
+          "norm_query_sha256": "69ba35a0b586f9d66b51235e170c5fa678fdb768ab102ee20dc208344fbe1dcc"
+        },
+        {
+          "query_id": "query_1494",
+          "relevant_doc_id": "doc_159",
+          "norm_query_sha256": "3ef610838b6eec0c98a119f775db7315f61105ee137fa4b187ad7f1445eadf60"
+        },
+        {
+          "query_id": "query_837",
+          "relevant_doc_id": "doc_187",
+          "norm_query_sha256": "6ba2b41fe6646bbf7dc70ea5d8d3be60447796b8d0a810aadabc8ff81cfc86e3"
+        },
+        {
+          "query_id": "query_1236",
+          "relevant_doc_id": "doc_130",
+          "norm_query_sha256": "d8d3b6cabf8c864f1c020e5a7b81923c86de429da16f3ff09e535b1790363603"
+        },
+        {
+          "query_id": "query_1383",
+          "relevant_doc_id": "doc_135",
+          "norm_query_sha256": "d970da3c90fc6b74be109ee994e276597e514c588e4361f795234dd61de51b82"
+        },
+        {
+          "query_id": "query_253",
+          "relevant_doc_id": "doc_37",
+          "norm_query_sha256": "5309a88bec9b4bd5212a2ecdb23a63e4aa6fba903a102b564368d28a06606dea"
+        },
+        {
+          "query_id": "query_1352",
+          "relevant_doc_id": "doc_8",
+          "norm_query_sha256": "01afa4677d10183392f49bb951bfc48dcc5ec85831b7bd6c45bfc51c55614ac5"
+        },
+        {
+          "query_id": "query_1495",
+          "relevant_doc_id": "doc_105",
+          "norm_query_sha256": "05c76e90576d726c3e5c9b58cf19a3e6b0c5ab62387c87e752eb641b6944a379"
+        },
+        {
+          "query_id": "query_350",
+          "relevant_doc_id": "doc_167",
+          "norm_query_sha256": "85d27ec66739de51a3fc15d2cf3aa73d6f5d2e079226bb857b349e4881ac10a9"
+        },
+        {
+          "query_id": "query_1211",
+          "relevant_doc_id": "doc_140",
+          "norm_query_sha256": "f5aeea99b40db32f98d11e035f45eff3da69059b721966f014cc86b4118f028f"
+        },
+        {
+          "query_id": "query_768",
+          "relevant_doc_id": "doc_102",
+          "norm_query_sha256": "90534d8d6babd6550b66dbc3302b9d42fdd929345eab5517a970afa29db19dd4"
+        },
+        {
+          "query_id": "query_962",
+          "relevant_doc_id": "doc_4",
+          "norm_query_sha256": "e600e48d477abd60390f96c27fceaa33c5bf87615076b487d30b220661addd36"
+        },
+        {
+          "query_id": "query_1260",
+          "relevant_doc_id": "doc_41",
+          "norm_query_sha256": "fbe754cd064f1e1035fcd04707f4a56c112567cd662b3e106832b2e2e9fc604e"
+        },
+        {
+          "query_id": "query_264",
+          "relevant_doc_id": "doc_122",
+          "norm_query_sha256": "0c3a274baa9a87fa7d767aa9b73dc432eefc3d6e2e9068ce223eb6cc79ca1a47"
+        },
+        {
+          "query_id": "query_949",
+          "relevant_doc_id": "doc_39",
+          "norm_query_sha256": "9941f1d826a3d63695882a583000a8f23c44535c5604688dd1198d0083503305"
+        },
+        {
+          "query_id": "query_624",
+          "relevant_doc_id": "doc_100",
+          "norm_query_sha256": "82e5d060537b50c5f41eb36ce140d754d0cc77cf72cd7bf32de04ce869fe1918"
+        },
+        {
+          "query_id": "query_706",
+          "relevant_doc_id": "doc_60",
+          "norm_query_sha256": "497f8d771d3fcf386bcbd70d253b9f543eb464fb8ae1e6701c2f169644261fce"
+        },
+        {
+          "query_id": "query_1362",
+          "relevant_doc_id": "doc_183",
+          "norm_query_sha256": "d7c2b49cbec282a07c9f129956be4b9f95f579bdee7340dec7eb2cee24f06747"
+        },
+        {
+          "query_id": "query_559",
+          "relevant_doc_id": "doc_109",
+          "norm_query_sha256": "2819d3ef667d9ed6a6360a1ab7e86f38f9c905145f1924ec57e9c2047d78b6ea"
+        },
+        {
+          "query_id": "query_1232",
+          "relevant_doc_id": "doc_83",
+          "norm_query_sha256": "2681b5a6b86533d05ce8f439a8e3724dcf33f621c176e02616d4c4a06f62e28c"
+        },
+        {
+          "query_id": "query_1001",
+          "relevant_doc_id": "doc_150",
+          "norm_query_sha256": "a31f9ad21979137ea4d2071a808950ce80a698a08ac5458045ca1016b75c6f15"
+        },
+        {
+          "query_id": "query_819",
+          "relevant_doc_id": "doc_56",
+          "norm_query_sha256": "aaf424b75c386add4dee62cdf63effbe2749580bfb46cf359d3ca7af83232923"
+        },
+        {
+          "query_id": "query_596",
+          "relevant_doc_id": "doc_142",
+          "norm_query_sha256": "f88ccb28f9e82c3020687e3365577139a77c20c9fe2f654f410b2733993a14c7"
+        },
+        {
+          "query_id": "query_1166",
+          "relevant_doc_id": "doc_26",
+          "norm_query_sha256": "ff697287dbdece5038cce23ce290ae4220d0520361826e2552b68a785bad71c8"
+        },
+        {
+          "query_id": "query_1089",
+          "relevant_doc_id": "doc_52",
+          "norm_query_sha256": "2b3904501e27fd8e6ef2f8937f07e9f643503e4e2fa28c4fd7b9b11a769f7c6e"
+        },
+        {
+          "query_id": "query_1042",
+          "relevant_doc_id": "doc_195",
+          "norm_query_sha256": "e0be073228d33f14d61bc6eed5e65d169c10b4e9dac63bafc6a5177a5db1cac5"
+        },
+        {
+          "query_id": "query_1366",
+          "relevant_doc_id": "doc_133",
+          "norm_query_sha256": "ac2e88db1052cacc069860b68264adc3b00f4d453c3af2c9e0560113d6fb82fd"
+        },
+        {
+          "query_id": "query_421",
+          "relevant_doc_id": "doc_123",
+          "norm_query_sha256": "e75183a6ac6298e8e3755b312acb42bfb21b1634bd595fec8bb3f9be3d32359b"
+        },
+        {
+          "query_id": "query_332",
+          "relevant_doc_id": "doc_194",
+          "norm_query_sha256": "3dcc5a2dbda2bc367abc16580051686407f14068e31963fd7e9a6cd9d2103610"
+        },
+        {
+          "query_id": "query_208",
+          "relevant_doc_id": "doc_181",
+          "norm_query_sha256": "7eab34cd915a276db906aef3c7caef533fc0bf70f72dac9f31e3220d245b70e8"
+        },
+        {
+          "query_id": "query_970",
+          "relevant_doc_id": "doc_63",
+          "norm_query_sha256": "4e86e558ab5c2f79d76e49331becfabedbadb4974660936c7160a85a410e6248"
+        },
+        {
+          "query_id": "query_1470",
+          "relevant_doc_id": "doc_166",
+          "norm_query_sha256": "37a13c6101633bc09ea9bacb01e0308addb63d8b686d2e794950487de6e629f0"
+        },
+        {
+          "query_id": "query_826",
+          "relevant_doc_id": "doc_196",
+          "norm_query_sha256": "591ea661bafa29d48f28874fd2986af3fe773ad3e2d0cea73d1048935b392e7e"
+        },
+        {
+          "query_id": "query_1112",
+          "relevant_doc_id": "doc_120",
+          "norm_query_sha256": "b560690c794385c3a6995b2614af689a7eba050ef1317c0efdf6ede149fb21c8"
+        },
+        {
+          "query_id": "query_290",
+          "relevant_doc_id": "doc_90",
+          "norm_query_sha256": "fab4ca430830a495b944d5e0e08d1fa23414887fd0d649a87acfb3a1dd883fdc"
+        },
+        {
+          "query_id": "query_401",
+          "relevant_doc_id": "doc_169",
+          "norm_query_sha256": "2e4a147affedcd0e41c77f61e96b8dbf7f4f0ec9603e76be2b61ddb9f01a63d5"
+        },
+        {
+          "query_id": "query_226",
+          "relevant_doc_id": "doc_108",
+          "norm_query_sha256": "d51084be339c15b3a7bed19a12f42f7cd0afccaa0ac71aeddacce1f373afa2d8"
+        },
+        {
+          "query_id": "query_373",
+          "relevant_doc_id": "doc_158",
+          "norm_query_sha256": "8ed79fbd51fd8a157b2fa5fd2e56356d4cf0504dfac35c0e10f26c4b4e8cef90"
+        },
+        {
+          "query_id": "query_288",
+          "relevant_doc_id": "doc_81",
+          "norm_query_sha256": "efaee6991623c2ed4a2db9fe6aba3761d512dd52d9d8c17ca0aa8fa190b779b3"
+        },
+        {
+          "query_id": "query_267",
+          "relevant_doc_id": "doc_98",
+          "norm_query_sha256": "dfa2181eaa95dd91bd4404464a2d8a2a841985cee9ee15b666a1f26f0d1fb789"
+        },
+        {
+          "query_id": "query_1291",
+          "relevant_doc_id": "doc_46",
+          "norm_query_sha256": "98168e9057d031799bbcd412713f06063e0b4dc3ae1288a5dcef220a902b031a"
+        },
+        {
+          "query_id": "query_620",
+          "relevant_doc_id": "doc_50",
+          "norm_query_sha256": "61abf817487862250a9ec1dd75084160125c772c8f081e57bc488d7ba9238ac0"
+        },
+        {
+          "query_id": "query_539",
+          "relevant_doc_id": "doc_178",
+          "norm_query_sha256": "9f9811c9f164d2b446b388dc6a4becd3c3349ce342d577aa206757f227ef18b4"
+        },
+        {
+          "query_id": "query_1063",
+          "relevant_doc_id": "doc_173",
+          "norm_query_sha256": "6009edd4d828b2072c93b655fbe95b44b4f656d3b6c5d04054a2fb9bfcd0d291"
+        },
+        {
+          "query_id": "query_1268",
+          "relevant_doc_id": "doc_175",
+          "norm_query_sha256": "94c03118fe952d77ea594a366007ddcab6ab1518afd9e198b40b098f20b79554"
+        },
+        {
+          "query_id": "query_1176",
+          "relevant_doc_id": "doc_93",
+          "norm_query_sha256": "a30921070e2986ded3e5e1d9b9d6080c6d3538e7651943341390c68e984ddd16"
+        },
+        {
+          "query_id": "query_971",
+          "relevant_doc_id": "doc_176",
+          "norm_query_sha256": "71a6de2e5557577987d1dadbef5b509ba2243c84fc1482e98fde380a032178c0"
+        },
+        {
+          "query_id": "query_1441",
+          "relevant_doc_id": "doc_3",
+          "norm_query_sha256": "4e6ed20171e810949821cf205fae9a934c6dd3b5d67e86742464cb117198a482"
+        },
+        {
+          "query_id": "query_428",
+          "relevant_doc_id": "doc_19",
+          "norm_query_sha256": "b568925f009178649ae257e9cfb14eb21dce93a8b249316f132b120970262de3"
+        },
+        {
+          "query_id": "query_651",
+          "relevant_doc_id": "doc_103",
+          "norm_query_sha256": "3baec534989440a0dce5a319a774f360a122a2eb97ada20c8277c36bc152d09c"
+        },
+        {
+          "query_id": "query_273",
+          "relevant_doc_id": "doc_171",
+          "norm_query_sha256": "729c62e292fe12769fc3ddc48bae3cbf1ad93b2057033e9e9b93587f414f2545"
+        },
+        {
+          "query_id": "query_757",
+          "relevant_doc_id": "doc_155",
+          "norm_query_sha256": "bffd54abbc7d0483287754d0811fc5bcae092dd282963d91beaa8acc2f665f51"
+        },
+        {
+          "query_id": "query_325",
+          "relevant_doc_id": "doc_104",
+          "norm_query_sha256": "f7bde5df7be9a3f16c692f5dea61fabbb82de5657b53201d704e6d62d2ffa732"
+        },
+        {
+          "query_id": "query_1330",
+          "relevant_doc_id": "doc_112",
+          "norm_query_sha256": "4cb598097c2acf66dc4295107f7c2917d89315ab3d86dbb135e2f851521158f7"
+        },
+        {
+          "query_id": "query_1283",
+          "relevant_doc_id": "doc_6",
+          "norm_query_sha256": "3c406a10a1a8b4530976a6d5424fea197fa35d40068ed535810d4c261706bf93"
+        },
+        {
+          "query_id": "query_1097",
+          "relevant_doc_id": "doc_117",
+          "norm_query_sha256": "313cd1a6b9b622e8b5eabf72e739e75948b95163c67ddf17146585fb77353928"
+        },
+        {
+          "query_id": "query_1467",
+          "relevant_doc_id": "doc_127",
+          "norm_query_sha256": "51bae2af591ffe73d6357b2ee9051b437805fad60fc2ac5855eda5640b11e71f"
+        },
+        {
+          "query_id": "query_1266",
+          "relevant_doc_id": "doc_49",
+          "norm_query_sha256": "8b7ef07c14eae0e026796c58a5192a62b1a8b7856059ce832b8a3dcbb4104b32"
+        },
+        {
+          "query_id": "query_1023",
+          "relevant_doc_id": "doc_69",
+          "norm_query_sha256": "65a45a8a8999c045e763f1c518eba41053bead6ffbb48d6a6b3c2d3b7219b6bb"
+        },
+        {
+          "query_id": "query_1228",
+          "relevant_doc_id": "doc_188",
+          "norm_query_sha256": "d8b2a8528cb9a53ed48834ad86c7719fdbca3749cac36c7764e55000dac68bbb"
+        },
+        {
+          "query_id": "query_756",
+          "relevant_doc_id": "doc_185",
+          "norm_query_sha256": "383f7e1fb5a3c024e3e9bfcc02767d7831f52659f5a1bd47489c1a21135f6b12"
+        },
+        {
+          "query_id": "query_687",
+          "relevant_doc_id": "doc_43",
+          "norm_query_sha256": "cdad0dd13b02c30c1f94523ccd6bfe1a984b160621c29abb6af68fc584dcf9c7"
+        },
+        {
+          "query_id": "query_1034",
+          "relevant_doc_id": "doc_106",
+          "norm_query_sha256": "50babad2c8eb2e7a02bd2f9ae3a7f567b9ad9fd89cf14ca16d228eecbcdc378b"
+        },
+        {
+          "query_id": "query_1188",
+          "relevant_doc_id": "doc_62",
+          "norm_query_sha256": "97d60d984bff66d77664f5152ac587045dd1ed55b693be59f7c002d411a3e806"
+        },
+        {
+          "query_id": "query_662",
+          "relevant_doc_id": "doc_174",
+          "norm_query_sha256": "3298fc86d497d2be1b6bda9b171ea72cc28bd6f816fb4008b166e3fc481db8b8"
+        }
+      ]
+    },
+    "NanoNarrativeQA": {
+      "orig_task": "narrativeqa",
+      "orig_total_queries": 10449,
+      "nano_excluded_queries": 200,
+      "nano_excluded_pos_doc_groups": 163,
+      "nano_corpus_size": 355,
+      "nano_corpus_unique_text_hashes": 355,
+      "exact_200_of_200_nano_mapping_verified": true,
+      "fresh_eligible_doc_groups_total": 192,
+      "fresh_eligible_dedup_queries_total": 5616,
+      "fresh_selected_queries": 75,
+      "fresh_selected_doc_groups": 75,
+      "queries_per_doc_group": 1,
+      "disjointness_verified": {
+        "overlap_with_all_200_nano_qids": 0,
+        "overlap_with_all_200_nano_norm_qhashes": 0,
+        "overlap_with_all_nano_pos_docs": 0,
+        "overlap_with_dev_qids": 0,
+        "overlap_with_stage0_heldout_qids": 0,
+        "overlap_with_unlabeled_bg_qids": 0
+      },
+      "fresh_items": [
+        {
+          "query_id": "query_9346",
+          "relevant_doc_id": "doc_33",
+          "norm_query_sha256": "72770f6a36c9a17eef36624aa06a0246ab02439fdc5151e82bc30843a1dc3ded"
+        },
+        {
+          "query_id": "query_4906",
+          "relevant_doc_id": "doc_308",
+          "norm_query_sha256": "95249988727b17764ed8b866998b326acb4170a825d2a21bbf4075cf37364477"
+        },
+        {
+          "query_id": "query_10445",
+          "relevant_doc_id": "doc_78",
+          "norm_query_sha256": "f30a25d7fd3089614f86729310c6213fd8bb78360ef7e8544a390e56f108b781"
+        },
+        {
+          "query_id": "query_1707",
+          "relevant_doc_id": "doc_159",
+          "norm_query_sha256": "2e479d57e43f698022dc39dc817662837423b32589a887eb7ee7d17aaad9c1ed"
+        },
+        {
+          "query_id": "query_9422",
+          "relevant_doc_id": "doc_119",
+          "norm_query_sha256": "b9241bb6a27d5b9f76cb9d24ab0c5086c587adc5b28f00e5e7282e252e4f60ba"
+        },
+        {
+          "query_id": "query_4087",
+          "relevant_doc_id": "doc_17",
+          "norm_query_sha256": "6a1f86e2421785b0d6e56e4b8a5011cb278e0a5218d5c3cdfe6c67376f72efc8"
+        },
+        {
+          "query_id": "query_8891",
+          "relevant_doc_id": "doc_13",
+          "norm_query_sha256": "cf0b1e2c2859ed0bdaa4662e0dcafbaaf9595b83fc899d78dfb92cacdf69cf85"
+        },
+        {
+          "query_id": "query_9735",
+          "relevant_doc_id": "doc_27",
+          "norm_query_sha256": "9b4d482f9ff81ea6869f36b4e9e923f8fa7e1bb0442da5ca83948e71dbbb8e86"
+        },
+        {
+          "query_id": "query_7649",
+          "relevant_doc_id": "doc_264",
+          "norm_query_sha256": "8c9afbe2c2522726734903d1c72432f85c67fa3eec7d834ad882c8b10ce15199"
+        },
+        {
+          "query_id": "query_8162",
+          "relevant_doc_id": "doc_296",
+          "norm_query_sha256": "235548b20a697f75e7c9883a24d152e26a44c5c90511a81a8b9042704d58d9cc"
+        },
+        {
+          "query_id": "query_6092",
+          "relevant_doc_id": "doc_71",
+          "norm_query_sha256": "13d6715f2dcf3f3c94677b4f609c815fb6eaaee7874f1453d14b85d87db9483d"
+        },
+        {
+          "query_id": "query_5231",
+          "relevant_doc_id": "doc_187",
+          "norm_query_sha256": "7c2e415a8f3e122f27f6125c7bfffe2a5af02b840423234cfa06a80cb6fd9213"
+        },
+        {
+          "query_id": "query_2163",
+          "relevant_doc_id": "doc_194",
+          "norm_query_sha256": "63f5cc66f4bc2f992e2186481db0ff2d164b82767a5c118b9fcb712cab032fd1"
+        },
+        {
+          "query_id": "query_8218",
+          "relevant_doc_id": "doc_91",
+          "norm_query_sha256": "92de75a0ccb05eeb8d0c02984f9ddf0851dad964a0c6b4d24b39a0e56d94c65f"
+        },
+        {
+          "query_id": "query_956",
+          "relevant_doc_id": "doc_290",
+          "norm_query_sha256": "374415cb41a3a520dc8f4b1cae104f12ce9cab8e0247eb63fba79e963d0df6aa"
+        },
+        {
+          "query_id": "query_8624",
+          "relevant_doc_id": "doc_242",
+          "norm_query_sha256": "958b539736ca0b96a83c1da41901c0c46e8ec0a459ad7ec6de34d3e456670548"
+        },
+        {
+          "query_id": "query_413",
+          "relevant_doc_id": "doc_118",
+          "norm_query_sha256": "136db246d10c4f67c4e45b937ef18beb10317b0f4da7ef0fcf7fbc6b73c916ce"
+        },
+        {
+          "query_id": "query_756",
+          "relevant_doc_id": "doc_223",
+          "norm_query_sha256": "4ac5af561cc6446313d1df5e4b51e56256b0ddd24e2e430bf0856148bb429066"
+        },
+        {
+          "query_id": "query_5201",
+          "relevant_doc_id": "doc_339",
+          "norm_query_sha256": "8f11730a9e14ce37416727e92e3d12d3323f392b8f1b67ccf2c97802a761bb35"
+        },
+        {
+          "query_id": "query_6067",
+          "relevant_doc_id": "doc_168",
+          "norm_query_sha256": "d4c509ea23cd2158aec5fd757db6ace09d9b3180005840710f6f39f7a48c729c"
+        },
+        {
+          "query_id": "query_6768",
+          "relevant_doc_id": "doc_135",
+          "norm_query_sha256": "4bb4ad4bdc08093dcbe7d03a6a7e0bb6fea1b770e1c35a731160c433d1ed5680"
+        },
+        {
+          "query_id": "query_7138",
+          "relevant_doc_id": "doc_100",
+          "norm_query_sha256": "015887d06d315acbae7a4869de63d0b99524b0a655ba757fa5c632fc9858c11d"
+        },
+        {
+          "query_id": "query_7761",
+          "relevant_doc_id": "doc_79",
+          "norm_query_sha256": "56156f3a83aa9dd74eb234774fd2679835e4815409f43516505414a879c3cdfb"
+        },
+        {
+          "query_id": "query_3514",
+          "relevant_doc_id": "doc_114",
+          "norm_query_sha256": "bc2cb2dd481b29deb7200ef15496da8b542f78ca337c6c8a21ba38bd8ba0bed2"
+        },
+        {
+          "query_id": "query_5764",
+          "relevant_doc_id": "doc_343",
+          "norm_query_sha256": "b1c977b1c196e8debea4b93196e6117ead8a3182647be7202c6e23d66c2e7eb3"
+        },
+        {
+          "query_id": "query_6336",
+          "relevant_doc_id": "doc_142",
+          "norm_query_sha256": "54bf5ff2c24578af7363cd12107d2d99c1845aefa85d7e04c02af85c0986d926"
+        },
+        {
+          "query_id": "query_3680",
+          "relevant_doc_id": "doc_345",
+          "norm_query_sha256": "30354a0aff5790db1fd6ffdd7d77d61aee27f8f6c7bac2cef0aff0817579cf4b"
+        },
+        {
+          "query_id": "query_3356",
+          "relevant_doc_id": "doc_325",
+          "norm_query_sha256": "b14fe6b4dfd297cf5dc7c13cbf1c1777df55501ac668a958fecffcdea296160d"
+        },
+        {
+          "query_id": "query_8408",
+          "relevant_doc_id": "doc_8",
+          "norm_query_sha256": "fde3a6c0c46a5a10dfdac57a72cee89a31d82dcf753c9231f5b6caacc3646201"
+        },
+        {
+          "query_id": "query_4958",
+          "relevant_doc_id": "doc_2",
+          "norm_query_sha256": "c23029f6e735fbd8db57399ef98767f9d9ab1b657461e4f02cc070b293b356b2"
+        },
+        {
+          "query_id": "query_5111",
+          "relevant_doc_id": "doc_145",
+          "norm_query_sha256": "245d13230d56f18c36defdb6938dc761d3371cdd642d36e931b9f9909daf6df3"
+        },
+        {
+          "query_id": "query_2104",
+          "relevant_doc_id": "doc_286",
+          "norm_query_sha256": "9310086532a20ee749fbc14c3e45b9b285ff788aa23fdd18adb5fd964f493406"
+        },
+        {
+          "query_id": "query_2843",
+          "relevant_doc_id": "doc_24",
+          "norm_query_sha256": "6647f2f6dc09d2c3fa350b2c6711d7a79e2d7c0485d54538ae299422b776d717"
+        },
+        {
+          "query_id": "query_7058",
+          "relevant_doc_id": "doc_164",
+          "norm_query_sha256": "a7f2896448f72a0398bc2b8b9bce257f39ad27728de6c950d5a48b3dad8696e0"
+        },
+        {
+          "query_id": "query_5761",
+          "relevant_doc_id": "doc_60",
+          "norm_query_sha256": "e09a426fd853176cff76568c4d281da95e08296942a2fb5b2bc900fdc918a1bd"
+        },
+        {
+          "query_id": "query_5155",
+          "relevant_doc_id": "doc_237",
+          "norm_query_sha256": "d50ffa6215b8ef56e5a6b5f5b47140623ce0777127cd3eb92bf8f636781ced3a"
+        },
+        {
+          "query_id": "query_9385",
+          "relevant_doc_id": "doc_175",
+          "norm_query_sha256": "12b5c7ee087efe664d5a8588ddab9ea08038e87efb8151d0f9934f3042f851a7"
+        },
+        {
+          "query_id": "query_4855",
+          "relevant_doc_id": "doc_240",
+          "norm_query_sha256": "8a231514030350d31bcbbc0e6e94958f7855e822ee78a9c84cfb2f94dd353529"
+        },
+        {
+          "query_id": "query_1885",
+          "relevant_doc_id": "doc_289",
+          "norm_query_sha256": "c4a4790d58cc834d8ae295daa8541ce0850d539006eaa9b46fa84bc28966b3dd"
+        },
+        {
+          "query_id": "query_1923",
+          "relevant_doc_id": "doc_295",
+          "norm_query_sha256": "bb76f738ff9fb9821d315b034e780d2e6aafd1a2b911f72ed14f14e09018a6c7"
+        },
+        {
+          "query_id": "query_5239",
+          "relevant_doc_id": "doc_167",
+          "norm_query_sha256": "e0bafadeb616be5ec0f913845684e46e1a7b85dcbcf50754db241bc4338ade77"
+        },
+        {
+          "query_id": "query_238",
+          "relevant_doc_id": "doc_123",
+          "norm_query_sha256": "328cb7b6d6ba4758b7ea72d524fbc3f1860407394da74e3bbfd8e0b996051258"
+        },
+        {
+          "query_id": "query_630",
+          "relevant_doc_id": "doc_351",
+          "norm_query_sha256": "49c79113bb2de555676fdd533869cfbcca1922c3db1ec1176fdcc2550c276652"
+        },
+        {
+          "query_id": "query_2272",
+          "relevant_doc_id": "doc_126",
+          "norm_query_sha256": "8cd99b145ac73a04349f5623c2a8d141aecc457f5778c91e16d0a673bbb52505"
+        },
+        {
+          "query_id": "query_2108",
+          "relevant_doc_id": "doc_267",
+          "norm_query_sha256": "8ce92e85cf56b6c3a6b5d7bc88e92922c66e0de7d1dca6470f9a2d2a43fb952f"
+        },
+        {
+          "query_id": "query_349",
+          "relevant_doc_id": "doc_104",
+          "norm_query_sha256": "713db9a78a3ed658d1a14b9cd1fab1094d7d838a4c08ceab634cbe78c9999287"
+        },
+        {
+          "query_id": "query_4094",
+          "relevant_doc_id": "doc_44",
+          "norm_query_sha256": "7e73a5af996b75d10d2664e864a53479887e95a34c0cb16327b60fe4301c8a30"
+        },
+        {
+          "query_id": "query_840",
+          "relevant_doc_id": "doc_15",
+          "norm_query_sha256": "9a9911868cbde653aef7fcc093be6fe883120d7a94cada800762ab72e9c77742"
+        },
+        {
+          "query_id": "query_5692",
+          "relevant_doc_id": "doc_102",
+          "norm_query_sha256": "e7cb515143037a01d27ee73c592120d2cf5ac3f28b1f837a80016365ffd4fd51"
+        },
+        {
+          "query_id": "query_4745",
+          "relevant_doc_id": "doc_261",
+          "norm_query_sha256": "3ecaed035c74ce6aa7ecbe9e496d4645b9ea45124dbd5dd8eb0ab116b4abc0af"
+        },
+        {
+          "query_id": "query_1776",
+          "relevant_doc_id": "doc_282",
+          "norm_query_sha256": "7cdf9a15c3ea87dd47f12eedc19589880a694c6cc09aa73032a0cfdf6d026dad"
+        },
+        {
+          "query_id": "query_1857",
+          "relevant_doc_id": "doc_84",
+          "norm_query_sha256": "45fae4f2e674a8b37e20b07f1d7ed69e38b6fce388f990081bacaadd1abf83b6"
+        },
+        {
+          "query_id": "query_439",
+          "relevant_doc_id": "doc_304",
+          "norm_query_sha256": "87542328511b1f7fd440cacb2c1b01badc7638bec057d78e28b3bb26810a20b9"
+        },
+        {
+          "query_id": "query_2153",
+          "relevant_doc_id": "doc_86",
+          "norm_query_sha256": "12bb7f74912c83b45565633538f218990f8d52a68358d332b427ae30570fe05a"
+        },
+        {
+          "query_id": "query_6104",
+          "relevant_doc_id": "doc_106",
+          "norm_query_sha256": "09e4e868ccaa7dd6871a2b0520f308ae3bc8989d0d341ddebd161d7ae390dab0"
+        },
+        {
+          "query_id": "query_7654",
+          "relevant_doc_id": "doc_179",
+          "norm_query_sha256": "621a635454f0ce610c50342798947113eac70c83c186c7c921fbf23d5f55efa8"
+        },
+        {
+          "query_id": "query_3555",
+          "relevant_doc_id": "doc_207",
+          "norm_query_sha256": "bffa7075df48d5e4268b18c0e731ab9ab38582c6a118267382cb66ea7013a228"
+        },
+        {
+          "query_id": "query_3393",
+          "relevant_doc_id": "doc_195",
+          "norm_query_sha256": "a1bcc21b3f426dd48761712162003a645d6a59a54f122a6196507bb2fc2a3341"
+        },
+        {
+          "query_id": "query_2687",
+          "relevant_doc_id": "doc_285",
+          "norm_query_sha256": "27abdb6e164655c2aa05083c48c7d3a9564e2e18ba3966345c3ca598cfff47f1"
+        },
+        {
+          "query_id": "query_10146",
+          "relevant_doc_id": "doc_327",
+          "norm_query_sha256": "4ecb19838fe0fb81e2a08e8e27eeb586772758e3e9cbde6bee6c774fb9acbfbd"
+        },
+        {
+          "query_id": "query_4463",
+          "relevant_doc_id": "doc_55",
+          "norm_query_sha256": "61ddbe41fd6e8d54c09f9bb9c75030b7cbb5c7d279c501c6d49899106e72da7e"
+        },
+        {
+          "query_id": "query_407",
+          "relevant_doc_id": "doc_303",
+          "norm_query_sha256": "5271ddf34ea4404807e41b14add5377255e5d458d146608090d6a2ba9cad7dac"
+        },
+        {
+          "query_id": "query_8361",
+          "relevant_doc_id": "doc_287",
+          "norm_query_sha256": "854f6e8253e5dfb2b80d17745cbad0195cf3e25282c5f6d8a2a01dfe328ae1fe"
+        },
+        {
+          "query_id": "query_725",
+          "relevant_doc_id": "doc_253",
+          "norm_query_sha256": "72da024b28017e1ac6d3de8da6d8cb47d386f8504cb09c4c32ad7f5e9e1fe573"
+        },
+        {
+          "query_id": "query_5440",
+          "relevant_doc_id": "doc_228",
+          "norm_query_sha256": "13cae2f838b09e09478fff456f0fbb378239b5535178cd323dbae5a910eaa42e"
+        },
+        {
+          "query_id": "query_7317",
+          "relevant_doc_id": "doc_36",
+          "norm_query_sha256": "f7c1c41a4eddccfd17de8f2e1f98e75c3a4e6621054e25f7cb795759d7216239"
+        },
+        {
+          "query_id": "query_7633",
+          "relevant_doc_id": "doc_279",
+          "norm_query_sha256": "96047ef73ad78b1b56e802dedf76137ca5963ad4c5a2ec07d86e94a54a08e9eb"
+        },
+        {
+          "query_id": "query_720",
+          "relevant_doc_id": "doc_251",
+          "norm_query_sha256": "3895c7152d5c16ce6d6d755204ec1645195734c18622ddbf0cc15254fde356e4"
+        },
+        {
+          "query_id": "query_2548",
+          "relevant_doc_id": "doc_170",
+          "norm_query_sha256": "9fd6ace4976eed0c9679d02f33ffbcf29a889f35e537788aa81e2f28647dc20c"
+        },
+        {
+          "query_id": "query_6731",
+          "relevant_doc_id": "doc_35",
+          "norm_query_sha256": "9dfad96851a6c01872d55350dd6e3e466f8d9467a1f7b5204b53433d3eed31a7"
+        },
+        {
+          "query_id": "query_10046",
+          "relevant_doc_id": "doc_239",
+          "norm_query_sha256": "73f9e0a610084e41ed5e4c28c6fe141e1b6618d1469e95f97060184919686798"
+        },
+        {
+          "query_id": "query_4542",
+          "relevant_doc_id": "doc_171",
+          "norm_query_sha256": "90d3a3cdf5d6bf0b10de9cf70b7f024576c6f91f3a95f404c0d0d33f6e1cb7ab"
+        },
+        {
+          "query_id": "query_7235",
+          "relevant_doc_id": "doc_37",
+          "norm_query_sha256": "188997ae47894b2ec01eee8d15da8d3777dee1e7847f9bc2c7912c984ea2543d"
+        },
+        {
+          "query_id": "query_762",
+          "relevant_doc_id": "doc_141",
+          "norm_query_sha256": "28c6f97a70052300bbf4a0b865bb8d4a7e3ffed193b069c0a8dcc1bfd0e1279d"
+        },
+        {
+          "query_id": "query_4595",
+          "relevant_doc_id": "doc_233",
+          "norm_query_sha256": "1183c6f84ff66b088616dc17f2eccfa9cbb4030fdb34a9e27402d96e6e839452"
+        }
+      ]
+    }
+  }
+}

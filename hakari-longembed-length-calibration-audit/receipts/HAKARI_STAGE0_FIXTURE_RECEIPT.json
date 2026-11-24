@@ -1,0 +1,57 @@
+{
+  "purpose": "Pre-launch Stage-0 fixture gate: group-disjoint splits (zero query & relevant-doc overlap), exact HAKARI nDCG@10 parity, and synthetic monotonicity/sparse-tie/length-calibration checks.",
+  "core_py_sha256": "1a936b34e6bd5546de8a677a7cdcd024107de69fa8649afa9e950680616885e3",
+  "splits_receipt_sha256": "5d1118ea1b2c9419a618890569c95aac4ee6e32b60d9447dfee710e043e5f8e8",
+  "all_fixtures_passed": true,
+  "official_ndcg10_parity_all200": {
+    "NanoQMSum": {
+      "bm25_ndcg10_all200": 0.7440343572039869,
+      "hybrid_top100_ndcg10_all200": 0.6097115250809406
+    },
+    "NanoNarrativeQA": {
+      "bm25_ndcg10_all200": 0.7619326236299938,
+      "hybrid_top100_ndcg10_all200": 0.5120401789983451
+    }
+  },
+  "split_sizes": {
+    "NanoQMSum": {
+      "dev_q": 51,
+      "dev_groups": 31,
+      "heldout_q": 51,
+      "heldout_groups": 31,
+      "bg_unlabeled_q": 98
+    },
+    "NanoNarrativeQA": {
+      "dev_q": 52,
+      "dev_groups": 43,
+      "heldout_q": 50,
+      "heldout_groups": 41,
+      "bg_unlabeled_q": 98
+    }
+  },
+  "synthetic_calibrator_probe_short_vs_long": {
+    "z_levels": [
+      0.0,
+      2.0,
+      5.0,
+      10.0,
+      20.0
+    ],
+    "short_n4_calibrated": [
+      0.07487722613659502,
+      1.8082215132218005,
+      9.101085600784925,
+      23.24494692692008,
+      51.53266957919039
+    ],
+    "long_n64_calibrated": [
+      0.000333292900230707,
+      0.43987252308052915,
+      6.867473771640308,
+      22.44078520322006,
+      53.587408066379574
+    ],
+    "strictly_monotone_through_extreme_tail": true,
+    "short_doc_rarer_than_long_doc_at_equal_max": true
+  }
+}
