@@ -1,0 +1,343 @@
+{
+  "protocol": "STAGE0_PORYOS_FEASIBILITY_PROTOCOL.md (with Pre-Scoring Erratum v1.1)",
+  "protocol_sha256": "447430fb58b65a9cb0dffdeced9691b9736a43affe89ee03eb4ced4224b427c6",
+  "pre_erratum_protocol_sha256": "28bc316cb87cb3389573481d5e163d6cf5b48265bdd4bc0c0fe55c490a4a61fb",
+  "runner_sha256": "51b5b522b9dcbdca25f2ff72cba30e8bcbdc639e9feb42bfd4a407a9ecda8ce7",
+  "poryos2026_commit": "0400ed2c3a27ed36f725034a38873b69d3af1dea",
+  "mamut_routing_lib_version": "0.12.0",
+  "real_pid": 56384,
+  "wall_time_s": 1317.615,
+  "blauth2024_unopened": true,
+  "primary_n10_n25_40": {
+    "n_cases": 40,
+    "outcome_counts": {
+      "NO_OP_RESCHEDULE_FEASIBLE": 40
+    },
+    "n_genuine_reparable_pairs": 0,
+    "n_genuine_unique_bases": 0,
+    "n_genuine_cities": 0,
+    "genuine_cities": [],
+    "unique_genuine_bases_per_city": {},
+    "n_unique_genuine_bases_per_city": {},
+    "bks_violated_diag_count": 0,
+    "extra_vehicle_rescue_diag_count": 0,
+    "mean_inc_gap_vs_bks_pct": 0.02,
+    "pass_published_gate_ge15_pairs_and_ge3_cities": false,
+    "pass_strict_unique_bases_ge15_and_ge3_cities": false
+  },
+  "optional_n50_20": {
+    "n_cases": 20,
+    "outcome_counts": {
+      "NO_OP_RESCHEDULE_FEASIBLE": 19,
+      "GENUINE_EDIT_REQUIRED_REPARABLE": 1
+    },
+    "n_genuine_reparable_pairs": 1,
+    "n_genuine_unique_bases": 1,
+    "n_genuine_cities": 1,
+    "genuine_cities": [
+      "san_francisco"
+    ],
+    "unique_genuine_bases_per_city": {
+      "san_francisco": [
+        "poryos-san_francisco-n50-poi"
+      ]
+    },
+    "n_unique_genuine_bases_per_city": {
+      "san_francisco": 1
+    },
+    "bks_violated_diag_count": 3,
+    "extra_vehicle_rescue_diag_count": 0,
+    "mean_inc_gap_vs_bks_pct": 1.147,
+    "pass_published_gate_ge15_pairs_and_ge3_cities": false,
+    "pass_strict_unique_bases_ge15_and_ge3_cities": false
+  },
+  "combined_n10_n25_n50_60": {
+    "n_cases": 60,
+    "outcome_counts": {
+      "NO_OP_RESCHEDULE_FEASIBLE": 59,
+      "GENUINE_EDIT_REQUIRED_REPARABLE": 1
+    },
+    "n_genuine_reparable_pairs": 1,
+    "n_genuine_unique_bases": 1,
+    "n_genuine_cities": 1,
+    "genuine_cities": [
+      "san_francisco"
+    ],
+    "unique_genuine_bases_per_city": {
+      "san_francisco": [
+        "poryos-san_francisco-n50-poi"
+      ]
+    },
+    "n_unique_genuine_bases_per_city": {
+      "san_francisco": 1
+    },
+    "bks_violated_diag_count": 3,
+    "extra_vehicle_rescue_diag_count": 0,
+    "mean_inc_gap_vs_bks_pct": 0.396,
+    "pass_published_gate_ge15_pairs_and_ge3_cities": false,
+    "pass_strict_unique_bases_ge15_and_ge3_cities": false
+  },
+  "by_size": {
+    "10": {
+      "n_cases": 20,
+      "outcome_counts": {
+        "NO_OP_RESCHEDULE_FEASIBLE": 20
+      },
+      "n_genuine_reparable_pairs": 0,
+      "n_genuine_unique_bases": 0,
+      "n_genuine_cities": 0,
+      "genuine_cities": [],
+      "unique_genuine_bases_per_city": {},
+      "n_unique_genuine_bases_per_city": {},
+      "bks_violated_diag_count": 0,
+      "extra_vehicle_rescue_diag_count": 0,
+      "mean_inc_gap_vs_bks_pct": 0.0,
+      "pass_published_gate_ge15_pairs_and_ge3_cities": false,
+      "pass_strict_unique_bases_ge15_and_ge3_cities": false
+    },
+    "25": {
+      "n_cases": 20,
+      "outcome_counts": {
+        "NO_OP_RESCHEDULE_FEASIBLE": 20
+      },
+      "n_genuine_reparable_pairs": 0,
+      "n_genuine_unique_bases": 0,
+      "n_genuine_cities": 0,
+      "genuine_cities": [],
+      "unique_genuine_bases_per_city": {},
+      "n_unique_genuine_bases_per_city": {},
+      "bks_violated_diag_count": 0,
+      "extra_vehicle_rescue_diag_count": 0,
+      "mean_inc_gap_vs_bks_pct": 0.041,
+      "pass_published_gate_ge15_pairs_and_ge3_cities": false,
+      "pass_strict_unique_bases_ge15_and_ge3_cities": false
+    },
+    "50": {
+      "n_cases": 20,
+      "outcome_counts": {
+        "NO_OP_RESCHEDULE_FEASIBLE": 19,
+        "GENUINE_EDIT_REQUIRED_REPARABLE": 1
+      },
+      "n_genuine_reparable_pairs": 1,
+      "n_genuine_unique_bases": 1,
+      "n_genuine_cities": 1,
+      "genuine_cities": [
+        "san_francisco"
+      ],
+      "unique_genuine_bases_per_city": {
+        "san_francisco": [
+          "poryos-san_francisco-n50-poi"
+        ]
+      },
+      "n_unique_genuine_bases_per_city": {
+        "san_francisco": 1
+      },
+      "bks_violated_diag_count": 3,
+      "extra_vehicle_rescue_diag_count": 0,
+      "mean_inc_gap_vs_bks_pct": 1.147,
+      "pass_published_gate_ge15_pairs_and_ge3_cities": false,
+      "pass_strict_unique_bases_ge15_and_ge3_cities": false
+    }
+  },
+  "by_transition": {
+    "bpr-light->bpr-heavy": {
+      "n_cases": 30,
+      "outcome_counts": {
+        "NO_OP_RESCHEDULE_FEASIBLE": 29,
+        "GENUINE_EDIT_REQUIRED_REPARABLE": 1
+      },
+      "n_genuine_reparable_pairs": 1,
+      "n_genuine_unique_bases": 1,
+      "n_genuine_cities": 1,
+      "genuine_cities": [
+        "san_francisco"
+      ],
+      "unique_genuine_bases_per_city": {
+        "san_francisco": [
+          "poryos-san_francisco-n50-poi"
+        ]
+      },
+      "n_unique_genuine_bases_per_city": {
+        "san_francisco": 1
+      },
+      "bks_violated_diag_count": 2,
+      "extra_vehicle_rescue_diag_count": 0,
+      "mean_inc_gap_vs_bks_pct": 0.414,
+      "pass_published_gate_ge15_pairs_and_ge3_cities": false,
+      "pass_strict_unique_bases_ge15_and_ge3_cities": false
+    },
+    "wave-light->wave-heavy": {
+      "n_cases": 30,
+      "outcome_counts": {
+        "NO_OP_RESCHEDULE_FEASIBLE": 30
+      },
+      "n_genuine_reparable_pairs": 0,
+      "n_genuine_unique_bases": 0,
+      "n_genuine_cities": 0,
+      "genuine_cities": [],
+      "unique_genuine_bases_per_city": {},
+      "n_unique_genuine_bases_per_city": {},
+      "bks_violated_diag_count": 1,
+      "extra_vehicle_rescue_diag_count": 0,
+      "mean_inc_gap_vs_bks_pct": 0.378,
+      "pass_published_gate_ge15_pairs_and_ge3_cities": false,
+      "pass_strict_unique_bases_ge15_and_ge3_cities": false
+    }
+  },
+  "decision": "STOP_STAGE0_INSUFFICIENT_GENUINE_REPAIR_CASES",
+  "per_case_jsonl": "stage0_poryos_per_case.jsonl",
+  "per_case_sha256": "9f3e3baeeb7c403d2dd3ea465118749808fd084ff0aa18be802dfe13993fadf7",
+  "n_sidecars_verified": 150,
+  "sidecar_sha256": {
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-hyb/poryos-hong_kong-n10-hyb.road.json.gz": "dc91d31177e4b150000ee716228c7590b774eda7e80509a576b4dc970e70cf57",
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-hyb/poryos-hong_kong-n10-hyb.traffic-bpr-light.json.gz": "58df8ae19f65b87f2965c65caa134add60f310fbbd694b63bce8589eece690c3",
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-hyb/poryos-hong_kong-n10-hyb.traffic-bpr-heavy.json.gz": "5cbffdd3bca99e29fefdf89a762d0322682bd6f609bf333596c35ffc13d595ea",
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-hyb/poryos-hong_kong-n10-hyb.traffic-wave-light.json.gz": "a9471cca056700245128ace84ac59c487c17d75afbea616c4f064f6160bdc6bd",
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-hyb/poryos-hong_kong-n10-hyb.traffic-wave-heavy.json.gz": "82944bcc277a5c048b30104fb727f9601db2beba4e5c653417149ee9622c2e77",
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-poi/poryos-hong_kong-n10-poi.road.json.gz": "dcfd9523ec945c06380929b4ca2e436b8f038b7b0936477ddd2b9ab077b40f21",
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-poi/poryos-hong_kong-n10-poi.traffic-bpr-light.json.gz": "31deb1dd8d69188cbaef489b2a403f707aef21afc8b71e18533aa9fb2b02fe24",
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-poi/poryos-hong_kong-n10-poi.traffic-bpr-heavy.json.gz": "bf5ba3f4c5525d0f353a863a326db6834344ee3a97a5e5f681a95d7a08fd2689",
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-poi/poryos-hong_kong-n10-poi.traffic-wave-light.json.gz": "268adcf6edc9b105abe69253b82e8016d8a60a3abb84bea667aadd1c020a98a5",
+    "sidecars/hong_kong/n=10/poryos-hong_kong-n10-poi/poryos-hong_kong-n10-poi.traffic-wave-heavy.json.gz": "42d421d9ee50c858bcb605134520135d27416901550e440edf320faef1a2878f",
+    "sidecars/lyon/n=10/poryos-lyon-n10-hyb/poryos-lyon-n10-hyb.road.json.gz": "d60f4ffa811aa9b87bc96ed142d9ee9f575fa191344d541c7768d6eba0e76bfb",
+    "sidecars/lyon/n=10/poryos-lyon-n10-hyb/poryos-lyon-n10-hyb.traffic-bpr-light.json.gz": "44c0546434913a643809a7a164e72569e4d24499ef1295a84547995d19dd252a",
+    "sidecars/lyon/n=10/poryos-lyon-n10-hyb/poryos-lyon-n10-hyb.traffic-bpr-heavy.json.gz": "2d9b2c9fd24b983956f6a2027bded32d811ec528036c3c14352bd1493c850186",
+    "sidecars/lyon/n=10/poryos-lyon-n10-hyb/poryos-lyon-n10-hyb.traffic-wave-light.json.gz": "4bad076492cb1bc4d7cae5c75230e2982102a1f032684af12b1bf423dd17629c",
+    "sidecars/lyon/n=10/poryos-lyon-n10-hyb/poryos-lyon-n10-hyb.traffic-wave-heavy.json.gz": "9ba04d64ab262d2e20ceacd86025c4dc92f323a58a82a5e8f7077a7d4b69d6a4",
+    "sidecars/lyon/n=10/poryos-lyon-n10-poi/poryos-lyon-n10-poi.road.json.gz": "c5d51ed2b5fb771bd66edd22f4f14031d8609d683f48acd9f4512a38124b681a",
+    "sidecars/lyon/n=10/poryos-lyon-n10-poi/poryos-lyon-n10-poi.traffic-bpr-light.json.gz": "74af802c41aedf9324ca5b720ce5c6fc6821d7cce19df9127cf6c492f3426e1d",
+    "sidecars/lyon/n=10/poryos-lyon-n10-poi/poryos-lyon-n10-poi.traffic-bpr-heavy.json.gz": "78a94a25dd65b812efab91d9cf3df0dc6fae5f2bbfc91ec57f6071fc3d210239",
+    "sidecars/lyon/n=10/poryos-lyon-n10-poi/poryos-lyon-n10-poi.traffic-wave-light.json.gz": "59e473286ced39cb177f723a87898579af193de91ca33925a845386168c6ea0c",
+    "sidecars/lyon/n=10/poryos-lyon-n10-poi/poryos-lyon-n10-poi.traffic-wave-heavy.json.gz": "71c7ecbe0f5faa01c135c79ee581b67b4fe3532607f4e49e565b1d1bbee2a76e",
+    "sidecars/paris/n=10/poryos-paris-n10-hyb/poryos-paris-n10-hyb.road.json.gz": "cd6575910d9f0117391a9aa3eda3af9c69a1f9ecf68287e3d3ac4c67004cd93e",
+    "sidecars/paris/n=10/poryos-paris-n10-hyb/poryos-paris-n10-hyb.traffic-bpr-light.json.gz": "647a3cfc0b1b059c93390ebb82cfca4461af56cd7134a499f7557ceceb522dad",
+    "sidecars/paris/n=10/poryos-paris-n10-hyb/poryos-paris-n10-hyb.traffic-bpr-heavy.json.gz": "873eb4b4c158e715d7580260499a22e796c651f3234409336e223ea5f5c8691b",
+    "sidecars/paris/n=10/poryos-paris-n10-hyb/poryos-paris-n10-hyb.traffic-wave-light.json.gz": "728dec77d32a2419401c56a83b4aa2b08c2d09eb40d7e7a489a85dd36c02ddf3",
+    "sidecars/paris/n=10/poryos-paris-n10-hyb/poryos-paris-n10-hyb.traffic-wave-heavy.json.gz": "7cb4bff7f7eb18ba81cdcc8c18ca35867ea547c4a57fda68b2f4de4c9aeb0352",
+    "sidecars/paris/n=10/poryos-paris-n10-poi/poryos-paris-n10-poi.road.json.gz": "acc53dfd99bc5003175f93bfe9ff293b53d6c0babe0cbb3adc7af3116e7f03bf",
+    "sidecars/paris/n=10/poryos-paris-n10-poi/poryos-paris-n10-poi.traffic-bpr-light.json.gz": "3549e894552e1c1eed759a2c4fc16600cf2cadd17359eeaf912c58d3af46642c",
+    "sidecars/paris/n=10/poryos-paris-n10-poi/poryos-paris-n10-poi.traffic-bpr-heavy.json.gz": "3d446308ebeba8b9df6a15763da2c17b8859654585a766012072a6c2075f3232",
+    "sidecars/paris/n=10/poryos-paris-n10-poi/poryos-paris-n10-poi.traffic-wave-light.json.gz": "852be9f009a888900fe735d6c0740b0fc4c9f9e5fdba924c0024a4939e33ef7e",
+    "sidecars/paris/n=10/poryos-paris-n10-poi/poryos-paris-n10-poi.traffic-wave-heavy.json.gz": "bafe1b79e85c2c328a9e38a789618095efa3dae181c37601645dd22ac4ec7789",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-hyb/poryos-san_francisco-n10-hyb.road.json.gz": "e018ef7c772cd88a7923d275c4e58add4483af0b8b319025fc1779731f2ea5ab",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-hyb/poryos-san_francisco-n10-hyb.traffic-bpr-light.json.gz": "a94d6a0c11a9bd8512ca2e1688427c8fbb385756446ea55f9b0e4c32076c01ef",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-hyb/poryos-san_francisco-n10-hyb.traffic-bpr-heavy.json.gz": "71c485a2edb5be975345493a3e96a69e7be649cf48ab11b967127183b9b0d56a",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-hyb/poryos-san_francisco-n10-hyb.traffic-wave-light.json.gz": "1c9d994d976472f439b99374087baa06e7b6583f3535445d12be8d1625434f58",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-hyb/poryos-san_francisco-n10-hyb.traffic-wave-heavy.json.gz": "aceb6aa9b5edd262f3ac9b8f19bb12cc1300e83eb8b143463a080855f270a8da",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-poi/poryos-san_francisco-n10-poi.road.json.gz": "eaf07bde852ebedebd860b604e84744fe052d07bbddf1dead12a83aec54bfdc2",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-poi/poryos-san_francisco-n10-poi.traffic-bpr-light.json.gz": "7fee448ab69a263b3c6f5618f7d690f3e16821915bd98ea737e7c1a4e17bf3e2",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-poi/poryos-san_francisco-n10-poi.traffic-bpr-heavy.json.gz": "67f19c797c4480bcaf8e684e467c1f012142cea8298bb7d37e61f523f61393be",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-poi/poryos-san_francisco-n10-poi.traffic-wave-light.json.gz": "75622678d4035c017d8c7bbbb0cae884ea65d0798246e1ce6eb8c0e8c4baef11",
+    "sidecars/san_francisco/n=10/poryos-san_francisco-n10-poi/poryos-san_francisco-n10-poi.traffic-wave-heavy.json.gz": "74370c68a73297c20200c0fa2fd39f2507b685e8017207d237a8130fb7908f00",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-hyb/poryos-tokyo-n10-hyb.road.json.gz": "36707acee351c96d726daea4c7382b886dd146049e9ee253a880418ae079f8e1",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-hyb/poryos-tokyo-n10-hyb.traffic-bpr-light.json.gz": "8caebc8edd811999e115df5e016f77cd6f854757055617fd9517a3a865471423",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-hyb/poryos-tokyo-n10-hyb.traffic-bpr-heavy.json.gz": "83610526bdb7931e3d4bfcc132c31d1631e6e50d243f7b4e246f2d5c41541766",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-hyb/poryos-tokyo-n10-hyb.traffic-wave-light.json.gz": "481375cd55ac605cdd4a8c67af5d79fa66e1ff31756ff0d13346d368497877c2",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-hyb/poryos-tokyo-n10-hyb.traffic-wave-heavy.json.gz": "80e5e4cc31837fc30fc1311f1ce01d21aacc54d979a13a815e25a415a582a385",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-poi/poryos-tokyo-n10-poi.road.json.gz": "7b5d384fb63d20c3428de1d9d8cb899bb2eedcc7875cb861d36433c74ada7dc6",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-poi/poryos-tokyo-n10-poi.traffic-bpr-light.json.gz": "1038523dcde822f9edbab81858dd76ea7312b7cbe076f7426d5ad24d227ca489",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-poi/poryos-tokyo-n10-poi.traffic-bpr-heavy.json.gz": "e681df4ad6163d91cd90d7a0f96ddf835e31bb3401deba8c5e0a127d1b29eb37",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-poi/poryos-tokyo-n10-poi.traffic-wave-light.json.gz": "75b0a05e6ec86649e6a062ef2de755f5053afd8c206ccb348c9596be4df1aa72",
+    "sidecars/tokyo/n=10/poryos-tokyo-n10-poi/poryos-tokyo-n10-poi.traffic-wave-heavy.json.gz": "91d7ee5b43a512d76f5e3105011f4797afab4cd0f73c21deb9588ec1b02ebec2",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-hyb/poryos-hong_kong-n25-hyb.road.json.gz": "e29f4706ccf9e2e1c3a305c8c694f34aaa69689bbfc7396a5205c891e3f792d9",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-hyb/poryos-hong_kong-n25-hyb.traffic-bpr-light.json.gz": "8c71b9c32425ebc1331f8eea617bcbcecdd93a67926719521e2e4471a420d52c",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-hyb/poryos-hong_kong-n25-hyb.traffic-bpr-heavy.json.gz": "e442cacac0acf0447536564121002483391fee7172cc381298771e33efa03b52",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-hyb/poryos-hong_kong-n25-hyb.traffic-wave-light.json.gz": "aa033705744425d5472dcae9cd3a6d227b873bbcca9581c68441039fbcd1377c",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-hyb/poryos-hong_kong-n25-hyb.traffic-wave-heavy.json.gz": "43ede283d911c92468f124bf7ab435204caf1d2eef5fb990c9ca03b39b8c479f",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-poi/poryos-hong_kong-n25-poi.road.json.gz": "91f5589b716d7382a63de68137831624ff2b0d8411374a0cbff3828e4c7c6709",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-poi/poryos-hong_kong-n25-poi.traffic-bpr-light.json.gz": "7cdbf8cfc3e16a58da442fd9d5ddfc4afd4a793e46518418faf92c6090d8c6c2",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-poi/poryos-hong_kong-n25-poi.traffic-bpr-heavy.json.gz": "f68066ca076d877c276cf0ea3e2446ef48a5f064bc3069a1eeb991121a6cf236",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-poi/poryos-hong_kong-n25-poi.traffic-wave-light.json.gz": "06c175858be7f3a2ae423955eff95b55d714f5e32b655b110f0abd19f489e849",
+    "sidecars/hong_kong/n=25/poryos-hong_kong-n25-poi/poryos-hong_kong-n25-poi.traffic-wave-heavy.json.gz": "0925ec1dabb1b68609a25eb499dc07c0ba3e15cb8f375c8fda1560b92d9a4075",
+    "sidecars/lyon/n=25/poryos-lyon-n25-hyb/poryos-lyon-n25-hyb.road.json.gz": "9ec3b464205af73596c75992199f8b5e90ed68b133480f8a9be52d6a56bbdc83",
+    "sidecars/lyon/n=25/poryos-lyon-n25-hyb/poryos-lyon-n25-hyb.traffic-bpr-light.json.gz": "be86d28691adeedf90f8c6f805e65886ea704541ed1fef7afd07bb2ad64391cb",
+    "sidecars/lyon/n=25/poryos-lyon-n25-hyb/poryos-lyon-n25-hyb.traffic-bpr-heavy.json.gz": "35d46b92e0ba38e3a1d644d6b02feb076016b64098c2bdc0073a1e36a467d7d4",
+    "sidecars/lyon/n=25/poryos-lyon-n25-hyb/poryos-lyon-n25-hyb.traffic-wave-light.json.gz": "d869858677b29a7438c543732995e60fbab0910ce45be2745679b51f89fe9369",
+    "sidecars/lyon/n=25/poryos-lyon-n25-hyb/poryos-lyon-n25-hyb.traffic-wave-heavy.json.gz": "1bc5d672b7de8cfa7b20c9da21757e58a4aba93742d4a70f4213822f01113210",
+    "sidecars/lyon/n=25/poryos-lyon-n25-poi/poryos-lyon-n25-poi.road.json.gz": "4d2aef95fe5cb0a5d201e69ddb1b478d26e3085d4c582434d0929cccec0f8d41",
+    "sidecars/lyon/n=25/poryos-lyon-n25-poi/poryos-lyon-n25-poi.traffic-bpr-light.json.gz": "1014aaef84dfd1c21035fcf0864c1b508ed4321dda24f46ba967018fbcdd8ef2",
+    "sidecars/lyon/n=25/poryos-lyon-n25-poi/poryos-lyon-n25-poi.traffic-bpr-heavy.json.gz": "d913adf04e7bd3f39e3d3a6d746f201513866a58100e2655f194c2a5802a64b8",
+    "sidecars/lyon/n=25/poryos-lyon-n25-poi/poryos-lyon-n25-poi.traffic-wave-light.json.gz": "690620008e49d8f88912194e0f25b9a35e1bc6955e0e47d2e44dc684eb0b46ca",
+    "sidecars/lyon/n=25/poryos-lyon-n25-poi/poryos-lyon-n25-poi.traffic-wave-heavy.json.gz": "2064cf34a921ec655973d3e09b8160ad08579966f81177204b9acb7746c393d9",
+    "sidecars/paris/n=25/poryos-paris-n25-hyb/poryos-paris-n25-hyb.road.json.gz": "a3aa298d2bfa77b535f131aff76a6d556e606110ebea247c50f79542d74a99ff",
+    "sidecars/paris/n=25/poryos-paris-n25-hyb/poryos-paris-n25-hyb.traffic-bpr-light.json.gz": "e9ecf359e40387d95db9a29c7e73e5bab5a4f94727dfb5f7dfb87ebe5aa1c65a",
+    "sidecars/paris/n=25/poryos-paris-n25-hyb/poryos-paris-n25-hyb.traffic-bpr-heavy.json.gz": "8a206b803d9cc711fd963ae42c7c09e32175a436b447e6359a724fb7af550bfe",
+    "sidecars/paris/n=25/poryos-paris-n25-hyb/poryos-paris-n25-hyb.traffic-wave-light.json.gz": "2a0693b77361ba02241a34a16a59eb2fa2f6e20ea6868cc0b52634341137c84d",
+    "sidecars/paris/n=25/poryos-paris-n25-hyb/poryos-paris-n25-hyb.traffic-wave-heavy.json.gz": "679bece6336d0182c92f1e87e41a111f0b228d010d235ce6057875f47b180cf1",
+    "sidecars/paris/n=25/poryos-paris-n25-poi/poryos-paris-n25-poi.road.json.gz": "18a2c743771084e1b60522647faad44dc1a61e45c59b626ada8e5478abe1c24c",
+    "sidecars/paris/n=25/poryos-paris-n25-poi/poryos-paris-n25-poi.traffic-bpr-light.json.gz": "20854fc1469f70a34bead46e6347f844f9308f5cf1b8935a7ae8fa5dc5f88a12",
+    "sidecars/paris/n=25/poryos-paris-n25-poi/poryos-paris-n25-poi.traffic-bpr-heavy.json.gz": "df450e1ad784280fedd1308ed58d3599f5f0582f0d4ea318797ad79acd6e223c",
+    "sidecars/paris/n=25/poryos-paris-n25-poi/poryos-paris-n25-poi.traffic-wave-light.json.gz": "9e664c4cb6261b99cf38a8602760f09b0d527f9958931fb8bb379289e87f6f89",
+    "sidecars/paris/n=25/poryos-paris-n25-poi/poryos-paris-n25-poi.traffic-wave-heavy.json.gz": "536052a0ddc26405a6999d4e6b711fd1af951a18a36c2a86eb14952639ab0205",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-hyb/poryos-san_francisco-n25-hyb.road.json.gz": "84b45de832423eed2c9637f55785b5393732889b7db5ef24bd21cfc0348412fb",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-hyb/poryos-san_francisco-n25-hyb.traffic-bpr-light.json.gz": "f1b171e2d8c5d94b895a8fc3c4c0d3075e98dbb82e5642f4ec1f80d1d7e79b29",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-hyb/poryos-san_francisco-n25-hyb.traffic-bpr-heavy.json.gz": "03250b6bb24fe1cb93dd9519e8cee2898612e807fc4fad4d07ebbea168a3cf6c",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-hyb/poryos-san_francisco-n25-hyb.traffic-wave-light.json.gz": "3d67917e4d59eb1b0d83683f0c33681e1c213482612a4aae3be6a4d05187f425",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-hyb/poryos-san_francisco-n25-hyb.traffic-wave-heavy.json.gz": "04b5e4a82ee5e6180babc2022c39c5348825db2c0095d5d2e1de031f76018992",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-poi/poryos-san_francisco-n25-poi.road.json.gz": "11028f7bb7b818780dddaed047246d46e5878ddeb6ccc3d98429ca6e38c7063c",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-poi/poryos-san_francisco-n25-poi.traffic-bpr-light.json.gz": "171d29c68c54d0e17a4eec27872fa54282188539a50c0d739cecde36a46daaf7",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-poi/poryos-san_francisco-n25-poi.traffic-bpr-heavy.json.gz": "dd5be0865995cef9e58975f97c74de816de99a4eeeea59521c6452213bb562ae",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-poi/poryos-san_francisco-n25-poi.traffic-wave-light.json.gz": "4a4b90188ad6365630f7ec268da19f44f190d86c1ddf324533a5a04daa0dd7e3",
+    "sidecars/san_francisco/n=25/poryos-san_francisco-n25-poi/poryos-san_francisco-n25-poi.traffic-wave-heavy.json.gz": "558556aeea7e9dd4a3fa666f92e973d039b36920ba66a753fb1bd314a8ac89ca",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-hyb/poryos-tokyo-n25-hyb.road.json.gz": "e27e31daad154a03ad9e9f2890a26a79ac1f1125ca51c15cef5d05a68e18da70",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-hyb/poryos-tokyo-n25-hyb.traffic-bpr-light.json.gz": "e4043e3fcb7a28b5a4642694c30bd37ee4bc189e76694be0e06011cbfa9dc16f",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-hyb/poryos-tokyo-n25-hyb.traffic-bpr-heavy.json.gz": "f4ae07df0bdb9b03150490164becaf0e7c80d54b06eb2f5c047d14ec0c45f4bd",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-hyb/poryos-tokyo-n25-hyb.traffic-wave-light.json.gz": "2c00a7e609c1b56913f159491671f1a18bb0df43360b56afb0d4681934e5d6b2",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-hyb/poryos-tokyo-n25-hyb.traffic-wave-heavy.json.gz": "71b5f2029f97edf8945984d0bc8b7805a9213588039e3976df3ff03c2fe44ac0",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-poi/poryos-tokyo-n25-poi.road.json.gz": "14e087acc6cb679af9a3e36ca1b0391eedcb7945da02f5aec3d7841aa40f82b4",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-poi/poryos-tokyo-n25-poi.traffic-bpr-light.json.gz": "54d3a15c54fd39fedd32a1c3112125f0f780a9f2aebc2ab5ec6c6c0feaa173d4",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-poi/poryos-tokyo-n25-poi.traffic-bpr-heavy.json.gz": "69c8f2d051af0ef9c5232ff137c297ef28f8c44363279018464b1eed6b8abfc2",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-poi/poryos-tokyo-n25-poi.traffic-wave-light.json.gz": "a726046c636a07c1053023bd4b47997817b0c09addcf80f3a87e335cf785d010",
+    "sidecars/tokyo/n=25/poryos-tokyo-n25-poi/poryos-tokyo-n25-poi.traffic-wave-heavy.json.gz": "5c2cfc35b0dd13cbf3df22099472e2f7728b6abb1fd82364689571d842921231",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-hyb/poryos-hong_kong-n50-hyb.road.json.gz": "c461589246aa87e43e09062c5e9a332cf778152469902a4011e1cbcea39e7758",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-hyb/poryos-hong_kong-n50-hyb.traffic-bpr-light.json.gz": "9d14596205df71b1766c32016d324ebda5f9cac6fdb6605351634f18c6237fe8",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-hyb/poryos-hong_kong-n50-hyb.traffic-bpr-heavy.json.gz": "e0593ccabdbdc18eb033476b4047fc72b1f873457987bb4487696e3d7ecfe31a",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-hyb/poryos-hong_kong-n50-hyb.traffic-wave-light.json.gz": "06a0de4437d2f3e9f3118ed96d388c9def9e9f5ca5d9a0ce81f041d2ee99075e",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-hyb/poryos-hong_kong-n50-hyb.traffic-wave-heavy.json.gz": "2352542ba5df366b65b2cb873f569415b7f90d4113ae2ea2eaa6d9413223a99e",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-poi/poryos-hong_kong-n50-poi.road.json.gz": "d18d3b029126bb286f869a6c9c72e8426bfbc03352205f65233379be976c5099",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-poi/poryos-hong_kong-n50-poi.traffic-bpr-light.json.gz": "c7501aada7d165e4ca980a5b4b24b0ec542a4f5528d61b8f37037c71e8e39e81",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-poi/poryos-hong_kong-n50-poi.traffic-bpr-heavy.json.gz": "5a0c5eb5e500bc64e0557feed5816351583364c1cf12a48803a921659322f549",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-poi/poryos-hong_kong-n50-poi.traffic-wave-light.json.gz": "42d41211992135fcfadf9c76d2e981bc81607126ae0c94227b56e5c148ba6f07",
+    "sidecars/hong_kong/n=50/poryos-hong_kong-n50-poi/poryos-hong_kong-n50-poi.traffic-wave-heavy.json.gz": "1437b36d9067fff387120bdd67e42635d254a2031864c269e6fd09cf4a609186",
+    "sidecars/lyon/n=50/poryos-lyon-n50-hyb/poryos-lyon-n50-hyb.road.json.gz": "6257eae6bd3285f3a7d5f0226ef98f76f8bf24d65f147a81930c258d88ebfcca",
+    "sidecars/lyon/n=50/poryos-lyon-n50-hyb/poryos-lyon-n50-hyb.traffic-bpr-light.json.gz": "69a2459d5fd8d0351b7c390e60dab107f0940400c35b01f6fb26d7bc00963b9d",
+    "sidecars/lyon/n=50/poryos-lyon-n50-hyb/poryos-lyon-n50-hyb.traffic-bpr-heavy.json.gz": "74a73ac595efbc50d8d203ad4dad42220292dc889786b8db1cc8b37885377eac",
+    "sidecars/lyon/n=50/poryos-lyon-n50-hyb/poryos-lyon-n50-hyb.traffic-wave-light.json.gz": "f7e67ad87a5372b9253b997e23b369640b6438b385a60c58bb91320dd31888be",
+    "sidecars/lyon/n=50/poryos-lyon-n50-hyb/poryos-lyon-n50-hyb.traffic-wave-heavy.json.gz": "a4737b86420fb8725d7b5b8a7bc9ef401bf22b9991f5ee46ae3bcb0c1caf2901",
+    "sidecars/lyon/n=50/poryos-lyon-n50-poi/poryos-lyon-n50-poi.road.json.gz": "47f82e04d91b3098e3923e49645f2397f78e310e43c3641ce8ba5e4988c4d79d",
+    "sidecars/lyon/n=50/poryos-lyon-n50-poi/poryos-lyon-n50-poi.traffic-bpr-light.json.gz": "dbee7753f847a6323f2ef9f2c1e68f64632d1b638e7e5327d949a5176baf4c7d",
+    "sidecars/lyon/n=50/poryos-lyon-n50-poi/poryos-lyon-n50-poi.traffic-bpr-heavy.json.gz": "185b4177a8132dccff1109ade039e2e2b82ed638ad592a71f0f93bc8d739a29f",
+    "sidecars/lyon/n=50/poryos-lyon-n50-poi/poryos-lyon-n50-poi.traffic-wave-light.json.gz": "dce675b64aee5be3877f4cfc7bc385d8478d70a1490559546ca824e636e82e38",
+    "sidecars/lyon/n=50/poryos-lyon-n50-poi/poryos-lyon-n50-poi.traffic-wave-heavy.json.gz": "211dcddc01409a3712e63bf74e2b0f9e3a927fbd5023bd26361d9b5a1d90a002",
+    "sidecars/paris/n=50/poryos-paris-n50-hyb/poryos-paris-n50-hyb.road.json.gz": "ff3e36a24e5c604e555656423bc30a4a4b5679a1abac22edf45d6c4f9e82eb34",
+    "sidecars/paris/n=50/poryos-paris-n50-hyb/poryos-paris-n50-hyb.traffic-bpr-light.json.gz": "fb317231dbe99bfe6994466e62b7f853d395e0e0fccd8696ab56f8fd7b57baad",
+    "sidecars/paris/n=50/poryos-paris-n50-hyb/poryos-paris-n50-hyb.traffic-bpr-heavy.json.gz": "fdce4eec7c56816cbf1d2927cb25db7f620b24d0a5dc4174aeadf734645601eb",
+    "sidecars/paris/n=50/poryos-paris-n50-hyb/poryos-paris-n50-hyb.traffic-wave-light.json.gz": "b1c2d5d70b809f270638995c1dbf2e2ab1ef46b4ffa3847d80d2d492d889540c",
+    "sidecars/paris/n=50/poryos-paris-n50-hyb/poryos-paris-n50-hyb.traffic-wave-heavy.json.gz": "3e6c9de086d0c3c2dc1220e39c0b221240033b7accf8d09df658ca22913694f0",
+    "sidecars/paris/n=50/poryos-paris-n50-poi/poryos-paris-n50-poi.road.json.gz": "02650a04965578869aa129886878e7033e24469f28741404dcae19b5a6867395",
+    "sidecars/paris/n=50/poryos-paris-n50-poi/poryos-paris-n50-poi.traffic-bpr-light.json.gz": "c5e6699ba2029d57f8cc4d04e1231047a8906ffa18d0e1f8738d117f6f310f99",
+    "sidecars/paris/n=50/poryos-paris-n50-poi/poryos-paris-n50-poi.traffic-bpr-heavy.json.gz": "5c0cea2b107d2be8916657dab155e5a0ef2522b8beb4789fab888eedb4ce2d84",
+    "sidecars/paris/n=50/poryos-paris-n50-poi/poryos-paris-n50-poi.traffic-wave-light.json.gz": "366f5469cb4dafb58d1462e5baa975dd87b6b80785e5f57ca5da4763a3e9874c",
+    "sidecars/paris/n=50/poryos-paris-n50-poi/poryos-paris-n50-poi.traffic-wave-heavy.json.gz": "c9a87674c5a21f4895ad9319faabe06ae8a822cd1787c9cd97fd1c95b52c4bd7",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-hyb/poryos-san_francisco-n50-hyb.road.json.gz": "57841a9d77d14963ab829c084a249da34208f6a5d36d11a0aed76f63313d5f20",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-hyb/poryos-san_francisco-n50-hyb.traffic-bpr-light.json.gz": "ae765fa592b58ff259c2a25b211c2c57804ab180b167301ad7c4f0380115d113",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-hyb/poryos-san_francisco-n50-hyb.traffic-bpr-heavy.json.gz": "f33e03450b868fada5cd88c7fc00f71ce936b61f7926c9bb447a5d0ad98ae9eb",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-hyb/poryos-san_francisco-n50-hyb.traffic-wave-light.json.gz": "2c438a1e4d35b7ce5e7e70d7ecb28f2225d1b595e298dc0d1f8fd5da34f3194f",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-hyb/poryos-san_francisco-n50-hyb.traffic-wave-heavy.json.gz": "9bc34795175fce9726ff03ffc94c42ba5a7eee333a03cd23d2aac1ab8ed195d1",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-poi/poryos-san_francisco-n50-poi.road.json.gz": "b430f8954bd61cd6e7c6ab5fec3f5bdcbce1ada79eaad8003dec131d1569c855",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-poi/poryos-san_francisco-n50-poi.traffic-bpr-light.json.gz": "76182db78c328b983851124230856cb5671fd639b817ff874a10ccd0119d05bc",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-poi/poryos-san_francisco-n50-poi.traffic-bpr-heavy.json.gz": "5b968d707d6627761b69ba6ed8d3ad09df675db557b68a2555b76f4837d4db7c",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-poi/poryos-san_francisco-n50-poi.traffic-wave-light.json.gz": "f5716380a4e93db5be091ea3e7dd3f48449fd461a111b8727581fbdc7f1785b2",
+    "sidecars/san_francisco/n=50/poryos-san_francisco-n50-poi/poryos-san_francisco-n50-poi.traffic-wave-heavy.json.gz": "ed30ec19d4f8a1cc98951115199dba80cd5b4bdce702a0e6183ffdabc5d80e10",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-hyb/poryos-tokyo-n50-hyb.road.json.gz": "596d821d8562073307d8aeb13f9dd06a362491fe5d8eb8594c01abe4adbb9819",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-hyb/poryos-tokyo-n50-hyb.traffic-bpr-light.json.gz": "a270418fac6d24c9cb243726f6fa46384ace7d143b11e7c27a57a3cc7865e89e",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-hyb/poryos-tokyo-n50-hyb.traffic-bpr-heavy.json.gz": "bd42de3fe6fbc7ea1acfa7b0649b41f111ec999959dff0bac5fa85ce2243d3ad",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-hyb/poryos-tokyo-n50-hyb.traffic-wave-light.json.gz": "ac2fd419864aa7f86aa47c880042d6151a8af8e3dcb65d023d4df84ff1024535",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-hyb/poryos-tokyo-n50-hyb.traffic-wave-heavy.json.gz": "aa49c240cb4a3fe95fc72c794896529bef30b6c69ea9112223f1c658d5f30107",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-poi/poryos-tokyo-n50-poi.road.json.gz": "c52fe95d2a03e8a7f5ab3a435c609b4085cb7ead5eb8ab7752ed57412243cdc9",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-poi/poryos-tokyo-n50-poi.traffic-bpr-light.json.gz": "b636e1f2c391cea8fe5de8a2db9f9450b76b604b0adb406132fece8042372360",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-poi/poryos-tokyo-n50-poi.traffic-bpr-heavy.json.gz": "3fcef2dcbdb9d08c7515b3efd93cd06496a6a77fc442912d9a46baa4a9585766",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-poi/poryos-tokyo-n50-poi.traffic-wave-light.json.gz": "a3511acb757b26ec8f844f959ff4db715e7b2461330333c2f72525a0f165f4dd",
+    "sidecars/tokyo/n=50/poryos-tokyo-n50-poi/poryos-tokyo-n50-poi.traffic-wave-heavy.json.gz": "9f42057022306ad6d5e4e3408e3c3d50b35b6b3c62d9922c7456d742ec5f903a"
+  }
+}
