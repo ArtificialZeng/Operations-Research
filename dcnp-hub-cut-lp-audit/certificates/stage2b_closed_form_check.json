@@ -1,0 +1,3918 @@
+{
+ "d_range": [
+  3,
+  40
+ ],
+ "failed_d": [
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40
+ ],
+ "per_d": [
+  {
+   "d": 3,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/4",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/4",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    }
+   ],
+   "all_ok": true
+  },
+  {
+   "d": 4,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/5",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/5",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    }
+   ],
+   "all_ok": true
+  },
+  {
+   "d": 5,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/6",
+     "alpha_to": "1/6",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/6",
+     "alpha_to": "2/7",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/7",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    }
+   ],
+   "all_ok": true
+  },
+  {
+   "d": 6,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/7",
+     "alpha_to": "1/7",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/7",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/4",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    }
+   ],
+   "all_ok": true
+  },
+  {
+   "d": 7,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/8",
+     "alpha_to": "1/8",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/8",
+     "alpha_to": "2/9",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/9",
+     "alpha_to": "3/10",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/10",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    }
+   ],
+   "all_ok": true
+  },
+  {
+   "d": 8,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/9",
+     "alpha_to": "1/9",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/9",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/5",
+     "alpha_to": "3/11",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/11",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    }
+   ],
+   "all_ok": true
+  },
+  {
+   "d": 9,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/10",
+     "alpha_to": "1/10",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/10",
+     "alpha_to": "2/11",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/11",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/4",
+     "alpha_to": "4/13",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/13",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    }
+   ],
+   "all_ok": true
+  },
+  {
+   "d": 10,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/11",
+     "alpha_to": "1/11",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/11",
+     "alpha_to": "1/6",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/6",
+     "alpha_to": "3/13",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/13",
+     "alpha_to": "2/7",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "2/7",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    }
+   ],
+   "all_ok": true
+  },
+  {
+   "d": 11,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/12",
+     "alpha_to": "1/12",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/12",
+     "alpha_to": "2/13",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/13",
+     "alpha_to": "3/14",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/14",
+     "alpha_to": "4/15",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/15",
+     "alpha_to": "5/16",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/16",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 12,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/13",
+     "alpha_to": "1/13",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/13",
+     "alpha_to": "1/7",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/7",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/5",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "1/4",
+     "alpha_to": "5/17",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/17",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 13,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/14",
+     "alpha_to": "1/14",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/14",
+     "alpha_to": "2/15",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/15",
+     "alpha_to": "3/16",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/16",
+     "alpha_to": "4/17",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/17",
+     "alpha_to": "5/18",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/18",
+     "alpha_to": "6/19",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "6/19",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 14,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/15",
+     "alpha_to": "1/15",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/15",
+     "alpha_to": "1/8",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/8",
+     "alpha_to": "3/17",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/17",
+     "alpha_to": "2/9",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "2/9",
+     "alpha_to": "5/19",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/19",
+     "alpha_to": "3/10",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/10",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 15,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/16",
+     "alpha_to": "1/16",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/16",
+     "alpha_to": "2/17",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/17",
+     "alpha_to": "1/6",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/6",
+     "alpha_to": "4/19",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/19",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "1/4",
+     "alpha_to": "2/7",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "2/7",
+     "alpha_to": "7/22",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/22",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 16,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/17",
+     "alpha_to": "1/17",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/17",
+     "alpha_to": "1/9",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/9",
+     "alpha_to": "3/19",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/19",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "1/5",
+     "alpha_to": "5/21",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/21",
+     "alpha_to": "3/11",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/11",
+     "alpha_to": "7/23",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/23",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 17,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/18",
+     "alpha_to": "1/18",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/18",
+     "alpha_to": "2/19",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/19",
+     "alpha_to": "3/20",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/20",
+     "alpha_to": "4/21",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/21",
+     "alpha_to": "5/22",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/22",
+     "alpha_to": "6/23",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "6/23",
+     "alpha_to": "7/24",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/24",
+     "alpha_to": "8/25",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/25",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 18,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/19",
+     "alpha_to": "1/19",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/19",
+     "alpha_to": "1/10",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/10",
+     "alpha_to": "1/7",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/7",
+     "alpha_to": "2/11",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "2/11",
+     "alpha_to": "5/23",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/23",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "1/4",
+     "alpha_to": "7/25",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/25",
+     "alpha_to": "4/13",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "4/13",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 19,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/20",
+     "alpha_to": "1/20",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/20",
+     "alpha_to": "2/21",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/21",
+     "alpha_to": "3/22",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/22",
+     "alpha_to": "4/23",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/23",
+     "alpha_to": "5/24",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/24",
+     "alpha_to": "6/25",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "6/25",
+     "alpha_to": "7/26",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/26",
+     "alpha_to": "8/27",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/27",
+     "alpha_to": "9/28",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/28",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 20,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/21",
+     "alpha_to": "1/21",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/21",
+     "alpha_to": "1/11",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/11",
+     "alpha_to": "3/23",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/23",
+     "alpha_to": "1/6",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "1/6",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "1/5",
+     "alpha_to": "3/13",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/13",
+     "alpha_to": "7/27",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/27",
+     "alpha_to": "2/7",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "2/7",
+     "alpha_to": "9/29",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/29",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 21,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/22",
+     "alpha_to": "1/22",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/22",
+     "alpha_to": "2/23",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/23",
+     "alpha_to": "1/8",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/8",
+     "alpha_to": "4/25",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/25",
+     "alpha_to": "5/26",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/26",
+     "alpha_to": "2/9",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "2/9",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "1/4",
+     "alpha_to": "8/29",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/29",
+     "alpha_to": "3/10",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "3/10",
+     "alpha_to": "10/31",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "10/31",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 22,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/23",
+     "alpha_to": "1/23",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/23",
+     "alpha_to": "1/12",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/12",
+     "alpha_to": "3/25",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/25",
+     "alpha_to": "2/13",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "2/13",
+     "alpha_to": "5/27",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/27",
+     "alpha_to": "3/14",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/14",
+     "alpha_to": "7/29",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/29",
+     "alpha_to": "4/15",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "4/15",
+     "alpha_to": "9/31",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/31",
+     "alpha_to": "5/16",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "5/16",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 23,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/24",
+     "alpha_to": "1/24",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/24",
+     "alpha_to": "2/25",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/25",
+     "alpha_to": "3/26",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/26",
+     "alpha_to": "4/27",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/27",
+     "alpha_to": "5/28",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/28",
+     "alpha_to": "6/29",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "6/29",
+     "alpha_to": "7/30",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/30",
+     "alpha_to": "8/31",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/31",
+     "alpha_to": "9/32",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/32",
+     "alpha_to": "10/33",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "10/33",
+     "alpha_to": "11/34",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/34",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 24,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/25",
+     "alpha_to": "1/25",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/25",
+     "alpha_to": "1/13",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/13",
+     "alpha_to": "1/9",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/9",
+     "alpha_to": "1/7",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "1/7",
+     "alpha_to": "5/29",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/29",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "1/5",
+     "alpha_to": "7/31",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/31",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "1/4",
+     "alpha_to": "3/11",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "3/11",
+     "alpha_to": "5/17",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "5/17",
+     "alpha_to": "11/35",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/35",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 25,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/26",
+     "alpha_to": "1/26",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/26",
+     "alpha_to": "2/27",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/27",
+     "alpha_to": "3/28",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/28",
+     "alpha_to": "4/29",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/29",
+     "alpha_to": "1/6",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "1/6",
+     "alpha_to": "6/31",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "6/31",
+     "alpha_to": "7/32",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/32",
+     "alpha_to": "8/33",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/33",
+     "alpha_to": "9/34",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/34",
+     "alpha_to": "2/7",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "2/7",
+     "alpha_to": "11/36",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/36",
+     "alpha_to": "12/37",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "12/37",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 26,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/27",
+     "alpha_to": "1/27",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/27",
+     "alpha_to": "1/14",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/14",
+     "alpha_to": "3/29",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/29",
+     "alpha_to": "2/15",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "2/15",
+     "alpha_to": "5/31",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/31",
+     "alpha_to": "3/16",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/16",
+     "alpha_to": "7/33",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/33",
+     "alpha_to": "4/17",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "4/17",
+     "alpha_to": "9/35",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/35",
+     "alpha_to": "5/18",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "5/18",
+     "alpha_to": "11/37",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/37",
+     "alpha_to": "6/19",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "6/19",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 27,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/28",
+     "alpha_to": "1/28",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/28",
+     "alpha_to": "2/29",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/29",
+     "alpha_to": "1/10",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/10",
+     "alpha_to": "4/31",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/31",
+     "alpha_to": "5/32",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/32",
+     "alpha_to": "2/11",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "2/11",
+     "alpha_to": "7/34",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/34",
+     "alpha_to": "8/35",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/35",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "1/4",
+     "alpha_to": "10/37",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "10/37",
+     "alpha_to": "11/38",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/38",
+     "alpha_to": "4/13",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "4/13",
+     "alpha_to": "13/40",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/40",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 28,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/29",
+     "alpha_to": "1/29",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/29",
+     "alpha_to": "1/15",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/15",
+     "alpha_to": "3/31",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/31",
+     "alpha_to": "1/8",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "1/8",
+     "alpha_to": "5/33",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/33",
+     "alpha_to": "3/17",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/17",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "1/5",
+     "alpha_to": "2/9",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "2/9",
+     "alpha_to": "9/37",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/37",
+     "alpha_to": "5/19",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "5/19",
+     "alpha_to": "11/39",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/39",
+     "alpha_to": "3/10",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "3/10",
+     "alpha_to": "13/41",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/41",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 29,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/30",
+     "alpha_to": "1/30",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/30",
+     "alpha_to": "2/31",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/31",
+     "alpha_to": "3/32",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/32",
+     "alpha_to": "4/33",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/33",
+     "alpha_to": "5/34",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/34",
+     "alpha_to": "6/35",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "6/35",
+     "alpha_to": "7/36",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/36",
+     "alpha_to": "8/37",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/37",
+     "alpha_to": "9/38",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/38",
+     "alpha_to": "10/39",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "10/39",
+     "alpha_to": "11/40",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/40",
+     "alpha_to": "12/41",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "12/41",
+     "alpha_to": "13/42",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/42",
+     "alpha_to": "14/43",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "14/43",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 30,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/31",
+     "alpha_to": "1/31",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/31",
+     "alpha_to": "1/16",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/16",
+     "alpha_to": "1/11",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/11",
+     "alpha_to": "2/17",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "2/17",
+     "alpha_to": "1/7",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "1/7",
+     "alpha_to": "1/6",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "1/6",
+     "alpha_to": "7/37",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/37",
+     "alpha_to": "4/19",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "4/19",
+     "alpha_to": "3/13",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "3/13",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "1/4",
+     "alpha_to": "11/41",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/41",
+     "alpha_to": "2/7",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "2/7",
+     "alpha_to": "13/43",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/43",
+     "alpha_to": "7/22",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "7/22",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 31,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/32",
+     "alpha_to": "1/32",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/32",
+     "alpha_to": "2/33",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/33",
+     "alpha_to": "3/34",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/34",
+     "alpha_to": "4/35",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/35",
+     "alpha_to": "5/36",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/36",
+     "alpha_to": "6/37",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "6/37",
+     "alpha_to": "7/38",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/38",
+     "alpha_to": "8/39",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/39",
+     "alpha_to": "9/40",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/40",
+     "alpha_to": "10/41",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "10/41",
+     "alpha_to": "11/42",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/42",
+     "alpha_to": "12/43",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "12/43",
+     "alpha_to": "13/44",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/44",
+     "alpha_to": "14/45",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "14/45",
+     "alpha_to": "15/46",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "15/46",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 32,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/33",
+     "alpha_to": "1/33",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/33",
+     "alpha_to": "1/17",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/17",
+     "alpha_to": "3/35",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/35",
+     "alpha_to": "1/9",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "1/9",
+     "alpha_to": "5/37",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/37",
+     "alpha_to": "3/19",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/19",
+     "alpha_to": "7/39",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/39",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "1/5",
+     "alpha_to": "9/41",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/41",
+     "alpha_to": "5/21",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "5/21",
+     "alpha_to": "11/43",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/43",
+     "alpha_to": "3/11",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "3/11",
+     "alpha_to": "13/45",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/45",
+     "alpha_to": "7/23",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "7/23",
+     "alpha_to": "15/47",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "15/47",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 33,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/34",
+     "alpha_to": "1/34",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/34",
+     "alpha_to": "2/35",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/35",
+     "alpha_to": "1/12",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/12",
+     "alpha_to": "4/37",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/37",
+     "alpha_to": "5/38",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/38",
+     "alpha_to": "2/13",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "2/13",
+     "alpha_to": "7/40",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/40",
+     "alpha_to": "8/41",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/41",
+     "alpha_to": "3/14",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "3/14",
+     "alpha_to": "10/43",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "10/43",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "1/4",
+     "alpha_to": "4/15",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "4/15",
+     "alpha_to": "13/46",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/46",
+     "alpha_to": "14/47",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "14/47",
+     "alpha_to": "5/16",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "5/16",
+     "alpha_to": "16/49",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 16,
+     "alpha_from": "16/49",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 34,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/35",
+     "alpha_to": "1/35",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/35",
+     "alpha_to": "1/18",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/18",
+     "alpha_to": "3/37",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/37",
+     "alpha_to": "2/19",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "2/19",
+     "alpha_to": "5/39",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/39",
+     "alpha_to": "3/20",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/20",
+     "alpha_to": "7/41",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/41",
+     "alpha_to": "4/21",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "4/21",
+     "alpha_to": "9/43",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/43",
+     "alpha_to": "5/22",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "5/22",
+     "alpha_to": "11/45",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/45",
+     "alpha_to": "6/23",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "6/23",
+     "alpha_to": "13/47",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/47",
+     "alpha_to": "7/24",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "7/24",
+     "alpha_to": "15/49",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "15/49",
+     "alpha_to": "8/25",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 16,
+     "alpha_from": "8/25",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 35,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/36",
+     "alpha_to": "1/36",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/36",
+     "alpha_to": "2/37",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/37",
+     "alpha_to": "3/38",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/38",
+     "alpha_to": "4/39",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/39",
+     "alpha_to": "1/8",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "1/8",
+     "alpha_to": "6/41",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "6/41",
+     "alpha_to": "1/6",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "1/6",
+     "alpha_to": "8/43",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/43",
+     "alpha_to": "9/44",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/44",
+     "alpha_to": "2/9",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "2/9",
+     "alpha_to": "11/46",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/46",
+     "alpha_to": "12/47",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "12/47",
+     "alpha_to": "13/48",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/48",
+     "alpha_to": "2/7",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "2/7",
+     "alpha_to": "3/10",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "3/10",
+     "alpha_to": "16/51",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 16,
+     "alpha_from": "16/51",
+     "alpha_to": "17/52",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 17,
+     "alpha_from": "17/52",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 36,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/37",
+     "alpha_to": "1/37",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/37",
+     "alpha_to": "1/19",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/19",
+     "alpha_to": "1/13",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/13",
+     "alpha_to": "1/10",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "1/10",
+     "alpha_to": "5/41",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/41",
+     "alpha_to": "1/7",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "1/7",
+     "alpha_to": "7/43",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/43",
+     "alpha_to": "2/11",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "2/11",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "1/5",
+     "alpha_to": "5/23",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "5/23",
+     "alpha_to": "11/47",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/47",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "1/4",
+     "alpha_to": "13/49",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/49",
+     "alpha_to": "7/25",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "7/25",
+     "alpha_to": "5/17",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "5/17",
+     "alpha_to": "4/13",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 16,
+     "alpha_from": "4/13",
+     "alpha_to": "17/53",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 17,
+     "alpha_from": "17/53",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 37,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/38",
+     "alpha_to": "1/38",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/38",
+     "alpha_to": "2/39",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/39",
+     "alpha_to": "3/40",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/40",
+     "alpha_to": "4/41",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/41",
+     "alpha_to": "5/42",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/42",
+     "alpha_to": "6/43",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "6/43",
+     "alpha_to": "7/44",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/44",
+     "alpha_to": "8/45",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/45",
+     "alpha_to": "9/46",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/46",
+     "alpha_to": "10/47",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "10/47",
+     "alpha_to": "11/48",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/48",
+     "alpha_to": "12/49",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "12/49",
+     "alpha_to": "13/50",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/50",
+     "alpha_to": "14/51",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "14/51",
+     "alpha_to": "15/52",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "15/52",
+     "alpha_to": "16/53",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 16,
+     "alpha_from": "16/53",
+     "alpha_to": "17/54",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 17,
+     "alpha_from": "17/54",
+     "alpha_to": "18/55",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 18,
+     "alpha_from": "18/55",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 38,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/39",
+     "alpha_to": "1/39",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/39",
+     "alpha_to": "1/20",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/20",
+     "alpha_to": "3/41",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/41",
+     "alpha_to": "2/21",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "2/21",
+     "alpha_to": "5/43",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/43",
+     "alpha_to": "3/22",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/22",
+     "alpha_to": "7/45",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/45",
+     "alpha_to": "4/23",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "4/23",
+     "alpha_to": "9/47",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/47",
+     "alpha_to": "5/24",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "5/24",
+     "alpha_to": "11/49",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/49",
+     "alpha_to": "6/25",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "6/25",
+     "alpha_to": "13/51",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/51",
+     "alpha_to": "7/26",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "7/26",
+     "alpha_to": "15/53",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "15/53",
+     "alpha_to": "8/27",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 16,
+     "alpha_from": "8/27",
+     "alpha_to": "17/55",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 17,
+     "alpha_from": "17/55",
+     "alpha_to": "9/28",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 18,
+     "alpha_from": "9/28",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 39,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/40",
+     "alpha_to": "1/40",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/40",
+     "alpha_to": "2/41",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "2/41",
+     "alpha_to": "1/14",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "1/14",
+     "alpha_to": "4/43",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "4/43",
+     "alpha_to": "5/44",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "5/44",
+     "alpha_to": "2/15",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "2/15",
+     "alpha_to": "7/46",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/46",
+     "alpha_to": "8/47",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "8/47",
+     "alpha_to": "3/16",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "3/16",
+     "alpha_to": "10/49",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "10/49",
+     "alpha_to": "11/50",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/50",
+     "alpha_to": "4/17",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "4/17",
+     "alpha_to": "1/4",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "1/4",
+     "alpha_to": "14/53",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "14/53",
+     "alpha_to": "5/18",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "5/18",
+     "alpha_to": "16/55",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 16,
+     "alpha_from": "16/55",
+     "alpha_to": "17/56",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 17,
+     "alpha_from": "17/56",
+     "alpha_to": "6/19",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 18,
+     "alpha_from": "6/19",
+     "alpha_to": "19/58",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 19,
+     "alpha_from": "19/58",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  },
+  {
+   "d": 40,
+   "intervals": [
+    {
+     "t": 0,
+     "alpha_from": "1/41",
+     "alpha_to": "1/41",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 1,
+     "alpha_from": "1/41",
+     "alpha_to": "1/21",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 2,
+     "alpha_from": "1/21",
+     "alpha_to": "3/43",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 3,
+     "alpha_from": "3/43",
+     "alpha_to": "1/11",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 4,
+     "alpha_from": "1/11",
+     "alpha_to": "1/9",
+     "exact_optimum_is_v_t": true,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": true
+    },
+    {
+     "t": 5,
+     "alpha_from": "1/9",
+     "alpha_to": "3/23",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 6,
+     "alpha_from": "3/23",
+     "alpha_to": "7/47",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 7,
+     "alpha_from": "7/47",
+     "alpha_to": "1/6",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 8,
+     "alpha_from": "1/6",
+     "alpha_to": "9/49",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 9,
+     "alpha_from": "9/49",
+     "alpha_to": "1/5",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 10,
+     "alpha_from": "1/5",
+     "alpha_to": "11/51",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 11,
+     "alpha_from": "11/51",
+     "alpha_to": "3/13",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 12,
+     "alpha_from": "3/13",
+     "alpha_to": "13/53",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 13,
+     "alpha_from": "13/53",
+     "alpha_to": "7/27",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 14,
+     "alpha_from": "7/27",
+     "alpha_to": "3/11",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 15,
+     "alpha_from": "3/11",
+     "alpha_to": "2/7",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 16,
+     "alpha_from": "2/7",
+     "alpha_to": "17/57",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 17,
+     "alpha_from": "17/57",
+     "alpha_to": "9/29",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 18,
+     "alpha_from": "9/29",
+     "alpha_to": "19/59",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    },
+    {
+     "t": 19,
+     "alpha_from": "19/59",
+     "alpha_to": "1/3",
+     "exact_optimum_is_v_t": false,
+     "aggregated_rows_ok": true,
+     "box_y_le_1_ok": false
+    }
+   ],
+   "all_ok": false
+  }
+ ],
+ "alpha_one_third": [
+  {
+   "d": 3,
+   "v_all_at_third": "2/3",
+   "floor_formula": "2/3",
+   "v_base": "1/2",
+   "v_t1": "2/3",
+   "ratio_all_over_base": 1.3333
+  },
+  {
+   "d": 4,
+   "v_all_at_third": "1",
+   "floor_formula": "1",
+   "v_base": "2/3",
+   "v_t1": "1",
+   "ratio_all_over_base": 1.5
+  },
+  {
+   "d": 5,
+   "v_all_at_third": "3/2",
+   "floor_formula": "3/2",
+   "v_base": "5/6",
+   "v_t1": "4/3",
+   "ratio_all_over_base": 1.8
+  },
+  {
+   "d": 6,
+   "v_all_at_third": "2",
+   "floor_formula": "2",
+   "v_base": "1",
+   "v_t1": "5/3",
+   "ratio_all_over_base": 2.0
+  },
+  {
+   "d": 7,
+   "v_all_at_third": "8/3",
+   "floor_formula": "8/3",
+   "v_base": "7/6",
+   "v_t1": "2",
+   "ratio_all_over_base": 2.2857
+  },
+  {
+   "d": 8,
+   "v_all_at_third": "10/3",
+   "floor_formula": "10/3",
+   "v_base": "4/3",
+   "v_t1": "7/3",
+   "ratio_all_over_base": 2.5
+  },
+  {
+   "d": 9,
+   "v_all_at_third": "25/6",
+   "floor_formula": "25/6",
+   "v_base": "3/2",
+   "v_t1": "8/3",
+   "ratio_all_over_base": 2.7778
+  },
+  {
+   "d": 10,
+   "v_all_at_third": "5",
+   "floor_formula": "5",
+   "v_base": "5/3",
+   "v_t1": "3",
+   "ratio_all_over_base": 3.0
+  },
+  {
+   "d": 11,
+   "v_all_at_third": "6",
+   "floor_formula": "6",
+   "v_base": "11/6",
+   "v_t1": "10/3",
+   "ratio_all_over_base": 3.2727
+  },
+  {
+   "d": 12,
+   "v_all_at_third": "7",
+   "floor_formula": "7",
+   "v_base": "2",
+   "v_t1": "11/3",
+   "ratio_all_over_base": 3.5
+  },
+  {
+   "d": 13,
+   "v_all_at_third": "49/6",
+   "floor_formula": "49/6",
+   "v_base": "13/6",
+   "v_t1": "4",
+   "ratio_all_over_base": 3.7692
+  },
+  {
+   "d": 14,
+   "v_all_at_third": "28/3",
+   "floor_formula": "28/3",
+   "v_base": "7/3",
+   "v_t1": "13/3",
+   "ratio_all_over_base": 4.0
+  },
+  {
+   "d": 15,
+   "v_all_at_third": "32/3",
+   "floor_formula": "32/3",
+   "v_base": "5/2",
+   "v_t1": "14/3",
+   "ratio_all_over_base": 4.2667
+  },
+  {
+   "d": 16,
+   "v_all_at_third": "12",
+   "floor_formula": "12",
+   "v_base": "8/3",
+   "v_t1": "5",
+   "ratio_all_over_base": 4.5
+  },
+  {
+   "d": 17,
+   "v_all_at_third": "27/2",
+   "floor_formula": "27/2",
+   "v_base": "17/6",
+   "v_t1": "16/3",
+   "ratio_all_over_base": 4.7647
+  },
+  {
+   "d": 18,
+   "v_all_at_third": "15",
+   "floor_formula": "15",
+   "v_base": "3",
+   "v_t1": "17/3",
+   "ratio_all_over_base": 5.0
+  },
+  {
+   "d": 19,
+   "v_all_at_third": "50/3",
+   "floor_formula": "50/3",
+   "v_base": "19/6",
+   "v_t1": "6",
+   "ratio_all_over_base": 5.2632
+  },
+  {
+   "d": 20,
+   "v_all_at_third": "55/3",
+   "floor_formula": "55/3",
+   "v_base": "10/3",
+   "v_t1": "19/3",
+   "ratio_all_over_base": 5.5
+  },
+  {
+   "d": 21,
+   "v_all_at_third": "121/6",
+   "floor_formula": "121/6",
+   "v_base": "7/2",
+   "v_t1": "20/3",
+   "ratio_all_over_base": 5.7619
+  },
+  {
+   "d": 22,
+   "v_all_at_third": "22",
+   "floor_formula": "22",
+   "v_base": "11/3",
+   "v_t1": "7",
+   "ratio_all_over_base": 6.0
+  },
+  {
+   "d": 23,
+   "v_all_at_third": "24",
+   "floor_formula": "24",
+   "v_base": "23/6",
+   "v_t1": "22/3",
+   "ratio_all_over_base": 6.2609
+  },
+  {
+   "d": 24,
+   "v_all_at_third": "26",
+   "floor_formula": "26",
+   "v_base": "4",
+   "v_t1": "23/3",
+   "ratio_all_over_base": 6.5
+  },
+  {
+   "d": 25,
+   "v_all_at_third": "169/6",
+   "floor_formula": "169/6",
+   "v_base": "25/6",
+   "v_t1": "8",
+   "ratio_all_over_base": 6.76
+  },
+  {
+   "d": 26,
+   "v_all_at_third": "91/3",
+   "floor_formula": "91/3",
+   "v_base": "13/3",
+   "v_t1": "25/3",
+   "ratio_all_over_base": 7.0
+  },
+  {
+   "d": 27,
+   "v_all_at_third": "98/3",
+   "floor_formula": "98/3",
+   "v_base": "9/2",
+   "v_t1": "26/3",
+   "ratio_all_over_base": 7.2593
+  },
+  {
+   "d": 28,
+   "v_all_at_third": "35",
+   "floor_formula": "35",
+   "v_base": "14/3",
+   "v_t1": "9",
+   "ratio_all_over_base": 7.5
+  },
+  {
+   "d": 29,
+   "v_all_at_third": "75/2",
+   "floor_formula": "75/2",
+   "v_base": "29/6",
+   "v_t1": "28/3",
+   "ratio_all_over_base": 7.7586
+  },
+  {
+   "d": 30,
+   "v_all_at_third": "40",
+   "floor_formula": "40",
+   "v_base": "5",
+   "v_t1": "29/3",
+   "ratio_all_over_base": 8.0
+  },
+  {
+   "d": 31,
+   "v_all_at_third": "128/3",
+   "floor_formula": "128/3",
+   "v_base": "31/6",
+   "v_t1": "10",
+   "ratio_all_over_base": 8.2581
+  },
+  {
+   "d": 32,
+   "v_all_at_third": "136/3",
+   "floor_formula": "136/3",
+   "v_base": "16/3",
+   "v_t1": "31/3",
+   "ratio_all_over_base": 8.5
+  },
+  {
+   "d": 33,
+   "v_all_at_third": "289/6",
+   "floor_formula": "289/6",
+   "v_base": "11/2",
+   "v_t1": "32/3",
+   "ratio_all_over_base": 8.7576
+  },
+  {
+   "d": 34,
+   "v_all_at_third": "51",
+   "floor_formula": "51",
+   "v_base": "17/3",
+   "v_t1": "11",
+   "ratio_all_over_base": 9.0
+  },
+  {
+   "d": 35,
+   "v_all_at_third": "54",
+   "floor_formula": "54",
+   "v_base": "35/6",
+   "v_t1": "34/3",
+   "ratio_all_over_base": 9.2571
+  },
+  {
+   "d": 36,
+   "v_all_at_third": "57",
+   "floor_formula": "57",
+   "v_base": "6",
+   "v_t1": "35/3",
+   "ratio_all_over_base": 9.5
+  },
+  {
+   "d": 37,
+   "v_all_at_third": "361/6",
+   "floor_formula": "361/6",
+   "v_base": "37/6",
+   "v_t1": "12",
+   "ratio_all_over_base": 9.7568
+  },
+  {
+   "d": 38,
+   "v_all_at_third": "190/3",
+   "floor_formula": "190/3",
+   "v_base": "19/3",
+   "v_t1": "37/3",
+   "ratio_all_over_base": 10.0
+  },
+  {
+   "d": 39,
+   "v_all_at_third": "200/3",
+   "floor_formula": "200/3",
+   "v_base": "13/2",
+   "v_t1": "38/3",
+   "ratio_all_over_base": 10.2564
+  },
+  {
+   "d": 40,
+   "v_all_at_third": "70",
+   "floor_formula": "70",
+   "v_base": "20/3",
+   "v_t1": "13",
+   "ratio_all_over_base": 10.5
+  }
+ ]
+}

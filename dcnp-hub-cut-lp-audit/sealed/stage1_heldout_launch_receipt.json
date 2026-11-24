@@ -1,0 +1,10 @@
+{
+  "stage": "stage_1_heldout_synthetic_launch_receipt",
+  "python_pid": 418,
+  "wrapper_pid": 309,
+  "start_utc": "2026-11-24T01:57:25Z",
+  "protocol_sha256_pre": "cf81fad4d2a32aedb8851f8e694ee552f3f0ec5a176763ba230b2186f4ca71f5",
+  "script_sha256_pre": "e958589fd83ce94b52b6cff1d8bb295453f69a1351d07568ae6efcc7e3b05b5f",
+  "log_path": "/mnt/d/AI_Science/antigravity/dcnp_polyhedral_cuts_20261124/stage1_heldout_run.log",
+  "results_path": "/mnt/d/AI_Science/antigravity/dcnp_polyhedral_cuts_20261124/stage1_heldout_synthetic_results.json"
+}

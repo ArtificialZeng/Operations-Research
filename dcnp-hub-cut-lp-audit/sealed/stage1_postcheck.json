@@ -1,0 +1,189 @@
+{
+  "results_sha256_recomputed": "8dbfd8f31dd68614d6e0d89af00a7c720b5c9351997bff5bcad1a05ae6e89700",
+  "results_sha256_in_exit_receipt": "8dbfd8f31dd68614d6e0d89af00a7c720b5c9351997bff5bcad1a05ae6e89700",
+  "results_hash_matches_receipt": true,
+  "hashes_unchanged_during_run": true,
+  "exit_code": 0,
+  "elapsed_wall_seconds_receipt": 168.974,
+  "integrity_failures": [],
+  "instances_checked": 16,
+  "tier1": {
+    "strict_lifts": 16,
+    "families_with_lift": [
+      "bipartite_tri_free",
+      "regular_d4",
+      "sbm_4comm",
+      "watts_strogatz_k6"
+    ],
+    "mean_additional_gap_closure_pct": 47.09,
+    "pass_rule": ">=10/16 lifts, >=2 families incl. a non-bipartite one, mean closure >=10%",
+    "pass": true
+  },
+  "tier2": {
+    "sgm_wall_ratio_aug_over_base_shift1": 0.9907,
+    "paired_all": {
+      "wins": 7,
+      "ties": 4,
+      "losses": 5
+    },
+    "paired_branching_either_arm_nodes_gt1": {
+      "wins": 1,
+      "ties": 1,
+      "losses": 2
+    },
+    "family_sgm_ratio": {
+      "bipartite_tri_free": 0.7458,
+      "regular_d4": 0.6705,
+      "sbm_4comm": 1.4471,
+      "watts_strogatz_k6": 1.0484
+    },
+    "pass_rule": "ratio <= 0.85, wins > losses on branching, no ratio > 1.25 on >=2 families, solved(aug) >= solved(base)",
+    "pass": false
+  },
+  "per_instance": [
+    {
+      "instance": "bip_36x36_p012_s501",
+      "best_primal": 154,
+      "lift": 0.133333,
+      "branching": false,
+      "wall_base": 0.0646,
+      "wall_aug": 0.0622,
+      "paired": "T"
+    },
+    {
+      "instance": "bip_36x36_p012_s502",
+      "best_primal": 232,
+      "lift": 1.5,
+      "branching": false,
+      "wall_base": 0.1069,
+      "wall_aug": 0.0713,
+      "paired": "T"
+    },
+    {
+      "instance": "bip_44x44_p010_s503",
+      "best_primal": 317,
+      "lift": 3.409091,
+      "branching": false,
+      "wall_base": 3.7795,
+      "wall_aug": 2.2059,
+      "paired": "W"
+    },
+    {
+      "instance": "bip_44x44_p010_s504",
+      "best_primal": 330,
+      "lift": 5.624783,
+      "branching": false,
+      "wall_base": 4.1316,
+      "wall_aug": 3.2418,
+      "paired": "W"
+    },
+    {
+      "instance": "reg_n64_d4_s511",
+      "best_primal": 245,
+      "lift": 1.166667,
+      "branching": false,
+      "wall_base": 0.1597,
+      "wall_aug": 0.0581,
+      "paired": "W"
+    },
+    {
+      "instance": "reg_n64_d4_s512",
+      "best_primal": 241,
+      "lift": 1.74375,
+      "branching": false,
+      "wall_base": 0.935,
+      "wall_aug": 0.1391,
+      "paired": "W"
+    },
+    {
+      "instance": "reg_n80_d4_s513",
+      "best_primal": 307,
+      "lift": 2.024096,
+      "branching": true,
+      "wall_base": 4.7184,
+      "wall_aug": 3.1305,
+      "paired": "W"
+    },
+    {
+      "instance": "reg_n80_d4_s514",
+      "best_primal": 309,
+      "lift": 1.916444,
+      "branching": true,
+      "wall_base": 2.7136,
+      "wall_aug": 2.8417,
+      "paired": "T"
+    },
+    {
+      "instance": "ws_n64_k6_p020_s521",
+      "best_primal": 260,
+      "lift": 1.0,
+      "branching": false,
+      "wall_base": 0.1556,
+      "wall_aug": 0.1047,
+      "paired": "T"
+    },
+    {
+      "instance": "ws_n64_k6_p020_s522",
+      "best_primal": 308,
+      "lift": 1.212006,
+      "branching": false,
+      "wall_base": 2.1036,
+      "wall_aug": 4.9161,
+      "paired": "L"
+    },
+    {
+      "instance": "ws_n80_k6_p020_s523",
+      "best_primal": 373,
+      "lift": 0.92448,
+      "branching": false,
+      "wall_base": 1.8953,
+      "wall_aug": 1.1383,
+      "paired": "W"
+    },
+    {
+      "instance": "ws_n80_k6_p020_s524",
+      "best_primal": 401,
+      "lift": 0.333333,
+      "branching": false,
+      "wall_base": 0.4524,
+      "wall_aug": 0.1858,
+      "paired": "W"
+    },
+    {
+      "instance": "sbm_4x16_s531",
+      "best_primal": 436,
+      "lift": 0.39077,
+      "branching": false,
+      "wall_base": 2.4382,
+      "wall_aug": 3.0623,
+      "paired": "L"
+    },
+    {
+      "instance": "sbm_4x16_s532",
+      "best_primal": 416,
+      "lift": 0.624953,
+      "branching": false,
+      "wall_base": 2.5437,
+      "wall_aug": 3.9248,
+      "paired": "L"
+    },
+    {
+      "instance": "sbm_4x20_s533",
+      "best_primal": 744,
+      "lift": 2.861956,
+      "branching": true,
+      "wall_base": 22.5245,
+      "wall_aug": 38.6725,
+      "paired": "L"
+    },
+    {
+      "instance": "sbm_4x20_s534",
+      "best_primal": 724,
+      "lift": 1.87396,
+      "branching": true,
+      "wall_base": 23.333,
+      "wall_aug": 32.5776,
+      "paired": "L"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "status": "frozen_research_archive",
+  "topic": "dcnp-hub-cut-lp-audit",
+  "sealed_run_completed": "2026-11-24",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "certificates/stage0b_exact_rational_certificate.json",
+      "bytes": 19611,
+      "sha256": "c2b43bbb8eccd8f402e296fe252338b7aee611dc1b974cf42937e44f1937a8bc"
+    },
+    {
+      "path": "certificates/stage0b_exact_rational_certificate.py",
+      "bytes": 32727,
+      "sha256": "fcb8ab434dbd3de54d45ea5e1d0d12f0fb2cab9cfd4c2a42be836463994e663c"
+    },
+    {
+      "path": "certificates/stage0b_rational_opt_lift_witness.py",
+      "bytes": 7469,
+      "sha256": "fee6c32596708c6dd4831f637b4d4c3a5df158642620f82264e86605b3e8e7f5"
+    },
+    {
+      "path": "certificates/stage0b_validity_and_witness.json",
+      "bytes": 30481,
+      "sha256": "f0d333307e1ef25aa5bfdfb7a1dd5fb6f7087399fe0e2415967d6c6dbfed76a3"
+    },
+    {
+      "path": "certificates/stage0b_validity_and_witness.py",
+      "bytes": 37728,
+      "sha256": "e71542f3adb61dbfe59a5faf84d4732ff267bb5d19f6dc3fa1b135197d65d689"
+    },
+    {
+      "path": "certificates/stage2_family_reduction_certificate.json",
+      "bytes": 28637,
+      "sha256": "0a527e460aa9848c47f2a85b87dedccc29554c7a53ce077f380b0900d3d4dbc5"
+    },
+    {
+      "path": "certificates/stage2_family_reduction_certificate.py",
+      "bytes": 10347,
+      "sha256": "8eed0717d5cb907aee2c03e1d8914504ded7bc86c8fd34a75796df81cf1e55b6"
+    },
+    {
+      "path": "certificates/stage2_run.log",
+      "bytes": 3117,
+      "sha256": "7373fa3788d2d1869781df9d25888f98a9cd28ccc3cef4c7b67afb43ad3a9058"
+    },
+    {
+      "path": "certificates/stage2_summarize.py",
+      "bytes": 778,
+      "sha256": "6b7ee7c182869e9cc37fa950b62ee7b21b54f033d666f8ee11ccb9722d2e5e41"
+    },
+    {
+      "path": "certificates/stage2b_closed_form_check.json",
+      "bytes": 81058,
+      "sha256": "ed15e5131760c0f5654b2eea1d17efc39d3269e9a206e254cd26d7754e6abcfb"
+    },
+    {
+      "path": "certificates/stage2b_closed_form_check.py",
+      "bytes": 3656,
+      "sha256": "25d43d8b84206c86da1ec3890200e962b4386190cbbdbad2120a5f950f0b0f65"
+    },
+    {
+      "path": "docs/STAGE1_OUTCOME.md",
+      "bytes": 3494,
+      "sha256": "d75629383a8b28e5b7db379ed702691b912b56056d8f6439f481fb4634d32365"
+    },
+    {
+      "path": "docs/THEOREM_VALIDITY_AND_WITNESS.md",
+      "bytes": 32525,
+      "sha256": "21d67eb9f25d68104eefb614fb8560dc71a54bf727cc7d9a9f65072b0d449f57"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3589,
+      "sha256": "b7fbc498338a10b57288ad44494b44fed9fdbd6ffe3007e6e129e1e94c55a4c1"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 43,
+      "sha256": "0b1c58f2f53ae7e094c94ceeb49ed00585c7be0300376f70a628932664d0a68c"
+    },
+    {
+      "path": "sealed/stage1_heldout_exit_receipt.json",
+      "bytes": 1101,
+      "sha256": "dc069f0963bf5fdcf07132df8f7ba724eb9a18656d3968fb71db6c7a193fc275"
+    },
+    {
+      "path": "sealed/stage1_heldout_launch_receipt.json",
+      "bytes": 543,
+      "sha256": "827f87fc85c33ee275dbcc83109dbe7d2c313313e9b7a75ceccb3bff2ee6e776"
+    },
+    {
+      "path": "sealed/stage1_heldout_run.log",
+      "bytes": 2603,
+      "sha256": "44f0836935fdf6107803874d507bbb011ff8ab38748125d2fcdec461235822f9"
+    },
+    {
+      "path": "sealed/stage1_heldout_synthetic_benchmark.py",
+      "bytes": 32801,
+      "sha256": "e958589fd83ce94b52b6cff1d8bb295453f69a1351d07568ae6efcc7e3b05b5f"
+    },
+    {
+      "path": "sealed/stage1_heldout_synthetic_results.json",
+      "bytes": 28973,
+      "sha256": "8dbfd8f31dd68614d6e0d89af00a7c720b5c9351997bff5bcad1a05ae6e89700"
+    },
+    {
+      "path": "sealed/stage1_postcheck.json",
+      "bytes": 4498,
+      "sha256": "c622390ad800b63f5603aaa949f6c79e1b4c0c14d2c575a639781f5c0775b03a"
+    },
+    {
+      "path": "sealed/stage1_postcheck.py",
+      "bytes": 4473,
+      "sha256": "f59599505c6732d9447df21a6e462ad9e7ad3886a3a04654823aea7744aa659c"
+    },
+    {
+      "path": "sealed/STAGE1_SEALED_SYNTHETIC_PROTOCOL.md",
+      "bytes": 9663,
+      "sha256": "cf81fad4d2a32aedb8851f8e694ee552f3f0ec5a176763ba230b2186f4ca71f5"
+    },
+    {
+      "path": "verify_archive.py",
+      "bytes": 891,
+      "sha256": "4ccdd4dfd8fd851542f6f007024a1d5aefd098ac9641709d73e19e88a6846e44"
+    }
+  ]
+}

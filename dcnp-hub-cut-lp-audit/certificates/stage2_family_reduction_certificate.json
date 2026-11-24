@@ -1,0 +1,1385 @@
+{
+  "stage": "stage2_family_reduction_certificate",
+  "arithmetic": "exact Fraction",
+  "sweeps": [
+    {
+      "d": 3,
+      "family": "base",
+      "breakpoints": [],
+      "pieces": [
+        {
+          "from": "1/4",
+          "to": "1/3",
+          "intercept": "9/2",
+          "slope": "-12",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 3,
+      "family": "t1full",
+      "breakpoints": [
+        "1/4"
+      ],
+      "pieces": [
+        {
+          "from": "1/4",
+          "to": "1/4",
+          "intercept": "9/2",
+          "slope": "-12",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/4",
+          "to": "1/3",
+          "intercept": "4",
+          "slope": "-10",
+          "active": [
+            "cut_q3_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 3,
+      "family": "full_nbr",
+      "breakpoints": [
+        "1/4"
+      ],
+      "pieces": [
+        {
+          "from": "1/4",
+          "to": "1/4",
+          "intercept": "9/2",
+          "slope": "-12",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/4",
+          "to": "1/3",
+          "intercept": "4",
+          "slope": "-10",
+          "active": [
+            "cut_q3_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 3,
+      "family": "all",
+      "breakpoints": [
+        "1/4"
+      ],
+      "pieces": [
+        {
+          "from": "1/4",
+          "to": "1/4",
+          "intercept": "9/2",
+          "slope": "-12",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/4",
+          "to": "1/3",
+          "intercept": "4",
+          "slope": "-10",
+          "active": [
+            "cut_q3_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 4,
+      "family": "base",
+      "breakpoints": [],
+      "pieces": [
+        {
+          "from": "1/5",
+          "to": "1/3",
+          "intercept": "8",
+          "slope": "-22",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 4,
+      "family": "t1full",
+      "breakpoints": [
+        "1/5"
+      ],
+      "pieces": [
+        {
+          "from": "1/5",
+          "to": "1/5",
+          "intercept": "8",
+          "slope": "-22",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/5",
+          "to": "1/3",
+          "intercept": "15/2",
+          "slope": "-39/2",
+          "active": [
+            "cut_q4_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 4,
+      "family": "full_nbr",
+      "breakpoints": [
+        "1/5"
+      ],
+      "pieces": [
+        {
+          "from": "1/5",
+          "to": "1/5",
+          "intercept": "8",
+          "slope": "-22",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/5",
+          "to": "1/3",
+          "intercept": "15/2",
+          "slope": "-39/2",
+          "active": [
+            "cut_q4_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 4,
+      "family": "all",
+      "breakpoints": [
+        "1/5"
+      ],
+      "pieces": [
+        {
+          "from": "1/5",
+          "to": "1/5",
+          "intercept": "8",
+          "slope": "-22",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/5",
+          "to": "1/3",
+          "intercept": "15/2",
+          "slope": "-39/2",
+          "active": [
+            "cut_q4_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 5,
+      "family": "base",
+      "breakpoints": [],
+      "pieces": [
+        {
+          "from": "1/6",
+          "to": "1/3",
+          "intercept": "25/2",
+          "slope": "-35",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 5,
+      "family": "t1full",
+      "breakpoints": [
+        "1/6"
+      ],
+      "pieces": [
+        {
+          "from": "1/6",
+          "to": "1/6",
+          "intercept": "25/2",
+          "slope": "-35",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/6",
+          "to": "1/3",
+          "intercept": "12",
+          "slope": "-32",
+          "active": [
+            "cut_q5_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 5,
+      "family": "full_nbr",
+      "breakpoints": [
+        "1/6",
+        "2/7"
+      ],
+      "pieces": [
+        {
+          "from": "1/6",
+          "to": "1/6",
+          "intercept": "25/2",
+          "slope": "-35",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/6",
+          "to": "2/7",
+          "intercept": "12",
+          "slope": "-32",
+          "active": [
+            "cut_q5_t1",
+            "thin"
+          ]
+        },
+        {
+          "from": "2/7",
+          "to": "1/3",
+          "intercept": "11",
+          "slope": "-57/2",
+          "active": [
+            "cut_q5_t2",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 5,
+      "family": "all",
+      "breakpoints": [
+        "1/6",
+        "2/7"
+      ],
+      "pieces": [
+        {
+          "from": "1/6",
+          "to": "1/6",
+          "intercept": "25/2",
+          "slope": "-35",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/6",
+          "to": "2/7",
+          "intercept": "12",
+          "slope": "-32",
+          "active": [
+            "cut_q5_t1",
+            "thin"
+          ]
+        },
+        {
+          "from": "2/7",
+          "to": "1/3",
+          "intercept": "11",
+          "slope": "-57/2",
+          "active": [
+            "cut_q5_t2",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 6,
+      "family": "base",
+      "breakpoints": [],
+      "pieces": [
+        {
+          "from": "1/7",
+          "to": "1/3",
+          "intercept": "18",
+          "slope": "-51",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 6,
+      "family": "t1full",
+      "breakpoints": [
+        "1/7"
+      ],
+      "pieces": [
+        {
+          "from": "1/7",
+          "to": "1/7",
+          "intercept": "18",
+          "slope": "-51",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/7",
+          "to": "1/3",
+          "intercept": "35/2",
+          "slope": "-95/2",
+          "active": [
+            "cut_q6_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 6,
+      "family": "full_nbr",
+      "breakpoints": [
+        "1/7",
+        "1/4"
+      ],
+      "pieces": [
+        {
+          "from": "1/7",
+          "to": "1/7",
+          "intercept": "18",
+          "slope": "-51",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/7",
+          "to": "1/4",
+          "intercept": "35/2",
+          "slope": "-95/2",
+          "active": [
+            "cut_q6_t1",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/4",
+          "to": "1/3",
+          "intercept": "33/2",
+          "slope": "-87/2",
+          "active": [
+            "cut_q6_t2",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 6,
+      "family": "all",
+      "breakpoints": [
+        "1/7",
+        "1/4"
+      ],
+      "pieces": [
+        {
+          "from": "1/7",
+          "to": "1/7",
+          "intercept": "18",
+          "slope": "-51",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/7",
+          "to": "1/4",
+          "intercept": "35/2",
+          "slope": "-95/2",
+          "active": [
+            "cut_q6_t1",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/4",
+          "to": "1/3",
+          "intercept": "33/2",
+          "slope": "-87/2",
+          "active": [
+            "cut_q6_t2",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 7,
+      "family": "base",
+      "breakpoints": [],
+      "pieces": [
+        {
+          "from": "1/8",
+          "to": "1/3",
+          "intercept": "49/2",
+          "slope": "-70",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 7,
+      "family": "t1full",
+      "breakpoints": [
+        "1/8"
+      ],
+      "pieces": [
+        {
+          "from": "1/8",
+          "to": "1/8",
+          "intercept": "49/2",
+          "slope": "-70",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/8",
+          "to": "1/3",
+          "intercept": "24",
+          "slope": "-66",
+          "active": [
+            "cut_q7_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 7,
+      "family": "full_nbr",
+      "breakpoints": [
+        "1/8",
+        "2/9",
+        "3/10"
+      ],
+      "pieces": [
+        {
+          "from": "1/8",
+          "to": "1/8",
+          "intercept": "49/2",
+          "slope": "-70",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/8",
+          "to": "2/9",
+          "intercept": "24",
+          "slope": "-66",
+          "active": [
+            "cut_q7_t1",
+            "thin"
+          ]
+        },
+        {
+          "from": "2/9",
+          "to": "3/10",
+          "intercept": "23",
+          "slope": "-123/2",
+          "active": [
+            "cut_q7_t2",
+            "thin"
+          ]
+        },
+        {
+          "from": "3/10",
+          "to": "1/3",
+          "intercept": "43/2",
+          "slope": "-113/2",
+          "active": [
+            "cut_q7_t3",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 7,
+      "family": "all",
+      "breakpoints": [
+        "1/8",
+        "2/9",
+        "3/10"
+      ],
+      "pieces": [
+        {
+          "from": "1/8",
+          "to": "1/8",
+          "intercept": "49/2",
+          "slope": "-70",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/8",
+          "to": "2/9",
+          "intercept": "24",
+          "slope": "-66",
+          "active": [
+            "cut_q7_t1",
+            "thin"
+          ]
+        },
+        {
+          "from": "2/9",
+          "to": "3/10",
+          "intercept": "23",
+          "slope": "-123/2",
+          "active": [
+            "cut_q7_t2",
+            "thin"
+          ]
+        },
+        {
+          "from": "3/10",
+          "to": "1/3",
+          "intercept": "43/2",
+          "slope": "-113/2",
+          "active": [
+            "cut_q7_t3",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 8,
+      "family": "base",
+      "breakpoints": [],
+      "pieces": [
+        {
+          "from": "1/9",
+          "to": "1/3",
+          "intercept": "32",
+          "slope": "-92",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 8,
+      "family": "t1full",
+      "breakpoints": [
+        "1/9"
+      ],
+      "pieces": [
+        {
+          "from": "1/9",
+          "to": "1/9",
+          "intercept": "32",
+          "slope": "-92",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/9",
+          "to": "1/3",
+          "intercept": "63/2",
+          "slope": "-175/2",
+          "active": [
+            "cut_q8_t1",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 8,
+      "family": "full_nbr",
+      "breakpoints": [
+        "1/9",
+        "1/5",
+        "3/11"
+      ],
+      "pieces": [
+        {
+          "from": "1/9",
+          "to": "1/9",
+          "intercept": "32",
+          "slope": "-92",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/9",
+          "to": "1/5",
+          "intercept": "63/2",
+          "slope": "-175/2",
+          "active": [
+            "cut_q8_t1",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/5",
+          "to": "3/11",
+          "intercept": "61/2",
+          "slope": "-165/2",
+          "active": [
+            "cut_q8_t2",
+            "thin"
+          ]
+        },
+        {
+          "from": "3/11",
+          "to": "1/3",
+          "intercept": "29",
+          "slope": "-77",
+          "active": [
+            "cut_q8_t3",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "d": 8,
+      "family": "all",
+      "breakpoints": [
+        "1/9",
+        "1/5",
+        "3/11"
+      ],
+      "pieces": [
+        {
+          "from": "1/9",
+          "to": "1/9",
+          "intercept": "32",
+          "slope": "-92",
+          "active": [
+            "edge",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/9",
+          "to": "1/5",
+          "intercept": "63/2",
+          "slope": "-175/2",
+          "active": [
+            "cut_q8_t1",
+            "thin"
+          ]
+        },
+        {
+          "from": "1/5",
+          "to": "3/11",
+          "intercept": "61/2",
+          "slope": "-165/2",
+          "active": [
+            "cut_q8_t2",
+            "thin"
+          ]
+        },
+        {
+          "from": "3/11",
+          "to": "1/3",
+          "intercept": "29",
+          "slope": "-77",
+          "active": [
+            "cut_q8_t3",
+            "thin"
+          ]
+        }
+      ]
+    }
+  ],
+  "comparison_at_breakpoints": [
+    {
+      "d": 3,
+      "alpha": "1/4",
+      "base": "3/2",
+      "t1_exact": "3/2",
+      "t1_closed_form": "3/2",
+      "full_nbr_all_t": "3/2",
+      "all_subsets": "3/2",
+      "lift_all_over_base": "0",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 3,
+      "alpha": "1/3",
+      "base": "1/2",
+      "t1_exact": "2/3",
+      "t1_closed_form": "2/3",
+      "full_nbr_all_t": "2/3",
+      "all_subsets": "2/3",
+      "lift_all_over_base": "1/6",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 4,
+      "alpha": "1/5",
+      "base": "18/5",
+      "t1_exact": "18/5",
+      "t1_closed_form": "18/5",
+      "full_nbr_all_t": "18/5",
+      "all_subsets": "18/5",
+      "lift_all_over_base": "0",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 4,
+      "alpha": "1/3",
+      "base": "2/3",
+      "t1_exact": "1",
+      "t1_closed_form": "1",
+      "full_nbr_all_t": "1",
+      "all_subsets": "1",
+      "lift_all_over_base": "1/3",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 5,
+      "alpha": "1/6",
+      "base": "20/3",
+      "t1_exact": "20/3",
+      "t1_closed_form": "20/3",
+      "full_nbr_all_t": "20/3",
+      "all_subsets": "20/3",
+      "lift_all_over_base": "0",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 5,
+      "alpha": "2/7",
+      "base": "5/2",
+      "t1_exact": "20/7",
+      "t1_closed_form": "20/7",
+      "full_nbr_all_t": "20/7",
+      "all_subsets": "20/7",
+      "lift_all_over_base": "5/14",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 5,
+      "alpha": "1/3",
+      "base": "5/6",
+      "t1_exact": "4/3",
+      "t1_closed_form": "4/3",
+      "full_nbr_all_t": "3/2",
+      "all_subsets": "3/2",
+      "lift_all_over_base": "2/3",
+      "all_minus_t1": "1/6"
+    },
+    {
+      "d": 6,
+      "alpha": "1/7",
+      "base": "75/7",
+      "t1_exact": "75/7",
+      "t1_closed_form": "75/7",
+      "full_nbr_all_t": "75/7",
+      "all_subsets": "75/7",
+      "lift_all_over_base": "0",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 6,
+      "alpha": "1/4",
+      "base": "21/4",
+      "t1_exact": "45/8",
+      "t1_closed_form": "45/8",
+      "full_nbr_all_t": "45/8",
+      "all_subsets": "45/8",
+      "lift_all_over_base": "3/8",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 6,
+      "alpha": "1/3",
+      "base": "1",
+      "t1_exact": "5/3",
+      "t1_closed_form": "5/3",
+      "full_nbr_all_t": "2",
+      "all_subsets": "2",
+      "lift_all_over_base": "1",
+      "all_minus_t1": "1/3"
+    },
+    {
+      "d": 7,
+      "alpha": "1/8",
+      "base": "63/4",
+      "t1_exact": "63/4",
+      "t1_closed_form": "63/4",
+      "full_nbr_all_t": "63/4",
+      "all_subsets": "63/4",
+      "lift_all_over_base": "0",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 7,
+      "alpha": "2/9",
+      "base": "161/18",
+      "t1_exact": "28/3",
+      "t1_closed_form": "28/3",
+      "full_nbr_all_t": "28/3",
+      "all_subsets": "28/3",
+      "lift_all_over_base": "7/18",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 7,
+      "alpha": "3/10",
+      "base": "7/2",
+      "t1_exact": "21/5",
+      "t1_closed_form": "21/5",
+      "full_nbr_all_t": "91/20",
+      "all_subsets": "91/20",
+      "lift_all_over_base": "21/20",
+      "all_minus_t1": "7/20"
+    },
+    {
+      "d": 7,
+      "alpha": "1/3",
+      "base": "7/6",
+      "t1_exact": "2",
+      "t1_closed_form": "2",
+      "full_nbr_all_t": "8/3",
+      "all_subsets": "8/3",
+      "lift_all_over_base": "3/2",
+      "all_minus_t1": "2/3"
+    },
+    {
+      "d": 8,
+      "alpha": "1/9",
+      "base": "196/9",
+      "t1_exact": "196/9",
+      "t1_closed_form": "196/9",
+      "full_nbr_all_t": "196/9",
+      "all_subsets": "196/9",
+      "lift_all_over_base": "0",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 8,
+      "alpha": "1/5",
+      "base": "68/5",
+      "t1_exact": "14",
+      "t1_closed_form": "14",
+      "full_nbr_all_t": "14",
+      "all_subsets": "14",
+      "lift_all_over_base": "2/5",
+      "all_minus_t1": "0"
+    },
+    {
+      "d": 8,
+      "alpha": "3/11",
+      "base": "76/11",
+      "t1_exact": "84/11",
+      "t1_closed_form": "84/11",
+      "full_nbr_all_t": "8",
+      "all_subsets": "8",
+      "lift_all_over_base": "12/11",
+      "all_minus_t1": "4/11"
+    },
+    {
+      "d": 8,
+      "alpha": "1/3",
+      "base": "4/3",
+      "t1_exact": "7/3",
+      "t1_closed_form": "7/3",
+      "full_nbr_all_t": "10/3",
+      "all_subsets": "10/3",
+      "lift_all_over_base": "2",
+      "all_minus_t1": "1"
+    }
+  ],
+  "graph_certificates": [
+    {
+      "label": "heawood_n14_b4",
+      "family": "t1full",
+      "n": 14,
+      "d": 3,
+      "budget": 4,
+      "alpha": "2/7",
+      "rows_checked": 197,
+      "hub_rows": 14,
+      "exact_lp_value": "16",
+      "primal_obj": "16",
+      "dual_lb": "16",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q3_t1"
+      ],
+      "t1_closed_form_lb": "16"
+    },
+    {
+      "label": "heawood_n14_b4",
+      "family": "full_nbr",
+      "n": 14,
+      "d": 3,
+      "budget": 4,
+      "alpha": "2/7",
+      "rows_checked": 225,
+      "hub_rows": 42,
+      "exact_lp_value": "16",
+      "primal_obj": "16",
+      "dual_lb": "16",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q3_t1"
+      ],
+      "t1_closed_form_lb": "16"
+    },
+    {
+      "label": "heawood_n14_b4",
+      "family": "all",
+      "n": 14,
+      "d": 3,
+      "budget": 4,
+      "alpha": "2/7",
+      "rows_checked": 309,
+      "hub_rows": 126,
+      "exact_lp_value": "16",
+      "primal_obj": "16",
+      "dual_lb": "16",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q3_t1"
+      ],
+      "t1_closed_form_lb": "16"
+    },
+    {
+      "label": "tutte_coxeter_n30_b9",
+      "family": "t1full",
+      "n": 30,
+      "d": 3,
+      "budget": 9,
+      "alpha": "3/10",
+      "rows_checked": 421,
+      "hub_rows": 30,
+      "exact_lp_value": "30",
+      "primal_obj": "30",
+      "dual_lb": "30",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q3_t1"
+      ],
+      "t1_closed_form_lb": "30"
+    },
+    {
+      "label": "tutte_coxeter_n30_b9",
+      "family": "full_nbr",
+      "n": 30,
+      "d": 3,
+      "budget": 9,
+      "alpha": "3/10",
+      "rows_checked": 481,
+      "hub_rows": 90,
+      "exact_lp_value": "30",
+      "primal_obj": "30",
+      "dual_lb": "30",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q3_t1"
+      ],
+      "t1_closed_form_lb": "30"
+    },
+    {
+      "label": "tutte_coxeter_n30_b9",
+      "family": "all",
+      "n": 30,
+      "d": 3,
+      "budget": 9,
+      "alpha": "3/10",
+      "rows_checked": 661,
+      "hub_rows": 270,
+      "exact_lp_value": "30",
+      "primal_obj": "30",
+      "dual_lb": "30",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q3_t1"
+      ],
+      "t1_closed_form_lb": "30"
+    },
+    {
+      "label": "tutte_coxeter_n30_b10",
+      "family": "t1full",
+      "n": 30,
+      "d": 3,
+      "budget": 10,
+      "alpha": "1/3",
+      "rows_checked": 421,
+      "hub_rows": 30,
+      "exact_lp_value": "20",
+      "primal_obj": "20",
+      "dual_lb": "20",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q3_t1"
+      ],
+      "t1_closed_form_lb": "20"
+    },
+    {
+      "label": "tutte_coxeter_n30_b10",
+      "family": "full_nbr",
+      "n": 30,
+      "d": 3,
+      "budget": 10,
+      "alpha": "1/3",
+      "rows_checked": 481,
+      "hub_rows": 90,
+      "exact_lp_value": "20",
+      "primal_obj": "20",
+      "dual_lb": "20",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q3_t1"
+      ],
+      "t1_closed_form_lb": "20"
+    },
+    {
+      "label": "tutte_coxeter_n30_b10",
+      "family": "all",
+      "n": 30,
+      "d": 3,
+      "budget": 10,
+      "alpha": "1/3",
+      "rows_checked": 661,
+      "hub_rows": 270,
+      "exact_lp_value": "20",
+      "primal_obj": "20",
+      "dual_lb": "20",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q3_t1"
+      ],
+      "t1_closed_form_lb": "20"
+    },
+    {
+      "label": "pg2_3_levi_n26_b6",
+      "family": "t1full",
+      "n": 26,
+      "d": 4,
+      "budget": 6,
+      "alpha": "3/13",
+      "rows_checked": 625,
+      "hub_rows": 26,
+      "exact_lp_value": "78",
+      "primal_obj": "78",
+      "dual_lb": "78",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q4_t1"
+      ],
+      "t1_closed_form_lb": "78"
+    },
+    {
+      "label": "pg2_3_levi_n26_b6",
+      "family": "full_nbr",
+      "n": 26,
+      "d": 4,
+      "budget": 6,
+      "alpha": "3/13",
+      "rows_checked": 703,
+      "hub_rows": 104,
+      "exact_lp_value": "78",
+      "primal_obj": "78",
+      "dual_lb": "78",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q4_t1"
+      ],
+      "t1_closed_form_lb": "78"
+    },
+    {
+      "label": "pg2_3_levi_n26_b6",
+      "family": "all",
+      "n": 26,
+      "d": 4,
+      "budget": 6,
+      "alpha": "3/13",
+      "rows_checked": 1327,
+      "hub_rows": 728,
+      "exact_lp_value": "78",
+      "primal_obj": "78",
+      "dual_lb": "78",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q4_t1"
+      ],
+      "t1_closed_form_lb": "78"
+    },
+    {
+      "label": "pg2_3_levi_n26_b8",
+      "family": "t1full",
+      "n": 26,
+      "d": 4,
+      "budget": 8,
+      "alpha": "4/13",
+      "rows_checked": 625,
+      "hub_rows": 26,
+      "exact_lp_value": "39",
+      "primal_obj": "39",
+      "dual_lb": "39",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q4_t1"
+      ],
+      "t1_closed_form_lb": "39"
+    },
+    {
+      "label": "pg2_3_levi_n26_b8",
+      "family": "full_nbr",
+      "n": 26,
+      "d": 4,
+      "budget": 8,
+      "alpha": "4/13",
+      "rows_checked": 703,
+      "hub_rows": 104,
+      "exact_lp_value": "39",
+      "primal_obj": "39",
+      "dual_lb": "39",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q4_t1"
+      ],
+      "t1_closed_form_lb": "39"
+    },
+    {
+      "label": "pg2_3_levi_n26_b8",
+      "family": "all",
+      "n": 26,
+      "d": 4,
+      "budget": 8,
+      "alpha": "4/13",
+      "rows_checked": 1327,
+      "hub_rows": 728,
+      "exact_lp_value": "39",
+      "primal_obj": "39",
+      "dual_lb": "39",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q4_t1"
+      ],
+      "t1_closed_form_lb": "39"
+    },
+    {
+      "label": "pg2_5_levi_n62_b15",
+      "family": "t1full",
+      "n": 62,
+      "d": 6,
+      "budget": 15,
+      "alpha": "15/62",
+      "rows_checked": 3287,
+      "hub_rows": 62,
+      "exact_lp_value": "745/2",
+      "primal_obj": "745/2",
+      "dual_lb": "745/2",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q6_t1"
+      ],
+      "t1_closed_form_lb": "745/2"
+    },
+    {
+      "label": "pg2_5_levi_n62_b15",
+      "family": "full_nbr",
+      "n": 62,
+      "d": 6,
+      "budget": 15,
+      "alpha": "15/62",
+      "rows_checked": 3597,
+      "hub_rows": 372,
+      "exact_lp_value": "745/2",
+      "primal_obj": "745/2",
+      "dual_lb": "745/2",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q6_t1"
+      ],
+      "t1_closed_form_lb": "745/2"
+    },
+    {
+      "label": "pg2_5_levi_n62_b15",
+      "family": "all",
+      "n": 62,
+      "d": 6,
+      "budget": 15,
+      "alpha": "15/62",
+      "rows_checked": 14757,
+      "hub_rows": 11532,
+      "exact_lp_value": "745/2",
+      "primal_obj": "745/2",
+      "dual_lb": "745/2",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q6_t1"
+      ],
+      "t1_closed_form_lb": "745/2"
+    },
+    {
+      "label": "pg2_5_levi_n62_b20",
+      "family": "t1full",
+      "n": 62,
+      "d": 6,
+      "budget": 20,
+      "alpha": "10/31",
+      "rows_checked": 3287,
+      "hub_rows": 62,
+      "exact_lp_value": "135",
+      "primal_obj": "135",
+      "dual_lb": "135",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q6_t1"
+      ],
+      "t1_closed_form_lb": "135"
+    },
+    {
+      "label": "pg2_5_levi_n62_b20",
+      "family": "full_nbr",
+      "n": 62,
+      "d": 6,
+      "budget": 20,
+      "alpha": "10/31",
+      "rows_checked": 3597,
+      "hub_rows": 372,
+      "exact_lp_value": "153",
+      "primal_obj": "153",
+      "dual_lb": "153",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q6_t2"
+      ],
+      "t1_closed_form_lb": "135"
+    },
+    {
+      "label": "pg2_5_levi_n62_b20",
+      "family": "all",
+      "n": 62,
+      "d": 6,
+      "budget": 20,
+      "alpha": "10/31",
+      "rows_checked": 14757,
+      "hub_rows": 11532,
+      "exact_lp_value": "153",
+      "primal_obj": "153",
+      "dual_lb": "153",
+      "primal_feasible_exact": true,
+      "dual_feasible_exact": true,
+      "exact_both_sides_equal": true,
+      "active_cut_classes": [
+        "cut_q6_t2"
+      ],
+      "t1_closed_form_lb": "135"
+    }
+  ],
+  "elapsed_seconds": 0.893
+}
