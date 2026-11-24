@@ -1,0 +1,710 @@
+{
+  "verdict": {
+    "gate1_R1_vs_DMDNorm": 3.2654177748873514,
+    "gate1_R1_vs_WSNorm": 2.34637970974426,
+    "gate1_pass": true,
+    "gate2_R2_vs_DMDNorm": 1.3340120692080881,
+    "gate2_R2_vs_WSNorm": 1.728461755603179,
+    "gate2_R2_vs_SANorm": 3.658495730028386,
+    "gate2_R2_vs_MainNorm": 1.7445832830984522,
+    "gate2_pass": false,
+    "gate3_R3_CD_over_DMDNorm": 2.680199403117879,
+    "gate3_R3_WSNorm_over_CD": 1.0015703849432187,
+    "gate3_pass": false,
+    "gate4_R4_CD_over_DMDNorm_rew": 0.8151060351554921,
+    "gate4_pass": false,
+    "ALL_FOUR_STRONG_GATES_PASS": false
+  },
+  "summary": {
+    "R1_Accurate_IID": {
+      "mean_opt": 9110.01178598795,
+      "mean_regret": {
+        "DMD-Norm": 369.47095326695035,
+        "WS-DMD-Norm": 265.4849112271242,
+        "An24-SA-Norm": 729.6758067376101,
+        "An24-MainALG-Norm": 537.502004664759,
+        "CoordDrift-DMD": 113.14661055267152
+      },
+      "mean_reward": {
+        "DMD-Norm": 8740.540832720999,
+        "WS-DMD-Norm": 8844.526874760826,
+        "An24-SA-Norm": 8380.335979250342,
+        "An24-MainALG-Norm": 8572.509781323191,
+        "CoordDrift-DMD": 8996.86517543528
+      },
+      "mean_competitive_ratio": {
+        "DMD-Norm": 0.9594434165458235,
+        "WS-DMD-Norm": 0.9708578959650234,
+        "An24-SA-Norm": 0.9199039667698434,
+        "An24-MainALG-Norm": 0.940998758586516,
+        "CoordDrift-DMD": 0.987579971002156
+      },
+      "mean_time_s": {
+        "DMD-Norm": 0.017089780000969768,
+        "WS-DMD-Norm": 0.017013959999894725,
+        "An24-SA-Norm": 0.017141160005121493,
+        "An24-MainALG-Norm": 0.028869440002017653,
+        "CoordDrift-DMD": 0.09647974000254181
+      },
+      "mean_unlocked_coords": 1.4
+    },
+    "R2_SparseCorrupt_IID": {
+      "mean_opt": 9110.01178598795,
+      "mean_regret": {
+        "DMD-Norm": 369.47095326695035,
+        "WS-DMD-Norm": 478.71861677179277,
+        "An24-SA-Norm": 1013.2651241297028,
+        "An24-MainALG-Norm": 483.18367092631325,
+        "CoordDrift-DMD": 276.9622268007515
+      },
+      "mean_reward": {
+        "DMD-Norm": 8740.540832720999,
+        "WS-DMD-Norm": 8631.293169216158,
+        "An24-SA-Norm": 8096.7466618582475,
+        "An24-MainALG-Norm": 8626.828115061637,
+        "CoordDrift-DMD": 8833.049559187199
+      },
+      "mean_competitive_ratio": {
+        "DMD-Norm": 0.9594434165458235,
+        "WS-DMD-Norm": 0.9474513724001866,
+        "An24-SA-Norm": 0.8887745539815658,
+        "An24-MainALG-Norm": 0.9469612463433368,
+        "CoordDrift-DMD": 0.9695980385857738
+      },
+      "mean_time_s": {
+        "DMD-Norm": 0.017058479998377153,
+        "WS-DMD-Norm": 0.016901960002724082,
+        "An24-SA-Norm": 0.016894820003653877,
+        "An24-MainALG-Norm": 0.020859780002501792,
+        "CoordDrift-DMD": 0.09681692000303883
+      },
+      "mean_unlocked_coords": 2.4
+    },
+    "R3_FullPoison_IID": {
+      "mean_opt": 9110.01178598795,
+      "mean_regret": {
+        "DMD-Norm": 369.47095326695035,
+        "WS-DMD-Norm": 991.8109112583525,
+        "An24-SA-Norm": 1377.0057977655476,
+        "An24-MainALG-Norm": 494.32594470071854,
+        "CoordDrift-DMD": 990.2558284154742
+      },
+      "mean_reward": {
+        "DMD-Norm": 8740.540832720999,
+        "WS-DMD-Norm": 8118.200874729597,
+        "An24-SA-Norm": 7733.005988222404,
+        "An24-MainALG-Norm": 8615.685841287233,
+        "CoordDrift-DMD": 8119.755957572476
+      },
+      "mean_competitive_ratio": {
+        "DMD-Norm": 0.9594434165458235,
+        "WS-DMD-Norm": 0.8911295688130886,
+        "An24-SA-Norm": 0.8488469795523745,
+        "An24-MainALG-Norm": 0.9457381662819541,
+        "CoordDrift-DMD": 0.8913002692336162
+      },
+      "mean_time_s": {
+        "DMD-Norm": 0.016790939995553346,
+        "WS-DMD-Norm": 0.016419439995661377,
+        "An24-SA-Norm": 0.016453780001029372,
+        "An24-MainALG-Norm": 0.017996220002532936,
+        "CoordDrift-DMD": 0.09678484000323806
+      },
+      "mean_unlocked_coords": 11.2
+    },
+    "R4_AdversarialShift_Poison": {
+      "mean_opt": 10840.148686072916,
+      "mean_regret": {
+        "DMD-Norm": 2544.2267087548635,
+        "WS-DMD-Norm": 2544.2267087548635,
+        "An24-SA-Norm": 3001.283299001821,
+        "An24-MainALG-Norm": 3001.283299001821,
+        "CoordDrift-DMD": 4078.0926151818885
+      },
+      "mean_reward": {
+        "DMD-Norm": 8295.921977318054,
+        "WS-DMD-Norm": 8295.921977318054,
+        "An24-SA-Norm": 7838.865387071096,
+        "An24-MainALG-Norm": 7838.865387071096,
+        "CoordDrift-DMD": 6762.056070891029
+      },
+      "mean_competitive_ratio": {
+        "DMD-Norm": 0.7652959583457001,
+        "WS-DMD-Norm": 0.7652959583457001,
+        "An24-SA-Norm": 0.723132644586529,
+        "An24-MainALG-Norm": 0.723132644586529,
+        "CoordDrift-DMD": 0.6237973543276861
+      },
+      "mean_time_s": {
+        "DMD-Norm": 0.016838020001887343,
+        "WS-DMD-Norm": 0.0168229200062342,
+        "An24-SA-Norm": 0.01708438000350725,
+        "An24-MainALG-Norm": 0.030266940000001342,
+        "CoordDrift-DMD": 0.09577672000450548
+      },
+      "mean_unlocked_coords": 3.2
+    }
+  },
+  "runs": [
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1001,
+      "opt": 7800.809302436257,
+      "rewards": {
+        "DMD-Norm": 7451.368322964212,
+        "WS-DMD-Norm": 7549.898731265451,
+        "An24-SA-Norm": 7003.718145949099,
+        "An24-MainALG-Norm": 7329.927471701679,
+        "CoordDrift-DMD": 7663.697278359151
+      },
+      "regrets": {
+        "DMD-Norm": 349.440979472045,
+        "WS-DMD-Norm": 250.91057117080618,
+        "An24-SA-Norm": 797.0911564871576,
+        "An24-MainALG-Norm": 470.8818307345782,
+        "CoordDrift-DMD": 137.11202407710607
+      },
+      "times_s": {
+        "DMD-Norm": 0.016520899996976368,
+        "WS-DMD-Norm": 0.01639400000567548,
+        "An24-SA-Norm": 0.01648580000619404,
+        "An24-MainALG-Norm": 0.028508599993074313,
+        "CoordDrift-DMD": 0.09633870000834577
+      },
+      "coord_drift_unlocked": 4,
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1002,
+      "opt": 7883.59749349147,
+      "rewards": {
+        "DMD-Norm": 7581.191152911098,
+        "WS-DMD-Norm": 7649.070316502783,
+        "An24-SA-Norm": 7113.939145615616,
+        "An24-MainALG-Norm": 7473.613642419005,
+        "CoordDrift-DMD": 7780.481646198499
+      },
+      "regrets": {
+        "DMD-Norm": 302.40634058037267,
+        "WS-DMD-Norm": 234.52717698868764,
+        "An24-SA-Norm": 769.6583478758539,
+        "An24-MainALG-Norm": 409.98385107246486,
+        "CoordDrift-DMD": 103.11584729297101
+      },
+      "times_s": {
+        "DMD-Norm": 0.016755400007241406,
+        "WS-DMD-Norm": 0.016673999998602085,
+        "An24-SA-Norm": 0.016659300003084354,
+        "An24-MainALG-Norm": 0.028821800005971454,
+        "CoordDrift-DMD": 0.0963251999928616
+      },
+      "coord_drift_unlocked": 2,
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1003,
+      "opt": 9920.128884628084,
+      "rewards": {
+        "DMD-Norm": 9507.458327117434,
+        "WS-DMD-Norm": 9634.96772814356,
+        "An24-SA-Norm": 9136.018013044393,
+        "An24-MainALG-Norm": 9411.00320085268,
+        "CoordDrift-DMD": 9807.331579470992
+      },
+      "regrets": {
+        "DMD-Norm": 412.6705575106498,
+        "WS-DMD-Norm": 285.1611564845243,
+        "An24-SA-Norm": 784.1108715836908,
+        "An24-MainALG-Norm": 509.12568377540447,
+        "CoordDrift-DMD": 112.79730515709161
+      },
+      "times_s": {
+        "DMD-Norm": 0.017381099998601712,
+        "WS-DMD-Norm": 0.01723399999900721,
+        "An24-SA-Norm": 0.017386700012139045,
+        "An24-MainALG-Norm": 0.02884460000495892,
+        "CoordDrift-DMD": 0.09640730000683106
+      },
+      "coord_drift_unlocked": 0,
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1004,
+      "opt": 9246.280228868165,
+      "rewards": {
+        "DMD-Norm": 8842.18785986071,
+        "WS-DMD-Norm": 8970.43607592491,
+        "An24-SA-Norm": 8710.397517064252,
+        "An24-MainALG-Norm": 8710.397517064252,
+        "CoordDrift-DMD": 9128.29395304526
+      },
+      "regrets": {
+        "DMD-Norm": 404.0923690074542,
+        "WS-DMD-Norm": 275.8441529432548,
+        "An24-SA-Norm": 535.8827118039135,
+        "An24-MainALG-Norm": 535.8827118039135,
+        "CoordDrift-DMD": 117.98627582290464
+      },
+      "times_s": {
+        "DMD-Norm": 0.017155399997136556,
+        "WS-DMD-Norm": 0.017285900001297705,
+        "An24-SA-Norm": 0.017542300003697164,
+        "An24-MainALG-Norm": 0.028873900009784847,
+        "CoordDrift-DMD": 0.09682479999901261
+      },
+      "coord_drift_unlocked": 1,
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1005,
+      "opt": 10699.243020515776,
+      "rewards": {
+        "DMD-Norm": 10320.498500751546,
+        "WS-DMD-Norm": 10418.261521967428,
+        "An24-SA-Norm": 9937.607074578342,
+        "An24-MainALG-Norm": 9937.607074578342,
+        "CoordDrift-DMD": 10604.521420102492
+      },
+      "regrets": {
+        "DMD-Norm": 378.74451976423006,
+        "WS-DMD-Norm": 280.9814985483481,
+        "An24-SA-Norm": 761.6359459374344,
+        "An24-MainALG-Norm": 761.6359459374344,
+        "CoordDrift-DMD": 94.72160041328425
+      },
+      "times_s": {
+        "DMD-Norm": 0.017636100004892796,
+        "WS-DMD-Norm": 0.017481899994891137,
+        "An24-SA-Norm": 0.017631700000492856,
+        "An24-MainALG-Norm": 0.029298299996298738,
+        "CoordDrift-DMD": 0.09650270000565797
+      },
+      "coord_drift_unlocked": 0,
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1001,
+      "opt": 7800.809302436257,
+      "rewards": {
+        "DMD-Norm": 7451.368322964212,
+        "WS-DMD-Norm": 7349.056649845894,
+        "An24-SA-Norm": 6868.992558393176,
+        "An24-MainALG-Norm": 7322.329920274255,
+        "CoordDrift-DMD": 7510.5392220613785
+      },
+      "regrets": {
+        "DMD-Norm": 349.440979472045,
+        "WS-DMD-Norm": 451.75265259036314,
+        "An24-SA-Norm": 931.8167440430807,
+        "An24-MainALG-Norm": 478.47938216200237,
+        "CoordDrift-DMD": 290.2700803748785
+      },
+      "times_s": {
+        "DMD-Norm": 0.016676200000802055,
+        "WS-DMD-Norm": 0.016489800007548183,
+        "An24-SA-Norm": 0.016403300003730692,
+        "An24-MainALG-Norm": 0.02247900000656955,
+        "CoordDrift-DMD": 0.09733250000863336
+      },
+      "coord_drift_unlocked": 3,
+      "mainalg_lp_solves": 3
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1002,
+      "opt": 7883.59749349147,
+      "rewards": {
+        "DMD-Norm": 7581.191152911098,
+        "WS-DMD-Norm": 7496.634704947383,
+        "An24-SA-Norm": 6915.854447469791,
+        "An24-MainALG-Norm": 7553.682414333719,
+        "CoordDrift-DMD": 7638.599687107496
+      },
+      "regrets": {
+        "DMD-Norm": 302.40634058037267,
+        "WS-DMD-Norm": 386.96278854408683,
+        "An24-SA-Norm": 967.7430460216792,
+        "An24-MainALG-Norm": 329.9150791577513,
+        "CoordDrift-DMD": 244.99780638397442
+      },
+      "times_s": {
+        "DMD-Norm": 0.016801999998278916,
+        "WS-DMD-Norm": 0.016721899999538437,
+        "An24-SA-Norm": 0.01674500000081025,
+        "An24-MainALG-Norm": 0.018241400000988506,
+        "CoordDrift-DMD": 0.09671450000314508
+      },
+      "coord_drift_unlocked": 3,
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1003,
+      "opt": 9920.128884628084,
+      "rewards": {
+        "DMD-Norm": 9507.458327117434,
+        "WS-DMD-Norm": 9372.292585085104,
+        "An24-SA-Norm": 8863.785287696885,
+        "An24-MainALG-Norm": 9415.94402981582,
+        "CoordDrift-DMD": 9568.728727930567
+      },
+      "regrets": {
+        "DMD-Norm": 412.6705575106498,
+        "WS-DMD-Norm": 547.8362995429798,
+        "An24-SA-Norm": 1056.3435969311995,
+        "An24-MainALG-Norm": 504.18485481226344,
+        "CoordDrift-DMD": 351.40015669751665
+      },
+      "times_s": {
+        "DMD-Norm": 0.01733639999292791,
+        "WS-DMD-Norm": 0.017032699994160794,
+        "An24-SA-Norm": 0.017024700006004423,
+        "An24-MainALG-Norm": 0.019969500004663132,
+        "CoordDrift-DMD": 0.09631029999582097
+      },
+      "coord_drift_unlocked": 1,
+      "mainalg_lp_solves": 2
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1004,
+      "opt": 9246.280228868165,
+      "rewards": {
+        "DMD-Norm": 8842.18785986071,
+        "WS-DMD-Norm": 8725.564717051104,
+        "An24-SA-Norm": 8211.704935570673,
+        "An24-MainALG-Norm": 8655.984593419967,
+        "CoordDrift-DMD": 9009.718541142785
+      },
+      "regrets": {
+        "DMD-Norm": 404.0923690074542,
+        "WS-DMD-Norm": 520.7155118170613,
+        "An24-SA-Norm": 1034.575293297492,
+        "An24-MainALG-Norm": 590.2956354481976,
+        "CoordDrift-DMD": 236.56168772537967
+      },
+      "times_s": {
+        "DMD-Norm": 0.017026500005158596,
+        "WS-DMD-Norm": 0.01693320000777021,
+        "An24-SA-Norm": 0.016914400010136887,
+        "An24-MainALG-Norm": 0.0229754000029061,
+        "CoordDrift-DMD": 0.0968635000026552
+      },
+      "coord_drift_unlocked": 3,
+      "mainalg_lp_solves": 3
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1005,
+      "opt": 10699.243020515776,
+      "rewards": {
+        "DMD-Norm": 10320.498500751546,
+        "WS-DMD-Norm": 10212.917189151303,
+        "An24-SA-Norm": 9623.396080160714,
+        "An24-MainALG-Norm": 10186.199617464425,
+        "CoordDrift-DMD": 10437.661617693768
+      },
+      "regrets": {
+        "DMD-Norm": 378.74451976423006,
+        "WS-DMD-Norm": 486.32583136447283,
+        "An24-SA-Norm": 1075.8469403550625,
+        "An24-MainALG-Norm": 513.0434030513516,
+        "CoordDrift-DMD": 261.5814028220084
+      },
+      "times_s": {
+        "DMD-Norm": 0.017451299994718283,
+        "WS-DMD-Norm": 0.017332200004602782,
+        "An24-SA-Norm": 0.01738669999758713,
+        "An24-MainALG-Norm": 0.02063359999738168,
+        "CoordDrift-DMD": 0.09686380000493955
+      },
+      "coord_drift_unlocked": 2,
+      "mainalg_lp_solves": 2
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1001,
+      "opt": 7800.809302436257,
+      "rewards": {
+        "DMD-Norm": 7451.368322964212,
+        "WS-DMD-Norm": 6888.547105563139,
+        "An24-SA-Norm": 6512.978454194688,
+        "An24-MainALG-Norm": 7354.207492230023,
+        "CoordDrift-DMD": 7013.150287448534
+      },
+      "regrets": {
+        "DMD-Norm": 349.440979472045,
+        "WS-DMD-Norm": 912.2621968731182,
+        "An24-SA-Norm": 1287.8308482415687,
+        "An24-MainALG-Norm": 446.6018102062344,
+        "CoordDrift-DMD": 787.6590149877229
+      },
+      "times_s": {
+        "DMD-Norm": 0.016558499992243014,
+        "WS-DMD-Norm": 0.016197699995245785,
+        "An24-SA-Norm": 0.016188700014026836,
+        "An24-MainALG-Norm": 0.01778819999890402,
+        "CoordDrift-DMD": 0.09773950000817422
+      },
+      "coord_drift_unlocked": 12,
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1002,
+      "opt": 7883.59749349147,
+      "rewards": {
+        "DMD-Norm": 7581.191152911098,
+        "WS-DMD-Norm": 7231.63967551186,
+        "An24-SA-Norm": 6694.340530438241,
+        "An24-MainALG-Norm": 7467.781768542712,
+        "CoordDrift-DMD": 7013.85487593734
+      },
+      "regrets": {
+        "DMD-Norm": 302.40634058037267,
+        "WS-DMD-Norm": 651.9578179796099,
+        "An24-SA-Norm": 1189.256963053229,
+        "An24-MainALG-Norm": 415.81572494875854,
+        "CoordDrift-DMD": 869.7426175541304
+      },
+      "times_s": {
+        "DMD-Norm": 0.016623899995465763,
+        "WS-DMD-Norm": 0.01626360000227578,
+        "An24-SA-Norm": 0.01622289999795612,
+        "An24-MainALG-Norm": 0.01782150000508409,
+        "CoordDrift-DMD": 0.09624220000114292
+      },
+      "coord_drift_unlocked": 10,
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1003,
+      "opt": 9920.128884628084,
+      "rewards": {
+        "DMD-Norm": 9507.458327117434,
+        "WS-DMD-Norm": 8800.215007419072,
+        "An24-SA-Norm": 8467.334165646245,
+        "An24-MainALG-Norm": 9356.02292520574,
+        "CoordDrift-DMD": 8746.724137604611
+      },
+      "regrets": {
+        "DMD-Norm": 412.6705575106498,
+        "WS-DMD-Norm": 1119.9138772090118,
+        "An24-SA-Norm": 1452.7947189818387,
+        "An24-MainALG-Norm": 564.1059594223443,
+        "CoordDrift-DMD": 1173.4047470234727
+      },
+      "times_s": {
+        "DMD-Norm": 0.016840299998875707,
+        "WS-DMD-Norm": 0.016483200000948273,
+        "An24-SA-Norm": 0.01672040000266861,
+        "An24-MainALG-Norm": 0.018106000003172085,
+        "CoordDrift-DMD": 0.09640600001148414
+      },
+      "coord_drift_unlocked": 12,
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1004,
+      "opt": 9246.280228868165,
+      "rewards": {
+        "DMD-Norm": 8842.18785986071,
+        "WS-DMD-Norm": 8144.155954753373,
+        "An24-SA-Norm": 7843.601947670932,
+        "An24-MainALG-Norm": 8732.434768368026,
+        "CoordDrift-DMD": 8299.049261099279
+      },
+      "regrets": {
+        "DMD-Norm": 404.0923690074542,
+        "WS-DMD-Norm": 1102.1242741147917,
+        "An24-SA-Norm": 1402.6782811972334,
+        "An24-MainALG-Norm": 513.8454605001389,
+        "CoordDrift-DMD": 947.2309677688863
+      },
+      "times_s": {
+        "DMD-Norm": 0.016787599990493618,
+        "WS-DMD-Norm": 0.016403399989940226,
+        "An24-SA-Norm": 0.016347500000847504,
+        "An24-MainALG-Norm": 0.01786290000018198,
+        "CoordDrift-DMD": 0.0965552999987267
+      },
+      "coord_drift_unlocked": 11,
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1005,
+      "opt": 10699.243020515776,
+      "rewards": {
+        "DMD-Norm": 10320.498500751546,
+        "WS-DMD-Norm": 9526.446630400545,
+        "An24-SA-Norm": 9146.774843161907,
+        "An24-MainALG-Norm": 10167.98225208966,
+        "CoordDrift-DMD": 9526.001225772618
+      },
+      "regrets": {
+        "DMD-Norm": 378.74451976423006,
+        "WS-DMD-Norm": 1172.7963901152307,
+        "An24-SA-Norm": 1552.4681773538687,
+        "An24-MainALG-Norm": 531.2607684261166,
+        "CoordDrift-DMD": 1173.2417947431586
+      },
+      "times_s": {
+        "DMD-Norm": 0.01714440000068862,
+        "WS-DMD-Norm": 0.016749299989896826,
+        "An24-SA-Norm": 0.01678939998964779,
+        "An24-MainALG-Norm": 0.01840250000532251,
+        "CoordDrift-DMD": 0.09698119999666233
+      },
+      "coord_drift_unlocked": 11,
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1001,
+      "opt": 9327.650796017437,
+      "rewards": {
+        "DMD-Norm": 6963.729008888667,
+        "WS-DMD-Norm": 6963.729008888667,
+        "An24-SA-Norm": 6508.73758260729,
+        "An24-MainALG-Norm": 6508.73758260729,
+        "CoordDrift-DMD": 5531.851161790538
+      },
+      "regrets": {
+        "DMD-Norm": 2363.92178712877,
+        "WS-DMD-Norm": 2363.92178712877,
+        "An24-SA-Norm": 2818.9132134101465,
+        "An24-MainALG-Norm": 2818.9132134101465,
+        "CoordDrift-DMD": 3795.799634226899
+      },
+      "times_s": {
+        "DMD-Norm": 0.016470100003061816,
+        "WS-DMD-Norm": 0.01643750000221189,
+        "An24-SA-Norm": 0.01677870001003612,
+        "An24-MainALG-Norm": 0.029686499998206273,
+        "CoordDrift-DMD": 0.09528300000238232
+      },
+      "coord_drift_unlocked": 3,
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1002,
+      "opt": 9390.03236112828,
+      "rewards": {
+        "DMD-Norm": 7221.615114228487,
+        "WS-DMD-Norm": 7221.615114228487,
+        "An24-SA-Norm": 6808.061917359598,
+        "An24-MainALG-Norm": 6808.061917359598,
+        "CoordDrift-DMD": 5931.858619375477
+      },
+      "regrets": {
+        "DMD-Norm": 2168.417246899793,
+        "WS-DMD-Norm": 2168.417246899793,
+        "An24-SA-Norm": 2581.9704437686823,
+        "An24-MainALG-Norm": 2581.9704437686823,
+        "CoordDrift-DMD": 3458.173741752803
+      },
+      "times_s": {
+        "DMD-Norm": 0.016652699996484444,
+        "WS-DMD-Norm": 0.016665700008161366,
+        "An24-SA-Norm": 0.016904100004467182,
+        "An24-MainALG-Norm": 0.030622099991887808,
+        "CoordDrift-DMD": 0.09553010000672657
+      },
+      "coord_drift_unlocked": 2,
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1003,
+      "opt": 11890.513295994046,
+      "rewards": {
+        "DMD-Norm": 9074.602314474932,
+        "WS-DMD-Norm": 9074.602314474932,
+        "An24-SA-Norm": 8627.411925237002,
+        "An24-MainALG-Norm": 8627.411925237002,
+        "CoordDrift-DMD": 7503.959267593309
+      },
+      "regrets": {
+        "DMD-Norm": 2815.910981519113,
+        "WS-DMD-Norm": 2815.910981519113,
+        "An24-SA-Norm": 3263.1013707570437,
+        "An24-MainALG-Norm": 3263.1013707570437,
+        "CoordDrift-DMD": 4386.554028400737
+      },
+      "times_s": {
+        "DMD-Norm": 0.01695639999525156,
+        "WS-DMD-Norm": 0.01706980000017211,
+        "An24-SA-Norm": 0.017232900005183183,
+        "An24-MainALG-Norm": 0.030703600001288578,
+        "CoordDrift-DMD": 0.09603960000094958
+      },
+      "coord_drift_unlocked": 5,
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1004,
+      "opt": 10887.819538723483,
+      "rewards": {
+        "DMD-Norm": 8374.809066175685,
+        "WS-DMD-Norm": 8374.809066175685,
+        "An24-SA-Norm": 7912.702270563035,
+        "An24-MainALG-Norm": 7912.702270563035,
+        "CoordDrift-DMD": 6743.380165609308
+      },
+      "regrets": {
+        "DMD-Norm": 2513.0104725477977,
+        "WS-DMD-Norm": 2513.0104725477977,
+        "An24-SA-Norm": 2975.1172681604476,
+        "An24-MainALG-Norm": 2975.1172681604476,
+        "CoordDrift-DMD": 4144.4393731141745
+      },
+      "times_s": {
+        "DMD-Norm": 0.016854600005899556,
+        "WS-DMD-Norm": 0.016767200009780936,
+        "An24-SA-Norm": 0.01708890000008978,
+        "An24-MainALG-Norm": 0.029757600001175888,
+        "CoordDrift-DMD": 0.09580770001048222
+      },
+      "coord_drift_unlocked": 3,
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1005,
+      "opt": 12704.727438501339,
+      "rewards": {
+        "DMD-Norm": 9844.854382822496,
+        "WS-DMD-Norm": 9844.854382822496,
+        "An24-SA-Norm": 9337.413239588554,
+        "An24-MainALG-Norm": 9337.413239588554,
+        "CoordDrift-DMD": 8099.231140086511
+      },
+      "regrets": {
+        "DMD-Norm": 2859.8730556788432,
+        "WS-DMD-Norm": 2859.8730556788432,
+        "An24-SA-Norm": 3367.3141989127853,
+        "An24-MainALG-Norm": 3367.3141989127853,
+        "CoordDrift-DMD": 4605.496298414828
+      },
+      "times_s": {
+        "DMD-Norm": 0.017256300008739345,
+        "WS-DMD-Norm": 0.017174400010844693,
+        "An24-SA-Norm": 0.017417299997759983,
+        "An24-MainALG-Norm": 0.03056490000744816,
+        "CoordDrift-DMD": 0.0962232000019867
+      },
+      "coord_drift_unlocked": 3,
+      "mainalg_lp_solves": 4
+    }
+  ]
+}

@@ -1,0 +1,763 @@
+{
+  "verdict": {
+    "min_wealth_factor_observed": 0.5003448586001842,
+    "gate1_R1_vs_DMDNorm": 5.130682201065494,
+    "gate1_R1_vs_WSNorm": 3.686673327470753,
+    "gate1_pass": true,
+    "gate2_R2_vs_DMDNorm": 0.6346460236851557,
+    "gate2_R2_vs_WSNorm": 0.8223024405893208,
+    "gate2_R2_vs_SANorm": 1.7405013202841255,
+    "gate2_R2_vs_MainNorm": 0.8299721338078235,
+    "gate2_pass": false,
+    "gate3_R3_Asym_over_DMDNorm": 6.951778130351869,
+    "gate3_R3_WSNorm_over_Asym": 0.3861470112495501,
+    "gate3_pass": false,
+    "gate4_R4_Asym_over_DMDNorm_rew": 0.8077030321006217,
+    "gate4_pass": false,
+    "ALL_FOUR_STRONG_GATES_PASS": false
+  },
+  "summary": {
+    "R1_Accurate_IID": {
+      "mean_opt": 9110.01178598795,
+      "mean_regret": {
+        "DMD-Norm": 369.47095326695035,
+        "WS-DMD-Norm": 265.4849112271242,
+        "An24-SA-Norm": 729.6758067376101,
+        "An24-MainALG-Norm": 537.502004664759,
+        "Sym-CAP-DMD": 74.03328354210461,
+        "Asym-CAP-DMD": 72.01205196264581
+      },
+      "mean_reward": {
+        "DMD-Norm": 8740.540832720999,
+        "WS-DMD-Norm": 8844.526874760826,
+        "An24-SA-Norm": 8380.335979250342,
+        "An24-MainALG-Norm": 8572.509781323191,
+        "Sym-CAP-DMD": 9035.978502445845,
+        "Asym-CAP-DMD": 9037.999734025307
+      },
+      "mean_competitive_ratio": {
+        "DMD-Norm": 0.9594434165458235,
+        "WS-DMD-Norm": 0.9708578959650234,
+        "An24-SA-Norm": 0.9199039667698434,
+        "An24-MainALG-Norm": 0.940998758586516,
+        "Sym-CAP-DMD": 0.9918734151742838,
+        "Asym-CAP-DMD": 0.9920952844349329
+      },
+      "mean_time_s": {
+        "DMD-Norm": 0.016997040004935116,
+        "WS-DMD-Norm": 0.016948680000496097,
+        "An24-SA-Norm": 0.016944500000681727,
+        "An24-MainALG-Norm": 0.028645360001246446,
+        "Sym-CAP-DMD": 0.07692057999956887,
+        "Asym-CAP-DMD": 0.11588741999585181
+      }
+    },
+    "R2_SparseCorrupt_IID": {
+      "mean_opt": 9110.01178598795,
+      "mean_regret": {
+        "DMD-Norm": 369.47095326695035,
+        "WS-DMD-Norm": 478.71861677179277,
+        "An24-SA-Norm": 1013.2651241297028,
+        "An24-MainALG-Norm": 483.18367092631325,
+        "Sym-CAP-DMD": 608.6174626715076,
+        "Asym-CAP-DMD": 582.1685466830291
+      },
+      "mean_reward": {
+        "DMD-Norm": 8740.540832720999,
+        "WS-DMD-Norm": 8631.293169216158,
+        "An24-SA-Norm": 8096.7466618582475,
+        "An24-MainALG-Norm": 8626.828115061637,
+        "Sym-CAP-DMD": 8501.394323316443,
+        "Asym-CAP-DMD": 8527.84323930492
+      },
+      "mean_competitive_ratio": {
+        "DMD-Norm": 0.9594434165458235,
+        "WS-DMD-Norm": 0.9474513724001866,
+        "An24-SA-Norm": 0.8887745539815658,
+        "An24-MainALG-Norm": 0.9469612463433368,
+        "Sym-CAP-DMD": 0.9331924615500917,
+        "Asym-CAP-DMD": 0.9360957416566179
+      },
+      "mean_time_s": {
+        "DMD-Norm": 0.017092240002239124,
+        "WS-DMD-Norm": 0.016853780002566054,
+        "An24-SA-Norm": 0.01687128000485245,
+        "An24-MainALG-Norm": 0.020681859998148866,
+        "Sym-CAP-DMD": 0.07700556000636424,
+        "Asym-CAP-DMD": 0.11622571999905632
+      }
+    },
+    "R3_FullPoison_IID": {
+      "mean_opt": 9110.01178598795,
+      "mean_regret": {
+        "DMD-Norm": 369.47095326695035,
+        "WS-DMD-Norm": 991.8109112583525,
+        "An24-SA-Norm": 1377.0057977655476,
+        "An24-MainALG-Norm": 494.32594470071854,
+        "Sym-CAP-DMD": 2614.992367747172,
+        "Asym-CAP-DMD": 2568.480092721443
+      },
+      "mean_reward": {
+        "DMD-Norm": 8740.540832720999,
+        "WS-DMD-Norm": 8118.200874729597,
+        "An24-SA-Norm": 7733.005988222404,
+        "An24-MainALG-Norm": 8615.685841287233,
+        "Sym-CAP-DMD": 6495.019418240779,
+        "Asym-CAP-DMD": 6541.531693266507
+      },
+      "mean_competitive_ratio": {
+        "DMD-Norm": 0.9594434165458235,
+        "WS-DMD-Norm": 0.8911295688130886,
+        "An24-SA-Norm": 0.8488469795523745,
+        "An24-MainALG-Norm": 0.9457381662819541,
+        "Sym-CAP-DMD": 0.7129540082737024,
+        "Asym-CAP-DMD": 0.7180596301014665
+      },
+      "mean_time_s": {
+        "DMD-Norm": 0.017025540000759065,
+        "WS-DMD-Norm": 0.01664677999797277,
+        "An24-SA-Norm": 0.01657137999427505,
+        "An24-MainALG-Norm": 0.01820585999812465,
+        "Sym-CAP-DMD": 0.07769359999801964,
+        "Asym-CAP-DMD": 0.1170856000011554
+      }
+    },
+    "R4_AdversarialShift_Poison": {
+      "mean_opt": 10840.148686072916,
+      "mean_regret": {
+        "DMD-Norm": 2544.2267087548635,
+        "WS-DMD-Norm": 2544.2267087548635,
+        "An24-SA-Norm": 3001.283299001821,
+        "An24-MainALG-Norm": 3001.283299001821,
+        "Sym-CAP-DMD": 4498.901153543023,
+        "Asym-CAP-DMD": 4139.507350922939
+      },
+      "mean_reward": {
+        "DMD-Norm": 8295.921977318054,
+        "WS-DMD-Norm": 8295.921977318054,
+        "An24-SA-Norm": 7838.865387071096,
+        "An24-MainALG-Norm": 7838.865387071096,
+        "Sym-CAP-DMD": 6341.247532529895,
+        "Asym-CAP-DMD": 6700.641335149977
+      },
+      "mean_competitive_ratio": {
+        "DMD-Norm": 0.7652959583457001,
+        "WS-DMD-Norm": 0.7652959583457001,
+        "An24-SA-Norm": 0.723132644586529,
+        "An24-MainALG-Norm": 0.723132644586529,
+        "Sym-CAP-DMD": 0.5849779109281896,
+        "Asym-CAP-DMD": 0.618131866010173
+      },
+      "mean_time_s": {
+        "DMD-Norm": 0.016944840003270657,
+        "WS-DMD-Norm": 0.016890720001538285,
+        "An24-SA-Norm": 0.017157159998896533,
+        "An24-MainALG-Norm": 0.03030851999646984,
+        "Sym-CAP-DMD": 0.07772239999903832,
+        "Asym-CAP-DMD": 0.11630284000129905
+      }
+    }
+  },
+  "runs": [
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1001,
+      "opt": 7800.809302436257,
+      "rewards": {
+        "DMD-Norm": 7451.368322964212,
+        "WS-DMD-Norm": 7549.898731265451,
+        "An24-SA-Norm": 7003.718145949099,
+        "An24-MainALG-Norm": 7329.927471701679,
+        "Sym-CAP-DMD": 7716.448388772784,
+        "Asym-CAP-DMD": 7718.35167103762
+      },
+      "regrets": {
+        "DMD-Norm": 349.440979472045,
+        "WS-DMD-Norm": 250.91057117080618,
+        "An24-SA-Norm": 797.0911564871576,
+        "An24-MainALG-Norm": 470.8818307345782,
+        "Sym-CAP-DMD": 84.36091366347318,
+        "Asym-CAP-DMD": 82.4576313986372
+      },
+      "times_s": {
+        "DMD-Norm": 0.016772400005720556,
+        "WS-DMD-Norm": 0.016959999993559904,
+        "An24-SA-Norm": 0.016540199998416938,
+        "An24-MainALG-Norm": 0.028283499996177852,
+        "Sym-CAP-DMD": 0.07687750000332016,
+        "Asym-CAP-DMD": 0.11609640000096988
+      },
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1002,
+      "opt": 7883.59749349147,
+      "rewards": {
+        "DMD-Norm": 7581.191152911098,
+        "WS-DMD-Norm": 7649.070316502783,
+        "An24-SA-Norm": 7113.939145615616,
+        "An24-MainALG-Norm": 7473.613642419005,
+        "Sym-CAP-DMD": 7817.490197825975,
+        "Asym-CAP-DMD": 7817.490197825975
+      },
+      "regrets": {
+        "DMD-Norm": 302.40634058037267,
+        "WS-DMD-Norm": 234.52717698868764,
+        "An24-SA-Norm": 769.6583478758539,
+        "An24-MainALG-Norm": 409.98385107246486,
+        "Sym-CAP-DMD": 66.10729566549526,
+        "Asym-CAP-DMD": 66.10729566549526
+      },
+      "times_s": {
+        "DMD-Norm": 0.01668130001053214,
+        "WS-DMD-Norm": 0.016499699995620176,
+        "An24-SA-Norm": 0.016586800004006363,
+        "An24-MainALG-Norm": 0.02835560000676196,
+        "Sym-CAP-DMD": 0.07654979999642819,
+        "Asym-CAP-DMD": 0.1158236999908695
+      },
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1003,
+      "opt": 9920.128884628084,
+      "rewards": {
+        "DMD-Norm": 9507.458327117434,
+        "WS-DMD-Norm": 9634.96772814356,
+        "An24-SA-Norm": 9136.018013044393,
+        "An24-MainALG-Norm": 9411.00320085268,
+        "Sym-CAP-DMD": 9864.554012007788,
+        "Asym-CAP-DMD": 9867.019644263914
+      },
+      "regrets": {
+        "DMD-Norm": 412.6705575106498,
+        "WS-DMD-Norm": 285.1611564845243,
+        "An24-SA-Norm": 784.1108715836908,
+        "An24-MainALG-Norm": 509.12568377540447,
+        "Sym-CAP-DMD": 55.574872620296446,
+        "Asym-CAP-DMD": 53.109240364170546
+      },
+      "times_s": {
+        "DMD-Norm": 0.017070500005502254,
+        "WS-DMD-Norm": 0.01705160000710748,
+        "An24-SA-Norm": 0.017102199999499135,
+        "An24-MainALG-Norm": 0.028906799998367205,
+        "Sym-CAP-DMD": 0.07681159999629017,
+        "Asym-CAP-DMD": 0.11561530000471976
+      },
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1004,
+      "opt": 9246.280228868165,
+      "rewards": {
+        "DMD-Norm": 8842.18785986071,
+        "WS-DMD-Norm": 8970.43607592491,
+        "An24-SA-Norm": 8710.397517064252,
+        "An24-MainALG-Norm": 8710.397517064252,
+        "Sym-CAP-DMD": 9167.31068578456,
+        "Asym-CAP-DMD": 9167.31068578456
+      },
+      "regrets": {
+        "DMD-Norm": 404.0923690074542,
+        "WS-DMD-Norm": 275.8441529432548,
+        "An24-SA-Norm": 535.8827118039135,
+        "An24-MainALG-Norm": 535.8827118039135,
+        "Sym-CAP-DMD": 78.96954308360546,
+        "Asym-CAP-DMD": 78.96954308360546
+      },
+      "times_s": {
+        "DMD-Norm": 0.017075099996873178,
+        "WS-DMD-Norm": 0.016881999996257946,
+        "An24-SA-Norm": 0.017230800003744662,
+        "An24-MainALG-Norm": 0.02851560000272002,
+        "Sym-CAP-DMD": 0.07734620000701398,
+        "Asym-CAP-DMD": 0.11619839999184478
+      },
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R1_Accurate_IID",
+      "seed": 1005,
+      "opt": 10699.243020515776,
+      "rewards": {
+        "DMD-Norm": 10320.498500751546,
+        "WS-DMD-Norm": 10418.261521967428,
+        "An24-SA-Norm": 9937.607074578342,
+        "An24-MainALG-Norm": 9937.607074578342,
+        "Sym-CAP-DMD": 10614.089227838123,
+        "Asym-CAP-DMD": 10619.826471214456
+      },
+      "regrets": {
+        "DMD-Norm": 378.74451976423006,
+        "WS-DMD-Norm": 280.9814985483481,
+        "An24-SA-Norm": 761.6359459374344,
+        "An24-MainALG-Norm": 761.6359459374344,
+        "Sym-CAP-DMD": 85.15379267765275,
+        "Asym-CAP-DMD": 79.41654930132063
+      },
+      "times_s": {
+        "DMD-Norm": 0.01738590000604745,
+        "WS-DMD-Norm": 0.017350100009934977,
+        "An24-SA-Norm": 0.017262499997741543,
+        "An24-MainALG-Norm": 0.029165300002205186,
+        "Sym-CAP-DMD": 0.07701779999479186,
+        "Asym-CAP-DMD": 0.11570329999085516
+      },
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1001,
+      "opt": 7800.809302436257,
+      "rewards": {
+        "DMD-Norm": 7451.368322964212,
+        "WS-DMD-Norm": 7349.056649845894,
+        "An24-SA-Norm": 6868.992558393176,
+        "An24-MainALG-Norm": 7322.329920274255,
+        "Sym-CAP-DMD": 7262.276912244522,
+        "Asym-CAP-DMD": 7248.353536392905
+      },
+      "regrets": {
+        "DMD-Norm": 349.440979472045,
+        "WS-DMD-Norm": 451.75265259036314,
+        "An24-SA-Norm": 931.8167440430807,
+        "An24-MainALG-Norm": 478.47938216200237,
+        "Sym-CAP-DMD": 538.5323901917354,
+        "Asym-CAP-DMD": 552.455766043352
+      },
+      "times_s": {
+        "DMD-Norm": 0.016548300001886673,
+        "WS-DMD-Norm": 0.016346900010830723,
+        "An24-SA-Norm": 0.016395800004829653,
+        "An24-MainALG-Norm": 0.022067500001867302,
+        "Sym-CAP-DMD": 0.07653820000996348,
+        "Asym-CAP-DMD": 0.1156761999882292
+      },
+      "mainalg_lp_solves": 3
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1002,
+      "opt": 7883.59749349147,
+      "rewards": {
+        "DMD-Norm": 7581.191152911098,
+        "WS-DMD-Norm": 7496.634704947383,
+        "An24-SA-Norm": 6915.854447469791,
+        "An24-MainALG-Norm": 7553.682414333719,
+        "Sym-CAP-DMD": 7304.16257028078,
+        "Asym-CAP-DMD": 7330.583673374104
+      },
+      "regrets": {
+        "DMD-Norm": 302.40634058037267,
+        "WS-DMD-Norm": 386.96278854408683,
+        "An24-SA-Norm": 967.7430460216792,
+        "An24-MainALG-Norm": 329.9150791577513,
+        "Sym-CAP-DMD": 579.4349232106906,
+        "Asym-CAP-DMD": 553.0138201173659
+      },
+      "times_s": {
+        "DMD-Norm": 0.017153699998743832,
+        "WS-DMD-Norm": 0.01664439999149181,
+        "An24-SA-Norm": 0.01658310000493657,
+        "An24-MainALG-Norm": 0.018106799994711764,
+        "Sym-CAP-DMD": 0.07671900000423193,
+        "Asym-CAP-DMD": 0.11586439999518916
+      },
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1003,
+      "opt": 9920.128884628084,
+      "rewards": {
+        "DMD-Norm": 9507.458327117434,
+        "WS-DMD-Norm": 9372.292585085104,
+        "An24-SA-Norm": 8863.785287696885,
+        "An24-MainALG-Norm": 9415.94402981582,
+        "Sym-CAP-DMD": 9227.011702448719,
+        "Asym-CAP-DMD": 9275.85016855587
+      },
+      "regrets": {
+        "DMD-Norm": 412.6705575106498,
+        "WS-DMD-Norm": 547.8362995429798,
+        "An24-SA-Norm": 1056.3435969311995,
+        "An24-MainALG-Norm": 504.18485481226344,
+        "Sym-CAP-DMD": 693.117182179365,
+        "Asym-CAP-DMD": 644.2787160722146
+      },
+      "times_s": {
+        "DMD-Norm": 0.017083099999581464,
+        "WS-DMD-Norm": 0.016947199997957796,
+        "An24-SA-Norm": 0.01699410000583157,
+        "An24-MainALG-Norm": 0.02002399999764748,
+        "Sym-CAP-DMD": 0.07687570000416599,
+        "Asym-CAP-DMD": 0.1164825000014389
+      },
+      "mainalg_lp_solves": 2
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1004,
+      "opt": 9246.280228868165,
+      "rewards": {
+        "DMD-Norm": 8842.18785986071,
+        "WS-DMD-Norm": 8725.564717051104,
+        "An24-SA-Norm": 8211.704935570673,
+        "An24-MainALG-Norm": 8655.984593419967,
+        "Sym-CAP-DMD": 8658.658544137641,
+        "Asym-CAP-DMD": 8685.439719108652
+      },
+      "regrets": {
+        "DMD-Norm": 404.0923690074542,
+        "WS-DMD-Norm": 520.7155118170613,
+        "An24-SA-Norm": 1034.575293297492,
+        "An24-MainALG-Norm": 590.2956354481976,
+        "Sym-CAP-DMD": 587.6216847305241,
+        "Asym-CAP-DMD": 560.8405097595132
+      },
+      "times_s": {
+        "DMD-Norm": 0.017068400004063733,
+        "WS-DMD-Norm": 0.016896200002520345,
+        "An24-SA-Norm": 0.016852300002938136,
+        "An24-MainALG-Norm": 0.022632899999734946,
+        "Sym-CAP-DMD": 0.07720260000496637,
+        "Asym-CAP-DMD": 0.11652750000939704
+      },
+      "mainalg_lp_solves": 3
+    },
+    {
+      "regime": "R2_SparseCorrupt_IID",
+      "seed": 1005,
+      "opt": 10699.243020515776,
+      "rewards": {
+        "DMD-Norm": 10320.498500751546,
+        "WS-DMD-Norm": 10212.917189151303,
+        "An24-SA-Norm": 9623.396080160714,
+        "An24-MainALG-Norm": 10186.199617464425,
+        "Sym-CAP-DMD": 10054.861887470553,
+        "Asym-CAP-DMD": 10098.989099093076
+      },
+      "regrets": {
+        "DMD-Norm": 378.74451976423006,
+        "WS-DMD-Norm": 486.32583136447283,
+        "An24-SA-Norm": 1075.8469403550625,
+        "An24-MainALG-Norm": 513.0434030513516,
+        "Sym-CAP-DMD": 644.3811330452227,
+        "Asym-CAP-DMD": 600.2539214226999
+      },
+      "times_s": {
+        "DMD-Norm": 0.017607700006919913,
+        "WS-DMD-Norm": 0.0174342000100296,
+        "An24-SA-Norm": 0.01753110000572633,
+        "An24-MainALG-Norm": 0.02057809999678284,
+        "Sym-CAP-DMD": 0.07769230000849348,
+        "Asym-CAP-DMD": 0.11657800000102725
+      },
+      "mainalg_lp_solves": 2
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1001,
+      "opt": 7800.809302436257,
+      "rewards": {
+        "DMD-Norm": 7451.368322964212,
+        "WS-DMD-Norm": 6888.547105563139,
+        "An24-SA-Norm": 6512.978454194688,
+        "An24-MainALG-Norm": 7354.207492230023,
+        "Sym-CAP-DMD": 5355.608302421474,
+        "Asym-CAP-DMD": 5409.712840455712
+      },
+      "regrets": {
+        "DMD-Norm": 349.440979472045,
+        "WS-DMD-Norm": 912.2621968731182,
+        "An24-SA-Norm": 1287.8308482415687,
+        "An24-MainALG-Norm": 446.6018102062344,
+        "Sym-CAP-DMD": 2445.201000014783,
+        "Asym-CAP-DMD": 2391.0964619805454
+      },
+      "times_s": {
+        "DMD-Norm": 0.016518100004759617,
+        "WS-DMD-Norm": 0.016206600004807115,
+        "An24-SA-Norm": 0.016088999997009523,
+        "An24-MainALG-Norm": 0.017812999998568557,
+        "Sym-CAP-DMD": 0.07759869999426883,
+        "Asym-CAP-DMD": 0.11724179999146145
+      },
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1002,
+      "opt": 7883.59749349147,
+      "rewards": {
+        "DMD-Norm": 7581.191152911098,
+        "WS-DMD-Norm": 7231.63967551186,
+        "An24-SA-Norm": 6694.340530438241,
+        "An24-MainALG-Norm": 7467.781768542712,
+        "Sym-CAP-DMD": 5646.7930918817,
+        "Asym-CAP-DMD": 5697.020292936425
+      },
+      "regrets": {
+        "DMD-Norm": 302.40634058037267,
+        "WS-DMD-Norm": 651.9578179796099,
+        "An24-SA-Norm": 1189.256963053229,
+        "An24-MainALG-Norm": 415.81572494875854,
+        "Sym-CAP-DMD": 2236.80440160977,
+        "Asym-CAP-DMD": 2186.5772005550452
+      },
+      "times_s": {
+        "DMD-Norm": 0.016892800005734898,
+        "WS-DMD-Norm": 0.01658820000011474,
+        "An24-SA-Norm": 0.01650119999249,
+        "An24-MainALG-Norm": 0.017964099999517202,
+        "Sym-CAP-DMD": 0.07754019999993034,
+        "Asym-CAP-DMD": 0.11705300000903662
+      },
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1003,
+      "opt": 9920.128884628084,
+      "rewards": {
+        "DMD-Norm": 9507.458327117434,
+        "WS-DMD-Norm": 8800.215007419072,
+        "An24-SA-Norm": 8467.334165646245,
+        "An24-MainALG-Norm": 9356.02292520574,
+        "Sym-CAP-DMD": 7060.502336583479,
+        "Asym-CAP-DMD": 7083.536595700222
+      },
+      "regrets": {
+        "DMD-Norm": 412.6705575106498,
+        "WS-DMD-Norm": 1119.9138772090118,
+        "An24-SA-Norm": 1452.7947189818387,
+        "An24-MainALG-Norm": 564.1059594223443,
+        "Sym-CAP-DMD": 2859.6265480446054,
+        "Asym-CAP-DMD": 2836.592288927862
+      },
+      "times_s": {
+        "DMD-Norm": 0.01718049999908544,
+        "WS-DMD-Norm": 0.016785200001322664,
+        "An24-SA-Norm": 0.016746599998441525,
+        "An24-MainALG-Norm": 0.018229199995403178,
+        "Sym-CAP-DMD": 0.07745830000203568,
+        "Asym-CAP-DMD": 0.11651249999704305
+      },
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1004,
+      "opt": 9246.280228868165,
+      "rewards": {
+        "DMD-Norm": 8842.18785986071,
+        "WS-DMD-Norm": 8144.155954753373,
+        "An24-SA-Norm": 7843.601947670932,
+        "An24-MainALG-Norm": 8732.434768368026,
+        "Sym-CAP-DMD": 6750.769807443041,
+        "Asym-CAP-DMD": 6777.855704863185
+      },
+      "regrets": {
+        "DMD-Norm": 404.0923690074542,
+        "WS-DMD-Norm": 1102.1242741147917,
+        "An24-SA-Norm": 1402.6782811972334,
+        "An24-MainALG-Norm": 513.8454605001389,
+        "Sym-CAP-DMD": 2495.510421425124,
+        "Asym-CAP-DMD": 2468.4245240049804
+      },
+      "times_s": {
+        "DMD-Norm": 0.017126799997640774,
+        "WS-DMD-Norm": 0.01664659999369178,
+        "An24-SA-Norm": 0.016514399991137907,
+        "An24-MainALG-Norm": 0.01812659999995958,
+        "Sym-CAP-DMD": 0.07785980000335258,
+        "Asym-CAP-DMD": 0.11690780000935774
+      },
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R3_FullPoison_IID",
+      "seed": 1005,
+      "opt": 10699.243020515776,
+      "rewards": {
+        "DMD-Norm": 10320.498500751546,
+        "WS-DMD-Norm": 9526.446630400545,
+        "An24-SA-Norm": 9146.774843161907,
+        "An24-MainALG-Norm": 10167.98225208966,
+        "Sym-CAP-DMD": 7661.423552874198,
+        "Asym-CAP-DMD": 7739.533032376996
+      },
+      "regrets": {
+        "DMD-Norm": 378.74451976423006,
+        "WS-DMD-Norm": 1172.7963901152307,
+        "An24-SA-Norm": 1552.4681773538687,
+        "An24-MainALG-Norm": 531.2607684261166,
+        "Sym-CAP-DMD": 3037.819467641578,
+        "Asym-CAP-DMD": 2959.7099881387803
+      },
+      "times_s": {
+        "DMD-Norm": 0.017409499996574596,
+        "WS-DMD-Norm": 0.01700729998992756,
+        "An24-SA-Norm": 0.017005699992296286,
+        "An24-MainALG-Norm": 0.01889639999717474,
+        "Sym-CAP-DMD": 0.07801099999051075,
+        "Asym-CAP-DMD": 0.11771289999887813
+      },
+      "mainalg_lp_solves": 1
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1001,
+      "opt": 9327.650796017437,
+      "rewards": {
+        "DMD-Norm": 6963.729008888667,
+        "WS-DMD-Norm": 6963.729008888667,
+        "An24-SA-Norm": 6508.73758260729,
+        "An24-MainALG-Norm": 6508.73758260729,
+        "Sym-CAP-DMD": 5165.480766388214,
+        "Asym-CAP-DMD": 5532.084249763574
+      },
+      "regrets": {
+        "DMD-Norm": 2363.92178712877,
+        "WS-DMD-Norm": 2363.92178712877,
+        "An24-SA-Norm": 2818.9132134101465,
+        "An24-MainALG-Norm": 2818.9132134101465,
+        "Sym-CAP-DMD": 4162.170029629223,
+        "Asym-CAP-DMD": 3795.5665462538627
+      },
+      "times_s": {
+        "DMD-Norm": 0.01664590000291355,
+        "WS-DMD-Norm": 0.016663300004438497,
+        "An24-SA-Norm": 0.016984000001684763,
+        "An24-MainALG-Norm": 0.030183800001395866,
+        "Sym-CAP-DMD": 0.07818199999746867,
+        "Asym-CAP-DMD": 0.11695019999751821
+      },
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1002,
+      "opt": 9390.03236112828,
+      "rewards": {
+        "DMD-Norm": 7221.615114228487,
+        "WS-DMD-Norm": 7221.615114228487,
+        "An24-SA-Norm": 6808.061917359598,
+        "An24-MainALG-Norm": 6808.061917359598,
+        "Sym-CAP-DMD": 5443.572857944713,
+        "Asym-CAP-DMD": 5764.658336083792
+      },
+      "regrets": {
+        "DMD-Norm": 2168.417246899793,
+        "WS-DMD-Norm": 2168.417246899793,
+        "An24-SA-Norm": 2581.9704437686823,
+        "An24-MainALG-Norm": 2581.9704437686823,
+        "Sym-CAP-DMD": 3946.459503183567,
+        "Asym-CAP-DMD": 3625.374025044488
+      },
+      "times_s": {
+        "DMD-Norm": 0.016867600003024563,
+        "WS-DMD-Norm": 0.01681230000394862,
+        "An24-SA-Norm": 0.017022500003804453,
+        "An24-MainALG-Norm": 0.03084179999132175,
+        "Sym-CAP-DMD": 0.07793709999532439,
+        "Asym-CAP-DMD": 0.11765610000293236
+      },
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1003,
+      "opt": 11890.513295994046,
+      "rewards": {
+        "DMD-Norm": 9074.602314474932,
+        "WS-DMD-Norm": 9074.602314474932,
+        "An24-SA-Norm": 8627.411925237002,
+        "An24-MainALG-Norm": 8627.411925237002,
+        "Sym-CAP-DMD": 7004.432977147832,
+        "Asym-CAP-DMD": 7384.975279546696
+      },
+      "regrets": {
+        "DMD-Norm": 2815.910981519113,
+        "WS-DMD-Norm": 2815.910981519113,
+        "An24-SA-Norm": 3263.1013707570437,
+        "An24-MainALG-Norm": 3263.1013707570437,
+        "Sym-CAP-DMD": 4886.080318846213,
+        "Asym-CAP-DMD": 4505.53801644735
+      },
+      "times_s": {
+        "DMD-Norm": 0.017290200004936196,
+        "WS-DMD-Norm": 0.017166200006613508,
+        "An24-SA-Norm": 0.017427900005714037,
+        "An24-MainALG-Norm": 0.030705099998158403,
+        "Sym-CAP-DMD": 0.0783612999948673,
+        "Asym-CAP-DMD": 0.11636440000438597
+      },
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1004,
+      "opt": 10887.819538723483,
+      "rewards": {
+        "DMD-Norm": 8374.809066175685,
+        "WS-DMD-Norm": 8374.809066175685,
+        "An24-SA-Norm": 7912.702270563035,
+        "An24-MainALG-Norm": 7912.702270563035,
+        "Sym-CAP-DMD": 6397.067259325754,
+        "Asym-CAP-DMD": 6768.655637346328
+      },
+      "regrets": {
+        "DMD-Norm": 2513.0104725477977,
+        "WS-DMD-Norm": 2513.0104725477977,
+        "An24-SA-Norm": 2975.1172681604476,
+        "An24-MainALG-Norm": 2975.1172681604476,
+        "Sym-CAP-DMD": 4490.752279397729,
+        "Asym-CAP-DMD": 4119.163901377155
+      },
+      "times_s": {
+        "DMD-Norm": 0.016741300001740456,
+        "WS-DMD-Norm": 0.01672659999167081,
+        "An24-SA-Norm": 0.016974599988316186,
+        "An24-MainALG-Norm": 0.029726799999480136,
+        "Sym-CAP-DMD": 0.07670099999813829,
+        "Asym-CAP-DMD": 0.11479259999759961
+      },
+      "mainalg_lp_solves": 4
+    },
+    {
+      "regime": "R4_AdversarialShift_Poison",
+      "seed": 1005,
+      "opt": 12704.727438501339,
+      "rewards": {
+        "DMD-Norm": 9844.854382822496,
+        "WS-DMD-Norm": 9844.854382822496,
+        "An24-SA-Norm": 9337.413239588554,
+        "An24-MainALG-Norm": 9337.413239588554,
+        "Sym-CAP-DMD": 7695.683801842958,
+        "Asym-CAP-DMD": 8052.833173009498
+      },
+      "regrets": {
+        "DMD-Norm": 2859.8730556788432,
+        "WS-DMD-Norm": 2859.8730556788432,
+        "An24-SA-Norm": 3367.3141989127853,
+        "An24-MainALG-Norm": 3367.3141989127853,
+        "Sym-CAP-DMD": 5009.043636658381,
+        "Asym-CAP-DMD": 4651.894265491841
+      },
+      "times_s": {
+        "DMD-Norm": 0.017179200003738515,
+        "WS-DMD-Norm": 0.017085200001019984,
+        "An24-SA-Norm": 0.01737679999496322,
+        "An24-MainALG-Norm": 0.030085099991993047,
+        "Sym-CAP-DMD": 0.07743060000939295,
+        "Asym-CAP-DMD": 0.11575090000405908
+      },
+      "mainalg_lp_solves": 4
+    }
+  ]
+}
