@@ -1,0 +1,233 @@
+{
+  "stage": "stage_0c_outcome_blind_realtime_availability_accounting_and_power_audit",
+  "zero_repo_outcomes_read_or_fitted": true,
+  "official_launch_and_embargo_constraints": {
+    "ofr_stfm_prelim_daily_public_launch": "2020-09-09",
+    "ofr_stfm_final_first_quarterly_release": "2021-06-30",
+    "ofr_stfm_final_conservative_embargo_days": 180,
+    "nyfed_pd_revision_limitation": "NY Fed Primary Dealer Statistics API serves latest revised values without archival vintages; cannot claim exact archival real-time vintage.",
+    "source_ofr_docs": "https://www.financialresearch.gov/short-term-funding-monitor/documentation/",
+    "source_nyfed_pd_docs": "https://www.newyorkfed.org/markets/counterparties/primary-dealers-statistics"
+  },
+  "treasury_auction_accounting_identity_audit": {
+    "settled_nominal_coupons_ge_1B_count": 695,
+    "accepted_soma_fima_columns": [
+      "comp_accepted",
+      "comp_tenders_accepted",
+      "direct_bidder_accepted",
+      "fima_included",
+      "fima_noncomp_accepted",
+      "fima_noncomp_tendered",
+      "indirect_bidder_accepted",
+      "noncomp_accepted",
+      "noncomp_tenders_accepted",
+      "primary_dealer_accepted",
+      "soma_accepted",
+      "soma_holdings",
+      "soma_included",
+      "soma_tendered",
+      "total_accepted",
+      "treas_retail_accepted",
+      "treas_retail_tenders_accepted"
+    ],
+    "soma_positive_auctions": 551,
+    "fima_positive_auctions": 225,
+    "max_abs_diff_PD_plus_Dir_plus_Ind_minus_comp_accepted_dollars": 0.0,
+    "max_abs_diff_comp_plus_noncomp_plus_soma_plus_fima_minus_total_accepted_dollars": 0.0,
+    "max_abs_diff_comp_plus_noncomp_plus_fima_minus_total_accepted_dollars": 32393526800.0,
+    "exact_identity_verified": true,
+    "buybacks_operations_has_cusip_level_retirements": false,
+    "buybacks_operations_fields": [
+      "final_ann_pdf",
+      "final_ann_xml",
+      "maturity_bucket",
+      "max_nbr_offers",
+      "max_par_amt_redeemed",
+      "nbr_issues_accepted",
+      "nbr_issues_eligible",
+      "operation_close_time_est",
+      "operation_date",
+      "operation_start_time_est",
+      "operation_type",
+      "par_amt_per_offer",
+      "preliminary_ann_pdf",
+      "preliminary_ann_xml",
+      "results_pdf",
+      "results_xml",
+      "security_type",
+      "settlement_date",
+      "special_ann_pdf",
+      "total_par_amt_accepted",
+      "total_par_amt_offered"
+    ],
+    "net_flow_proxy_verdict": "Verified exact auction identity: total_accepted == comp_accepted + noncomp_accepted + soma_accepted + fima_noncomp_accepted, and comp_accepted == primary_dealer_accepted + direct_bidder_accepted + indirect_bidder_accepted (max discrepancy $0). Thus private_accepted = total_accepted - soma_accepted is exact at issuance. However, buybacks_operations reports maturity-bucket totals without CUSIP-level retired par, and secondary-market SOMA purchases/runoff alter SOMA holdings between issuance and maturity; therefore scheduled par net flow is strictly a proxy, NOT exact private net cash."
+  },
+  "realtime_effective_support_counts": {
+    "clean_nominal_ge_1B_unique_issue_dates_total": 209,
+    "clean_nominal_in_ofr_F_pair_total": 196,
+    "clean_nominal_in_ofr_P_pair_total": 205,
+    "design_A_OFR_P_lags_post_2020_09_09_only": {
+      "train_init_2020_09_15_to_2023_06_30": 68,
+      "train_final_2020_09_15_to_2026_01_01": 128,
+      "holdout_F_2024_01_01_to_2026_06_30": 62,
+      "holdout_P_2024_01_01_to_2026_11_19": 71
+    },
+    "design_B_NYFed_live_lags_2018_05_plus_F_embargo": {
+      "train_init_2018_05_15_to_2023_06_30": 123,
+      "train_final_2018_05_15_to_2026_01_01": 183,
+      "holdout_F_2024_01_01_to_2026_06_30": 62,
+      "holdout_P_2024_01_01_to_2026_11_19": 71
+    }
+  },
+  "outcome_blind_power_and_mde_analysis": {
+    "assumption_note": "Strictly outcome-blind analytical power using audited X-side 2024-2026 conditional PD takedown SD = $3.30B (2.21 pp) across plausible segment-spread residual noise scales sigma_eps in {1, 2, 3, 5} bps.",
+    "design_A_OFR_F_holdout": {
+      "design": "Design_A_OFR_P_lags_F_holdout",
+      "n_train_initial_released_by_2023_12_31": 68,
+      "n_train_final_released_by_2026_06_30": 128,
+      "n_holdout_post_2024": 62,
+      "finite_sample_1param_estimation_penalty_R2": 0.0102,
+      "mde_true_R2_50pct_CW_iid": 0.0436,
+      "mde_true_R2_80pct_CW_iid": 0.0997,
+      "mde_true_R2_80pct_CW_mild_HAC_1.3x": 0.1296,
+      "mde_true_R2_80pct_raw_MSE": 0.1099,
+      "implied_mde_by_noise_scale": {
+        "sigma_eps_1.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 0.957,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 1.005,
+          "ratio_to_Anbil_Table2_total_0.28bps": 3.42,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 15.95,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 0.000392,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.008538,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.1795
+        },
+        "sigma_eps_2.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 1.914,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 2.009,
+          "ratio_to_Anbil_Table2_total_0.28bps": 6.84,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 31.9,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 9.8e-05,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.002134,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.1001
+        },
+        "sigma_eps_3.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 2.871,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 3.014,
+          "ratio_to_Anbil_Table2_total_0.28bps": 10.25,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 47.85,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 4.4e-05,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.000949,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.0804
+        },
+        "sigma_eps_5.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 4.785,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 5.023,
+          "ratio_to_Anbil_Table2_total_0.28bps": 17.09,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 79.74,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 1.6e-05,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.000342,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.0669
+        }
+      }
+    },
+    "design_B_OFR_F_holdout": {
+      "design": "Design_B_NYFed_lags_F_holdout",
+      "n_train_initial_released_by_2023_12_31": 123,
+      "n_train_final_released_by_2026_06_30": 183,
+      "n_holdout_post_2024": 62,
+      "finite_sample_1param_estimation_penalty_R2": 0.0065,
+      "mde_true_R2_50pct_CW_iid": 0.0436,
+      "mde_true_R2_80pct_CW_iid": 0.0997,
+      "mde_true_R2_80pct_CW_mild_HAC_1.3x": 0.1296,
+      "mde_true_R2_80pct_raw_MSE": 0.1063,
+      "implied_mde_by_noise_scale": {
+        "sigma_eps_1.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 0.957,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 0.988,
+          "ratio_to_Anbil_Table2_total_0.28bps": 3.42,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 15.95,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 0.000392,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.008538,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.1795
+        },
+        "sigma_eps_2.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 1.914,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 1.976,
+          "ratio_to_Anbil_Table2_total_0.28bps": 6.84,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 31.9,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 9.8e-05,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.002134,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.1001
+        },
+        "sigma_eps_3.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 2.871,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 2.963,
+          "ratio_to_Anbil_Table2_total_0.28bps": 10.25,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 47.85,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 4.4e-05,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.000949,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.0804
+        },
+        "sigma_eps_5.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 4.785,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 4.939,
+          "ratio_to_Anbil_Table2_total_0.28bps": 17.09,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 79.74,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 1.6e-05,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.000342,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.0669
+        }
+      }
+    },
+    "design_B_OFR_P_holdout": {
+      "design": "Design_B_NYFed_lags_P_holdout",
+      "n_train_initial_released_by_2023_12_31": 123,
+      "n_train_final_released_by_2026_06_30": 183,
+      "n_holdout_post_2024": 71,
+      "finite_sample_1param_estimation_penalty_R2": 0.0065,
+      "mde_true_R2_50pct_CW_iid": 0.0381,
+      "mde_true_R2_80pct_CW_iid": 0.0871,
+      "mde_true_R2_80pct_CW_mild_HAC_1.3x": 0.1132,
+      "mde_true_R2_80pct_raw_MSE": 0.0936,
+      "implied_mde_by_noise_scale": {
+        "sigma_eps_1.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 0.894,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 0.927,
+          "ratio_to_Anbil_Table2_total_0.28bps": 3.19,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 14.9,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 0.000392,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.008538,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.1932
+        },
+        "sigma_eps_2.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 1.788,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 1.854,
+          "ratio_to_Anbil_Table2_total_0.28bps": 6.39,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 29.81,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 9.8e-05,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.002134,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.1046
+        },
+        "sigma_eps_3.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 2.683,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 2.781,
+          "ratio_to_Anbil_Table2_total_0.28bps": 9.58,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 44.71,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 4.4e-05,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.000949,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.083
+        },
+        "sigma_eps_5.0_bps": {
+          "mde_bps_per_10B_PD_for_80pct_CW_power": 4.471,
+          "mde_bps_per_10B_PD_for_80pct_raw_MSE_power": 4.636,
+          "ratio_to_Anbil_Table2_total_0.28bps": 15.97,
+          "ratio_to_Anbil_Table2_HF_spread_0.06bps": 74.52,
+          "implied_true_R2_if_effect_0.06bps_per_10B": 1.6e-05,
+          "implied_true_R2_if_effect_0.28bps_per_10B": 0.000342,
+          "optimistic_CW_power_if_effect_0.28bps_per_10B": 0.0682
+        }
+      }
+    }
+  },
+  "total_elapsed_seconds": 7.843
+}

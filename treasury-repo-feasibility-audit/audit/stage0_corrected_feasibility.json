@@ -1,0 +1,833 @@
+{
+  "stage": "stage_0_corrected_feasibility_audit_zero_outcome_regressions",
+  "preserved_first_diagnostic": "data_feasibility_pilot.json",
+  "window_full": {
+    "start": "2018-04-01",
+    "end": "2026-11-24"
+  },
+  "nyfed_terms_notice": "SOFR, TGCR, BGCR, EFFR, ON RRP, and Primary Dealer Statistics are subject to the Terms of Use posted at newyorkfed.org. The New York Fed is not responsible for any use of the data and does not sanction, endorse, or recommend this study.",
+  "part_a_outcome_independent_field_coverage": {
+    "ofr_stfm_direct_repo": {
+      "catalog_url": "https://data.financialresearch.gov/v1/metadata/mnemonics?dataset=repo",
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.745,
+      "total_repo_mnemonics": 164,
+      "candidate_treasury_overnight_series": {
+        "REPO-DVP_AR_OO-P": {
+          "series_name": "DVP Service Average Rate: Overnight/Open (Preliminary)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 0.691,
+          "total_obs": 2133,
+          "non_null_obs": 2037,
+          "min_date": "2018-05-07",
+          "max_date": "2026-11-20",
+          "obs_from_2018_04": 2133,
+          "obs_from_2024_01": 721
+        },
+        "REPO-DVP_AR_OO-F": {
+          "series_name": "DVP Service Average Rate: Overnight/Open (Final)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.155,
+          "total_obs": 2034,
+          "non_null_obs": 1947,
+          "min_date": "2018-05-07",
+          "max_date": "2026-06-30",
+          "obs_from_2018_04": 2034,
+          "obs_from_2024_01": 622
+        },
+        "REPO-DVP_OV_OO-P": {
+          "series_name": "DVP Service Outstanding Volume: Overnight/Open (Preliminary)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 0.664,
+          "total_obs": 2133,
+          "non_null_obs": 2133,
+          "min_date": "2018-05-07",
+          "max_date": "2026-11-20",
+          "obs_from_2018_04": 2133,
+          "obs_from_2024_01": 721
+        },
+        "REPO-DVP_OV_OO-F": {
+          "series_name": "DVP Service Outstanding Volume: Overnight/Open (Final)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.003,
+          "total_obs": 2034,
+          "non_null_obs": 2034,
+          "min_date": "2018-05-07",
+          "max_date": "2026-06-30",
+          "obs_from_2018_04": 2034,
+          "obs_from_2024_01": 622
+        },
+        "REPO-DVP_TV_OO-P": {
+          "series_name": "DVP Service Transaction Volume: Overnight/Open (Preliminary)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 0.573,
+          "total_obs": 2133,
+          "non_null_obs": 2037,
+          "min_date": "2018-05-07",
+          "max_date": "2026-11-20",
+          "obs_from_2018_04": 2133,
+          "obs_from_2024_01": 721
+        },
+        "REPO-DVP_TV_OO-F": {
+          "series_name": "DVP Service Transaction Volume: Overnight/Open (Final)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.458,
+          "total_obs": 2034,
+          "non_null_obs": 1947,
+          "min_date": "2018-05-07",
+          "max_date": "2026-06-30",
+          "obs_from_2018_04": 2034,
+          "obs_from_2024_01": 622
+        },
+        "REPO-TRI_AR_OO-P": {
+          "series_name": "Tri-Party Average Rate: Overnight/Open (Preliminary)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.437,
+          "total_obs": 3039,
+          "non_null_obs": 3039,
+          "min_date": "2014-08-22",
+          "max_date": "2026-11-19",
+          "obs_from_2018_04": 2156,
+          "obs_from_2024_01": 720
+        },
+        "REPO-TRI_AR_OO-F": {
+          "series_name": "Tri-Party Average Rate: Overnight/Open (Final)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.006,
+          "total_obs": 2942,
+          "non_null_obs": 2942,
+          "min_date": "2014-08-22",
+          "max_date": "2026-06-30",
+          "obs_from_2018_04": 2059,
+          "obs_from_2024_01": 622
+        },
+        "REPO-TRI_TV_OO-P": {
+          "series_name": "Tri-Party Transaction Volume: Overnight/Open (Preliminary)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.171,
+          "total_obs": 3039,
+          "non_null_obs": 3039,
+          "min_date": "2014-08-22",
+          "max_date": "2026-11-19",
+          "obs_from_2018_04": 2156,
+          "obs_from_2024_01": 720
+        },
+        "REPO-TRI_TV_OO-F": {
+          "series_name": "Tri-Party Transaction Volume: Overnight/Open (Final)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 0.795,
+          "total_obs": 2942,
+          "non_null_obs": 2942,
+          "min_date": "2014-08-22",
+          "max_date": "2026-06-30",
+          "obs_from_2018_04": 2059,
+          "obs_from_2024_01": 622
+        },
+        "REPO-TRIV1_AR_T-F": {
+          "series_name": "Tri-Party Average Rate, excluding Federal Reserve transactions: U.S. Treasury Securities (Final)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 0.589,
+          "total_obs": 2935,
+          "non_null_obs": 2935,
+          "min_date": "2014-08-22",
+          "max_date": "2026-06-30",
+          "obs_from_2018_04": 2054,
+          "obs_from_2024_01": 622
+        },
+        "REPO-TRIV1_AR_T-P": {
+          "series_name": "Tri-Party Average Rate, excluding Federal Reserve transactions: U.S. Treasury Securities (Preliminary)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.484,
+          "total_obs": 3033,
+          "non_null_obs": 3033,
+          "min_date": "2014-08-22",
+          "max_date": "2026-11-19",
+          "obs_from_2018_04": 2152,
+          "obs_from_2024_01": 720
+        },
+        "REPO-TRIV1_TV_T-F": {
+          "series_name": "Tri-Party Transaction Volume, excluding Federal Reserve transactions: U.S. Treasury Securities (Final)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.551,
+          "total_obs": 2935,
+          "non_null_obs": 2935,
+          "min_date": "2014-08-22",
+          "max_date": "2026-06-30",
+          "obs_from_2018_04": 2054,
+          "obs_from_2024_01": 622
+        },
+        "REPO-TRIV1_TV_T-P": {
+          "series_name": "Tri-Party Transaction Volume, excluding Federal Reserve transactions: U.S. Treasury Securities (Preliminary)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.573,
+          "total_obs": 3033,
+          "non_null_obs": 3033,
+          "min_date": "2014-08-22",
+          "max_date": "2026-11-19",
+          "obs_from_2018_04": 2152,
+          "obs_from_2024_01": 720
+        },
+        "REPO-TRI_AR_T-F": {
+          "series_name": "Tri-Party Average Rate: U.S. Treasury Securities (Final)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.083,
+          "total_obs": 2942,
+          "non_null_obs": 2942,
+          "min_date": "2014-08-22",
+          "max_date": "2026-06-30",
+          "obs_from_2018_04": 2059,
+          "obs_from_2024_01": 622
+        },
+        "REPO-TRI_AR_T-P": {
+          "series_name": "Tri-Party Average Rate: U.S. Treasury Securities (Preliminary)",
+          "frequency": null,
+          "data_http_status": 200,
+          "data_error": null,
+          "elapsed_seconds": 1.488,
+          "total_obs": 3040,
+          "non_null_obs": 3040,
+          "min_date": "2014-08-22",
+          "max_date": "2026-11-19",
+          "obs_from_2018_04": 2157,
+          "obs_from_2024_01": 720
+        }
+      },
+      "matching_dvp_tri_overnight_catalog_count": 22,
+      "matching_dvp_tri_overnight_catalog_sample": [
+        {
+          "mnemonic": "REPO-DVP_AR_OO-P",
+          "series_name": "DVP Service Average Rate: Overnight/Open (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-DVP_AR_OO-F",
+          "series_name": "DVP Service Average Rate: Overnight/Open (Final)"
+        },
+        {
+          "mnemonic": "REPO-DVP_OV_OO-P",
+          "series_name": "DVP Service Outstanding Volume: Overnight/Open (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-DVP_OV_OO-F",
+          "series_name": "DVP Service Outstanding Volume: Overnight/Open (Final)"
+        },
+        {
+          "mnemonic": "REPO-DVP_TV_OO-P",
+          "series_name": "DVP Service Transaction Volume: Overnight/Open (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-DVP_TV_OO-F",
+          "series_name": "DVP Service Transaction Volume: Overnight/Open (Final)"
+        },
+        {
+          "mnemonic": "REPO-TRI_AR_OO-P",
+          "series_name": "Tri-Party Average Rate: Overnight/Open (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-TRIV1_AR_OO-P",
+          "series_name": "Tri-Party Average Rate, excluding Federal Reserve transactions: Overnight/Open (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-TRI_AR_OO-F",
+          "series_name": "Tri-Party Average Rate: Overnight/Open (Final)"
+        },
+        {
+          "mnemonic": "REPO-TRIV1_AR_OO-F",
+          "series_name": "Tri-Party Average Rate, excluding Federal Reserve transactions: Overnight/Open (Final)"
+        },
+        {
+          "mnemonic": "REPO-TRI_AR_T-P",
+          "series_name": "Tri-Party Average Rate: U.S. Treasury Securities (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-TRIV1_AR_T-P",
+          "series_name": "Tri-Party Average Rate, excluding Federal Reserve transactions: U.S. Treasury Securities (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-TRI_AR_T-F",
+          "series_name": "Tri-Party Average Rate: U.S. Treasury Securities (Final)"
+        },
+        {
+          "mnemonic": "REPO-TRIV1_AR_T-F",
+          "series_name": "Tri-Party Average Rate, excluding Federal Reserve transactions: U.S. Treasury Securities (Final)"
+        },
+        {
+          "mnemonic": "REPO-TRI_TV_OO-P",
+          "series_name": "Tri-Party Transaction Volume: Overnight/Open (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-TRIV1_TV_OO-P",
+          "series_name": "Tri-Party Transaction Volume, excluding Federal Reserve transactions: Overnight/Open (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-TRI_TV_OO-F",
+          "series_name": "Tri-Party Transaction Volume: Overnight/Open (Final)"
+        },
+        {
+          "mnemonic": "REPO-TRIV1_TV_OO-F",
+          "series_name": "Tri-Party Transaction Volume, excluding Federal Reserve transactions: Overnight/Open (Final)"
+        },
+        {
+          "mnemonic": "REPO-TRI_TV_T-P",
+          "series_name": "Tri-Party Transaction Volume: U.S. Treasury Securities (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-TRIV1_TV_T-P",
+          "series_name": "Tri-Party Transaction Volume, excluding Federal Reserve transactions: U.S. Treasury Securities (Preliminary)"
+        },
+        {
+          "mnemonic": "REPO-TRI_TV_T-F",
+          "series_name": "Tri-Party Transaction Volume: U.S. Treasury Securities (Final)"
+        },
+        {
+          "mnemonic": "REPO-TRIV1_TV_T-F",
+          "series_name": "Tri-Party Transaction Volume, excluding Federal Reserve transactions: U.S. Treasury Securities (Final)"
+        }
+      ]
+    },
+    "treasury_buybacks": {
+      "url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od/buybacks_operations?sort=-operation_date&page[number]=1&page[size]=500",
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.731,
+      "total_count_meta": 236,
+      "fetched_count": 236,
+      "sample_keys": [
+        "final_ann_pdf",
+        "final_ann_xml",
+        "maturity_bucket",
+        "max_nbr_offers",
+        "max_par_amt_redeemed",
+        "nbr_issues_accepted",
+        "nbr_issues_eligible",
+        "operation_close_time_est",
+        "operation_date",
+        "operation_start_time_est",
+        "operation_type",
+        "par_amt_per_offer",
+        "preliminary_ann_pdf",
+        "preliminary_ann_xml",
+        "results_pdf",
+        "results_xml",
+        "security_type",
+        "settlement_date",
+        "special_ann_pdf",
+        "total_par_amt_accepted",
+        "total_par_amt_offered"
+      ],
+      "min_operation_date": "2000-03-09",
+      "max_operation_date": "2026-11-19",
+      "distinct_settlement_dates": 235
+    },
+    "nyfed_primary_dealer_stats": {
+      "url": "https://markets.newyorkfed.org/api/pd/list/timeseries.json",
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.362,
+      "total_timeseries_count": 1539,
+      "matching_treasury_position_or_repo_series_count": 26,
+      "sample_series": [
+        {
+          "keyid": "PDPOSGST-TOT",
+          "description": "Total - U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) : DEALER POSITION - LONG. - U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) : DEALER POSITION - SHORT."
+        },
+        {
+          "keyid": "PDPOSTIPS-L2",
+          "description": "U.S. TREASURY INFLATION-PROTECTED SECURITIES (TIPS) DUE IN LESS THAN OR EQUAL TO 2 YEARS : DEALER POSITION - LONG. - U.S. TREASURY INFLATION-PROTECTED SECURITIES (TIPS) DUE IN LESS THAN OR EQUAL TO 2 YEARS : DEALER POSITION - SHORT."
+        },
+        {
+          "keyid": "PDPOSTIPS-G11",
+          "description": "U.S. TREASURY INFLATION-PROTECTED SECURITIES (TIPS) DUE IN MORE THAN 11 YEARS : DEALER POSITION - LONG. - U.S. TREASURY INFLATION-PROTECTED SECURITIES (TIPS) DUE IN MORE THAN 11 YEARS : DEALER POSITION - SHORT."
+        },
+        {
+          "keyid": "PDPOSTIPS-G2",
+          "description": "U.S. TREASURY INFLATION-PROTECTED SECURITIES (TIPS) DUE IN MORE THAN 2 YEARS BUT LESS THAN OR EQUAL TO 6 YEARS : DEALER POSITION - LONG. - U.S. TREASURY INFLATION-PROTECTED SECURITIES (TIPS) DUE IN MORE THAN 2 YEARS BUT LESS THAN OR EQUAL TO 6 YEARS : DEALER POSITION - SHORT."
+        },
+        {
+          "keyid": "PDPOSTIPS-G6L11",
+          "description": "U.S. TREASURY INFLATION-PROTECTED SECURITIES (TIPS) DUE IN MORE THAN 6 YEARS BUT LESS THAN OR EQUAL TO 11 YEARS : DEALER POSITION - LONG. - U.S. TREASURY INFLATION-PROTECTED SECURITIES (TIPS) DUE IN MORE THAN 6 YEARS BUT LESS THAN OR EQUAL TO 11 YEARS : DEALER POSITION - SHORT."
+        },
+        {
+          "keyid": "PDPOSGSC-G11L21",
+          "description": "U.S. TREASURY SECURITIES (EXCLUDING TIPS): COUPONS DUE IN MORE THAN 11 YEARS BUT LESS THAN OR EQUAL TO 21 YEARS - OUTRIGHT POSITIONS LONG - U.S. TREASURY SECURITIES (EXCLUDING TIPS): COUPONS DUE IN MORE THAN 11 YEARS BUT LESS THAN OR EQUAL TO 21 YEARS - OUTRIGHT POSITIONS SHORT"
+        },
+        {
+          "keyid": "PDPOSGSC-G21",
+          "description": "U.S. TREASURY SECURITIES (EXCLUDING TIPS): COUPONS DUE IN MORE THAN 21 YEARS - OUTRIGHT POSITIONS LONG - U.S. TREASURY SECURITIES (EXCLUDING TIPS): COUPONS DUE IN MORE THAN 21 YEARS - OUTRIGHT POSITIONS SHORT"
+        },
+        {
+          "keyid": "PDPOSGS-B",
+          "description": "U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) BILLS: DEALER POSITION - LONG. - U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) BILLS : DEALER POSITION - SHORT."
+        },
+        {
+          "keyid": "PDPOSGSC-L2",
+          "description": "U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) COUPONS DUE IN LESS THAN OR EQUAL TO 2 YEARS : DEALER POSITION - LONG. - U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) COUPONS DUE IN LESS THAN OR EQUAL TO 2 YEARS : DEALER POSITION - SHORT."
+        },
+        {
+          "keyid": "PDPOSGSC-G2L3",
+          "description": "U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) COUPONS DUE IN MORE THAN 2 YEARS BUT LESS THAN OR EQUAL TO 3 YEARS : DEALER POSITION - LONG. - U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) COUPONS DUE IN MORE THAN 2 YEARS BUT LESS THAN OR EQUAL TO 3 YEARS : DEALER POSITION - SHORT."
+        },
+        {
+          "keyid": "PDPOSGSC-G3L6",
+          "description": "U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) COUPONS DUE IN MORE THAN 3 YEARS BUT LESS THAN OR EQUAL TO 6 YEARS : DEALER POSITION - LONG. - U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) COUPONS DUE IN MORE THAN 3 YEARS BUT LESS THAN OR EQUAL TO 6 YEARS : DEALER POSITION - SHORT."
+        },
+        {
+          "keyid": "PDPOSGSC-G6L7",
+          "description": "U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) COUPONS DUE IN MORE THAN 6 YEARS BUT LESS THAN OR EQUAL TO 7 YEARS : DEALER POSITION - LONG. - U.S. TREASURY SECURITIES (EXCLUDING TREASURY INFLATION-PROTECTED SECURITIES (TIPS)) COUPONS DUE IN MORE THAN 6 YEARS BUT LESS THAN OR EQUAL TO 7 YEARS : DEALER POSITION - SHORT."
+        }
+      ]
+    },
+    "nyfed_full_history_dates": {
+      "sofr": {
+        "http_status": 200,
+        "error": null,
+        "elapsed_seconds": 0.645,
+        "record_count": 2158,
+        "min_date": "2018-04-02",
+        "max_date": "2026-11-20"
+      },
+      "tgcr": {
+        "http_status": 200,
+        "error": null,
+        "elapsed_seconds": 1.266,
+        "record_count": 2158,
+        "min_date": "2018-04-02",
+        "max_date": "2026-11-20"
+      },
+      "onrrp": {
+        "http_status": 200,
+        "error": null,
+        "elapsed_seconds": 0.636,
+        "record_count": 2177,
+        "min_date": "2018-04-02",
+        "max_date": "2026-11-23"
+      }
+    },
+    "treasury_coupon_auctions_full": {
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 2.577,
+      "pages_fetched": 2,
+      "total_coupon_auction_rows": 907,
+      "field_presence_and_non_null_counts": {
+        "auction_date": {
+          "in_schema": true,
+          "non_null_count": 907
+        },
+        "record_date": {
+          "in_schema": true,
+          "non_null_count": 907
+        },
+        "issue_date": {
+          "in_schema": true,
+          "non_null_count": 907
+        },
+        "maturity_date": {
+          "in_schema": true,
+          "non_null_count": 907
+        },
+        "security_type": {
+          "in_schema": true,
+          "non_null_count": 907
+        },
+        "security_term": {
+          "in_schema": true,
+          "non_null_count": 907
+        },
+        "offering_amt": {
+          "in_schema": true,
+          "non_null_count": 907
+        },
+        "total_accepted": {
+          "in_schema": true,
+          "non_null_count": 905
+        },
+        "soma_accepted": {
+          "in_schema": true,
+          "non_null_count": 905
+        },
+        "primary_dealer_accepted": {
+          "in_schema": true,
+          "non_null_count": 905
+        },
+        "direct_bidder_accepted": {
+          "in_schema": true,
+          "non_null_count": 905
+        },
+        "indirect_bidder_accepted": {
+          "in_schema": true,
+          "non_null_count": 905
+        },
+        "high_yield": {
+          "in_schema": true,
+          "non_null_count": 800
+        },
+        "median_yield": {
+          "in_schema": false,
+          "non_null_count": 0
+        },
+        "avg_med_yield": {
+          "in_schema": true,
+          "non_null_count": 800
+        },
+        "low_yield": {
+          "in_schema": true,
+          "non_null_count": 800
+        },
+        "bid_to_cover_ratio": {
+          "in_schema": true,
+          "non_null_count": 905
+        }
+      },
+      "lag_issue_minus_auction_date": {
+        "count": 907,
+        "positive_count": 907,
+        "min_median_max_days": [
+          2,
+          6,
+          15
+        ]
+      },
+      "lag_issue_minus_record_date_contrast": {
+        "count": 907,
+        "positive_count": 0,
+        "min_median_max_days": [
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "part_b_time_series_and_settlement_unit_feasibility": {
+    "total_unique_coupon_issue_dates_2018_2026": 281,
+    "total_unique_dates_overlapping_ofr_dvp_and_tri": 278,
+    "total_unique_dates_overlapping_nyfed_sofr": 281,
+    "feasible_holdout_counts_ofr_overlap": {
+      "from_2023_07_01": 107,
+      "from_2024_01_01": 92
+    },
+    "feasible_holdout_counts_nyfed_overlap": {
+      "from_2024_01_01": 92
+    },
+    "by_year_settlement_date_counts": {
+      "2018": {
+        "unique_coupon_issue_dates": 23,
+        "coupon_auction_rows": 76,
+        "matched_to_ofr_dvp_and_tri": 20,
+        "matched_to_nyfed_sofr": 23
+      },
+      "2019": {
+        "unique_coupon_issue_dates": 33,
+        "coupon_auction_rows": 98,
+        "matched_to_ofr_dvp_and_tri": 33,
+        "matched_to_nyfed_sofr": 33
+      },
+      "2020": {
+        "unique_coupon_issue_dates": 34,
+        "coupon_auction_rows": 105,
+        "matched_to_ofr_dvp_and_tri": 34,
+        "matched_to_nyfed_sofr": 34
+      },
+      "2021": {
+        "unique_coupon_issue_dates": 35,
+        "coupon_auction_rows": 109,
+        "matched_to_ofr_dvp_and_tri": 35,
+        "matched_to_nyfed_sofr": 35
+      },
+      "2022": {
+        "unique_coupon_issue_dates": 33,
+        "coupon_auction_rows": 105,
+        "matched_to_ofr_dvp_and_tri": 33,
+        "matched_to_nyfed_sofr": 33
+      },
+      "2023": {
+        "unique_coupon_issue_dates": 31,
+        "coupon_auction_rows": 108,
+        "matched_to_ofr_dvp_and_tri": 31,
+        "matched_to_nyfed_sofr": 31
+      },
+      "2024": {
+        "unique_coupon_issue_dates": 32,
+        "coupon_auction_rows": 112,
+        "matched_to_ofr_dvp_and_tri": 32,
+        "matched_to_nyfed_sofr": 32
+      },
+      "2025": {
+        "unique_coupon_issue_dates": 31,
+        "coupon_auction_rows": 108,
+        "matched_to_ofr_dvp_and_tri": 31,
+        "matched_to_nyfed_sofr": 31
+      },
+      "2026": {
+        "unique_coupon_issue_dates": 29,
+        "coupon_auction_rows": 84,
+        "matched_to_ofr_dvp_and_tri": 29,
+        "matched_to_nyfed_sofr": 29
+      }
+    },
+    "conditional_variation_full_2018_2026": {
+      "label": "all_2018_2026_coupon_issue_dates",
+      "n_unique_issue_dates": 281,
+      "min_issue_date": "2018-04-02",
+      "max_issue_date": "2026-10-15",
+      "raw_weighted_pd_share_private_pct": {
+        "n": 281,
+        "mean": 24.871604,
+        "std": 14.934497,
+        "min": 6.10523,
+        "p10": 11.628633,
+        "p25": 14.799022,
+        "p50": 22.292875,
+        "p75": 31.143988,
+        "p90": 37.855334,
+        "max": 100.0,
+        "iqr": 16.344967
+      },
+      "conditional_residual_pd_share_private_pct": {
+        "n": 281,
+        "mean": -0.0,
+        "std": 7.81111,
+        "min": -29.123216,
+        "p10": -8.226835,
+        "p25": -4.645129,
+        "p50": -0.642501,
+        "p75": 4.715562,
+        "p90": 8.60609,
+        "max": 38.168095,
+        "iqr": 9.360691
+      },
+      "r2_amount_tenor_calendar_on_pd_share": 0.7264,
+      "raw_pd_billions": {
+        "n": 281,
+        "mean": 22.656176,
+        "std": 13.764837,
+        "min": 0.025,
+        "p10": 7.672145,
+        "p25": 11.84385,
+        "p50": 21.942871,
+        "p75": 30.394094,
+        "p90": 41.21381,
+        "max": 69.122103,
+        "iqr": 18.550244
+      },
+      "conditional_residual_pd_billions": {
+        "n": 281,
+        "mean": 0.0,
+        "std": 7.039987,
+        "min": -17.392871,
+        "p10": -8.176528,
+        "p25": -5.007759,
+        "p50": -0.997768,
+        "p75": 4.212086,
+        "p90": 8.988795,
+        "max": 27.514659,
+        "iqr": 9.219845
+      },
+      "r2_amount_tenor_calendar_on_pd_billions": 0.7384,
+      "weighted_tail_bps_high_minus_avg_med": {
+        "n": 242,
+        "mean": 5.495128,
+        "std": 1.651781,
+        "min": 0.5,
+        "p10": 3.779049,
+        "p25": 4.387051,
+        "p50": 5.345812,
+        "p75": 6.322636,
+        "p90": 7.609474,
+        "max": 14.4,
+        "iqr": 1.935584
+      }
+    },
+    "conditional_variation_ofr_overlap": {
+      "label": "ofr_dvp_tri_overlap_coupon_issue_dates",
+      "n_unique_issue_dates": 278,
+      "min_issue_date": "2018-05-15",
+      "max_issue_date": "2026-10-15",
+      "raw_weighted_pd_share_private_pct": {
+        "n": 278,
+        "mean": 24.765102,
+        "std": 14.977972,
+        "min": 6.10523,
+        "p10": 11.618759,
+        "p25": 14.776078,
+        "p50": 21.936255,
+        "p75": 30.744128,
+        "p90": 37.898127,
+        "max": 100.0,
+        "iqr": 15.96805
+      },
+      "conditional_residual_pd_share_private_pct": {
+        "n": 278,
+        "mean": 0.0,
+        "std": 7.804149,
+        "min": -28.855247,
+        "p10": -8.060785,
+        "p25": -4.586815,
+        "p50": -0.637637,
+        "p75": 4.625074,
+        "p90": 8.801288,
+        "max": 38.158954,
+        "iqr": 9.211889
+      },
+      "r2_amount_tenor_calendar_on_pd_share": 0.7285,
+      "raw_pd_billions": {
+        "n": 278,
+        "mean": 22.528388,
+        "std": 13.759212,
+        "min": 0.025,
+        "p10": 7.43944,
+        "p25": 11.792373,
+        "p50": 21.710787,
+        "p75": 30.140343,
+        "p90": 41.329003,
+        "max": 69.122103,
+        "iqr": 18.34797
+      },
+      "conditional_residual_pd_billions": {
+        "n": 278,
+        "mean": 0.0,
+        "std": 7.036978,
+        "min": -16.696058,
+        "p10": -8.070362,
+        "p25": -4.998474,
+        "p50": -1.003633,
+        "p75": 3.951778,
+        "p90": 9.206203,
+        "max": 27.536865,
+        "iqr": 8.950252
+      },
+      "r2_amount_tenor_calendar_on_pd_billions": 0.7384,
+      "weighted_tail_bps_high_minus_avg_med": {
+        "n": 239,
+        "mean": 5.509113,
+        "std": 1.657148,
+        "min": 0.5,
+        "p10": 3.778193,
+        "p25": 4.392552,
+        "p50": 5.347236,
+        "p75": 6.35375,
+        "p90": 7.612755,
+        "max": 14.4,
+        "iqr": 1.961198
+      }
+    },
+    "conditional_variation_2024_plus_ofr": {
+      "label": "2024_plus_ofr_holdout_coupon_issue_dates",
+      "n_unique_issue_dates": 92,
+      "min_issue_date": "2024-01-02",
+      "max_issue_date": "2026-10-15",
+      "raw_weighted_pd_share_private_pct": {
+        "n": 92,
+        "mean": 16.98415,
+        "std": 9.059212,
+        "min": 7.098142,
+        "p10": 10.036782,
+        "p25": 11.731724,
+        "p50": 14.092296,
+        "p75": 16.974602,
+        "p90": 30.617886,
+        "max": 53.4678,
+        "iqr": 5.242878
+      },
+      "conditional_residual_pd_share_private_pct": {
+        "n": 92,
+        "mean": -0.0,
+        "std": 4.805838,
+        "min": -10.469543,
+        "p10": -5.338633,
+        "p25": -2.755687,
+        "p50": -0.223809,
+        "p75": 2.32298,
+        "p90": 4.145386,
+        "max": 19.277006,
+        "iqr": 5.078667
+      },
+      "r2_amount_tenor_calendar_on_pd_share": 0.7186,
+      "raw_pd_billions": {
+        "n": 92,
+        "mean": 18.820061,
+        "std": 9.820946,
+        "min": 1.097,
+        "p10": 8.461714,
+        "p25": 11.595931,
+        "p50": 17.696973,
+        "p75": 24.574006,
+        "p90": 34.05118,
+        "max": 46.216843,
+        "iqr": 12.978075
+      },
+      "conditional_residual_pd_billions": {
+        "n": 92,
+        "mean": -0.0,
+        "std": 3.727289,
+        "min": -7.584221,
+        "p10": -4.156787,
+        "p25": -2.504025,
+        "p50": -0.222951,
+        "p75": 1.896046,
+        "p90": 4.46339,
+        "max": 11.950888,
+        "iqr": 4.400071
+      },
+      "r2_amount_tenor_calendar_on_pd_billions": 0.856,
+      "weighted_tail_bps_high_minus_avg_med": {
+        "n": 81,
+        "mean": 5.666778,
+        "std": 0.995144,
+        "min": 3.1,
+        "p10": 4.77479,
+        "p25": 5.092965,
+        "p50": 5.473832,
+        "p75": 6.0,
+        "p90": 6.9,
+        "max": 9.0,
+        "iqr": 0.907035
+      }
+    }
+  },
+  "stage_0_corrected_summary": {
+    "ofr_catalog_http_200": true,
+    "ofr_dvp_dates_count": 2133,
+    "ofr_tri_dates_count": 3040,
+    "treasury_buybacks_http_200": true,
+    "nyfed_pd_stats_http_200": true,
+    "unique_coupon_issue_dates_ofr_overlap": 278,
+    "feasible_holdout_2024_plus_ofr_dates": 92,
+    "feasible_holdout_2023h2_plus_ofr_dates": 107,
+    "conditional_residual_pd_share_iqr_pp_ofr_overlap": 9.211889,
+    "r2_amount_tenor_calendar_ofr_overlap": 0.7285,
+    "zero_outcome_regressions_executed": true
+  },
+  "total_elapsed_seconds": 37.475
+}
