@@ -1,0 +1,187 @@
+{
+  "stage": "stage_0b_frontier_literature_and_information_boundary_audit",
+  "staged_projection": "metadata_only_projection_excluding_abstracts_readme_excerpts_author_lists_and_score_samples",
+  "zero_real_holdout_outcomes_fitted_or_inspected": true,
+  "arxiv_close_papers": {
+    "url": "https://export.arxiv.org/api/query?id_list=2611.03661,2206.01067,2208.08401",
+    "http_status": 200,
+    "papers": [
+      {
+        "id": "http://arxiv.org/abs/2208.08401v3",
+        "title": "Conformal Inference for Online Prediction with Arbitrary Distribution Shifts",
+        "published": "2022-08-17T16:51:12Z",
+        "updated": "2023-10-05T22:10:05Z"
+      },
+      {
+        "id": "http://arxiv.org/abs/2206.01067v1",
+        "title": "Practical Adversarial Multivalid Conformal Prediction",
+        "published": "2022-06-02T14:33:00Z",
+        "updated": "2022-06-02T14:33:00Z"
+      },
+      {
+        "id": "http://arxiv.org/abs/2611.03661v1",
+        "title": "Tail reliability in probabilistic electricity price forecasts: comparing model combination and conformal prediction in the GB day-ahead market",
+        "published": "2026-09-22T11:34:12Z",
+        "updated": "2026-09-22T11:34:12Z"
+      }
+    ]
+  },
+  "crossref_acm_storage": {
+    "doi": "10.1145/3744255.3798116",
+    "url": "https://api.crossref.org/works/10.1145/3744255.3798116",
+    "http_status": 200,
+    "title": [
+      "Online Energy Storage Arbitrage under Imperfect Predictions: A Conformal Risk-Aware Approach"
+    ],
+    "container_title": [
+      "Proceedings of the 17th ACM International Conference on Future and Sustainable Energy Systems"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          22
+        ]
+      ]
+    }
+  },
+  "crossref_ssrn_bess": {
+    "doi": "10.2139/ssrn.6731093",
+    "url": "https://api.crossref.org/works/10.2139/ssrn.6731093",
+    "http_status": 200,
+    "title": [
+      "Decision-level conformal profit calibration for battery arbitrage in day-ahead electricitymarkets: a public seven-market benchmark"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2026
+        ]
+      ]
+    }
+  },
+  "additional_directly_overlapping_works": {
+    "arxiv": [
+      {
+        "id": "http://arxiv.org/abs/2508.13362v3",
+        "title": "Optimization-based Online Conformal Prediction for Multi-step Forecasting",
+        "published": "2025-08-18T21:14:07Z",
+        "updated": "2026-08-07T14:48:47Z"
+      },
+      {
+        "id": "http://arxiv.org/abs/2512.23671v2",
+        "title": "Calibrated Multi-Level Quantile Forecasting",
+        "published": "2025-12-29T18:25:36Z",
+        "updated": "2026-02-09T05:15:09Z"
+      }
+    ],
+    "crossref": {
+      "10.1016/j.apenergy.2025.126412": {
+        "http_status": 200,
+        "title": [
+          "On-line conformalized neural networks ensembles for probabilistic forecasting of day-ahead electricity prices"
+        ],
+        "container_title": [
+          "Applied Energy"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              11
+            ]
+          ]
+        }
+      },
+      "10.3390/pr14193119": {
+        "http_status": 200,
+        "title": [
+          "Online Multiscale Conformal Calibration for Response-Defined Wind-Ramp Groups"
+        ],
+        "container_title": [
+          "Processes"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              29
+            ]
+          ]
+        }
+      }
+    },
+    "brusaferri_code_repo": "https://github.com/bruale/PefCodeBench",
+    "brusaferri_open_cnr_url": "https://iris.cnr.it/retrieve/50287ff6-1b28-433a-9ef2-31e792200745/1-s2.0-S0306261925011420.pdf"
+  },
+  "smard_official_release_deadline": {
+    "url": "https://www.smard.de/home/neu-prognostizierte-pv-und-windenergieeinspeisung-208702",
+    "http_status": 200,
+    "verified_next_day_pv_wind_deadline_local": "18:00 (post-12:00 CET SDAC day-ahead gate)",
+    "article_api_url": null
+  },
+  "energybench_frozen_inputs": {
+    "source_repo": "https://huggingface.co/datasets/ujohn33/foretec-energy-bench",
+    "doi": "10.57967/hf/11052",
+    "license": "cc-by-4.0",
+    "hf_meta_status": 200,
+    "hf_last_modified": "2026-11-04T16:41:47.000Z",
+    "models_count": 39,
+    "issue_day_split_counts": {
+      "backtest_issue_days": 18,
+      "backtest_date_range": [
+        "2026-09-14",
+        "2026-10-01"
+      ],
+      "backtest_score_rows": 15642,
+      "live_issue_days": 17,
+      "live_date_range": [
+        "2026-10-02",
+        "2026-10-18"
+      ],
+      "live_score_rows": 4438
+    },
+    "hf_datasets_server_sizes": {
+      "scores": [
+        {
+          "split": "live",
+          "num_rows": 4438,
+          "num_columns": 14,
+          "num_bytes_parquet_files": 279858
+        },
+        {
+          "split": "backtest",
+          "num_rows": 15642,
+          "num_columns": 14,
+          "num_bytes_parquet_files": 1008902
+        }
+      ],
+      "forecasts": [
+        {
+          "split": "live",
+          "num_rows": 609600,
+          "num_columns": 15,
+          "num_bytes_parquet_files": 28591782
+        },
+        {
+          "split": "backtest",
+          "num_rows": 1501632,
+          "num_columns": 15,
+          "num_bytes_parquet_files": 75384050
+        }
+      ],
+      "actuals": [
+        {
+          "split": "all",
+          "num_rows": 60480,
+          "num_columns": 5,
+          "num_bytes_parquet_files": 432339
+        }
+      ]
+    }
+  },
+  "sdac_15min_mtu_launch_note": "Per NEMO/SDAC official go-live schedule, European SDAC 15-minute MTU day-ahead delivery began 2025-10-01; historical hourly aggregates cannot enter a 15-minute live evaluation board without native delivery-slot mapping.",
+  "stage_0b_decision": "FORMALLY_CLOSED_AT_STAGE_0_NO_OUTCOME_MODELING"
+}

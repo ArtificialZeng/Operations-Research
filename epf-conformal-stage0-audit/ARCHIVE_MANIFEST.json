@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "archive_folder": "epf-conformal-stage0-audit",
+  "status": "closed_stage0_frontier_and_boundary_audit",
+  "authored_date": "2026-11-24",
+  "zero_real_holdout_outcomes_fitted_or_archived": true,
+  "scope_disclaimer": "Formally closed Stage 0 literature-frontier and pre-gate information-boundary audit for a prospective online conformal/isotonic day-ahead EPF study. Closed due to verified SMARD 18:00 post-gate PV/wind submission deadline, smoke-sized EnergyBench window (17 live issue days 2026-10-02..2026-10-18 vs 18 separate backtest issue days 2026-09-14..2026-10-01), 2025-10-01 SDAC 15-minute MTU launch, nominal 24-hour day counts in legacy 2011-2018 epftoolbox, and 12 directly overlapping 2022-2026 primary works (including Brusaferri et al. Applied Energy 2025 DOI 10.1016/j.apenergy.2025.126412, MultiQT arXiv:2512.23671, O2CP arXiv:2508.13362, and Processes 2026 DOI 10.3390/pr14193119). Marginal CRPS requires a valid marginal forecast distribution; cross-hour dependence is separately needed for joint dispatch scenarios. Contains zero raw datasets, zero real price outcomes, zero PDFs, and zero credentials.",
+  "staged_metadata_only_projection": {
+    "projected_file": "audit/stage0b_frontier_and_boundary_audit.json",
+    "local_source_sha256_unmodified": "bb230655e02eedc20f3c6ac741014e9c897e63de87cf32b36a553bbca74ffec7",
+    "staged_projected_sha256": "542e63990682085d2f8f51384403be659d5e7ab37a273c1ea29d38b15cddf06b",
+    "stripped_fields": [
+      "arxiv_close_papers.papers[].summary_snippet",
+      "arxiv_close_papers.papers[].authors",
+      "crossref_acm_storage.authors",
+      "crossref_ssrn_bess.authors",
+      "additional_directly_overlapping_works.arxiv[].authors",
+      "additional_directly_overlapping_works.crossref.*.authors",
+      "energybench_frozen_inputs.hf_readme_excerpt",
+      "energybench_frozen_inputs.hf_card_data",
+      "energybench_frozen_inputs.hf_tags",
+      "energybench_frozen_inputs.hf_root_items",
+      "energybench_frozen_inputs.hf_subtrees",
+      "energybench_frozen_inputs.exact_counts_non_outcome.models_columns",
+      "energybench_frozen_inputs.exact_counts_non_outcome.model_families",
+      "energybench_frozen_inputs.scores_split_date_bounds.*.columns",
+      "smard_official_release_deadline.matched_snippets",
+      "smard_official_release_deadline.article_api_snippets"
+    ],
+    "preserved_content": "Provenance URLs, DOIs/arXiv IDs, short paper titles & dates, exact split counts (17 live vs 18 backtest issue days), and SMARD 18:00 post-gate availability finding."
+  },
+  "line_ending_policy": "Preserve exact archived byte sequences via .gitattributes ('* -text').",
+  "file_count_excluding_manifest": 12,
+  "file_count_including_manifest": 13,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "PROPOSAL_AND_STAGE0_PLAN.md",
+      "bytes": 7858,
+      "sha256": "94a813fd13af8ee12486b3b269726a9c9c73aa491b21664cea3e167117db0130"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4638,
+      "sha256": "38d1eb2e161b256d0fcdab321d7b5ca8e240748a2329ac53a752b3b35b1c7d8b"
+    },
+    {
+      "path": "STAGE0B_BOUNDARY_AND_FRONTIER_CLOSURE.md",
+      "bytes": 6907,
+      "sha256": "dad5c7a30746083aade7c5054658d6115623a6b91c91e9fc38f3e5be192c740a"
+    },
+    {
+      "path": "audit/stage0_input_and_baseline_check.json",
+      "bytes": 20124,
+      "sha256": "7b3ac7d3f1ba7b19dd53959e50c2f509c3eb76d2050539b9755c8729b38fef4e"
+    },
+    {
+      "path": "audit/stage0_input_and_baseline_check.py",
+      "bytes": 24327,
+      "sha256": "c5fd302d1d8c6b065c06dabdb2956f38aa371973e05aa956fc25801af9864798"
+    },
+    {
+      "path": "audit/stage0b_append_overlapping_works.py",
+      "bytes": 2991,
+      "sha256": "57e6870e9a87edcdf83ee24d72f8733cbf8edbbe4673ac47ed3d634eb8fc3af2"
+    },
+    {
+      "path": "audit/stage0b_frontier_and_boundary_audit.json",
+      "bytes": 5872,
+      "sha256": "542e63990682085d2f8f51384403be659d5e7ab37a273c1ea29d38b15cddf06b"
+    },
+    {
+      "path": "audit/stage0b_frontier_and_boundary_audit.py",
+      "bytes": 7771,
+      "sha256": "906546efa4ca0bf672eb61fe9010e9a94a050f558c86f13cdcf44b9c4f56a373"
+    },
+    {
+      "path": "audit/stage0b_hf_counts.py",
+      "bytes": 2389,
+      "sha256": "c74f77291dc21ca09e5de25dda4c8b314d0bc00a10bc2fcbbaee3dd89b659c6b"
+    },
+    {
+      "path": "audit/stage0b_verify_counts.py",
+      "bytes": 3805,
+      "sha256": "4d1b79cc83657468ae0992e94f69b465073363d62f89d944f6b410d39b344947"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 57,
+      "sha256": "5f3ff823bcb1417f52ce72d7c8bb0e83bb37140c889e94455dffaee49eb66cfa"
+    }
+  ]
+}
