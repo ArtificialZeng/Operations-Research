@@ -1,0 +1,17 @@
+[01/16] bip_36x36_p012_s501    | LP 153.67 -> BASE 153.67 (clq=0,c5=0) vs AUG 153.80 (+6 hub) | OPT/primal 154/154 | wall 0.06s vs 0.06s | nodes 1 vs 1
+[02/16] bip_36x36_p012_s502    | LP 230.50 -> BASE 230.50 (clq=0,c5=0) vs AUG 232.00 (+15 hub) | OPT/primal 232/232 | wall 0.11s vs 0.07s | nodes 1 vs 1
+[03/16] bip_44x44_p010_s503    | LP 305.09 -> BASE 305.09 (clq=0,c5=0) vs AUG 308.50 (+30 hub) | OPT/primal 317/317 | wall 3.78s vs 2.21s | nodes 1 vs 1
+[04/16] bip_44x44_p010_s504    | LP 316.50 -> BASE 316.50 (clq=0,c5=0) vs AUG 322.12 (+30 hub) | OPT/primal 330/330 | wall 4.13s vs 3.24s | nodes 1 vs 1
+[05/16] reg_n64_d4_s511        | LP 241.75 -> BASE 243.83 (clq=0,c5=14) vs AUG 245.00 (+28 hub) | OPT/primal 245/245 | wall 0.16s vs 0.06s | nodes 1 vs 1
+[06/16] reg_n64_d4_s512        | LP 237.22 -> BASE 239.10 (clq=0,c5=14) vs AUG 240.84 (+30 hub) | OPT/primal 241/241 | wall 0.94s vs 0.14s | nodes 1 vs 1
+[07/16] reg_n80_d4_s513        | LP 302.20 -> BASE 303.00 (clq=0,c5=11) vs AUG 305.02 (+30 hub) | OPT/primal 307/307 | wall 4.72s vs 3.13s | nodes 11 vs 1
+[08/16] reg_n80_d4_s514        | LP 303.33 -> BASE 305.50 (clq=0,c5=13) vs AUG 307.42 (+30 hub) | OPT/primal 309/309 | wall 2.71s vs 2.84s | nodes 31 vs 1
+[09/16] ws_n64_k6_p020_s521    | LP 257.80 -> BASE 258.50 (clq=5,c5=10) vs AUG 259.50 (+16 hub) | OPT/primal 260/260 | wall 0.16s vs 0.10s | nodes 1 vs 1
+[10/16] ws_n64_k6_p020_s522    | LP 294.88 -> BASE 299.75 (clq=16,c5=42) vs AUG 300.96 (+30 hub) | OPT/primal 308/308 | wall 2.10s vs 4.92s | nodes 1 vs 1
+[11/16] ws_n80_k6_p020_s523    | LP 368.20 -> BASE 370.33 (clq=13,c5=31) vs AUG 371.26 (+22 hub) | OPT/primal 373/373 | wall 1.90s vs 1.14s | nodes 1 vs 1
+[12/16] ws_n80_k6_p020_s524    | LP 396.82 -> BASE 400.67 (clq=11,c5=58) vs AUG 401.00 (+30 hub) | OPT/primal 401/401 | wall 0.45s vs 0.19s | nodes 1 vs 1
+[13/16] sbm_4x16_s531          | LP 418.67 -> BASE 428.12 (clq=23,c5=84) vs AUG 428.51 (+30 hub) | OPT/primal 436/436 | wall 2.44s vs 3.06s | nodes 1 vs 1
+[14/16] sbm_4x16_s532          | LP 402.92 -> BASE 410.27 (clq=25,c5=98) vs AUG 410.89 (+26 hub) | OPT/primal 416/416 | wall 2.54s vs 3.92s | nodes 1 vs 1
+[15/16] sbm_4x20_s533          | LP 698.72 -> BASE 713.04 (clq=27,c5=120) vs AUG 715.90 (+30 hub) | OPT/primal 744/744 | wall 22.52s vs 38.67s | nodes 49 vs 25
+[16/16] sbm_4x20_s534          | LP 663.00 -> BASE 685.37 (clq=39,c5=120) vs AUG 687.24 (+30 hub) | OPT/primal 724/724 | wall 23.33s vs 32.58s | nodes 143 vs 99
+WROTE=/mnt/d/AI_Science/antigravity/dcnp_polyhedral_cuts_20261124/stage1_heldout_synthetic_results.json total_wall=168.465s
