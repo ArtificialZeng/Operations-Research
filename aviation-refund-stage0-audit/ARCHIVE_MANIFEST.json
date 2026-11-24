@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "archive_folder": "aviation-refund-stage0-audit",
+  "status": "closed_stage0b_measurement_gate_audit",
+  "authored_date": "2026-11-24",
+  "zero_post_rule_bytes_downloaded_or_analyzed": true,
+  "scope_disclaimer": "Formally closed Stage 0B legal-timeline, BTS data-dictionary, and pre-rule selection/confounder audit for a prospective empirical study of U.S. DOT 14 CFR Part 260 / FAA s.503. Zero post-2024-04 BTS flight archives were ever downloaded or analyzed. Published BTS data supports descriptive segment operations only; statutory policy effects and refund receipt are unestimated, and no defensible untreated comparison or versioned purchased-itinerary data was verified in this audit. FR 2024-07177 Footnote 30 distinguishes Part 234's within-7-day CRS cancellation universe from Part 260's purchase-time refund universe. Contains zero raw flight records, zero copied abstracts or regulatory blocks, zero PDFs, and zero causal claims.",
+  "staged_metadata_only_projections": [
+    {
+      "projected_file": "audit/stage0_bts_and_statute_audit.json",
+      "local_source_sha256_unmodified": "a01e1bbd1f6293308f42e84c438b67ff9127626a3056063f72eb6ff562cde76d",
+      "staged_projected_sha256": "dd7cd55cba0a36bc078d612affb3535e2554acc7eedae5a8851d95490814763b",
+      "stripped_fields": [
+        "primary_literature_crossref.*.authors",
+        "federal_register_*.dates_text",
+        "federal_register_*.body_html_url",
+        "federal_register_*.carrier_mention_counts_in_89FR32760"
+      ]
+    },
+    {
+      "projected_file": "audit/stage0b_legal_and_measurement_gate.json",
+      "local_source_sha256_unmodified": "5cc10317093b439e9be0490234f35f35d884b1c3981c82b0321ee652c0c73c3e",
+      "staged_projected_sha256": "c9624754422d18d7ac8e55cd49836a7715e68426c592a3549c9450a61768827a",
+      "stripped_fields": [
+        "xing_jems_precedent.authors",
+        "dot_small_business_guidance_pdf.date_mentions_sample",
+        "govinfo_fr_2024_07177_part260.sec_260_*_excerpt*",
+        "bts_table_info_fgj_dictionary.table_description_excerpt",
+        "bts_table_info_fgj_dictionary.parsed_field_definitions",
+        "dot_oig_tarmac_report_33850.short_excerpt",
+        "dot_oig_tarmac_report_33850.parsed_summary"
+      ],
+      "added_verified_fields": [
+        "govinfo_fr_2024_07177_part260.footnote_30_part234_vs_part260_distinction",
+        "xing_jems_precedent.historical_eu_scope_url"
+      ]
+    }
+  ],
+  "line_ending_policy": "Preserve exact archived byte sequences via .gitattributes ('* -text').",
+  "file_count_excluding_manifest": 12,
+  "file_count_including_manifest": 13,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "PROPOSAL_AND_STAGE0_PLAN.md",
+      "bytes": 6054,
+      "sha256": "e2f0c161f6265bffebcd19ad472cbf65a6ef189ee142719aea71b9b0ff46f691"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7259,
+      "sha256": "7737f736e53f6bd291ff2b7f4aecb02d071cadfa0496402ba2a1bb6cd604bf53"
+    },
+    {
+      "path": "STAGE0B_MEASUREMENT_GATE_CLOSURE.md",
+      "bytes": 7120,
+      "sha256": "f5013bd54feef82bbd0df3efdc8604ca3d68fda279ead9c8d5465d0bb9b457e9"
+    },
+    {
+      "path": "audit/stage0_bts_and_statute_audit.json",
+      "bytes": 11762,
+      "sha256": "dd7cd55cba0a36bc078d612affb3535e2554acc7eedae5a8851d95490814763b"
+    },
+    {
+      "path": "audit/stage0_bts_and_statute_audit.py",
+      "bytes": 19319,
+      "sha256": "32a1b7532fd2fc668136d094fade52588fa3dcc51c50b1da99df2aa56ff805c3"
+    },
+    {
+      "path": "audit/stage0_verify_statute_and_dois.py",
+      "bytes": 4674,
+      "sha256": "364bbbdaf0c1e58a939362824636e93ec91ba014fd429fb6d6e497b697979435"
+    },
+    {
+      "path": "audit/stage0b_legal_and_measurement_gate.json",
+      "bytes": 7901,
+      "sha256": "c9624754422d18d7ac8e55cd49836a7715e68426c592a3549c9450a61768827a"
+    },
+    {
+      "path": "audit/stage0b_legal_and_measurement_gate.py",
+      "bytes": 16723,
+      "sha256": "3d7aaad0117ae52180ada820139381b8dc462277caaa3bbc1e80652d3273417a"
+    },
+    {
+      "path": "audit/stage0b_parse_legal_defs.py",
+      "bytes": 3368,
+      "sha256": "97a109be9c47f45d6331b86896eb159997c6eae3c266d558ef0e79f0b9378beb"
+    },
+    {
+      "path": "audit/stage0b_tail_and_260_verify.py",
+      "bytes": 6888,
+      "sha256": "087ed79e8afad4ad95e300ae3f50e5a22e25a40fb4d8445eabc838afa2dbd4ad"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 13,
+      "sha256": "5c12d85e7c08038d1dd9ffbf8119d12ce808885230a47e2bf65dcd9f114659d5"
+    }
+  ]
+}

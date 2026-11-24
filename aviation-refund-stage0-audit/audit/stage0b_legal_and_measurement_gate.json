@@ -1,0 +1,204 @@
+{
+  "stage": "stage_0b_aviation_legal_timeline_dictionary_and_prerule_confounder_gate",
+  "staged_projection": "metadata_and_prerule_counts_only_no_copied_text_blocks_or_raw_records",
+  "zero_post_rule_bytes_downloaded_or_analyzed": true,
+  "xing_jems_precedent": {
+    "doi": "10.1111/jems.70019",
+    "url": "https://api.crossref.org/works/10.1111/jems.70019",
+    "http_status": 200,
+    "title": [
+      "Quality Regulation and Unexpected Gaming: Evidence From Mandating Flight Delay Compensation"
+    ],
+    "container_title": [
+      "Journal of Economics &amp; Management Strategy"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          12,
+          15
+        ]
+      ]
+    },
+    "historical_eu_scope_url": "https://eur-lex.europa.eu/legal-content/en/ALL/?uri=CELEX%3A62007CJ0402",
+    "scope_note": "Compensation eligibility for covered travelers delayed at the final destination by at least three hours, subject to extraordinary-circumstance exceptions, and eligible/exempt carrier comparison; by contrast, the U.S. rule being studied provides fare refunds in eligible nontravel cases."
+  },
+  "dot_small_business_guidance_pdf": {
+    "url": "https://www.transportation.gov/sites/dot.gov/files/2024-12/Refund%20Final%20Rule%20Small%20Business%20Compliance%20Guidance.pdf",
+    "http_status_direct_urllib": 403,
+    "verified_legal_timeline_note": "FAA Reauthorization Act of 2024 s.503 (49 U.S.C. 42305) required eligible automatic ticket refunds for cancellations/significant delays starting 2024-05-16; remaining regulatory/ancillary compliance date is 2024-10-28."
+  },
+  "govinfo_fr_2024_07177_part260": {
+    "url": "https://www.govinfo.gov/content/pkg/FR-2024-04-26/html/2024-07177.htm",
+    "http_status": 200,
+    "found_260_2": true,
+    "found_260_6": true,
+    "sec_260_2_trigger_summary": "Original purchased itinerary: scheduled origination departure >= 3h earlier or scheduled final destination arrival >= 3h later (domestic; 6h international).",
+    "sec_260_6_trigger_summary": "Automatic fare refunds apply in eligible nontravel cases when passenger rejects / does not take alternative transportation.",
+    "footnote_30_part234_vs_part260_distinction": {
+      "url": "https://www.govinfo.gov/content/pkg/FR-2024-04-26/html/2024-07177.htm",
+      "verified_part234_7day_crs_distinction": true,
+      "note": "FR 2024-07177 footnote 30 distinguishes 14 CFR Part 234's within-7-day CRS cancellation reporting universe from 14 CFR Part 260's purchase-time passenger refund universe."
+    }
+  },
+  "bts_table_info_fgj_dictionary": {
+    "url": "https://www.transtats.bts.gov/TableInfo.asp?QO_fu146_anzr=b0-gvzr&gnoyr_VQ=FGJ",
+    "http_status": 200,
+    "mentions_crs_schedule": true,
+    "mentions_nonstop_segment": true,
+    "mentions_tarmac_add_gtime": true,
+    "scope_note": "Published BTS dataset supports descriptive segment operations only; statutory policy effect and refund receipt are unestimated, and no defensible untreated comparison or versioned purchased-itinerary data was verified in this audit."
+  },
+  "dot_oig_tarmac_report_33850": {
+    "url": "https://www.oig.dot.gov/library-item/33850",
+    "http_status": 200,
+    "page_title": "Effects of the Tarmac Delay Rule on Flight Cancellations and Delays | DOT OIG",
+    "project_id": "ST2017003",
+    "date": "2016-10-26"
+  },
+  "prerule_2024_03_confounder_exposure": {
+    "month_audited_prerule_only": "2024-03",
+    "download_seconds": 97.449,
+    "tarmac_and_diversion_columns_present": {
+      "TotalAddGTime": true,
+      "LongestAddGTime": true,
+      "FirstDepTime": true,
+      "TaxiOut": true,
+      "TaxiIn": true,
+      "DivAirportLandings": true,
+      "DivArrDelay": true
+    },
+    "denominators": {
+      "total_scheduled_flights": 628786,
+      "completed_non_cancelled_non_diverted": 622080,
+      "cancelled_total": 5377,
+      "diverted_total": 1329,
+      "cancelled_with_nonnull_DepDelay_gate_pushback": 189,
+      "cancelled_with_DepDelay_ge_120": 49,
+      "cancelled_with_TotalOrLongestAddGTime_gt_0": 171
+    },
+    "tarmac_rule_14CFR259_4_overlap_in_completed_dep_120_240": {
+      "completed_dep_120_240": 12818,
+      "with_gate_return_AddGTime_gt_0": 1033,
+      "share_with_gate_return_pct": 8.06,
+      "with_TaxiOut_ge_60_min": 211,
+      "with_TaxiOut_ge_120_min": 10
+    },
+    "arr_120_240_decomposition_by_dep_delay": {
+      "completed_arr_120_240": 12752,
+      "dep_lt_120": 1691,
+      "dep_lt_60": 193,
+      "dep_lt_15_strict_airborne_or_taxi_only": 52,
+      "dep_ge_180": 3876
+    },
+    "carrier_heaping_and_denominators_2024_03": {
+      "AA": {
+        "flights": 155274,
+        "cancelled": 1388,
+        "diverted": 426,
+        "dep_120_240": 3396,
+        "dep_mod5_share": 0.2082,
+        "arr_120_240": 3448,
+        "arr_mod5_share": 0.2114
+      },
+      "DL": {
+        "flights": 125895,
+        "cancelled": 243,
+        "diverted": 196,
+        "dep_120_240": 1621,
+        "dep_mod5_share": 0.1986,
+        "arr_120_240": 1627,
+        "arr_mod5_share": 0.1911
+      },
+      "WN": {
+        "flights": 125272,
+        "cancelled": 1170,
+        "diverted": 197,
+        "dep_120_240": 2432,
+        "dep_mod5_share": 0.2126,
+        "arr_120_240": 2376,
+        "arr_mod5_share": 0.221
+      },
+      "UA": {
+        "flights": 110590,
+        "cancelled": 1073,
+        "diverted": 268,
+        "dep_120_240": 2108,
+        "dep_mod5_share": 0.2026,
+        "arr_120_240": 2015,
+        "arr_mod5_share": 0.2099
+      },
+      "AS": {
+        "flights": 32495,
+        "cancelled": 230,
+        "diverted": 92,
+        "dep_120_240": 461,
+        "dep_mod5_share": 0.1974,
+        "arr_120_240": 481,
+        "arr_mod5_share": 0.2162
+      },
+      "NK": {
+        "flights": 22885,
+        "cancelled": 394,
+        "diverted": 32,
+        "dep_120_240": 704,
+        "dep_mod5_share": 0.2074,
+        "arr_120_240": 731,
+        "arr_mod5_share": 0.2517
+      },
+      "B6": {
+        "flights": 21565,
+        "cancelled": 309,
+        "diverted": 66,
+        "dep_120_240": 991,
+        "dep_mod5_share": 0.22,
+        "arr_120_240": 966,
+        "arr_mod5_share": 0.1977
+      },
+      "F9": {
+        "flights": 17324,
+        "cancelled": 463,
+        "diverted": 28,
+        "dep_120_240": 755,
+        "dep_mod5_share": 0.1921,
+        "arr_120_240": 748,
+        "arr_mod5_share": 0.1965
+      },
+      "G4": {
+        "flights": 11031,
+        "cancelled": 71,
+        "diverted": 19,
+        "dep_120_240": 336,
+        "dep_mod5_share": 0.1905,
+        "arr_120_240": 348,
+        "arr_mod5_share": 0.1839
+      },
+      "HA": {
+        "flights": 6455,
+        "cancelled": 36,
+        "diverted": 5,
+        "dep_120_240": 14,
+        "dep_mod5_share": 0.2143,
+        "arr_120_240": 12,
+        "arr_mod5_share": 0.0833
+      }
+    }
+  },
+  "prerule_2024_03_tail_and_selection_audit": {
+    "month_prerule_only": "2024-03",
+    "cancelled_total": 5377,
+    "cancelled_tail_missing": 1021,
+    "cancelled_tail_missing_pct": 18.99,
+    "operating_total": 623409,
+    "operating_tail_missing": 0,
+    "operating_tail_missing_pct": 0.0,
+    "total_subsequent_records_in_day_tail_groups": 474993,
+    "airport_continuous_prev_dest_eq_curr_orig": 467278,
+    "airport_continuous_share_pct": 98.38,
+    "airport_continuous_with_operating_prev_leg": 465726,
+    "airport_discontinuous_records": 7715,
+    "critical_identification_caveat": "Even airport-continuous sequences in BTS are POST-ASSIGNMENT realized rotations (airlines swap aircraft dynamically during disruptions), CRSDepTime/CRSArrTime are local airport clocks (not UTC), and cancelled flights have vastly higher Tail_Number missingness than operating flights; therefore BTS tail-number sequences do NOT identify an exogenous pre-cancellation shock."
+  },
+  "stage_0b_decision": "FORMALLY_CLOSED_AT_STAGE_0B_NO_POST_RULE_OUTCOMES_ANALYZED"
+}
