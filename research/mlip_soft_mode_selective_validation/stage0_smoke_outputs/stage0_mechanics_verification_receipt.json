@@ -1,0 +1,2701 @@
+{
+  "model_path": "mace-omat-0-small.model",
+  "model_sha256": "0abfde07862cf1e93b8b4d03cb702f29ce9c344ff2fc4de2ec0d7166d6c113a5",
+  "device": "cuda",
+  "dtype": "float64",
+  "vasp_to_thz": 15.633302300230191,
+  "pid": 2752,
+  "receipts": [
+    {
+      "file": "nims_pbesol_mp-149_Si.yaml.xz",
+      "source_tag": "NIMS_PBEsol_smoke",
+      "formula": "Si",
+      "sha256": "e524b0cede3ca2e00fd3859a1f6975ddb10ecf844f29d3636e6b0adaac086854",
+      "n_prim": 2,
+      "prim_masses": [
+        28.0855,
+        28.0855
+      ],
+      "has_dft_nac_original": true,
+      "nac_used_both": false,
+      "max_residual_force_prim_eV_A": 2.4406153067901977e-14,
+      "coarse_2x2x2_stats": {
+        "n_supercell_atoms": 16,
+        "n_force_calls": 2,
+        "atom_force_evals": 32,
+        "wall_s": 0.8136
+      },
+      "comm_3x3x3_stats": {
+        "n_supercell_atoms": 54,
+        "n_force_calls": 2,
+        "atom_force_evals": 108,
+        "wall_s": 0.5523
+      },
+      "comm_4x4x4_stats": {
+        "n_supercell_atoms": 128,
+        "n_force_calls": 2,
+        "atom_force_evals": 256,
+        "wall_s": 0.8335
+      },
+      "q_tests": [
+        {
+          "q_name": "Gamma",
+          "q_vec": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 1,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 2,
+          "band_nominated": 3,
+          "freq_mace_coarse_2x2x2_thz": 15.48139,
+          "freq_mace_comm_proj_thz": 15.481423,
+          "freq_mace_comm_min_thz": 15.481423,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 15.287177,
+          "freq_dft_min_thz": 15.287177,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 239.589134,
+                "freq_thz": 15.478667,
+                "n_supercell_atoms": 2,
+                "n_force_calls": 2,
+                "atom_force_evals": 4,
+                "wall_s": 0.0475
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 239.32976,
+                "freq_thz": 15.470286,
+                "n_supercell_atoms": 2,
+                "n_force_calls": 2,
+                "atom_force_evals": 4,
+                "wall_s": 0.047
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.002756,
+          "abs_err_sin_h01_vs_full_comm_thz": null,
+          "cos_sin_diff_h01_thz": null,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "X_half",
+          "q_vec": [
+            0.5,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 4,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 3.505872,
+          "freq_mace_comm_proj_thz": 3.505865,
+          "freq_mace_comm_min_thz": 3.505865,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 3.101343,
+          "freq_dft_min_thz": 3.101343,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 12.298116,
+                "freq_thz": 3.506867,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0494
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 12.298116,
+                "freq_thz": 3.506867,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0472
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 12.308183,
+                "freq_thz": 3.508302,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0481
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 12.308189,
+                "freq_thz": 3.508303,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0493
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.001002,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.001002,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "R_half",
+          "q_vec": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 4,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 3.505872,
+          "freq_mace_comm_proj_thz": 3.505865,
+          "freq_mace_comm_min_thz": 3.505865,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 3.101343,
+          "freq_dft_min_thz": 3.101343,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 12.298116,
+                "freq_thz": 3.506867,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0468
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 12.298117,
+                "freq_thz": 3.506867,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0474
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 12.308183,
+                "freq_thz": 3.508302,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.049
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 12.308201,
+                "freq_thz": 3.508305,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0493
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.001002,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.001002,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "NonSC_3",
+          "q_vec": [
+            0.3333333333333333,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 3,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              -2,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 6,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 2.98882,
+          "freq_mace_comm_proj_thz": 3.232391,
+          "freq_mace_comm_min_thz": 3.231075,
+          "comm_ref_grid": "3x3x3",
+          "freq_dft_proj_thz": 3.063927,
+          "freq_dft_min_thz": 3.046564,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 10.452509,
+                "freq_thz": 3.233034,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0528
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 10.452795,
+                "freq_thz": 3.233078,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0531
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 10.45599,
+                "freq_thz": 3.233572,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0539
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 10.4571,
+                "freq_thz": 3.233744,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0534
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000643,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000687,
+          "cos_sin_diff_h01_thz": 4.4e-05,
+          "d_gauge_check_h01_thz": 4.885931
+        },
+        {
+          "q_name": "NonSC_4",
+          "q_vec": [
+            0.25,
+            0.25,
+            0.0
+          ],
+          "L_minimal": 4,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              0,
+              -2,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 8,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 3.24579,
+          "freq_mace_comm_proj_thz": 3.834036,
+          "freq_mace_comm_min_thz": 3.834027,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 3.662896,
+          "freq_dft_min_thz": 3.659757,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 14.700974,
+                "freq_thz": 3.834185,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.058
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 14.700974,
+                "freq_thz": 3.834185,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0555
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 14.688762,
+                "freq_thz": 3.832592,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0567
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 14.688762,
+                "freq_thz": 3.832592,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0561
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000149,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000149,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        }
+      ]
+    },
+    {
+      "file": "nims_pbesol_mp-2998_BaTiO3.yaml.xz",
+      "source_tag": "NIMS_PBEsol_smoke",
+      "formula": "BaTiO3",
+      "sha256": "49ab89169609248aedd7dcee720105bd45b65ccf3701405b3d66850198472124",
+      "n_prim": 5,
+      "prim_masses": [
+        15.9994,
+        15.9994,
+        15.9994,
+        47.867,
+        137.327
+      ],
+      "has_dft_nac_original": true,
+      "nac_used_both": false,
+      "max_residual_force_prim_eV_A": 5.3290705214415916e-15,
+      "coarse_2x2x2_stats": {
+        "n_supercell_atoms": 40,
+        "n_force_calls": 6,
+        "atom_force_evals": 240,
+        "wall_s": 0.3164
+      },
+      "comm_3x3x3_stats": {
+        "n_supercell_atoms": 135,
+        "n_force_calls": 6,
+        "atom_force_evals": 810,
+        "wall_s": 0.8086
+      },
+      "comm_4x4x4_stats": {
+        "n_supercell_atoms": 320,
+        "n_force_calls": 6,
+        "atom_force_evals": 1920,
+        "wall_s": 1.7105
+      },
+      "q_tests": [
+        {
+          "q_name": "Gamma",
+          "q_vec": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 1,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 5,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -5.030507,
+          "freq_mace_comm_proj_thz": -5.030596,
+          "freq_mace_comm_min_thz": -5.030596,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -6.036941,
+          "freq_dft_min_thz": -6.048727,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -24.907345,
+                "freq_thz": -4.990726,
+                "n_supercell_atoms": 5,
+                "n_force_calls": 2,
+                "atom_force_evals": 10,
+                "wall_s": 0.051
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -23.394494,
+                "freq_thz": -4.836785,
+                "n_supercell_atoms": 5,
+                "n_force_calls": 2,
+                "atom_force_evals": 10,
+                "wall_s": 0.0521
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.03987,
+          "abs_err_sin_h01_vs_full_comm_thz": null,
+          "cos_sin_diff_h01_thz": null,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "X_half",
+          "q_vec": [
+            0.5,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 10,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -4.032959,
+          "freq_mace_comm_proj_thz": -4.033074,
+          "freq_mace_comm_min_thz": -4.033074,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -4.859589,
+          "freq_dft_min_thz": -4.88038,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -15.746964,
+                "freq_thz": -3.968244,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0609
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -15.743845,
+                "freq_thz": -3.967851,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0592
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -13.933978,
+                "freq_thz": -3.732824,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0603
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -13.921869,
+                "freq_thz": -3.731202,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0591
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.06483,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.065223,
+          "cos_sin_diff_h01_thz": 0.000393,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "R_half",
+          "q_vec": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 10,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 4.145522,
+          "freq_mace_comm_proj_thz": 4.145522,
+          "freq_mace_comm_min_thz": 4.145522,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 4.054639,
+          "freq_dft_min_thz": 4.052835,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 17.185876,
+                "freq_thz": 4.145585,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0577
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 17.185877,
+                "freq_thz": 4.145585,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0609
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 17.190793,
+                "freq_thz": 4.146178,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0594
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 17.190797,
+                "freq_thz": 4.146179,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.06
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 6.3e-05,
+          "abs_err_sin_h01_vs_full_comm_thz": 6.3e-05,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "NonSC_3",
+          "q_vec": [
+            0.3333333333333333,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 3,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 15,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -4.226733,
+          "freq_mace_comm_proj_thz": -4.232156,
+          "freq_mace_comm_min_thz": -4.232196,
+          "comm_ref_grid": "3x3x3",
+          "freq_dft_proj_thz": -5.089221,
+          "freq_dft_min_thz": -5.109831,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -17.501471,
+                "freq_thz": -4.183476,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0676
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -17.419645,
+                "freq_thz": -4.173685,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.067
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -16.008821,
+                "freq_thz": -4.001102,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0645
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -15.688818,
+                "freq_thz": -3.960911,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.066
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.04868,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.058471,
+          "cos_sin_diff_h01_thz": 0.009791,
+          "d_gauge_check_h01_thz": -3.967745
+        },
+        {
+          "q_name": "NonSC_4",
+          "q_vec": [
+            0.25,
+            0.25,
+            0.0
+          ],
+          "L_minimal": 4,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 20,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -4.00464,
+          "freq_mace_comm_proj_thz": -4.01955,
+          "freq_mace_comm_min_thz": -4.019616,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -4.743211,
+          "freq_dft_min_thz": -4.760584,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -15.710074,
+                "freq_thz": -3.963594,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0722
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -15.710074,
+                "freq_thz": -3.963594,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0713
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -14.105295,
+                "freq_thz": -3.755702,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0749
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -14.105295,
+                "freq_thz": -3.755702,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0728
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.055956,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.055956,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        }
+      ]
+    },
+    {
+      "file": "alexandria_pbe_mp-149_Si.yaml.bz2",
+      "source_tag": "Alexandria_PBE",
+      "formula": "Si",
+      "sha256": "b39a835a0a5e734704c417da5395e584c8a482fcace1d02f1e3d615cbe5f3ebe",
+      "n_prim": 2,
+      "prim_masses": [
+        28.0855,
+        28.0855
+      ],
+      "has_dft_nac_original": false,
+      "nac_used_both": false,
+      "max_residual_force_prim_eV_A": 1.2147887317310004e-15,
+      "coarse_2x2x2_stats": {
+        "n_supercell_atoms": 16,
+        "n_force_calls": 2,
+        "atom_force_evals": 32,
+        "wall_s": 0.0637
+      },
+      "comm_3x3x3_stats": {
+        "n_supercell_atoms": 54,
+        "n_force_calls": 2,
+        "atom_force_evals": 108,
+        "wall_s": 0.115
+      },
+      "comm_4x4x4_stats": {
+        "n_supercell_atoms": 128,
+        "n_force_calls": 2,
+        "atom_force_evals": 256,
+        "wall_s": 0.2285
+      },
+      "q_tests": [
+        {
+          "q_name": "Gamma",
+          "q_vec": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 1,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 2,
+          "band_nominated": 3,
+          "freq_mace_coarse_2x2x2_thz": 15.206887,
+          "freq_mace_comm_proj_thz": 15.206899,
+          "freq_mace_comm_min_thz": 15.206899,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 15.10744,
+          "freq_dft_min_thz": 15.10744,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 231.07041,
+                "freq_thz": 15.201,
+                "n_supercell_atoms": 2,
+                "n_force_calls": 2,
+                "atom_force_evals": 4,
+                "wall_s": 0.0467
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 230.517059,
+                "freq_thz": 15.182788,
+                "n_supercell_atoms": 2,
+                "n_force_calls": 2,
+                "atom_force_evals": 4,
+                "wall_s": 0.0456
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.005899,
+          "abs_err_sin_h01_vs_full_comm_thz": null,
+          "cos_sin_diff_h01_thz": null,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "X_half",
+          "q_vec": [
+            0.5,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 4,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 3.552462,
+          "freq_mace_comm_proj_thz": 3.552458,
+          "freq_mace_comm_min_thz": 3.552458,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 3.330093,
+          "freq_dft_min_thz": 3.330093,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 12.623618,
+                "freq_thz": 3.552973,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0493
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 12.623621,
+                "freq_thz": 3.552973,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0499
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 12.623167,
+                "freq_thz": 3.55291,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0509
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 12.62321,
+                "freq_thz": 3.552916,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0494
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000515,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000515,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "R_half",
+          "q_vec": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 4,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 3.552462,
+          "freq_mace_comm_proj_thz": 3.552458,
+          "freq_mace_comm_min_thz": 3.552458,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 3.330093,
+          "freq_dft_min_thz": 3.330093,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 12.623618,
+                "freq_thz": 3.552973,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0486
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 12.62362,
+                "freq_thz": 3.552973,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0491
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 12.623167,
+                "freq_thz": 3.55291,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0476
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 12.623199,
+                "freq_thz": 3.552914,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0474
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000515,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000515,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "NonSC_3",
+          "q_vec": [
+            0.3333333333333333,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 3,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              -2,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 6,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 3.022786,
+          "freq_mace_comm_proj_thz": 3.242283,
+          "freq_mace_comm_min_thz": 3.240981,
+          "comm_ref_grid": "3x3x3",
+          "freq_dft_proj_thz": 3.230805,
+          "freq_dft_min_thz": 3.215283,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 10.515988,
+                "freq_thz": 3.242836,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0525
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 10.516121,
+                "freq_thz": 3.242857,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0515
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 10.517759,
+                "freq_thz": 3.24311,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0526
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 10.518273,
+                "freq_thz": 3.243189,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0511
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000553,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000574,
+          "cos_sin_diff_h01_thz": 2.1e-05,
+          "d_gauge_check_h01_thz": 4.828839
+        },
+        {
+          "q_name": "NonSC_4",
+          "q_vec": [
+            0.25,
+            0.25,
+            0.0
+          ],
+          "L_minimal": 4,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              0,
+              -2,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 8,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 3.284375,
+          "freq_mace_comm_proj_thz": 3.811606,
+          "freq_mace_comm_min_thz": 3.811596,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 3.813967,
+          "freq_dft_min_thz": 3.812298,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 14.530698,
+                "freq_thz": 3.811915,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.057
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 14.530698,
+                "freq_thz": 3.811915,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0542
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 14.520504,
+                "freq_thz": 3.810578,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0535
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 14.520504,
+                "freq_thz": 3.810578,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0553
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000309,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000309,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        }
+      ]
+    },
+    {
+      "file": "alexandria_pbe_mp-1265_MgO.yaml.bz2",
+      "source_tag": "Alexandria_PBE",
+      "formula": "MgO",
+      "sha256": "cde97e874b84c3550c523861c8557fdc434c2e0023d2a490f7a868a625eafd4d",
+      "n_prim": 2,
+      "prim_masses": [
+        15.9994,
+        24.305
+      ],
+      "has_dft_nac_original": false,
+      "nac_used_both": false,
+      "max_residual_force_prim_eV_A": 4.996003610813204e-16,
+      "coarse_2x2x2_stats": {
+        "n_supercell_atoms": 16,
+        "n_force_calls": 4,
+        "atom_force_evals": 64,
+        "wall_s": 0.1421
+      },
+      "comm_3x3x3_stats": {
+        "n_supercell_atoms": 54,
+        "n_force_calls": 4,
+        "atom_force_evals": 216,
+        "wall_s": 0.2642
+      },
+      "comm_4x4x4_stats": {
+        "n_supercell_atoms": 128,
+        "n_force_calls": 4,
+        "atom_force_evals": 512,
+        "wall_s": 0.5191
+      },
+      "q_tests": [
+        {
+          "q_name": "Gamma",
+          "q_vec": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 1,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 2,
+          "band_nominated": 3,
+          "freq_mace_coarse_2x2x2_thz": 11.098975,
+          "freq_mace_comm_proj_thz": 11.098993,
+          "freq_mace_comm_min_thz": 11.098993,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 11.134886,
+          "freq_dft_min_thz": 11.134886,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 123.220675,
+                "freq_thz": 11.100481,
+                "n_supercell_atoms": 2,
+                "n_force_calls": 2,
+                "atom_force_evals": 4,
+                "wall_s": 0.0482
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 123.376233,
+                "freq_thz": 11.107485,
+                "n_supercell_atoms": 2,
+                "n_force_calls": 2,
+                "atom_force_evals": 4,
+                "wall_s": 0.0488
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.001488,
+          "abs_err_sin_h01_vs_full_comm_thz": null,
+          "cos_sin_diff_h01_thz": null,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "X_half",
+          "q_vec": [
+            0.5,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 4,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 7.820456,
+          "freq_mace_comm_proj_thz": 7.82047,
+          "freq_mace_comm_min_thz": 7.82047,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 7.804946,
+          "freq_dft_min_thz": 7.804946,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 61.157745,
+                "freq_thz": 7.820342,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0516
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 61.157744,
+                "freq_thz": 7.820342,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0538
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 61.179113,
+                "freq_thz": 7.821708,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0474
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 61.179097,
+                "freq_thz": 7.821707,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.052
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000128,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000128,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "R_half",
+          "q_vec": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 4,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 7.820456,
+          "freq_mace_comm_proj_thz": 7.82047,
+          "freq_mace_comm_min_thz": 7.82047,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 7.804946,
+          "freq_dft_min_thz": 7.804946,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 61.157745,
+                "freq_thz": 7.820342,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.052
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 61.157746,
+                "freq_thz": 7.820342,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0514
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 61.179114,
+                "freq_thz": 7.821708,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0506
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 61.179125,
+                "freq_thz": 7.821709,
+                "n_supercell_atoms": 4,
+                "n_force_calls": 2,
+                "atom_force_evals": 8,
+                "wall_s": 0.0504
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000128,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000128,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "NonSC_3",
+          "q_vec": [
+            0.3333333333333333,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 3,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 6,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 6.398577,
+          "freq_mace_comm_proj_thz": 6.514338,
+          "freq_mace_comm_min_thz": 6.51298,
+          "comm_ref_grid": "3x3x3",
+          "freq_dft_proj_thz": 6.260418,
+          "freq_dft_min_thz": 6.25908,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 42.433127,
+                "freq_thz": 6.514071,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0547
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 42.433743,
+                "freq_thz": 6.514119,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0575
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 42.438668,
+                "freq_thz": 6.514497,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0528
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 42.440855,
+                "freq_thz": 6.514665,
+                "n_supercell_atoms": 6,
+                "n_force_calls": 2,
+                "atom_force_evals": 12,
+                "wall_s": 0.0519
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000267,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000219,
+          "cos_sin_diff_h01_thz": 4.8e-05,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "NonSC_4",
+          "q_vec": [
+            0.25,
+            0.25,
+            0.0
+          ],
+          "L_minimal": 4,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              0,
+              -2,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 8,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 6.777674,
+          "freq_mace_comm_proj_thz": 6.368502,
+          "freq_mace_comm_min_thz": 6.349237,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 6.291986,
+          "freq_dft_min_thz": 6.275245,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 40.560036,
+                "freq_thz": 6.368676,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0542
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 40.560036,
+                "freq_thz": 6.368676,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0521
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 40.556081,
+                "freq_thz": 6.368366,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0554
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 40.556081,
+                "freq_thz": 6.368366,
+                "n_supercell_atoms": 8,
+                "n_force_calls": 2,
+                "atom_force_evals": 16,
+                "wall_s": 0.0545
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.000174,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.000174,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        }
+      ]
+    },
+    {
+      "file": "alexandria_pbe_mp-2998_BaTiO3.yaml.bz2",
+      "source_tag": "Alexandria_PBE",
+      "formula": "BaTiO3",
+      "sha256": "d18c20d1763ac49d7e3cbff2a2967f886f2b354d1fa8a4274c2d035e1045458b",
+      "n_prim": 5,
+      "prim_masses": [
+        15.9994,
+        15.9994,
+        15.9994,
+        47.867,
+        137.327
+      ],
+      "has_dft_nac_original": false,
+      "nac_used_both": false,
+      "max_residual_force_prim_eV_A": 4.871103520542874e-15,
+      "coarse_2x2x2_stats": {
+        "n_supercell_atoms": 40,
+        "n_force_calls": 6,
+        "atom_force_evals": 240,
+        "wall_s": 0.3185
+      },
+      "comm_3x3x3_stats": {
+        "n_supercell_atoms": 135,
+        "n_force_calls": 6,
+        "atom_force_evals": 810,
+        "wall_s": 0.7847
+      },
+      "comm_4x4x4_stats": {
+        "n_supercell_atoms": 320,
+        "n_force_calls": 6,
+        "atom_force_evals": 1920,
+        "wall_s": 1.6233
+      },
+      "q_tests": [
+        {
+          "q_name": "Gamma",
+          "q_vec": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 1,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 5,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -7.053652,
+          "freq_mace_comm_proj_thz": -7.053789,
+          "freq_mace_comm_min_thz": -7.053789,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -7.509348,
+          "freq_dft_min_thz": -7.509834,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -49.396601,
+                "freq_thz": -7.028272,
+                "n_supercell_atoms": 5,
+                "n_force_calls": 2,
+                "atom_force_evals": 10,
+                "wall_s": 0.0489
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -48.002135,
+                "freq_thz": -6.928357,
+                "n_supercell_atoms": 5,
+                "n_force_calls": 2,
+                "atom_force_evals": 10,
+                "wall_s": 0.0486
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.025517,
+          "abs_err_sin_h01_vs_full_comm_thz": null,
+          "cos_sin_diff_h01_thz": null,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "X_half",
+          "q_vec": [
+            0.5,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 10,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -6.417976,
+          "freq_mace_comm_proj_thz": -6.418124,
+          "freq_mace_comm_min_thz": -6.418124,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -6.63094,
+          "freq_dft_min_thz": -6.631613,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -40.74603,
+                "freq_thz": -6.383262,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0566
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -40.697335,
+                "freq_thz": -6.379446,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.063
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -39.136364,
+                "freq_thz": -6.255906,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0587
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -38.939911,
+                "freq_thz": -6.240185,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0579
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.034862,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.038678,
+          "cos_sin_diff_h01_thz": 0.003816,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "R_half",
+          "q_vec": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 10,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 3.886108,
+          "freq_mace_comm_proj_thz": 3.886108,
+          "freq_mace_comm_min_thz": 3.886108,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": 3.900364,
+          "freq_dft_min_thz": 3.900254,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 15.102305,
+                "freq_thz": 3.886168,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0576
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 15.102307,
+                "freq_thz": 3.886169,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0592
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 15.107131,
+                "freq_thz": 3.886789,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0587
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 15.10714,
+                "freq_thz": 3.88679,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0613
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 6e-05,
+          "abs_err_sin_h01_vs_full_comm_thz": 6.1e-05,
+          "cos_sin_diff_h01_thz": 1e-06,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "NonSC_3",
+          "q_vec": [
+            0.3333333333333333,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 3,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 15,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -6.54844,
+          "freq_mace_comm_proj_thz": -6.551457,
+          "freq_mace_comm_min_thz": -6.551468,
+          "comm_ref_grid": "3x3x3",
+          "freq_dft_proj_thz": -6.810259,
+          "freq_dft_min_thz": -6.811311,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -42.519677,
+                "freq_thz": -6.520711,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0677
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -42.590958,
+                "freq_thz": -6.526175,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0669
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -41.044178,
+                "freq_thz": -6.406573,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0659
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -41.329211,
+                "freq_thz": -6.42878,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0661
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.030746,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.025282,
+          "cos_sin_diff_h01_thz": 0.005464,
+          "d_gauge_check_h01_thz": -6.37629
+        },
+        {
+          "q_name": "NonSC_4",
+          "q_vec": [
+            0.25,
+            0.25,
+            0.0
+          ],
+          "L_minimal": 4,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 20,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -6.38093,
+          "freq_mace_comm_proj_thz": -6.387916,
+          "freq_mace_comm_min_thz": -6.38793,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -6.54333,
+          "freq_dft_min_thz": -6.544298,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -40.402828,
+                "freq_thz": -6.356322,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0744
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -40.402828,
+                "freq_thz": -6.356322,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0713
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -38.921549,
+                "freq_thz": -6.238714,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0718
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -38.921549,
+                "freq_thz": -6.238714,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0696
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.031594,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.031594,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        }
+      ]
+    },
+    {
+      "file": "alexandria_pbe_mp-5229_SrTiO3.yaml.bz2",
+      "source_tag": "Alexandria_PBE",
+      "formula": "SrTiO3",
+      "sha256": "1b886a3f248420c47bee719c45073db94b8a1e8452949df06a0dae5f7fb8a634",
+      "n_prim": 5,
+      "prim_masses": [
+        15.9994,
+        15.9994,
+        15.9994,
+        47.867,
+        87.62
+      ],
+      "has_dft_nac_original": false,
+      "nac_used_both": false,
+      "max_residual_force_prim_eV_A": 3.996803045102389e-15,
+      "coarse_2x2x2_stats": {
+        "n_supercell_atoms": 40,
+        "n_force_calls": 6,
+        "atom_force_evals": 240,
+        "wall_s": 0.3324
+      },
+      "comm_3x3x3_stats": {
+        "n_supercell_atoms": 135,
+        "n_force_calls": 6,
+        "atom_force_evals": 810,
+        "wall_s": 0.8307
+      },
+      "comm_4x4x4_stats": {
+        "n_supercell_atoms": 320,
+        "n_force_calls": 6,
+        "atom_force_evals": 1920,
+        "wall_s": 1.7831
+      },
+      "q_tests": [
+        {
+          "q_name": "Gamma",
+          "q_vec": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 1,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 5,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -3.063045,
+          "freq_mace_comm_proj_thz": -3.063329,
+          "freq_mace_comm_min_thz": -3.063329,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -4.093847,
+          "freq_dft_min_thz": -4.106745,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -9.02727,
+                "freq_thz": -3.004542,
+                "n_supercell_atoms": 5,
+                "n_force_calls": 2,
+                "atom_force_evals": 10,
+                "wall_s": 0.0517
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -7.691666,
+                "freq_thz": -2.773385,
+                "n_supercell_atoms": 5,
+                "n_force_calls": 2,
+                "atom_force_evals": 10,
+                "wall_s": 0.0528
+              },
+              "sin": {
+                "valid_quadrature": false,
+                "reason": "zero_norm_quadrature"
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.058787,
+          "abs_err_sin_h01_vs_full_comm_thz": null,
+          "cos_sin_diff_h01_thz": null,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "X_half",
+          "q_vec": [
+            0.5,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 10,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 1.512403,
+          "freq_mace_comm_proj_thz": 1.511889,
+          "freq_mace_comm_min_thz": 1.511889,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -0.91608,
+          "freq_dft_min_thz": -1.006845,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 2.398171,
+                "freq_thz": 1.548603,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0607
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 2.411348,
+                "freq_thz": 1.552852,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0627
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 3.001183,
+                "freq_thz": 1.732392,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0613
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 3.053853,
+                "freq_thz": 1.747528,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0611
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.036714,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.040963,
+          "cos_sin_diff_h01_thz": 0.004249,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "R_half",
+          "q_vec": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "L_minimal": 2,
+          "is_self_conjugate": true,
+          "S_minimal": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 10,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -1.939255,
+          "freq_mace_comm_proj_thz": -1.939358,
+          "freq_mace_comm_min_thz": -1.939358,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -2.368862,
+          "freq_dft_min_thz": -2.368862,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -3.727601,
+                "freq_thz": -1.9307,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0615
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -3.727873,
+                "freq_thz": -1.93077,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0591
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -3.677073,
+                "freq_thz": -1.91757,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0604
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -3.678146,
+                "freq_thz": -1.917849,
+                "n_supercell_atoms": 10,
+                "n_force_calls": 2,
+                "atom_force_evals": 20,
+                "wall_s": 0.0585
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.008658,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.008588,
+          "cos_sin_diff_h01_thz": 7e-05,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "NonSC_3",
+          "q_vec": [
+            0.3333333333333333,
+            0.0,
+            0.0
+          ],
+          "L_minimal": 3,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              3,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 15,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": -0.762508,
+          "freq_mace_comm_proj_thz": -0.784423,
+          "freq_mace_comm_min_thz": -0.784854,
+          "comm_ref_grid": "3x3x3",
+          "freq_dft_proj_thz": -1.93512,
+          "freq_dft_min_thz": -2.016242,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -0.532867,
+                "freq_thz": -0.729977,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0672
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": -0.524686,
+                "freq_thz": -0.724352,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0672
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -0.068594,
+                "freq_thz": -0.261904,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0667
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": -0.035924,
+                "freq_thz": -0.189535,
+                "n_supercell_atoms": 15,
+                "n_force_calls": 2,
+                "atom_force_evals": 30,
+                "wall_s": 0.0663
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.054446,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.060071,
+          "cos_sin_diff_h01_thz": 0.005625,
+          "d_gauge_check_h01_thz": null
+        },
+        {
+          "q_name": "NonSC_4",
+          "q_vec": [
+            0.25,
+            0.25,
+            0.0
+          ],
+          "L_minimal": 4,
+          "is_self_conjugate": false,
+          "S_minimal": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "n_atoms_minimal_sc": 20,
+          "band_nominated": 0,
+          "freq_mace_coarse_2x2x2_thz": 0.379279,
+          "freq_mace_comm_proj_thz": 0.290685,
+          "freq_mace_comm_min_thz": 0.28585,
+          "comm_ref_grid": "4x4x4",
+          "freq_dft_proj_thz": -1.231163,
+          "freq_dft_min_thz": -1.264146,
+          "rayleigh_C_gauge": {
+            "h=0.01": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 0.202493,
+                "freq_thz": 0.449992,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0737
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.01,
+                "omega2_thz2": 0.202493,
+                "freq_thz": 0.449992,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0746
+              }
+            },
+            "h=0.02": {
+              "cos": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 0.753424,
+                "freq_thz": 0.868,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0717
+              },
+              "sin": {
+                "valid_quadrature": true,
+                "h_ang": 0.02,
+                "omega2_thz2": 0.753424,
+                "freq_thz": 0.868,
+                "n_supercell_atoms": 20,
+                "n_force_calls": 2,
+                "atom_force_evals": 40,
+                "wall_s": 0.0738
+              }
+            }
+          },
+          "abs_err_cos_h01_vs_full_comm_thz": 0.159307,
+          "abs_err_sin_h01_vs_full_comm_thz": 0.159307,
+          "cos_sin_diff_h01_thz": 0.0,
+          "d_gauge_check_h01_thz": null
+        }
+      ]
+    }
+  ]
+}

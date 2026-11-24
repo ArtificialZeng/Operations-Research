@@ -1,0 +1,1463 @@
+{
+  "protocol_sha256": "84e460a2ed71e1be9f49a1ff86c01196a6fa088a92700bc3d39bf7ce349af002",
+  "selection_seed": "mlip_soft_mode_stage1_v1",
+  "source_url": "https://alexandria.icams.rub.de/data/phonon_benchmark/pbe/",
+  "source_license": "CC BY 4.0",
+  "label_blind_verified": true,
+  "n_candidates_inspected": 175,
+  "rejected_reasons": {
+    "n_prim_out_of_range": 89,
+    "heavy_or_lanthanide": 33,
+    "download_err": 1,
+    "group_already_full": 16
+  },
+  "group_counts": {
+    "Cubic": 9,
+    "Tetragonal": 9,
+    "Trigonal_Hexagonal": 9,
+    "Orthorhombic_Monoclinic_Triclinic": 9
+  },
+  "n_selected": 36,
+  "materials": [
+    {
+      "mp_id": "mp-28171",
+      "hash_key": "0012e4b90f191331",
+      "group": "Cubic",
+      "sg_num": 221,
+      "sg_type": "Pm-3m",
+      "reduced_formula": "IK3O",
+      "n_prim": 5,
+      "prim_lengths": [
+        5.42205,
+        5.42205,
+        5.42205
+      ],
+      "V_dft": 27,
+      "n_sc_dft": 135,
+      "S_dft_rel": [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 38409,
+      "yaml_bz2_sha256": "0e044452a56e7a5ded53cf7329737ccbaedcd7cc64e385c30189e7aad6681da2"
+    },
+    {
+      "mp_id": "mp-865101",
+      "hash_key": "00d85648c6d2ff51",
+      "group": "Cubic",
+      "sg_num": 225,
+      "sg_type": "Fm-3m",
+      "reduced_formula": "BiLi2Na",
+      "n_prim": 4,
+      "prim_lengths": [
+        4.95744,
+        4.95744,
+        4.95744
+      ],
+      "V_dft": 32,
+      "n_sc_dft": 128,
+      "S_dft_rel": [
+        [
+          -2,
+          2,
+          2
+        ],
+        [
+          2,
+          -2,
+          2
+        ],
+        [
+          2,
+          2,
+          -2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 34257,
+      "yaml_bz2_sha256": "5a142d7ec3782f2ce93d533a5e02486d44332cb0b6349a2ae6d1a32edc1219d3"
+    },
+    {
+      "mp_id": "mp-643002",
+      "hash_key": "01288fe3c62d101a",
+      "group": "Cubic",
+      "sg_num": 225,
+      "sg_type": "Fm-3m",
+      "reduced_formula": "H6Mg2Os",
+      "n_prim": 9,
+      "prim_lengths": [
+        4.71918,
+        4.71918,
+        4.71918
+      ],
+      "V_dft": 4,
+      "n_sc_dft": 36,
+      "S_dft_rel": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 7247,
+      "yaml_bz2_sha256": "16f86e1fb113e1ba034a088198af5f0abc7b57b7ba0491e1cd4caa6285601423"
+    },
+    {
+      "mp_id": "mp-14099",
+      "hash_key": "01337d5888ec24cc",
+      "group": "Cubic",
+      "sg_num": 221,
+      "sg_type": "Pm-3m",
+      "reduced_formula": "AgF3Zn",
+      "n_prim": 5,
+      "prim_lengths": [
+        4.06945,
+        4.06945,
+        4.06945
+      ],
+      "V_dft": 27,
+      "n_sc_dft": 135,
+      "S_dft_rel": [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "S_coarse_diag": [
+        2,
+        2,
+        2
+      ],
+      "yaml_bz2_bytes": 38771,
+      "yaml_bz2_sha256": "9c7f24d6bf0e2a748736b0bdf346ec571b9e83b3ca2fd6e27c7642e39dc72fe9"
+    },
+    {
+      "mp_id": "mp-861950",
+      "hash_key": "0187ed1817d19d22",
+      "group": "Cubic",
+      "sg_num": 225,
+      "sg_type": "Fm-3m",
+      "reduced_formula": "AuCa2Sb",
+      "n_prim": 4,
+      "prim_lengths": [
+        5.31896,
+        5.31896,
+        5.31896
+      ],
+      "V_dft": 32,
+      "n_sc_dft": 128,
+      "S_dft_rel": [
+        [
+          -2,
+          2,
+          2
+        ],
+        [
+          2,
+          -2,
+          2
+        ],
+        [
+          2,
+          2,
+          -2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 33553,
+      "yaml_bz2_sha256": "323dfd513cf89275eb2f22c4050e12ffe6eabff948011a6f73fbea7a7b456d88"
+    },
+    {
+      "mp_id": "mp-22875",
+      "hash_key": "02853d551f5f06e1",
+      "group": "Cubic",
+      "sg_num": 221,
+      "sg_type": "Pm-3m",
+      "reduced_formula": "BrTl",
+      "n_prim": 2,
+      "prim_lengths": [
+        4.03125,
+        4.03125,
+        4.03125
+      ],
+      "V_dft": 64,
+      "n_sc_dft": 128,
+      "S_dft_rel": [
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ]
+      ],
+      "S_coarse_diag": [
+        2,
+        2,
+        2
+      ],
+      "yaml_bz2_bytes": 28458,
+      "yaml_bz2_sha256": "6fcf07c532d669ab98510a670f47536bda713a52fde87fc7bd16a8272a27848f"
+    },
+    {
+      "mp_id": "mp-10760",
+      "hash_key": "02d830e68ee1763a",
+      "group": "Cubic",
+      "sg_num": 225,
+      "sg_type": "Fm-3m",
+      "reduced_formula": "MgSe",
+      "n_prim": 2,
+      "prim_lengths": [
+        3.89487,
+        3.89487,
+        3.89487
+      ],
+      "V_dft": 32,
+      "n_sc_dft": 64,
+      "S_dft_rel": [
+        [
+          -2,
+          2,
+          2
+        ],
+        [
+          2,
+          -2,
+          2
+        ],
+        [
+          2,
+          2,
+          -2
+        ]
+      ],
+      "S_coarse_diag": [
+        2,
+        2,
+        2
+      ],
+      "yaml_bz2_bytes": 8399,
+      "yaml_bz2_sha256": "6b7993a04f3b094cf3c7dbfd52bb8e837e2150aeac6891928d2f078573a38121"
+    },
+    {
+      "mp_id": "mp-546973",
+      "hash_key": "035096bc7ee1c98a",
+      "group": "Cubic",
+      "sg_num": 221,
+      "sg_type": "Pm-3m",
+      "reduced_formula": "O3SnSr",
+      "n_prim": 5,
+      "prim_lengths": [
+        4.11155,
+        4.11155,
+        4.11155
+      ],
+      "V_dft": 27,
+      "n_sc_dft": 135,
+      "S_dft_rel": [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "S_coarse_diag": [
+        2,
+        2,
+        2
+      ],
+      "yaml_bz2_bytes": 40095,
+      "yaml_bz2_sha256": "fe9f52d50bf47e979a812a0782612e930f3c318e9c43a265050235863590ff09"
+    },
+    {
+      "mp_id": "mp-8484",
+      "hash_key": "03697c4e5b023147",
+      "group": "Cubic",
+      "sg_num": 205,
+      "sg_type": "Pa-3",
+      "reduced_formula": "O2Zn",
+      "n_prim": 12,
+      "prim_lengths": [
+        4.95637,
+        4.95637,
+        4.95637
+      ],
+      "V_dft": 8,
+      "n_sc_dft": 96,
+      "S_dft_rel": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 41169,
+      "yaml_bz2_sha256": "3c297468779c4f622509c3c2354f794fa4e93c79d1530e5a616d04874377ab50"
+    },
+    {
+      "mp_id": "mp-28599",
+      "hash_key": "001ffc9e1bb39571",
+      "group": "Tetragonal",
+      "sg_num": 139,
+      "sg_type": "I4/mmm",
+      "reduced_formula": "Br2Na4O",
+      "n_prim": 7,
+      "prim_lengths": [
+        8.19865,
+        8.19865,
+        8.19865
+      ],
+      "V_dft": 18,
+      "n_sc_dft": 126,
+      "S_dft_rel": [
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          3,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 59862,
+      "yaml_bz2_sha256": "713e16eb07f9b231e66b083bdec28086161482671855cc68d3a3c3a2efef72d5"
+    },
+    {
+      "mp_id": "mp-39542",
+      "hash_key": "00342f1dbf2f87b8",
+      "group": "Tetragonal",
+      "sg_num": 107,
+      "sg_type": "I4mm",
+      "reduced_formula": "F5KORb2Zr",
+      "n_prim": 10,
+      "prim_lengths": [
+        6.62713,
+        6.62713,
+        6.62713
+      ],
+      "V_dft": 8,
+      "n_sc_dft": 80,
+      "S_dft_rel": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 49404,
+      "yaml_bz2_sha256": "72cfae6b3016cdf488f6fbeaf35cc08304c37de87c1d0253347290f9381b3f71"
+    },
+    {
+      "mp_id": "mp-37091",
+      "hash_key": "01dac8e166a8b9dd",
+      "group": "Tetragonal",
+      "sg_num": 97,
+      "sg_type": "I422",
+      "reduced_formula": "Al2SrTe4",
+      "n_prim": 7,
+      "prim_lengths": [
+        6.83571,
+        6.83571,
+        6.83571
+      ],
+      "V_dft": 16,
+      "n_sc_dft": 112,
+      "S_dft_rel": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 71619,
+      "yaml_bz2_sha256": "d3d88fa069d9b14bf5e27543003707dc83c7c87d043af18213179f7cd0b78449"
+    },
+    {
+      "mp_id": "mp-3277",
+      "hash_key": "0205f64d64b4acdc",
+      "group": "Tetragonal",
+      "sg_num": 82,
+      "sg_type": "I-4",
+      "reduced_formula": "AsBO4",
+      "n_prim": 6,
+      "prim_lengths": [
+        4.71739,
+        4.71739,
+        4.71739
+      ],
+      "V_dft": 16,
+      "n_sc_dft": 96,
+      "S_dft_rel": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 74709,
+      "yaml_bz2_sha256": "7f8c1177ed69296bf9e92fd6a6ec7bd3859a88f60317e3a3d431b6d79ec1c4dc"
+    },
+    {
+      "mp_id": "mp-20187",
+      "hash_key": "023e2a671541e1d8",
+      "group": "Tetragonal",
+      "sg_num": 122,
+      "sg_type": "I-42d",
+      "reduced_formula": "InLiSe2",
+      "n_prim": 8,
+      "prim_lengths": [
+        7.30846,
+        7.30846,
+        7.30846
+      ],
+      "V_dft": 16,
+      "n_sc_dft": 128,
+      "S_dft_rel": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 89243,
+      "yaml_bz2_sha256": "86ffbd174f256280eba83b4ac220e39e688a1eeff2cddb4a7f9b2b430a1f53d7"
+    },
+    {
+      "mp_id": "mp-4961",
+      "hash_key": "032c4063c4e8119f",
+      "group": "Tetragonal",
+      "sg_num": 139,
+      "sg_type": "I4/mmm",
+      "reduced_formula": "HgNa2O2",
+      "n_prim": 5,
+      "prim_lengths": [
+        7.18542,
+        7.18542,
+        7.18542
+      ],
+      "V_dft": 18,
+      "n_sc_dft": 90,
+      "S_dft_rel": [
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          3,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 27600,
+      "yaml_bz2_sha256": "5f76ec0e8ce31cd3169b34044b91c86fbe23c8d9d013745106febd6557a9d7c0"
+    },
+    {
+      "mp_id": "mp-3700",
+      "hash_key": "032dd5aa47b1f8d9",
+      "group": "Tetragonal",
+      "sg_num": 88,
+      "sg_type": "I4_1/a",
+      "reduced_formula": "F4LiY",
+      "n_prim": 12,
+      "prim_lengths": [
+        6.54355,
+        6.54355,
+        6.54355
+      ],
+      "V_dft": 8,
+      "n_sc_dft": 96,
+      "S_dft_rel": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 89885,
+      "yaml_bz2_sha256": "8dea6d67104bc5627f20a474d4b4e9592ec34586eb3febf9c0fec1e71530eeaa"
+    },
+    {
+      "mp_id": "mp-754501",
+      "hash_key": "03e801d804d7ab4e",
+      "group": "Tetragonal",
+      "sg_num": 141,
+      "sg_type": "I4_1/amd",
+      "reduced_formula": "CaCu2O2",
+      "n_prim": 10,
+      "prim_lengths": [
+        6.06543,
+        6.06543,
+        6.06543
+      ],
+      "V_dft": 8,
+      "n_sc_dft": 80,
+      "S_dft_rel": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 35348,
+      "yaml_bz2_sha256": "abbb5fd1830dd0dcbaa926c70de1795d3db09684771daf1f09e6f61349f4124d"
+    },
+    {
+      "mp_id": "mp-37879",
+      "hash_key": "04845d712dc7572d",
+      "group": "Tetragonal",
+      "sg_num": 141,
+      "sg_type": "I4_1/amd",
+      "reduced_formula": "LiSe2Y",
+      "n_prim": 8,
+      "prim_lengths": [
+        7.05986,
+        7.05986,
+        7.05986
+      ],
+      "V_dft": 18,
+      "n_sc_dft": 144,
+      "S_dft_rel": [
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          3,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 63441,
+      "yaml_bz2_sha256": "051b91f15e74ecfc17f63e81710531fcaae8a93590fe9f2174f28791102c8b2e"
+    },
+    {
+      "mp_id": "mp-29678",
+      "hash_key": "00172df1c2bb0e33",
+      "group": "Trigonal_Hexagonal",
+      "sg_num": 166,
+      "sg_type": "R-3m",
+      "reduced_formula": "AgBiS2",
+      "n_prim": 4,
+      "prim_lengths": [
+        6.75424,
+        6.75424,
+        6.75424
+      ],
+      "V_dft": 27,
+      "n_sc_dft": 108,
+      "S_dft_rel": [
+        [
+          3,
+          0,
+          1
+        ],
+        [
+          -3,
+          3,
+          1
+        ],
+        [
+          0,
+          -3,
+          1
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 53291,
+      "yaml_bz2_sha256": "42352095f28b65b88b5f01d522ea176dfe94f54c73f2fc06e280beb60cc631b0"
+    },
+    {
+      "mp_id": "mp-625548",
+      "hash_key": "016f158549d2e932",
+      "group": "Trigonal_Hexagonal",
+      "sg_num": 164,
+      "sg_type": "P-3m1",
+      "reduced_formula": "CdH2O2",
+      "n_prim": 5,
+      "prim_lengths": [
+        3.58104,
+        3.58104,
+        4.78617
+      ],
+      "V_dft": 27,
+      "n_sc_dft": 135,
+      "S_dft_rel": [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "S_coarse_diag": [
+        2,
+        2,
+        1
+      ],
+      "yaml_bz2_bytes": 146650,
+      "yaml_bz2_sha256": "c0528f14b00edbf6c199f65668d223b31e8d2955769b64a1c859bba4bd525fdc"
+    },
+    {
+      "mp_id": "mp-23736",
+      "hash_key": "0189300b555804fa",
+      "group": "Trigonal_Hexagonal",
+      "sg_num": 161,
+      "sg_type": "R3c",
+      "reduced_formula": "H3LiMg",
+      "n_prim": 10,
+      "prim_lengths": [
+        5.27362,
+        5.27362,
+        5.27362
+      ],
+      "V_dft": 12,
+      "n_sc_dft": 120,
+      "S_dft_rel": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          -2,
+          2,
+          1
+        ],
+        [
+          0,
+          -2,
+          1
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 251664,
+      "yaml_bz2_sha256": "80438ce2196b57bef419ef0c1168546583b395d02538c6f0ca22594682ed927a"
+    },
+    {
+      "mp_id": "mp-165",
+      "hash_key": "01c59eac961cafdc",
+      "group": "Trigonal_Hexagonal",
+      "sg_num": 194,
+      "sg_type": "P6_3/mmc",
+      "reduced_formula": "Si",
+      "n_prim": 4,
+      "prim_lengths": [
+        3.85137,
+        3.85137,
+        6.35924
+      ],
+      "V_dft": 32,
+      "n_sc_dft": 128,
+      "S_dft_rel": [
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        2,
+        2,
+        1
+      ],
+      "yaml_bz2_bytes": 89982,
+      "yaml_bz2_sha256": "b03198479ff6295f5d16ef7856ff6de20bce9a591b63313487c90d9629adc25d"
+    },
+    {
+      "mp_id": "mp-22893",
+      "hash_key": "0209e9d6db3f016a",
+      "group": "Trigonal_Hexagonal",
+      "sg_num": 164,
+      "sg_type": "P-3m1",
+      "reduced_formula": "I2Pb",
+      "n_prim": 3,
+      "prim_lengths": [
+        4.6572,
+        4.6572,
+        7.47052
+      ],
+      "V_dft": 48,
+      "n_sc_dft": 144,
+      "S_dft_rel": [
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 133715,
+      "yaml_bz2_sha256": "2c5f00a7d279cd116d5843c4866ce66883cc7bab8f53611485dc98ec8a3d3ea0"
+    },
+    {
+      "mp_id": "mp-22991",
+      "hash_key": "021c23d52ee73464",
+      "group": "Trigonal_Hexagonal",
+      "sg_num": 194,
+      "sg_type": "P6_3/mmc",
+      "reduced_formula": "CsI3V",
+      "n_prim": 10,
+      "prim_lengths": [
+        8.68208,
+        8.68208,
+        5.91313
+      ],
+      "V_dft": 12,
+      "n_sc_dft": 120,
+      "S_dft_rel": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 131015,
+      "yaml_bz2_sha256": "7265bf57570a5e2ff149f9c0da05a06c585e34f996ecc56395e5c8f2b957c4c3"
+    },
+    {
+      "mp_id": "mp-569346",
+      "hash_key": "028ea90da9436074",
+      "group": "Trigonal_Hexagonal",
+      "sg_num": 186,
+      "sg_type": "P6_3mc",
+      "reduced_formula": "CuI",
+      "n_prim": 4,
+      "prim_lengths": [
+        4.27459,
+        4.27459,
+        7.03145
+      ],
+      "V_dft": 32,
+      "n_sc_dft": 128,
+      "S_dft_rel": [
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        2,
+        2,
+        1
+      ],
+      "yaml_bz2_bytes": 115065,
+      "yaml_bz2_sha256": "751642c609ffdc36948ad9ea17199778402886610778db5b904c8d9f3fed86cc"
+    },
+    {
+      "mp_id": "mp-752949",
+      "hash_key": "02bbdca00c3f79f3",
+      "group": "Trigonal_Hexagonal",
+      "sg_num": 166,
+      "sg_type": "R-3m",
+      "reduced_formula": "BiFO",
+      "n_prim": 6,
+      "prim_lengths": [
+        7.87872,
+        7.87872,
+        7.87872
+      ],
+      "V_dft": 12,
+      "n_sc_dft": 72,
+      "S_dft_rel": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          -2,
+          2,
+          1
+        ],
+        [
+          0,
+          -2,
+          1
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 52497,
+      "yaml_bz2_sha256": "746709aa50199f5c5c6a961394d5a3052d670211a1767cdfae52a58feb39065c"
+    },
+    {
+      "mp_id": "mp-552729",
+      "hash_key": "02c5788185d804e1",
+      "group": "Trigonal_Hexagonal",
+      "sg_num": 160,
+      "sg_type": "R3m",
+      "reduced_formula": "IKO3",
+      "n_prim": 5,
+      "prim_lengths": [
+        4.55857,
+        4.55857,
+        4.55857
+      ],
+      "V_dft": 24,
+      "n_sc_dft": 120,
+      "S_dft_rel": [
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          -2,
+          2,
+          2
+        ],
+        [
+          0,
+          -2,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 157083,
+      "yaml_bz2_sha256": "1d9e941fe05c41d0518a927dd64365b66299dfa9588523b47484e9a56bc51629"
+    },
+    {
+      "mp_id": "mp-554412",
+      "hash_key": "0056ecea8260e8aa",
+      "group": "Orthorhombic_Monoclinic_Triclinic",
+      "sg_num": 12,
+      "sg_type": "C2/m",
+      "reduced_formula": "O8P2RbTa",
+      "n_prim": 12,
+      "prim_lengths": [
+        5.14892,
+        5.14892,
+        8.68309
+      ],
+      "V_dft": 8,
+      "n_sc_dft": 96,
+      "S_dft_rel": [
+        [
+          1,
+          -2,
+          0
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 132535,
+      "yaml_bz2_sha256": "18c24a32314e05a01cfd2ec3f56be888ea9cd87e747f1b6d1a0b80c8809b8e9d"
+    },
+    {
+      "mp_id": "mp-561367",
+      "hash_key": "00b4c05f953e307d",
+      "group": "Orthorhombic_Monoclinic_Triclinic",
+      "sg_num": 12,
+      "sg_type": "C2/m",
+      "reduced_formula": "F",
+      "n_prim": 4,
+      "prim_lengths": [
+        3.31773,
+        3.31773,
+        7.36446
+      ],
+      "V_dft": 32,
+      "n_sc_dft": 128,
+      "S_dft_rel": [
+        [
+          2,
+          -4,
+          0
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        2,
+        2,
+        1
+      ],
+      "yaml_bz2_bytes": 108030,
+      "yaml_bz2_sha256": "5cd46b693b08e95b07959e523bdcd2b202db42bd9ec3f19decf0cf63575e8738"
+    },
+    {
+      "mp_id": "mp-29862",
+      "hash_key": "010de47ff0bd42d6",
+      "group": "Orthorhombic_Monoclinic_Triclinic",
+      "sg_num": 62,
+      "sg_type": "Pnma",
+      "reduced_formula": "Br2Sn",
+      "n_prim": 12,
+      "prim_lengths": [
+        8.34814,
+        4.24331,
+        12.01934
+      ],
+      "V_dft": 12,
+      "n_sc_dft": 144,
+      "S_dft_rel": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        2,
+        1
+      ],
+      "yaml_bz2_bytes": 119403,
+      "yaml_bz2_sha256": "e573300d60156c73fc1689a4cae74ff3d0cb3f457b0b10b2b5c89e6188a5c5c7"
+    },
+    {
+      "mp_id": "mp-29365",
+      "hash_key": "0146aac320116ad7",
+      "group": "Orthorhombic_Monoclinic_Triclinic",
+      "sg_num": 8,
+      "sg_type": "Cm",
+      "reduced_formula": "BiLi5O5",
+      "n_prim": 11,
+      "prim_lengths": [
+        5.41422,
+        5.41422,
+        6.01752
+      ],
+      "V_dft": 12,
+      "n_sc_dft": 132,
+      "S_dft_rel": [
+        [
+          1,
+          -3,
+          0
+        ],
+        [
+          1,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 317268,
+      "yaml_bz2_sha256": "3ceeec10ddc0263eabc94d2c14c997f95f3dd11061609a1c28a52ae0a9e3cf2b"
+    },
+    {
+      "mp_id": "mp-717",
+      "hash_key": "02d547ec3a4e8ec6",
+      "group": "Orthorhombic_Monoclinic_Triclinic",
+      "sg_num": 36,
+      "sg_type": "Cmc2_1",
+      "reduced_formula": "B2O3",
+      "n_prim": 10,
+      "prim_lengths": [
+        4.5813,
+        4.5813,
+        4.17178
+      ],
+      "V_dft": 8,
+      "n_sc_dft": 80,
+      "S_dft_rel": [
+        [
+          1,
+          -2,
+          0
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        2
+      ],
+      "yaml_bz2_bytes": 72806,
+      "yaml_bz2_sha256": "c9ce3b2b07422fd4b9eb575c57e540b531a5c8ac065fcc593b991546fa13afc3"
+    },
+    {
+      "mp_id": "mp-4627",
+      "hash_key": "03053e9d8a8bf64d",
+      "group": "Orthorhombic_Monoclinic_Triclinic",
+      "sg_num": 29,
+      "sg_type": "Pca2_1",
+      "reduced_formula": "AsCoS",
+      "n_prim": 12,
+      "prim_lengths": [
+        5.57607,
+        5.5804,
+        5.56984
+      ],
+      "V_dft": 12,
+      "n_sc_dft": 144,
+      "S_dft_rel": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 191787,
+      "yaml_bz2_sha256": "ebfe2e0c837f931d9637edc392ce252c6d0e76628f1840ba73b3d92d02ba43f6"
+    },
+    {
+      "mp_id": "mp-3247",
+      "hash_key": "039f41b0af117e67",
+      "group": "Orthorhombic_Monoclinic_Triclinic",
+      "sg_num": 63,
+      "sg_type": "Cmcm",
+      "reduced_formula": "Cs2S3Ti",
+      "n_prim": 12,
+      "prim_lengths": [
+        7.85599,
+        7.85599,
+        6.59806
+      ],
+      "V_dft": 8,
+      "n_sc_dft": 96,
+      "S_dft_rel": [
+        [
+          1,
+          -2,
+          0
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 65754,
+      "yaml_bz2_sha256": "50c9c63badc9f17b62e7e2e8f7a12309adb66614fadf70e0c1277c1e80f31d5f"
+    },
+    {
+      "mp_id": "mp-8623",
+      "hash_key": "03b23361a07c9b0d",
+      "group": "Orthorhombic_Monoclinic_Triclinic",
+      "sg_num": 71,
+      "sg_type": "Immm",
+      "reduced_formula": "K2PtTe2",
+      "n_prim": 5,
+      "prim_lengths": [
+        6.89926,
+        6.89926,
+        6.89926
+      ],
+      "V_dft": 24,
+      "n_sc_dft": 120,
+      "S_dft_rel": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          3,
+          0,
+          2
+        ],
+        [
+          3,
+          2,
+          0
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 48378,
+      "yaml_bz2_sha256": "a4c4707e53fb20fdde40e5886636960787f29d6c5c43550152376e1e52b04ebd"
+    },
+    {
+      "mp_id": "mp-579536",
+      "hash_key": "04a6c7547135de50",
+      "group": "Orthorhombic_Monoclinic_Triclinic",
+      "sg_num": 11,
+      "sg_type": "P2_1/m",
+      "reduced_formula": "Cl2CsCu2I",
+      "n_prim": 12,
+      "prim_lengths": [
+        7.7732,
+        5.52383,
+        9.01989
+      ],
+      "V_dft": 12,
+      "n_sc_dft": 144,
+      "S_dft_rel": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "S_coarse_diag": [
+        1,
+        1,
+        1
+      ],
+      "yaml_bz2_bytes": 229349,
+      "yaml_bz2_sha256": "bd04f20dc2d0e7d29128e44e95939a0d725ba0522044180f46984c6824f4d60f"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "archive_name": "mlip_soft_mode_selective_validation_stage1_negative_archive",
+  "status": "FROZEN_LIMITED_DIAGNOSTIC_NEGATIVE_ALLOCATION_ARCHIVE",
+  "decision": "STOP_STAGE1_EQUAL_BUDGET_GATE_FAILED",
+  "date_sealed": "2026-11-24",
+  "upstream_pins": {
+    "alexandria_pbe_url": "https://alexandria.icams.rub.de/data/phonon_benchmark/pbe/",
+    "alexandria_license": "CC BY 4.0",
+    "nims_pbesol_smoke_controls": {
+      "mp-149_Si_md5": "f805da3aab84b22d96bdd610ae41bc10",
+      "mp-2998_BaTiO3_md5": "1c9f4c01cbe2ba2f9ec9220765721d9a",
+      "license": "CC BY"
+    },
+    "mace_model_excluded_under_asl": {
+      "name": "mace-omat-0-small.model",
+      "release": "ACEsuit/mace-foundations@mace_omat_0",
+      "bytes": 67630500,
+      "sha256": "0abfde07862cf1e93b8b4d03cb702f29ce9c344ff2fc4de2ec0d7166d6c113a5",
+      "license": "ASL (Academic Software Licence)"
+    },
+    "software": {
+      "python": "3.12.16",
+      "torch": "2.11.0+cu128",
+      "mace-torch": "0.3.17",
+      "phonopy": "4.11.0",
+      "ase": "3.29.0",
+      "spglib": "2.8.0"
+    }
+  },
+  "sealed_receipts": {
+    "stage1_real_pid": 3568,
+    "stage1_wall_time_s": 111.768,
+    "stage1_protocol_sha256": "84e460a2ed71e1be9f49a1ff86c01196a6fa088a92700bc3d39bf7ce349af002",
+    "stage1_manifest_sha256": "d3b965b6cb8034e1462fec3fa35ef2783e20ee2151188eb749b4f80333310a0a",
+    "stage1_runner_sha256": "b3b63f6de9a844dff18443d266c3f6eb5d62298d9b6ce53b369364fb303251cb",
+    "stage1_summary_sha256": "df60cc5daaabadbe241997aaeebf07aaba50f5969f45345fb176a83846587429",
+    "stage1_ledger_sha256": "8df67580ab5b83bf39a4652a2342903b0fbaa2c4e147c6b2f857d69e68fc3a64"
+  },
+  "files": [
+    {
+      "path": "research/mlip_soft_mode_selective_validation/LICENSES_AND_PROVENANCE.md",
+      "bytes": 2304,
+      "sha256": "db834bc469fb2a7a5cb9945e8b7da6750fb66e0cc30965969df9d923dd95d4a4"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/README.md",
+      "bytes": 4714,
+      "sha256": "4621fd4d7995eb5e00958a5332b3348eedcfbe7ef3c94745605e8a83d3ee64a0"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/STAGE0_SMOKE_RECEIPT.md",
+      "bytes": 6079,
+      "sha256": "16a066450569813b7782d4271363bd331ff93b1edf60ade2729dd065902927e4"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/STAGE1_SELECTIVE_VALIDATION_PROTOCOL.md",
+      "bytes": 9168,
+      "sha256": "84e460a2ed71e1be9f49a1ff86c01196a6fa088a92700bc3d39bf7ce349af002"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/STAGE1_SELECTIVE_VALIDATION_RESULT.md",
+      "bytes": 17645,
+      "sha256": "036ca76241adf4dd89d622bdff9fa097da380a783747d35d1a6db11d3815ed14"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/STATUS.md",
+      "bytes": 3047,
+      "sha256": "7c3e273e4bf052eb90a3ae4da4888fb90543e58314097b0a737864e3d435baf1"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/requirements.lock.txt",
+      "bytes": 1051,
+      "sha256": "7e46fabf7de91ce964243f5d835a38431a3ba662715c6bf4843c3e01ef07cee8"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/run_stage1_selective_validation.py",
+      "bytes": 30436,
+      "sha256": "b3b63f6de9a844dff18443d266c3f6eb5d62298d9b6ce53b369364fb303251cb"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/stage0_smoke_outputs/stage0_mechanics_verification_receipt.json",
+      "bytes": 80714,
+      "sha256": "7b367ec9e3152c1288f75da4694eb6c268f39fe3606c7348b52aadb937d5f2d9"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/stage0_smoke_outputs/stage0_noncubic_mechanics_receipt.json",
+      "bytes": 11398,
+      "sha256": "00fc56c449ed00c88eae81abbc3ed425520d788089f388ca7bc0a33894f76b65"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/stage0_verify_mechanics.py",
+      "bytes": 26082,
+      "sha256": "e43570af15882d382a0c9ce776d6163972dc27445f2e5ee373650fee0458c15b"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/stage1_cohort_manifest.json",
+      "bytes": 28535,
+      "sha256": "d3b965b6cb8034e1462fec3fa35ef2783e20ee2151188eb749b4f80333310a0a"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/stage1_outputs/stage1_per_material.jsonl",
+      "bytes": 40290,
+      "sha256": "8df67580ab5b83bf39a4652a2342903b0fbaa2c4e147c6b2f857d69e68fc3a64"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/stage1_outputs/stage1_selective_validation_summary.json",
+      "bytes": 138112,
+      "sha256": "df60cc5daaabadbe241997aaeebf07aaba50f5969f45345fb176a83846587429"
+    },
+    {
+      "path": "research/mlip_soft_mode_selective_validation/stage1_select_cohort.py",
+      "bytes": 10773,
+      "sha256": "f553af6a2ce49b5b06eb2d2e100f31dc26e4a1463ae74e4c2f2c734b0fe37b0b"
+    }
+  ]
+}
