@@ -1,0 +1,815 @@
+{
+  "protocol": "STAGE0_DEV_PILOT_PROTOCOL.md",
+  "protocol_sha256": "08ee7169c7019335c69b43a4d6d528a0ab32bc575da3b5ff84891923d75b2361",
+  "runner_sha256": "d826b11e47c7157a6661b5bfec38a3c0c734a61b089631f02fc45dde7f0fa5fb",
+  "dev_audit_sha256": "3cd56379305a878e2960b2b2f2f77f596f78c38519998eabfe029eadd970ac2a",
+  "real_pid": 17528,
+  "wall_time_s": 26.606,
+  "held_out_untouched": true,
+  "held_out_span": [
+    "2026-06-04",
+    "2026-11-23"
+  ],
+  "n_base_features": 54,
+  "blocks": {
+    "Dev_Val_1": {
+      "train_span": [
+        "2024-10-15",
+        "2025-07-31"
+      ],
+      "eval_span": [
+        "2025-08-04",
+        "2025-12-31"
+      ],
+      "n_train": 290,
+      "n_eval": 150,
+      "tau_train_q20_MW": -755.1,
+      "train_events": 58,
+      "eval_events": 33,
+      "lr_cand_shift_std_coef": -0.36157,
+      "metrics": {
+        "Simple_LagEns": {
+          "n": 150,
+          "n_events": 33,
+          "prevalence": 0.22,
+          "brier": 0.114918,
+          "brier_clim": 0.172,
+          "bss_vs_train_clim": 0.3319,
+          "log_loss": 0.354413,
+          "ece_5bin": 0.0384,
+          "mean_pred_prob": 0.2193,
+          "linear_cal_slope": 0.9096,
+          "roc_auc": 0.8772,
+          "pr_auc": 0.672,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 23,
+            "fp": 19,
+            "fn": 10,
+            "tn": 98,
+            "hit_rate": 0.697,
+            "false_alarm_ratio": 0.4524,
+            "precision": 0.5476,
+            "expected_cost_per_day": 0.1367,
+            "relative_economic_value": 0.5051
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 16,
+            "fp": 8,
+            "fn": 17,
+            "tn": 109,
+            "hit_rate": 0.4848,
+            "false_alarm_ratio": 0.3333,
+            "precision": 0.6667,
+            "expected_cost_per_day": 0.1933,
+            "relative_economic_value": 0.2424
+          }
+        },
+        "L2_LogReg_Base": {
+          "n": 150,
+          "n_events": 33,
+          "prevalence": 0.22,
+          "brier": 0.12571,
+          "brier_clim": 0.172,
+          "bss_vs_train_clim": 0.2691,
+          "log_loss": 0.371571,
+          "ece_5bin": 0.0501,
+          "mean_pred_prob": 0.2212,
+          "linear_cal_slope": 0.8207,
+          "roc_auc": 0.8643,
+          "pr_auc": 0.6312,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 23,
+            "fp": 22,
+            "fn": 10,
+            "tn": 95,
+            "hit_rate": 0.697,
+            "false_alarm_ratio": 0.4889,
+            "precision": 0.5111,
+            "expected_cost_per_day": 0.1417,
+            "relative_economic_value": 0.4747
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 13,
+            "fp": 10,
+            "fn": 20,
+            "tn": 107,
+            "hit_rate": 0.3939,
+            "false_alarm_ratio": 0.4348,
+            "precision": 0.5652,
+            "expected_cost_per_day": 0.21,
+            "relative_economic_value": 0.0909
+          }
+        },
+        "L2_LogReg_Cand": {
+          "n": 150,
+          "n_events": 33,
+          "prevalence": 0.22,
+          "brier": 0.12108,
+          "brier_clim": 0.172,
+          "bss_vs_train_clim": 0.296,
+          "log_loss": 0.365111,
+          "ece_5bin": 0.0397,
+          "mean_pred_prob": 0.215,
+          "linear_cal_slope": 0.8638,
+          "roc_auc": 0.8669,
+          "pr_auc": 0.6471,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 24,
+            "fp": 23,
+            "fn": 9,
+            "tn": 94,
+            "hit_rate": 0.7273,
+            "false_alarm_ratio": 0.4894,
+            "precision": 0.5106,
+            "expected_cost_per_day": 0.1383,
+            "relative_economic_value": 0.4949
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 15,
+            "fp": 9,
+            "fn": 18,
+            "tn": 108,
+            "hit_rate": 0.4545,
+            "false_alarm_ratio": 0.375,
+            "precision": 0.625,
+            "expected_cost_per_day": 0.2,
+            "relative_economic_value": 0.1818
+          }
+        },
+        "HGB_Base": {
+          "n": 150,
+          "n_events": 33,
+          "prevalence": 0.22,
+          "brier": 0.122251,
+          "brier_clim": 0.172,
+          "bss_vs_train_clim": 0.2892,
+          "log_loss": 0.36362,
+          "ece_5bin": 0.0343,
+          "mean_pred_prob": 0.2092,
+          "linear_cal_slope": 0.8958,
+          "roc_auc": 0.8726,
+          "pr_auc": 0.6025,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 23,
+            "fp": 23,
+            "fn": 10,
+            "tn": 94,
+            "hit_rate": 0.697,
+            "false_alarm_ratio": 0.5,
+            "precision": 0.5,
+            "expected_cost_per_day": 0.1433,
+            "relative_economic_value": 0.4646
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 15,
+            "fp": 9,
+            "fn": 18,
+            "tn": 108,
+            "hit_rate": 0.4545,
+            "false_alarm_ratio": 0.375,
+            "precision": 0.625,
+            "expected_cost_per_day": 0.2,
+            "relative_economic_value": 0.1818
+          }
+        },
+        "HGB_Cand": {
+          "n": 150,
+          "n_events": 33,
+          "prevalence": 0.22,
+          "brier": 0.122251,
+          "brier_clim": 0.172,
+          "bss_vs_train_clim": 0.2892,
+          "log_loss": 0.36362,
+          "ece_5bin": 0.0343,
+          "mean_pred_prob": 0.2092,
+          "linear_cal_slope": 0.8958,
+          "roc_auc": 0.8726,
+          "pr_auc": 0.6025,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 23,
+            "fp": 23,
+            "fn": 10,
+            "tn": 94,
+            "hit_rate": 0.697,
+            "false_alarm_ratio": 0.5,
+            "precision": 0.5,
+            "expected_cost_per_day": 0.1433,
+            "relative_economic_value": 0.4646
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 15,
+            "fp": 9,
+            "fn": 18,
+            "tn": 108,
+            "hit_rate": 0.4545,
+            "false_alarm_ratio": 0.375,
+            "precision": 0.625,
+            "expected_cost_per_day": 0.2,
+            "relative_economic_value": 0.1818
+          }
+        }
+      },
+      "delta_brier_bootstrap": {
+        "L2_LogReg_Cand_vs_Base": {
+          "delta_brier": 0.00463,
+          "ci95_lo": -0.00297,
+          "ci95_hi": 0.012633
+        },
+        "HGB_Cand_vs_Base": {
+          "delta_brier": 0.0,
+          "ci95_lo": 0.0,
+          "ci95_hi": 0.0
+        }
+      },
+      "falsifier1_conditioned_placebo": {
+        "n_perm": 200,
+        "L2_LogReg": {
+          "real_delta_brier": 0.00463,
+          "placebo_mean_delta_brier": -0.00104,
+          "placebo_p95_delta_brier": 0.00286,
+          "p_placebo_onesided": 0.0199
+        },
+        "HGB": {
+          "real_delta_brier": 0.0,
+          "placebo_mean_delta_brier": 0.000317,
+          "placebo_p95_delta_brier": 0.002271,
+          "p_placebo_onesided": 0.791
+        }
+      },
+      "falsifier2_timing_mechanism": {
+        "all_eval_days": {
+          "n": 150,
+          "pearson_r": -0.4307,
+          "pearson_p": 0.0,
+          "spearman_rho": -0.2917,
+          "spearman_p": 0.0003,
+          "mean_rel_err_when_shift_pos": -0.148,
+          "mean_rel_err_when_shift_zero": 0.644,
+          "mean_rel_err_when_shift_neg": 2.083
+        },
+        "predicted_ramp_days_only": {
+          "n": 75,
+          "pearson_r": -0.3265,
+          "pearson_p": 0.0043,
+          "spearman_rho": -0.2097,
+          "spearman_p": 0.071,
+          "mean_rel_err_when_shift_pos": 0.462,
+          "mean_rel_err_when_shift_zero": 0.444,
+          "mean_rel_err_when_shift_neg": 1.647
+        }
+      }
+    },
+    "Dev_Val_2": {
+      "train_span": [
+        "2024-10-15",
+        "2025-12-31"
+      ],
+      "eval_span": [
+        "2026-01-04",
+        "2026-05-31"
+      ],
+      "n_train": 443,
+      "n_eval": 148,
+      "tau_train_q20_MW": -793.1,
+      "train_events": 89,
+      "eval_events": 28,
+      "lr_cand_shift_std_coef": -0.36113,
+      "metrics": {
+        "Simple_LagEns": {
+          "n": 148,
+          "n_events": 28,
+          "prevalence": 0.1892,
+          "brier": 0.066357,
+          "brier_clim": 0.153534,
+          "bss_vs_train_clim": 0.5678,
+          "log_loss": 0.225028,
+          "ece_5bin": 0.0658,
+          "mean_pred_prob": 0.2096,
+          "linear_cal_slope": 1.0844,
+          "roc_auc": 0.958,
+          "pr_auc": 0.8148,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 25,
+            "fp": 10,
+            "fn": 3,
+            "tn": 110,
+            "hit_rate": 0.8929,
+            "false_alarm_ratio": 0.2857,
+            "precision": 0.7143,
+            "expected_cost_per_day": 0.0794,
+            "relative_economic_value": 0.7738
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 21,
+            "fp": 4,
+            "fn": 7,
+            "tn": 116,
+            "hit_rate": 0.75,
+            "false_alarm_ratio": 0.16,
+            "precision": 0.84,
+            "expected_cost_per_day": 0.1318,
+            "relative_economic_value": 0.6071
+          }
+        },
+        "L2_LogReg_Base": {
+          "n": 148,
+          "n_events": 28,
+          "prevalence": 0.1892,
+          "brier": 0.072574,
+          "brier_clim": 0.153534,
+          "bss_vs_train_clim": 0.5273,
+          "log_loss": 0.234251,
+          "ece_5bin": 0.038,
+          "mean_pred_prob": 0.1923,
+          "linear_cal_slope": 1.0734,
+          "roc_auc": 0.9482,
+          "pr_auc": 0.8113,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 24,
+            "fp": 12,
+            "fn": 4,
+            "tn": 108,
+            "hit_rate": 0.8571,
+            "false_alarm_ratio": 0.3333,
+            "precision": 0.6667,
+            "expected_cost_per_day": 0.0878,
+            "relative_economic_value": 0.7143
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 18,
+            "fp": 4,
+            "fn": 10,
+            "tn": 116,
+            "hit_rate": 0.6429,
+            "false_alarm_ratio": 0.1818,
+            "precision": 0.8182,
+            "expected_cost_per_day": 0.1419,
+            "relative_economic_value": 0.5
+          }
+        },
+        "L2_LogReg_Cand": {
+          "n": 148,
+          "n_events": 28,
+          "prevalence": 0.1892,
+          "brier": 0.070919,
+          "brier_clim": 0.153534,
+          "bss_vs_train_clim": 0.5381,
+          "log_loss": 0.229204,
+          "ece_5bin": 0.0354,
+          "mean_pred_prob": 0.1953,
+          "linear_cal_slope": 1.0662,
+          "roc_auc": 0.9521,
+          "pr_auc": 0.81,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 25,
+            "fp": 14,
+            "fn": 3,
+            "tn": 106,
+            "hit_rate": 0.8929,
+            "false_alarm_ratio": 0.359,
+            "precision": 0.641,
+            "expected_cost_per_day": 0.0861,
+            "relative_economic_value": 0.7262
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 16,
+            "fp": 3,
+            "fn": 12,
+            "tn": 117,
+            "hit_rate": 0.5714,
+            "false_alarm_ratio": 0.1579,
+            "precision": 0.8421,
+            "expected_cost_per_day": 0.1453,
+            "relative_economic_value": 0.4643
+          }
+        },
+        "HGB_Base": {
+          "n": 148,
+          "n_events": 28,
+          "prevalence": 0.1892,
+          "brier": 0.061992,
+          "brier_clim": 0.153534,
+          "bss_vs_train_clim": 0.5962,
+          "log_loss": 0.20469,
+          "ece_5bin": 0.0507,
+          "mean_pred_prob": 0.1727,
+          "linear_cal_slope": 1.1933,
+          "roc_auc": 0.9652,
+          "pr_auc": 0.8282,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 20,
+            "fp": 6,
+            "fn": 8,
+            "tn": 114,
+            "hit_rate": 0.7143,
+            "false_alarm_ratio": 0.2308,
+            "precision": 0.7692,
+            "expected_cost_per_day": 0.098,
+            "relative_economic_value": 0.6429
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 19,
+            "fp": 3,
+            "fn": 9,
+            "tn": 117,
+            "hit_rate": 0.6786,
+            "false_alarm_ratio": 0.1364,
+            "precision": 0.8636,
+            "expected_cost_per_day": 0.1351,
+            "relative_economic_value": 0.5714
+          }
+        },
+        "HGB_Cand": {
+          "n": 148,
+          "n_events": 28,
+          "prevalence": 0.1892,
+          "brier": 0.062164,
+          "brier_clim": 0.153534,
+          "bss_vs_train_clim": 0.5951,
+          "log_loss": 0.204568,
+          "ece_5bin": 0.0473,
+          "mean_pred_prob": 0.1737,
+          "linear_cal_slope": 1.2056,
+          "roc_auc": 0.9658,
+          "pr_auc": 0.8242,
+          "ops_p30_cl25": {
+            "thr": 0.3,
+            "cl_ratio": 0.25,
+            "tp": 22,
+            "fp": 6,
+            "fn": 6,
+            "tn": 114,
+            "hit_rate": 0.7857,
+            "false_alarm_ratio": 0.2143,
+            "precision": 0.7857,
+            "expected_cost_per_day": 0.0878,
+            "relative_economic_value": 0.7143
+          },
+          "ops_p50_cl50": {
+            "thr": 0.5,
+            "cl_ratio": 0.5,
+            "tp": 19,
+            "fp": 3,
+            "fn": 9,
+            "tn": 117,
+            "hit_rate": 0.6786,
+            "false_alarm_ratio": 0.1364,
+            "precision": 0.8636,
+            "expected_cost_per_day": 0.1351,
+            "relative_economic_value": 0.5714
+          }
+        }
+      },
+      "delta_brier_bootstrap": {
+        "L2_LogReg_Cand_vs_Base": {
+          "delta_brier": 0.001655,
+          "ci95_lo": -0.002462,
+          "ci95_hi": 0.004288
+        },
+        "HGB_Cand_vs_Base": {
+          "delta_brier": -0.000172,
+          "ci95_lo": -0.002639,
+          "ci95_hi": 0.002559
+        }
+      },
+      "falsifier1_conditioned_placebo": {
+        "n_perm": 200,
+        "L2_LogReg": {
+          "real_delta_brier": 0.001655,
+          "placebo_mean_delta_brier": -0.000274,
+          "placebo_p95_delta_brier": 0.001299,
+          "p_placebo_onesided": 0.0398
+        },
+        "HGB": {
+          "real_delta_brier": -0.000172,
+          "placebo_mean_delta_brier": -0.000392,
+          "placebo_p95_delta_brier": 0.000218,
+          "p_placebo_onesided": 0.4876
+        }
+      },
+      "falsifier2_timing_mechanism": {
+        "all_eval_days": {
+          "n": 148,
+          "pearson_r": -0.2651,
+          "pearson_p": 0.0011,
+          "spearman_rho": -0.2112,
+          "spearman_p": 0.01,
+          "mean_rel_err_when_shift_pos": -0.478,
+          "mean_rel_err_when_shift_zero": 0.369,
+          "mean_rel_err_when_shift_neg": 1.273
+        },
+        "predicted_ramp_days_only": {
+          "n": 64,
+          "pearson_r": -0.3936,
+          "pearson_p": 0.0013,
+          "spearman_rho": -0.2932,
+          "spearman_p": 0.0187,
+          "mean_rel_err_when_shift_pos": -0.667,
+          "mean_rel_err_when_shift_zero": -0.14,
+          "mean_rel_err_when_shift_neg": 1.5
+        }
+      }
+    }
+  },
+  "pooled_dev_val": {
+    "n_eval": 298,
+    "n_events": 61,
+    "metrics": {
+      "Simple_LagEns": {
+        "n": 298,
+        "n_events": 61,
+        "prevalence": 0.2047,
+        "brier": 0.0908,
+        "brier_clim": 0.162815,
+        "bss_vs_train_clim": 0.4423,
+        "log_loss": 0.290155,
+        "ece_5bin": 0.0402,
+        "mean_pred_prob": 0.2145,
+        "linear_cal_slope": 0.997,
+        "roc_auc": 0.9174,
+        "pr_auc": 0.7389,
+        "ops_p30_cl25": {
+          "thr": 0.3,
+          "cl_ratio": 0.25,
+          "tp": 48,
+          "fp": 29,
+          "fn": 13,
+          "tn": 208,
+          "hit_rate": 0.7869,
+          "false_alarm_ratio": 0.3766,
+          "precision": 0.6234,
+          "expected_cost_per_day": 0.1082,
+          "relative_economic_value": 0.6284
+        },
+        "ops_p50_cl50": {
+          "thr": 0.5,
+          "cl_ratio": 0.5,
+          "tp": 37,
+          "fp": 12,
+          "fn": 24,
+          "tn": 225,
+          "hit_rate": 0.6066,
+          "false_alarm_ratio": 0.2449,
+          "precision": 0.7551,
+          "expected_cost_per_day": 0.1628,
+          "relative_economic_value": 0.4098
+        }
+      },
+      "L2_LogReg_Base": {
+        "n": 298,
+        "n_events": 61,
+        "prevalence": 0.2047,
+        "brier": 0.09932,
+        "brier_clim": 0.162815,
+        "bss_vs_train_clim": 0.39,
+        "log_loss": 0.303372,
+        "ece_5bin": 0.0248,
+        "mean_pred_prob": 0.2068,
+        "linear_cal_slope": 0.9422,
+        "roc_auc": 0.9074,
+        "pr_auc": 0.7023,
+        "ops_p30_cl25": {
+          "thr": 0.3,
+          "cl_ratio": 0.25,
+          "tp": 47,
+          "fp": 34,
+          "fn": 14,
+          "tn": 203,
+          "hit_rate": 0.7705,
+          "false_alarm_ratio": 0.4198,
+          "precision": 0.5802,
+          "expected_cost_per_day": 0.1149,
+          "relative_economic_value": 0.5847
+        },
+        "ops_p50_cl50": {
+          "thr": 0.5,
+          "cl_ratio": 0.5,
+          "tp": 31,
+          "fp": 14,
+          "fn": 30,
+          "tn": 223,
+          "hit_rate": 0.5082,
+          "false_alarm_ratio": 0.3111,
+          "precision": 0.6889,
+          "expected_cost_per_day": 0.1762,
+          "relative_economic_value": 0.2787
+        }
+      },
+      "L2_LogReg_Cand": {
+        "n": 298,
+        "n_events": 61,
+        "prevalence": 0.2047,
+        "brier": 0.096167,
+        "brier_clim": 0.162815,
+        "bss_vs_train_clim": 0.4093,
+        "log_loss": 0.297613,
+        "ece_5bin": 0.0158,
+        "mean_pred_prob": 0.2052,
+        "linear_cal_slope": 0.9641,
+        "roc_auc": 0.911,
+        "pr_auc": 0.7169,
+        "ops_p30_cl25": {
+          "thr": 0.3,
+          "cl_ratio": 0.25,
+          "tp": 49,
+          "fp": 37,
+          "fn": 12,
+          "tn": 200,
+          "hit_rate": 0.8033,
+          "false_alarm_ratio": 0.4302,
+          "precision": 0.5698,
+          "expected_cost_per_day": 0.1124,
+          "relative_economic_value": 0.6011
+        },
+        "ops_p50_cl50": {
+          "thr": 0.5,
+          "cl_ratio": 0.5,
+          "tp": 31,
+          "fp": 12,
+          "fn": 30,
+          "tn": 225,
+          "hit_rate": 0.5082,
+          "false_alarm_ratio": 0.2791,
+          "precision": 0.7209,
+          "expected_cost_per_day": 0.1728,
+          "relative_economic_value": 0.3115
+        }
+      },
+      "HGB_Base": {
+        "n": 298,
+        "n_events": 61,
+        "prevalence": 0.2047,
+        "brier": 0.092324,
+        "brier_clim": 0.162815,
+        "bss_vs_train_clim": 0.433,
+        "log_loss": 0.284688,
+        "ece_5bin": 0.0152,
+        "mean_pred_prob": 0.1911,
+        "linear_cal_slope": 1.043,
+        "roc_auc": 0.9233,
+        "pr_auc": 0.7156,
+        "ops_p30_cl25": {
+          "thr": 0.3,
+          "cl_ratio": 0.25,
+          "tp": 43,
+          "fp": 29,
+          "fn": 18,
+          "tn": 208,
+          "hit_rate": 0.7049,
+          "false_alarm_ratio": 0.4028,
+          "precision": 0.5972,
+          "expected_cost_per_day": 0.1208,
+          "relative_economic_value": 0.5464
+        },
+        "ops_p50_cl50": {
+          "thr": 0.5,
+          "cl_ratio": 0.5,
+          "tp": 34,
+          "fp": 12,
+          "fn": 27,
+          "tn": 225,
+          "hit_rate": 0.5574,
+          "false_alarm_ratio": 0.2609,
+          "precision": 0.7391,
+          "expected_cost_per_day": 0.1678,
+          "relative_economic_value": 0.3607
+        }
+      },
+      "HGB_Cand": {
+        "n": 298,
+        "n_events": 61,
+        "prevalence": 0.2047,
+        "brier": 0.092409,
+        "brier_clim": 0.162815,
+        "bss_vs_train_clim": 0.4324,
+        "log_loss": 0.284628,
+        "ece_5bin": 0.0135,
+        "mean_pred_prob": 0.1916,
+        "linear_cal_slope": 1.0478,
+        "roc_auc": 0.9216,
+        "pr_auc": 0.7048,
+        "ops_p30_cl25": {
+          "thr": 0.3,
+          "cl_ratio": 0.25,
+          "tp": 45,
+          "fp": 29,
+          "fn": 16,
+          "tn": 208,
+          "hit_rate": 0.7377,
+          "false_alarm_ratio": 0.3919,
+          "precision": 0.6081,
+          "expected_cost_per_day": 0.1158,
+          "relative_economic_value": 0.5792
+        },
+        "ops_p50_cl50": {
+          "thr": 0.5,
+          "cl_ratio": 0.5,
+          "tp": 34,
+          "fp": 12,
+          "fn": 27,
+          "tn": 225,
+          "hit_rate": 0.5574,
+          "false_alarm_ratio": 0.2609,
+          "precision": 0.7391,
+          "expected_cost_per_day": 0.1678,
+          "relative_economic_value": 0.3607
+        }
+      }
+    },
+    "delta_brier_bootstrap": {
+      "L2_LogReg_Cand_vs_Base": {
+        "delta_brier": 0.003153,
+        "ci95_lo": -0.000696,
+        "ci95_hi": 0.007509
+      },
+      "HGB_Cand_vs_Base": {
+        "delta_brier": -8.5e-05,
+        "ci95_lo": -0.001384,
+        "ci95_hi": 0.001236
+      }
+    },
+    "falsifier1_conditioned_placebo": {
+      "n_perm": 200,
+      "L2_LogReg": {
+        "real_delta_brier": 0.003153,
+        "placebo_mean_delta_brier": -0.00066,
+        "placebo_p95_delta_brier": 0.001415,
+        "p_placebo_onesided": 0.0149
+      },
+      "HGB": {
+        "real_delta_brier": -8.5e-05,
+        "placebo_mean_delta_brier": -3.5e-05,
+        "placebo_p95_delta_brier": 0.000964,
+        "p_placebo_onesided": 0.5522
+      }
+    },
+    "falsifier2_timing_mechanism_pooled": {
+      "all_eval_days": {
+        "n": 298,
+        "pearson_r": -0.3639,
+        "pearson_p": 0.0,
+        "spearman_rho": -0.2573,
+        "spearman_p": 0.0,
+        "mean_rel_err_when_shift_pos": -0.3,
+        "mean_rel_err_when_shift_zero": 0.495,
+        "mean_rel_err_when_shift_neg": 1.776
+      },
+      "predicted_ramp_days_only": {
+        "n": 138,
+        "pearson_r": -0.3536,
+        "pearson_p": 0.0,
+        "spearman_rho": -0.2563,
+        "spearman_p": 0.0024,
+        "mean_rel_err_when_shift_pos": 0.0,
+        "mean_rel_err_when_shift_zero": 0.161,
+        "mean_rel_err_when_shift_neg": 1.567
+      }
+    }
+  },
+  "prespecified_conjunctive_gate": {
+    "g1_ge_20_events_each_block": true,
+    "g2_repeatable_brier_gain_ge_0p002_both_blocks_and_hgb_nondeg": false,
+    "g3_placebo_rejected_p_lt_0p05_pooled_and_lt_0p15_each": true,
+    "g4_mechanism_same_nonzero_sign_both_blocks": true,
+    "all_pass": false,
+    "decision": "STOP_DEV_PILOT_GATE_FAILED_NO_HELDOUT_TOUCHED"
+  },
+  "per_day_ledger_jsonl": "dev_pilot_per_day_predictions.jsonl",
+  "per_day_ledger_sha256": "f01e70af2117553893d7bec31519c8675c6bc054062e496daf5bf4dfa960be46"
+}

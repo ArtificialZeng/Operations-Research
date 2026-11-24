@@ -1,0 +1,782 @@
+{
+  "dev_span": [
+    "2024-10-15",
+    "2026-05-31"
+  ],
+  "held_out_untouched_span": [
+    "2026-06-04",
+    "2026-11-23"
+  ],
+  "dev_train1_end_for_threshold_and_alignment": "2025-07-31",
+  "wall_time_s": 179.35,
+  "n_chunks_fetched": 20,
+  "total_dev_days": 594,
+  "valid_complete_dev_days": 594,
+  "missing_reasons": {
+    "fuelhh_1030_not_causal_le_11Z": 6
+  },
+  "windfor_duplicate_exact_count": 0,
+  "windfor_duplicate_value_conflict_count": 0,
+  "fuelhh_duplicate_exact_count": 0,
+  "fuelhh_duplicate_value_conflict_count": 0,
+  "fuelhh_publish_lag_min_minmax": [
+    30.0,
+    234.0
+  ],
+  "identical_latest_pair_days": 14,
+  "identical_any_consecutive_vintages": 154,
+  "gap_hours_latest2_distinct_counts": {
+    "2.0": 577,
+    "3.0": 2,
+    "5.0": 10,
+    "7.0": 1,
+    "11.0": 2,
+    "18.0": 1,
+    "22.0": 1
+  },
+  "gap_hours_ge4h_distinct_counts": {
+    "5.0": 589,
+    "7.0": 1,
+    "11.0": 2,
+    "18.0": 1,
+    "22.0": 1
+  },
+  "evolution_crosscheck_6_dates": {
+    "2024-10-27": {
+      "evo_n": 12,
+      "stream_n": 12,
+      "only_in_evo": [],
+      "only_in_stream": [],
+      "n_value_mismatches": 0
+    },
+    "2025-01-20": {
+      "evo_n": 12,
+      "stream_n": 12,
+      "only_in_evo": [],
+      "only_in_stream": [],
+      "n_value_mismatches": 0
+    },
+    "2025-03-30": {
+      "evo_n": 12,
+      "stream_n": 12,
+      "only_in_evo": [],
+      "only_in_stream": [],
+      "n_value_mismatches": 0
+    },
+    "2025-07-10": {
+      "evo_n": 11,
+      "stream_n": 11,
+      "only_in_evo": [],
+      "only_in_stream": [],
+      "n_value_mismatches": 0
+    },
+    "2025-10-26": {
+      "evo_n": 12,
+      "stream_n": 12,
+      "only_in_evo": [],
+      "only_in_stream": [],
+      "n_value_mismatches": 0
+    },
+    "2026-03-29": {
+      "evo_n": 12,
+      "stream_n": 12,
+      "only_in_evo": [],
+      "only_in_stream": [],
+      "n_value_mismatches": 0
+    }
+  },
+  "monthly_coverage_summary": {
+    "2024-10": {
+      "days": 17,
+      "valid": 17,
+      "same_day_pubs_le_11Z_counts": {
+        "1": 1,
+        "4": 16
+      },
+      "ident_latest": 3
+    },
+    "2024-11": {
+      "days": 30,
+      "valid": 30,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 30
+      },
+      "ident_latest": 3
+    },
+    "2024-12": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 31
+      },
+      "ident_latest": 1
+    },
+    "2025-01": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 31
+      },
+      "ident_latest": 0
+    },
+    "2025-02": {
+      "days": 28,
+      "valid": 28,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 28
+      },
+      "ident_latest": 0
+    },
+    "2025-03": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 31
+      },
+      "ident_latest": 0
+    },
+    "2025-04": {
+      "days": 30,
+      "valid": 30,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 30
+      },
+      "ident_latest": 1
+    },
+    "2025-05": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 31
+      },
+      "ident_latest": 1
+    },
+    "2025-06": {
+      "days": 30,
+      "valid": 30,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 30
+      },
+      "ident_latest": 1
+    },
+    "2025-07": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 30,
+        "3": 1
+      },
+      "ident_latest": 0
+    },
+    "2025-08": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 30,
+        "3": 1
+      },
+      "ident_latest": 0
+    },
+    "2025-09": {
+      "days": 30,
+      "valid": 30,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 30
+      },
+      "ident_latest": 0
+    },
+    "2025-10": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 31
+      },
+      "ident_latest": 0
+    },
+    "2025-11": {
+      "days": 30,
+      "valid": 30,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 30
+      },
+      "ident_latest": 0
+    },
+    "2025-12": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 31
+      },
+      "ident_latest": 0
+    },
+    "2026-01": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 31
+      },
+      "ident_latest": 2
+    },
+    "2026-02": {
+      "days": 28,
+      "valid": 28,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 28
+      },
+      "ident_latest": 0
+    },
+    "2026-03": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 31
+      },
+      "ident_latest": 0
+    },
+    "2026-04": {
+      "days": 30,
+      "valid": 30,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 30
+      },
+      "ident_latest": 0
+    },
+    "2026-05": {
+      "days": 31,
+      "valid": 31,
+      "same_day_pubs_le_11Z_counts": {
+        "4": 31
+      },
+      "ident_latest": 2
+    }
+  },
+  "dev_train1_only_diagnostics": {
+    "n_days": 290,
+    "alignment_mae_MW": {
+      "HH00": 1223.0,
+      "avg_fwd": 1224.3,
+      "avg_bwd": 1222.4
+    },
+    "mean_bias_wf_minus_fh_avgfwd_MW": 948.3,
+    "monthly_mean_bias_train1_MW": {
+      "2024-10": 1688.2,
+      "2024-11": 473.0,
+      "2024-12": 1255.7,
+      "2025-01": 831.6,
+      "2025-02": 1366.3,
+      "2025-03": 1301.2,
+      "2025-04": 264.0,
+      "2025-05": 432.8,
+      "2025-06": 1260.4,
+      "2025-07": 957.4
+    },
+    "actual_15_to_18_avgfwd_quantiles_MW": {
+      "q05": -1528.0,
+      "q10": -1166.2,
+      "q15": -899.8,
+      "q20": -755.1,
+      "q25": -589.6,
+      "q50": 303.5
+    },
+    "actual_15_to_18_hh00_quantiles_MW": {
+      "q05": -1598.1,
+      "q10": -1153.7,
+      "q15": -977.2,
+      "q20": -792.2,
+      "q25": -596.8,
+      "q50": 313.0
+    },
+    "signed_shift_distribution_train1": {
+      "pair_latest2": {
+        "n": 290,
+        "frac_nonzero": 0.3,
+        "frac_pos_later": 0.1345,
+        "frac_neg_earlier": 0.1655,
+        "mean": 0.024,
+        "std": 1.473,
+        "counts": {
+          "-6": 2,
+          "-5": 2,
+          "-4": 3,
+          "-3": 2,
+          "-2": 9,
+          "-1": 30,
+          "0": 203,
+          "1": 19,
+          "2": 7,
+          "3": 4,
+          "4": 3,
+          "5": 1,
+          "6": 2,
+          "7": 3
+        }
+      },
+      "pair_ge4h": {
+        "n": 290,
+        "frac_nonzero": 0.3931,
+        "frac_pos_later": 0.1828,
+        "frac_neg_earlier": 0.2103,
+        "mean": -0.028,
+        "std": 1.825,
+        "counts": {
+          "-7": 5,
+          "-6": 2,
+          "-5": 2,
+          "-4": 2,
+          "-3": 2,
+          "-2": 11,
+          "-1": 37,
+          "0": 176,
+          "1": 28,
+          "2": 10,
+          "3": 3,
+          "4": 5,
+          "5": 1,
+          "6": 2,
+          "7": 4
+        }
+      },
+      "pair_ge10h": {
+        "n": 290,
+        "frac_nonzero": 0.4552,
+        "frac_pos_later": 0.2552,
+        "frac_neg_earlier": 0.2,
+        "mean": 0.214,
+        "std": 1.971,
+        "counts": {
+          "-7": 3,
+          "-6": 1,
+          "-5": 4,
+          "-4": 3,
+          "-3": 4,
+          "-2": 5,
+          "-1": 38,
+          "0": 158,
+          "1": 37,
+          "2": 13,
+          "3": 6,
+          "4": 3,
+          "5": 5,
+          "6": 7,
+          "7": 3
+        }
+      }
+    }
+  },
+  "request_log": [
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2024-10-14T00%3A00%3A00Z&publishDateTimeTo=2024-11-12T23%3A59%3A59Z",
+      "file": "windfor_2024-10-14_2024-11-12.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:37:30.033548+00:00",
+      "http_status": 200,
+      "bytes": 1939483,
+      "sha256": "3365015f6b60c2c159111ad50cbbac5a0b36855e71b2b315f5a1e86d8b326c3e"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2024-10-14&settlementDateTo=2024-11-12&fuelType=WIND",
+      "file": "fuelhh_2024-10-14_2024-11-12.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:37:35.584052+00:00",
+      "http_status": 200,
+      "bytes": 260912,
+      "sha256": "063f85d4e74e5c716076d575783e510e7f22192e7dd806261e97bf2921dbd811"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2024-11-13T00%3A00%3A00Z&publishDateTimeTo=2024-12-12T23%3A59%3A59Z",
+      "file": "windfor_2024-11-13_2024-12-12.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:37:40.006308+00:00",
+      "http_status": 200,
+      "bytes": 1972128,
+      "sha256": "6ce3edf7d3eb0c344c077b9fb6c36f010f9766b2eb3b9f4b42c7ceddcffaeac0"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2024-11-13&settlementDateTo=2024-12-12&fuelType=WIND",
+      "file": "fuelhh_2024-11-13_2024-12-12.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:37:45.627620+00:00",
+      "http_status": 200,
+      "bytes": 261095,
+      "sha256": "0bbc0d8ddc0523d57a0c50faead72740682a857847ad9d98395bd1e0881eaa33"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2024-12-13T00%3A00%3A00Z&publishDateTimeTo=2025-01-11T23%3A59%3A59Z",
+      "file": "windfor_2024-12-13_2025-01-11.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:37:48.816915+00:00",
+      "http_status": 200,
+      "bytes": 1974302,
+      "sha256": "4658d64269c6266712b22f887154a45a595461c5f816dc12c094b646418d2a78"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2024-12-13&settlementDateTo=2025-01-11&fuelType=WIND",
+      "file": "fuelhh_2024-12-13_2025-01-11.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:37:53.308559+00:00",
+      "http_status": 200,
+      "bytes": 261207,
+      "sha256": "6aab2e5fd9ed7d3399fb1a301b81d02b01cf328a5308c0295b2f229f32055e0d"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-01-12T00%3A00%3A00Z&publishDateTimeTo=2025-02-10T23%3A59%3A59Z",
+      "file": "windfor_2025-01-12_2025-02-10.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:37:56.562040+00:00",
+      "http_status": 200,
+      "bytes": 1971038,
+      "sha256": "e167959413ddb7279dd75ec138aa463aaf34211aac6c2facff700bbc86f9c977"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-01-12&settlementDateTo=2025-02-10&fuelType=WIND",
+      "file": "fuelhh_2025-01-12_2025-02-10.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:00.488355+00:00",
+      "http_status": 200,
+      "bytes": 260917,
+      "sha256": "ba5d8e66faf526976bad2d93182fe4475c0e8b9e4168f7cfea56e752e654f4be"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-02-11T00%3A00%3A00Z&publishDateTimeTo=2025-03-12T23%3A59%3A59Z",
+      "file": "windfor_2025-02-11_2025-03-12.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:03.383387+00:00",
+      "http_status": 200,
+      "bytes": 1970996,
+      "sha256": "8da8f8bef9e1e413377e79e9c291b7be87c94f0e153287c0ae889aba83c46bf8"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-02-11&settlementDateTo=2025-03-12&fuelType=WIND",
+      "file": "fuelhh_2025-02-11_2025-03-12.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:07.633159+00:00",
+      "http_status": 200,
+      "bytes": 260865,
+      "sha256": "517bd3c5220a9eaabab9adfc550c3eeaeb9202050a6a4446cea4509976becc01"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-03-13T00%3A00%3A00Z&publishDateTimeTo=2025-04-11T23%3A59%3A59Z",
+      "file": "windfor_2025-03-13_2025-04-11.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:11.362602+00:00",
+      "http_status": 200,
+      "bytes": 1964319,
+      "sha256": "9adab519567e5f02436356c7a40648eab5f2982d75a7d12cf9094a5a8f0be5e0"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-03-13&settlementDateTo=2025-04-11&fuelType=WIND",
+      "file": "fuelhh_2025-03-13_2025-04-11.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:15.688605+00:00",
+      "http_status": 200,
+      "bytes": 260239,
+      "sha256": "247bcb329120aeafd3f7f54c3063a64f3d27b83a5b938ad8e20c6e9dc34715d1"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-04-12T00%3A00%3A00Z&publishDateTimeTo=2025-05-11T23%3A59%3A59Z",
+      "file": "windfor_2025-04-12_2025-05-11.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:19.431835+00:00",
+      "http_status": 200,
+      "bytes": 1963422,
+      "sha256": "17090839f79c8387a1fabfaf89c67e41ce206b8b02baa5df54187fbee8ed91f9"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-04-12&settlementDateTo=2025-05-11&fuelType=WIND",
+      "file": "fuelhh_2025-04-12_2025-05-11.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:23.965995+00:00",
+      "http_status": 200,
+      "bytes": 260437,
+      "sha256": "6893b8f420f80d867d7565b051bb437e046a416c063b3220cc64bde17e68b987"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-05-12T00%3A00%3A00Z&publishDateTimeTo=2025-06-10T23%3A59%3A59Z",
+      "file": "windfor_2025-05-12_2025-06-10.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:27.240505+00:00",
+      "http_status": 200,
+      "bytes": 1967799,
+      "sha256": "0f9252c3b707f9248e27b513e779a48dafb79eccb4e8bc438bc0a5bc0a106bbb"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-05-12&settlementDateTo=2025-06-10&fuelType=WIND",
+      "file": "fuelhh_2025-05-12_2025-06-10.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:32.856111+00:00",
+      "http_status": 200,
+      "bytes": 260722,
+      "sha256": "4fa42f24d7784596a9a41a7e7675b8cfb412255e362450874ba5172f54ea9a78"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-06-11T00%3A00%3A00Z&publishDateTimeTo=2025-07-10T23%3A59%3A59Z",
+      "file": "windfor_2025-06-11_2025-07-10.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:36.071690+00:00",
+      "http_status": 200,
+      "bytes": 1959611,
+      "sha256": "38e0aee6a156efe9572dd2c48e4ac2adec0d965f3d1d1bd8762569a6da6616ea"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-06-11&settlementDateTo=2025-07-10&fuelType=WIND",
+      "file": "fuelhh_2025-06-11_2025-07-10.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:40.597098+00:00",
+      "http_status": 200,
+      "bytes": 260662,
+      "sha256": "6038beefd69c250d4e1c79d82acd6a7ca37577213ed6df47d8647a546562336e"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-07-11T00%3A00%3A00Z&publishDateTimeTo=2025-08-09T23%3A59%3A59Z",
+      "file": "windfor_2025-07-11_2025-08-09.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:44.448197+00:00",
+      "http_status": 200,
+      "bytes": 1957139,
+      "sha256": "65f9edd9dd69aadf1b71ec47d3ef73b6420a179d0c3e432f4112ec7d8f410833"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-07-11&settlementDateTo=2025-08-09&fuelType=WIND",
+      "file": "fuelhh_2025-07-11_2025-08-09.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:49.187630+00:00",
+      "http_status": 200,
+      "bytes": 260431,
+      "sha256": "4bf57e7ec560d1c718a364c006330cfd2a3742c21110aa4fd5e059e70f7134ce"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-08-10T00%3A00%3A00Z&publishDateTimeTo=2025-09-08T23%3A59%3A59Z",
+      "file": "windfor_2025-08-10_2025-09-08.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:52.105677+00:00",
+      "http_status": 200,
+      "bytes": 1966119,
+      "sha256": "47203bb38029776c54c3e11595ad0c79fac74ba24224ce0c00dd0c5f8f179a10"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-08-10&settlementDateTo=2025-09-08&fuelType=WIND",
+      "file": "fuelhh_2025-08-10_2025-09-08.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:38:57.878399+00:00",
+      "http_status": 200,
+      "bytes": 260570,
+      "sha256": "a10b420fd90a0a788d69b29588e7233968aea1e61c5c4a2358b36fece0d4a31b"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-09-09T00%3A00%3A00Z&publishDateTimeTo=2025-10-08T23%3A59%3A59Z",
+      "file": "windfor_2025-09-09_2025-10-08.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:01.452466+00:00",
+      "http_status": 200,
+      "bytes": 1971900,
+      "sha256": "ddfff0acb460264d1ad8e5d0b135ce66b2beb08494d8c2b553dcfe0c16ad854b"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-09-09&settlementDateTo=2025-10-08&fuelType=WIND",
+      "file": "fuelhh_2025-09-09_2025-10-08.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:06.298700+00:00",
+      "http_status": 200,
+      "bytes": 260966,
+      "sha256": "d8e6690a5026632ca98a279fe666595ff9f2c8dc80c69b65dd9501f5cb9b4ca2"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-10-09T00%3A00%3A00Z&publishDateTimeTo=2025-11-07T23%3A59%3A59Z",
+      "file": "windfor_2025-10-09_2025-11-07.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:09.361287+00:00",
+      "http_status": 200,
+      "bytes": 1973807,
+      "sha256": "41da7ab8be157379faf0e47d25adcb79019f0c928b4a066dea3f9ac3480030ed"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-10-09&settlementDateTo=2025-11-07&fuelType=WIND",
+      "file": "fuelhh_2025-10-09_2025-11-07.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:13.969237+00:00",
+      "http_status": 200,
+      "bytes": 261351,
+      "sha256": "bc80558071768a0cd8668e03010d0fc4e9b958e322399f90b661857435905343"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-11-08T00%3A00%3A00Z&publishDateTimeTo=2025-12-07T23%3A59%3A59Z",
+      "file": "windfor_2025-11-08_2025-12-07.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:17.626135+00:00",
+      "http_status": 200,
+      "bytes": 1974571,
+      "sha256": "0c67ef73c1b77d7ac1255b08b5a4f6a9ae03296c9d94ee21d734c87073f7d423"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-11-08&settlementDateTo=2025-12-07&fuelType=WIND",
+      "file": "fuelhh_2025-11-08_2025-12-07.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:21.444148+00:00",
+      "http_status": 200,
+      "bytes": 261283,
+      "sha256": "9f3b81e4b6380f65b469027bcf0bde442c79b9f7fe55266fe247e6d0f5880547"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2025-12-08T00%3A00%3A00Z&publishDateTimeTo=2026-01-06T23%3A59%3A59Z",
+      "file": "windfor_2025-12-08_2026-01-06.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:24.412852+00:00",
+      "http_status": 200,
+      "bytes": 1973762,
+      "sha256": "2165f0351b74ac44d32abd6adc28a2eae1df1e4b564c83bf5ebf863c84cb223c"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2025-12-08&settlementDateTo=2026-01-06&fuelType=WIND",
+      "file": "fuelhh_2025-12-08_2026-01-06.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:28.741801+00:00",
+      "http_status": 200,
+      "bytes": 261288,
+      "sha256": "3fd743f765bc9a61430bca11f837e7bcdfcbedc97ad5494e655641f9445bf381"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2026-01-07T00%3A00%3A00Z&publishDateTimeTo=2026-02-05T23%3A59%3A59Z",
+      "file": "windfor_2026-01-07_2026-02-05.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:32.755985+00:00",
+      "http_status": 200,
+      "bytes": 1974408,
+      "sha256": "624821d034766e8d369359f9a694fd36a1ec0f377903af92af637c9f91e1541e"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2026-01-07&settlementDateTo=2026-02-05&fuelType=WIND",
+      "file": "fuelhh_2026-01-07_2026-02-05.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:38.802645+00:00",
+      "http_status": 200,
+      "bytes": 261215,
+      "sha256": "bd8f9631263d6c3abc430dba2f455248cfeea180e1f93277323dd25266668ca4"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2026-02-06T00%3A00%3A00Z&publishDateTimeTo=2026-03-07T23%3A59%3A59Z",
+      "file": "windfor_2026-02-06_2026-03-07.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:42.090163+00:00",
+      "http_status": 200,
+      "bytes": 1972931,
+      "sha256": "3e421929c4794f335e36ba71a3f35f2617a0ee477e29f5cbd9aaf52195c1aa6e"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2026-02-06&settlementDateTo=2026-03-07&fuelType=WIND",
+      "file": "fuelhh_2026-02-06_2026-03-07.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:46.654029+00:00",
+      "http_status": 200,
+      "bytes": 261164,
+      "sha256": "5accd5e3fb8ad76b7b33c5f4d521799949ed22b5ca07c9b078e54657464a49e8"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2026-03-08T00%3A00%3A00Z&publishDateTimeTo=2026-04-06T23%3A59%3A59Z",
+      "file": "windfor_2026-03-08_2026-04-06.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:50.303593+00:00",
+      "http_status": 200,
+      "bytes": 1969565,
+      "sha256": "9ef353a0acd09c68315a77877ee505bfd459f3bf358b9ffc1ee307536477ee3e"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2026-03-08&settlementDateTo=2026-04-06&fuelType=WIND",
+      "file": "fuelhh_2026-03-08_2026-04-06.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:55.036420+00:00",
+      "http_status": 200,
+      "bytes": 260722,
+      "sha256": "a97e3b841ed93d6b4447f6d871975a863c1044a762074a5c5a04f6455f2b4747"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2026-04-07T00%3A00%3A00Z&publishDateTimeTo=2026-05-06T23%3A59%3A59Z",
+      "file": "windfor_2026-04-07_2026-05-06.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:39:58.648422+00:00",
+      "http_status": 200,
+      "bytes": 1967589,
+      "sha256": "c82a068c9197e11d89324873371faa0b1307f5967e65002bfd031a127cc35adb"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2026-04-07&settlementDateTo=2026-05-06&fuelType=WIND",
+      "file": "fuelhh_2026-04-07_2026-05-06.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:40:04.612338+00:00",
+      "http_status": 200,
+      "bytes": 260722,
+      "sha256": "df4fa607eb44ac9f0ecc1a6f2ea1ac81dd43e8a86a5ecc70b60523df6ba5b134"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream?publishDateTimeFrom=2026-05-07T00%3A00%3A00Z&publishDateTimeTo=2026-06-01T23%3A59%3A59Z",
+      "file": "windfor_2026-05-07_2026-06-01.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:40:07.607607+00:00",
+      "http_status": 200,
+      "bytes": 1703963,
+      "sha256": "bbe6b0ebea42416645876bc91ae81005d7b2aa06b5700fa1ebbbef65e9271e57"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?settlementDateFrom=2026-05-07&settlementDateTo=2026-06-01&fuelType=WIND",
+      "file": "fuelhh_2026-05-07_2026-06-01.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:40:11.801854+00:00",
+      "http_status": 200,
+      "bytes": 225820,
+      "sha256": "2c5226c0c5c4c73cea9f8bfd51dff280e00b8bc43c09c2b7c9a1e52c739d0c3f"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2024-10-27T15%3A00%3A00Z&format=json",
+      "file": "evo_xcheck_2024-10-27T15Z.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:40:15.571068+00:00",
+      "http_status": 200,
+      "bytes": 3502,
+      "sha256": "1d0d2e4ba6c53c0bcb6b45ce4628d06dc9fc858b085aa5bdbcd783d5627664d2"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2025-01-20T15%3A00%3A00Z&format=json",
+      "file": "evo_xcheck_2025-01-20T15Z.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:40:17.669837+00:00",
+      "http_status": 200,
+      "bytes": 3502,
+      "sha256": "131115f7420184419a1f4e2eb380165ac128062abaa0b532ad2ec456d7f7d03e"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2025-03-30T15%3A00%3A00Z&format=json",
+      "file": "evo_xcheck_2025-03-30T15Z.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:40:19.732114+00:00",
+      "http_status": 200,
+      "bytes": 3513,
+      "sha256": "33433ee1486fda83d7124ad77499b21be696b9f06a7135ebb1b5f69202ddb762"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2025-07-10T15%3A00%3A00Z&format=json",
+      "file": "evo_xcheck_2025-07-10T15Z.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:40:22.068457+00:00",
+      "http_status": 200,
+      "bytes": 3358,
+      "sha256": "d64758593f012556b07157872621a610b35994db09918553aa595966d9f72758"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2025-10-26T15%3A00%3A00Z&format=json",
+      "file": "evo_xcheck_2025-10-26T15Z.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:40:24.454539+00:00",
+      "http_status": 200,
+      "bytes": 3526,
+      "sha256": "426021bd0d0786a5864700e16e72b6d1b2c31a421fdbf009f484006080ceceb4"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution?startTime=2026-03-29T15%3A00%3A00Z&format=json",
+      "file": "evo_xcheck_2026-03-29T15Z.json",
+      "cached": false,
+      "fetched_utc": "2026-11-24T11:40:27.148711+00:00",
+      "http_status": 200,
+      "bytes": 3526,
+      "sha256": "4d67f52168e91073fc809f2cc2b29b3b8221e13571850c08a413458456e38936"
+    }
+  ]
+}
