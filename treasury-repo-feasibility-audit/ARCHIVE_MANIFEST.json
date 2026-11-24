@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "archive_folder": "treasury-repo-feasibility-audit",
+  "status": "closed_pre_outcome_feasibility_audit",
+  "authored_date": "2026-11-24",
+  "zero_repo_outcomes_read_or_fitted": true,
+  "scope_disclaimer": "Closed pre-outcome real-time availability, auction accounting-identity, and analytical planning-power audit for a prospective public-data U.S. Treasury auction take-up vs. OFR STFM overnight repo pricing design. Zero repo rate outcomes (Y) were ever read, inspected, or fitted. Stage 0C MDE/power tables are analytical planning assumptions, not a detected null effect or power proof; cited Anbil et al. Table 2 magnitudes are net-issuance / hedge-fund funding analogies, not this specific dealer-allocation signal. STAGE1_PROTOCOL.md is explicitly superseded and unexecuted. Contains zero raw rate extracts, zero individual NY Fed or OFR observation values, zero credentials/prompts/logs/PDFs.",
+  "line_ending_policy": "Preserve exact archived byte sequences via .gitattributes ('* -text').",
+  "runtime_dependencies": {
+    "python": "3.14.10 (tested environment)",
+    "packages": [
+      {
+        "name": "numpy",
+        "tested_version": "2.5.3"
+      },
+      {
+        "name": "scipy",
+        "tested_version": "1.18.1"
+      }
+    ]
+  },
+  "official_links": {
+    "ofr_stfm_docs": "https://www.financialresearch.gov/short-term-funding-monitor/documentation/",
+    "ofr_stfm_repo_dataset": "https://www.financialresearch.gov/short-term-funding-monitor/datasets/repo/",
+    "treasury_fiscal_data_api": "https://fiscaldata.treasury.gov/api-documentation/",
+    "nyfed_markets_api": "https://markets.newyorkfed.org/static/docs/markets-api.html",
+    "nyfed_pd_stats": "https://www.newyorkfed.org/markets/counterparties/primary-dealers-statistics",
+    "nyfed_terms_of_use": "https://www.newyorkfed.org/termsofuse",
+    "glicoes_2026_doi": "https://doi.org/10.17016/2380-7172.4077",
+    "cordes_infante_doi": "https://doi.org/10.17016/2380-7172.3707"
+  },
+  "file_count_excluding_manifest": 14,
+  "file_count_including_manifest": 15,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "CLOSURE_PRE_OUTCOME_POWER.md",
+      "bytes": 8663,
+      "sha256": "7ec4362289f6f8cb76fc326b7a8184baf0c973e3ffe2358723638c7e0384f934"
+    },
+    {
+      "path": "PROPOSAL_AND_FEASIBILITY_PLAN.md",
+      "bytes": 7601,
+      "sha256": "58a1da3513ff626b83a8a598594281848c42758f02aaad25e517f30ecd4104b0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9007,
+      "sha256": "9c09e293619f12991a61de3f212bd219bcddedfa72b6303e3f2301cf1b441624"
+    },
+    {
+      "path": "STAGE1_PROTOCOL.md",
+      "bytes": 8814,
+      "sha256": "11b7b5d5d3343f2336c2a5dc9838ae3c9fdbeed18b17a0d77e3c1eba93d3e1d8"
+    },
+    {
+      "path": "audit/data_feasibility_pilot.json",
+      "bytes": 7450,
+      "sha256": "363b13c58860873f2727adae78f43af43be95ce1768a073e3142e7aa3c767540"
+    },
+    {
+      "path": "audit/data_feasibility_pilot.py",
+      "bytes": 12208,
+      "sha256": "41dabab45ca43b8c1f00cccfe016cfb75d812dcc4c0bdba6e121a32a0ec9eba2"
+    },
+    {
+      "path": "audit/stage0_corrected_feasibility.json",
+      "bytes": 29195,
+      "sha256": "7f12bb36d475851cb654eb3bcd5cccdc9b17772a39014d637cc74354a98e842b"
+    },
+    {
+      "path": "audit/stage0_corrected_feasibility.py",
+      "bytes": 30558,
+      "sha256": "c701efbc0d2117bc2eb731d539353fee5e6427c2ee7b4e73615c44c517a8dd5e"
+    },
+    {
+      "path": "audit/stage0b_precision_overlap_audit.json",
+      "bytes": 32865,
+      "sha256": "37f6a691ec2406cb4498cc6df6cadb32b5b06bf7b70569706e44b9bc84b2e6d7"
+    },
+    {
+      "path": "audit/stage0b_precision_overlap_audit.py",
+      "bytes": 35828,
+      "sha256": "39c4fca5e40a64134e8cdb913268be64bed6dca0053a49b266a4fa99cfc7b5f9"
+    },
+    {
+      "path": "audit/stage0c_availability_and_power_audit.json",
+      "bytes": 11248,
+      "sha256": "4a7fcb814c52282c8659abe325e912b6e54c420e4f9fdfed6d04cdec63ea22c4"
+    },
+    {
+      "path": "audit/stage0c_availability_and_power_audit.py",
+      "bytes": 17941,
+      "sha256": "a37ee15550b9c0692fcdd01f66f0840c4f34b7525a9d74a3e268a4ca3d52defd"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 27,
+      "sha256": "6e69ffe6f7841e5d8aea3f05a4bf77c60055d3b0717fcccbb31fd19647e07b7b"
+    }
+  ]
+}

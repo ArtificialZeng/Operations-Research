@@ -1,0 +1,952 @@
+{
+  "stage": "stage_0b_outcome_blind_precision_overlap_audit",
+  "zero_repo_outcomes_fitted_or_inspected": true,
+  "forecast_cutoff_definition": {
+    "named_cutoff": "Prior NY business day (t - 1) at 5:00 PM ET (17:00 America/New_York)",
+    "auction_results_rule": "auction_date <= t - 1 (official Treasury results ~1:00 PM ET on auction_date)",
+    "buyback_results_rule": "operation_date <= t - 1 (closes 2:00 PM ET on operation_date)",
+    "on_rrp_rule": "operationDate == t - 1 (closes 1:15 PM ET on t - 1)",
+    "ofr_dvp_p_lag_rule": "observation date <= t - 2 business days (1-bday lag, published 3:00 PM ET on t - 1)",
+    "ofr_tri_p_lag_rule": "observation date <= t - 3 business days (2-bday lag, published 3:00 PM ET on t - 1)",
+    "nyfed_sofr_tgcr_lag_rule": "effectiveDate <= t - 2 business days (published 8:00 AM ET on t - 1)",
+    "nyfed_pd_holdings_rule": "latest Wednesday asofdate whose Thursday 4:15 PM ET release (next NY bday >= asofdate + 8 cal days) <= t - 1, staleness <= 21 cal days; zero forward-fill of unpublished snapshots"
+  },
+  "ofr_official_metadata_and_nonnull_counts": {
+    "REPO-DVP_AR_OO-F": {
+      "mnemonic": "REPO-DVP_AR_OO-F",
+      "meta_http_status": 200,
+      "data_http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.946,
+      "official_metadata": {
+        "description": {
+          "vintage_approach": "Final",
+          "vintage": "Final",
+          "notes": "The interest rate information published in this release is provided for informational purposes only. In particular, the rate information is not administered to International Organization of Securities Commissions (IOSCO) standards and is not intended to be referenced in contracts. Missing values in this series represent observation periods in which either no trading took place or in which disclosure edits were applied to protect business-confidential information.",
+          "name": "DVP Service Average Rate: Overnight/Open (Final)",
+          "subsetting": "Tenor",
+          "subtype": "Interest Rate",
+          "description": "Volume-weighted mean interest rate of overnight and open repurchase agreements in the Fixed Income Clearing Corporation's DVP Service"
+        },
+        "release": {
+          "long_name": "OFR U.S. Repo Markets Data Release",
+          "href": "/short-term-funding-monitor/datasets/repo/",
+          "frequency": "Daily",
+          "short_name": "U.S. Repo Markets"
+        },
+        "schedule": {
+          "observation_period": "Single Day",
+          "seasonal_adjustment": "None",
+          "observation_frequency": "Daily",
+          "start_date": "2018-05-07",
+          "last_update": "2026-06-30"
+        },
+        "rights": {
+          "description": ""
+        },
+        "notes": null,
+        "raw_top_keys": [
+          "children",
+          "description",
+          "mnemonic",
+          "parents",
+          "release",
+          "rights",
+          "schedule",
+          "unit"
+        ]
+      },
+      "nonnull_count_total": 1947,
+      "null_count_total": 87,
+      "nonnull_min_date": "2018-05-08",
+      "nonnull_max_date": "2026-06-30",
+      "null_dates_sample": [
+        "2018-05-07",
+        "2018-06-27",
+        "2018-07-26",
+        "2018-09-19",
+        "2018-09-24",
+        "2018-09-27",
+        "2018-12-26",
+        "2018-12-31",
+        "2019-03-29",
+        "2019-04-24",
+        "2019-06-27",
+        "2019-09-18",
+        "2019-12-26",
+        "2019-12-30",
+        "2020-02-11",
+        "2020-05-05",
+        "2020-06-22",
+        "2020-06-29",
+        "2020-08-10",
+        "2020-09-21",
+        "2020-09-25",
+        "2020-09-28",
+        "2020-09-29",
+        "2020-11-04",
+        "2020-11-05"
+      ]
+    },
+    "REPO-TRI_AR_OO-F": {
+      "mnemonic": "REPO-TRI_AR_OO-F",
+      "meta_http_status": 200,
+      "data_http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.602,
+      "official_metadata": {
+        "description": {
+          "vintage_approach": "Final",
+          "vintage": "Final",
+          "notes": "The interest rate information published in this release is provided for informational purposes only. In particular, the rate information is not administered to International Organization of Securities Commissions (IOSCO) standards and is not intended to be referenced in contracts. Missing values in this series represent observation periods in which either no trading took place or in which disclosure edits were applied to protect business-confidential information.",
+          "name": "Tri-Party Average Rate: Overnight/Open (Final)",
+          "subsetting": "Tenor",
+          "subtype": "Interest Rate",
+          "description": "Volume-weighted mean interest rate of overnight and open repurchase agreements that were settled in tri-party repo"
+        },
+        "release": {
+          "long_name": "OFR U.S. Repo Markets Data Release",
+          "href": "/short-term-funding-monitor/datasets/repo/",
+          "frequency": "Daily",
+          "short_name": "U.S. Repo Markets"
+        },
+        "schedule": {
+          "observation_period": "Single Day",
+          "seasonal_adjustment": "None",
+          "observation_frequency": "Daily",
+          "start_date": "2014-08-22",
+          "last_update": "2026-06-30"
+        },
+        "rights": {
+          "description": ""
+        },
+        "notes": null,
+        "raw_top_keys": [
+          "children",
+          "description",
+          "mnemonic",
+          "parents",
+          "release",
+          "rights",
+          "schedule",
+          "unit"
+        ]
+      },
+      "nonnull_count_total": 2942,
+      "null_count_total": 0,
+      "nonnull_min_date": "2014-08-22",
+      "nonnull_max_date": "2026-06-30",
+      "null_dates_sample": []
+    },
+    "REPO-TRIV1_AR_OO-F": {
+      "mnemonic": "REPO-TRIV1_AR_OO-F",
+      "meta_http_status": 200,
+      "data_http_status": 200,
+      "error": null,
+      "elapsed_seconds": 1.112,
+      "official_metadata": {
+        "description": {
+          "vintage_approach": "Final",
+          "vintage": "Final",
+          "notes": "The interest rate information published in this release is provided for informational purposes only. In particular, the rate information is not administered to International Organization of Securities Commissions (IOSCO) standards and is not intended to be referenced in contracts. Missing values in this series represent observation periods in which either no trading took place or in which disclosure edits were applied to protect business-confidential information.",
+          "name": "Tri-Party Average Rate, excluding Federal Reserve transactions: Overnight/Open (Final)",
+          "subsetting": "Tenor",
+          "subtype": "Interest Rate",
+          "description": "Volume-weighted mean interest rate of overnight and open repurchase agreements that were settled in tri-party repo, after excluding transactions with the Federal Reserve"
+        },
+        "release": {
+          "long_name": "OFR U.S. Repo Markets Data Release",
+          "href": "/short-term-funding-monitor/datasets/repo/",
+          "frequency": "Daily",
+          "short_name": "U.S. Repo Markets"
+        },
+        "schedule": {
+          "observation_period": "Single Day",
+          "seasonal_adjustment": "None",
+          "observation_frequency": "Daily",
+          "start_date": "2014-08-22",
+          "last_update": "2026-06-30"
+        },
+        "rights": {
+          "description": ""
+        },
+        "notes": null,
+        "raw_top_keys": [
+          "children",
+          "description",
+          "mnemonic",
+          "parents",
+          "release",
+          "rights",
+          "schedule",
+          "unit"
+        ]
+      },
+      "nonnull_count_total": 2935,
+      "null_count_total": 0,
+      "nonnull_min_date": "2014-08-22",
+      "nonnull_max_date": "2026-06-30",
+      "null_dates_sample": []
+    },
+    "REPO-DVP_AR_OO-P": {
+      "mnemonic": "REPO-DVP_AR_OO-P",
+      "meta_http_status": 200,
+      "data_http_status": 200,
+      "error": null,
+      "elapsed_seconds": 1.46,
+      "official_metadata": {
+        "description": {
+          "vintage_approach": "Preliminary",
+          "vintage": "Preliminary",
+          "notes": "The interest rate information published in this release is provided for informational purposes only. In particular, the rate information is not administered to International Organization of Securities Commissions (IOSCO) standards and is not intended to be referenced in contracts. Missing values in this series represent observation periods in which either no trading took place or in which disclosure edits were applied to protect business-confidential information.",
+          "description": "Volume-weighted mean interest rate of overnight and open repurchase agreements in the Fixed Income Clearing Corporation's DVP Service",
+          "subsetting": "Tenor",
+          "subtype": "Interest Rate",
+          "name": "DVP Service Average Rate: Overnight/Open (Preliminary)"
+        },
+        "release": {
+          "long_name": "OFR U.S. Repo Markets Data Release",
+          "href": "/short-term-funding-monitor/datasets/repo/",
+          "frequency": "Daily",
+          "short_name": "U.S. Repo Markets"
+        },
+        "schedule": {
+          "observation_period": "Single Day",
+          "seasonal_adjustment": "None",
+          "observation_frequency": "Daily",
+          "start_date": "2018-05-07",
+          "last_update": "2026-11-23 15:03:34"
+        },
+        "rights": {
+          "description": ""
+        },
+        "notes": null,
+        "raw_top_keys": [
+          "children",
+          "description",
+          "mnemonic",
+          "parents",
+          "release",
+          "rights",
+          "schedule",
+          "unit"
+        ]
+      },
+      "nonnull_count_total": 2037,
+      "null_count_total": 96,
+      "nonnull_min_date": "2018-05-08",
+      "nonnull_max_date": "2026-11-20",
+      "null_dates_sample": [
+        "2018-05-07",
+        "2018-06-27",
+        "2018-07-26",
+        "2018-09-19",
+        "2018-09-24",
+        "2018-09-27",
+        "2018-12-26",
+        "2018-12-31",
+        "2019-03-29",
+        "2019-04-24",
+        "2019-06-27",
+        "2019-09-18",
+        "2019-12-26",
+        "2019-12-30",
+        "2020-02-11",
+        "2020-05-05",
+        "2020-06-22",
+        "2020-06-29",
+        "2020-08-06",
+        "2020-08-10",
+        "2020-09-21",
+        "2020-09-25",
+        "2020-09-28",
+        "2020-09-29",
+        "2020-11-04"
+      ]
+    },
+    "REPO-TRI_AR_OO-P": {
+      "mnemonic": "REPO-TRI_AR_OO-P",
+      "meta_http_status": 200,
+      "data_http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.598,
+      "official_metadata": {
+        "description": {
+          "vintage_approach": "Preliminary",
+          "vintage": "Preliminary",
+          "notes": "The interest rate information published in this release is provided for informational purposes only. In particular, the rate information is not administered to International Organization of Securities Commissions (IOSCO) standards and is not intended to be referenced in contracts. Missing values in this series represent observation periods in which either no trading took place or in which disclosure edits were applied to protect business-confidential information.",
+          "description": "Volume-weighted mean interest rate of overnight and open repurchase agreements that were settled in tri-party repo",
+          "subsetting": "Tenor",
+          "subtype": "Interest Rate",
+          "name": "Tri-Party Average Rate: Overnight/Open (Preliminary)"
+        },
+        "release": {
+          "long_name": "OFR U.S. Repo Markets Data Release",
+          "href": "/short-term-funding-monitor/datasets/repo/",
+          "frequency": "Daily",
+          "short_name": "U.S. Repo Markets"
+        },
+        "schedule": {
+          "observation_period": "Single Day",
+          "seasonal_adjustment": "None",
+          "observation_frequency": "Daily",
+          "start_date": "2014-08-22",
+          "last_update": "2026-11-23 15:23:27"
+        },
+        "rights": {
+          "description": ""
+        },
+        "notes": null,
+        "raw_top_keys": [
+          "children",
+          "description",
+          "mnemonic",
+          "parents",
+          "release",
+          "rights",
+          "schedule",
+          "unit"
+        ]
+      },
+      "nonnull_count_total": 3039,
+      "null_count_total": 0,
+      "nonnull_min_date": "2014-08-22",
+      "nonnull_max_date": "2026-11-19",
+      "null_dates_sample": []
+    },
+    "REPO-TRIV1_AR_OO-P": {
+      "mnemonic": "REPO-TRIV1_AR_OO-P",
+      "meta_http_status": 200,
+      "data_http_status": 200,
+      "error": null,
+      "elapsed_seconds": 1.105,
+      "official_metadata": {
+        "description": {
+          "vintage_approach": "Preliminary",
+          "vintage": "Preliminary",
+          "notes": "The interest rate information published in this release is provided for informational purposes only. In particular, the rate information is not administered to International Organization of Securities Commissions (IOSCO) standards and is not intended to be referenced in contracts. Missing values in this series represent observation periods in which either no trading took place or in which disclosure edits were applied to protect business-confidential information.",
+          "description": "Volume-weighted mean interest rate of overnight and open repurchase agreements that were settled in tri-party repo, after excluding transactions with the Federal Reserve",
+          "subsetting": "Tenor",
+          "subtype": "Interest Rate",
+          "name": "Tri-Party Average Rate, excluding Federal Reserve transactions: Overnight/Open (Preliminary)"
+        },
+        "release": {
+          "long_name": "OFR U.S. Repo Markets Data Release",
+          "href": "/short-term-funding-monitor/datasets/repo/",
+          "frequency": "Daily",
+          "short_name": "U.S. Repo Markets"
+        },
+        "schedule": {
+          "observation_period": "Single Day",
+          "seasonal_adjustment": "None",
+          "observation_frequency": "Daily",
+          "start_date": "2014-08-22",
+          "last_update": "2026-11-23 15:25:20"
+        },
+        "rights": {
+          "description": ""
+        },
+        "notes": null,
+        "raw_top_keys": [
+          "children",
+          "description",
+          "mnemonic",
+          "parents",
+          "release",
+          "rights",
+          "schedule",
+          "unit"
+        ]
+      },
+      "nonnull_count_total": 3033,
+      "null_count_total": 0,
+      "nonnull_min_date": "2014-08-22",
+      "nonnull_max_date": "2026-11-19",
+      "null_dates_sample": []
+    },
+    "REPO-TRI_AR_T-F": {
+      "mnemonic": "REPO-TRI_AR_T-F",
+      "meta_http_status": 200,
+      "data_http_status": 200,
+      "error": null,
+      "elapsed_seconds": 1.024,
+      "official_metadata": {
+        "description": {
+          "vintage_approach": "Final",
+          "vintage": "Final",
+          "notes": "The interest rate information published in this release is provided for informational purposes only. In particular, the rate information is not administered to International Organization of Securities Commissions (IOSCO) standards and is not intended to be referenced in contracts. Missing values in this series represent observation periods in which either no trading took place or in which disclosure edits were applied to protect business-confidential information.",
+          "name": "Tri-Party Average Rate: U.S. Treasury Securities (Final)",
+          "subsetting": "Collateral",
+          "subtype": "Interest Rate",
+          "description": "Volume-weighted mean interest rate of repurchase agreements starting on a given day and secured by U.S. Treasuries that were settled in tri-party repo"
+        },
+        "release": {
+          "long_name": "OFR U.S. Repo Markets Data Release",
+          "href": "/short-term-funding-monitor/datasets/repo/",
+          "frequency": "Daily",
+          "short_name": "U.S. Repo Markets"
+        },
+        "schedule": {
+          "observation_period": "Single Day",
+          "seasonal_adjustment": "None",
+          "observation_frequency": "Daily",
+          "start_date": "2014-08-22",
+          "last_update": "2026-06-30"
+        },
+        "rights": {
+          "description": ""
+        },
+        "notes": null,
+        "raw_top_keys": [
+          "children",
+          "description",
+          "mnemonic",
+          "parents",
+          "release",
+          "rights",
+          "schedule",
+          "unit"
+        ]
+      },
+      "nonnull_count_total": 2942,
+      "null_count_total": 0,
+      "nonnull_min_date": "2014-08-22",
+      "nonnull_max_date": "2026-06-30",
+      "null_dates_sample": []
+    }
+  },
+  "ofr_paired_nonnull_calendar_counts": {
+    "primary_F_pair_DVP_and_TRI_OO_F": {
+      "count": 1947,
+      "min_date": "2018-05-08",
+      "max_date": "2026-06-30"
+    },
+    "exfed_F_pair_DVP_and_TRIV1_OO_F": {
+      "count": 1942,
+      "min_date": "2018-05-08",
+      "max_date": "2026-06-30"
+    },
+    "robustness_P_pair_DVP_and_TRI_OO_P": {
+      "count": 2035,
+      "min_date": "2018-05-08",
+      "max_date": "2026-11-19"
+    }
+  },
+  "treasury_key_and_security_class_audit": {
+    "total_note_bond_rows_2018_2026": 907,
+    "unique_raw_issue_dates": 283,
+    "duplicate_cusip_auction_issue_keys": {},
+    "distinct_cusips": 584,
+    "cusips_appearing_multiple_times_reopenings": 173,
+    "reopening_flag_distribution": {
+      "No": 574,
+      "Yes": 333
+    },
+    "security_subclass_counts": {
+      "nominal_fixed_coupon": 698,
+      "frn": 105,
+      "tips": 104
+    },
+    "high_yield_null_by_subclass": {
+      "frn": 105,
+      "nominal_fixed_coupon": 1,
+      "tips": 1
+    },
+    "tiny_rows_under_1B": [
+      {
+        "cusip": "9128286T2",
+        "security_type": "Note",
+        "security_term": "9-Year 11-Month",
+        "class": "nominal_fixed_coupon",
+        "auction_date": "2019-06-21",
+        "issue_date": "2019-06-26",
+        "total_accepted": 25000400.0,
+        "primary_dealer_accepted": 25000400.0
+      },
+      {
+        "cusip": "912828YN4",
+        "security_type": "Note",
+        "security_term": "1-Year 11-Month",
+        "class": "frn",
+        "auction_date": "2019-12-06",
+        "issue_date": "2019-12-09",
+        "total_accepted": 25000200.0,
+        "primary_dealer_accepted": 25000200.0
+      },
+      {
+        "cusip": "912828ZJ2",
+        "security_type": "Note",
+        "security_term": "4-Year 10-Month",
+        "class": "tips",
+        "auction_date": "2020-07-10",
+        "issue_date": "2020-07-13",
+        "total_accepted": 25000000.0,
+        "primary_dealer_accepted": 25000000.0
+      },
+      {
+        "cusip": "912810TC2",
+        "security_type": "Bond",
+        "security_term": "19-Year 11-Month",
+        "class": "nominal_fixed_coupon",
+        "auction_date": "2021-12-02",
+        "issue_date": "2021-12-06",
+        "total_accepted": 25000100.0,
+        "primary_dealer_accepted": 25000100.0
+      },
+      {
+        "cusip": "91282CEL1",
+        "security_type": "Note",
+        "security_term": "1-Year 10-Month",
+        "class": "frn",
+        "auction_date": "2022-07-14",
+        "issue_date": "2022-07-18",
+        "total_accepted": 25000000.0,
+        "primary_dealer_accepted": 25000000.0
+      }
+    ],
+    "nominal_fixed_coupon_rows_dropped_pre_join": {
+      "pending_or_null_accepted": 1
+    },
+    "unique_nominal_fixed_coupon_issue_dates": 211
+  },
+  "pre_known_net_supply_provability_audit": {
+    "maturing_note_bond_rows_in_2018_2026_meta_count": 734,
+    "maturing_sample_earliest_issue_date": "1988-05-16",
+    "buybacks_2018_2026_count": 185,
+    "buybacks_strict_pre_settlement_count": 185,
+    "nyfed_soma_summary_http_status": 200,
+    "nyfed_soma_summary_weekly_snapshots": 1220,
+    "nyfed_pd_PDPOSGST_TOT_http_status": 200,
+    "nyfed_pd_PDPOSGST_TOT_obs_count": 711,
+    "nyfed_pd_min_max_asofdate": [
+      "2013-04-03",
+      "2026-11-11"
+    ],
+    "nyfed_pd_sample_keys_no_value": {
+      "asofdate": "2013-04-03",
+      "keyid": "PDPOSGST-TOT"
+    },
+    "timestamp_safety_finding": "Gross private issuance (total_accepted - soma_accepted) for auctions with auction_date <= t - 1, scheduled total maturing par from prior auctions (maturity_date == t), and buybacks with operation_date <= t - 1 are strictly provable as-of (t - 1, 17:00 ET). Exact SOMA holdings at maturity of older CUSIPs altered by intervening secondary-market QE/QT purchases cannot be reconstructed from auctions_query soma_accepted alone without CUSIP-level weekly SOMA snapshots aligned to Thursday release timestamps; therefore Stage 1 specifies a strictly timestamp-safe gross-private-minus-scheduled-maturing-par-minus-buybacks net supply benchmark (plus separate gross private coupon issuance) and discloses the exact SOMA-at-maturity limitation."
+  },
+  "settlement_date_overlap_waterfall": {
+    "step0_raw_note_bond_unique_issue_dates": 283,
+    "step1_clean_nominal_fixed_coupon_unique_issue_dates": 211,
+    "step2_primary_F_pair_nonnull_only": 198,
+    "step3_primary_F_pair_nonnull_plus_all_verified_pre_cutoff_controls": 187,
+    "primary_F_drop_attribution_from_step1": {
+      "before_ofr_dvp_start_2018_05_07": 3,
+      "lagged_ofr_dvp_p_t_minus_2_null_or_missing": 11,
+      "ofr_dvp_final_explicit_null_gap": 1,
+      "after_ofr_final_max_date_2026_06_30": 9
+    },
+    "primary_F_dropped_date_examples": {
+      "before_ofr_dvp_start_2018_05_07": [
+        "2018-04-02",
+        "2018-04-16",
+        "2018-04-30"
+      ],
+      "lagged_ofr_dvp_p_t_minus_2_null_or_missing": [
+        "2018-10-01",
+        "2019-07-01",
+        "2020-09-30",
+        "2021-06-30",
+        "2021-09-15",
+        "2023-02-15",
+        "2023-03-31",
+        "2024-07-31"
+      ],
+      "ofr_dvp_final_explicit_null_gap": [
+        "2018-12-31"
+      ],
+      "after_ofr_final_max_date_2026_06_30": [
+        "2026-07-15",
+        "2026-07-24",
+        "2026-07-31",
+        "2026-08-17",
+        "2026-08-31",
+        "2026-09-15",
+        "2026-09-18",
+        "2026-09-30"
+      ]
+    },
+    "robustness_P_step2_pair_nonnull_only": 207,
+    "robustness_P_step3_pair_nonnull_plus_all_verified_pre_cutoff_controls": 196,
+    "robustness_P_drop_attribution_from_step1": {
+      "before_ofr_dvp_start_2018_05_07": 3,
+      "lagged_ofr_dvp_p_t_minus_2_null_or_missing": 11,
+      "ofr_dvp_prelim_explicit_null_gap": 1
+    }
+  },
+  "per_year_support": {
+    "2018": {
+      "nominal_coupon_issue_dates": 19,
+      "ofr_F_paired_nonnull_only": 15,
+      "ofr_F_paired_nonnull_plus_all_pre_cutoff_controls": 14,
+      "ofr_P_paired_nonnull_only": 15,
+      "ofr_P_paired_nonnull_plus_all_pre_cutoff_controls": 14
+    },
+    "2019": {
+      "nominal_coupon_issue_dates": 25,
+      "ofr_F_paired_nonnull_only": 25,
+      "ofr_F_paired_nonnull_plus_all_pre_cutoff_controls": 24,
+      "ofr_P_paired_nonnull_only": 25,
+      "ofr_P_paired_nonnull_plus_all_pre_cutoff_controls": 24
+    },
+    "2020": {
+      "nominal_coupon_issue_dates": 24,
+      "ofr_F_paired_nonnull_only": 24,
+      "ofr_F_paired_nonnull_plus_all_pre_cutoff_controls": 23,
+      "ofr_P_paired_nonnull_only": 24,
+      "ofr_P_paired_nonnull_plus_all_pre_cutoff_controls": 23
+    },
+    "2021": {
+      "nominal_coupon_issue_dates": 25,
+      "ofr_F_paired_nonnull_only": 25,
+      "ofr_F_paired_nonnull_plus_all_pre_cutoff_controls": 23,
+      "ofr_P_paired_nonnull_only": 25,
+      "ofr_P_paired_nonnull_plus_all_pre_cutoff_controls": 23
+    },
+    "2022": {
+      "nominal_coupon_issue_dates": 23,
+      "ofr_F_paired_nonnull_only": 23,
+      "ofr_F_paired_nonnull_plus_all_pre_cutoff_controls": 23,
+      "ofr_P_paired_nonnull_only": 23,
+      "ofr_P_paired_nonnull_plus_all_pre_cutoff_controls": 23
+    },
+    "2023": {
+      "nominal_coupon_issue_dates": 24,
+      "ofr_F_paired_nonnull_only": 24,
+      "ofr_F_paired_nonnull_plus_all_pre_cutoff_controls": 22,
+      "ofr_P_paired_nonnull_only": 24,
+      "ofr_P_paired_nonnull_plus_all_pre_cutoff_controls": 22
+    },
+    "2024": {
+      "nominal_coupon_issue_dates": 25,
+      "ofr_F_paired_nonnull_only": 25,
+      "ofr_F_paired_nonnull_plus_all_pre_cutoff_controls": 22,
+      "ofr_P_paired_nonnull_only": 25,
+      "ofr_P_paired_nonnull_plus_all_pre_cutoff_controls": 22
+    },
+    "2025": {
+      "nominal_coupon_issue_dates": 24,
+      "ofr_F_paired_nonnull_only": 24,
+      "ofr_F_paired_nonnull_plus_all_pre_cutoff_controls": 23,
+      "ofr_P_paired_nonnull_only": 24,
+      "ofr_P_paired_nonnull_plus_all_pre_cutoff_controls": 23
+    },
+    "2026": {
+      "nominal_coupon_issue_dates": 22,
+      "ofr_F_paired_nonnull_only": 13,
+      "ofr_F_paired_nonnull_plus_all_pre_cutoff_controls": 13,
+      "ofr_P_paired_nonnull_only": 22,
+      "ofr_P_paired_nonnull_plus_all_pre_cutoff_controls": 22
+    }
+  },
+  "effective_holdout_counts": {
+    "primary_F_2024_01_to_2026_06_30": 58,
+    "primary_F_2023_07_to_2026_06_30": 69,
+    "primary_F_train_before_2024_01": 129,
+    "primary_F_train_before_2023_07": 118,
+    "robustness_P_2024_01_to_2026_11": 67,
+    "robustness_P_2023_07_to_2026_11": 78
+  },
+  "clean_nominal_x_side_conditional_variation": {
+    "primary_F_full_matched": {
+      "label": "primary_F_clean_nominal_matched",
+      "n_dates": 187,
+      "min_date": "2018-05-15",
+      "max_date": "2026-06-30",
+      "raw_private_pd_share_pct": {
+        "n": 187,
+        "mean": 21.250815,
+        "std": 11.344622,
+        "min": 7.27699,
+        "p10": 11.314455,
+        "p25": 13.374912,
+        "p50": 19.100194,
+        "p75": 26.906237,
+        "p90": 32.069981,
+        "max": 100.0,
+        "iqr": 13.531325
+      },
+      "cond_residual_private_pd_share_pct": {
+        "n": 187,
+        "mean": 0.0,
+        "std": 5.679488,
+        "min": -12.632186,
+        "p10": -7.247605,
+        "p25": -4.553895,
+        "p50": -0.230787,
+        "p75": 4.357219,
+        "p90": 7.108473,
+        "max": 17.764745,
+        "iqr": 8.911114
+      },
+      "r2_amt_tenor_cal_on_pd_share": 0.7494,
+      "raw_pd_billions": {
+        "n": 187,
+        "mean": 25.104966,
+        "std": 10.391685,
+        "min": 0.025,
+        "p10": 14.484419,
+        "p25": 18.638816,
+        "p50": 23.910472,
+        "p75": 29.646354,
+        "p90": 37.352301,
+        "max": 68.26203,
+        "iqr": 11.007538
+      },
+      "cond_residual_pd_billions": {
+        "n": 187,
+        "mean": 0.0,
+        "std": 6.932061,
+        "min": -15.902915,
+        "p10": -8.762735,
+        "p25": -4.933191,
+        "p50": 0.323403,
+        "p75": 4.789331,
+        "p90": 8.700941,
+        "max": 22.704904,
+        "iqr": 9.722522
+      },
+      "r2_amt_tenor_cal_on_pd_billions": 0.555,
+      "weighted_tail_bps_nonnull_count": 187,
+      "weighted_tail_bps_stats": {
+        "n": 187,
+        "mean": 5.282151,
+        "std": 1.370894,
+        "min": 0.5,
+        "p10": 3.710384,
+        "p25": 4.363142,
+        "p50": 5.306042,
+        "p75": 6.111235,
+        "p90": 7.22764,
+        "max": 8.742017,
+        "iqr": 1.748092
+      }
+    },
+    "primary_F_post_2024_holdout": {
+      "label": "primary_F_post_2024_holdout",
+      "n_dates": 58,
+      "min_date": "2024-01-02",
+      "max_date": "2026-06-30",
+      "raw_private_pd_share_pct": {
+        "n": 58,
+        "mean": 12.936453,
+        "std": 2.698974,
+        "min": 7.27699,
+        "p10": 9.522551,
+        "p25": 11.174993,
+        "p50": 12.452265,
+        "p75": 15.187479,
+        "p90": 16.355336,
+        "max": 20.405262,
+        "iqr": 4.012486
+      },
+      "cond_residual_private_pd_share_pct": {
+        "n": 58,
+        "mean": -0.0,
+        "std": 2.2122,
+        "min": -5.662826,
+        "p10": -2.747011,
+        "p25": -1.303726,
+        "p50": 0.005156,
+        "p75": 1.284263,
+        "p90": 2.347037,
+        "max": 7.465357,
+        "iqr": 2.587989
+      },
+      "r2_amt_tenor_cal_on_pd_share": 0.3282,
+      "raw_pd_billions": {
+        "n": 58,
+        "mean": 19.777054,
+        "std": 5.809157,
+        "min": 1.097,
+        "p10": 13.435625,
+        "p25": 16.217554,
+        "p50": 19.080862,
+        "p75": 23.168526,
+        "p90": 26.365012,
+        "max": 34.053452,
+        "iqr": 6.950972
+      },
+      "cond_residual_pd_billions": {
+        "n": 58,
+        "mean": -0.0,
+        "std": 3.299979,
+        "min": -6.533697,
+        "p10": -4.167724,
+        "p25": -1.997151,
+        "p50": -0.012544,
+        "p75": 1.734755,
+        "p90": 3.62597,
+        "max": 9.08887,
+        "iqr": 3.731906
+      },
+      "r2_amt_tenor_cal_on_pd_billions": 0.6773,
+      "weighted_tail_bps_nonnull_count": 58,
+      "weighted_tail_bps_stats": {
+        "n": 58,
+        "mean": 5.527647,
+        "std": 0.724661,
+        "min": 4.414285,
+        "p10": 4.77253,
+        "p25": 5.103968,
+        "p50": 5.45484,
+        "p75": 5.741693,
+        "p90": 6.308743,
+        "max": 8.742017,
+        "iqr": 0.637725
+      }
+    },
+    "primary_F_post_2023h2_holdout": {
+      "label": "primary_F_post_2023h2_holdout",
+      "n_dates": 69,
+      "min_date": "2023-07-17",
+      "max_date": "2026-06-30",
+      "raw_private_pd_share_pct": {
+        "n": 69,
+        "mean": 13.32764,
+        "std": 2.950886,
+        "min": 7.27699,
+        "p10": 9.607018,
+        "p25": 11.316536,
+        "p50": 12.699697,
+        "p75": 15.979488,
+        "p90": 17.106022,
+        "max": 20.706732,
+        "iqr": 4.662952
+      },
+      "cond_residual_private_pd_share_pct": {
+        "n": 69,
+        "mean": -0.0,
+        "std": 2.488559,
+        "min": -5.869629,
+        "p10": -3.282262,
+        "p25": -1.54674,
+        "p50": 0.025458,
+        "p75": 1.358819,
+        "p90": 3.05777,
+        "max": 7.258588,
+        "iqr": 2.905559
+      },
+      "r2_amt_tenor_cal_on_pd_share": 0.2888,
+      "raw_pd_billions": {
+        "n": 69,
+        "mean": 19.635491,
+        "std": 5.714081,
+        "min": 1.097,
+        "p10": 13.293976,
+        "p25": 16.471864,
+        "p50": 19.025296,
+        "p75": 23.075511,
+        "p90": 26.275054,
+        "max": 34.053452,
+        "iqr": 6.603647
+      },
+      "cond_residual_pd_billions": {
+        "n": 69,
+        "mean": 0.0,
+        "std": 3.563423,
+        "min": -6.612106,
+        "p10": -4.673242,
+        "p25": -2.122004,
+        "p50": -0.026907,
+        "p75": 2.037182,
+        "p90": 4.301001,
+        "max": 9.01049,
+        "iqr": 4.159186
+      },
+      "r2_amt_tenor_cal_on_pd_billions": 0.6111,
+      "weighted_tail_bps_nonnull_count": 69,
+      "weighted_tail_bps_stats": {
+        "n": 69,
+        "mean": 5.700667,
+        "std": 0.814711,
+        "min": 4.414285,
+        "p10": 4.803361,
+        "p25": 5.1952,
+        "p50": 5.564795,
+        "p75": 6.111585,
+        "p90": 6.669203,
+        "max": 8.742017,
+        "iqr": 0.916385
+      }
+    },
+    "robustness_P_post_2024_holdout": {
+      "label": "robustness_P_post_2024_holdout",
+      "n_dates": 67,
+      "min_date": "2024-01-02",
+      "max_date": "2026-10-15",
+      "raw_private_pd_share_pct": {
+        "n": 67,
+        "mean": 12.704222,
+        "std": 2.833903,
+        "min": 7.098142,
+        "p10": 9.306304,
+        "p25": 10.92077,
+        "p50": 12.193,
+        "p75": 14.844887,
+        "p90": 16.398095,
+        "max": 20.405262,
+        "iqr": 3.924118
+      },
+      "cond_residual_private_pd_share_pct": {
+        "n": 67,
+        "mean": 0.0,
+        "std": 2.467513,
+        "min": -5.742521,
+        "p10": -2.858796,
+        "p25": -1.297843,
+        "p50": -0.015961,
+        "p75": 1.463976,
+        "p90": 3.031831,
+        "max": 8.139662,
+        "iqr": 2.761819
+      },
+      "r2_amt_tenor_cal_on_pd_share": 0.2419,
+      "raw_pd_billions": {
+        "n": 67,
+        "mean": 18.801964,
+        "std": 6.658076,
+        "min": 1.097,
+        "p10": 10.535673,
+        "p25": 15.335502,
+        "p50": 18.996656,
+        "p75": 23.071504,
+        "p90": 25.657619,
+        "max": 34.053452,
+        "iqr": 7.736002
+      },
+      "cond_residual_pd_billions": {
+        "n": 67,
+        "mean": 0.0,
+        "std": 3.441284,
+        "min": -6.865087,
+        "p10": -4.575833,
+        "p25": -2.167839,
+        "p50": -0.114532,
+        "p75": 1.839217,
+        "p90": 3.940254,
+        "max": 9.750802,
+        "iqr": 4.007056
+      },
+      "r2_amt_tenor_cal_on_pd_billions": 0.7329,
+      "weighted_tail_bps_nonnull_count": 67,
+      "weighted_tail_bps_stats": {
+        "n": 67,
+        "mean": 5.504997,
+        "std": 0.718104,
+        "min": 4.3,
+        "p10": 4.754522,
+        "p25": 5.096353,
+        "p50": 5.422449,
+        "p75": 5.781629,
+        "p90": 6.309616,
+        "max": 8.742017,
+        "iqr": 0.685276
+      }
+    }
+  },
+  "total_elapsed_seconds": 19.326
+}

@@ -1,0 +1,243 @@
+{
+  "stage": "stage_0_bounded_data_feasibility_pilot_no_outcome_regressions",
+  "window": {
+    "start": "2024-01-01",
+    "end": "2025-12-31"
+  },
+  "nyfed_terms_notice": "SOFR, TGCR, BGCR, EFFR, and ON RRP data are subject to the Terms of Use posted at newyorkfed.org. The New York Fed is not responsible for any use of the data and does not sanction, endorse, or recommend this study.",
+  "endpoints": {
+    "sofr": {
+      "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2024-01-01&endDate=2025-12-31",
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.602,
+      "top_level_keys": [
+        "refRates"
+      ],
+      "record_count": 499,
+      "sample_keys": [
+        "effectiveDate",
+        "percentPercentile1",
+        "percentPercentile25",
+        "percentPercentile75",
+        "percentPercentile99",
+        "percentRate",
+        "revisionIndicator",
+        "type",
+        "volumeInBillions"
+      ],
+      "min_date": "2024-01-02",
+      "max_date": "2025-12-31",
+      "non_null_percentRate": 499,
+      "non_null_percentPercentile1": 499,
+      "non_null_percentPercentile25": 499,
+      "non_null_percentPercentile75": 499,
+      "non_null_percentPercentile99": 499,
+      "non_null_volumeInBillions": 499
+    },
+    "tgcr": {
+      "url": "https://markets.newyorkfed.org/api/rates/secured/tgcr/search.json?startDate=2024-01-01&endDate=2025-12-31",
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.69,
+      "top_level_keys": [
+        "refRates"
+      ],
+      "record_count": 499,
+      "sample_keys": [
+        "effectiveDate",
+        "percentPercentile1",
+        "percentPercentile25",
+        "percentPercentile75",
+        "percentPercentile99",
+        "percentRate",
+        "revisionIndicator",
+        "type",
+        "volumeInBillions"
+      ],
+      "min_date": "2024-01-02",
+      "max_date": "2025-12-31",
+      "non_null_percentRate": 499,
+      "non_null_percentPercentile1": 499,
+      "non_null_percentPercentile25": 499,
+      "non_null_percentPercentile75": 499,
+      "non_null_percentPercentile99": 499,
+      "non_null_volumeInBillions": 499
+    },
+    "bgcr": {
+      "url": "https://markets.newyorkfed.org/api/rates/secured/bgcr/search.json?startDate=2024-01-01&endDate=2025-12-31",
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.499,
+      "top_level_keys": [
+        "refRates"
+      ],
+      "record_count": 499,
+      "sample_keys": [
+        "effectiveDate",
+        "percentPercentile1",
+        "percentPercentile25",
+        "percentPercentile75",
+        "percentPercentile99",
+        "percentRate",
+        "revisionIndicator",
+        "type",
+        "volumeInBillions"
+      ],
+      "min_date": "2024-01-02",
+      "max_date": "2025-12-31",
+      "non_null_percentRate": 499,
+      "non_null_percentPercentile1": 499,
+      "non_null_percentPercentile25": 499,
+      "non_null_percentPercentile75": 499,
+      "non_null_percentPercentile99": 499,
+      "non_null_volumeInBillions": 499
+    },
+    "effr": {
+      "url": "https://markets.newyorkfed.org/api/rates/unsecured/effr/search.json?startDate=2024-01-01&endDate=2025-12-31",
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.55,
+      "top_level_keys": [
+        "refRates"
+      ],
+      "record_count": 501,
+      "sample_keys": [
+        "effectiveDate",
+        "percentPercentile1",
+        "percentPercentile25",
+        "percentPercentile75",
+        "percentPercentile99",
+        "percentRate",
+        "revisionIndicator",
+        "targetRateFrom",
+        "targetRateTo",
+        "type",
+        "volumeInBillions"
+      ],
+      "min_date": "2024-01-02",
+      "max_date": "2025-12-31",
+      "non_null_percentRate": 501,
+      "non_null_percentPercentile1": 501,
+      "non_null_percentPercentile25": 501,
+      "non_null_percentPercentile75": 501,
+      "non_null_percentPercentile99": 501,
+      "non_null_volumeInBillions": 501
+    },
+    "onrrp": {
+      "url": "https://markets.newyorkfed.org/api/rp/reverserepo/propositions/search.json?startDate=2024-01-01&endDate=2025-12-31",
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.51,
+      "top_level_keys": [
+        "repo"
+      ],
+      "record_count": 504,
+      "sample_keys": [
+        "note",
+        "operationDate",
+        "operationId",
+        "operationType",
+        "propositions",
+        "totalAmtAccepted"
+      ],
+      "min_date": "2024-01-02",
+      "max_date": "2025-12-31",
+      "non_null_totalAmtAccepted": 504
+    },
+    "treasury_auctions_coupons": {
+      "url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od/auctions_query?filter=issue_date:gte:2024-01-01,issue_date:lte:2025-12-31,security_type:in:(Note,Bond)&sort=issue_date&page[number]=1&page[size]=500",
+      "http_status": 200,
+      "error": null,
+      "elapsed_seconds": 0.937,
+      "total_count_meta": 220,
+      "total_pages_meta": 1,
+      "fetched_count": 220,
+      "num_schema_fields": 114,
+      "present_target_fields": {
+        "cusip": true,
+        "security_type": true,
+        "security_term": true,
+        "auction_date": true,
+        "record_date": true,
+        "issue_date": true,
+        "announcemt_date": true,
+        "offering_amt": true,
+        "total_accepted": true,
+        "primary_dealer_accepted": true,
+        "direct_bidder_accepted": true,
+        "indirect_bidder_accepted": true,
+        "high_yield": true,
+        "bid_to_cover_ratio": true
+      },
+      "date_like_fields": [
+        "announcemt_date",
+        "auction_date",
+        "back_dated",
+        "back_dated_date",
+        "call_date",
+        "called_date",
+        "dated_date",
+        "first_int_payment_date",
+        "frn_index_determination_date",
+        "index_ratio_on_issue_date",
+        "issue_date",
+        "mat_date",
+        "maturity_date",
+        "original_dated_date",
+        "original_issue_date",
+        "record_date",
+        "ref_cpi_on_dated_date",
+        "ref_cpi_on_issue_date"
+      ],
+      "yield_like_fields": [
+        "avg_med_discnt_rate",
+        "avg_med_investment_rate",
+        "avg_med_yield",
+        "floating_rate",
+        "frn_index_determination_rate",
+        "high_discnt_rate",
+        "high_investment_rate",
+        "high_yield",
+        "int_rate",
+        "low_discnt_rate",
+        "low_investment_rate",
+        "low_yield"
+      ]
+    }
+  },
+  "coupon_feasibility_audit": {
+    "coupon_auctions_fetched": 220,
+    "distinct_settlement_dates": 63,
+    "settlement_dates_matched_to_sofr_and_tgcr": 63,
+    "non_null_primary_dealer_accepted": 220,
+    "non_null_direct_bidder_accepted": 220,
+    "non_null_indirect_bidder_accepted": 220,
+    "non_null_total_accepted": 220,
+    "non_null_high_yield": 196,
+    "lag_issue_minus_auction_date_count": 220,
+    "lag_positive_count": 220,
+    "lag_min_median_max_days": [
+      2,
+      6.0,
+      14
+    ],
+    "dealer_share_count": 220,
+    "dealer_share_min_p25_p50_p75_max": [
+      0.0233,
+      0.0945,
+      0.1229,
+      0.1548,
+      0.5347
+    ],
+    "dealer_share_iqr_pct_points": 6.03
+  },
+  "stage_0_feasibility_gate": {
+    "all_endpoints_http_200": true,
+    "primary_dealer_non_null_rate": 1.0,
+    "positive_auction_to_settlement_lag_rate": 1.0,
+    "dealer_share_iqr_pct_points": 6.03,
+    "stage_0_cleared": true
+  },
+  "total_elapsed_seconds": 3.791
+}
