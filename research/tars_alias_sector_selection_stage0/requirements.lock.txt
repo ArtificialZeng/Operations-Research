@@ -1,0 +1,12 @@
+# Python 3.12.16 (MSC v.1944 64 bit AMD64)
+PyYAML==6.0.4
+astropy==8.0.3
+astropy-iers-data==0.2026.11.23.0.35.53
+numpy==2.5.5
+packaging==26.4
+pandas==3.1.1
+pyarrow==26.0.1
+pyerfa==2.0.1.5
+python-dateutil==4.0.0
+scipy==1.18.1
+tzdata==2026.6

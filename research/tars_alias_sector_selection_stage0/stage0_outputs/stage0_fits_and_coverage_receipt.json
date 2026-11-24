@@ -1,0 +1,669 @@
+{
+  "coverage_summary_label_blind": {
+    "k2": {
+      "rows_valid_ref_prot": 56320,
+      "unique_tics_valid_ref_prot": 16823,
+      "tics_ge2_sectors": 16074,
+      "tics_ge3_sectors_S1_plus_ge2_S2": 12126,
+      "tics_ge4_sectors": 6881,
+      "tics_ge5_sectors": 3284,
+      "sector_range": [
+        2,
+        96
+      ]
+    },
+    "mcquillan": {
+      "rows_valid_ref_prot": 62619,
+      "unique_tics_valid_ref_prot": 28574,
+      "tics_ge2_sectors": 19223,
+      "tics_ge3_sectors_S1_plus_ge2_S2": 9715,
+      "tics_ge4_sectors": 3679,
+      "tics_ge5_sectors": 1114,
+      "sector_range": [
+        14,
+        83
+      ]
+    }
+  },
+  "n_verified_fits": 13,
+  "verified_fits": [
+    {
+      "tic": 388814959,
+      "sector": 42,
+      "camera": 3,
+      "ccd": 2,
+      "filename": "hlsp_tars_tess_ffi_s0042-0000000388814959_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_42_cam_3_ccd_2/hlsp_tars_tess_ffi_s0042-0000000388814959_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 46080,
+      "sha256": "bcbb44e6e817a0f5ef91431f0527c8a2968d690163f9a698ae5ac5235f823144",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 2874,
+      "n_finite": 2874,
+      "t_start_btjd": 2447.701553,
+      "t_stop_btjd": 2472.876688,
+      "span_days": 25.17514,
+      "median_cadence_s": 600.04,
+      "exptime_hdr_s": 600,
+      "max_gap_days": 3.14603,
+      "n_gaps_gt_0p5d": 3,
+      "total_gap_gt_0p5d_days": 4.75725,
+      "flux_median": 0.999614,
+      "flux_iqr": 0.004201,
+      "benchmark_source": "k2"
+    },
+    {
+      "tic": 388814959,
+      "sector": 43,
+      "camera": 1,
+      "ccd": 1,
+      "filename": "hlsp_tars_tess_ffi_s0043-0000000388814959_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_43_cam_1_ccd_1/hlsp_tars_tess_ffi_s0043-0000000388814959_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 46080,
+      "sha256": "fe8b52143723860798e978449577b884897eef7574e5e3498f58dd15cf1f7c36",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 2794,
+      "n_finite": 2794,
+      "t_start_btjd": 2474.175252,
+      "t_stop_btjd": 2498.585608,
+      "span_days": 24.41036,
+      "median_cadence_s": 600.01,
+      "exptime_hdr_s": 600,
+      "max_gap_days": 3.3126,
+      "n_gaps_gt_0p5d": 2,
+      "total_gap_gt_0p5d_days": 4.97237,
+      "flux_median": 0.999944,
+      "flux_iqr": 0.003219,
+      "benchmark_source": "k2"
+    },
+    {
+      "tic": 388814959,
+      "sector": 70,
+      "camera": 2,
+      "ccd": 1,
+      "filename": "hlsp_tars_tess_ffi_s0070-0000000388814959_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_70_cam_2_ccd_1/hlsp_tars_tess_ffi_s0070-0000000388814959_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 129600,
+      "sha256": "ca6c75f19eac99003442bab3164c9752affec0e70789c4c02bfacf4e0e2e79c8",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 9788,
+      "n_finite": 9788,
+      "t_start_btjd": 3208.360351,
+      "t_stop_btjd": 3233.823696,
+      "span_days": 25.46334,
+      "median_cadence_s": 200.0,
+      "exptime_hdr_s": 200,
+      "max_gap_days": 2.1505,
+      "n_gaps_gt_0p5d": 1,
+      "total_gap_gt_0p5d_days": 2.1505,
+      "flux_median": 1.000083,
+      "flux_iqr": 0.005134,
+      "benchmark_source": "k2"
+    },
+    {
+      "tic": 178178730,
+      "sector": 44,
+      "camera": 4,
+      "ccd": 1,
+      "filename": "hlsp_tars_tess_ffi_s0044-0000000178178730_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_44_cam_4_ccd_1/hlsp_tars_tess_ffi_s0044-0000000178178730_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 51840,
+      "sha256": "564e259f94f44d6e71e6ab7f845b1de556ed97794e1a971e5b51703b71bd2f9d",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 3222,
+      "n_finite": 3222,
+      "t_start_btjd": 2500.190081,
+      "t_stop_btjd": 2524.435516,
+      "span_days": 24.24544,
+      "median_cadence_s": 600.06,
+      "exptime_hdr_s": 600,
+      "max_gap_days": 1.48625,
+      "n_gaps_gt_0p5d": 1,
+      "total_gap_gt_0p5d_days": 1.48625,
+      "flux_median": 1.000032,
+      "flux_iqr": 0.003591,
+      "benchmark_source": "k2"
+    },
+    {
+      "tic": 178178730,
+      "sector": 46,
+      "camera": 1,
+      "ccd": 2,
+      "filename": "hlsp_tars_tess_ffi_s0046-0000000178178730_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_46_cam_1_ccd_2/hlsp_tars_tess_ffi_s0046-0000000178178730_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 51840,
+      "sha256": "e17e3c9778b045dbcb8a93a29dff22d0b47ce61ba7eef65b92af276c5511e232",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 3320,
+      "n_finite": 3320,
+      "t_start_btjd": 2552.076283,
+      "t_stop_btjd": 2578.702998,
+      "span_days": 26.62671,
+      "median_cadence_s": 600.04,
+      "exptime_hdr_s": 600,
+      "max_gap_days": 1.79178,
+      "n_gaps_gt_0p5d": 2,
+      "total_gap_gt_0p5d_days": 3.20159,
+      "flux_median": 1.000064,
+      "flux_iqr": 0.003325,
+      "benchmark_source": "k2"
+    },
+    {
+      "tic": 178178730,
+      "sector": 72,
+      "camera": 2,
+      "ccd": 2,
+      "filename": "hlsp_tars_tess_ffi_s0072-0000000178178730_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_72_cam_2_ccd_2/hlsp_tars_tess_ffi_s0072-0000000178178730_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 126720,
+      "sha256": "a139b295bc04e20ed86e3153d8ee771ed3fc521a8ae599d0df19bd223d21b381",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 9577,
+      "n_finite": 9577,
+      "t_start_btjd": 3260.187367,
+      "t_stop_btjd": 3285.585453,
+      "span_days": 25.39809,
+      "median_cadence_s": 200.02,
+      "exptime_hdr_s": 200,
+      "max_gap_days": 1.33345,
+      "n_gaps_gt_0p5d": 2,
+      "total_gap_gt_0p5d_days": 2.58125,
+      "flux_median": 0.999872,
+      "flux_iqr": 0.006073,
+      "benchmark_source": "k2"
+    },
+    {
+      "tic": 399860859,
+      "sector": 15,
+      "camera": 2,
+      "ccd": 2,
+      "filename": "hlsp_tars_tess_ffi_s0015-0000000399860859_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_15_cam_2_ccd_2/hlsp_tars_tess_ffi_s0015-0000000399860859_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 25920,
+      "sha256": "5f954485630f7a8e4d1b15879e30b9e1fbdf7ab6dfea74df76b8fbf247db6f18",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 1190,
+      "n_finite": 1190,
+      "t_start_btjd": 1711.387024,
+      "t_stop_btjd": 1737.38678,
+      "span_days": 25.99976,
+      "median_cadence_s": 1798.24,
+      "exptime_hdr_s": 1800,
+      "max_gap_days": 1.125,
+      "n_gaps_gt_0p5d": 1,
+      "total_gap_gt_0p5d_days": 1.125,
+      "flux_median": 0.99996,
+      "flux_iqr": 0.005205,
+      "benchmark_source": "mcquillan"
+    },
+    {
+      "tic": 399860859,
+      "sector": 40,
+      "camera": 2,
+      "ccd": 4,
+      "filename": "hlsp_tars_tess_ffi_s0040-0000000399860859_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_40_cam_2_ccd_4/hlsp_tars_tess_ffi_s0040-0000000399860859_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 60480,
+      "sha256": "16834b3bb7d5854b06ef36bbc019fc6d6413ef7ee53da0573d2549480224409c",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 3917,
+      "n_finite": 3917,
+      "t_start_btjd": 2390.65847,
+      "t_stop_btjd": 2418.853196,
+      "span_days": 28.19473,
+      "median_cadence_s": 600.01,
+      "exptime_hdr_s": 600,
+      "max_gap_days": 0.94445,
+      "n_gaps_gt_0p5d": 1,
+      "total_gap_gt_0p5d_days": 0.94445,
+      "flux_median": 0.99979,
+      "flux_iqr": 0.005459,
+      "benchmark_source": "mcquillan"
+    },
+    {
+      "tic": 399860859,
+      "sector": 55,
+      "camera": 3,
+      "ccd": 4,
+      "filename": "hlsp_tars_tess_ffi_s0055-0000000399860859_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_55_cam_3_ccd_4/hlsp_tars_tess_ffi_s0055-0000000399860859_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 57600,
+      "sha256": "15872ce8fdd92fcafb993d88e361619e8ef779d2fba32ff66ea73e7ff1d97400",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 3771,
+      "n_finite": 3771,
+      "t_start_btjd": 2797.10944,
+      "t_stop_btjd": 2824.261906,
+      "span_days": 27.15247,
+      "median_cadence_s": 599.99,
+      "exptime_hdr_s": 600,
+      "max_gap_days": 0.9236,
+      "n_gaps_gt_0p5d": 1,
+      "total_gap_gt_0p5d_days": 0.9236,
+      "flux_median": 1.000003,
+      "flux_iqr": 0.00596,
+      "benchmark_source": "mcquillan"
+    },
+    {
+      "tic": 159178088,
+      "sector": 15,
+      "camera": 2,
+      "ccd": 3,
+      "filename": "hlsp_tars_tess_ffi_s0015-0000000159178088_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_15_cam_2_ccd_3/hlsp_tars_tess_ffi_s0015-0000000159178088_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 25920,
+      "sha256": "9d20e1a526f94126716d5fe66c395d885bb7b1af61a00be5555f5f103f597e58",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 1190,
+      "n_finite": 1190,
+      "t_start_btjd": 1711.388245,
+      "t_stop_btjd": 1737.387878,
+      "span_days": 25.99963,
+      "median_cadence_s": 1798.24,
+      "exptime_hdr_s": 1800,
+      "max_gap_days": 1.12494,
+      "n_gaps_gt_0p5d": 1,
+      "total_gap_gt_0p5d_days": 1.12494,
+      "flux_median": 0.999983,
+      "flux_iqr": 0.00559,
+      "benchmark_source": "mcquillan"
+    },
+    {
+      "tic": 159178088,
+      "sector": 74,
+      "camera": 4,
+      "ccd": 1,
+      "filename": "hlsp_tars_tess_ffi_s0074-0000000159178088_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_74_cam_4_ccd_1/hlsp_tars_tess_ffi_s0074-0000000159178088_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 146880,
+      "sha256": "a9363164c52951f04a25d7636b12f5a35d739bd46d99c28d1c958e491240eba3",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 11268,
+      "n_finite": 11268,
+      "t_start_btjd": 3312.864586,
+      "t_stop_btjd": 3339.565661,
+      "span_days": 26.70107,
+      "median_cadence_s": 200.0,
+      "exptime_hdr_s": 200,
+      "max_gap_days": 0.21759,
+      "n_gaps_gt_0p5d": 0,
+      "total_gap_gt_0p5d_days": 0.0,
+      "flux_median": 1.00001,
+      "flux_iqr": 0.011644,
+      "benchmark_source": "mcquillan"
+    },
+    {
+      "tic": 159178088,
+      "sector": 81,
+      "camera": 3,
+      "ccd": 2,
+      "filename": "hlsp_tars_tess_ffi_s0081-0000000159178088_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_81_cam_3_ccd_2/hlsp_tars_tess_ffi_s0081-0000000159178088_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 144000,
+      "sha256": "e4e728f3652637ba12df58b7f02bcf5855aae7e5b47e11a3b7313bc0bbdbd18e",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 11033,
+      "n_finite": 11033,
+      "t_start_btjd": 3506.557559,
+      "t_stop_btjd": 3533.178151,
+      "span_days": 26.62059,
+      "median_cadence_s": 200.0,
+      "exptime_hdr_s": 200,
+      "max_gap_days": 0.58102,
+      "n_gaps_gt_0p5d": 1,
+      "total_gap_gt_0p5d_days": 0.58102,
+      "flux_median": 0.999676,
+      "flux_iqr": 0.00973,
+      "benchmark_source": "mcquillan"
+    },
+    {
+      "tic": 248342750,
+      "sector": 42,
+      "camera": 3,
+      "ccd": 2,
+      "filename": "hlsp_tars_tess_ffi_s0042-0000000248342750_tess_v01_lc.fits",
+      "url": "https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HLSP/tars/sec_42_cam_3_ccd_2/hlsp_tars_tess_ffi_s0042-0000000248342750_tess_v01_lc.fits",
+      "used_caom_fallback": false,
+      "bytes": 46080,
+      "sha256": "6ed09c0bc3310f8c3f3b605f5914b664d025f222ab2b7c26e94a9bb739d9a095",
+      "license": "CC BY 4.0",
+      "doi": "10.17909/2sff-fn29",
+      "columns": [
+        [
+          "TIME",
+          "D",
+          "d"
+        ],
+        [
+          "FLUX",
+          "E",
+          null
+        ]
+      ],
+      "has_quality_col": false,
+      "flux_derived_hdu1_headers_present_must_ignore": [
+        "PER1",
+        "POW1",
+        "PER2",
+        "POW2",
+        "AMPFIT",
+        "SNR",
+        "BIC1T"
+      ],
+      "n_rows": 2874,
+      "n_finite": 2874,
+      "t_start_btjd": 2447.701553,
+      "t_stop_btjd": 2472.876688,
+      "span_days": 25.17514,
+      "median_cadence_s": 600.04,
+      "exptime_hdr_s": 600,
+      "max_gap_days": 3.14603,
+      "n_gaps_gt_0p5d": 3,
+      "total_gap_gt_0p5d_days": 4.75725,
+      "flux_median": 0.99976,
+      "flux_iqr": 0.005512,
+      "benchmark_source": "k2"
+    }
+  ],
+  "colocated_time_sampling_audit": {
+    "sector": 42,
+    "camera": 3,
+    "ccd": 2,
+    "tic_a": 388814959,
+    "tic_b": 248342750,
+    "n_rows_a": 2874,
+    "n_rows_b": 2874,
+    "same_row_count": true,
+    "span_a_days": 25.17514,
+    "span_b_days": 25.17514,
+    "max_abs_barycentric_time_diff_s": 0.0,
+    "diff_std_s": 0.0
+  }
+}

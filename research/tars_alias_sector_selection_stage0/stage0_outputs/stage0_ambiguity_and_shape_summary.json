@@ -1,0 +1,74 @@
+{
+  "label_blind_verified": true,
+  "time_translation_invariance_verified_lt_1e13": true,
+  "n_stars_verified_with_S1_plus_ge2_S2": 48,
+  "all_48_stars": {
+    "n": 48,
+    "by_source": {
+      "k2": 24,
+      "mcquillan": 24
+    },
+    "by_pair_type": {
+      "DISTANT_NON_HARMONIC": 29,
+      "CLOSE_PERIODOGRAM_ALIAS": 9,
+      "EXACT_HARMONIC_2TO1": 6,
+      "HARMONIC_3TO1": 4
+    },
+    "median_rho_1h_max": 0.007729,
+    "max_rho_1h_max": 0.112176,
+    "median_rho_1h_spread": 0.004428,
+    "max_rho_1h_spread": 0.038728,
+    "n_spread_gt_0p01": 15,
+    "n_spread_gt_0p001": 34,
+    "median_rho_2h_spread": 0.004449,
+    "max_rho_2h_spread": 0.041258,
+    "disagree_rho1_vs_max_duration": 26,
+    "disagree_rho1_vs_max_cadences": 33,
+    "disagree_rho1_vs_farthest": 32,
+    "disagree_rho1_vs_fixed1000": 3
+  },
+  "ambiguous_powratio_ge_030": {
+    "n": 2,
+    "by_source": {
+      "k2": 1,
+      "mcquillan": 1
+    },
+    "by_pair_type": {
+      "CLOSE_PERIODOGRAM_ALIAS": 1,
+      "DISTANT_NON_HARMONIC": 1
+    },
+    "median_rho_1h_max": 0.04341,
+    "max_rho_1h_max": 0.060636,
+    "median_rho_1h_spread": 0.012985,
+    "max_rho_1h_spread": 0.015136,
+    "n_spread_gt_0p01": 2,
+    "n_spread_gt_0p001": 2,
+    "median_rho_2h_spread": 0.014761,
+    "max_rho_2h_spread": 0.0199,
+    "disagree_rho1_vs_max_duration": 2,
+    "disagree_rho1_vs_max_cadences": 0,
+    "disagree_rho1_vs_farthest": 0,
+    "disagree_rho1_vs_fixed1000": 0
+  },
+  "ambiguous_powratio_ge_040": {
+    "n": 1,
+    "by_source": {
+      "mcquillan": 1
+    },
+    "by_pair_type": {
+      "DISTANT_NON_HARMONIC": 1
+    },
+    "median_rho_1h_max": 0.026184,
+    "max_rho_1h_max": 0.026184,
+    "median_rho_1h_spread": 0.015136,
+    "max_rho_1h_spread": 0.015136,
+    "n_spread_gt_0p01": 1,
+    "n_spread_gt_0p001": 1,
+    "median_rho_2h_spread": 0.0199,
+    "max_rho_2h_spread": 0.0199,
+    "disagree_rho1_vs_max_duration": 1,
+    "disagree_rho1_vs_max_cadences": 0,
+    "disagree_rho1_vs_farthest": 0,
+    "disagree_rho1_vs_fixed1000": 0
+  }
+}

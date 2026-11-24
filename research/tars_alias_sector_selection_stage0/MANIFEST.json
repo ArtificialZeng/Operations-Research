@@ -1,0 +1,62 @@
+{
+  "archive_dir": "research/tars_alias_sector_selection_stage0",
+  "branch": "archive/tars-alias-sector-selection-stage0-20261124",
+  "base_main_sha": "940709d372ae3716e09daf771d5438d07232d022",
+  "status": "STOP_STAGE0_INSUFFICIENT_SEPARABLE_AMBIGUOUS_CASES",
+  "date_frozen": "2026-11-24",
+  "external_prot_scored": false,
+  "file_count_excluding_manifest": 10,
+  "total_bytes_excluding_manifest": 165385,
+  "files": [
+    {
+      "path": "research/tars_alias_sector_selection_stage0/LICENSES_AND_PROVENANCE.md",
+      "bytes": 3669,
+      "sha256": "c8bfcddbaf55a6fa50f7106e6c55a5628e884903c034a2dd9718b713627e7836"
+    },
+    {
+      "path": "research/tars_alias_sector_selection_stage0/README.md",
+      "bytes": 7210,
+      "sha256": "bc6ea16e79fe2d41102571e5249ea7d176f5baf51de340424b7190378fe72b27"
+    },
+    {
+      "path": "research/tars_alias_sector_selection_stage0/requirements.lock.txt",
+      "bytes": 239,
+      "sha256": "f53a2e68e824813db77a8c817244a99046ba4ac232570476d7d14ef303b4c5bc"
+    },
+    {
+      "path": "research/tars_alias_sector_selection_stage0/stage0_ambiguity_and_shape_audit.py",
+      "bytes": 18663,
+      "sha256": "487bdcf9d40ea093d3087f721998b3c1544453711c33df4fe564f514f7dffd0b"
+    },
+    {
+      "path": "research/tars_alias_sector_selection_stage0/stage0_outputs/stage0_ambiguity_and_shape_stars.jsonl",
+      "bytes": 86949,
+      "sha256": "9086b148969a21e3cf83cb2787ee044628510c3a041b0b1b4e43b3adca4a8f67"
+    },
+    {
+      "path": "research/tars_alias_sector_selection_stage0/stage0_outputs/stage0_ambiguity_and_shape_summary.json",
+      "bytes": 2092,
+      "sha256": "1599fff502003c7b7727e1aad30006b18bfa452ed425b3efbbf73542d4e8aaf5"
+    },
+    {
+      "path": "research/tars_alias_sector_selection_stage0/stage0_outputs/stage0_fits_and_coverage_receipt.json",
+      "bytes": 18715,
+      "sha256": "df76c0603b74412fc0799a30ca9bbd6cec9930870556d2da85996d6b83a81919"
+    },
+    {
+      "path": "research/tars_alias_sector_selection_stage0/stage0_tars_feasibility_audit.py",
+      "bytes": 13426,
+      "sha256": "118994c9cac73894361fa4490d6d28cf94740c582adb2d560e7c3e788abf26b1"
+    },
+    {
+      "path": "research/tars_alias_sector_selection_stage0/STAGE0_TARS_FEASIBILITY_STOP_REPORT.md",
+      "bytes": 12501,
+      "sha256": "2b68ebbd74a9c1d2913e5274f2292112b6350aba3669ab9fff3784138b08a443"
+    },
+    {
+      "path": "research/tars_alias_sector_selection_stage0/STATUS.md",
+      "bytes": 1921,
+      "sha256": "943464baad7a716347b3caba0b06d1e177a91257a36ced84e8e3d6b161855d1d"
+    }
+  ]
+}
