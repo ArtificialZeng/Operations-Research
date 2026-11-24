@@ -1,0 +1,13 @@
+{
+  "purpose": "Pre-launch Stage-0 fixture receipt: exact paper \u00a74.3 evaluator unit tests + workspace-only Tesseract 5.5.3 + LinePilot 75 pytest + 3-figure smoke test.",
+  "eval_sec43_py_sha256": "d4c593529cb4d032930fc99aa109b2702dfcc1060564962240a97caf50c7968b",
+  "portable_ocr_receipt_sha256": "a8f3d81f7b5a67e7542eb48400618e853cf792492a09cad5b2226597f72200a6",
+  "dev_split_receipt_sha256": "91c324e95724d649a56197d697647027743ffec68dfefb93921bf9c5cae49b47",
+  "sec43_unit_fixtures": {
+    "all_sec43_unit_fixtures_passed": true,
+    "n_assertions": 8
+  },
+  "upstream_pytest_passed": "75 passed in 1.67s",
+  "upstream_smoke_test_passed": "3/3 figures digitized and scored within 2.0% NRMSE (0.667%-1.405%)",
+  "all_prelaunch_fixtures_passed": true
+}

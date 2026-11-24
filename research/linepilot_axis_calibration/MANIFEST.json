@@ -1,0 +1,131 @@
+{
+  "archive_dir": "research/linepilot_axis_calibration",
+  "status": "FROZEN_LIMITED_DEV_ARCHIVE_GATE_FAILED",
+  "date": "2026-11-24",
+  "stage0_pid": 53928,
+  "stage0_summary_sha256": "74aedcb5a9c98bdad37cf1ddb102b540f00111b0c29b77b4f526c72081f3eaf5",
+  "stage1_pid": 62340,
+  "stage1_summary_sha256": "d07078e39b5b99588aa525dda7a1b9c428d1a651c12f9281e42264ce8d003dbb",
+  "public_sources": {
+    "digitizerbench": "https://huggingface.co/datasets/LinePilot/DigitizerBench @ 8b4a3190d5991414dad92049671de75754dd9f44 (Apache-2.0)",
+    "linepilot_code": "https://github.com/RayanA07/LinePilot @ 8fb89a62fb0565290b72ba61cb073d732d8e7578 (Apache-2.0)",
+    "paper_protocol": "https://arxiv.org/html/2609.19377v1 (CC BY 4.0)"
+  },
+  "excluded_artifacts": [
+    "dataset images (.png) and Parquets (.parquet)",
+    "vendor OCR executables/DLLs/traineddata",
+    "nested upstream git repos and scraped paper HTML",
+    "Python virtual environments and __pycache__",
+    "large raw per-pixel CSVs and overlays",
+    "local desktop steering notes, credentials, and unrelated projects"
+  ],
+  "file_count": 21,
+  "total_bytes_excluding_manifest": 621611,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 9992,
+      "sha256": "da8f9561fbf728496efabb003977c1a75a1873f55b8c74f9d7ef086540df1abd"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 4568,
+      "sha256": "e1912c95aa7ebb91052a28780f30040ad4895b93efb4439fa9fd393cc994cd09"
+    },
+    {
+      "path": "STAGE0_LINEPILOT_PROTOCOL.md",
+      "bytes": 7872,
+      "sha256": "b05506fb7c112e35d16075cf052041019a7ce55198f868d90ae2fd081e9ec518"
+    },
+    {
+      "path": "STAGE0_LINEPILOT_RESULT.md",
+      "bytes": 19864,
+      "sha256": "741cabe0f76f57f9e2c8141b86c57653d49272f949f733bfe9cddb69e79d501e"
+    },
+    {
+      "path": "STAGE1_DEV_PROTOCOL.md",
+      "bytes": 13364,
+      "sha256": "27922a5722704aefd77344e69dc243eeba8fbb987bf74a53ab9f0cf38ce5e916"
+    },
+    {
+      "path": "STAGE1_DEV_PILOT_RESULT.md",
+      "bytes": 16117,
+      "sha256": "9192699e580c266dad68d96c34fac0d9d5c4169c6be87f934cdb2ce7ad1175e3"
+    },
+    {
+      "path": "PORTABLE_OCR_RECEIPT.json",
+      "bytes": 13196,
+      "sha256": "a8f3d81f7b5a67e7542eb48400618e853cf792492a09cad5b2226597f72200a6"
+    },
+    {
+      "path": "STAGE0_SINGLE_DEV_30_RECEIPT.json",
+      "bytes": 24489,
+      "sha256": "91c324e95724d649a56197d697647027743ffec68dfefb93921bf9c5cae49b47"
+    },
+    {
+      "path": "STAGE0_PRELAUNCH_FIXTURES_RECEIPT.json",
+      "bytes": 771,
+      "sha256": "84d291555b1bc5d7cd93ff7333819fe3c9e601083f747f075f4d8cbb89fc1aed"
+    },
+    {
+      "path": "setup_portable_vendor_tesseract.py",
+      "bytes": 5617,
+      "sha256": "1af69615decaf7cc894e27218f77144c4948387ebc2bc9a6599abdeaf267e7a7"
+    },
+    {
+      "path": "fetch_digitizerbench_lite_and_full_manifest.py",
+      "bytes": 4801,
+      "sha256": "f4d87caa5b45c3d0e7162bf48a3523eef561f492ce88fa4005e2cfc7fb86c68d"
+    },
+    {
+      "path": "stage0_lock_single_dev30_and_fetch.py",
+      "bytes": 14604,
+      "sha256": "4e405a3a1c96ec9daee4f2018623c7de4d9b6a856d6a97bbc691d960a574a3be"
+    },
+    {
+      "path": "eval_digitizerbench_sec43.py",
+      "bytes": 13099,
+      "sha256": "b0f1aea660c1878a91debe5c2d74010c9c2848c9395e1c5e5501774fdef7cece"
+    },
+    {
+      "path": "run_linepilot_stage0_diagnostic.py",
+      "bytes": 22259,
+      "sha256": "13bc671f13d2e4195a267476bf3b41c7266e04a9c0b2a0b98c2755aeef08e4cd"
+    },
+    {
+      "path": "stage1_axis_calibration.py",
+      "bytes": 38365,
+      "sha256": "3f6d8c957cece1b9a4c2f3b0e1087bc09fc576b2d2230ec44de8749c5ea9dadd"
+    },
+    {
+      "path": "test_stage1_axis_calibration.py",
+      "bytes": 11479,
+      "sha256": "1e83c9809793656241a4062d13f95f2e48dd8a61555c966e8e520676bbc08bf6"
+    },
+    {
+      "path": "run_stage1_dev_pilot.py",
+      "bytes": 30522,
+      "sha256": "dbb2c060f155f9d6ac3fffbb4372ff0eae93d091af8a55fa384fda846c00b917"
+    },
+    {
+      "path": "stage0_outputs/linepilot_stage0_dev30_summary.json",
+      "bytes": 7128,
+      "sha256": "74aedcb5a9c98bdad37cf1ddb102b540f00111b0c29b77b4f526c72081f3eaf5"
+    },
+    {
+      "path": "stage0_outputs/linepilot_stage0_dev30_per_image.jsonl",
+      "bytes": 60319,
+      "sha256": "321c926a5deea77c1ea43008ae8b2e1117f8f734aad6c541dec8c1c9defac716"
+    },
+    {
+      "path": "stage1_dev_outputs/stage1_dev30_summary.json",
+      "bytes": 17704,
+      "sha256": "d07078e39b5b99588aa525dda7a1b9c428d1a651c12f9281e42264ce8d003dbb"
+    },
+    {
+      "path": "stage1_dev_outputs/stage1_dev30_per_image.jsonl",
+      "bytes": 285481,
+      "sha256": "527d1945e1a923f69eba6c4e3a5ef24e4029d9349ee07289740ce3b1ea9302a1"
+    }
+  ]
+}
