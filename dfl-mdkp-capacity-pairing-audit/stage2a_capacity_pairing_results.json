@@ -1,0 +1,483 @@
+{
+  "protocol": "STAGE2A_CAPACITY_PAIRING_PROTOCOL.md",
+  "regime": "Published MDKP-Capacity (official_odece_repo/MDKP_CapaExp.sh: num_items=50, dim=3, num_feat=10, deg=6, noise_width=0.25, lr=0.005, bs=32, epochs=20)",
+  "intervention_label": "Controlled training-label pairing intervention on IDENTICAL clean test contexts, ground truths, and shared constant-mean baseline. Does NOT claim impact on published method rankings.",
+  "seeds": [
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "gate_to_stage2b_pass": false,
+  "aggregate_5seeds": {
+    "adam_mse_published_lr0005_20ep": {
+      "clean_mse_mean_sd": [
+        14.341520111076784,
+        1.9818959654937887
+      ],
+      "mispaired_mse_mean_sd": [
+        17.206150800234077,
+        0.9680325450329492
+      ],
+      "clean_oos_r2_mean_sd": [
+        -0.7739020737620899,
+        0.6977960061133599
+      ],
+      "mispaired_oos_r2_mean_sd": [
+        -1.0931227032540007,
+        0.6328838812372977
+      ],
+      "delta_oos_r2_min_mean_max": [
+        0.1460712698003377,
+        0.319220629491911,
+        0.48441620076896874
+      ],
+      "clean_pearson_r_mean_sd": [
+        NaN,
+        NaN
+      ],
+      "mispaired_pearson_r_mean_sd": [
+        NaN,
+        NaN
+      ],
+      "clean_beats_mispaired_seeds": "5/5",
+      "max_per_seed_wilcoxon_p": 3.861552805974782e-05
+    },
+    "ols_closed_form": {
+      "clean_mse_mean_sd": [
+        3.9324118693821717,
+        0.7413465998199845
+      ],
+      "mispaired_mse_mean_sd": [
+        8.708812287890558,
+        1.926969208690624
+      ],
+      "clean_oos_r2_mean_sd": [
+        0.5380423781779035,
+        0.07110371130886503
+      ],
+      "mispaired_oos_r2_mean_sd": [
+        -0.005079997665254132,
+        0.028100628086041232
+      ],
+      "delta_oos_r2_min_mean_max": [
+        0.43542958427248013,
+        0.5431223758431576,
+        0.6422176230725549
+      ],
+      "clean_pearson_r_mean_sd": [
+        NaN,
+        NaN
+      ],
+      "mispaired_pearson_r_mean_sd": [
+        NaN,
+        NaN
+      ],
+      "clean_beats_mispaired_seeds": "5/5",
+      "max_per_seed_wilcoxon_p": 2.7789521055701752e-08
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 11,
+      "train_misaligned_count": "899/900",
+      "test_indices_falling_in_0_899": "305/500",
+      "shared_mean_baseline": {
+        "mse_on_clean_test": 10.283623703703702,
+        "mae_on_clean_test": 2.548786666666666,
+        "mispaired_train_mean_mse_on_clean_test": 10.273909218106995
+      },
+      "adam_mse_published_lr0005_20ep": {
+        "clean_trained": {
+          "test_mse": 11.557230633144489,
+          "test_mae": 2.753291370459826,
+          "test_r2": -0.12589509973552215,
+          "oos_r2_vs_shared_mean": -0.12384806816512461,
+          "pearson_r_per_dim": [
+            0.6596852789014712,
+            0.6249488350658734,
+            0.4945596393898575
+          ],
+          "pearson_r_mean": 0.5930645844524006
+        },
+        "mispaired_trained": {
+          "test_mse": 16.538784557830347,
+          "test_mae": 3.2868744828056706,
+          "test_r2": -0.6111936397496924,
+          "oos_r2_vs_shared_mean": -0.6082642689340934,
+          "pearson_r_per_dim": [
+            0.232606234125904,
+            0.32173675480978087,
+            0.3888959978185854
+          ],
+          "pearson_r_mean": 0.31441299558475677
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.48441620076896874,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -4.981553924685857,
+          "ci95_low": -5.690614260666081,
+          "ci95_high": -4.283036768037118,
+          "wilcoxon_p": 2.9210763275452044e-35,
+          "frac_instances_clean_better": 0.734
+        }
+      },
+      "ols_closed_form": {
+        "clean_trained": {
+          "test_mse": 4.564504085232728,
+          "test_mae": 1.7338310010196876,
+          "test_r2": 0.5553300833550951,
+          "oos_r2_vs_shared_mean": 0.5561385541957552,
+          "pearson_r_per_dim": [
+            0.7687042618753979,
+            0.7745046830666198,
+            0.6257714938334173
+          ],
+          "pearson_r_mean": 0.7229934795918117
+        },
+        "mispaired_trained": {
+          "test_mse": 10.029601754510306,
+          "test_mae": 2.4936971196231905,
+          "test_r2": 0.02292514304271953,
+          "oos_r2_vs_shared_mean": 0.024701599019216203,
+          "pearson_r_per_dim": [
+            0.02947336659744805,
+            0.17865094519772842,
+            0.4239957046170378
+          ],
+          "pearson_r_mean": 0.21070667213740477
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.531436955176539,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -5.465097669277581,
+          "ci95_low": -6.1669792140337885,
+          "ci95_high": -4.791097659714843,
+          "wilcoxon_p": 7.372941026094582e-51,
+          "frac_instances_clean_better": 0.794
+        }
+      }
+    },
+    {
+      "seed": 12,
+      "train_misaligned_count": "900/900",
+      "test_indices_falling_in_0_899": "297/500",
+      "shared_mean_baseline": {
+        "mse_on_clean_test": 8.663665514403291,
+        "mae_on_clean_test": 1.8915614814814812,
+        "mispaired_train_mean_mse_on_clean_test": 8.653743868312757
+      },
+      "adam_mse_published_lr0005_20ep": {
+        "clean_trained": {
+          "test_mse": 15.820138832074978,
+          "test_mae": 3.231015832632017,
+          "test_r2": -0.8296411797583529,
+          "oos_r2_vs_shared_mean": -0.8260329655818421,
+          "pearson_r_per_dim": [
+            0.6133338941713482,
+            0.7255297216141348,
+            NaN
+          ],
+          "pearson_r_mean": NaN
+        },
+        "mispaired_trained": {
+          "test_mse": 17.085651454889263,
+          "test_mae": 3.382091669174906,
+          "test_r2": -0.9760010842309057,
+          "oos_r2_vs_shared_mean": -0.9721042353821798,
+          "pearson_r_per_dim": [
+            0.5272352456357672,
+            0.4846550365619662,
+            NaN
+          ],
+          "pearson_r_mean": NaN
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.1460712698003377,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -1.2655126228142846,
+          "ci95_low": -1.8831048703854278,
+          "ci95_high": -0.6505342433502477,
+          "wilcoxon_p": 3.861552805974782e-05,
+          "frac_instances_clean_better": 0.568
+        }
+      },
+      "ols_closed_form": {
+        "clean_trained": {
+          "test_mse": 3.45910480722823,
+          "test_mae": 1.214425352207515,
+          "test_r2": 0.5999453185851249,
+          "oos_r2_vs_shared_mean": 0.6007342617882132,
+          "pearson_r_per_dim": [
+            0.6808378540701704,
+            0.8162612866167974,
+            NaN
+          ],
+          "pearson_r_mean": NaN
+        },
+        "mispaired_trained": {
+          "test_mse": 9.023063480983975,
+          "test_mae": 1.9466328738401715,
+          "test_r2": -0.043541317027538495,
+          "oos_r2_vs_shared_mean": -0.04148336128434171,
+          "pearson_r_per_dim": [
+            -0.10511188396333032,
+            -0.17602603516100998,
+            NaN
+          ],
+          "pearson_r_mean": NaN
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.6422176230725549,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -5.563958673755744,
+          "ci95_low": -6.324334024121879,
+          "ci95_high": -4.833709719893699,
+          "wilcoxon_p": 1.2865622666649156e-52,
+          "frac_instances_clean_better": 0.81
+        }
+      }
+    },
+    {
+      "seed": 13,
+      "train_misaligned_count": "900/900",
+      "test_indices_falling_in_0_899": "308/500",
+      "shared_mean_baseline": {
+        "mse_on_clean_test": 8.38002913580247,
+        "mae_on_clean_test": 1.9098074074074074,
+        "mispaired_train_mean_mse_on_clean_test": 8.388040823045266
+      },
+      "adam_mse_published_lr0005_20ep": {
+        "clean_trained": {
+          "test_mse": 12.95898948566554,
+          "test_mae": 2.874710599162805,
+          "test_r2": -0.5473900665173537,
+          "oos_r2_vs_shared_mean": -0.5464134164283654,
+          "pearson_r_per_dim": [
+            0.5636763974601908,
+            0.7513790865651617,
+            0.28240833571561624
+          ],
+          "pearson_r_mean": 0.5324879399136563
+        },
+        "mispaired_trained": {
+          "test_mse": 16.244533958032736,
+          "test_mae": 3.223809161222622,
+          "test_r2": -0.9397060634757302,
+          "oos_r2_vs_shared_mean": -0.9384817993806609,
+          "pearson_r_per_dim": [
+            0.41980432727328115,
+            0.4287678121355943,
+            0.27524974128110674
+          ],
+          "pearson_r_mean": 0.3746072935633274
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.3920683829522955,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -3.2855444723671954,
+          "ci95_low": -3.915747452962456,
+          "ci95_high": -2.6515179157174225,
+          "wilcoxon_p": 3.189439755206017e-19,
+          "frac_instances_clean_better": 0.658
+        }
+      },
+      "ols_closed_form": {
+        "clean_trained": {
+          "test_mse": 3.579171392825032,
+          "test_mae": 1.3081708120353974,
+          "test_r2": 0.5726229837791941,
+          "oos_r2_vs_shared_mean": 0.5728927268840227,
+          "pearson_r_per_dim": [
+            0.6714970311494477,
+            0.8008692891761867,
+            0.3467525028508441
+          ],
+          "pearson_r_mean": 0.6063729410588262
+        },
+        "mispaired_trained": {
+          "test_mse": 8.47745067247079,
+          "test_mae": 1.8899674449267676,
+          "test_r2": -0.012264341635774834,
+          "oos_r2_vs_shared_mean": -0.011625441283026117,
+          "pearson_r_per_dim": [
+            0.1459798275286559,
+            -0.06814469060133319,
+            0.08236631166301674
+          ],
+          "pearson_r_mean": 0.05340048286344649
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.5845181681670488,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -4.898279279645757,
+          "ci95_low": -5.6978970969362495,
+          "ci95_high": -4.145443611929128,
+          "wilcoxon_p": 8.370224383095018e-42,
+          "frac_instances_clean_better": 0.738
+        }
+      }
+    },
+    {
+      "seed": 14,
+      "train_misaligned_count": "899/900",
+      "test_indices_falling_in_0_899": "291/500",
+      "shared_mean_baseline": {
+        "mse_on_clean_test": 10.685515390946502,
+        "mae_on_clean_test": 2.527828148148149,
+        "mispaired_train_mean_mse_on_clean_test": 10.665567736625514
+      },
+      "adam_mse_published_lr0005_20ep": {
+        "clean_trained": {
+          "test_mse": 15.333157338235317,
+          "test_mae": 3.1046114870658412,
+          "test_r2": -0.44109235599205454,
+          "oos_r2_vs_shared_mean": -0.43494785017357374,
+          "pearson_r_per_dim": [
+            0.5791830995709681,
+            0.6145837372275617,
+            0.5399311321162003
+          ],
+          "pearson_r_mean": 0.5778993229715766
+        },
+        "mispaired_trained": {
+          "test_mse": 18.726414633591332,
+          "test_mae": 3.4365423335386143,
+          "test_r2": -0.7600088741222082,
+          "oos_r2_vs_shared_mean": -0.7525045773138495,
+          "pearson_r_per_dim": [
+            0.45136687538434267,
+            0.3225062230103995,
+            0.48134671808778134
+          ],
+          "pearson_r_mean": 0.41840660549417447
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.3175567271402757,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -3.393257295356015,
+          "ci95_low": -4.082572452136848,
+          "ci95_high": -2.7056307920996185,
+          "wilcoxon_p": 1.8681297326173078e-19,
+          "frac_instances_clean_better": 0.648
+        }
+      },
+      "ols_closed_form": {
+        "clean_trained": {
+          "test_mse": 4.8755513788386455,
+          "test_mae": 1.7417471539790372,
+          "test_r2": 0.5417695345908762,
+          "oos_r2_vs_shared_mean": 0.5437233300913548,
+          "pearson_r_per_dim": [
+            0.6798086337250006,
+            0.793307718477586,
+            0.6617484038363497
+          ],
+          "pearson_r_mean": 0.711621585346312
+        },
+        "mispaired_trained": {
+          "test_mse": 10.453492443846706,
+          "test_mae": 2.478326416378202,
+          "test_r2": 0.017524719668601252,
+          "oos_r2_vs_shared_mean": 0.02171378156418946,
+          "pearson_r_per_dim": [
+            0.04372569026381879,
+            0.18175281602072685,
+            0.15764413079823322
+          ],
+          "pearson_r_mean": 0.1277075456942596
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.5220095485271653,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -5.577941065008061,
+          "ci95_low": -6.451780504780497,
+          "ci95_high": -4.7396951543135115,
+          "wilcoxon_p": 4.142175976455184e-45,
+          "frac_instances_clean_better": 0.776
+        }
+      }
+    },
+    {
+      "seed": 15,
+      "train_misaligned_count": "900/900",
+      "test_indices_falling_in_0_899": "313/500",
+      "shared_mean_baseline": {
+        "mse_on_clean_test": 5.458346172839506,
+        "mae_on_clean_test": 1.5236874074074076,
+        "mispaired_train_mean_mse_on_clean_test": 5.453089135802469
+      },
+      "adam_mse_published_lr0005_20ep": {
+        "clean_trained": {
+          "test_mse": 16.038084266263592,
+          "test_mae": 3.2152470849596786,
+          "test_r2": -1.9436679595466986,
+          "oos_r2_vs_shared_mean": -1.9382680684615434,
+          "pearson_r_per_dim": [
+            0.5798314216821515,
+            0.5600812437331052,
+            0.33122917016769055
+          ],
+          "pearson_r_mean": 0.4903806118609824
+        },
+        "mispaired_trained": {
+          "test_mse": 17.43536939682671,
+          "test_mae": 3.368701436851736,
+          "test_r2": -2.2001289807574262,
+          "oos_r2_vs_shared_mean": -2.194258635259221,
+          "pearson_r_per_dim": [
+            0.4501353694157557,
+            0.3751279981209781,
+            0.30649065885219434
+          ],
+          "pearson_r_mean": 0.3772513421296427
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.2559905667976774,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -1.397285130563118,
+          "ci95_low": -1.8834223167044548,
+          "ci95_high": -0.9136894541244045,
+          "wilcoxon_p": 3.620367057748137e-05,
+          "frac_instances_clean_better": 0.538
+        }
+      },
+      "ols_closed_form": {
+        "clean_trained": {
+          "test_mse": 3.183727682786225,
+          "test_mae": 1.256522784661796,
+          "test_r2": 0.4156510830003869,
+          "oos_r2_vs_shared_mean": 0.41672301793017164,
+          "pearson_r_per_dim": [
+            0.6740827210653816,
+            0.6675597227530657,
+            0.5174916324093568
+          ],
+          "pearson_r_mean": 0.6197113587426014
+        },
+        "mispaired_trained": {
+          "test_mse": 5.560453087641013,
+          "test_mae": 1.483959575097173,
+          "test_r2": -0.02057872517118642,
+          "oos_r2_vs_shared_mean": -0.018706566342308495,
+          "pearson_r_per_dim": [
+            -0.18308847872363318,
+            -0.04262286633773426,
+            0.020600273260351243
+          ],
+          "pearson_r_mean": -0.0683703572670054
+        },
+        "delta_oos_r2_clean_minus_mispaired": 0.43542958427248013,
+        "paired_se_clean_minus_mispaired": {
+          "n_paired": 500,
+          "mean_se_diff_clean_minus_mispaired": -2.3767254048547897,
+          "ci95_low": -2.998191780853217,
+          "ci95_high": -1.8004027593710639,
+          "wilcoxon_p": 2.7789521055701752e-08,
+          "frac_instances_clean_better": 0.592
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,354 @@
+{
+  "arm_name": "ODECE-Clean(a=0.5)",
+  "checkpoint_sha256": "a067cca8182de0d43a2b527852de1705fb0136b66d607ce2da81c68e117a033d",
+  "train_audit": {
+    "inloop_train_solves": 18000,
+    "inloop_solver_time_s": 30.85908249975182,
+    "train_wall_time_s": 31.840497299999697,
+    "train_status_counts": {
+      "INFEASIBLE": 1501,
+      "OPTIMAL": 16499
+    },
+    "n_batches": 580,
+    "n_zero_infeas_batches_guard1": 168,
+    "n_mask_zero_batches_guard2": 10,
+    "n_true_sol_ulp_viols_observed": 300,
+    "epoch_logs": [
+      {
+        "epoch": 1,
+        "mean_loss": 12.636009793093788,
+        "solvable_train_instances_of_900": 49,
+        "zero_infeas_batches": 19,
+        "mask_zero_batches": 10
+      },
+      {
+        "epoch": 2,
+        "mean_loss": 7.679320133239734,
+        "solvable_train_instances_of_900": 527,
+        "zero_infeas_batches": 15,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 3,
+        "mean_loss": 6.19601159181345,
+        "solvable_train_instances_of_900": 765,
+        "zero_infeas_batches": 6,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 4,
+        "mean_loss": 6.128120351841681,
+        "solvable_train_instances_of_900": 843,
+        "zero_infeas_batches": 7,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 5,
+        "mean_loss": 5.869353727142697,
+        "solvable_train_instances_of_900": 877,
+        "zero_infeas_batches": 6,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 6,
+        "mean_loss": 5.567390074073593,
+        "solvable_train_instances_of_900": 887,
+        "zero_infeas_batches": 6,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 7,
+        "mean_loss": 4.70878005037321,
+        "solvable_train_instances_of_900": 887,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 8,
+        "mean_loss": 4.479332611110405,
+        "solvable_train_instances_of_900": 889,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 9,
+        "mean_loss": 4.811419927001868,
+        "solvable_train_instances_of_900": 894,
+        "zero_infeas_batches": 5,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 10,
+        "mean_loss": 4.918890405593566,
+        "solvable_train_instances_of_900": 895,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 11,
+        "mean_loss": 5.13172084289481,
+        "solvable_train_instances_of_900": 898,
+        "zero_infeas_batches": 5,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 12,
+        "mean_loss": 4.787026835753475,
+        "solvable_train_instances_of_900": 897,
+        "zero_infeas_batches": 8,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 13,
+        "mean_loss": 4.704776179308461,
+        "solvable_train_instances_of_900": 895,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 14,
+        "mean_loss": 4.723292217406588,
+        "solvable_train_instances_of_900": 897,
+        "zero_infeas_batches": 6,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 15,
+        "mean_loss": 4.542032401869105,
+        "solvable_train_instances_of_900": 899,
+        "zero_infeas_batches": 6,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 16,
+        "mean_loss": 4.521803286153241,
+        "solvable_train_instances_of_900": 900,
+        "zero_infeas_batches": 12,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 17,
+        "mean_loss": 4.616585620633516,
+        "solvable_train_instances_of_900": 900,
+        "zero_infeas_batches": 7,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 18,
+        "mean_loss": 4.433385585521995,
+        "solvable_train_instances_of_900": 900,
+        "zero_infeas_batches": 7,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 19,
+        "mean_loss": 4.571810097506996,
+        "solvable_train_instances_of_900": 900,
+        "zero_infeas_batches": 9,
+        "mask_zero_batches": 0
+      },
+      {
+        "epoch": 20,
+        "mean_loss": 4.424138602052582,
+        "solvable_train_instances_of_900": 900,
+        "zero_infeas_batches": 8,
+        "mask_zero_batches": 0
+      }
+    ]
+  },
+  "Raw_Plugin_unclipped_highs": {
+    "test_metrics": {
+      "strict_01_infeasibility_rate": 0.052,
+      "strict_01_feasible_count": 474,
+      "unsolvable_rate": 0.0,
+      "strict_01_feasible_regret": 0.30202185440553775,
+      "official_frac_surrogate_posthoc_p1": 0.294830302600557,
+      "official_frac_surrogate_posthoc_p021": 0.2918883682569169,
+      "strict_01_int_repair_posthoc_p1": 0.2951784395147806,
+      "strict_01_int_repair_posthoc_p021": 0.2920989910900222,
+      "capacity_mse": 49.67197019897873,
+      "capacity_oos_r2_vs_shared_mean": -8.44328522699779,
+      "capacity_pearson_r_per_dim": [
+        0.42111220669249483,
+        0.37904326000546495,
+        0.3473259013968666
+      ]
+    },
+    "highs_status_counts": {
+      "kOptimal": 500
+    },
+    "highs_max_mip_gap": 9.929327797581987e-05,
+    "highs_max_integrality_err": 5.934216593398022e-12,
+    "n_neg_cap_dims_raw": 0
+  },
+  "Raw_Plugin_stage2b_clipped_highs": {
+    "test_metrics": {
+      "strict_01_infeasibility_rate": 0.052,
+      "strict_01_feasible_count": 474,
+      "unsolvable_rate": 0.0,
+      "strict_01_feasible_regret": 0.30202185440553775,
+      "official_frac_surrogate_posthoc_p1": 0.294830302600557,
+      "official_frac_surrogate_posthoc_p021": 0.2918883682569169,
+      "strict_01_int_repair_posthoc_p1": 0.2951784395147806,
+      "strict_01_int_repair_posthoc_p021": 0.2920989910900222,
+      "capacity_mse": 49.67197019897873,
+      "capacity_oos_r2_vs_shared_mean": -8.44328522699779,
+      "capacity_pearson_r_per_dim": [
+        0.42111220669249483,
+        0.37904326000546495,
+        0.3473259013968666
+      ]
+    },
+    "highs_status_counts": {
+      "kOptimal": 500
+    },
+    "highs_max_mip_gap": 9.929327797581987e-05,
+    "highs_max_integrality_err": 5.934216593398022e-12,
+    "n_neg_cap_dims_clipped": 0
+  },
+  "ValPinned_le10pct_highs": {
+    "selected_gamma": 0.0,
+    "used_fallback": false,
+    "val_metrics_cpsat": {
+      "strict_01_infeasibility_rate": 0.01,
+      "strict_01_feasible_count": 99,
+      "unsolvable_rate": 0.0,
+      "strict_01_feasible_regret": 0.2995521994462875,
+      "official_frac_surrogate_posthoc_p1": 0.299132565204574,
+      "official_frac_surrogate_posthoc_p021": 0.2985105724042627,
+      "strict_01_int_repair_posthoc_p1": 0.29874745303170863,
+      "strict_01_int_repair_posthoc_p021": 0.29827757953967915,
+      "capacity_mse": 48.74934497662359,
+      "capacity_oos_r2_vs_shared_mean": -7.821081694399842,
+      "capacity_pearson_r_per_dim": [
+        0.49544955823201575,
+        0.3832204503407153,
+        0.3850577504576577
+      ]
+    },
+    "val_grid_summary": [
+      {
+        "gamma": 0.0,
+        "val_infeas": 0.01,
+        "val_frac_p1": 0.299132565204574,
+        "val_int_p1": 0.29874745303170863,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.15,
+        "val_infeas": 0.01,
+        "val_frac_p1": 0.32534528303328414,
+        "val_int_p1": 0.32577882077213777,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.3,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.353825899977928,
+        "val_int_p1": 0.353825899977928,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.45,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.38310169860038534,
+        "val_int_p1": 0.38310169860038534,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.6,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.4125529951955118,
+        "val_int_p1": 0.4125529951955118,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.75,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.44292470825185204,
+        "val_int_p1": 0.44292470825185204,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 0.9,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.4734891835036692,
+        "val_int_p1": 0.4734891835036692,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 1.05,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.5038582534458839,
+        "val_int_p1": 0.5038582534458839,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 1.25,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.5455702465702343,
+        "val_int_p1": 0.5455702465702343,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 1.5,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.5990626306053801,
+        "val_int_p1": 0.5990626306053801,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      },
+      {
+        "gamma": 2.0,
+        "val_infeas": 0.0,
+        "val_frac_p1": 0.7047817476924615,
+        "val_int_p1": 0.7047817476924615,
+        "status_counts": {
+          "OPTIMAL": 100
+        }
+      }
+    ],
+    "test_metrics": {
+      "strict_01_infeasibility_rate": 0.052,
+      "strict_01_feasible_count": 474,
+      "unsolvable_rate": 0.0,
+      "strict_01_feasible_regret": 0.30202185440553775,
+      "official_frac_surrogate_posthoc_p1": 0.294830302600557,
+      "official_frac_surrogate_posthoc_p021": 0.2918883682569169,
+      "strict_01_int_repair_posthoc_p1": 0.2951784395147806,
+      "strict_01_int_repair_posthoc_p021": 0.2920989910900222,
+      "capacity_mse": 49.67197019897873,
+      "capacity_oos_r2_vs_shared_mean": -8.44328522699779,
+      "capacity_pearson_r_per_dim": [
+        0.42111220669249483,
+        0.37904326000546495,
+        0.3473259013968666
+      ]
+    },
+    "highs_status_counts": {
+      "kOptimal": 500
+    },
+    "highs_max_mip_gap": 9.929327797581987e-05,
+    "highs_max_integrality_err": 5.934216593398022e-12,
+    "n_neg_cap_dims_clipped": 0
+  }
+}

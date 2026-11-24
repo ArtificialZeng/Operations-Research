@@ -1,0 +1,36 @@
+{
+  "purpose": "Pre-launch minimal synthetic loading, isolation, metric, and PFL-parity check for Stage-3 (seeds 11 & 15 untouched by this script).",
+  "check_script_sha256": "c8a8b77bbc620c5c6e8e46500114c498425af8535b5afc522a303bb1b98e67a2",
+  "stage3_runner_sha256": "b5002086a04b3b2a019784b0afc450777175f3e00035ae4f9f216ebaa8ca89c1",
+  "pinned_src_pfl_py_sha256": "3cf21d21aa8c3afb437a892aa4c97472b1cf010fdcd18443ef644179ed786b61",
+  "pinned_src_odece_py_sha256": "07c0161ba5bcbfae848ec68a90fa5d7d28567c42bec9161a089a81ff17bedf48",
+  "pinned_KnapsackCapaExp_py_sha256": "faffe92415df659360603ec90494be496a8d89168ba1e1e7b60d38b54f2ed971",
+  "all_checks_passed": true,
+  "check1_loading_keys": {
+    "aligned_train_all_match": true,
+    "aligned_test_all_match": true,
+    "released_test_positional_exact": true,
+    "fixed_X_w_order_across_test_interpretations": true
+  },
+  "check2_pred_solver_isolation_and_metrics": {
+    "solve_single_highs_takes_no_true_capacity": true,
+    "unclipped_statuses": [
+      "kOptimal",
+      "kOptimal",
+      "kOptimal",
+      "kInfeasible"
+    ],
+    "unclipped_source_raw_infeas": "1/3=0.333333",
+    "unclipped_source_feas_regret": "denom=2, val=0.187500",
+    "unclipped_strict_risk_all": "2/4=0.500000",
+    "unclipped_int_p1_exact_match": true,
+    "zeroclip_fallback_unsolvable_count": 0,
+    "zeroclip_fallback_int_p1_identical_to_unclipped": true
+  },
+  "check3_pfl_mse_float64_parity": {
+    "loss_abs_diff": 0.0,
+    "weight_max_abs_diff_after_step": 0.0,
+    "bias_max_abs_diff_after_step": 0.0,
+    "pass": true
+  }
+}

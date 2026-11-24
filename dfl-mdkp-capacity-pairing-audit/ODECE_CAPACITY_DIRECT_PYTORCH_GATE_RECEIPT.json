@@ -1,0 +1,139 @@
+{
+  "purpose": "Direct-only pre-launch parity gate for Stage-2d (reserved seeds 17 & 18) on actual unmodified pinned official_odece_repo/src/odece.py (float64, alpha=0.5).",
+  "gate_script_sha256": "ee93240b91bcf51ddfb323540a063967113e7477641b18f16b4abff05f5f7071",
+  "pinned_repo_commit": "1b432e03ce9ded1e504df60fd4c44cf936334d4f",
+  "pinned_source_hashes": {
+    "src_odece_py": "07c0161ba5bcbfae848ec68a90fa5d7d28567c42bec9161a089a81ff17bedf48",
+    "kpsolver_py": "f1fc217c11daa5ab02e7de52c416428ce10016c1845b216e1faaea8c4beb63f5",
+    "TorchML_py": "6cb64787154cde4a57bb35ddc3e4ae369901ed4ff394a40132ac7ec2d19f0775"
+  },
+  "torch_version": "2.15.0+cpu",
+  "fixture_seed": 11,
+  "reserved_seeds_17_18_untouched": true,
+  "direct_pytorch_gate_pass_float64": true,
+  "all_four_fixtures_exercised": true,
+  "auxiliary_handwritten_original_1e_10_pass": false,
+  "cases": [
+    {
+      "case": "realistic_mixed_capacity_batch_float64",
+      "alpha": 0.5,
+      "n_ok_mask": 32,
+      "true_sol_violations_strict_gt0": 1,
+      "max_true_sol_float64_excess": 1.7763568394002505e-15,
+      "pred_viol_count_histogram": {
+        "0": 16,
+        "1": 14,
+        "2": 2,
+        "3": 0
+      },
+      "empty_ipl_guard_triggered": false,
+      "loss_total": 1.7585309244890408,
+      "direct_gating_autograd_vs_33param_fd": {
+        "max_abs_err_W": 2.138178523125589e-10,
+        "max_abs_err_b": 1.9523710426128105e-10,
+        "threshold_W": 1e-07,
+        "threshold_b": 1e-08,
+        "pass": true
+      },
+      "auxiliary_non_gating_handwritten_analytic": {
+        "max_abs_err_W": 1.5829781929710407e-10,
+        "max_abs_err_b": 7.30132621029611e-12,
+        "original_unrelaxed_threshold_W": 1e-10,
+        "original_unrelaxed_threshold_b": 1e-11,
+        "pass_original_unrelaxed": false,
+        "note": "Auxiliary diagnostic only (NOT used in Stage-2d training); misses 1e-10 on W due to PyTorch nn.Softplus(beta=5) default threshold=20 vs unclipped NumPy sigmoid."
+      }
+    },
+    {
+      "case": "partial_masked_infeasible_batch_float64",
+      "alpha": 0.5,
+      "n_ok_mask": 30,
+      "true_sol_violations_strict_gt0": 1,
+      "max_true_sol_float64_excess": 1.7763568394002505e-15,
+      "pred_viol_count_histogram": {
+        "0": 15,
+        "1": 13,
+        "2": 2,
+        "3": 0
+      },
+      "empty_ipl_guard_triggered": false,
+      "loss_total": 1.772787604536786,
+      "direct_gating_autograd_vs_33param_fd": {
+        "max_abs_err_W": 2.0303048131609103e-10,
+        "max_abs_err_b": 1.8636248100278863e-10,
+        "threshold_W": 1e-07,
+        "threshold_b": 1e-08,
+        "pass": true
+      },
+      "auxiliary_non_gating_handwritten_analytic": {
+        "max_abs_err_W": 1.5829693111868437e-10,
+        "max_abs_err_b": 7.301242943569264e-12,
+        "original_unrelaxed_threshold_W": 1e-10,
+        "original_unrelaxed_threshold_b": 1e-11,
+        "pass_original_unrelaxed": false,
+        "note": "Auxiliary diagnostic only (NOT used in Stage-2d training); misses 1e-10 on W due to PyTorch nn.Softplus(beta=5) default threshold=20 vs unclipped NumPy sigmoid."
+      }
+    },
+    {
+      "case": "all_masked_zero_branch_float64",
+      "alpha": 0.5,
+      "n_ok_mask": 0,
+      "true_sol_violations_strict_gt0": 1,
+      "max_true_sol_float64_excess": 1.7763568394002505e-15,
+      "pred_viol_count_histogram": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "empty_ipl_guard_triggered": false,
+      "loss_total": 0.5415639508212158,
+      "direct_gating_autograd_vs_33param_fd": {
+        "max_abs_err_W": 8.930101103032939e-11,
+        "max_abs_err_b": 8.993533695544897e-11,
+        "threshold_W": 1e-07,
+        "threshold_b": 1e-08,
+        "pass": true
+      },
+      "auxiliary_non_gating_handwritten_analytic": {
+        "max_abs_err_W": 1.5829848543091884e-10,
+        "max_abs_err_b": 7.30127069914488e-12,
+        "original_unrelaxed_threshold_W": 1e-10,
+        "original_unrelaxed_threshold_b": 1e-11,
+        "pass_original_unrelaxed": false,
+        "note": "Auxiliary diagnostic only (NOT used in Stage-2d training); misses 1e-10 on W due to PyTorch nn.Softplus(beta=5) default threshold=20 vs unclipped NumPy sigmoid."
+      }
+    },
+    {
+      "case": "all_pred_feasible_empty_ipl_guard_float64",
+      "alpha": 0.5,
+      "n_ok_mask": 32,
+      "true_sol_violations_strict_gt0": 1,
+      "max_true_sol_float64_excess": 1.7763568394002505e-15,
+      "pred_viol_count_histogram": {
+        "0": 32,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "empty_ipl_guard_triggered": true,
+      "loss_total": 0.5415639508212158,
+      "direct_gating_autograd_vs_33param_fd": {
+        "max_abs_err_W": 8.930101103032939e-11,
+        "max_abs_err_b": 8.993533695544897e-11,
+        "threshold_W": 1e-07,
+        "threshold_b": 1e-08,
+        "pass": true
+      },
+      "auxiliary_non_gating_handwritten_analytic": {
+        "max_abs_err_W": 1.5829848543091884e-10,
+        "max_abs_err_b": 7.30127069914488e-12,
+        "original_unrelaxed_threshold_W": 1e-10,
+        "original_unrelaxed_threshold_b": 1e-11,
+        "pass_original_unrelaxed": false,
+        "note": "Auxiliary diagnostic only (NOT used in Stage-2d training); misses 1e-10 on W due to PyTorch nn.Softplus(beta=5) default threshold=20 vs unclipped NumPy sigmoid."
+      },
+      "unmodified_empty_ipl_is_nan": true
+    }
+  ]
+}

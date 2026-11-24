@@ -1,0 +1,13 @@
+# Pinned Python environment for dfl-mdkp-capacity-pairing-audit
+# Upstream dependency (NOT vendored; clone separately): https://github.com/JayMan91/OdeceDFLforConstraintsNeurips25
+# Upstream commit: 1b432e03ce9ded1e504df60fd4c44cf936334d4f (License: Apache-2.0)
+# Python: 3.12 (CPU-only PyTorch wheel index: https://download.pytorch.org/whl/cpu)
+
+torch==2.15.0+cpu
+pytorch-lightning>=2.4,<3.0
+einops>=0.8
+numpy>=1.26,<3.0
+scipy>=1.13
+scikit-learn>=1.5
+highspy==1.16.0
+ortools>=9.11
