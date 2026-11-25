@@ -1,0 +1,195 @@
+{
+  "generated_utc": "2026-11-25T19:25:47Z",
+  "project": "d4_boost_nocturnal_river_hypoxia_20261125",
+  "n_files_hashed": 47,
+  "files": {
+    "data/processed/conus_all_discovered_do_sites.csv": {
+      "bytes": 351490,
+      "sha256": "14b9789acccc562b0d07860be75c1b5db5bfb6c50b37b843d0b959855acdadc2"
+    },
+    "data/processed/conus_clean_eligible_rivers.csv": {
+      "bytes": 98084,
+      "sha256": "014796b6951830e0730f3732e7c8df1e082cca757c0c61abafd4f0d3a0bd933b"
+    },
+    "data/processed/conus_dv_fetch_manifest.json": {
+      "bytes": 1455,
+      "sha256": "b8be97d1f428b89d6d93e49abdf6736ea17708ff42f462d68607b7ae5e826b90"
+    },
+    "data/processed/conus_iv_24h_river_slopes.csv": {
+      "bytes": 747725,
+      "sha256": "407c3018728b94f5a0cf3e65063decda6d3f0c2f9f2d53a9a7550012d1958089"
+    },
+    "data/processed/conus_iv_rivers_meta.csv": {
+      "bytes": 14687,
+      "sha256": "b870d26ff5fb1c422722f1f172e67b55fdbf6402690feef5d17c13e5c307368e"
+    },
+    "data/processed/conus_river_econometric_panel.csv": {
+      "bytes": 936072,
+      "sha256": "aba4589a9f595b8274515a4cdfceae53526886a4b37caef871cbcba4daacc875"
+    },
+    "data/processed/conus_valid_rivers_meta.csv": {
+      "bytes": 135740,
+      "sha256": "fb3b1f4059efa1f610fc3c42e760de80dd06b41689caca2faac58bb04a45c5dc"
+    },
+    "data/processed/excluded_brackish_spcond_sites.csv": {
+      "bytes": 2183,
+      "sha256": "0965f8a291ad762b5bce47dda8a10a44969e521145de866b66780c41540edea8"
+    },
+    "data/processed/excluded_sites_audit.csv": {
+      "bytes": 341619,
+      "sha256": "05dd40018fdb38cc576e6105a717d8299d960b80889687f5766e47e393c73572"
+    },
+    "data/processed/step1_site_discovery_summary.json": {
+      "bytes": 2611,
+      "sha256": "85e5422e231cd2988787be2199615ed9d1de26b7b1e5b6d198d9959fe0d2888b"
+    },
+    "data/processed/uk_ea_candidate_clean_rivers.csv": {
+      "bytes": 11014,
+      "sha256": "67cedde85a78785eadb1369b162bfc40ea8c5b29d2f132417bd15924648b09fa"
+    },
+    "data/processed/uk_ea_clean_rivers_results.csv": {
+      "bytes": 135544,
+      "sha256": "95ced97e7fa7b49563fb6b50de8977a5a61c04caf6855b71fed7ab01706b31e9"
+    },
+    "data/processed/verified_references.json": {
+      "bytes": 6500,
+      "sha256": "52ccd298db3cd4d125b02d7429befe808f30af5fa603e89016bc74758eddd807"
+    },
+    "figures/fig1_conus_map_and_thermal_decoupling.pdf": {
+      "bytes": 57741,
+      "sha256": "195c6016b05c1b1a2a41f1e38c88019f0177cb4fa14b80461b4474fd0f6a75ef"
+    },
+    "figures/fig1_conus_map_and_thermal_decoupling.png": {
+      "bytes": 546550,
+      "sha256": "f49eafa9a343f7a0c58b4b976f8e89e67cbfccd2704d6ff3395af118f83c0813"
+    },
+    "figures/fig2_24h_clock_bias_and_transfer.pdf": {
+      "bytes": 44961,
+      "sha256": "407622004e7a5e60b47f15c1f871e9a651c6d42ba4a62b02283613164e9ae148"
+    },
+    "figures/fig2_24h_clock_bias_and_transfer.png": {
+      "bytes": 615151,
+      "sha256": "5cb576ac568876ded7101ed231ab7a18018e77e0eb43c60bb733898f89cc0919"
+    },
+    "figures/fig3_compound_heatwave_drought.pdf": {
+      "bytes": 48091,
+      "sha256": "229f25042bd167de237b394c4b068761421cf8cd7b65ab890caf569542bcd69e"
+    },
+    "figures/fig3_compound_heatwave_drought.png": {
+      "bytes": 286436,
+      "sha256": "6eb7a09e0914965d851b1d50c308b6f377048834af736b25a0bf942c850b6eb5"
+    },
+    "figures/fig4_biophysical_mechanism.pdf": {
+      "bytes": 38124,
+      "sha256": "7c03991990b94ba84b214d0ceaaa66156d3de0535d4540e54ba52a39a505cc1e"
+    },
+    "figures/fig4_biophysical_mechanism.png": {
+      "bytes": 394435,
+      "sha256": "643ab39ebd82feb49855c6f4818ed656f012e5fc218529170251bc2d2758b306"
+    },
+    "figures/fig5_secular_cwa_and_uk_replication.pdf": {
+      "bytes": 53615,
+      "sha256": "8b834eba2ff6361eb02ad98dfd705062159f04efe809e41017a1545b4366f88f"
+    },
+    "figures/fig5_secular_cwa_and_uk_replication.png": {
+      "bytes": 531351,
+      "sha256": "ba87028388de2465b3d6e21197075595f86587660c86a67d31bd5186266f8470"
+    },
+    "manuscript_d4_boost.md": {
+      "bytes": 75671,
+      "sha256": "06a6c4897c980840a6473c169d833bc3fd088f10096ea82ef232c3faf7d518f1"
+    },
+    "manuscript_d4_boost.pdf": {
+      "bytes": 3326283,
+      "sha256": "11242a0ea7bef8e81a6103220e66a806b75bfe68c732a5066cb5eba6ca9670cb"
+    },
+    "README.md": {
+      "bytes": 7171,
+      "sha256": "07d4e13c7be91e9a38311463c9f535a9afc5699eb4e3edae56e5d452d2d77335"
+    },
+    "results/conus_iv_24h_clock_results.json": {
+      "bytes": 74009,
+      "sha256": "5bbbf8ee2ac0366693467a9c53872d2ea7815373d94fbc1548093479b3dfbaef"
+    },
+    "results/d4_econometric_hydrologic_results.json": {
+      "bytes": 339535,
+      "sha256": "87d1db65345a6f69eb35a8f5f528edd7d9f18710109bf2ec42ac3c0df6171ea5"
+    },
+    "results/uk_ea_replication_results.json": {
+      "bytes": 38343,
+      "sha256": "dbf7e1e8bbad8ef37a4e4049e4aefe3cac92c373738679ee11e22f964c517f11"
+    },
+    "scripts/00_api_probe.py": {
+      "bytes": 5020,
+      "sha256": "c21516a759dd65b64561e2ffda3e983115c41c9656089d3903ab202cfa992b9a"
+    },
+    "scripts/01_discover_and_filter_conus_sites.py": {
+      "bytes": 17154,
+      "sha256": "2fa0dc938e5d992c91b86c3e43a0ffa5a801028855fec338b302a78569dec732"
+    },
+    "scripts/02_fetch_conus_dv_census.py": {
+      "bytes": 14358,
+      "sha256": "0b34846791c0e7a2000e3d7827c037dc774c88007f76166efd16061fecc871cf"
+    },
+    "scripts/03_fetch_iv_24h_clock_census.py": {
+      "bytes": 45250,
+      "sha256": "78e674bfc61af38b091024030ba009558e99284c75d3a9c282f1781b6833387e"
+    },
+    "scripts/04_uk_ea_international_replication.py": {
+      "bytes": 25534,
+      "sha256": "a2f64f93fbcd9f2a8efcce03f534dbbe011ff28c66d3abadd990def1bf33f453"
+    },
+    "scripts/05_econometric_hydrologic_suite.py": {
+      "bytes": 48743,
+      "sha256": "b55ab8a646cbd31b3cafbc6709a39ac03dc242bad26aab0917fd059cbd1e412a"
+    },
+    "scripts/06_generate_figures_tables.py": {
+      "bytes": 42923,
+      "sha256": "351a9e9903a1d5e19fb1ad132c1a2b9d265a6d91339e6feb19d8a882fda28468"
+    },
+    "scripts/07_build_manifest.py": {
+      "bytes": 2591,
+      "sha256": "ff655f1880a733683e7979c15643b37719ed3fc4b352ab674f9ca18efcbe5d37"
+    },
+    "scripts/08_compile_manuscript_pdf.py": {
+      "bytes": 21556,
+      "sha256": "acf2f19f9636f998debbe43c353d3d3930b6f577889073e056c07c442992a975"
+    },
+    "STATUS.md": {
+      "bytes": 2242,
+      "sha256": "6ea283e1ab8316d64f21f6d9b4cf5fc3d2b1d7e3b1a17adf28e908a488261758"
+    },
+    "tables/table1_core_thermal_decoupling.csv": {
+      "bytes": 6584,
+      "sha256": "6f4b591a7a4f637a0fe32c128da3ca222aa02d5141645e13a0eabb888feeb253"
+    },
+    "tables/table2_24h_clock_bias_windows.csv": {
+      "bytes": 1157,
+      "sha256": "12058bcf1a4151e1c110ad942a248f70bdfe59b3f118e55bdeedc261b621fd13"
+    },
+    "tables/table2b_transfer_function_oos.csv": {
+      "bytes": 912,
+      "sha256": "b4c9ecfdf9c16950d23dffb9d387891ed1c8955297b92152e62ce4c2916b0b37"
+    },
+    "tables/table3_compound_hot_x_dry.csv": {
+      "bytes": 1978,
+      "sha256": "88753801d6c397e24e8b53d36dd127f9c9fd97d0006fd2728b5b2aa0fbe7dfb9"
+    },
+    "tables/table4_biophysical_mechanism_strata.csv": {
+      "bytes": 1527,
+      "sha256": "023deb4ec8ce7688da62a038842f0636980b447180d20b4cf703a5473391ce97"
+    },
+    "tables/table5_secular_trends_and_uk_replication.csv": {
+      "bytes": 2322,
+      "sha256": "79d16c93753520fb8ab0b6a445c47cad48e1816b01e0f367e02d3de1bebe106b"
+    },
+    "tables/table6_huc2_basin_summary.csv": {
+      "bytes": 1286,
+      "sha256": "882502a4b7d0339be14e9a718f7240784d7cf871cc6f99a96b2870f8a2fbd421"
+    },
+    "tests/test_d4_pipeline.py": {
+      "bytes": 21313,
+      "sha256": "c307ed7b035a153e89340fcc5d6d76b69bcf914cc6d7833d318213c7c4f1c861"
+    }
+  }
+}

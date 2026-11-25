@@ -1,0 +1,6 @@
+sampling_window,n_rivers,mean_DOmin_slope,mean_window_slope,mean_window_instT_slope,warming_underestimation_pct,warming_underestimation_instT_pct,warming_underestimation_qctrl_pct,pct_rivers_underestimating,slope_bias_huc2_p,slope_bias_state_p,mean_do_bias_mgL,hyp5_missed_pct,hyp4_missed_pct,hyp3_missed_pct,hyp2_missed_pct
+Pre-Dawn Solar (05:00-07:00 LST),139,-0.21433,-0.21244,-0.21244,0.88,0.88,1.82,47.48,0.46739188835378037,0.4988614902649852,0.3343,23.32,26.99,29.87,44.39
+Landsat Overpass (10:00-11:00 LST),139,-0.21433,-0.14786,-0.1434,31.01,33.09,19.55,84.89,3.862471304776959e-07,2.3547500988498507e-08,1.17137,52.84,57.9,67.77,65.31
+Morning Grab (09:00-12:00 Civil),139,-0.21433,-0.17384,-0.18568,18.89,13.37,12.16,76.26,6.078952402636852e-07,3.1380109009890505e-08,0.86098,42.49,44.57,63.01,61.36
+Afternoon Grab Wide (13:00-16:00 Civil),139,-0.21433,-0.09998,-0.05825,53.35,72.82,33.5,93.53,3.8092276141709095e-06,5.686696203938211e-07,1.64202,65.27,66.66,72.59,68.78
+Afternoon Grab Core (13:30-15:30 Civil),139,-0.21433,-0.09838,-0.05413,54.1,74.74,34.02,93.53,3.990590090919204e-06,5.243216710913014e-07,1.65958,65.39,66.45,72.88,69.14

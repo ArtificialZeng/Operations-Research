@@ -1,0 +1,123 @@
+{
+  "n_jurisdictions_queried": 49,
+  "n_total_discovered_dv_do_sites": 1577,
+  "n_meeting_record_length_before_hydro_filter": 565,
+  "n_excluded_by_hydro_or_type_filter": 148,
+  "hydro_exclusion_reason_counts": {
+    "dam_tailrace_lock_infra": 60,
+    "lake_reservoir_impoundment": 35,
+    "site_type_ST-TS": 35,
+    "klamath_system": 16,
+    "estuary_tidal_coastal": 15,
+    "canal_ditch_conveyance": 13,
+    "site_type_ST-CA": 6,
+    "site_type_ES": 3,
+    "site_type_LK": 2,
+    "invalid_huc2": 2
+  },
+  "n_clean_eligible_rivers": 417,
+  "n_clean_states": 39,
+  "n_clean_huc2_basins": 18,
+  "n_clean_with_q_catalog": 339,
+  "n_clean_with_temp_minmax": 416,
+  "n_clean_with_spcond": 398,
+  "n_clean_with_turb": 164,
+  "n_clean_long_10yr_3000d": 244,
+  "n_clean_ultra_strict_zero_infra": 402,
+  "clean_rivers_by_huc2": {
+    "01": 2,
+    "02": 51,
+    "03": 93,
+    "04": 24,
+    "05": 66,
+    "06": 8,
+    "07": 26,
+    "08": 1,
+    "09": 9,
+    "10": 29,
+    "11": 23,
+    "12": 20,
+    "13": 1,
+    "14": 14,
+    "15": 2,
+    "16": 3,
+    "17": 35,
+    "18": 10
+  },
+  "clean_rivers_by_state": {
+    "PA": 38,
+    "GA": 35,
+    "OR": 31,
+    "KY": 27,
+    "TX": 23,
+    "OH": 19,
+    "NC": 18,
+    "SC": 18,
+    "WI": 18,
+    "FL": 17,
+    "CO": 14,
+    "IL": 13,
+    "KS": 13,
+    "IN": 12,
+    "MO": 12,
+    "CA": 10,
+    "ND": 9,
+    "TN": 9,
+    "AL": 8,
+    "NE": 8,
+    "UT": 8,
+    "VA": 8,
+    "MD": 7,
+    "AR": 6,
+    "OK": 6,
+    "NJ": 5,
+    "WV": 5,
+    "NY": 4,
+    "DE": 3,
+    "SD": 2,
+    "WA": 2,
+    "WY": 2,
+    "CT": 1,
+    "DC": 1,
+    "ID": 1,
+    "LA": 1,
+    "ME": 1,
+    "MN": 1,
+    "MS": 1
+  },
+  "known_forensic_round1_audit": {
+    "0212880025": {
+      "station_nm": "PEE DEE RIVER BELOW POWERHOUSE DAM NR PEE DEE, NC",
+      "site_tp_cd": "ST",
+      "excluded": true,
+      "reasons": [
+        "dam_tailrace_lock_infra"
+      ]
+    },
+    "03220510": {
+      "station_nm": "Scioto R. at O'Shaughnessy Dam near Dublin OH",
+      "site_tp_cd": "ST",
+      "excluded": true,
+      "reasons": [
+        "dam_tailrace_lock_infra"
+      ]
+    },
+    "421401121480900": {
+      "station_nm": "LINK RIVER DAM",
+      "site_tp_cd": "ST",
+      "excluded": true,
+      "reasons": [
+        "klamath_system",
+        "dam_tailrace_lock_infra"
+      ]
+    },
+    "03036000": {
+      "station_nm": "Mahoning Creek at Mahoning Creek Dam, PA",
+      "site_tp_cd": "ST",
+      "excluded": true,
+      "reasons": [
+        "dam_tailrace_lock_infra"
+      ]
+    }
+  }
+}

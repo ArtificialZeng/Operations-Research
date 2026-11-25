@@ -1,0 +1,4 @@
+mode,n_river_days,n_rivers,n_huc2_folds,max_vif,supersat_marginal_20C,raw_mean_bias_mgL,corrected_mean_bias_mgL,mean_bias_reduction_pct,raw_rmse_mgL,corrected_rmse_mgL,rmse_reduction_pct,nonlinear_spline_rmse_mgL,oos_r2_do_min,oos_r2_drawdown,slope_bias_reduction_pct,hyp5_raw_recall_pct,hyp5_corrected_recall_pct,hyp5_corrected_precision_pct,hyp5_corrected_specificity_pct,temp2024_raw_rmse,temp2024_corrected_rmse
+Afternoon Grab Wide (13:00-16:00),92787,139,17,3.924,1.0887,1.6466,-0.041,97.51,2.3121,1.0091,56.36,1.0031,0.7015,0.6135,85.86,34.73,56.29,76.87,97.91,2.2666,0.8819
+Afternoon Grab Core (13:30-15:30),92755,139,17,3.995,1.0882,1.6643,-0.0407,97.55,2.3407,1.0117,56.78,1.0063,0.7,0.6222,85.98,34.61,55.97,76.82,97.92,2.2947,0.8855
+Landsat Overpass (10:00-11:00 LST),92477,139,17,3.092,1.0798,1.179,-0.0492,95.83,1.6678,0.9172,45.01,0.923,0.7536,0.3955,69.72,47.16,67.79,80.54,97.98,1.6369,0.819
