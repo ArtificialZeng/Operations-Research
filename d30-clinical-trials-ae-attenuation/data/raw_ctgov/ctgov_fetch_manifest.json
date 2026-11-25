@@ -1,0 +1,175 @@
+{
+  "fetched_utc": "2026-11-25T15:58:34.563511+00:00",
+  "endpoint": "https://clinicaltrials.gov/api/v2/studies",
+  "query_term": "(AREA[Phase]PHASE2 OR AREA[Phase]PHASE3) AND AREA[StudyType]INTERVENTIONAL AND AREA[LeadSponsorClass]INDUSTRY AND AREA[HasResults]true",
+  "fields": "protocolSection.identificationModule.nctId,protocolSection.identificationModule.briefTitle,protocolSection.identificationModule.officialTitle,protocolSection.statusModule.overallStatus,protocolSection.statusModule.startDateStruct,protocolSection.statusModule.primaryCompletionDateStruct,protocolSection.statusModule.completionDateStruct,protocolSection.statusModule.resultsFirstPostDateStruct,protocolSection.designModule,protocolSection.conditionsModule,protocolSection.armsInterventionsModule.interventions,protocolSection.sponsorCollaboratorsModule.leadSponsor,protocolSection.contactsLocationsModule.locations,resultsSection.adverseEventsModule.frequencyThreshold,resultsSection.adverseEventsModule.timeFrame,resultsSection.adverseEventsModule.eventGroups,resultsSection.adverseEventsModule.otherEvents.term,resultsSection.adverseEventsModule.otherEvents.organSystem,resultsSection.adverseEventsModule.otherEvents.assessmentType,resultsSection.adverseEventsModule.seriousEvents.term,resultsSection.adverseEventsModule.seriousEvents.organSystem,resultsSection.adverseEventsModule.seriousEvents.assessmentType,derivedSection.conditionBrowseModule.meshes,derivedSection.conditionBrowseModule.ancestors,derivedSection.interventionBrowseModule.meshes",
+  "page_size": 1000,
+  "total_expected": 22303,
+  "total_studies_fetched": 22303,
+  "pages": 23,
+  "elapsed_seconds": 110.48,
+  "completed": true,
+  "page_files": [
+    {
+      "page": 1,
+      "file": "page_0001.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3177359,
+      "sha256": "2d94b633983ec83c8de6c07179a88d7e35102b497e4e419581733309f8de58ba"
+    },
+    {
+      "page": 2,
+      "file": "page_0002.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3257019,
+      "sha256": "5a51d9e2ca2ea68f02b1c980a3402ed6b74c7af87d25b6b9e6b4d36b4e1f13cb"
+    },
+    {
+      "page": 3,
+      "file": "page_0003.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3283764,
+      "sha256": "973b166ac1cee5d485ab15651399e41b03384a9640a5ab0b6db88ea13648d938"
+    },
+    {
+      "page": 4,
+      "file": "page_0004.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3147716,
+      "sha256": "37c445792f340fb5aed565864071fa35df1b8c1dda693609fc812a023a70b50a"
+    },
+    {
+      "page": 5,
+      "file": "page_0005.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3067978,
+      "sha256": "78296ab7e420d0eb48ba7abe4af472314d19cb2da5e26d880cb51214fcebce20"
+    },
+    {
+      "page": 6,
+      "file": "page_0006.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3268186,
+      "sha256": "e654c8216f38a853f10281b9fe42a068386206ee4f6ec411fb4e33fb310c156c"
+    },
+    {
+      "page": 7,
+      "file": "page_0007.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3097091,
+      "sha256": "f6cf96233b8d88338b073b1d655f9500168beb628383716e46ff8e4a5ac9352f"
+    },
+    {
+      "page": 8,
+      "file": "page_0008.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3270057,
+      "sha256": "5dcdbf285e7a4a1bea15fdadd547e4dfe75aaaf0a5c5fc830bbac7190bb354f7"
+    },
+    {
+      "page": 9,
+      "file": "page_0009.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3103269,
+      "sha256": "6b7aac24181d2b9f371330dcd5f4e5b6f922f47468698d5b5d1ba691827c42e5"
+    },
+    {
+      "page": 10,
+      "file": "page_0010.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3345935,
+      "sha256": "38c2c552831989d02a64a9bb05f0e8d27fde71c18c4ed8d4b182b70613a1ea14"
+    },
+    {
+      "page": 11,
+      "file": "page_0011.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 2996986,
+      "sha256": "69737daa27453be4dc26d2bf523450d9d35a384d8209efa9c06613d5b3838e01"
+    },
+    {
+      "page": 12,
+      "file": "page_0012.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3039462,
+      "sha256": "ca65ac9c2156cede3cb758036e3b546b3905c7a06e86d86e13797d2f7e3fcd9d"
+    },
+    {
+      "page": 13,
+      "file": "page_0013.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3006464,
+      "sha256": "fb45af49777750268b363a0d1372af4cc3e3367e047754bf4c34c2584666e9ec"
+    },
+    {
+      "page": 14,
+      "file": "page_0014.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3223629,
+      "sha256": "ac18b150d8b37bb9af69ba0fabc4b9f04069f564b942c2cb68b3bbdfd617c307"
+    },
+    {
+      "page": 15,
+      "file": "page_0015.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3130372,
+      "sha256": "6a90650e17e8cbb034734649957f41bd966f197bb7f8f2dbcd22e57fdbc7d830"
+    },
+    {
+      "page": 16,
+      "file": "page_0016.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3119970,
+      "sha256": "038a189b7e5d1efe419fabaea6686d3b558bcc329c5c9fb2c3711b837ce580e4"
+    },
+    {
+      "page": 17,
+      "file": "page_0017.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3127090,
+      "sha256": "95f22b706a91035243557985f2302377d1b744110e372c8fff3388ad328038fa"
+    },
+    {
+      "page": 18,
+      "file": "page_0018.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3249582,
+      "sha256": "6aa369266ef7c71758c2cd41349e45a869c634191709bc554313845743c70f65"
+    },
+    {
+      "page": 19,
+      "file": "page_0019.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3285277,
+      "sha256": "4036c3aff193372c657608c3c8b552f42cf8fe6de06ee9f01d6171dd12511501"
+    },
+    {
+      "page": 20,
+      "file": "page_0020.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3143375,
+      "sha256": "b5aa31ef6856971f21d8b047b26f43757fc633e23b02132b3f7e0b3ef77058ff"
+    },
+    {
+      "page": 21,
+      "file": "page_0021.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3157246,
+      "sha256": "d35381af5af8a8461bdf8c195969d6c3130f2001372a603cd1cb17f25c9366a0"
+    },
+    {
+      "page": 22,
+      "file": "page_0022.json.gz",
+      "n_studies": 1000,
+      "gz_bytes": 3040286,
+      "sha256": "535c69be83d547dad06a411ff551eb858180ed9570a1a4e5887acdaed5f0652f"
+    },
+    {
+      "page": 23,
+      "file": "page_0023.json.gz",
+      "n_studies": 303,
+      "gz_bytes": 907807,
+      "sha256": "b9fbf9e2a3a6275c6e11e5665277e82fc1c00170c72bc5038f4dffa57f7e0848"
+    }
+  ]
+}

@@ -1,0 +1,1715 @@
+{
+  "linkage_audit": {
+    "total_p3_unique_named_molecules": 697,
+    "matched_originator_nda_bla": 402,
+    "match_rate_pct": 57.68,
+    "with_pre_approval_p3_2005_2024": 229,
+    "with_5yr_followup_2005_2021": 190,
+    "with_3yr_followup_2005_2023": 216,
+    "with_fda_label_match": 205,
+    "with_us_faers_ge20_reports": 210,
+    "with_us_and_nonus_faers_ge20": 203,
+    "faers_global_queried_among_us_pos": "366/366",
+    "total_openfda_api_requests_this_run": 0
+  },
+  "descriptive_by_ee_tertile_pre_2005_2024": {
+    "EE_0pct": {
+      "n_drugs": 33,
+      "n_drugs_5yr": 30,
+      "mean_pre_ee_sh": 0.0,
+      "mean_pre_act_oth": 0.7126,
+      "mean_labeling_per_yr": 0.47,
+      "mean_n_labeling_5yr": 3.0,
+      "mean_n_efficacy_5yr": 1.167,
+      "boxed_warning_pct": 24.14,
+      "us_serious_share_pct": 41.63,
+      "us_nonserious_share_pct": 58.37,
+      "mean_us_vs_nonus_nonser_lor": 2.4718
+    },
+    "EE_0_15pct": {
+      "n_drugs": 93,
+      "n_drugs_5yr": 77,
+      "mean_pre_ee_sh": 0.0812,
+      "mean_pre_act_oth": 0.7081,
+      "mean_labeling_per_yr": 0.584,
+      "mean_n_labeling_5yr": 4.0,
+      "mean_n_efficacy_5yr": 1.974,
+      "boxed_warning_pct": 30.0,
+      "us_serious_share_pct": 43.84,
+      "us_nonserious_share_pct": 56.16,
+      "mean_us_vs_nonus_nonser_lor": 2.7838
+    },
+    "EE_ge15pct": {
+      "n_drugs": 103,
+      "n_drugs_5yr": 83,
+      "mean_pre_ee_sh": 0.2858,
+      "mean_pre_act_oth": 0.4716,
+      "mean_labeling_per_yr": 0.525,
+      "mean_n_labeling_5yr": 3.771,
+      "mean_n_efficacy_5yr": 1.651,
+      "boxed_warning_pct": 34.38,
+      "us_serious_share_pct": 39.1,
+      "us_nonserious_share_pct": 60.9,
+      "mean_us_vs_nonus_nonser_lor": 2.7485
+    }
+  },
+  "first_stage_molecule_level_check": {
+    "pre_act_oth_on_pre_ee_sh": {
+      "n": 229,
+      "n_clusters": 112,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.6497,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.6024,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.36022,
+          "se": 0.09971,
+          "t": -3.613,
+          "p": 0.0004565187093496892,
+          "ci95_lo": -0.5578,
+          "ci95_hi": -0.16265
+        }
+      }
+    },
+    "pre_ctrl_oth_on_pre_ee_sh": {
+      "n": 229,
+      "n_clusters": 112,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.6458,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.5553,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.32306,
+          "se": 0.09744,
+          "t": -3.316,
+          "p": 0.0012359264543560567,
+          "ci95_lo": -0.51614,
+          "ci95_hi": -0.12999
+        }
+      }
+    }
+  },
+  "drugsfda_labeling_supplements": {
+    "log_labeling_per_yr_ee": {
+      "n": 229,
+      "n_clusters": 112,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.349,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4046,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.02051,
+          "se": 0.08718,
+          "t": -0.235,
+          "p": 0.8144309747389991,
+          "ci95_lo": -0.19326,
+          "ci95_hi": 0.15224
+        }
+      }
+    },
+    "log_labeling_per_yr_split": {
+      "n": 229,
+      "n_clusters": 112,
+      "n_params": 36,
+      "matrix_rank": 36,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3527,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4046,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.14292,
+          "se": 0.19497,
+          "t": 0.733,
+          "p": 0.46508144686430747,
+          "ci95_lo": -0.24342,
+          "ci95_hi": 0.52925
+        },
+        "pre_ru_ua_sh": {
+          "coef": -0.2512,
+          "se": 0.22961,
+          "t": -1.094,
+          "p": 0.2763214473190928,
+          "ci95_lo": -0.70619,
+          "ci95_hi": 0.2038
+        }
+      }
+    },
+    "labeling_per_yr_ee": {
+      "n": 229,
+      "n_clusters": 112,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3493,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.541,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.02534,
+          "se": 0.13769,
+          "t": -0.184,
+          "p": 0.854294775278354,
+          "ci95_lo": -0.29819,
+          "ci95_hi": 0.2475
+        }
+      }
+    },
+    "labeling_per_yr_split": {
+      "n": 229,
+      "n_clusters": 112,
+      "n_params": 36,
+      "matrix_rank": 36,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3543,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.541,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.27769,
+          "se": 0.32296,
+          "t": 0.86,
+          "p": 0.39173885302396044,
+          "ci95_lo": -0.36228,
+          "ci95_hi": 0.91766
+        },
+        "pre_ru_ua_sh": {
+          "coef": -0.45309,
+          "se": 0.3763,
+          "t": -1.204,
+          "p": 0.23111830274940184,
+          "ci95_lo": -1.19876,
+          "ci95_hi": 0.29257
+        }
+      }
+    },
+    "log_labeling_5yr_ee": {
+      "n": 190,
+      "n_clusters": 92,
+      "n_params": 32,
+      "matrix_rank": 32,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.378,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 1.3833,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.21621,
+          "se": 0.23933,
+          "t": 0.903,
+          "p": 0.36870319706407256,
+          "ci95_lo": -0.2592,
+          "ci95_hi": 0.69162
+        }
+      }
+    },
+    "log_labeling_5yr_split": {
+      "n": 190,
+      "n_clusters": 92,
+      "n_params": 33,
+      "matrix_rank": 33,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3785,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 1.3833,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.37229,
+          "se": 0.50912,
+          "t": 0.731,
+          "p": 0.4665146527946896,
+          "ci95_lo": -0.63902,
+          "ci95_hi": 1.3836
+        },
+        "pre_ru_ua_sh": {
+          "coef": 0.00145,
+          "se": 0.65625,
+          "t": 0.002,
+          "p": 0.9982472877747864,
+          "ci95_lo": -1.30212,
+          "ci95_hi": 1.30501
+        }
+      }
+    },
+    "n_labeling_5yr_ee": {
+      "n": 190,
+      "n_clusters": 92,
+      "n_params": 32,
+      "matrix_rank": 32,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3993,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 3.7421,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 1.16383,
+          "se": 1.12053,
+          "t": 1.039,
+          "p": 0.3017238686825546,
+          "ci95_lo": -1.06197,
+          "ci95_hi": 3.38963
+        }
+      }
+    },
+    "n_labeling_5yr_split": {
+      "n": 190,
+      "n_clusters": 92,
+      "n_params": 33,
+      "matrix_rank": 33,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4052,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 3.7421,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 3.63701,
+          "se": 2.37026,
+          "t": 1.534,
+          "p": 0.12839185780142146,
+          "ci95_lo": -1.07121,
+          "ci95_hi": 8.34523
+        },
+        "pre_ru_ua_sh": {
+          "coef": -2.2394,
+          "se": 3.01419,
+          "t": -0.743,
+          "p": 0.4594233289522388,
+          "ci95_lo": -8.22672,
+          "ci95_hi": 3.74791
+        }
+      }
+    },
+    "n_labeling_3yr_ee": {
+      "n": 216,
+      "n_clusters": 104,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3223,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 2.0139,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.04637,
+          "se": 0.71123,
+          "t": -0.065,
+          "p": 0.9481415602076401,
+          "ci95_lo": -1.45694,
+          "ci95_hi": 1.36419
+        }
+      }
+    },
+    "n_labeling_3yr_split": {
+      "n": 216,
+      "n_clusters": 104,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3227,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 2.0139,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.34871,
+          "se": 1.38343,
+          "t": 0.252,
+          "p": 0.8014953390697384,
+          "ci95_lo": -2.395,
+          "ci95_hi": 3.09243
+        },
+        "pre_ru_ua_sh": {
+          "coef": -0.59179,
+          "se": 1.89063,
+          "t": -0.313,
+          "p": 0.7549032819291042,
+          "ci95_lo": -4.34141,
+          "ci95_hi": 3.15783
+        }
+      }
+    },
+    "labeling_share_ee": {
+      "n": 219,
+      "n_clusters": 104,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2167,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.686,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.06297,
+          "se": 0.12094,
+          "t": -0.521,
+          "p": 0.6036816189661812,
+          "ci95_lo": -0.30283,
+          "ci95_hi": 0.17688
+        }
+      }
+    },
+    "labeling_share_split": {
+      "n": 219,
+      "n_clusters": 104,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2284,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.686,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.26237,
+          "se": 0.25376,
+          "t": 1.034,
+          "p": 0.30359420658129493,
+          "ci95_lo": -0.2409,
+          "ci95_hi": 0.76564
+        },
+        "pre_ru_ua_sh": {
+          "coef": -0.51013,
+          "se": 0.31147,
+          "t": -1.638,
+          "p": 0.10451377769617143,
+          "ci95_lo": -1.12786,
+          "ci95_hi": 0.1076
+        }
+      }
+    },
+    "any_safety_rems_ee": {
+      "n": 229,
+      "n_clusters": 112,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3677,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.476,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.19647,
+          "se": 0.21937,
+          "t": 0.896,
+          "p": 0.37240431305677385,
+          "ci95_lo": -0.23823,
+          "ci95_hi": 0.63116
+        }
+      }
+    },
+    "any_safety_rems_split": {
+      "n": 229,
+      "n_clusters": 112,
+      "n_params": 36,
+      "matrix_rank": 36,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3701,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.476,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": -0.08133,
+          "se": 0.35073,
+          "t": -0.232,
+          "p": 0.8170507043125282,
+          "ci95_lo": -0.77633,
+          "ci95_hi": 0.61366
+        },
+        "pre_ru_ua_sh": {
+          "coef": 0.58859,
+          "se": 0.48171,
+          "t": 1.222,
+          "p": 0.22434191800668773,
+          "ci95_lo": -0.36595,
+          "ci95_hi": 1.54314
+        }
+      }
+    },
+    "log_efficacy_5yr_ee": {
+      "n": 190,
+      "n_clusters": 92,
+      "n_params": 31,
+      "matrix_rank": 31,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2854,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.7571,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.22289,
+          "se": 0.30489,
+          "t": -0.731,
+          "p": 0.466624237140782,
+          "ci95_lo": -0.82851,
+          "ci95_hi": 0.38273
+        }
+      }
+    },
+    "log_efficacy_5yr_split": {
+      "n": 190,
+      "n_clusters": 92,
+      "n_params": 32,
+      "matrix_rank": 32,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2898,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.7571,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": -0.72601,
+          "se": 0.57705,
+          "t": -1.258,
+          "p": 0.21156087762086082,
+          "ci95_lo": -1.87226,
+          "ci95_hi": 0.42023
+        },
+        "pre_ru_ua_sh": {
+          "coef": 0.47272,
+          "se": 0.70483,
+          "t": 0.671,
+          "p": 0.5041247746263179,
+          "ci95_lo": -0.92735,
+          "ci95_hi": 1.87278
+        }
+      }
+    },
+    "n_labeling_5yr_poisson_glm": {
+      "n": 190,
+      "n_clusters": 92,
+      "model": "Poisson_GLM_log_link",
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 3.7421,
+      "terms": {
+        "pre_ee_sh": {
+          "coef_log_irr": 0.40564,
+          "irr": 1.5003,
+          "se": 0.29334,
+          "z": 1.383,
+          "p": 0.16671429611789645
+        }
+      }
+    },
+    "n_labeling_3yr_poisson_glm": {
+      "n": 216,
+      "n_clusters": 104,
+      "model": "Poisson_GLM_log_link",
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 2.0139,
+      "terms": {
+        "pre_ee_sh": {
+          "coef_log_irr": 0.0973,
+          "irr": 1.1022,
+          "se": 0.34257,
+          "z": 0.284,
+          "p": 0.776383573510002
+        }
+      }
+    }
+  },
+  "fda_label_warnings": {
+    "has_boxed_warning_ee": {
+      "n": 205,
+      "n_clusters": 99,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.201,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.3122,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.06136,
+          "se": 0.24523,
+          "t": 0.25,
+          "p": 0.80293983762877,
+          "ci95_lo": -0.42529,
+          "ci95_hi": 0.54801
+        }
+      }
+    },
+    "has_boxed_warning_split": {
+      "n": 205,
+      "n_clusters": 99,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.201,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.3122,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.03989,
+          "se": 0.45764,
+          "t": 0.087,
+          "p": 0.9307163796917758,
+          "ci95_lo": -0.86828,
+          "ci95_hi": 0.94806
+        },
+        "pre_ru_ua_sh": {
+          "coef": 0.09175,
+          "se": 0.62938,
+          "t": 0.146,
+          "p": 0.8843976062820347,
+          "ci95_lo": -1.15723,
+          "ci95_hi": 1.34073
+        }
+      }
+    },
+    "log_adverse_reactions_chars_ee": {
+      "n": 205,
+      "n_clusters": 99,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4261,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 9.0758,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.17283,
+          "se": 0.31531,
+          "t": 0.548,
+          "p": 0.5848527630926205,
+          "ci95_lo": -0.45289,
+          "ci95_hi": 0.79854
+        }
+      }
+    },
+    "log_adverse_reactions_chars_split": {
+      "n": 205,
+      "n_clusters": 99,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4286,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 9.0758,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": -0.24053,
+          "se": 0.50244,
+          "t": -0.479,
+          "p": 0.633193835687813,
+          "ci95_lo": -1.2376,
+          "ci95_hi": 0.75654
+        },
+        "pre_ru_ua_sh": {
+          "coef": 0.75784,
+          "se": 0.75631,
+          "t": 1.002,
+          "p": 0.31879989492080607,
+          "ci95_lo": -0.74303,
+          "ci95_hi": 2.25872
+        }
+      }
+    },
+    "log_warnings_chars_ee": {
+      "n": 203,
+      "n_clusters": 98,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4127,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 8.6824,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.592,
+          "se": 0.34449,
+          "t": 1.718,
+          "p": 0.088902431048861,
+          "ci95_lo": -0.09172,
+          "ci95_hi": 1.27572
+        }
+      }
+    },
+    "log_warnings_chars_split": {
+      "n": 203,
+      "n_clusters": 98,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4264,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 8.6824,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": -0.45637,
+          "se": 0.59167,
+          "t": -0.771,
+          "p": 0.4423890866513021,
+          "ci95_lo": -1.63066,
+          "ci95_hi": 0.71793
+        },
+        "pre_ru_ua_sh": {
+          "coef": 2.07475,
+          "se": 0.96242,
+          "t": 2.156,
+          "p": 0.033575298222568654,
+          "ci95_lo": 0.16462,
+          "ci95_hi": 3.98487
+        }
+      }
+    }
+  },
+  "faers_pharmacovigilance": {
+    "us_serious_share_ee": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4226,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.18143,
+          "se": 0.08988,
+          "t": 2.019,
+          "p": 0.046215905172463614,
+          "ci95_lo": 0.0031,
+          "ci95_hi": 0.35975
+        }
+      }
+    },
+    "us_serious_share_ee_ctrl_actoth": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4251,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.19962,
+          "se": 0.09373,
+          "t": 2.13,
+          "p": 0.03563781317761194,
+          "ci95_lo": 0.01367,
+          "ci95_hi": 0.38557
+        },
+        "pre_act_oth": {
+          "coef": 0.06069,
+          "se": 0.07462,
+          "t": 0.813,
+          "p": 0.4179441835384633,
+          "ci95_lo": -0.08735,
+          "ci95_hi": 0.20874
+        }
+      }
+    },
+    "us_serious_share_split": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4229,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.13743,
+          "se": 0.1837,
+          "t": 0.748,
+          "p": 0.4561338329117026,
+          "ci95_lo": -0.22702,
+          "ci95_hi": 0.50189
+        },
+        "pre_ru_ua_sh": {
+          "coef": 0.24538,
+          "se": 0.19017,
+          "t": 1.29,
+          "p": 0.19991811272278104,
+          "ci95_lo": -0.13191,
+          "ci95_hi": 0.62266
+        }
+      }
+    },
+    "us_nonserious_share_ee": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4226,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.5864,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.18143,
+          "se": 0.08988,
+          "t": -2.019,
+          "p": 0.04621590517246457,
+          "ci95_lo": -0.35975,
+          "ci95_hi": -0.0031
+        }
+      }
+    },
+    "us_nonserious_share_ee_ctrl_actoth": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4251,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.5864,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.19962,
+          "se": 0.09373,
+          "t": -2.13,
+          "p": 0.03563781317761215,
+          "ci95_lo": -0.38557,
+          "ci95_hi": -0.01367
+        },
+        "pre_act_oth": {
+          "coef": -0.06069,
+          "se": 0.07462,
+          "t": -0.813,
+          "p": 0.4179441835384578,
+          "ci95_lo": -0.20874,
+          "ci95_hi": 0.08735
+        }
+      }
+    },
+    "us_nonserious_share_split": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4229,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.5864,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": -0.13743,
+          "se": 0.1837,
+          "t": -0.748,
+          "p": 0.45613383291170395,
+          "ci95_lo": -0.50189,
+          "ci95_hi": 0.22702
+        },
+        "pre_ru_ua_sh": {
+          "coef": -0.24538,
+          "se": 0.19017,
+          "t": -1.29,
+          "p": 0.19991811272278504,
+          "ci95_lo": -0.62266,
+          "ci95_hi": 0.13191
+        }
+      }
+    },
+    "us_vs_nonus_nonser_lor_ee": {
+      "n": 203,
+      "n_clusters": 96,
+      "n_params": 33,
+      "matrix_rank": 33,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2219,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 2.7231,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.03163,
+          "se": 0.63018,
+          "t": 0.05,
+          "p": 0.9600693790976315,
+          "ci95_lo": -1.21942,
+          "ci95_hi": 1.28269
+        }
+      }
+    },
+    "us_vs_nonus_nonser_lor_ee_ctrl_actoth": {
+      "n": 203,
+      "n_clusters": 96,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2219,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 2.7231,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.02438,
+          "se": 0.65837,
+          "t": 0.037,
+          "p": 0.9705322220167126,
+          "ci95_lo": -1.28264,
+          "ci95_hi": 1.33141
+        },
+        "pre_act_oth": {
+          "coef": -0.02545,
+          "se": 0.44004,
+          "t": -0.058,
+          "p": 0.9540068579128307,
+          "ci95_lo": -0.89904,
+          "ci95_hi": 0.84815
+        }
+      }
+    },
+    "us_vs_nonus_nonser_lor_split": {
+      "n": 203,
+      "n_clusters": 96,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2219,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 2.7231,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.03409,
+          "se": 1.14055,
+          "t": 0.03,
+          "p": 0.9762158058569478,
+          "ci95_lo": -2.23019,
+          "ci95_hi": 2.29838
+        },
+        "pre_ru_ua_sh": {
+          "coef": 0.02807,
+          "se": 1.34819,
+          "t": 0.021,
+          "p": 0.9834319608201761,
+          "ci95_lo": -2.64842,
+          "ci95_hi": 2.70456
+        }
+      }
+    },
+    "log_us_total_per_yr_ee": {
+      "n": 215,
+      "n_clusters": 103,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3237,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 6.1046,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -1.12452,
+          "se": 0.82325,
+          "t": -1.366,
+          "p": 0.17495735632799775,
+          "ci95_lo": -2.75742,
+          "ci95_hi": 0.50839
+        }
+      }
+    },
+    "log_us_total_per_yr_ee_ctrl_actoth": {
+      "n": 215,
+      "n_clusters": 103,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3273,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 6.1046,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -1.33322,
+          "se": 0.8285,
+          "t": -1.609,
+          "p": 0.1106657417497067,
+          "ci95_lo": -2.97655,
+          "ci95_hi": 0.31011
+        },
+        "pre_act_oth": {
+          "coef": -0.62421,
+          "se": 0.58636,
+          "t": -1.065,
+          "p": 0.2895927347262883,
+          "ci95_lo": -1.78726,
+          "ci95_hi": 0.53883
+        }
+      }
+    },
+    "log_us_total_per_yr_split": {
+      "n": 215,
+      "n_clusters": 103,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3322,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 6.1046,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.74287,
+          "se": 1.41951,
+          "t": 0.523,
+          "p": 0.6018828110292833,
+          "ci95_lo": -2.07273,
+          "ci95_hi": 3.55847
+        },
+        "pre_ru_ua_sh": {
+          "coef": -3.77121,
+          "se": 2.02189,
+          "t": -1.865,
+          "p": 0.06502840259761403,
+          "ci95_lo": -7.78161,
+          "ci95_hi": 0.23919
+        }
+      }
+    },
+    "log_us_serious_per_yr_ee": {
+      "n": 215,
+      "n_clusters": 103,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3279,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 5.0911,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.57776,
+          "se": 0.78339,
+          "t": -0.738,
+          "p": 0.46250194632859465,
+          "ci95_lo": -2.13161,
+          "ci95_hi": 0.97609
+        }
+      }
+    },
+    "log_us_serious_per_yr_ee_ctrl_actoth": {
+      "n": 215,
+      "n_clusters": 103,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.33,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 5.0911,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.73429,
+          "se": 0.80177,
+          "t": -0.916,
+          "p": 0.3619125491708537,
+          "ci95_lo": -2.32459,
+          "ci95_hi": 0.85601
+        },
+        "pre_act_oth": {
+          "coef": -0.46816,
+          "se": 0.6206,
+          "t": -0.754,
+          "p": 0.4523608996259955,
+          "ci95_lo": -1.69911,
+          "ci95_hi": 0.76279
+        }
+      }
+    },
+    "log_us_serious_per_yr_split": {
+      "n": 215,
+      "n_clusters": 103,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3326,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 5.0911,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.78616,
+          "se": 1.31405,
+          "t": 0.598,
+          "p": 0.550984832176063,
+          "ci95_lo": -1.82026,
+          "ci95_hi": 3.39258
+        },
+        "pre_ru_ua_sh": {
+          "coef": -2.51089,
+          "se": 1.85835,
+          "t": -1.351,
+          "p": 0.17963953619945294,
+          "ci95_lo": -6.19691,
+          "ci95_hi": 1.17513
+        }
+      }
+    },
+    "log_us_nonserious_per_yr_ee": {
+      "n": 215,
+      "n_clusters": 103,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3357,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 5.4897,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -1.56831,
+          "se": 0.8395,
+          "t": -1.868,
+          "p": 0.0646114002513974,
+          "ci95_lo": -3.23346,
+          "ci95_hi": 0.09683
+        }
+      }
+    },
+    "log_us_nonserious_per_yr_ee_ctrl_actoth": {
+      "n": 215,
+      "n_clusters": 103,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3402,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 5.4897,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -1.80822,
+          "se": 0.83669,
+          "t": -2.161,
+          "p": 0.03302207532330006,
+          "ci95_lo": -3.46778,
+          "ci95_hi": -0.14866
+        },
+        "pre_act_oth": {
+          "coef": -0.71756,
+          "se": 0.60687,
+          "t": -1.182,
+          "p": 0.2398002666585788,
+          "ci95_lo": -1.92128,
+          "ci95_hi": 0.48617
+        }
+      }
+    },
+    "log_us_nonserious_per_yr_split": {
+      "n": 215,
+      "n_clusters": 103,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3416,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 5.4897,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": 0.05212,
+          "se": 1.56588,
+          "t": 0.033,
+          "p": 0.9735132508019972,
+          "ci95_lo": -3.0538,
+          "ci95_hi": 3.15804
+        },
+        "pre_ru_ua_sh": {
+          "coef": -3.86499,
+          "se": 2.09307,
+          "t": -1.847,
+          "p": 0.06770964524325543,
+          "ci95_lo": -8.0166,
+          "ci95_hi": 0.28661
+        }
+      }
+    },
+    "us_share_of_global_faers_ee": {
+      "n": 203,
+      "n_clusters": 96,
+      "n_params": 33,
+      "matrix_rank": 33,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.348,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.6545,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.0587,
+          "se": 0.12839,
+          "t": -0.457,
+          "p": 0.6485417414807576,
+          "ci95_lo": -0.31359,
+          "ci95_hi": 0.19618
+        }
+      }
+    },
+    "us_share_of_global_faers_ee_ctrl_actoth": {
+      "n": 203,
+      "n_clusters": 96,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3481,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.6545,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.05435,
+          "se": 0.13682,
+          "t": -0.397,
+          "p": 0.6920890702052572,
+          "ci95_lo": -0.32598,
+          "ci95_hi": 0.21728
+        },
+        "pre_act_oth": {
+          "coef": 0.01529,
+          "se": 0.08772,
+          "t": 0.174,
+          "p": 0.8620306941964295,
+          "ci95_lo": -0.15885,
+          "ci95_hi": 0.18942
+        }
+      }
+    },
+    "us_share_of_global_faers_split": {
+      "n": 203,
+      "n_clusters": 96,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.348,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.6545,
+      "terms": {
+        "pre_eu_east_sh": {
+          "coef": -0.07567,
+          "se": 0.19397,
+          "t": -0.39,
+          "p": 0.6973145549996754,
+          "ci95_lo": -0.46076,
+          "ci95_hi": 0.30941
+        },
+        "pre_ru_ua_sh": {
+          "coef": -0.03412,
+          "se": 0.28062,
+          "t": -0.122,
+          "p": 0.9034807562343383,
+          "ci95_lo": -0.59121,
+          "ci95_hi": 0.52297
+        }
+      }
+    }
+  },
+  "faers_us_serious_forensic_audit": {
+    "01_raw_bivariate": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 2,
+      "matrix_rank": 2,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.0038,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.0888,
+          "se": 0.09601,
+          "t": -0.925,
+          "p": 0.3572397716525691,
+          "ci95_lo": -0.27929,
+          "ci95_hi": 0.10168
+        }
+      }
+    },
+    "02_ta_fe": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 12,
+      "matrix_rank": 12,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2035,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.02313,
+          "se": 0.09235,
+          "t": 0.25,
+          "p": 0.8027760798165281,
+          "ci95_lo": -0.1601,
+          "ci95_hi": 0.20635
+        }
+      }
+    },
+    "03_year_fe": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 21,
+      "matrix_rank": 21,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.1604,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": -0.05821,
+          "se": 0.08848,
+          "t": -0.658,
+          "p": 0.5121206761020146,
+          "ci95_lo": -0.23374,
+          "ci95_hi": 0.11733
+        }
+      }
+    },
+    "04_ta_year_fe": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 31,
+      "matrix_rank": 31,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3152,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.03798,
+          "se": 0.09098,
+          "t": 0.417,
+          "p": 0.6772435113378098,
+          "ci95_lo": -0.14253,
+          "ci95_hi": 0.21849
+        }
+      }
+    },
+    "05_plus_bla": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 32,
+      "matrix_rank": 32,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3295,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.04229,
+          "se": 0.09114,
+          "t": 0.464,
+          "p": 0.6436141695027952,
+          "ci95_lo": -0.13852,
+          "ci95_hi": 0.22311
+        }
+      }
+    },
+    "06_plus_enroll": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 33,
+      "matrix_rank": 33,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3457,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.08409,
+          "se": 0.09364,
+          "t": 0.898,
+          "p": 0.37130210336010944,
+          "ci95_lo": -0.10168,
+          "ci95_hi": 0.26986
+        }
+      }
+    },
+    "07_main_plus_sae": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4226,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.18143,
+          "se": 0.08988,
+          "t": 2.019,
+          "p": 0.046215905172463614,
+          "ci95_lo": 0.0031,
+          "ci95_hi": 0.35975
+        }
+      }
+    },
+    "08_plus_us_faers_vol": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 35,
+      "matrix_rank": 35,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.4279,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.17139,
+          "se": 0.09049,
+          "t": 1.894,
+          "p": 0.061118647532247605,
+          "ci95_lo": -0.00814,
+          "ci95_hi": 0.35093
+        }
+      }
+    },
+    "09_plus_other_regions": {
+      "n": 210,
+      "n_clusters": 101,
+      "n_params": 37,
+      "matrix_rank": 37,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.423,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4136,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.18398,
+          "se": 0.09805,
+          "t": 1.876,
+          "p": 0.063503625099015,
+          "ci95_lo": -0.01054,
+          "ci95_hi": 0.37851
+        }
+      }
+    },
+    "10_plus_sponsor_fe": {
+      "n": 144,
+      "n_clusters": 35,
+      "n_params": 67,
+      "matrix_rank": 67,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.821,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4303,
+      "terms": {
+        "pre_ee_sh": {
+          "coef": 0.19318,
+          "se": 0.16015,
+          "t": 1.206,
+          "p": 0.23606915233462375,
+          "ci95_lo": -0.13229,
+          "ci95_hi": 0.51865
+        }
+      }
+    }
+  },
+  "era_split_pre2017_vs_post2017": {
+    "approved_2005_2016": {
+      "n_drugs": 111,
+      "log_labeling_per_yr": {
+        "n": 111,
+        "n_clusters": 55,
+        "n_params": 27,
+        "matrix_rank": 27,
+        "is_full_rank": true,
+        "use_t": true,
+        "r2": 0.4577,
+        "se_type": "cluster:lead_sponsor",
+        "y_mean": 0.4622,
+        "terms": {
+          "pre_ee_sh": {
+            "coef": 0.00801,
+            "se": 0.10594,
+            "t": 0.076,
+            "p": 0.9399900940522344,
+            "ci95_lo": -0.20439,
+            "ci95_hi": 0.22041
+          }
+        }
+      },
+      "has_boxed_warning": {
+        "n": 98,
+        "n_clusters": 50,
+        "n_params": 25,
+        "matrix_rank": 25,
+        "is_full_rank": true,
+        "use_t": true,
+        "r2": 0.3444,
+        "se_type": "cluster:lead_sponsor",
+        "y_mean": 0.4082,
+        "terms": {
+          "pre_ee_sh": {
+            "coef": 0.3146,
+            "se": 0.37533,
+            "t": 0.838,
+            "p": 0.40598453802706586,
+            "ci95_lo": -0.43965,
+            "ci95_hi": 1.06885
+          }
+        }
+      },
+      "us_serious_share": {
+        "n": 103,
+        "n_clusters": 50,
+        "n_params": 25,
+        "matrix_rank": 25,
+        "is_full_rank": true,
+        "use_t": true,
+        "r2": 0.5132,
+        "se_type": "cluster:lead_sponsor",
+        "y_mean": 0.4678,
+        "terms": {
+          "pre_ee_sh": {
+            "coef": 0.2482,
+            "se": 0.10367,
+            "t": 2.394,
+            "p": 0.02052810829767638,
+            "ci95_lo": 0.03987,
+            "ci95_hi": 0.45652
+          }
+        }
+      },
+      "us_vs_nonus_nonser_lor": {
+        "n": 102,
+        "n_clusters": 50,
+        "n_params": 25,
+        "matrix_rank": 25,
+        "is_full_rank": true,
+        "use_t": true,
+        "r2": 0.4575,
+        "se_type": "cluster:lead_sponsor",
+        "y_mean": 2.7272,
+        "terms": {
+          "pre_ee_sh": {
+            "coef": -0.06894,
+            "se": 0.60216,
+            "t": -0.114,
+            "p": 0.9093175154868925,
+            "ci95_lo": -1.27902,
+            "ci95_hi": 1.14114
+          }
+        }
+      }
+    },
+    "approved_2017_2024": {
+      "n_drugs": 118,
+      "log_labeling_per_yr": {
+        "n": 118,
+        "n_clusters": 78,
+        "n_params": 23,
+        "matrix_rank": 23,
+        "is_full_rank": true,
+        "use_t": true,
+        "r2": 0.2721,
+        "se_type": "cluster:lead_sponsor",
+        "y_mean": 0.3504,
+        "terms": {
+          "pre_ee_sh": {
+            "coef": -0.00439,
+            "se": 0.16409,
+            "t": -0.027,
+            "p": 0.9787110406710711,
+            "ci95_lo": -0.33113,
+            "ci95_hi": 0.32235
+          }
+        }
+      },
+      "has_boxed_warning": {
+        "n": 107,
+        "n_clusters": 70,
+        "n_params": 22,
+        "matrix_rank": 22,
+        "is_full_rank": true,
+        "use_t": true,
+        "r2": 0.1361,
+        "se_type": "cluster:lead_sponsor",
+        "y_mean": 0.2243,
+        "terms": {
+          "pre_ee_sh": {
+            "coef": 0.06629,
+            "se": 0.34069,
+            "t": 0.195,
+            "p": 0.846303888233084,
+            "ci95_lo": -0.61337,
+            "ci95_hi": 0.74595
+          }
+        }
+      },
+      "us_serious_share": {
+        "n": 107,
+        "n_clusters": 71,
+        "n_params": 22,
+        "matrix_rank": 22,
+        "is_full_rank": true,
+        "use_t": true,
+        "r2": 0.4053,
+        "se_type": "cluster:lead_sponsor",
+        "y_mean": 0.3615,
+        "terms": {
+          "pre_ee_sh": {
+            "coef": 0.09736,
+            "se": 0.15281,
+            "t": 0.637,
+            "p": 0.5261054188041783,
+            "ci95_lo": -0.20741,
+            "ci95_hi": 0.40213
+          }
+        }
+      },
+      "us_vs_nonus_nonser_lor": {
+        "n": 101,
+        "n_clusters": 66,
+        "n_params": 21,
+        "matrix_rank": 21,
+        "is_full_rank": true,
+        "use_t": true,
+        "r2": 0.2634,
+        "se_type": "cluster:lead_sponsor",
+        "y_mean": 2.7189,
+        "terms": {
+          "pre_ee_sh": {
+            "coef": -0.84423,
+            "se": 1.24085,
+            "t": -0.68,
+            "p": 0.49868957219821197,
+            "ci95_lo": -3.32239,
+            "ci95_hi": 1.63392
+          }
+        }
+      }
+    }
+  },
+  "all_p3_robustness_check": {
+    "log_labeling_per_yr": {
+      "n": 273,
+      "n_clusters": 125,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2926,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4118,
+      "terms": {
+        "all_ee_sh": {
+          "coef": -0.03708,
+          "se": 0.09031,
+          "t": -0.411,
+          "p": 0.6821142206022784,
+          "ci95_lo": -0.21583,
+          "ci95_hi": 0.14168
+        }
+      }
+    },
+    "has_boxed_warning": {
+      "n": 246,
+      "n_clusters": 111,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.1998,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.3211,
+      "terms": {
+        "all_ee_sh": {
+          "coef": 0.1539,
+          "se": 0.23819,
+          "t": 0.646,
+          "p": 0.519547511635551,
+          "ci95_lo": -0.31814,
+          "ci95_hi": 0.62593
+        }
+      }
+    },
+    "us_serious_share": {
+      "n": 254,
+      "n_clusters": 114,
+      "n_params": 34,
+      "matrix_rank": 34,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.3946,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 0.4204,
+      "terms": {
+        "all_ee_sh": {
+          "coef": 0.13076,
+          "se": 0.09663,
+          "t": 1.353,
+          "p": 0.1786857322705095,
+          "ci95_lo": -0.06068,
+          "ci95_hi": 0.32221
+        }
+      }
+    },
+    "us_vs_nonus_nonser_lor": {
+      "n": 246,
+      "n_clusters": 109,
+      "n_params": 33,
+      "matrix_rank": 33,
+      "is_full_rank": true,
+      "use_t": true,
+      "r2": 0.2518,
+      "se_type": "cluster:lead_sponsor",
+      "y_mean": 2.6325,
+      "terms": {
+        "all_ee_sh": {
+          "coef": 0.43954,
+          "se": 0.63862,
+          "t": 0.688,
+          "p": 0.49276659849008664,
+          "ci95_lo": -0.82632,
+          "ci95_hi": 1.7054
+        }
+      }
+    }
+  }
+}

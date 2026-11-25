@@ -1,0 +1,2429 @@
+{
+  "BLA018781": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6578,
+    "adverse_reactions_chars": 2283,
+    "effective_time": "20251219"
+  },
+  "BLA022505": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5292,
+    "adverse_reactions_chars": 3335,
+    "effective_time": "20260729"
+  },
+  "BLA103000": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1708,
+    "warnings_chars": 17601,
+    "adverse_reactions_chars": 24862,
+    "effective_time": "20260202"
+  },
+  "BLA103795": null,
+  "BLA103951": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2837,
+    "warnings_chars": 22535,
+    "adverse_reactions_chars": 8628,
+    "effective_time": "20260707"
+  },
+  "BLA103976": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1845,
+    "warnings_chars": 9801,
+    "adverse_reactions_chars": 19690,
+    "effective_time": "20260813"
+  },
+  "BLA125031": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6350,
+    "adverse_reactions_chars": 5153,
+    "effective_time": "20260805"
+  },
+  "BLA125057": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 3762,
+    "warnings_chars": 18398,
+    "adverse_reactions_chars": 24255,
+    "effective_time": "20251223"
+  },
+  "BLA125118": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8939,
+    "adverse_reactions_chars": 26184,
+    "effective_time": "20251113"
+  },
+  "BLA125156": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5446,
+    "adverse_reactions_chars": 6103,
+    "effective_time": "20251121"
+  },
+  "BLA125160": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2934,
+    "warnings_chars": 17753,
+    "adverse_reactions_chars": 23042,
+    "effective_time": "20261029"
+  },
+  "BLA125166": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2487,
+    "warnings_chars": 7671,
+    "adverse_reactions_chars": 14952,
+    "effective_time": "20260708"
+  },
+  "BLA125249": null,
+  "BLA125261": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8128,
+    "adverse_reactions_chars": 14655,
+    "effective_time": "20261016"
+  },
+  "BLA125268": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3968,
+    "adverse_reactions_chars": 13312,
+    "effective_time": "20260623"
+  },
+  "BLA125274": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1691,
+    "warnings_chars": 6803,
+    "adverse_reactions_chars": 20012,
+    "effective_time": "20241024"
+  },
+  "BLA125276": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2112,
+    "warnings_chars": 15413,
+    "adverse_reactions_chars": 36821,
+    "effective_time": "20251216"
+  },
+  "BLA125289": null,
+  "BLA125293": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2418,
+    "warnings_chars": 11319,
+    "adverse_reactions_chars": 5964,
+    "effective_time": "20261102"
+  },
+  "BLA125319": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5915,
+    "adverse_reactions_chars": 18341,
+    "effective_time": "20260608"
+  },
+  "BLA125320": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1685,
+    "warnings_chars": 11881,
+    "adverse_reactions_chars": 17773,
+    "effective_time": "20260626"
+  },
+  "BLA125360": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1749,
+    "warnings_chars": 7569,
+    "adverse_reactions_chars": 14137,
+    "effective_time": "20260710"
+  },
+  "BLA125370": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8008,
+    "adverse_reactions_chars": 15359,
+    "effective_time": "20261030"
+  },
+  "BLA125377": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 27853,
+    "adverse_reactions_chars": 50859,
+    "effective_time": "20260820"
+  },
+  "BLA125387": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3552,
+    "adverse_reactions_chars": 7269,
+    "effective_time": "20260707"
+  },
+  "BLA125388": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 431,
+    "warnings_chars": 12414,
+    "adverse_reactions_chars": 36162,
+    "effective_time": "20251111"
+  },
+  "BLA125409": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1324,
+    "warnings_chars": 8574,
+    "adverse_reactions_chars": 21121,
+    "effective_time": "20260430"
+  },
+  "BLA125422": null,
+  "BLA125431": null,
+  "BLA125469": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1725,
+    "warnings_chars": 9315,
+    "adverse_reactions_chars": 13694,
+    "effective_time": "20250703"
+  },
+  "BLA125476": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5149,
+    "adverse_reactions_chars": 13385,
+    "effective_time": "20260429"
+  },
+  "BLA125477": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 10616,
+    "adverse_reactions_chars": 24971,
+    "effective_time": "20260609"
+  },
+  "BLA125504": null,
+  "BLA125514": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 19705,
+    "adverse_reactions_chars": 179956,
+    "effective_time": "20261016"
+  },
+  "BLA125521": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4400,
+    "adverse_reactions_chars": 14268,
+    "effective_time": "20260122"
+  },
+  "BLA125522": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1283,
+    "adverse_reactions_chars": 10005,
+    "effective_time": "20261012"
+  },
+  "BLA125526": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2851,
+    "adverse_reactions_chars": 13367,
+    "effective_time": "20250806"
+  },
+  "BLA125554": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 33966,
+    "adverse_reactions_chars": 135152,
+    "effective_time": "20260812"
+  },
+  "BLA125559": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 977,
+    "adverse_reactions_chars": 6732,
+    "effective_time": "20260716"
+  },
+  "BLA203314": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 7537,
+    "adverse_reactions_chars": 12765,
+    "effective_time": "20240603"
+  },
+  "BLA208471": null,
+  "BLA761032": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1683,
+    "warnings_chars": 6727,
+    "adverse_reactions_chars": 8043,
+    "effective_time": "20260528"
+  },
+  "BLA761033": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1070,
+    "warnings_chars": 3599,
+    "adverse_reactions_chars": 4940,
+    "effective_time": "20200229"
+  },
+  "BLA761034": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 23355,
+    "adverse_reactions_chars": 54011,
+    "effective_time": "20261013"
+  },
+  "BLA761037": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1935,
+    "warnings_chars": 8278,
+    "adverse_reactions_chars": 18310,
+    "effective_time": "20260227"
+  },
+  "BLA761046": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1179,
+    "adverse_reactions_chars": 4915,
+    "effective_time": "20241112"
+  },
+  "BLA761053": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 15927,
+    "adverse_reactions_chars": 9193,
+    "effective_time": "20260514"
+  },
+  "BLA761055": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 9587,
+    "adverse_reactions_chars": 37351,
+    "effective_time": "20260422"
+  },
+  "BLA761061": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5642,
+    "adverse_reactions_chars": 19618,
+    "effective_time": "20261020"
+  },
+  "BLA761069": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 28083,
+    "adverse_reactions_chars": 65585,
+    "effective_time": "20260831"
+  },
+  "BLA761070": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2460,
+    "adverse_reactions_chars": 5546,
+    "effective_time": "20260513"
+  },
+  "BLA761108": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2504,
+    "warnings_chars": 8660,
+    "adverse_reactions_chars": 16483,
+    "effective_time": "20261029"
+  },
+  "BLA761112": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1852,
+    "adverse_reactions_chars": 4168,
+    "effective_time": "20260424"
+  },
+  "BLA761136": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4560,
+    "adverse_reactions_chars": 13237,
+    "effective_time": "20261020"
+  },
+  "BLA761149": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3981,
+    "adverse_reactions_chars": 14558,
+    "effective_time": "20261023"
+  },
+  "BLA761151": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8413,
+    "adverse_reactions_chars": 24266,
+    "effective_time": "20261105"
+  },
+  "BLA761180": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2344,
+    "adverse_reactions_chars": 9750,
+    "effective_time": "20251217"
+  },
+  "BLA761195": null,
+  "BLA761286": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2593,
+    "adverse_reactions_chars": 4629,
+    "effective_time": "20261023"
+  },
+  "BLA761432": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1063,
+    "adverse_reactions_chars": 3748,
+    "effective_time": "20261014"
+  },
+  "BLA761458": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2311,
+    "adverse_reactions_chars": 2080,
+    "effective_time": "20260610"
+  },
+  "BLA761486": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1935,
+    "adverse_reactions_chars": 1844,
+    "effective_time": "20260805"
+  },
+  "BLA761530": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3071,
+    "adverse_reactions_chars": 3401,
+    "effective_time": "20260629"
+  },
+  "NDA008697": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5555,
+    "adverse_reactions_chars": 1762,
+    "effective_time": "20260525"
+  },
+  "NDA009165": null,
+  "NDA009238": null,
+  "NDA011161": null,
+  "NDA011265": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 792,
+    "warnings_chars": 5909,
+    "adverse_reactions_chars": 1810,
+    "effective_time": "20250808"
+  },
+  "NDA012071": null,
+  "NDA012623": null,
+  "NDA013601": null,
+  "NDA014103": null,
+  "NDA016030": null,
+  "NDA016418": null,
+  "NDA017439": null,
+  "NDA017532": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1813,
+    "adverse_reactions_chars": 2303,
+    "effective_time": "20210701"
+  },
+  "NDA017573": null,
+  "NDA017575": null,
+  "NDA017769": null,
+  "NDA017970": null,
+  "NDA018024": null,
+  "NDA018053": null,
+  "NDA018086": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2948,
+    "adverse_reactions_chars": 3392,
+    "effective_time": "20250304"
+  },
+  "NDA018565": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 3592,
+    "warnings_chars": 20837,
+    "adverse_reactions_chars": 7286,
+    "effective_time": "20251231"
+  },
+  "NDA018859": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1369,
+    "warnings_chars": 1723,
+    "adverse_reactions_chars": 6082,
+    "effective_time": "20190501"
+  },
+  "NDA018998": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 299,
+    "warnings_chars": 8129,
+    "adverse_reactions_chars": 7813,
+    "effective_time": "20260123"
+  },
+  "NDA019032": null,
+  "NDA019537": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2632,
+    "warnings_chars": 16581,
+    "adverse_reactions_chars": 11550,
+    "effective_time": "20260302"
+  },
+  "NDA019543": null,
+  "NDA019618": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 7020,
+    "adverse_reactions_chars": 2945,
+    "effective_time": "20260803"
+  },
+  "NDA019667": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5669,
+    "adverse_reactions_chars": 4788,
+    "effective_time": "20260722"
+  },
+  "NDA019879": null,
+  "NDA019958": null,
+  "NDA020083": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2497,
+    "warnings_chars": 5048,
+    "adverse_reactions_chars": 7809,
+    "effective_time": "20260713"
+  },
+  "NDA020192": null,
+  "NDA020229": null,
+  "NDA020235": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 13935,
+    "adverse_reactions_chars": 8852,
+    "effective_time": "20220712"
+  },
+  "NDA020292": null,
+  "NDA020375": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 5723,
+    "warnings_chars": 19055,
+    "adverse_reactions_chars": 3905,
+    "effective_time": "20260326"
+  },
+  "NDA020380": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 30,
+    "adverse_reactions_chars": 0,
+    "effective_time": "20221207"
+  },
+  "NDA020386": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 507,
+    "warnings_chars": 2193,
+    "adverse_reactions_chars": 5631,
+    "effective_time": "20260120"
+  },
+  "NDA020459": null,
+  "NDA020497": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1177,
+    "warnings_chars": 4405,
+    "adverse_reactions_chars": 5108,
+    "effective_time": "20241113"
+  },
+  "NDA020579": null,
+  "NDA020592": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1976,
+    "warnings_chars": 38637,
+    "adverse_reactions_chars": 35261,
+    "effective_time": "20261006"
+  },
+  "NDA020599": null,
+  "NDA020622": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1623,
+    "warnings_chars": 8239,
+    "adverse_reactions_chars": 12887,
+    "effective_time": "20260623"
+  },
+  "NDA020639": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2002,
+    "warnings_chars": 41148,
+    "adverse_reactions_chars": 30622,
+    "effective_time": "20260410"
+  },
+  "NDA020659": null,
+  "NDA020726": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4901,
+    "adverse_reactions_chars": 21952,
+    "effective_time": "20260611"
+  },
+  "NDA020771": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 320,
+    "adverse_reactions_chars": 3922,
+    "effective_time": "20230215"
+  },
+  "NDA020789": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 20221,
+    "adverse_reactions_chars": 5857,
+    "effective_time": "20260923"
+  },
+  "NDA020819": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3244,
+    "adverse_reactions_chars": 4161,
+    "effective_time": "20240801"
+  },
+  "NDA020825": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 675,
+    "warnings_chars": 38956,
+    "adverse_reactions_chars": 19773,
+    "effective_time": "20250115"
+  },
+  "NDA020835": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 7760,
+    "adverse_reactions_chars": 23914,
+    "effective_time": "20260212"
+  },
+  "NDA020839": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1313,
+    "warnings_chars": 3286,
+    "adverse_reactions_chars": 5553,
+    "effective_time": "20250530"
+  },
+  "NDA020845": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2500,
+    "adverse_reactions_chars": 2241,
+    "effective_time": "20251212"
+  },
+  "NDA020850": null,
+  "NDA020920": null,
+  "NDA020973": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 9120,
+    "adverse_reactions_chars": 6277,
+    "effective_time": "20260127"
+  },
+  "NDA021014": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 16927,
+    "adverse_reactions_chars": 14740,
+    "effective_time": "20261028"
+  },
+  "NDA021029": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5181,
+    "adverse_reactions_chars": 7789,
+    "effective_time": "20260220"
+  },
+  "NDA021071": null,
+  "NDA021130": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 10918,
+    "adverse_reactions_chars": 14452,
+    "effective_time": "20261103"
+  },
+  "NDA021153": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 10387,
+    "adverse_reactions_chars": 10066,
+    "effective_time": "20251219"
+  },
+  "NDA021176": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5543,
+    "adverse_reactions_chars": 7666,
+    "effective_time": "20231228"
+  },
+  "NDA021223": null,
+  "NDA021264": null,
+  "NDA021267": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 10711,
+    "adverse_reactions_chars": 25862,
+    "effective_time": "20260320"
+  },
+  "NDA021272": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2426,
+    "adverse_reactions_chars": 6024,
+    "effective_time": "20260702"
+  },
+  "NDA021275": null,
+  "NDA021286": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 518,
+    "warnings_chars": 4002,
+    "adverse_reactions_chars": 4571,
+    "effective_time": "20250923"
+  },
+  "NDA021318": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5409,
+    "adverse_reactions_chars": 7629,
+    "effective_time": "20260803"
+  },
+  "NDA021319": null,
+  "NDA021335": null,
+  "NDA021344": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2791,
+    "adverse_reactions_chars": 22128,
+    "effective_time": "20200925"
+  },
+  "NDA021345": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2468,
+    "warnings_chars": 9125,
+    "adverse_reactions_chars": 14346,
+    "effective_time": "20241215"
+  },
+  "NDA021356": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 991,
+    "warnings_chars": 8498,
+    "adverse_reactions_chars": 21141,
+    "effective_time": "20250218"
+  },
+  "NDA021366": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6174,
+    "adverse_reactions_chars": 5641,
+    "effective_time": "20260923"
+  },
+  "NDA021368": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 15288,
+    "adverse_reactions_chars": 11375,
+    "effective_time": "20260603"
+  },
+  "NDA021372": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2231,
+    "adverse_reactions_chars": 6916,
+    "effective_time": "20220113"
+  },
+  "NDA021395": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3391,
+    "adverse_reactions_chars": 7048,
+    "effective_time": "20251110"
+  },
+  "NDA021399": null,
+  "NDA021411": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1515,
+    "warnings_chars": 16153,
+    "adverse_reactions_chars": 16797,
+    "effective_time": "20260630"
+  },
+  "NDA021427": null,
+  "NDA021436": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1697,
+    "warnings_chars": 38314,
+    "adverse_reactions_chars": 31505,
+    "effective_time": "20250129"
+  },
+  "NDA021446": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 16770,
+    "adverse_reactions_chars": 26090,
+    "effective_time": "20250415"
+  },
+  "NDA021462": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6471,
+    "adverse_reactions_chars": 23610,
+    "effective_time": "20230519"
+  },
+  "NDA021487": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 369,
+    "adverse_reactions_chars": 3785,
+    "effective_time": "20260605"
+  },
+  "NDA021498": null,
+  "NDA021518": null,
+  "NDA021526": null,
+  "NDA021673": null,
+  "NDA021688": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6283,
+    "adverse_reactions_chars": 8550,
+    "effective_time": "20251207"
+  },
+  "NDA021743": null,
+  "NDA021773": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 11526,
+    "adverse_reactions_chars": 13368,
+    "effective_time": "20250902"
+  },
+  "NDA021797": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2232,
+    "warnings_chars": 2764,
+    "adverse_reactions_chars": 13569,
+    "effective_time": "20191106"
+  },
+  "NDA021829": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 19618,
+    "adverse_reactions_chars": 14644,
+    "effective_time": "20261111"
+  },
+  "NDA021875": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 17630,
+    "adverse_reactions_chars": 8446,
+    "effective_time": "20260924"
+  },
+  "NDA021880": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 3606,
+    "warnings_chars": 20024,
+    "adverse_reactions_chars": 53429,
+    "effective_time": "20230324"
+  },
+  "NDA021883": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3745,
+    "adverse_reactions_chars": 8217,
+    "effective_time": "20250113"
+  },
+  "NDA021908": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3403,
+    "adverse_reactions_chars": 8167,
+    "effective_time": "20260728"
+  },
+  "NDA021923": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 10959,
+    "adverse_reactions_chars": 14818,
+    "effective_time": "20230828"
+  },
+  "NDA021938": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 478,
+    "warnings_chars": 15399,
+    "adverse_reactions_chars": 20829,
+    "effective_time": "20260220"
+  },
+  "NDA021977": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1541,
+    "warnings_chars": 8558,
+    "adverse_reactions_chars": 12461,
+    "effective_time": "20260430"
+  },
+  "NDA021985": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 520,
+    "warnings_chars": 4941,
+    "adverse_reactions_chars": 8217,
+    "effective_time": "20240307"
+  },
+  "NDA021986": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 17250,
+    "adverse_reactions_chars": 31063,
+    "effective_time": "20261029"
+  },
+  "NDA021992": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1221,
+    "warnings_chars": 16448,
+    "adverse_reactions_chars": 10565,
+    "effective_time": "20260428"
+  },
+  "NDA021999": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 665,
+    "warnings_chars": 26676,
+    "adverse_reactions_chars": 25447,
+    "effective_time": "20250131"
+  },
+  "NDA022004": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6293,
+    "adverse_reactions_chars": 5819,
+    "effective_time": "20221108"
+  },
+  "NDA022030": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3438,
+    "adverse_reactions_chars": 9990,
+    "effective_time": "20260407"
+  },
+  "NDA022059": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 522,
+    "warnings_chars": 7284,
+    "adverse_reactions_chars": 9616,
+    "effective_time": "20260127"
+  },
+  "NDA022074": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4271,
+    "adverse_reactions_chars": 15928,
+    "effective_time": "20241011"
+  },
+  "NDA022075": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2877,
+    "adverse_reactions_chars": 3465,
+    "effective_time": "20250520"
+  },
+  "NDA022081": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1261,
+    "warnings_chars": 4614,
+    "adverse_reactions_chars": 7455,
+    "effective_time": "20260622"
+  },
+  "NDA022150": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 404,
+    "adverse_reactions_chars": 4076,
+    "effective_time": "20250707"
+  },
+  "NDA022180": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1830,
+    "warnings_chars": 5329,
+    "adverse_reactions_chars": 7304,
+    "effective_time": "20260531"
+  },
+  "NDA022192": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 665,
+    "warnings_chars": 22119,
+    "adverse_reactions_chars": 16722,
+    "effective_time": "20260506"
+  },
+  "NDA022247": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2944,
+    "warnings_chars": 13190,
+    "adverse_reactions_chars": 3252,
+    "effective_time": "20260731"
+  },
+  "NDA022249": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8544,
+    "adverse_reactions_chars": 11486,
+    "effective_time": "20221031"
+  },
+  "NDA022253": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 11022,
+    "adverse_reactions_chars": 13008,
+    "effective_time": "20260512"
+  },
+  "NDA022271": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 7311,
+    "adverse_reactions_chars": 7814,
+    "effective_time": "20250411"
+  },
+  "NDA022275": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1874,
+    "warnings_chars": 5528,
+    "adverse_reactions_chars": 6567,
+    "effective_time": "20260507"
+  },
+  "NDA022291": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 952,
+    "warnings_chars": 8294,
+    "adverse_reactions_chars": 14888,
+    "effective_time": "20251218"
+  },
+  "NDA022304": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 3737,
+    "warnings_chars": 21479,
+    "adverse_reactions_chars": 8092,
+    "effective_time": "20260226"
+  },
+  "NDA022307": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2787,
+    "warnings_chars": 6242,
+    "adverse_reactions_chars": 7005,
+    "effective_time": "20220907"
+  },
+  "NDA022334": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 11929,
+    "adverse_reactions_chars": 33093,
+    "effective_time": "20260601"
+  },
+  "NDA022341": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1775,
+    "warnings_chars": 8378,
+    "adverse_reactions_chars": 12087,
+    "effective_time": "20260130"
+  },
+  "NDA022350": null,
+  "NDA022383": null,
+  "NDA022405": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1021,
+    "warnings_chars": 10537,
+    "adverse_reactions_chars": 6959,
+    "effective_time": "20261030"
+  },
+  "NDA022406": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2912,
+    "warnings_chars": 11298,
+    "adverse_reactions_chars": 24056,
+    "effective_time": "20260910"
+  },
+  "NDA022416": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 15271,
+    "adverse_reactions_chars": 7425,
+    "effective_time": "20231110"
+  },
+  "NDA022425": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1585,
+    "warnings_chars": 6071,
+    "adverse_reactions_chars": 4348,
+    "effective_time": "20260127"
+  },
+  "NDA022426": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2079,
+    "warnings_chars": 14565,
+    "adverse_reactions_chars": 21390,
+    "effective_time": "20250728"
+  },
+  "NDA022433": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1098,
+    "warnings_chars": 3993,
+    "adverse_reactions_chars": 10740,
+    "effective_time": "20260507"
+  },
+  "NDA022465": null,
+  "NDA022512": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2820,
+    "warnings_chars": 7760,
+    "adverse_reactions_chars": 22675,
+    "effective_time": "20250625"
+  },
+  "NDA022522": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4587,
+    "adverse_reactions_chars": 3846,
+    "effective_time": "20200312"
+  },
+  "NDA022527": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 27716,
+    "adverse_reactions_chars": 7239,
+    "effective_time": "20260722"
+  },
+  "NDA050162": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1479,
+    "warnings_chars": 2403,
+    "adverse_reactions_chars": 2114,
+    "effective_time": "20260916"
+  },
+  "NDA050624": null,
+  "NDA050794": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5191,
+    "adverse_reactions_chars": 14790,
+    "effective_time": "20240129"
+  },
+  "NDA200327": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5081,
+    "adverse_reactions_chars": 7609,
+    "effective_time": "20241120"
+  },
+  "NDA200603": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1349,
+    "warnings_chars": 40566,
+    "adverse_reactions_chars": 33856,
+    "effective_time": "20250131"
+  },
+  "NDA201280": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5768,
+    "adverse_reactions_chars": 9263,
+    "effective_time": "20250827"
+  },
+  "NDA201917": null,
+  "NDA202155": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2653,
+    "warnings_chars": 8208,
+    "adverse_reactions_chars": 33280,
+    "effective_time": "20260924"
+  },
+  "NDA202192": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8028,
+    "adverse_reactions_chars": 15818,
+    "effective_time": "20260720"
+  },
+  "NDA202293": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6799,
+    "adverse_reactions_chars": 15154,
+    "effective_time": "20260918"
+  },
+  "NDA202379": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 9033,
+    "adverse_reactions_chars": 13122,
+    "effective_time": "20250328"
+  },
+  "NDA202429": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 10475,
+    "adverse_reactions_chars": 10551,
+    "effective_time": "20260828"
+  },
+  "NDA202450": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2490,
+    "adverse_reactions_chars": 4512,
+    "effective_time": "20220801"
+  },
+  "NDA202611": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4407,
+    "adverse_reactions_chars": 15498,
+    "effective_time": "20240801"
+  },
+  "NDA202811": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 695,
+    "warnings_chars": 2544,
+    "adverse_reactions_chars": 10337,
+    "effective_time": "20261010"
+  },
+  "NDA202834": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1622,
+    "warnings_chars": 12416,
+    "adverse_reactions_chars": 7765,
+    "effective_time": "20240105"
+  },
+  "NDA202992": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 3051,
+    "warnings_chars": 18882,
+    "adverse_reactions_chars": 5304,
+    "effective_time": "20260220"
+  },
+  "NDA203085": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 896,
+    "warnings_chars": 10018,
+    "adverse_reactions_chars": 12935,
+    "effective_time": "20260209"
+  },
+  "NDA203108": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 7565,
+    "adverse_reactions_chars": 4138,
+    "effective_time": "20250103"
+  },
+  "NDA203188": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6030,
+    "adverse_reactions_chars": 8769,
+    "effective_time": "20260323"
+  },
+  "NDA203202": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 876,
+    "warnings_chars": 2467,
+    "adverse_reactions_chars": 3693,
+    "effective_time": "20190701"
+  },
+  "NDA203214": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 5734,
+    "warnings_chars": 19664,
+    "adverse_reactions_chars": 24715,
+    "effective_time": "20261110"
+  },
+  "NDA203414": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2784,
+    "warnings_chars": 15125,
+    "adverse_reactions_chars": 9676,
+    "effective_time": "20260825"
+  },
+  "NDA203415": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6978,
+    "adverse_reactions_chars": 21691,
+    "effective_time": "20260728"
+  },
+  "NDA203496": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 495,
+    "adverse_reactions_chars": 3259,
+    "effective_time": "20241120"
+  },
+  "NDA203565": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2099,
+    "warnings_chars": 3920,
+    "adverse_reactions_chars": 8132,
+    "effective_time": "20260902"
+  },
+  "NDA203568": null,
+  "NDA203756": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8459,
+    "adverse_reactions_chars": 9175,
+    "effective_time": "20251018"
+  },
+  "NDA204026": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2221,
+    "warnings_chars": 9507,
+    "adverse_reactions_chars": 14982,
+    "effective_time": "20250226"
+  },
+  "NDA204042": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 9413,
+    "adverse_reactions_chars": 22615,
+    "effective_time": "20260921"
+  },
+  "NDA204275": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 26348,
+    "adverse_reactions_chars": 13943,
+    "effective_time": "20241121"
+  },
+  "NDA204370": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1401,
+    "warnings_chars": 22936,
+    "adverse_reactions_chars": 26850,
+    "effective_time": "20261112"
+  },
+  "NDA204410": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1187,
+    "warnings_chars": 4830,
+    "adverse_reactions_chars": 2998,
+    "effective_time": "20250411"
+  },
+  "NDA204447": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 806,
+    "warnings_chars": 9826,
+    "adverse_reactions_chars": 10366,
+    "effective_time": "20260423"
+  },
+  "NDA204629": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 9830,
+    "adverse_reactions_chars": 13898,
+    "effective_time": "20261110"
+  },
+  "NDA204819": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1116,
+    "warnings_chars": 2346,
+    "adverse_reactions_chars": 2745,
+    "effective_time": "20260813"
+  },
+  "NDA205382": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3783,
+    "adverse_reactions_chars": 5739,
+    "effective_time": "20251106"
+  },
+  "NDA205422": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1814,
+    "warnings_chars": 28292,
+    "adverse_reactions_chars": 17313,
+    "effective_time": "20261116"
+  },
+  "NDA205435": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3614,
+    "adverse_reactions_chars": 11347,
+    "effective_time": "20260227"
+  },
+  "NDA205437": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8261,
+    "adverse_reactions_chars": 11103,
+    "effective_time": "20260902"
+  },
+  "NDA205552": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 7992,
+    "adverse_reactions_chars": 30918,
+    "effective_time": "20251021"
+  },
+  "NDA205739": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 926,
+    "adverse_reactions_chars": 2580,
+    "effective_time": "20250131"
+  },
+  "NDA205832": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 14133,
+    "adverse_reactions_chars": 11533,
+    "effective_time": "20251120"
+  },
+  "NDA205836": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8062,
+    "adverse_reactions_chars": 5582,
+    "effective_time": "20261105"
+  },
+  "NDA205858": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2525,
+    "warnings_chars": 7571,
+    "adverse_reactions_chars": 11733,
+    "effective_time": "20260910"
+  },
+  "NDA206162": null,
+  "NDA206333": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4944,
+    "adverse_reactions_chars": 2893,
+    "effective_time": "20260911"
+  },
+  "NDA206940": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4230,
+    "adverse_reactions_chars": 6257,
+    "effective_time": "20240716"
+  },
+  "NDA206947": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 17389,
+    "adverse_reactions_chars": 42576,
+    "effective_time": "20261014"
+  },
+  "NDA207103": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4308,
+    "adverse_reactions_chars": 24804,
+    "effective_time": "20260702"
+  },
+  "NDA207318": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 848,
+    "warnings_chars": 2083,
+    "adverse_reactions_chars": 4460,
+    "effective_time": "20260618"
+  },
+  "NDA207356": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 753,
+    "warnings_chars": 8753,
+    "adverse_reactions_chars": 9044,
+    "effective_time": "20260804"
+  },
+  "NDA207695": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 567,
+    "adverse_reactions_chars": 2285,
+    "effective_time": "20250923"
+  },
+  "NDA207924": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 5425,
+    "warnings_chars": 14095,
+    "adverse_reactions_chars": 19417,
+    "effective_time": "20261009"
+  },
+  "NDA207988": null,
+  "NDA207997": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2332,
+    "adverse_reactions_chars": 15141,
+    "effective_time": "20260608"
+  },
+  "NDA207999": null,
+  "NDA208051": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5886,
+    "adverse_reactions_chars": 9844,
+    "effective_time": "20260702"
+  },
+  "NDA208325": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5893,
+    "adverse_reactions_chars": 6011,
+    "effective_time": "20260308"
+  },
+  "NDA208447": null,
+  "NDA208462": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 7674,
+    "adverse_reactions_chars": 5313,
+    "effective_time": "20260811"
+  },
+  "NDA208573": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8258,
+    "adverse_reactions_chars": 38116,
+    "effective_time": "20260520"
+  },
+  "NDA208743": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4194,
+    "adverse_reactions_chars": 10564,
+    "effective_time": "20260811"
+  },
+  "NDA208794": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1814,
+    "adverse_reactions_chars": 3677,
+    "effective_time": "20260806"
+  },
+  "NDA208854": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1899,
+    "adverse_reactions_chars": 4763,
+    "effective_time": "20250725"
+  },
+  "NDA209092": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 11628,
+    "adverse_reactions_chars": 23299,
+    "effective_time": "20260701"
+  },
+  "NDA209115": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6655,
+    "adverse_reactions_chars": 14850,
+    "effective_time": "20261016"
+  },
+  "NDA209299": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3662,
+    "adverse_reactions_chars": 3945,
+    "effective_time": "20251105"
+  },
+  "NDA209500": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1601,
+    "warnings_chars": 16732,
+    "adverse_reactions_chars": 11864,
+    "effective_time": "20261105"
+  },
+  "NDA209531": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2137,
+    "adverse_reactions_chars": 7666,
+    "effective_time": "20260331"
+  },
+  "NDA209637": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1695,
+    "warnings_chars": 13909,
+    "adverse_reactions_chars": 18228,
+    "effective_time": "20260730"
+  },
+  "NDA209803": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8411,
+    "adverse_reactions_chars": 12137,
+    "effective_time": "20260603"
+  },
+  "NDA209816": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4393,
+    "adverse_reactions_chars": 9936,
+    "effective_time": "20261029"
+  },
+  "NDA209899": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 26273,
+    "adverse_reactions_chars": 8048,
+    "effective_time": "20260416"
+  },
+  "NDA209936": null,
+  "NDA209939": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2836,
+    "adverse_reactions_chars": 7011,
+    "effective_time": "20260114"
+  },
+  "NDA210166": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1337,
+    "adverse_reactions_chars": 6429,
+    "effective_time": "20250717"
+  },
+  "NDA210238": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1703,
+    "adverse_reactions_chars": 7333,
+    "effective_time": "20250813"
+  },
+  "NDA210361": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2633,
+    "adverse_reactions_chars": 3117,
+    "effective_time": "20260521"
+  },
+  "NDA210450": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5927,
+    "adverse_reactions_chars": 14538,
+    "effective_time": "20251219"
+  },
+  "NDA210656": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1776,
+    "warnings_chars": 4940,
+    "adverse_reactions_chars": 8754,
+    "effective_time": "20251212"
+  },
+  "NDA210854": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2586,
+    "adverse_reactions_chars": 4994,
+    "effective_time": "20260424"
+  },
+  "NDA210922": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3036,
+    "adverse_reactions_chars": 6544,
+    "effective_time": "20250908"
+  },
+  "NDA211172": null,
+  "NDA211243": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2740,
+    "warnings_chars": 13075,
+    "adverse_reactions_chars": 20156,
+    "effective_time": "20260922"
+  },
+  "NDA211280": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3700,
+    "adverse_reactions_chars": 5214,
+    "effective_time": "20260108"
+  },
+  "NDA211349": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 903,
+    "warnings_chars": 4866,
+    "adverse_reactions_chars": 10807,
+    "effective_time": "20261001"
+  },
+  "NDA211616": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3340,
+    "adverse_reactions_chars": 8913,
+    "effective_time": "20260625"
+  },
+  "NDA211672": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4532,
+    "adverse_reactions_chars": 4609,
+    "effective_time": "20260722"
+  },
+  "NDA211675": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 4846,
+    "warnings_chars": 13809,
+    "adverse_reactions_chars": 35467,
+    "effective_time": "20260630"
+  },
+  "NDA211810": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1373,
+    "warnings_chars": 5488,
+    "adverse_reactions_chars": 7164,
+    "effective_time": "20250116"
+  },
+  "NDA211996": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 0,
+    "adverse_reactions_chars": 1252,
+    "effective_time": "20260512"
+  },
+  "NDA212028": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5863,
+    "adverse_reactions_chars": 4669,
+    "effective_time": "20250224"
+  },
+  "NDA212099": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2672,
+    "adverse_reactions_chars": 14214,
+    "effective_time": "20260928"
+  },
+  "NDA212306": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 13680,
+    "adverse_reactions_chars": 9890,
+    "effective_time": "20260512"
+  },
+  "NDA212801": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4135,
+    "adverse_reactions_chars": 10816,
+    "effective_time": "20251118"
+  },
+  "NDA212839": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 12520,
+    "adverse_reactions_chars": 7076,
+    "effective_time": "20250825"
+  },
+  "NDA213006": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1563,
+    "adverse_reactions_chars": 4614,
+    "effective_time": "20250401"
+  },
+  "NDA213137": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1573,
+    "adverse_reactions_chars": 4597,
+    "effective_time": "20231226"
+  },
+  "NDA213189": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1266,
+    "adverse_reactions_chars": 3853,
+    "effective_time": "20260624"
+  },
+  "NDA213464": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4810,
+    "adverse_reactions_chars": 4651,
+    "effective_time": "20260303"
+  },
+  "NDA213716": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 511,
+    "warnings_chars": 6357,
+    "adverse_reactions_chars": 12167,
+    "effective_time": "20261111"
+  },
+  "NDA213793": null,
+  "NDA214012": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 689,
+    "adverse_reactions_chars": 4276,
+    "effective_time": "20260819"
+  },
+  "NDA214231": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3035,
+    "adverse_reactions_chars": 3586,
+    "effective_time": "20230101"
+  },
+  "NDA214373": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8383,
+    "adverse_reactions_chars": 13583,
+    "effective_time": "20260730"
+  },
+  "NDA214377": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 919,
+    "warnings_chars": 532,
+    "adverse_reactions_chars": 1608,
+    "effective_time": "20260121"
+  },
+  "NDA214461": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 645,
+    "warnings_chars": 6467,
+    "adverse_reactions_chars": 4880,
+    "effective_time": "20250701"
+  },
+  "NDA214621": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2987,
+    "adverse_reactions_chars": 5287,
+    "effective_time": "20261008"
+  },
+  "NDA214927": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2692,
+    "adverse_reactions_chars": 4139,
+    "effective_time": "20260318"
+  },
+  "NDA214985": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5536,
+    "adverse_reactions_chars": 3916,
+    "effective_time": "20260226"
+  },
+  "NDA214998": null,
+  "NDA215014": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2709,
+    "warnings_chars": 6194,
+    "adverse_reactions_chars": 9969,
+    "effective_time": "20260821"
+  },
+  "NDA215206": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2636,
+    "adverse_reactions_chars": 3788,
+    "effective_time": "20250930"
+  },
+  "NDA215341": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2003,
+    "adverse_reactions_chars": 4823,
+    "effective_time": "20260921"
+  },
+  "NDA215596": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4018,
+    "adverse_reactions_chars": 3964,
+    "effective_time": "20260127"
+  },
+  "NDA215866": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1711,
+    "warnings_chars": 8502,
+    "adverse_reactions_chars": 14072,
+    "effective_time": "20260729"
+  },
+  "NDA215887": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2639,
+    "adverse_reactions_chars": 2647,
+    "effective_time": "20261023"
+  },
+  "NDA215904": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4957,
+    "adverse_reactions_chars": 3038,
+    "effective_time": "20260904"
+  },
+  "NDA216203": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 7143,
+    "adverse_reactions_chars": 3023,
+    "effective_time": "20260812"
+  },
+  "NDA216386": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2566,
+    "adverse_reactions_chars": 2873,
+    "effective_time": "20251226"
+  },
+  "NDA216540": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 0,
+    "adverse_reactions_chars": 1653,
+    "effective_time": "20260629"
+  },
+  "NDA216578": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2278,
+    "warnings_chars": 2918,
+    "adverse_reactions_chars": 3490,
+    "effective_time": "20260226"
+  },
+  "NDA216834": null,
+  "NDA216951": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1655,
+    "warnings_chars": 5448,
+    "adverse_reactions_chars": 3647,
+    "effective_time": "20230830"
+  },
+  "NDA216956": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 17791,
+    "adverse_reactions_chars": 4757,
+    "effective_time": "20250818"
+  },
+  "NDA217225": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1511,
+    "adverse_reactions_chars": 3025,
+    "effective_time": "20260903"
+  },
+  "NDA217389": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2698,
+    "adverse_reactions_chars": 2438,
+    "effective_time": "20261013"
+  },
+  "NDA217564": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 9084,
+    "adverse_reactions_chars": 10017,
+    "effective_time": "20260731"
+  },
+  "NDA217673": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1642,
+    "adverse_reactions_chars": 4303,
+    "effective_time": "20260316"
+  },
+  "NDA217686": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1140,
+    "warnings_chars": 4453,
+    "adverse_reactions_chars": 2665,
+    "effective_time": "20260814"
+  },
+  "NDA217865": null,
+  "NDA217899": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2117,
+    "adverse_reactions_chars": 3143,
+    "effective_time": "20260203"
+  },
+  "NDA219155": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5602,
+    "adverse_reactions_chars": 1664,
+    "effective_time": "20261113"
+  },
+  "NDA219469": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3810,
+    "adverse_reactions_chars": 3896,
+    "effective_time": "20260616"
+  },
+  "NDA219685": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2533,
+    "adverse_reactions_chars": 2797,
+    "effective_time": "20250826"
+  },
+  "NDA219878": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2076,
+    "adverse_reactions_chars": 4186,
+    "effective_time": "20260807"
+  },
+  "NDA220415": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4890,
+    "adverse_reactions_chars": 4577,
+    "effective_time": "20261008"
+  },
+  "NDA220641": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5105,
+    "adverse_reactions_chars": 4963,
+    "effective_time": "20260326"
+  },
+  "NDA220848": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 0,
+    "adverse_reactions_chars": 2268,
+    "effective_time": "20260715"
+  },
+  "NDA220860": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3074,
+    "adverse_reactions_chars": 4252,
+    "effective_time": "20261110"
+  },
+  "NDA220934": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2363,
+    "warnings_chars": 9309,
+    "adverse_reactions_chars": 9843,
+    "effective_time": "20260729"
+  },
+  "NDA221276": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2763,
+    "warnings_chars": 11369,
+    "adverse_reactions_chars": 10152,
+    "effective_time": "20261020"
+  },
+  "NDA221291": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 0,
+    "adverse_reactions_chars": 6325,
+    "effective_time": "20261109"
+  },
+  "BLA125499": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 9916,
+    "adverse_reactions_chars": 6860,
+    "effective_time": "20251112"
+  },
+  "BLA761062": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1118,
+    "warnings_chars": 5453,
+    "adverse_reactions_chars": 8773,
+    "effective_time": "20260716"
+  },
+  "BLA761063": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3847,
+    "adverse_reactions_chars": 5480,
+    "effective_time": "20260605"
+  },
+  "BLA761068": null,
+  "BLA761077": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3847,
+    "adverse_reactions_chars": 3723,
+    "effective_time": "20260714"
+  },
+  "BLA761089": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3819,
+    "adverse_reactions_chars": 3865,
+    "effective_time": "20260605"
+  },
+  "BLA761090": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 399,
+    "adverse_reactions_chars": 4916,
+    "effective_time": "20260918"
+  },
+  "BLA761097": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 17166,
+    "adverse_reactions_chars": 27244,
+    "effective_time": "20260831"
+  },
+  "BLA761105": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3726,
+    "adverse_reactions_chars": 14568,
+    "effective_time": "20261023"
+  },
+  "BLA761119": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3761,
+    "adverse_reactions_chars": 3423,
+    "effective_time": "20260605"
+  },
+  "BLA761123": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3817,
+    "adverse_reactions_chars": 7078,
+    "effective_time": "20260925"
+  },
+  "BLA761156": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 9917,
+    "adverse_reactions_chars": 11974,
+    "effective_time": "20260225"
+  },
+  "BLA761177": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8986,
+    "adverse_reactions_chars": 5792,
+    "effective_time": "20261021"
+  },
+  "BLA761183": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2207,
+    "warnings_chars": 7789,
+    "adverse_reactions_chars": 13023,
+    "effective_time": "20261106"
+  },
+  "BLA761224": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3140,
+    "adverse_reactions_chars": 5713,
+    "effective_time": "20251017"
+  },
+  "BLA761232": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 17679,
+    "adverse_reactions_chars": 22273,
+    "effective_time": "20260901"
+  },
+  "BLA761279": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4269,
+    "adverse_reactions_chars": 9329,
+    "effective_time": "20260616"
+  },
+  "BLA761306": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 2369,
+    "adverse_reactions_chars": 8620,
+    "effective_time": "20260930"
+  },
+  "BLA761326": null,
+  "BLA761334": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 15735,
+    "adverse_reactions_chars": 15717,
+    "effective_time": "20260518"
+  },
+  "BLA761363": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4667,
+    "adverse_reactions_chars": 8874,
+    "effective_time": "20260921"
+  },
+  "BLA761390": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1170,
+    "adverse_reactions_chars": 6840,
+    "effective_time": "20250626"
+  },
+  "BLA761427": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 0,
+    "adverse_reactions_chars": 2915,
+    "effective_time": "20260812"
+  },
+  "NDA012827": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 5568,
+    "adverse_reactions_chars": 2203,
+    "effective_time": "20260217"
+  },
+  "NDA017106": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3087,
+    "adverse_reactions_chars": 9841,
+    "effective_time": "20220915"
+  },
+  "NDA017788": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 426,
+    "adverse_reactions_chars": 505,
+    "effective_time": "20210317"
+  },
+  "NDA018602": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1611,
+    "adverse_reactions_chars": 2955,
+    "effective_time": "20250430"
+  },
+  "NDA018658": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 859,
+    "adverse_reactions_chars": 0,
+    "effective_time": "20260909"
+  },
+  "NDA020272": null,
+  "NDA020287": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2461,
+    "warnings_chars": 7802,
+    "adverse_reactions_chars": 14529,
+    "effective_time": "20250930"
+  },
+  "NDA020505": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 26232,
+    "adverse_reactions_chars": 23081,
+    "effective_time": "20260312"
+  },
+  "NDA020665": null,
+  "NDA020831": null,
+  "NDA021302": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1494,
+    "warnings_chars": 5004,
+    "adverse_reactions_chars": 8365,
+    "effective_time": "20260430"
+  },
+  "NDA021400": null,
+  "NDA021928": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 11725,
+    "adverse_reactions_chars": 16762,
+    "effective_time": "20260123"
+  },
+  "NDA021964": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3087,
+    "adverse_reactions_chars": 15066,
+    "effective_time": "20240501"
+  },
+  "NDA022474": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3265,
+    "adverse_reactions_chars": 2418,
+    "effective_time": "20260720"
+  },
+  "NDA050606": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4778,
+    "adverse_reactions_chars": 4780,
+    "effective_time": "20260302"
+  },
+  "NDA050706": null,
+  "NDA200796": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 670,
+    "warnings_chars": 2634,
+    "adverse_reactions_chars": 2549,
+    "effective_time": "20260420"
+  },
+  "NDA201292": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8452,
+    "adverse_reactions_chars": 11143,
+    "effective_time": "20251113"
+  },
+  "NDA202067": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2687,
+    "warnings_chars": 11063,
+    "adverse_reactions_chars": 4901,
+    "effective_time": "20261016"
+  },
+  "NDA202324": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 17692,
+    "adverse_reactions_chars": 20900,
+    "effective_time": "20261115"
+  },
+  "NDA204760": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3044,
+    "adverse_reactions_chars": 4242,
+    "effective_time": "20260901"
+  },
+  "NDA206038": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 9983,
+    "adverse_reactions_chars": 11788,
+    "effective_time": "20260324"
+  },
+  "NDA208082": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2040,
+    "warnings_chars": 10165,
+    "adverse_reactions_chars": 4582,
+    "effective_time": "20250228"
+  },
+  "NDA209241": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1883,
+    "warnings_chars": 7665,
+    "adverse_reactions_chars": 6226,
+    "effective_time": "20260417"
+  },
+  "NDA209884": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 25157,
+    "adverse_reactions_chars": 5944,
+    "effective_time": "20260630"
+  },
+  "NDA210365": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 13092,
+    "adverse_reactions_chars": 10150,
+    "effective_time": "20260529"
+  },
+  "NDA211230": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3109,
+    "adverse_reactions_chars": 9130,
+    "effective_time": "20260505"
+  },
+  "NDA211371": null,
+  "NDA211527": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1590,
+    "adverse_reactions_chars": 4173,
+    "effective_time": "20240916"
+  },
+  "NDA212102": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 1153,
+    "warnings_chars": 12588,
+    "adverse_reactions_chars": 8665,
+    "effective_time": "20261022"
+  },
+  "NDA213871": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 5283,
+    "warnings_chars": 8981,
+    "adverse_reactions_chars": 9906,
+    "effective_time": "20261015"
+  },
+  "NDA213973": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 6192,
+    "adverse_reactions_chars": 5996,
+    "effective_time": "20250512"
+  },
+  "NDA214094": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 658,
+    "adverse_reactions_chars": 5237,
+    "effective_time": "20261023"
+  },
+  "NDA214916": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1877,
+    "adverse_reactions_chars": 5114,
+    "effective_time": "20250826"
+  },
+  "NDA214938": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 789,
+    "adverse_reactions_chars": 6159,
+    "effective_time": "20251125"
+  },
+  "NDA214958": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 8579,
+    "adverse_reactions_chars": 7166,
+    "effective_time": "20260630"
+  },
+  "NDA216158": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 7575,
+    "adverse_reactions_chars": 7479,
+    "effective_time": "20260116"
+  },
+  "NDA217369": null,
+  "NDA217677": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 4379,
+    "adverse_reactions_chars": 5382,
+    "effective_time": "20260901"
+  },
+  "NDA218276": {
+    "has_boxed_warning": 1,
+    "boxed_warning_chars": 2768,
+    "warnings_chars": 7324,
+    "adverse_reactions_chars": 6406,
+    "effective_time": "20260716"
+  },
+  "NDA218436": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 1285,
+    "adverse_reactions_chars": 4011,
+    "effective_time": "20261116"
+  },
+  "NDA219301": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 0,
+    "adverse_reactions_chars": 2880,
+    "effective_time": "20260401"
+  },
+  "NDA220442": {
+    "has_boxed_warning": 0,
+    "boxed_warning_chars": 0,
+    "warnings_chars": 3298,
+    "adverse_reactions_chars": 2209,
+    "effective_time": "20260603"
+  }
+}

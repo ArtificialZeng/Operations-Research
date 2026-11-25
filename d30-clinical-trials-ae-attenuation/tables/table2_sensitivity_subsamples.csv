@@ -1,0 +1,35 @@
+specification,outcome,n,coef,se,t,p
+"P3 Strict freq_thr==5% (Mol x Sp, EU-East)",ctrl_oth,938,-0.28621,0.07078,-4.044,0.00010621683299472033
+"P3 Strict freq_thr==5% (Mol x Sp, EU-East)",act_oth,938,-0.31967,0.06605,-4.84,4.962924114004203e-06
+"P3 Strict freq_thr==5% (Mol x Sp, EU-East)",oth_rd,938,-0.03346,0.0299,-1.119,0.26589189347137737
+"P3 Strict freq_thr==5% (Mol x Sp, EU-East)",ctrl_sae,938,-0.00785,0.03203,-0.245,0.806921951753004
+"P3 Strict freq_thr==5% (Mol x Sp, All EE)",ctrl_oth,938,-0.21319,0.06944,-3.07,0.0027817041737258994
+"P3 Strict freq_thr==5% (Mol x Sp, All EE)",act_oth,938,-0.24679,0.06298,-3.919,0.0001667473556206715
+"P3 Strict freq_thr==5% (Mol x Sp, All EE)",oth_rd,938,-0.0336,0.03752,-0.896,0.3726349409064893
+"P3 Strict freq_thr==5% (Mol x Sp, All EE)",ctrl_sae,938,-0.00481,0.02564,-0.188,0.8515135573839776
+"P2+P3 Strict freq_thr==5% (Mol x Sp, All EE)",ctrl_oth,1275,-0.22315,0.07717,-2.892,0.004545156939928751
+"P2+P3 Strict freq_thr==5% (Mol x Sp, All EE)",act_oth,1275,-0.26174,0.07365,-3.554,0.0005422665215396314
+"P2+P3 Strict freq_thr==5% (Mol x Sp, All EE)",oth_rd,1275,-0.03859,0.03352,-1.151,0.2518276901565276
+"P2+P3 Strict freq_thr==5% (Mol x Sp, All EE)",ctrl_sae,1275,-0.01058,0.02495,-0.424,0.6723806505466349
+"P2+P3 Strict freq_thr==0% (TA FE, All EE)",ctrl_oth,217,-0.17175,0.10158,-1.691,0.09444967796052602
+"P2+P3 Strict freq_thr==0% (TA FE, All EE)",act_oth,217,-0.1562,0.11185,-1.396,0.16612458681008832
+"P2+P3 Strict freq_thr==0% (TA FE, All EE)",oth_rd,217,0.01556,0.03769,0.413,0.6807841052138885
+"P2+P3 Strict freq_thr==0% (TA FE, All EE)",ctrl_sae,219,-0.0295,0.04478,-0.659,0.5118297593107016
+"P2+P3 Strict freq_thr==0% (Sponsor FE, All EE)",ctrl_oth,159,-0.33741,0.23921,-1.411,0.16901460962247986
+"P2+P3 Strict freq_thr==0% (Sponsor FE, All EE)",act_oth,159,-0.31906,0.25344,-1.259,0.21810313777094822
+"P2+P3 Strict freq_thr==0% (Sponsor FE, All EE)",oth_rd,159,0.01835,0.05577,0.329,0.7444591564682848
+"P2+P3 Strict freq_thr==0% (Sponsor FE, All EE)",ctrl_sae,162,-0.16087,0.11867,-1.356,0.1853237380655095
+P3 + SYSTEMATIC_ASSESSMENT control (EU-East),ctrl_oth,1222,-0.26222,0.05372,-4.882,3.1717750114251715e-06
+P3 + SYSTEMATIC_ASSESSMENT control (EU-East),act_oth,1222,-0.2785,0.05574,-4.996,1.9404507343742764e-06
+P3 + SYSTEMATIC_ASSESSMENT control (EU-East),oth_rd,1222,-0.01628,0.03075,-0.529,0.5974310634578391
+P2+P3 + SYSTEMATIC_ASSESSMENT control (EU-East),ctrl_oth,1685,-0.25172,0.04611,-5.459,1.742391906393792e-07
+P2+P3 + SYSTEMATIC_ASSESSMENT control (EU-East),act_oth,1685,-0.26815,0.05286,-5.073,1.049537584595678e-06
+P2+P3 + SYSTEMATIC_ASSESSMENT control (EU-East),oth_rd,1685,-0.01643,0.03082,-0.533,0.5947132772898209
+P2+P3 All-Systematic Only (EU-East),ctrl_oth,1268,-0.25057,0.04916,-5.098,1.2280847483759167e-06
+P2+P3 All-Systematic Only (EU-East),act_oth,1268,-0.25815,0.0538,-4.798,4.4428874256947185e-06
+P2+P3 All-Status incl. Terminated (EU-East),ctrl_oth,2188,-0.29629,0.0571,-5.189,5.304898698898916e-07
+P2+P3 All-Status incl. Terminated (EU-East),act_oth,2188,-0.30778,0.05171,-5.952,1.2177210700983109e-08
+P2+P3 All-Status incl. Terminated (EU-East),ctrl_sae,2188,-0.01562,0.02711,-0.576,0.5652426105480587
+P3 Enrollment-Weighted WLS (EU-East),ctrl_oth,1282,-0.31829,0.11007,-2.892,0.004503591539276894
+P3 Enrollment-Weighted WLS (EU-East),act_oth,1282,-0.31078,0.0946,-3.285,0.0013150404595855148
+P3 Enrollment-Weighted WLS (EU-East),ctrl_sae,1282,0.02085,0.02922,0.714,0.4767496269554557
