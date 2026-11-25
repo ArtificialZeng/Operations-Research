@@ -1,0 +1,6 @@
+Modality,N_Balanced_Campaigns,Pct_With_Pre12m_Fail_Cmpl,Mean_Pre12m_Fail_Cmpl,Median_Pre12m_Fail_Cmpl,Mean_Post12m_Fail_Cmpl,Pre_Buildup_Ratio_m3m1_vs_m12m4,Pct_With_Pre12m_Crash,Pct_With_Pre12m_Fire,Pct_With_Pre12m_Inj_Cmpl,Pct_With_Pre12m_Fatal_Cmpl
+Pure_OTA,53,71.7,81.32,8.0,118.47,2.43,45.28,18.87,41.51,20.75
+Hybrid_OTA,60,70.0,12.12,2.5,16.18,2.06,23.33,13.33,18.33,0.0
+Official_API_OTA,83,73.49,55.47,5.0,80.94,2.38,34.94,14.46,30.12,12.05
+Dealer_Software,624,46.96,11.52,0.0,18.19,1.63,14.26,7.85,8.33,0.48
+Physical_Hardware,3823,24.67,3.48,0.0,6.47,1.32,5.89,2.01,4.73,0.34

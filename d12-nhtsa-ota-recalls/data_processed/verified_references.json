@@ -1,0 +1,247 @@
+{
+  "generated_utc": "2026-11-25T19:55:25Z",
+  "references": {
+    "arora_2006": {
+      "verified": true,
+      "doi": "10.1287/mnsc.1050.0440",
+      "title": "Research Note\u2014Sell First, Fix Later: Impact of Patching on Software Quality",
+      "authors": "Arora, A., Caulkins, J., Telang, R.",
+      "journal": "Management Science",
+      "year": 2006,
+      "volume": "52",
+      "issue": "3",
+      "page": "465-471"
+    },
+    "august_2006": {
+      "verified": true,
+      "doi": "10.1287/mnsc.1060.0568",
+      "title": "Network Software Security and User Incentives",
+      "authors": "August, T., Tunca, T.",
+      "journal": "Management Science",
+      "year": 2006,
+      "volume": "52",
+      "issue": "11",
+      "page": "1703-1720"
+    },
+    "ramdas_2008": {
+      "verified": true,
+      "doi": "10.1287/mnsc.1070.0791",
+      "title": "Does Component Sharing Help or Hurt Reliability? An Empirical Study in the Automotive Industry",
+      "authors": "Ramdas, K., Randall, T.",
+      "journal": "Management Science",
+      "year": 2008,
+      "volume": "54",
+      "issue": "5",
+      "page": "922-938"
+    },
+    "shah_2017": {
+      "verified": true,
+      "doi": "10.1287/mnsc.2016.2456",
+      "title": "Plant Operations and Product Recalls in the Automotive Industry: An Empirical Investigation",
+      "authors": "Shah, R., Ball, G., Netessine, S.",
+      "journal": "Management Science",
+      "year": 2017,
+      "volume": "63",
+      "issue": "8",
+      "page": "2439-2459"
+    },
+    "haunschild_2004": {
+      "verified": true,
+      "doi": "10.1287/mnsc.1040.0219",
+      "title": "The Role of Volition in Organizational Learning: The Case of Automotive Product Recalls",
+      "authors": "Haunschild, P., Rhee, M.",
+      "journal": "Management Science",
+      "year": 2004,
+      "volume": "50",
+      "issue": "11",
+      "page": "1545-1560"
+    },
+    "kalaignanam_2013": {
+      "verified": true,
+      "doi": "10.1509/jm.11.0356",
+      "title": "The Impact of Product Recalls on Future Product Reliability and Future Accidents: Evidence from the Automobile Industry",
+      "authors": "Kalaignanam, K., Kushwaha, T., Eilert, M.",
+      "journal": "Journal of Marketing",
+      "year": 2013,
+      "volume": "77",
+      "issue": "2",
+      "page": "41-57"
+    },
+    "eilert_2017": {
+      "verified": true,
+      "doi": "10.1509/jm.15.0074",
+      "title": "Does it Pay to Recall your Product Early? An Empirical Investigation in the Automobile Industry",
+      "authors": "Eilert, M., Jayachandran, S., Kalaignanam, K., Swartz, T.",
+      "journal": "Journal of Marketing",
+      "year": 2017,
+      "volume": "81",
+      "issue": "3",
+      "page": "111-129"
+    },
+    "rupp_2002": {
+      "verified": true,
+      "doi": "10.1111/1467-6451.00171",
+      "title": "Who Initiates Recalls and Who Cares? Evidence from the Automobile Industry",
+      "authors": "Rupp, N., Taylor, C.",
+      "journal": "The Journal of Industrial Economics",
+      "year": 2002,
+      "volume": "50",
+      "issue": "2",
+      "page": "123-149"
+    },
+    "bae_2011": {
+      "verified": true,
+      "doi": "10.1002/pam.20600",
+      "title": "Do vehicle recalls reduce the number of accidents? The case of the U.S. car market",
+      "authors": "Bae, Y., Ben\u00edtez\u2010Silva, H.",
+      "journal": "Journal of Policy Analysis and Management",
+      "year": 2011,
+      "volume": "30",
+      "issue": "4",
+      "page": "821-862"
+    },
+    "barber_1996": {
+      "verified": true,
+      "doi": "10.1086/262053",
+      "title": "Product Reliability and Firm Value: The Experience of American and Japanese Automakers, 1973-1992",
+      "authors": "Barber, B., Darrough, M.",
+      "journal": "Journal of Political Economy",
+      "year": 1996,
+      "volume": "104",
+      "issue": "5",
+      "page": "1084-1099"
+    },
+    "jarrell_1985": {
+      "verified": true,
+      "doi": "10.1086/261313",
+      "title": "The Impact of Product Recalls on the Wealth of Sellers",
+      "authors": "Jarrell, G., Peltzman, S.",
+      "journal": "Journal of Political Economy",
+      "year": 1985,
+      "volume": "93",
+      "issue": "3",
+      "page": "512-536"
+    },
+    "thirumalai_2011": {
+      "verified": true,
+      "doi": "10.1287/mnsc.1100.1267",
+      "title": "Product Recalls in the Medical Device Industry: An Empirical Exploration of the Sources and Financial Consequences",
+      "authors": "Thirumalai, S., Sinha, K.",
+      "journal": "Management Science",
+      "year": 2011,
+      "volume": "57",
+      "issue": "2",
+      "page": "376-392"
+    },
+    "ball_2018": {
+      "verified": true,
+      "doi": "10.1016/j.jom.2018.07.003",
+      "title": "The decision to recall: A behavioral investigation in the medical device industry",
+      "authors": "Ball, G., Shah, R., Donohue, K.",
+      "journal": "Journal of Operations Management",
+      "year": 2018,
+      "volume": "62",
+      "issue": "1",
+      "page": "1-15"
+    },
+    "hora_2011": {
+      "verified": true,
+      "doi": "10.1016/j.jom.2011.06.006",
+      "title": "Safety hazard and time to recall: The role of recall strategy, product defect type, and supply chain player in the U.S. toy industry",
+      "authors": "Hora, M., Bapuji, H., Roth, A.",
+      "journal": "Journal of Operations Management",
+      "year": 2011,
+      "volume": "29",
+      "issue": "7-8",
+      "page": "766-777"
+    },
+    "cavusoglu_2008": {
+      "verified": true,
+      "doi": "10.1287/mnsc.1070.0794",
+      "title": "Security Patch Management: Share the Burden or Share the Damage?",
+      "authors": "Cavusoglu, H., Cavusoglu, H., Zhang, J.",
+      "journal": "Management Science",
+      "year": 2008,
+      "volume": "54",
+      "issue": "4",
+      "page": "657-670"
+    },
+    "maccormack_2006": {
+      "verified": true,
+      "doi": "10.1287/mnsc.1060.0552",
+      "title": "Exploring the Structure of Complex Software Designs: An Empirical Study of Open Source and Proprietary Code",
+      "authors": "MacCormack, A., Rusnak, J., Baldwin, C.",
+      "journal": "Management Science",
+      "year": 2006,
+      "volume": "52",
+      "issue": "7",
+      "page": "1015-1030"
+    },
+    "cameron_2008": {
+      "verified": true,
+      "doi": "10.1162/rest.90.3.414",
+      "title": "Bootstrap-Based Improvements for Inference with Clustered Errors",
+      "authors": "Cameron, A., Gelbach, J., Miller, D.",
+      "journal": "Review of Economics and Statistics",
+      "year": 2008,
+      "volume": "90",
+      "issue": "3",
+      "page": "414-427"
+    },
+    "cameron_2015": {
+      "verified": true,
+      "doi": "10.3368/jhr.50.2.317",
+      "title": "A Practitioner\u2019s Guide to Cluster-Robust Inference",
+      "authors": "Colin Cameron, A., Miller, D.",
+      "journal": "Journal of Human Resources",
+      "year": 2015,
+      "volume": "50",
+      "issue": "2",
+      "page": "317-372"
+    },
+    "mackinnon_2017": {
+      "verified": true,
+      "doi": "10.1002/jae.2508",
+      "title": "Wild Bootstrap Inference for Wildly Different Cluster Sizes",
+      "authors": "MacKinnon, J., Webb, M.",
+      "journal": "Journal of Applied Econometrics",
+      "year": 2017,
+      "volume": "32",
+      "issue": "2",
+      "page": "233-254"
+    },
+    "sun_2021": {
+      "verified": true,
+      "doi": "10.1016/j.jeconom.2020.09.006",
+      "title": "Estimating dynamic treatment effects in event studies with heterogeneous treatment effects",
+      "authors": "Sun, L., Abraham, S.",
+      "journal": "Journal of Econometrics",
+      "year": 2021,
+      "volume": "225",
+      "issue": "2",
+      "page": "175-199"
+    },
+    "callaway_2021": {
+      "verified": true,
+      "doi": "10.1016/j.jeconom.2020.12.001",
+      "title": "Difference-in-Differences with multiple time periods",
+      "authors": "Callaway, B., Sant\u2019Anna, P.",
+      "journal": "Journal of Econometrics",
+      "year": 2021,
+      "volume": "225",
+      "issue": "2",
+      "page": "200-230"
+    },
+    "roth_2023": {
+      "verified": true,
+      "doi": "10.1016/j.jeconom.2023.03.008",
+      "title": "What\u2019s trending in difference-in-differences? A synthesis of the recent econometrics literature",
+      "authors": "Roth, J., Sant\u2019Anna, P., Bilinski, A., Poe, J.",
+      "journal": "Journal of Econometrics",
+      "year": 2023,
+      "volume": "235",
+      "issue": "2",
+      "page": "2218-2244"
+    }
+  }
+}

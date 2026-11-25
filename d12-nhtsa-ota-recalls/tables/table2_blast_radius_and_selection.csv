@@ -1,0 +1,49 @@
+Panel,Specification,Outcome,Term,N,G_OEM_Clusters,Coef,SE_CR1,t_CR1,p_t_G1,p_WCB_999,CI95_Lo,CI95_Hi,R2
+A_Primary_SW_OTA_OEMs,4-Way Modality (OEM+Yr+MY+Comp FE),log_potaff,is_ota_pure,736,32,1.0844,0.7908,1.371,0.180148,0.233,-0.5285,2.6973,0.3541
+A_Primary_SW_OTA_OEMs,4-Way Modality (OEM+Yr+MY+Comp FE),log_potaff,is_ota_hybrid,736,32,1.9468,0.3657,5.323,9e-06,0.006,1.2009,2.6927,0.3541
+A_Primary_SW_OTA_OEMs,Any Audited OTA (OEM+Yr+MY+Comp FE),log_potaff,is_ota_audited,736,32,1.856,0.3866,4.8,3.8e-05,0.01,1.0675,2.6446,0.3528
+A_Primary_SW_OTA_OEMs,Official API OTA 2018-24 (Active Era),log_potaff,is_ota_api_full,495,27,1.8873,0.671,2.812,0.009232,0.039,0.5079,3.2666,0.4076
+A_Primary_SW_OTA_OEMs,4-Way Modality: Models Affected,n_models,is_ota_pure,736,32,2.0705,1.2247,1.691,0.100953,0.088,-0.4274,4.5684,0.2889
+A_Primary_SW_OTA_OEMs,4-Way Modality: Models Affected,n_models,is_ota_hybrid,736,32,4.6041,2.7338,1.684,0.102201,0.004,-0.9716,10.1798,0.2889
+A_Primary_SW_OTA_OEMs,Official API OTA 2018-24: Models Affected,n_models,is_ota_api_full,495,27,6.6816,4.8134,1.388,0.176877,0.179,-3.2124,16.5757,0.3294
+A_Primary_SW_OTA_OEMs,4-Way Modality: Model Years Affected,n_mys,is_ota_pure,736,32,0.5001,0.4681,1.069,0.293543,0.439,-0.4545,1.4548,0.6012
+A_Primary_SW_OTA_OEMs,4-Way Modality: Model Years Affected,n_mys,is_ota_hybrid,736,32,0.6376,0.2367,2.694,0.011296,0.022,0.1549,1.1202,0.6012
+A_Primary_SW_OTA_OEMs,Official API OTA 2018-24: Model Years Affected,n_mys,is_ota_api_full,495,27,0.5383,0.2502,2.152,0.040872,0.058,0.0241,1.0526,0.6897
+A_Primary_SW_OTA_OEMs,4-Way Modality: Fleet per Model-Year,log_potaff_per_my,is_ota_pure,736,32,0.6553,0.6651,0.985,0.332143,0.375,-0.7012,2.0117,0.3764
+A_Primary_SW_OTA_OEMs,4-Way Modality: Fleet per Model-Year,log_potaff_per_my,is_ota_hybrid,736,32,1.2094,0.322,3.755,0.000717,0.023,0.5526,1.8662,0.3764
+A_Primary_SW_OTA_OEMs,Official API OTA 2018-24: Fleet per Model-Year,log_potaff_per_my,is_ota_api_full,495,27,1.239,0.5063,2.447,0.021471,0.036,0.1982,2.2797,0.4396
+B_All_Vehicles_vs_Phys,All Vehicles 2018-26 (OEM+Yr+MY+Comp FE),log_potaff,is_ota_pure,7967,532,1.839,0.5133,3.583,0.000372,0.011,0.8306,2.8474,0.4906
+B_All_Vehicles_vs_Phys,All Vehicles 2018-26 (OEM+Yr+MY+Comp FE),log_potaff,is_ota_hybrid,7967,532,2.7178,0.2514,10.812,0.0,0.001,2.224,3.2116,0.4906
+B_All_Vehicles_vs_Phys,All Vehicles 2018-26 (OEM+Yr+MY+Comp FE),log_potaff,is_dealer_sw,7967,532,0.7602,0.196,3.879,0.000118,0.001,0.3752,1.1452,0.4906
+B_All_Vehicles_vs_Phys,All Vehicles 2018-24 API OTA,log_potaff,is_ota_api_full,6338,479,2.3818,0.4914,4.847,2e-06,0.002,1.4162,3.3474,0.5003
+B_All_Vehicles_vs_Phys,All Vehicles 2018-24 API OTA,log_potaff,is_dealer_sw,6338,479,0.8947,0.1656,5.402,0.0,0.001,0.5693,1.2201,0.5003
+C_Robustness_Ladder,Modern Vehicles MY>=2020,log_potaff,is_ota_pure,490,32,1.1767,0.9351,1.258,0.217659,0.25,-0.7304,3.0838,0.3417
+C_Robustness_Ladder,Modern Vehicles MY>=2020,log_potaff,is_ota_hybrid,490,32,2.0067,0.494,4.062,0.000307,0.006,0.9991,3.0142,0.3417
+C_Robustness_Ladder,Saturated OEM x Year FE,log_potaff,is_ota_pure,736,32,1.3305,1.4393,0.924,0.362419,0.423,-1.605,4.2659,0.4909
+C_Robustness_Ladder,Saturated OEM x Year FE,log_potaff,is_ota_hybrid,736,32,2.0587,0.464,4.437,0.000107,0.014,1.1124,3.005,0.4909
+C_Robustness_Ladder,Make x Model FE,log_potaff,is_ota_pure,736,32,1.3725,1.2351,1.111,0.275005,0.232,-1.1465,3.8916,0.5709
+C_Robustness_Ladder,Make x Model FE,log_potaff,is_ota_hybrid,736,32,2.2126,0.5674,3.899,0.000483,0.005,1.0553,3.3699,0.5709
+C_Robustness_Ladder,Controlling Breadth (log_models + log_mys),log_potaff,is_ota_pure,736,32,0.526,0.6129,0.858,0.397372,0.415,-0.724,1.776,0.5123
+C_Robustness_Ladder,Controlling Breadth (log_models + log_mys),log_potaff,is_ota_hybrid,736,32,0.9682,0.2963,3.268,0.002651,0.036,0.3639,1.5725,0.5123
+C_Robustness_Ladder,Excluding Tesla,log_potaff,is_ota_pure,702,31,0.5981,0.7829,0.764,0.450874,0.467,-1.0008,2.1969,0.3471
+C_Robustness_Ladder,Excluding Tesla,log_potaff,is_ota_hybrid,702,31,1.8697,0.3713,5.035,2.1e-05,0.006,1.1114,2.628,0.3471
+C_Robustness_Ladder,Excluding Tesla & Ford,log_potaff,is_ota_pure,546,30,0.1803,0.8038,0.224,0.824035,0.829,-1.4635,1.8242,0.414
+C_Robustness_Ladder,Excluding Tesla & Ford,log_potaff,is_ota_hybrid,546,30,1.525,0.4393,3.471,0.001643,0.012,0.6265,2.4235,0.414
+C_Robustness_Ladder,Hybrid Split (SW-Choice vs HW-Mixed),log_potaff,is_ota_pure,736,32,0.9802,0.8621,1.137,0.264279,0.325,-0.7781,2.7385,0.3543
+C_Robustness_Ladder,Hybrid Split (SW-Choice vs HW-Mixed),log_potaff,is_ota_hybrid_swchoice,736,32,2.0062,0.326,6.154,1e-06,0.006,1.3413,2.6711,0.3543
+C_Robustness_Ladder,Hybrid Split (SW-Choice vs HW-Mixed),log_potaff,is_ota_hybrid_hwmixed,736,32,1.5684,0.7412,2.116,0.04247,0.023,0.0568,3.08,0.3543
+C_Robustness_Ladder,Light-Duty Passenger OEMs Only,log_potaff,is_ota_pure,665,21,1.0947,0.9049,1.21,0.240483,0.335,-0.7929,2.9823,0.3132
+C_Robustness_Ladder,Light-Duty Passenger OEMs Only,log_potaff,is_ota_hybrid,665,21,1.9301,0.3785,5.099,5.5e-05,0.012,1.1405,2.7197,0.3132
+C_Robustness_Ladder,Iterative Singleton-FE Dropped (Main FE),log_potaff,is_ota_pure,729,25,1.0844,0.7906,1.372,0.182884,0.247,-0.5474,2.7161,0.3399
+C_Robustness_Ladder,Iterative Singleton-FE Dropped (Main FE),log_potaff,is_ota_hybrid,729,25,1.9468,0.3656,5.324,1.8e-05,0.008,1.1922,2.7014,0.3399
+C_Robustness_Ladder,Iterative Singleton-FE Dropped (OEM x Year FE),log_potaff,is_ota_pure,686,25,1.3305,1.3958,0.953,0.349988,0.429,-1.5503,4.2112,0.4499
+C_Robustness_Ladder,Iterative Singleton-FE Dropped (OEM x Year FE),log_potaff,is_ota_hybrid,686,25,2.0587,0.45,4.575,0.000122,0.013,1.13,2.9874,0.4499
+C_Robustness_Ladder,Iterative Singleton-FE Dropped (Make x Model FE),log_potaff,is_ota_pure,632,24,1.3725,1.1506,1.193,0.24508,0.227,-1.0077,3.7528,0.4849
+C_Robustness_Ladder,Iterative Singleton-FE Dropped (Make x Model FE),log_potaff,is_ota_hybrid,632,24,2.2126,0.5286,4.186,0.000355,0.004,1.119,3.3061,0.4849
+D_Endogenous_Selection_Decomp,ITT Staggered OEM OTA Adoption (2015-26),log_potaff,post_ota_adopt,1239,68,0.1763,0.298,0.592,0.556065,0.579,-0.4185,0.771,0.3837
+D_Endogenous_Selection_Decomp,ITT Staggered Adoption + Min-MY FE,log_potaff,post_ota_adopt,1239,68,0.1776,0.2742,0.648,0.51935,0.542,-0.3697,0.7249,0.44
+D_Endogenous_Selection_Decomp,ITT Staggered Adoption (Excl. Tesla),log_potaff,post_ota_adopt,1205,67,0.2005,0.2968,0.675,0.501819,0.506,-0.3922,0.7931,0.3848
+D_Endogenous_Selection_Decomp,True Sun-Abraham (2021) Cohort x Rel-Time IW (7 Cohorts),log_potaff,iw_post_25cells,1233,67,-0.5321,0.7315,-0.727,0.469517,0.469517,-1.9922,0.928,0.0
+D_Endogenous_Selection_Decomp,Unconditional SW x SDV Cohort MY>=2021 DiD,log_potaff,is_sw_any,8681,601,1.0085,0.1973,5.111,0.0,0.001,0.621,1.396,0.423
+D_Endogenous_Selection_Decomp,Unconditional SW x SDV Cohort MY>=2021 DiD,log_potaff,is_sdv_my2021p,8681,601,-2.2758,0.1481,-15.37,0.0,0.001,-2.5666,-1.985,0.423
+D_Endogenous_Selection_Decomp,Unconditional SW x SDV Cohort MY>=2021 DiD,log_potaff,sw_x_sdv_my2021p,8681,601,0.262,0.141,1.858,0.063633,0.094,-0.0149,0.5389,0.423

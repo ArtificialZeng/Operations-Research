@@ -1,0 +1,36 @@
+{
+  "generated_utc": "2026-11-25T20:31:49Z",
+  "snapshot_date": "2026-11-25",
+  "rcl_panel": {
+    "n_campaigns_2015_2026": 10559,
+    "n_campaigns_2018_2026": 7967,
+    "potaff_log_corr_dot_vs_rcl": 1.0,
+    "n_cr_gt_100_2018_2026": 3,
+    "modality4_2018_2026": {
+      "Physical_Hardware": 6821,
+      "Dealer_Software": 984,
+      "Hybrid_OTA": 101,
+      "Pure_OTA": 61
+    },
+    "modality4_2018_2026_mature18m": {
+      "Physical_Hardware": 5557,
+      "Dealer_Software": 760,
+      "Hybrid_OTA": 49,
+      "Pure_OTA": 46
+    },
+    "n_ota_oems_2018_2026": 32,
+    "elapsed_sec": 6.7
+  },
+  "complaint_panel": {
+    "n_raw_complaint_rows_2020_2026": 636875,
+    "n_unique_odino_2020_2026": 437886,
+    "n_unique_odino_comp_2020_2026": 619262,
+    "n_balanced_campaigns_2021_2025": 4560,
+    "n_event_study_rows": 114000,
+    "n_matched_comp_ldate_links": 74874,
+    "n_matched_comp_fail_links": 76955,
+    "n_matched_veh_ldate_links": 460544,
+    "n_campaigns_with_ge1_comp_cmpl": 1765,
+    "elapsed_sec": 3.86
+  }
+}
