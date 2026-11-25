@@ -1,0 +1,33 @@
+{
+  "total_parsed_2000_2026": 8386,
+  "parsed_csv_sha256": "d09f115dc1f7582ec5d18bebbcbe14b5f81b640788207c2ab1904b7e42821411",
+  "count_2022_2026_all": 1871,
+  "count_2022_2026_other_unclear": 38,
+  "count_2022_2026_clean_reg_sample": 1822,
+  "firm_clusters_2022_2026_clean": 1414,
+  "rescued_from_retailers_2026": 23,
+  "archetype_counts_2022_2026_all": {
+    "6_Brick_and_Mortar": 627,
+    "1_Mkt_FD_China": 448,
+    "5_Omnichannel": 397,
+    "3_Mkt_True_US": 233,
+    "4_DTC_Online_Only": 102,
+    "7_Other_Unclear": 38,
+    "2_Mkt_FD_NonChina": 26
+  },
+  "archetype_counts_2022_2026_clean": {
+    "6_Brick_and_Mortar": 618,
+    "1_Mkt_FD_China": 447,
+    "5_Omnichannel": 396,
+    "3_Mkt_True_US": 233,
+    "4_DTC_Online_Only": 102,
+    "2_Mkt_FD_NonChina": 26
+  },
+  "other_unclear_share_2022_2026": 0.0203,
+  "price_nonmissing_share_2022_2026": 0.9904,
+  "units_nonmissing_share_2022_2026": 0.9989,
+  "months_on_sale_nonmissing_share_2022_2026": 0.9685,
+  "audit_sample_n": 150,
+  "oos_audit_sample_n": 50,
+  "audit_csv_sha256": "2d71cc6d713ea69ed123dffbe4575322866cc7cf38af96cee4f434885a6c74fb"
+}

@@ -1,0 +1,33 @@
+panel,group,n_obs,metric_1_label,metric_1_val,metric_2_label,metric_2_val,metric_3_label,metric_3_val,metric_4_label,metric_4_val
+A_Platform_Generality,Amazon.com,601,FD_China_Pct,64.7,Photo_Verify_Pct,67.5,Free_Webmail_Pct,56.1,No_Phone_Pct,59.4
+A_Platform_Generality,Walmart.com,95,FD_China_Pct,39.0,Photo_Verify_Pct,53.7,Free_Webmail_Pct,32.6,No_Phone_Pct,29.5
+A_Platform_Generality,Temu.com,20,FD_China_Pct,75.0,Photo_Verify_Pct,80.0,Free_Webmail_Pct,80.0,No_Phone_Pct,80.0
+A_Platform_Generality,Shein.com,15,FD_China_Pct,40.0,Photo_Verify_Pct,80.0,Free_Webmail_Pct,33.3,No_Phone_Pct,40.0
+A_Platform_Generality,Wayfair.com,31,FD_China_Pct,32.3,Photo_Verify_Pct,61.3,Free_Webmail_Pct,29.0,No_Phone_Pct,22.6
+A_Platform_Generality,AliExpress,17,FD_China_Pct,88.2,Photo_Verify_Pct,70.6,Free_Webmail_Pct,17.6,No_Phone_Pct,52.9
+A_Platform_Generality,eBay / Etsy,27,FD_China_Pct,25.9,Photo_Verify_Pct,25.9,Free_Webmail_Pct,25.9,No_Phone_Pct,14.8
+A_Platform_Generality,TikTok / Wish,9,FD_China_Pct,55.6,Photo_Verify_Pct,55.6,Free_Webmail_Pct,44.4,No_Phone_Pct,22.2
+A_Platform_Generality,Target.com (Online),17,FD_China_Pct,5.9,Photo_Verify_Pct,47.1,Free_Webmail_Pct,5.9,No_Phone_Pct,11.8
+B_Product_Noun_HeadToHead,Chair_Stool_Table,141,FD_China_N,57.0,FD_China_PV_Pct,82.5,Domestic_PV_Pct,21.4,Gap_pp,61.0
+B_Product_Noun_HeadToHead,Child_Apparel_Shoes,116,FD_China_N,47.0,FD_China_PV_Pct,80.8,Domestic_PV_Pct,24.6,Gap_pp,56.2
+B_Product_Noun_HeadToHead,Dresser_Chest,58,FD_China_N,47.0,FD_China_PV_Pct,95.7,Domestic_PV_Pct,18.2,Gap_pp,77.6
+B_Product_Noun_HeadToHead,Battery_Charger,86,FD_China_N,40.0,FD_China_PV_Pct,82.5,Domestic_PV_Pct,47.8,Gap_pp,34.7
+B_Product_Noun_HeadToHead,Child_Sleepwear,75,FD_China_N,39.0,FD_China_PV_Pct,82.0,Domestic_PV_Pct,61.1,Gap_pp,20.9
+B_Product_Noun_HeadToHead,Bicycle_Fitness,82,FD_China_N,26.0,FD_China_PV_Pct,80.8,Domestic_PV_Pct,1.8,Gap_pp,79.0
+B_Product_Noun_HeadToHead,Magnet_WaterBead,38,FD_China_N,22.0,FD_China_PV_Pct,81.8,Domestic_PV_Pct,37.5,Gap_pp,44.3
+B_Product_Noun_HeadToHead,Mattress_Bedding,30,FD_China_N,18.0,FD_China_PV_Pct,72.2,Domestic_PV_Pct,25.0,Gap_pp,47.2
+B_Product_Noun_HeadToHead,Toy_Plush_Doll,49,FD_China_N,18.0,FD_China_PV_Pct,83.3,Domestic_PV_Pct,29.0,Gap_pp,54.3
+B_Product_Noun_HeadToHead,Power_Tool_Ladder,39,FD_China_N,12.0,FD_China_PV_Pct,100.0,Domestic_PV_Pct,11.1,Gap_pp,88.9
+B_Product_Noun_HeadToHead,Bike_Helmet,23,FD_China_N,11.0,FD_China_PV_Pct,100.0,Domestic_PV_Pct,58.3,Gap_pp,41.7
+B_Product_Noun_HeadToHead,Power_Bank,21,FD_China_N,11.0,FD_China_PV_Pct,81.8,Domestic_PV_Pct,20.0,Gap_pp,61.8
+B_Product_Noun_HeadToHead,Supplement_Bottle_Chem,54,FD_China_N,10.0,FD_China_PV_Pct,70.0,Domestic_PV_Pct,27.3,Gap_pp,42.7
+B_Product_Noun_HeadToHead,Stroller_Bouncer,22,FD_China_N,8.0,FD_China_PV_Pct,100.0,Domestic_PV_Pct,7.1,Gap_pp,92.9
+C_Diffusion_2022_2026,1_Mkt_FD_China,448,PV_2022_Pct,46.7,PV_2026_Pct,87.8,Annual_Slope_pp_yr,9.75,Slope_t_stat,4.85
+C_Diffusion_2022_2026,3_Mkt_True_US,233,PV_2022_Pct,20.7,PV_2026_Pct,59.0,Annual_Slope_pp_yr,11.28,Slope_t_stat,5.11
+C_Diffusion_2022_2026,4_DTC_Online_Only,102,PV_2022_Pct,11.5,PV_2026_Pct,66.7,Annual_Slope_pp_yr,12.17,Slope_t_stat,3.4
+C_Diffusion_2022_2026,5_Omnichannel,397,PV_2022_Pct,9.1,PV_2026_Pct,38.0,Annual_Slope_pp_yr,5.19,Slope_t_stat,3.42
+C_Diffusion_2022_2026,6_Brick_and_Mortar,627,PV_2022_Pct,9.6,PV_2026_Pct,34.8,Annual_Slope_pp_yr,6.42,Slope_t_stat,5.06
+D_BM_Diffusion_Decomposition,BM_Price_lt_100,220,PV_2022_Pct,25.5,PV_2026_Pct,58.3,Annual_Slope_pp_yr,7.66,Slope_t_stat,3.26
+D_BM_Diffusion_Decomposition,BM_Price_ge_100,398,PV_2022_Pct,1.1,PV_2026_Pct,11.7,Annual_Slope_pp_yr,3.39,Slope_t_stat,3.65
+D_BM_Diffusion_Decomposition,BM_Made_in_China,244,PV_2022_Pct,14.9,PV_2026_Pct,60.0,Annual_Slope_pp_yr,11.33,Slope_t_stat,5.29
+D_BM_Diffusion_Decomposition,BM_Non_China_Mfr,383,PV_2022_Pct,6.8,PV_2026_Pct,10.5,Annual_Slope_pp_yr,1.55,Slope_t_stat,1.43
