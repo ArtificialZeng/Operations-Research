@@ -1,0 +1,117 @@
+{
+  "proposition_1_optical_lottery": {
+    "b_midwest_djf_ugm3": 0.6048919596897335,
+    "b_arid_west_ugm3": 0.21453069702808453,
+    "regional_bias_ratio": 2.819605623201542,
+    "p_t640_only_na_mw": 0.10169517476450489,
+    "p_frm_only_na_mw": 0.0010475941172945406,
+    "discordance_odds_ratio_mw": 97.0749769263093,
+    "verified": true
+  },
+  "proposition_2_inverted_u_triage": {
+    "delta_e_by_pre_rule_pm25": {
+      "6.5": {
+        "e_old_12": 0.00013327112558078673,
+        "e_new_9": 0.10689429817787596,
+        "delta_e": 0.10676102705229518,
+        "soc_new": -4.52857559631205,
+        "soc_fd_err": 6.357565568215762e-06
+      },
+      "7.5": {
+        "e_old_12": 0.0024383627999747014,
+        "e_new_9": 0.27280058891636433,
+        "delta_e": 0.2703622261163896,
+        "soc_new": -4.814276756167172,
+        "soc_fd_err": 1.4431759582933523e-05
+      },
+      "8.8": {
+        "e_old_12": 0.03900341717492139,
+        "e_new_9": 0.46264540387969444,
+        "delta_e": 0.42364198670477304,
+        "soc_new": -4.177351395143915,
+        "soc_fd_err": 4.026632893783244e-07
+      },
+      "9.5": {
+        "e_old_12": 0.10689429817787596,
+        "e_new_9": 0.4204224819376164,
+        "delta_e": 0.31352818375974045,
+        "soc_new": -3.446298211354696,
+        "soc_fd_err": 2.8109815324306453e-06
+      },
+      "10.5": {
+        "e_old_12": 0.27280058891639747,
+        "e_new_9": 0.16526844140499453,
+        "delta_e": -0.10753214751140294,
+        "soc_new": -3.3141200694922617,
+        "soc_fd_err": 5.5311369782096165e-06
+      },
+      "12.5": {
+        "e_old_12": 0.4204224819376164,
+        "e_new_9": 0.0031907727974590273,
+        "delta_e": -0.41723170914015734,
+        "soc_new": -3.970982109668642,
+        "soc_fd_err": 7.499246557074457e-09
+      },
+      "14.0": {
+        "e_old_12": 0.0760037505255597,
+        "e_new_9": 3.477451455316675e-05,
+        "delta_e": -0.07596897601100654,
+        "soc_new": -3.999563345813614,
+        "soc_fd_err": 2.8154971687399666e-09
+      }
+    },
+    "inverted_u_peak_minus_clean": 0.31688095965247787,
+    "inverted_u_peak_minus_deep_na": 0.8408736958449303,
+    "bailout_effort_unaligned": 0.46264540387969444,
+    "bailout_effort_post_alignment": 0.39761410590600454,
+    "still_binding_effort": 0.45841771322904495,
+    "bailout_dampening_positive": true,
+    "all_socs_negative": true,
+    "max_soc_fd_err": 1.4431759582933523e-05,
+    "verified": true
+  },
+  "proposition_3_optical_regulatory_multiplier": {
+    "exceedance_trigger_curve_gt35": {
+      "S=0": {
+        "t640_bias_ugm3": 0.2801455208114885,
+        "p_frm_gt35": 6.08308274525467e-15,
+        "p_t640_gt35": 1.1357455853863407e-14,
+        "excess_trigger_pp": 5.274373108608737e-13,
+        "multiplier_ratio": null
+      },
+      "S=10": {
+        "t640_bias_ugm3": 1.4301455208114884,
+        "p_frm_gt35": 5.954583747696403e-07,
+        "p_t640_gt35": 4.323001725404128e-06,
+        "excess_trigger_pp": 0.00037275433506344876,
+        "multiplier_ratio": null
+      },
+      "S=20": {
+        "t640_bias_ugm3": 2.880145520811489,
+        "p_frm_gt35": 0.022750131948179195,
+        "p_t640_gt35": 0.11957754218661198,
+        "excess_trigger_pp": 9.68274102384328,
+        "multiplier_ratio": 5.256125215404843
+      },
+      "S=25": {
+        "t640_bias_ugm3": 3.7176455208114887,
+        "p_frm_gt35": 0.2838545830986763,
+        "p_t640_gt35": 0.6882004347494529,
+        "excess_trigger_pp": 40.434585165077664,
+        "multiplier_ratio": 2.424482378395187
+      },
+      "S=30": {
+        "t640_bias_ugm3": 4.630145520811489,
+        "p_frm_gt35": 0.804317030846224,
+        "p_t640_gt35": 0.9853728101326835,
+        "excess_trigger_pp": 18.105577928645957,
+        "multiplier_ratio": 1.2251049926121425
+      }
+    },
+    "filing_effort_t640_binding": 0.5434586708294618,
+    "filing_effort_frm_binding": 0.4126575341303487,
+    "filing_return_multiplier_diff": 0.13080113669911303,
+    "verified": true
+  },
+  "all_propositions_verified": true
+}

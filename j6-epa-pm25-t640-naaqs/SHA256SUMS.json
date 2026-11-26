@@ -1,0 +1,156 @@
+{
+  "workspace": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126",
+  "n_files": 30,
+  "files": {
+    "manuscript_j6_boost.md": {
+      "sha256": "107ad15e6c8e4173d4fe8b346cfe6babbeecb94ba38193187c0fe223a54424ed",
+      "bytes": 67998,
+      "mode": "lf_text"
+    },
+    "manuscript_j6_boost.pdf": {
+      "sha256": "e20c3f51732440a1e295e9edcfcd8f432e5bccc2f024dd87cd330a06d7e8bad8",
+      "bytes": 2968704,
+      "mode": "raw_binary"
+    },
+    "scripts/00_download_external_enrichments.py": {
+      "sha256": "83dd9afd5962464e50d14e291606e99455afc43995f15ff2d7eb1b2ce33ccf10",
+      "bytes": 21590,
+      "mode": "lf_text"
+    },
+    "scripts/01_build_stitched_appn_panel.py": {
+      "sha256": "2a205e90bbadd46931241ef658c54a7f9ebe72055400d15634b4e443508afc82",
+      "bytes": 72871,
+      "mode": "lf_text"
+    },
+    "scripts/02_collocated_physics_and_speciation.py": {
+      "sha256": "80f2b44a62e90081c9eb63e218cb34c68c0410f13c1f65b6a436437aab50f257",
+      "bytes": 46988,
+      "mode": "lf_text"
+    },
+    "scripts/03_ee_triage_and_hms_unification.py": {
+      "sha256": "c2318a63d462af09d54634324fa12bcbaf5bb8630fd2e4a9760b2f963da6e2eb",
+      "bytes": 46627,
+      "mode": "lf_text"
+    },
+    "scripts/04_formal_metrology_model.py": {
+      "sha256": "134c4295bf5603629f1208990b74e72f37d52c252f03ff11be30a620f685b133",
+      "bytes": 10060,
+      "mode": "lf_text"
+    },
+    "scripts/06_generate_figures.py": {
+      "sha256": "45ee28ce819031cde7d85ad2740d7c2a81c5b247f170fdb788a7a22643995a5d",
+      "bytes": 41716,
+      "mode": "lf_text"
+    },
+    "scripts/07_verify_citations.py": {
+      "sha256": "d5a1bb205906a970534420bb036c3771b6e4a002809ebc0e0e183baf9389f2d9",
+      "bytes": 12300,
+      "mode": "lf_text"
+    },
+    "scripts/07a_generate_manuscript_md.py": {
+      "sha256": "f864587ca337e063b7fa0d7375e24a8b2629a835e9ea590a56f8c7db1fb6fd44",
+      "bytes": 109279,
+      "mode": "lf_text"
+    },
+    "scripts/08_compile_manuscript_pdf.py": {
+      "sha256": "036334ac88b7341e338c382c7bab3fdd55e0635e1b4d0f49bffed6e2e9328c33",
+      "bytes": 35279,
+      "mode": "lf_text"
+    },
+    "scripts/09_generate_checksums.py": {
+      "sha256": "76edbdd494eb11857ea6f233fa47e77a91cc7b6da872a0f7a9ac616db0a5f639",
+      "bytes": 1882,
+      "mode": "lf_text"
+    },
+    "scripts/econ_utils.py": {
+      "sha256": "adb631f3425b3528f5fe8bc966e533ac515a1868290da491b45f43d922698af7",
+      "bytes": 14521,
+      "mode": "lf_text"
+    },
+    "tests/test_j6_boost.py": {
+      "sha256": "c38fa861dc60d00ebb5eb2b8f217a555069d5ec8d7874135fa3060bcc272e706",
+      "bytes": 20853,
+      "mode": "lf_text"
+    },
+    "results/00_enrichment_audit.json": {
+      "sha256": "7fa1fd074a86589af275d0a879b02f758b75b44b1ca89614d87a1b52fe5d6b00",
+      "bytes": 10045,
+      "mode": "lf_text"
+    },
+    "results/01_appn_audit.json": {
+      "sha256": "1611a4f9c21e39a4b02f5de8f0ff9f588a2348dc580108f139c780397b49748c",
+      "bytes": 33099,
+      "mode": "lf_text"
+    },
+    "results/02_collocated_physics_speciation.json": {
+      "sha256": "d6ad6d4057ecf7cebe16233bc47d2191aa6a27569f9225c94d6cb5fa818a3cf4",
+      "bytes": 91681,
+      "mode": "lf_text"
+    },
+    "results/03_ee_triage_hms_unification.json": {
+      "sha256": "f57b6621193887fa3aeeba56d86052a627c94eca77e8493458dfad5ada0184f8",
+      "bytes": 418587,
+      "mode": "lf_text"
+    },
+    "results/04_formal_model_verification.json": {
+      "sha256": "b29c284a44fd8f194c949ad4fad40d87f0cf3cb856ee111bfe843d2699621c37",
+      "bytes": 4023,
+      "mode": "lf_text"
+    },
+    "results/07_citations_verified.json": {
+      "sha256": "8b731e356991529e4f6901b13b16bc47b0daac2a9dddfa90ecc6e700f89c4384",
+      "bytes": 10944,
+      "mode": "lf_text"
+    },
+    "figures/fig1_t640_windfall_and_ej_map.png": {
+      "sha256": "02893de4a38c2d6d4f7053192210a13d1b1375697c70ff31ccc9a0d48649e13b",
+      "bytes": 368606,
+      "mode": "raw_binary"
+    },
+    "figures/fig2_rooftop_lottery_and_regional_bias.png": {
+      "sha256": "edcf2f132b1fb30d353a2c51238704f25903958890c14dd0ab19ad175cad3d8e",
+      "bytes": 414609,
+      "mode": "raw_binary"
+    },
+    "figures/fig3_zero_eiv_smoke_and_speciation_physics.png": {
+      "sha256": "9c980bb392cbdec75dd659fc98d169d68109c59c65af97d900f0ae99bd5db61e",
+      "bytes": 411900,
+      "mode": "raw_binary"
+    },
+    "figures/fig4_ee_triage_event_study_and_decomposition.png": {
+      "sha256": "5f5ff454296f3eb4662f6c30a31099025c12f164621535bc054af6412e49af56",
+      "bytes": 448054,
+      "mode": "raw_binary"
+    },
+    "figures/fig5_optical_to_flagging_multiplier.png": {
+      "sha256": "9b87f55bcb4965f0fbcc2d26815ffacc57fa07a6c7ab153231e05a19f449555c",
+      "bytes": 513681,
+      "mode": "raw_binary"
+    },
+    "figures/fig1_t640_windfall_and_ej_map.pdf": {
+      "sha256": "1ef023d9d355bc51c0c571caf0fb0e3008cc8148d275e6ee7bbdcf34ce78d9d0",
+      "bytes": 61990,
+      "mode": "raw_binary"
+    },
+    "figures/fig2_rooftop_lottery_and_regional_bias.pdf": {
+      "sha256": "7619025e764d60d2c72c347919d28735474499f580f4995fe2ec41df7bfc8199",
+      "bytes": 47416,
+      "mode": "raw_binary"
+    },
+    "figures/fig3_zero_eiv_smoke_and_speciation_physics.pdf": {
+      "sha256": "f8482ba171d188820fb2bf8bd8b99563424c06b327ffd1e244082b740f04d4b6",
+      "bytes": 55708,
+      "mode": "raw_binary"
+    },
+    "figures/fig4_ee_triage_event_study_and_decomposition.pdf": {
+      "sha256": "8f426ce050a272f708100db6320d0cc81c1d947bfb9d9ad34a8d596028445451",
+      "bytes": 65721,
+      "mode": "raw_binary"
+    },
+    "figures/fig5_optical_to_flagging_multiplier.pdf": {
+      "sha256": "facb88242fb45e5e5e85b62338a8972d86b5b3de803cdb51769b35f1582cc6bf",
+      "bytes": 68542,
+      "mode": "raw_binary"
+    }
+  }
+}

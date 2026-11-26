@@ -1,0 +1,1213 @@
+{
+  "stitch_audit": {
+    "n_retro_mon_ids_total": 452,
+    "n_exact_poc_minus_20_stitched": 451,
+    "n_non20_retro_paired": 0,
+    "n_retro_standalone": 1,
+    "n_non20_raw_to_fw_stitched": 1,
+    "n_split_2023_t640_monitors_repaired": 410,
+    "non20_details_sample": [
+      {
+        "site_id": "13245-0091",
+        "retro_poc": 24,
+        "paired_poc": 4,
+        "retro_span": [
+          "2021-07-14",
+          "2021-12-31"
+        ],
+        "rule": "standalone_retro"
+      },
+      {
+        "site_id": "26163-0015",
+        "raw_poc": 3,
+        "fw_poc": 1,
+        "rule": "non20_raw_to_fw_stitch"
+      }
+    ]
+  },
+  "regulatory_and_concurrence_audit": {
+    "total_canon_monitors_aln": 2203,
+    "appn_regulatory_monitors_aln": 1922,
+    "slams_only_monitors_aln": 1853,
+    "excluded_non_reg_monitors": 281,
+    "monitor_type_breakdown_canon": {
+      "SLAMS": 1879,
+      "SPM": 243,
+      "TRIBAL": 57,
+      "INDUSTRIAL": 12,
+      "NON-EPA FEDERAL": 11,
+      "EPA": 1
+    },
+    "epa_concurrence_bug_audit_2018_2025": {
+      "buggy_concurrence_row_count": 1192,
+      "true_concurred_count": 597,
+      "false_positive_share_pct": 49.92,
+      "true_ee_flag_count": 1257,
+      "unconc_flag_count": 660
+    }
+  },
+  "accounting": {
+    "combined_site_reg_appn_11of12": {
+      "label": "COMBINED_SITE_REG_APPN_11OF12",
+      "allow_11_of_12_qtrs": true,
+      "n_counties_valid_2123_raw": 495,
+      "n_counties_valid_2123_aln": 495,
+      "n_counties_valid_2224_aln": 495,
+      "n_counties_valid_2325_aln": 497,
+      "n_counties_matched_2123": 495,
+      "n_counties_matched_2123_and_2325": 453,
+      "total_pop_matched_2123_millions": 205.49,
+      "total_pop_matched_2125_millions": 188.26,
+      "all_valid_unmatched": {
+        "na_1921_aln": 85,
+        "na_2022_aln": 79,
+        "na_2123_raw": 146,
+        "na_2123_aln": 99,
+        "na_2123_aln_ee_conc": 78,
+        "na_2123_aln_ee_all": 66,
+        "na_2224_aln": 71,
+        "na_2224_aln_ee_conc": 56,
+        "na_2325_aln": 66,
+        "na_2325_aln_ee_conc": 52,
+        "na_2325_aln_ee_all": 48
+      },
+      "matched_2123_waterfall": {
+        "raw_2123": {
+          "counties": 146,
+          "pop_millions": 98.34
+        },
+        "aln_2123": {
+          "counties": 99,
+          "pop_millions": 79.96
+        },
+        "aln_ee_conc_2123": {
+          "counties": 78,
+          "pop_millions": 69.35
+        },
+        "aln_ee_all_2123": {
+          "counties": 66,
+          "pop_millions": 67.27
+        },
+        "flip_t640_alone": {
+          "counties": 47,
+          "pop_millions": 18.39
+        },
+        "flip_ee_conc_alone": {
+          "counties": 21,
+          "pop_millions": 10.61
+        },
+        "flip_ee_all_alone": {
+          "counties": 33,
+          "pop_millions": 12.69
+        },
+        "flip_t640_plus_ee_all": {
+          "counties": 80,
+          "pop_millions": 31.07
+        }
+      },
+      "matched_2123_to_2325_waterfall": {
+        "raw_2123": {
+          "counties": 141,
+          "pop_millions": 94.36
+        },
+        "aln_2123": {
+          "counties": 95,
+          "pop_millions": 76.3
+        },
+        "aln_ee_conc_2123": {
+          "counties": 74,
+          "pop_millions": 65.69
+        },
+        "aln_ee_all_2123": {
+          "counties": 62,
+          "pop_millions": 63.61
+        },
+        "aln_2325": {
+          "counties": 60,
+          "pop_millions": 64.52
+        },
+        "aln_ee_conc_2325": {
+          "counties": 47,
+          "pop_millions": 57.43
+        },
+        "aln_ee_all_2325": {
+          "counties": 44,
+          "pop_millions": 56.31
+        },
+        "flip_t640_alone_2123": {
+          "counties": 46,
+          "pop_millions": 18.05
+        },
+        "flip_ee_conc_alone_2123": {
+          "counties": 21,
+          "pop_millions": 10.61
+        },
+        "flip_ee_all_alone_2123": {
+          "counties": 33,
+          "pop_millions": 12.69
+        },
+        "flip_ee_all_alone_2325": {
+          "counties": 16,
+          "pop_millions": 8.21
+        }
+      }
+    },
+    "combined_site_reg_appn_12of12": {
+      "label": "COMBINED_SITE_REG_APPN_12OF12",
+      "allow_11_of_12_qtrs": false,
+      "n_counties_valid_2123_raw": 414,
+      "n_counties_valid_2123_aln": 414,
+      "n_counties_valid_2224_aln": 419,
+      "n_counties_valid_2325_aln": 421,
+      "n_counties_matched_2123": 414,
+      "n_counties_matched_2123_and_2325": 349,
+      "total_pop_matched_2123_millions": 184.3,
+      "total_pop_matched_2125_millions": 163.63,
+      "all_valid_unmatched": {
+        "na_1921_aln": 71,
+        "na_2022_aln": 69,
+        "na_2123_raw": 123,
+        "na_2123_aln": 84,
+        "na_2123_aln_ee_conc": 66,
+        "na_2123_aln_ee_all": 54,
+        "na_2224_aln": 62,
+        "na_2224_aln_ee_conc": 48,
+        "na_2325_aln": 57,
+        "na_2325_aln_ee_conc": 43,
+        "na_2325_aln_ee_all": 40
+      },
+      "matched_2123_waterfall": {
+        "raw_2123": {
+          "counties": 123,
+          "pop_millions": 87.92
+        },
+        "aln_2123": {
+          "counties": 84,
+          "pop_millions": 72.22
+        },
+        "aln_ee_conc_2123": {
+          "counties": 66,
+          "pop_millions": 63.49
+        },
+        "aln_ee_all_2123": {
+          "counties": 54,
+          "pop_millions": 61.41
+        },
+        "flip_t640_alone": {
+          "counties": 39,
+          "pop_millions": 15.7
+        },
+        "flip_ee_conc_alone": {
+          "counties": 18,
+          "pop_millions": 8.73
+        },
+        "flip_ee_all_alone": {
+          "counties": 30,
+          "pop_millions": 10.81
+        },
+        "flip_t640_plus_ee_all": {
+          "counties": 69,
+          "pop_millions": 26.51
+        }
+      },
+      "matched_2123_to_2325_waterfall": {
+        "raw_2123": {
+          "counties": 115,
+          "pop_millions": 83.45
+        },
+        "aln_2123": {
+          "counties": 79,
+          "pop_millions": 68.4
+        },
+        "aln_ee_conc_2123": {
+          "counties": 62,
+          "pop_millions": 60.1
+        },
+        "aln_ee_all_2123": {
+          "counties": 50,
+          "pop_millions": 58.02
+        },
+        "aln_2325": {
+          "counties": 50,
+          "pop_millions": 60.49
+        },
+        "aln_ee_conc_2325": {
+          "counties": 38,
+          "pop_millions": 54.4
+        },
+        "aln_ee_all_2325": {
+          "counties": 36,
+          "pop_millions": 53.56
+        },
+        "flip_t640_alone_2123": {
+          "counties": 36,
+          "pop_millions": 15.05
+        },
+        "flip_ee_conc_alone_2123": {
+          "counties": 17,
+          "pop_millions": 8.3
+        },
+        "flip_ee_all_alone_2123": {
+          "counties": 29,
+          "pop_millions": 10.38
+        },
+        "flip_ee_all_alone_2325": {
+          "counties": 14,
+          "pop_millions": 6.93
+        }
+      }
+    },
+    "combined_site_reg_plus_spm_11of12": {
+      "label": "COMBINED_SITE_REG_PLUS_SPM_11OF12",
+      "allow_11_of_12_qtrs": true,
+      "n_counties_valid_2123_raw": 526,
+      "n_counties_valid_2123_aln": 526,
+      "n_counties_valid_2224_aln": 527,
+      "n_counties_valid_2325_aln": 527,
+      "n_counties_matched_2123": 526,
+      "n_counties_matched_2123_and_2325": 479,
+      "total_pop_matched_2123_millions": 210.84,
+      "total_pop_matched_2125_millions": 192.91,
+      "all_valid_unmatched": {
+        "na_1921_aln": 89,
+        "na_2022_aln": 82,
+        "na_2123_raw": 153,
+        "na_2123_aln": 104,
+        "na_2123_aln_ee_conc": 83,
+        "na_2123_aln_ee_all": 71,
+        "na_2224_aln": 79,
+        "na_2224_aln_ee_conc": 65,
+        "na_2325_aln": 68,
+        "na_2325_aln_ee_conc": 54,
+        "na_2325_aln_ee_all": 51
+      },
+      "matched_2123_waterfall": {
+        "raw_2123": {
+          "counties": 153,
+          "pop_millions": 102.52
+        },
+        "aln_2123": {
+          "counties": 104,
+          "pop_millions": 82.65
+        },
+        "aln_ee_conc_2123": {
+          "counties": 83,
+          "pop_millions": 72.05
+        },
+        "aln_ee_all_2123": {
+          "counties": 71,
+          "pop_millions": 69.92
+        },
+        "flip_t640_alone": {
+          "counties": 49,
+          "pop_millions": 19.87
+        },
+        "flip_ee_conc_alone": {
+          "counties": 21,
+          "pop_millions": 10.61
+        },
+        "flip_ee_all_alone": {
+          "counties": 33,
+          "pop_millions": 12.74
+        },
+        "flip_t640_plus_ee_all": {
+          "counties": 82,
+          "pop_millions": 32.6
+        }
+      },
+      "matched_2123_to_2325_waterfall": {
+        "raw_2123": {
+          "counties": 145,
+          "pop_millions": 97.69
+        },
+        "aln_2123": {
+          "counties": 98,
+          "pop_millions": 78.94
+        },
+        "aln_ee_conc_2123": {
+          "counties": 77,
+          "pop_millions": 68.33
+        },
+        "aln_ee_all_2123": {
+          "counties": 65,
+          "pop_millions": 66.2
+        },
+        "aln_2325": {
+          "counties": 62,
+          "pop_millions": 67.08
+        },
+        "aln_ee_conc_2325": {
+          "counties": 49,
+          "pop_millions": 59.99
+        },
+        "aln_ee_all_2325": {
+          "counties": 46,
+          "pop_millions": 59.49
+        },
+        "flip_t640_alone_2123": {
+          "counties": 47,
+          "pop_millions": 18.75
+        },
+        "flip_ee_conc_alone_2123": {
+          "counties": 21,
+          "pop_millions": 10.61
+        },
+        "flip_ee_all_alone_2123": {
+          "counties": 33,
+          "pop_millions": 12.74
+        },
+        "flip_ee_all_alone_2325": {
+          "counties": 16,
+          "pop_millions": 7.6
+        }
+      }
+    },
+    "single_monitor_reg_appn_12of12": {
+      "label": "SINGLE_MONITOR_REG_APPN_12OF12",
+      "allow_11_of_12_qtrs": false,
+      "n_counties_valid_2123_raw": 425,
+      "n_counties_valid_2123_aln": 425,
+      "n_counties_valid_2224_aln": 427,
+      "n_counties_valid_2325_aln": 425,
+      "n_counties_matched_2123": 425,
+      "n_counties_matched_2123_and_2325": 348,
+      "total_pop_matched_2123_millions": 183.68,
+      "total_pop_matched_2125_millions": 157.24,
+      "all_valid_unmatched": {
+        "na_1921_aln": 62,
+        "na_2022_aln": 67,
+        "na_2123_raw": 127,
+        "na_2123_aln": 91,
+        "na_2123_aln_ee_conc": 72,
+        "na_2123_aln_ee_all": 61,
+        "na_2224_aln": 75,
+        "na_2224_aln_ee_conc": 57,
+        "na_2325_aln": 68,
+        "na_2325_aln_ee_conc": 50,
+        "na_2325_aln_ee_all": 46
+      },
+      "matched_2123_waterfall": {
+        "raw_2123": {
+          "counties": 127,
+          "pop_millions": 88.86
+        },
+        "aln_2123": {
+          "counties": 91,
+          "pop_millions": 72.26
+        },
+        "aln_ee_conc_2123": {
+          "counties": 72,
+          "pop_millions": 64.64
+        },
+        "aln_ee_all_2123": {
+          "counties": 61,
+          "pop_millions": 61.5
+        },
+        "flip_t640_alone": {
+          "counties": 36,
+          "pop_millions": 16.6
+        },
+        "flip_ee_conc_alone": {
+          "counties": 19,
+          "pop_millions": 7.62
+        },
+        "flip_ee_all_alone": {
+          "counties": 30,
+          "pop_millions": 10.76
+        },
+        "flip_t640_plus_ee_all": {
+          "counties": 66,
+          "pop_millions": 27.36
+        }
+      },
+      "matched_2123_to_2325_waterfall": {
+        "raw_2123": {
+          "counties": 113,
+          "pop_millions": 82.82
+        },
+        "aln_2123": {
+          "counties": 80,
+          "pop_millions": 66.78
+        },
+        "aln_ee_conc_2123": {
+          "counties": 64,
+          "pop_millions": 59.33
+        },
+        "aln_ee_all_2123": {
+          "counties": 53,
+          "pop_millions": 56.19
+        },
+        "aln_2325": {
+          "counties": 61,
+          "pop_millions": 68.13
+        },
+        "aln_ee_conc_2325": {
+          "counties": 45,
+          "pop_millions": 57.57
+        },
+        "aln_ee_all_2325": {
+          "counties": 42,
+          "pop_millions": 55.93
+        },
+        "flip_t640_alone_2123": {
+          "counties": 33,
+          "pop_millions": 16.04
+        },
+        "flip_ee_conc_alone_2123": {
+          "counties": 16,
+          "pop_millions": 7.44
+        },
+        "flip_ee_all_alone_2123": {
+          "counties": 27,
+          "pop_millions": 10.58
+        },
+        "flip_ee_all_alone_2325": {
+          "counties": 19,
+          "pop_millions": 12.2
+        }
+      }
+    },
+    "single_monitor_slams_only_12of12": {
+      "label": "SINGLE_MONITOR_SLAMS_ONLY_12OF12",
+      "allow_11_of_12_qtrs": false,
+      "n_counties_valid_2123_raw": 415,
+      "n_counties_valid_2123_aln": 415,
+      "n_counties_valid_2224_aln": 417,
+      "n_counties_valid_2325_aln": 417,
+      "n_counties_matched_2123": 415,
+      "n_counties_matched_2123_and_2325": 341,
+      "total_pop_matched_2123_millions": 183.03,
+      "total_pop_matched_2125_millions": 157.05,
+      "all_valid_unmatched": {
+        "na_1921_aln": 61,
+        "na_2022_aln": 66,
+        "na_2123_raw": 125,
+        "na_2123_aln": 89,
+        "na_2123_aln_ee_conc": 70,
+        "na_2123_aln_ee_all": 59,
+        "na_2224_aln": 74,
+        "na_2224_aln_ee_conc": 56,
+        "na_2325_aln": 66,
+        "na_2325_aln_ee_conc": 49,
+        "na_2325_aln_ee_all": 45
+      },
+      "matched_2123_waterfall": {
+        "raw_2123": {
+          "counties": 125,
+          "pop_millions": 88.8
+        },
+        "aln_2123": {
+          "counties": 89,
+          "pop_millions": 72.2
+        },
+        "aln_ee_conc_2123": {
+          "counties": 70,
+          "pop_millions": 64.57
+        },
+        "aln_ee_all_2123": {
+          "counties": 59,
+          "pop_millions": 61.44
+        },
+        "flip_t640_alone": {
+          "counties": 36,
+          "pop_millions": 16.6
+        },
+        "flip_ee_conc_alone": {
+          "counties": 19,
+          "pop_millions": 7.62
+        },
+        "flip_ee_all_alone": {
+          "counties": 30,
+          "pop_millions": 10.76
+        },
+        "flip_t640_plus_ee_all": {
+          "counties": 66,
+          "pop_millions": 27.36
+        }
+      },
+      "matched_2123_to_2325_waterfall": {
+        "raw_2123": {
+          "counties": 111,
+          "pop_millions": 82.75
+        },
+        "aln_2123": {
+          "counties": 78,
+          "pop_millions": 66.71
+        },
+        "aln_ee_conc_2123": {
+          "counties": 62,
+          "pop_millions": 59.27
+        },
+        "aln_ee_all_2123": {
+          "counties": 51,
+          "pop_millions": 56.13
+        },
+        "aln_2325": {
+          "counties": 60,
+          "pop_millions": 68.09
+        },
+        "aln_ee_conc_2325": {
+          "counties": 45,
+          "pop_millions": 57.57
+        },
+        "aln_ee_all_2325": {
+          "counties": 42,
+          "pop_millions": 55.93
+        },
+        "flip_t640_alone_2123": {
+          "counties": 33,
+          "pop_millions": 16.04
+        },
+        "flip_ee_conc_alone_2123": {
+          "counties": 16,
+          "pop_millions": 7.44
+        },
+        "flip_ee_all_alone_2123": {
+          "counties": 27,
+          "pop_millions": 10.58
+        },
+        "flip_ee_all_alone_2325": {
+          "counties": 18,
+          "pop_millions": 12.16
+        }
+      }
+    },
+    "naaqs_primary_only_12of12": {
+      "label": "NAAQS_PRIMARY_ONLY_12OF12",
+      "allow_11_of_12_qtrs": false,
+      "n_counties_valid_2123_raw": 366,
+      "n_counties_valid_2123_aln": 366,
+      "n_counties_valid_2224_aln": 389,
+      "n_counties_valid_2325_aln": 397,
+      "n_counties_matched_2123": 366,
+      "n_counties_matched_2123_and_2325": 316,
+      "total_pop_matched_2123_millions": 163.78,
+      "total_pop_matched_2125_millions": 144.91,
+      "all_valid_unmatched": {
+        "na_1921_aln": 50,
+        "na_2022_aln": 56,
+        "na_2123_raw": 105,
+        "na_2123_aln": 75,
+        "na_2123_aln_ee_conc": 59,
+        "na_2123_aln_ee_all": 47,
+        "na_2224_aln": 56,
+        "na_2224_aln_ee_conc": 45,
+        "na_2325_aln": 54,
+        "na_2325_aln_ee_conc": 43,
+        "na_2325_aln_ee_all": 40
+      },
+      "matched_2123_waterfall": {
+        "raw_2123": {
+          "counties": 105,
+          "pop_millions": 75.0
+        },
+        "aln_2123": {
+          "counties": 75,
+          "pop_millions": 62.04
+        },
+        "aln_ee_conc_2123": {
+          "counties": 59,
+          "pop_millions": 50.65
+        },
+        "aln_ee_all_2123": {
+          "counties": 47,
+          "pop_millions": 47.38
+        },
+        "flip_t640_alone": {
+          "counties": 30,
+          "pop_millions": 12.96
+        },
+        "flip_ee_conc_alone": {
+          "counties": 16,
+          "pop_millions": 11.39
+        },
+        "flip_ee_all_alone": {
+          "counties": 28,
+          "pop_millions": 14.66
+        },
+        "flip_t640_plus_ee_all": {
+          "counties": 58,
+          "pop_millions": 27.62
+        }
+      },
+      "matched_2123_to_2325_waterfall": {
+        "raw_2123": {
+          "counties": 96,
+          "pop_millions": 70.95
+        },
+        "aln_2123": {
+          "counties": 69,
+          "pop_millions": 58.55
+        },
+        "aln_ee_conc_2123": {
+          "counties": 54,
+          "pop_millions": 47.19
+        },
+        "aln_ee_all_2123": {
+          "counties": 42,
+          "pop_millions": 43.92
+        },
+        "aln_2325": {
+          "counties": 46,
+          "pop_millions": 51.97
+        },
+        "aln_ee_conc_2325": {
+          "counties": 36,
+          "pop_millions": 43.04
+        },
+        "aln_ee_all_2325": {
+          "counties": 34,
+          "pop_millions": 42.19
+        },
+        "flip_t640_alone_2123": {
+          "counties": 27,
+          "pop_millions": 12.39
+        },
+        "flip_ee_conc_alone_2123": {
+          "counties": 15,
+          "pop_millions": 11.36
+        },
+        "flip_ee_all_alone_2123": {
+          "counties": 27,
+          "pop_millions": 14.63
+        },
+        "flip_ee_all_alone_2325": {
+          "counties": 12,
+          "pop_millions": 9.78
+        }
+      }
+    }
+  },
+  "epa_official_dv_reconciliation": {
+    "PM25_DesignValues_2019_2021_FINAL_05_24_22.xlsx": {
+      "period": "2019-2021",
+      "sheet": "Table4a. County Status Ann",
+      "dv_col": "2019-2021 Annual   Design Value (\u00b5g/m3) [1,2]",
+      "epa_valid_counties": 517,
+      "epa_na_counties": 112,
+      "combined_site_reg_na_incl": 85,
+      "combined_site_reg_na_ee_conc": 85,
+      "combined_site_plus_spm_na_incl": 89,
+      "single_monitor_12of12_na_incl": 62,
+      "overlap_epa_with_cs_reg_incl": 78,
+      "overlap_epa_with_cs_reg_ee_conc": 78,
+      "overlap_epa_with_cs_spm_incl": 82,
+      "in_epa_not_cs_reg_incl": 34,
+      "in_cs_reg_incl_not_epa": 7
+    },
+    "PM25_DesignValues_2020_2022_FINAL_05_23_23.xlsx": {
+      "period": "2020-2022",
+      "sheet": "Table4a. County Status Ann",
+      "dv_col": "2020-2022 Annual   Design Value (\u00b5g/m3) [1,2]",
+      "epa_valid_counties": 523,
+      "epa_na_counties": 119,
+      "combined_site_reg_na_incl": 79,
+      "combined_site_reg_na_ee_conc": 79,
+      "combined_site_plus_spm_na_incl": 82,
+      "single_monitor_12of12_na_incl": 67,
+      "overlap_epa_with_cs_reg_incl": 74,
+      "overlap_epa_with_cs_reg_ee_conc": 74,
+      "overlap_epa_with_cs_spm_incl": 76,
+      "in_epa_not_cs_reg_incl": 45,
+      "in_cs_reg_incl_not_epa": 5
+    },
+    "pm25_designvalues_2021_2023_final_08_08_24_0.xlsx": {
+      "period": "2021-2023",
+      "sheet": "Table4a. County Status Ann",
+      "dv_col": "2021-2023 Annual   Design Value (\u00b5g/m3) [1,2]",
+      "epa_valid_counties": 536,
+      "epa_na_counties": 115,
+      "combined_site_reg_na_incl": 99,
+      "combined_site_reg_na_ee_conc": 78,
+      "combined_site_plus_spm_na_incl": 104,
+      "single_monitor_12of12_na_incl": 91,
+      "overlap_epa_with_cs_reg_incl": 98,
+      "overlap_epa_with_cs_reg_ee_conc": 77,
+      "overlap_epa_with_cs_spm_incl": 101,
+      "in_epa_not_cs_reg_incl": 17,
+      "in_cs_reg_incl_not_epa": 1
+    },
+    "pm25_designvalues_2022_2024_final_05_28_25.xlsx": {
+      "period": "2022-2024",
+      "sheet": "Table4a. County Status Annual",
+      "dv_col": "2022-2024 Annual   Design Value (\u00b5g/m3) [1,2]",
+      "epa_valid_counties": 539,
+      "epa_na_counties": 86,
+      "combined_site_reg_na_incl": 71,
+      "combined_site_reg_na_ee_conc": 56,
+      "combined_site_plus_spm_na_incl": 79,
+      "single_monitor_12of12_na_incl": 75,
+      "overlap_epa_with_cs_reg_incl": 69,
+      "overlap_epa_with_cs_reg_ee_conc": 54,
+      "overlap_epa_with_cs_spm_incl": 74,
+      "in_epa_not_cs_reg_incl": 17,
+      "in_cs_reg_incl_not_epa": 2
+    },
+    "pm25_designvalues_2023_2025_final_06_12_26.xlsx": {
+      "period": "2023-2025",
+      "sheet": "Table4a. County Status Annual",
+      "dv_col": "2023-2025 Annual   Design Value (\u00b5g/m3) [1,2]",
+      "epa_valid_counties": 545,
+      "epa_na_counties": 73,
+      "combined_site_reg_na_incl": 66,
+      "combined_site_reg_na_ee_conc": 52,
+      "combined_site_plus_spm_na_incl": 68,
+      "single_monitor_12of12_na_incl": 68,
+      "overlap_epa_with_cs_reg_incl": 59,
+      "overlap_epa_with_cs_reg_ee_conc": 52,
+      "overlap_epa_with_cs_spm_incl": 61,
+      "in_epa_not_cs_reg_incl": 14,
+      "in_cs_reg_incl_not_epa": 7
+    }
+  },
+  "ej_audit_acs2023": {
+    "groups": {
+      "T640_Flipped": {
+        "n_counties": 47,
+        "pop_2024_millions": 18.386,
+        "acs_pop_millions": 18.386,
+        "region_counts": {
+          "MW": 20,
+          "SO": 14,
+          "NE": 12,
+          "WE": 1
+        },
+        "region_pop_share_pct": {
+          "MW": 34.75,
+          "SO": 29.77,
+          "NE": 22.44,
+          "WE": 13.05
+        },
+        "unweighted_means": {
+          "median_hh_income": 72424.3829787234,
+          "poverty_rate": 12.997872340425532,
+          "pct_black_nh": 14.666460379430875,
+          "pct_hispanic": 9.591665480429798,
+          "pct_nonwhite": 31.578087286514837
+        },
+        "pop_weighted_means": {
+          "median_hh_income": 79598.63264574652,
+          "poverty_rate": 11.598004039543492,
+          "pct_black_nh": 16.996872007952035,
+          "pct_hispanic": 15.755416171096684,
+          "pct_nonwhite": 42.209280899037736
+        }
+      },
+      "Still_Nonattainment": {
+        "n_counties": 99,
+        "pop_2024_millions": 79.956,
+        "acs_pop_millions": 79.956,
+        "region_counts": {
+          "WE": 39,
+          "MW": 29,
+          "SO": 24,
+          "NE": 7
+        },
+        "region_pop_share_pct": {
+          "MW": 24.13,
+          "SO": 20.93,
+          "NE": 6.58,
+          "WE": 48.36
+        },
+        "unweighted_means": {
+          "median_hh_income": 72536.23232323233,
+          "poverty_rate": 14.255555555555555,
+          "pct_black_nh": 13.969311162632732,
+          "pct_hispanic": 21.22923327726578,
+          "pct_nonwhite": 44.10118352223494
+        },
+        "pop_weighted_means": {
+          "median_hh_income": 83591.56808264379,
+          "poverty_rate": 13.129474104084837,
+          "pct_black_nh": 14.124481486808932,
+          "pct_hispanic": 30.638605790698637,
+          "pct_nonwhite": 57.723677392160134
+        }
+      },
+      "Cleanly_Attaining": {
+        "n_counties": 349,
+        "pop_2024_millions": 107.148,
+        "acs_pop_millions": 107.148,
+        "region_counts": {
+          "SO": 119,
+          "MW": 87,
+          "WE": 81,
+          "NE": 62
+        },
+        "region_pop_share_pct": {
+          "MW": 11.08,
+          "SO": 37.79,
+          "NE": 26.81,
+          "WE": 24.32
+        },
+        "unweighted_means": {
+          "median_hh_income": 76171.31395348837,
+          "poverty_rate": 12.59622093023256,
+          "pct_black_nh": 9.243340846071431,
+          "pct_hispanic": 12.421668289961872,
+          "pct_nonwhite": 29.950926382355302
+        },
+        "pop_weighted_means": {
+          "median_hh_income": 86254.53944375933,
+          "poverty_rate": 11.983972301566668,
+          "pct_black_nh": 12.859250006304356,
+          "pct_hispanic": 20.26449564404068,
+          "pct_nonwhite": 44.728925521199365
+        }
+      }
+    },
+    "formal_tests": {
+      "Flipped_vs_Still_Nonattainment": {
+        "median_hh_income": {
+          "diff_flipped_minus_comp": -111.84934450892615,
+          "welch_t": -0.03860230736058093,
+          "welch_p": 0.9692787925827089,
+          "mwu_p": 0.6676841831123146
+        },
+        "poverty_rate": {
+          "diff_flipped_minus_comp": -1.2576832151300223,
+          "welch_t": -1.416238870591609,
+          "welch_p": 0.16089666703753203,
+          "mwu_p": 0.019302489733726492
+        },
+        "pct_black_nh": {
+          "diff_flipped_minus_comp": 0.6971492167981435,
+          "welch_t": 0.26938321837645707,
+          "welch_p": 0.7882064696592304,
+          "mwu_p": 0.33958113890636055
+        },
+        "pct_hispanic": {
+          "diff_flipped_minus_comp": -11.637567796835983,
+          "welch_t": -4.825265177580069,
+          "welch_p": 3.626830203280983e-06,
+          "mwu_p": 0.0015425544090466408
+        },
+        "pct_nonwhite": {
+          "diff_flipped_minus_comp": -12.523096235720104,
+          "welch_t": -3.6651611070620476,
+          "welch_p": 0.0003784795690204884,
+          "mwu_p": 0.0014350884872798603
+        },
+        "midwest_south_share": {
+          "flipped_pct": 72.34042553191489,
+          "comp_pct": 53.535353535353536,
+          "fisher_p": 0.03229882885689886
+        }
+      },
+      "Flipped_vs_Cleanly_Attaining": {
+        "median_hh_income": {
+          "diff_flipped_minus_comp": -3746.9309747649677,
+          "welch_t": -1.5119908172344863,
+          "welch_p": 0.13501435297421607,
+          "mwu_p": 0.45330175189384503
+        },
+        "poverty_rate": {
+          "diff_flipped_minus_comp": 0.40165141019297224,
+          "welch_t": 0.4918299279003718,
+          "welch_p": 0.6247943269033824,
+          "mwu_p": 0.6868051965782438
+        },
+        "pct_black_nh": {
+          "diff_flipped_minus_comp": 5.4231195333594435,
+          "welch_t": 2.489839929806943,
+          "welch_p": 0.015794501599968994,
+          "mwu_p": 0.00014479374806719033
+        },
+        "pct_hispanic": {
+          "diff_flipped_minus_comp": -2.8300028095320737,
+          "welch_t": -2.063114443487202,
+          "welch_p": 0.04207783942285275,
+          "mwu_p": 0.48842402330215573
+        },
+        "pct_nonwhite": {
+          "diff_flipped_minus_comp": 1.6271609041595347,
+          "welch_t": 0.5841604601580114,
+          "welch_p": 0.5611870506258657,
+          "mwu_p": 0.31947452403036614
+        },
+        "midwest_south_share": {
+          "flipped_pct": 72.34042553191489,
+          "comp_pct": 59.02578796561605,
+          "fisher_p": 0.08293326689106524
+        }
+      }
+    }
+  },
+  "exogenous_nulls_margins_acd": {
+    "margin_d_frm_exog_dv1820_county_cr1": {
+      "n": 1674,
+      "k": 1,
+      "fe_dof": 608,
+      "k_eff": 609,
+      "rank": 1,
+      "full_rank": true,
+      "G": 215,
+      "df_t": 214,
+      "coefs": {
+        "tp": {
+          "beta": 0.007116071694532653,
+          "se_cr1": 0.13856654332961665,
+          "t_cr1": 0.05135490518519482,
+          "p_cr1": 0.9590906208872186
+        }
+      },
+      "wcb": {
+        "var": "tp",
+        "B": 999,
+        "t_obs": 0.05135490518519482,
+        "p_wcb": 0.951,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_d_frm_exog_dv1820_state_cr1": {
+      "n": 1674,
+      "k": 1,
+      "fe_dof": 608,
+      "k_eff": 609,
+      "rank": 1,
+      "full_rank": true,
+      "G": 50,
+      "df_t": 49,
+      "coefs": {
+        "tp": {
+          "beta": 0.007116071694532653,
+          "se_cr1": 0.15712984212581482,
+          "t_cr1": 0.04528784346919136,
+          "p_cr1": 0.9640619419660618
+        }
+      },
+      "wcb": {
+        "var": "tp",
+        "B": 999,
+        "t_obs": 0.04528784346919136,
+        "p_wcb": 0.945,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_d_frm_exog_mon_dv1820": {
+      "n": 1887,
+      "k": 1,
+      "fe_dof": 652,
+      "k_eff": 653,
+      "rank": 1,
+      "full_rank": true,
+      "G": 287,
+      "df_t": 286,
+      "coefs": {
+        "tp": {
+          "beta": -0.09162268129777859,
+          "se_cr1": 0.18850964502160872,
+          "t_cr1": -0.4860371005805881,
+          "p_cr1": 0.6273130420931687
+        }
+      },
+      "wcb": {
+        "var": "tp",
+        "B": 999,
+        "t_obs": -0.4860371005805881,
+        "p_wcb": 0.602,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_d_frm_endog_dv2123_rtm": {
+      "n": 2035,
+      "k": 1,
+      "fe_dof": 654,
+      "k_eff": 655,
+      "rank": 1,
+      "full_rank": true,
+      "G": 281,
+      "df_t": 280,
+      "coefs": {
+        "tp": {
+          "beta": -0.18508354145156355,
+          "se_cr1": 0.13778693598882905,
+          "t_cr1": -1.343258997112535,
+          "p_cr1": 0.18027582144980334
+        }
+      },
+      "wcb": {
+        "var": "tp",
+        "B": 499,
+        "t_obs": -1.343258997112535,
+        "p_wcb": 0.19,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_d_frm_fake_rule_rtm_placebo": {
+      "n": 2532,
+      "k": 1,
+      "fe_dof": 793,
+      "k_eff": 794,
+      "rank": 1,
+      "full_rank": true,
+      "G": 355,
+      "df_t": 354,
+      "coefs": {
+        "tp": {
+          "beta": -0.08667937092419477,
+          "se_cr1": 0.12257864936581339,
+          "t_cr1": -0.7071326970287962,
+          "p_cr1": 0.4799492437095316
+        }
+      },
+      "wcb": {
+        "var": "tp",
+        "B": 499,
+        "t_obs": -0.7071326970287962,
+        "p_wcb": 0.398,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_a_share_fem_exog_dv1820_85_115": {
+      "n": 1919,
+      "k": 1,
+      "fe_dof": 591,
+      "k_eff": 592,
+      "rank": 1,
+      "full_rank": true,
+      "G": 391,
+      "df_t": 390,
+      "coefs": {
+        "tp": {
+          "beta": -0.04037286048704212,
+          "se_cr1": 0.02662010016359661,
+          "t_cr1": -1.5166306752764447,
+          "p_cr1": 0.13017006659201286
+        }
+      },
+      "wcb": {
+        "var": "tp",
+        "B": 999,
+        "t_obs": -1.5166306752764447,
+        "p_wcb": 0.087,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_c_log_monitors_exog_dv1820_85_115": {
+      "n": 1919,
+      "k": 1,
+      "fe_dof": 591,
+      "k_eff": 592,
+      "rank": 1,
+      "full_rank": true,
+      "G": 391,
+      "df_t": 390,
+      "coefs": {
+        "tp": {
+          "beta": -0.04885969398065705,
+          "se_cr1": 0.03732477194876057,
+          "t_cr1": -1.3090419962305897,
+          "p_cr1": 0.1912908878223174
+        }
+      },
+      "wcb": {
+        "var": "tp",
+        "B": 999,
+        "t_obs": -1.3090419962305897,
+        "p_wcb": 0.137,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_a_share_fem_exog_dv1820": {
+      "n": 1983,
+      "k": 1,
+      "fe_dof": 599,
+      "k_eff": 600,
+      "rank": 1,
+      "full_rank": true,
+      "G": 403,
+      "df_t": 402,
+      "coefs": {
+        "tp": {
+          "beta": -0.02999800362673436,
+          "se_cr1": 0.031332419190383036,
+          "t_cr1": -0.9574110267215418,
+          "p_cr1": 0.33893525498070265
+        }
+      },
+      "wcb": {
+        "var": "tp",
+        "B": 999,
+        "t_obs": -0.9574110267215418,
+        "p_wcb": 0.287,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_c_log_monitors_exog_dv1820": {
+      "n": 1983,
+      "k": 1,
+      "fe_dof": 599,
+      "k_eff": 600,
+      "rank": 1,
+      "full_rank": true,
+      "G": 403,
+      "df_t": 402,
+      "coefs": {
+        "tp": {
+          "beta": -0.02872110188168085,
+          "se_cr1": 0.039653714244582625,
+          "t_cr1": -0.7242978981623303,
+          "p_cr1": 0.4693041771269148
+        }
+      },
+      "wcb": {
+        "var": "tp",
+        "B": 999,
+        "t_obs": -0.7242978981623303,
+        "p_wcb": 0.404,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_c_monitor_survival_exog_dv1820_85_115": {
+      "n": 959,
+      "k": 1,
+      "fe_dof": 50,
+      "k_eff": 51,
+      "rank": 1,
+      "full_rank": true,
+      "G": 391,
+      "df_t": 390,
+      "coefs": {
+        "nb": {
+          "beta": 0.015492658561436477,
+          "se_cr1": 0.024652200529003573,
+          "t_cr1": 0.6284493160441885,
+          "p_cr1": 0.5300775021250557
+        }
+      },
+      "wcb": {
+        "var": "nb",
+        "B": 999,
+        "t_obs": 0.6284493160441885,
+        "p_wcb": 0.577,
+        "redemeaned_fe": true
+      }
+    },
+    "margin_c_monitor_survival_exog_dv1820": {
+      "n": 993,
+      "k": 1,
+      "fe_dof": 49,
+      "k_eff": 50,
+      "rank": 1,
+      "full_rank": true,
+      "G": 403,
+      "df_t": 402,
+      "coefs": {
+        "nb": {
+          "beta": 0.025634526597918924,
+          "se_cr1": 0.026200313629164636,
+          "t_cr1": 0.9784053336439488,
+          "p_cr1": 0.3284623131380124
+        }
+      },
+      "wcb": {
+        "var": "nb",
+        "B": 999,
+        "t_obs": 0.9784053336439488,
+        "p_wcb": 0.358,
+        "redemeaned_fe": true
+      }
+    }
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "epa_airdata": {
+    "daily_SPEC_2023.zip": {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_SPEC_2023.zip",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\daily_SPEC_2023.zip",
+      "bytes": 15238882,
+      "cached": true
+    },
+    "daily_SPEC_2024.zip": {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_SPEC_2024.zip",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\daily_SPEC_2024.zip",
+      "bytes": 15236287,
+      "cached": true
+    },
+    "daily_SPEC_2025.zip": {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_SPEC_2025.zip",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\daily_SPEC_2025.zip",
+      "bytes": 14024637,
+      "cached": true
+    },
+    "daily_TEMP_2023.zip": {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_TEMP_2023.zip",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\daily_TEMP_2023.zip",
+      "bytes": 4084021,
+      "cached": true
+    },
+    "daily_TEMP_2024.zip": {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_TEMP_2024.zip",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\daily_TEMP_2024.zip",
+      "bytes": 3678268,
+      "cached": true
+    },
+    "daily_TEMP_2025.zip": {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_TEMP_2025.zip",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\daily_TEMP_2025.zip",
+      "bytes": 3242435,
+      "cached": true
+    },
+    "daily_RH_DP_2023.zip": {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_RH_DP_2023.zip",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\daily_RH_DP_2023.zip",
+      "bytes": 1805397,
+      "cached": true
+    },
+    "daily_RH_DP_2024.zip": {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_RH_DP_2024.zip",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\daily_RH_DP_2024.zip",
+      "bytes": 1779166,
+      "cached": true
+    },
+    "daily_RH_DP_2025.zip": {
+      "url": "https://aqs.epa.gov/aqsweb/airdata/daily_RH_DP_2025.zip",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\daily_RH_DP_2025.zip",
+      "bytes": 1692719,
+      "cached": true
+    }
+  },
+  "epa_dv_workbooks": {
+    "page_url": "https://www.epa.gov/air-trends/air-quality-design-values",
+    "all_links": [
+      "https://www.epa.gov/sites/default/files/2016-07/pm25_designvalues_20132015_final_07_29_16.xlsx",
+      "https://www.epa.gov/sites/default/files/2016-09/dv_pm25_2005_2007.xls",
+      "https://www.epa.gov/sites/default/files/2016-09/dv_pm25_2006_2008rev102809.xls",
+      "https://www.epa.gov/sites/default/files/2016-09/pm25_designvalues_20082010_finalrevised.xlsx",
+      "https://www.epa.gov/sites/default/files/2016-09/pm25_designvalues_20092011_final_07_30_12.xlsx",
+      "https://www.epa.gov/sites/default/files/2016-09/pm25_designvalues_20102012_final_12_12_13.xlsx",
+      "https://www.epa.gov/sites/default/files/2016-09/pm25_designvalues_20112013_final_08_28_14.xlsx",
+      "https://www.epa.gov/sites/default/files/2016-09/pm25_designvalues_20122014_final_08_19_15.xlsx",
+      "https://www.epa.gov/sites/default/files/2016-09/pm25dv20072009finalrevised.xls",
+      "https://www.epa.gov/sites/default/files/2017-07/pm25_designvalues_20142016_final_07_14_17.xlsx",
+      "https://www.epa.gov/sites/default/files/2018-07/pm25_designvalues_20152017_final_07_24_18.xlsx",
+      "https://www.epa.gov/sites/default/files/2019-12/pm25_designvalues_20162018_final_12_03_19.xlsx",
+      "https://www.epa.gov/sites/default/files/2020-05/pm25_designvalues_2017_2019_final_05_26_20.xlsx",
+      "https://www.epa.gov/sites/default/files/2021-05/pm25_designvalues_2018_2020_final_05_24_21.xlsx",
+      "https://www.epa.gov/system/files/documents/2022-05/PM25_DesignValues_2019_2021_FINAL_05_24_22.xlsx",
+      "https://www.epa.gov/system/files/documents/2023-05/PM25_DesignValues_2020_2022_FINAL_05_23_23.xlsx",
+      "https://www.epa.gov/system/files/documents/2024-08/pm25_designvalues_2021_2023_final_08_08_24_0.xlsx",
+      "https://www.epa.gov/system/files/documents/2025-06/pm25_designvalues_2022_2024_final_05_28_25.xlsx",
+      "https://www.epa.gov/system/files/documents/2026-06/pm25_designvalues_2023_2025_final_06_12_26.xlsx"
+    ],
+    "downloaded": {
+      "PM25_DesignValues_2019_2021_FINAL_05_24_22.xlsx": {
+        "url": "https://www.epa.gov/system/files/documents/2022-05/PM25_DesignValues_2019_2021_FINAL_05_24_22.xlsx",
+        "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\epa_dv\\PM25_DesignValues_2019_2021_FINAL_05_24_22.xlsx",
+        "bytes": 1736037,
+        "cached": true
+      },
+      "PM25_DesignValues_2020_2022_FINAL_05_23_23.xlsx": {
+        "url": "https://www.epa.gov/system/files/documents/2023-05/PM25_DesignValues_2020_2022_FINAL_05_23_23.xlsx",
+        "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\epa_dv\\PM25_DesignValues_2020_2022_FINAL_05_23_23.xlsx",
+        "bytes": 1711887,
+        "cached": true
+      },
+      "pm25_designvalues_2021_2023_final_08_08_24_0.xlsx": {
+        "url": "https://www.epa.gov/system/files/documents/2024-08/pm25_designvalues_2021_2023_final_08_08_24_0.xlsx",
+        "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\epa_dv\\pm25_designvalues_2021_2023_final_08_08_24_0.xlsx",
+        "bytes": 1826241,
+        "cached": true
+      },
+      "pm25_designvalues_2022_2024_final_05_28_25.xlsx": {
+        "url": "https://www.epa.gov/system/files/documents/2025-06/pm25_designvalues_2022_2024_final_05_28_25.xlsx",
+        "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\epa_dv\\pm25_designvalues_2022_2024_final_05_28_25.xlsx",
+        "bytes": 1824673,
+        "cached": true
+      },
+      "pm25_designvalues_2023_2025_final_06_12_26.xlsx": {
+        "url": "https://www.epa.gov/system/files/documents/2026-06/pm25_designvalues_2023_2025_final_06_12_26.xlsx",
+        "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\epa_dv\\pm25_designvalues_2023_2025_final_06_12_26.xlsx",
+        "bytes": 1835961,
+        "cached": true
+      }
+    }
+  },
+  "census_demographics": {
+    "source": "U.S. Census Bureau SAIPE 2023 (income/poverty) + PEP 2024 ASRH (race/ethnicity/pop)",
+    "saipe_info": {
+      "url": "https://www2.census.gov/programs-surveys/saipe/datasets/2023/2023-state-and-county/est23all.xls",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\saipe_est23all.xls",
+      "bytes": 1120768,
+      "cached": false
+    },
+    "pep_info": {
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/counties/asrh/cc-est2024-alldata.csv",
+      "path": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\raw_enrichment\\cc-est2024-alldata.csv",
+      "bytes": 89360492,
+      "cached": false
+    },
+    "parquet": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\processed\\acs5_2023_counties.parquet",
+    "n_counties": 3144,
+    "total_pop_millions": 340.110988
+  },
+  "noaa_hms_2018_2025": {
+    "n_sites_indexed": 2272,
+    "combined_parquet": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126\\data\\processed\\monitor_hms_daily_2018_2025.parquet",
+    "total_smoke_site_days": 1471932,
+    "total_heavy_site_days": 92299,
+    "by_year": {
+      "2018": {
+        "year": 2018,
+        "n_days_total": 365,
+        "days_ok": 365,
+        "days_404": 0,
+        "days_err": 0,
+        "smoke_site_days": 83722,
+        "heavy_site_days": 11681,
+        "elapsed_sec": 23.5,
+        "cached": false
+      },
+      "2019": {
+        "year": 2019,
+        "n_days_total": 365,
+        "days_ok": 365,
+        "days_404": 0,
+        "days_err": 0,
+        "smoke_site_days": 75022,
+        "heavy_site_days": 3448,
+        "elapsed_sec": 19.6,
+        "cached": false
+      },
+      "2020": {
+        "year": 2020,
+        "n_days_total": 366,
+        "days_ok": 366,
+        "days_404": 0,
+        "days_err": 0,
+        "smoke_site_days": 100146,
+        "heavy_site_days": 17518,
+        "elapsed_sec": 19.3,
+        "cached": false
+      },
+      "2021": {
+        "year": 2021,
+        "n_days_total": 365,
+        "days_ok": 365,
+        "days_404": 0,
+        "days_err": 0,
+        "smoke_site_days": 192186,
+        "heavy_site_days": 29937,
+        "elapsed_sec": 19.0,
+        "cached": false
+      },
+      "2022": {
+        "year": 2022,
+        "n_days_total": 365,
+        "days_ok": 365,
+        "days_404": 0,
+        "days_err": 0,
+        "smoke_site_days": 233322,
+        "heavy_site_days": 2749,
+        "elapsed_sec": 18.7,
+        "cached": false
+      },
+      "2023": {
+        "year": 2023,
+        "n_days_total": 365,
+        "days_ok": 365,
+        "days_404": 0,
+        "days_err": 0,
+        "smoke_site_days": 319452,
+        "heavy_site_days": 16832,
+        "elapsed_sec": 19.4,
+        "cached": false
+      },
+      "2024": {
+        "year": 2024,
+        "n_days_total": 366,
+        "days_ok": 366,
+        "days_404": 0,
+        "days_err": 0,
+        "smoke_site_days": 266683,
+        "heavy_site_days": 5316,
+        "elapsed_sec": 19.1,
+        "cached": false
+      },
+      "2025": {
+        "year": 2025,
+        "n_days_total": 365,
+        "days_ok": 365,
+        "days_404": 0,
+        "days_err": 0,
+        "smoke_site_days": 201399,
+        "heavy_site_days": 4818,
+        "elapsed_sec": 19.2,
+        "cached": false
+      }
+    }
+  }
+}
