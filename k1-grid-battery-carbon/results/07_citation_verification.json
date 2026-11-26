@@ -1,0 +1,250 @@
+{
+  "crossref": {
+    "n_total": 18,
+    "n_verified": 18,
+    "all_verified": true,
+    "entries": [
+      {
+        "key": "carson2013",
+        "doi": "10.1016/j.jeem.2013.06.002",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "The private and social economics of bulk electricity storage",
+        "crossref_authors": [
+          "Carson",
+          "Novan"
+        ],
+        "crossref_journal": "Journal of Environmental Economics and Management"
+      },
+      {
+        "key": "graffzivin2014",
+        "doi": "10.1016/j.jebo.2014.03.010",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Spatial and temporal heterogeneity of marginal emissions: Implications for electric cars and other electricity-shifting policies",
+        "crossref_authors": [
+          "Graff Zivin",
+          "Kotchen",
+          "Mansur"
+        ],
+        "crossref_journal": "Journal of Economic Behavior & Organization"
+      },
+      {
+        "key": "hittinger2015",
+        "doi": "10.1021/es505027p",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Bulk Energy Storage Increases United States Electricity System Emissions",
+        "crossref_authors": [
+          "Hittinger",
+          "Azevedo"
+        ],
+        "crossref_journal": "Environmental Science & Technology"
+      },
+      {
+        "key": "holland2016",
+        "doi": "10.1257/aer.20150897",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Are There Environmental Benefits from Driving Electric Vehicles? The Importance of Local Factors",
+        "crossref_authors": [
+          "Holland",
+          "Mansur",
+          "Muller",
+          "Yates"
+        ],
+        "crossref_journal": "American Economic Review"
+      },
+      {
+        "key": "fares2017",
+        "doi": "10.1038/nenergy.2017.1",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "The impacts of storing solar energy in the home to reduce reliance on the utility",
+        "crossref_authors": [
+          "Fares",
+          "Webber"
+        ],
+        "crossref_journal": "Nature Energy"
+      },
+      {
+        "key": "fisher2017",
+        "doi": "10.1021/acs.est.6b03536",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Emissions and Economics of Behind-the-Meter Electricity Storage",
+        "crossref_authors": [
+          "Fisher",
+          "Apt"
+        ],
+        "crossref_journal": "Environmental Science & Technology"
+      },
+      {
+        "key": "callaway2018",
+        "doi": "10.1086/694179",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Location, Location, Location: The Variable Value of Renewable Energy and Demand-Side Efficiency Resources",
+        "crossref_authors": [
+          "Callaway",
+          "Fowlie",
+          "McCormick"
+        ],
+        "crossref_journal": "Journal of the Association of Environmental and Resource Economists"
+      },
+      {
+        "key": "arbabzadeh2019",
+        "doi": "10.1038/s41467-019-11161-5",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "The role of energy storage in deep decarbonization of electricity production",
+        "crossref_authors": [
+          "Arbabzadeh",
+          "Sioshansi",
+          "Johnson",
+          "Keoleian"
+        ],
+        "crossref_journal": "Nature Communications"
+      },
+      {
+        "key": "dechalendar2019",
+        "doi": "10.1073/pnas.1912950116",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Tracking emissions in the US electricity system",
+        "crossref_authors": [
+          "de Chalendar",
+          "Taggart",
+          "Benson"
+        ],
+        "crossref_journal": "Proceedings of the National Academy of Sciences"
+      },
+      {
+        "key": "holland2022",
+        "doi": "10.1073/pnas.2116632119",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Why marginal CO 2 emissions are not decreasing for US electricity: Estimates and implications for climate policy",
+        "crossref_authors": [
+          "Holland",
+          "Kotchen",
+          "Mansur",
+          "Yates"
+        ],
+        "crossref_journal": "Proceedings of the National Academy of Sciences"
+      },
+      {
+        "key": "butters2025",
+        "doi": "10.3982/ECTA20411",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Soaking up the Sun: Battery Investment, Renewable Energy, and Market Equilibrium",
+        "crossref_authors": [
+          "Butters",
+          "Dorsey",
+          "Gowrisankaran"
+        ],
+        "crossref_journal": "Econometrica"
+      },
+      {
+        "key": "dupont2026",
+        "doi": "10.1287/msom.2024.1411",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "The Unintended Carbon Impacts of Large-Scale Electricity Storage",
+        "crossref_authors": [
+          "Dupont",
+          "Heijmans-Kuryatnikova",
+          "Ghiassi-Farrokhfal",
+          "Bunn"
+        ],
+        "crossref_journal": "Manufacturing & Service Operations Management"
+      },
+      {
+        "key": "cgm2008",
+        "doi": "10.1162/rest.90.3.414",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Bootstrap-Based Improvements for Inference with Clustered Errors",
+        "crossref_authors": [
+          "Cameron",
+          "Gelbach",
+          "Miller"
+        ],
+        "crossref_journal": "Review of Economics and Statistics"
+      },
+      {
+        "key": "cgm2011",
+        "doi": "10.1198/jbes.2010.07136",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Robust Inference With Multiway Clustering",
+        "crossref_authors": [
+          "Cameron",
+          "Gelbach",
+          "Miller"
+        ],
+        "crossref_journal": "Journal of Business & Economic Statistics"
+      },
+      {
+        "key": "mw2018",
+        "doi": "10.1111/ectj.12107",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "The wild bootstrap for few (treated) clusters",
+        "crossref_authors": [
+          "MacKinnon",
+          "Webb"
+        ],
+        "crossref_journal": "The Econometrics Journal"
+      },
+      {
+        "key": "roodman2019",
+        "doi": "10.1177/1536867X19830877",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Fast and wild: Bootstrap inference in Stata using boottest",
+        "crossref_authors": [
+          "Roodman",
+          "Nielsen",
+          "MacKinnon",
+          "Webb"
+        ],
+        "crossref_journal": "The Stata Journal: Promoting communications on statistics and Stata"
+      },
+      {
+        "key": "abadie2023",
+        "doi": "10.1093/qje/qjac038",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "When Should You Adjust Standard Errors for Clustering?",
+        "crossref_authors": [
+          "Abadie",
+          "Athey",
+          "Imbens",
+          "Wooldridge"
+        ],
+        "crossref_journal": "The Quarterly Journal of Economics"
+      },
+      {
+        "key": "webb2023",
+        "doi": "10.1111/caje.12661",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Reworking wild bootstrap\u2010based inference for clustered errors",
+        "crossref_authors": [
+          "Webb"
+        ],
+        "crossref_journal": "Canadian Journal of Economics/Revue canadienne d'\u00e9conomique"
+      }
+    ]
+  },
+  "two_way_sync": {
+    "checked": true,
+    "n_refs": 18,
+    "missing_in_body": [],
+    "missing_in_refs": [],
+    "unverified_extra_dois": [],
+    "two_way_sync_ok": true
+  }
+}

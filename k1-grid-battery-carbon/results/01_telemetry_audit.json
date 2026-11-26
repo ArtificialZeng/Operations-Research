@@ -1,0 +1,1000 @@
+{
+  "diurnal_windows": {
+    "Overnight": [
+      23,
+      24,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "Morning Ramp": [
+      7,
+      8,
+      9
+    ],
+    "Midday Solar": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "Evening Peak": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  "panel_a_universe": {
+    "n_valid_bas": 49,
+    "n_thermal_bas": 43,
+    "valid_bas": [
+      "AECI",
+      "AVA",
+      "AZPS",
+      "BANC",
+      "BPAT",
+      "CHPD",
+      "CISO",
+      "CPLE",
+      "CPLW",
+      "DOPD",
+      "DUK",
+      "EPE",
+      "ERCO",
+      "FMPP",
+      "FPC",
+      "FPL",
+      "GCPD",
+      "GVL",
+      "IID",
+      "IPCO",
+      "ISNE",
+      "JEA",
+      "LDWP",
+      "LGEE",
+      "MISO",
+      "NEVP",
+      "NWMT",
+      "NYIS",
+      "PACE",
+      "PACW",
+      "PGE",
+      "PJM",
+      "PNM",
+      "PSCO",
+      "PSEI",
+      "SC",
+      "SCEG",
+      "SCL",
+      "SOCO",
+      "SRP",
+      "SWPP",
+      "TAL",
+      "TEC",
+      "TEPC",
+      "TIDC",
+      "TPWR",
+      "TVA",
+      "WACM",
+      "WALC"
+    ],
+    "thermal_bas": [
+      "AECI",
+      "AVA",
+      "AZPS",
+      "BANC",
+      "BPAT",
+      "CISO",
+      "CPLE",
+      "DUK",
+      "EPE",
+      "ERCO",
+      "FMPP",
+      "FPC",
+      "FPL",
+      "GVL",
+      "IID",
+      "IPCO",
+      "ISNE",
+      "JEA",
+      "LDWP",
+      "LGEE",
+      "MISO",
+      "NEVP",
+      "NWMT",
+      "NYIS",
+      "PACE",
+      "PACW",
+      "PGE",
+      "PJM",
+      "PNM",
+      "PSCO",
+      "PSEI",
+      "SC",
+      "SCEG",
+      "SOCO",
+      "SRP",
+      "SWPP",
+      "TAL",
+      "TEC",
+      "TEPC",
+      "TIDC",
+      "TVA",
+      "WACM",
+      "WALC"
+    ],
+    "n_hourly_eia930_rows": 4285392,
+    "n_hourly_valid49_rows": 3359080,
+    "n_monthly_rows": 4599,
+    "n_daily_rows": 139975,
+    "ym_min": "2019-01",
+    "ym_max": "2026-10"
+  },
+  "eia860m_fleet": {
+    "as_of_ym": "2026-10",
+    "total_us_bess_mw": 56578.299999999996,
+    "total_us_bess_mwh": 156003.2,
+    "fleet_mean_duration_hr": 2.7572974090773323,
+    "n_bas_with_bess": 36,
+    "n_bas_ge50mw": 32,
+    "n_bas_ge200mw": 25,
+    "n_bas_ge500mw": 15,
+    "ciso_bess_mw": 17265.5,
+    "erco_bess_mw": 19609.9,
+    "non_ciso_erco_bess_mw": 19702.9,
+    "non_ciso_erco_share_pct": 34.824128685379385,
+    "top20_bas": [
+      {
+        "ba": "ERCO",
+        "bess_mw": 19609.9,
+        "bess_mwh": 33025.6,
+        "dur_hr": 1.6841289348747315,
+        "bess_uc_2026_mw": 3007.2,
+        "solar_mw": 33880.1,
+        "wind_mw": 40732.8,
+        "gas_mw": 69929.6,
+        "coal_mw": 14329.7,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.3672121676657667
+      },
+      {
+        "ba": "CISO",
+        "bess_mw": 17265.5,
+        "bess_mwh": 59726.3,
+        "dur_hr": 3.459285859083143,
+        "bess_uc_2026_mw": 1835.4,
+        "solar_mw": 26728.9,
+        "wind_mw": 10126.8,
+        "gas_mw": 32259.1,
+        "coal_mw": 62.5,
+        "pumped_mw": 2077.6,
+        "peaker_share": 0.4216608646862436
+      },
+      {
+        "ba": "AZPS",
+        "bess_mw": 3269.8,
+        "bess_mwh": 11644.4,
+        "dur_hr": 3.561196403449752,
+        "bess_uc_2026_mw": 975.0,
+        "solar_mw": 4316.7,
+        "wind_mw": 1128.5,
+        "gas_mw": 2602.5,
+        "coal_mw": 1636.2,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.5492795389048991
+      },
+      {
+        "ba": "SRP",
+        "bess_mw": 1668.0,
+        "bess_mwh": 6584.0,
+        "dur_hr": 3.947242206235012,
+        "bess_uc_2026_mw": 0.0,
+        "solar_mw": 1814.3,
+        "wind_mw": 226.0,
+        "gas_mw": 10146.1,
+        "coal_mw": 821.8,
+        "pumped_mw": 154.1,
+        "peaker_share": 0.21831048383122578
+      },
+      {
+        "ba": "NEVP",
+        "bess_mw": 1535.0,
+        "bess_mwh": 4090.0,
+        "dur_hr": 2.6644951140065145,
+        "bess_uc_2026_mw": 0.0,
+        "solar_mw": 4375.7,
+        "wind_mw": 150.0,
+        "gas_mw": 8850.8,
+        "coal_mw": 242.0,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.32470511140235914
+      },
+      {
+        "ba": "MISO",
+        "bess_mw": 1175.9,
+        "bess_mwh": 3449.9,
+        "dur_hr": 2.9338379113870228,
+        "bess_uc_2026_mw": 180.0,
+        "solar_mw": 25352.5,
+        "wind_mw": 33870.1,
+        "gas_mw": 83113.4,
+        "coal_mw": 47544.7,
+        "pumped_mw": 2416.8,
+        "peaker_share": 0.5253809854969235
+      },
+      {
+        "ba": "PACE",
+        "bess_mw": 1071.0,
+        "bess_mwh": 3321.0,
+        "dur_hr": 3.100840336134454,
+        "bess_uc_2026_mw": 0.0,
+        "solar_mw": 3453.1,
+        "wind_mw": 4574.8,
+        "gas_mw": 4620.0,
+        "coal_mw": 5837.8,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.5771861471861471
+      },
+      {
+        "ba": "PNM",
+        "bess_mw": 1068.2,
+        "bess_mwh": 4379.0,
+        "dur_hr": 4.0994195843475,
+        "bess_uc_2026_mw": 168.0,
+        "solar_mw": 2232.0,
+        "wind_mw": 2569.0,
+        "gas_mw": 1832.8,
+        "coal_mw": 0.0,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.45929725010912265
+      },
+      {
+        "ba": "ISNE",
+        "bess_mw": 1026.6,
+        "bess_mwh": 2130.7999999999997,
+        "dur_hr": 2.0755893239820766,
+        "bess_uc_2026_mw": 48.1,
+        "solar_mw": 3765.6,
+        "wind_mw": 3238.2,
+        "gas_mw": 16905.2,
+        "coal_mw": 459.20000000000005,
+        "pumped_mw": 1865.0,
+        "peaker_share": 0.14831531126517286
+      },
+      {
+        "ba": "FPL",
+        "bess_mw": 1014.5,
+        "bess_mwh": 2710.5,
+        "dur_hr": 2.6717594874322326,
+        "bess_uc_2026_mw": 0.0,
+        "solar_mw": 8982.3,
+        "wind_mw": 0.0,
+        "gas_mw": 28228.800000000003,
+        "coal_mw": 0.0,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.24664172759734734
+      },
+      {
+        "ba": "SOCO",
+        "bess_mw": 923.7,
+        "bess_mwh": 3027.9,
+        "dur_hr": 3.278012341669373,
+        "bess_uc_2026_mw": 0.0,
+        "solar_mw": 6148.1,
+        "wind_mw": 0.0,
+        "gas_mw": 36339.8,
+        "coal_mw": 12234.7,
+        "pumped_mw": 1306.6000000000001,
+        "peaker_share": 0.43029956136247305
+      },
+      {
+        "ba": "PJM",
+        "bess_mw": 714.7,
+        "bess_mwh": 1579.8999999999999,
+        "dur_hr": 2.2105778648383936,
+        "bess_uc_2026_mw": 149.9,
+        "solar_mw": 19747.6,
+        "wind_mw": 12064.0,
+        "gas_mw": 106470.6,
+        "coal_mw": 37985.1,
+        "pumped_mw": 5046.1,
+        "peaker_share": 0.3874083549825022
+      },
+      {
+        "ba": "IPCO",
+        "bess_mw": 659.0,
+        "bess_mwh": 2632.0,
+        "dur_hr": 3.9939301972685888,
+        "bess_uc_2026_mw": 0.0,
+        "solar_mw": 905.9,
+        "wind_mw": 714.7,
+        "gas_mw": 783.1,
+        "coal_mw": 0.0,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.5932831056059252
+      },
+      {
+        "ba": "TEPC",
+        "bess_mw": 570.0,
+        "bess_mwh": 1792.5,
+        "dur_hr": 3.1447368421052633,
+        "bess_uc_2026_mw": 0.0,
+        "solar_mw": 759.4,
+        "wind_mw": 379.8,
+        "gas_mw": 1584.2,
+        "coal_mw": 1765.8000000000002,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.600113622017422
+      },
+      {
+        "ba": "PSCO",
+        "bess_mw": 564.0,
+        "bess_mwh": 1904.6,
+        "dur_hr": 3.376950354609929,
+        "bess_uc_2026_mw": 499.0,
+        "solar_mw": 3351.8,
+        "wind_mw": 5164.6,
+        "gas_mw": 7398.5,
+        "coal_mw": 759.0,
+        "pumped_mw": 300.0,
+        "peaker_share": 0.557221058322633
+      },
+      {
+        "ba": "PGE",
+        "bess_mw": 493.0,
+        "bess_mwh": 1936.0,
+        "dur_hr": 3.926977687626775,
+        "bess_uc_2026_mw": 0.0,
+        "solar_mw": 206.2,
+        "wind_mw": 716.5,
+        "gas_mw": 2115.3,
+        "coal_mw": 0.0,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.11823382026190138
+      },
+      {
+        "ba": "SWPP",
+        "bess_mw": 490.5,
+        "bess_mwh": 1609.5,
+        "dur_hr": 3.2813455657492354,
+        "bess_uc_2026_mw": 250.0,
+        "solar_mw": 3167.1,
+        "wind_mw": 35718.4,
+        "gas_mw": 38142.2,
+        "coal_mw": 20279.3,
+        "pumped_mw": 259.20000000000005,
+        "peaker_share": 0.6955288368264023
+      },
+      {
+        "ba": "WALC",
+        "bess_mw": 425.0,
+        "bess_mwh": 1171.0,
+        "dur_hr": 2.755294117647059,
+        "bess_uc_2026_mw": 0.0,
+        "solar_mw": 579.2,
+        "wind_mw": 350.0,
+        "gas_mw": 1982.3,
+        "coal_mw": 204.0,
+        "pumped_mw": 40.0,
+        "peaker_share": 0.6428391262674671
+      },
+      {
+        "ba": "HECO",
+        "bess_mw": 407.9,
+        "bess_mwh": 1220.8,
+        "dur_hr": 2.992890414317235,
+        "bess_uc_2026_mw": 37.0,
+        "solar_mw": 429.9,
+        "wind_mw": 0.0,
+        "gas_mw": 0.0,
+        "coal_mw": 0.0,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.35
+      },
+      {
+        "ba": "EPE",
+        "bess_mw": 406.0,
+        "bess_mwh": 1364.0,
+        "dur_hr": 3.3596059113300494,
+        "bess_uc_2026_mw": 100.0,
+        "solar_mw": 859.3,
+        "wind_mw": 50.4,
+        "gas_mw": 2100.7,
+        "coal_mw": 0.0,
+        "pumped_mw": 0.0,
+        "peaker_share": 0.7158090160422718
+      }
+    ]
+  },
+  "ciso_telemetry_repair": {
+    "eia930_broken_other_geo_dis_gwh": 27040.83203125,
+    "eia930_broken_other_geo_chg_gwh": 25140.81640625,
+    "eia930_broken_other_geo_rte": 1.075574937356754,
+    "caiso_fuelsource_dis_gwh": 30580.350333333336,
+    "caiso_fuelsource_chg_gwh": 35419.23866666667,
+    "caiso_fuelsource_rte": 0.8633824860304733,
+    "raw_eia930_ng_vs_cems_r": 0.8351118807589492,
+    "alignment_lag_corrs": {
+      "-2": {
+        "r_solar": 0.6886572643399637,
+        "r_ng": 0.8195575574605414
+      },
+      "-1": {
+        "r_solar": 0.8558342875431576,
+        "r_ng": 0.8326450029280891
+      },
+      "0": {
+        "r_solar": 0.9653195080621446,
+        "r_ng": 0.8421204763227542
+      },
+      "1": {
+        "r_solar": 0.968572784890627,
+        "r_ng": 0.8410094357100016
+      },
+      "2": {
+        "r_solar": 0.8635010597389791,
+        "r_ng": 0.8285575363991606
+      }
+    },
+    "eia930_ng_corruption_202312_202512": {
+      "corrupted_window": "2023-12 to 2025-12",
+      "mean_midday_phantom_ng_mw_2024_2025": 5553.024877345893,
+      "peak_month_ym": "2025-10",
+      "peak_month_midday_phantom_ng_mw": 7638.655913978494,
+      "post_eia_fix_2026_mean_abs_diff_mw": 36.8475816509402,
+      "eia_ciso_raw_2025_md_ng_mw": 10348.582773754662,
+      "caiso_true_2025_md_ng_mw": 4060.4402976647652,
+      "n_repaired_panel_a_ciso_hours": 25566
+    }
+  },
+  "ues_charging_bug": {
+    "ERCO": {
+      "raw_bess_min_mw": -11553.0,
+      "raw_bess_max_mw": 11928.0,
+      "unk_stor_min_mw": -6115.0,
+      "raw_dis_gwh": 12583.11328125,
+      "raw_chg_gwh": 8428.048828125,
+      "unk_chg_gwh": 7224.40087890625,
+      "raw_broken_rte": 1.4930043166407927,
+      "repaired_dis_gwh": 10748.0576171875,
+      "repaired_chg_gwh": 13817.39453125,
+      "repaired_rte": 0.777864277731901
+    },
+    "AZPS": {
+      "raw_bess_min_mw": 0.0,
+      "raw_bess_max_mw": 2669.0,
+      "unk_stor_min_mw": -2951.0,
+      "raw_dis_gwh": 5017.52978515625,
+      "raw_chg_gwh": 0.0,
+      "unk_chg_gwh": 5690.3779296875,
+      "raw_broken_rte": null,
+      "repaired_dis_gwh": 4698.30322265625,
+      "repaired_chg_gwh": 5371.15087890625,
+      "repaired_rte": 0.8747293324243733
+    }
+  },
+  "pumped_hydro_leakage_audit": {
+    "SOCO": {
+      "eia860m_pumped_mw": 1306.6000000000001,
+      "eia860m_bess_operating_mw": 923.7,
+      "eia860m_bess_uc_2026_mw": 0.0,
+      "eia930_pumped_max_mw": 1732.0,
+      "eia930_bess_abs_max_mw": 766.0,
+      "pumped_leakage_detected": false,
+      "corr_bess_pumped": 0.38755660921029633
+    },
+    "DUK": {
+      "eia860m_pumped_mw": 2454.0,
+      "eia860m_bess_operating_mw": 53.5,
+      "eia860m_bess_uc_2026_mw": 18.8,
+      "eia930_pumped_max_mw": 2431.0,
+      "eia930_bess_abs_max_mw": 79.0,
+      "pumped_leakage_detected": false,
+      "corr_bess_pumped": 0.60712424490871
+    },
+    "MISO": {
+      "eia860m_pumped_mw": 2416.8,
+      "eia860m_bess_operating_mw": 1175.9,
+      "eia860m_bess_uc_2026_mw": 180.0,
+      "eia930_pumped_max_mw": 0.0,
+      "eia930_bess_abs_max_mw": 931.0,
+      "pumped_leakage_detected": false,
+      "corr_bess_pumped": 0.0
+    },
+    "CPLE": {
+      "eia860m_pumped_mw": 0.0,
+      "eia860m_bess_operating_mw": 259.6,
+      "eia860m_bess_uc_2026_mw": 0.0,
+      "eia930_pumped_max_mw": 0.0,
+      "eia930_bess_abs_max_mw": 102.0,
+      "pumped_leakage_detected": false,
+      "corr_bess_pumped": 0.0
+    }
+  },
+  "physical_bound_anomalies": [
+    {
+      "ba": "FPL",
+      "date": "2025-08-27",
+      "hour": 6,
+      "raw_bess_mw": 2668.0,
+      "eia860m_bess_op_mw": 1014.5,
+      "eia860m_bess_reconciled_mw": 1014.5,
+      "phys_bound_125pct_mw": 1268.125,
+      "action": "set_to_nan_filtered"
+    }
+  ],
+  "duk_reconciliation": {
+    "eia860m_operating_mw": 53.5,
+    "eia860m_under_construction_2026_mw": 18.8,
+    "reconciled_nameplate_mw": 72.3,
+    "phys_bound_125pct_reconciled_mw": 90.375,
+    "eia930_bess_max_discharge_mw": 75.0,
+    "eia930_bess_min_charge_mw": -79.0,
+    "eia930_bess_p99_abs_mw": 77.0,
+    "eia930_bess_rte": 0.8045601969442382,
+    "eia860m_pumped_hydro_mw": 2454.0,
+    "eia930_pumped_max_mw": 2431.0,
+    "explanation": "DUK reports 53.5 MW operating BESS plus 18.8 MW 2026 under-construction BESS (72.3 MW total, 1.25x bound = 90.4 MW), explaining steady -79 to +75 MW EIA-930 telemetry (RTE=0.805) with zero leakage from DUK's 2,454 MW pumped hydro."
+  },
+  "cems_utc_alignment_audit": {
+    "CISO": {
+      "n_hours": 19727,
+      "lag_corrs": {
+        "-2": 0.9425396124158065,
+        "-1": 0.979809371090482,
+        "0": 0.9961853664108885,
+        "1": 0.9807620649671919,
+        "2": 0.9442060151840632
+      },
+      "best_lag_hr": 0,
+      "r_at_lag0": 0.9961853664108885,
+      "cems_to_eia_thermal_ratio": 0.8840886450067994
+    },
+    "ERCO": {
+      "n_hours": 19727,
+      "lag_corrs": {
+        "-2": 0.9174160046978386,
+        "-1": 0.9700656096441115,
+        "0": 0.9908127780732757,
+        "1": 0.9660294606207639,
+        "2": 0.9112081971904368
+      },
+      "best_lag_hr": 0,
+      "r_at_lag0": 0.9908127780732757,
+      "cems_to_eia_thermal_ratio": 1.0793478319789978
+    },
+    "AZPS": {
+      "n_hours": 19728,
+      "lag_corrs": {
+        "-2": 0.8218975841814463,
+        "-1": 0.8483307311077988,
+        "0": 0.8618155915570302,
+        "1": 0.8471123500067219,
+        "2": 0.8197113673389693
+      },
+      "best_lag_hr": 0,
+      "r_at_lag0": 0.8618155915570302,
+      "cems_to_eia_thermal_ratio": 0.7975785953780149
+    },
+    "MISO": {
+      "n_hours": 19730,
+      "lag_corrs": {
+        "-2": 0.9351774299959871,
+        "-1": 0.978636410638508,
+        "0": 0.996065210206016,
+        "1": 0.9802870728485351,
+        "2": 0.9374091078603591
+      },
+      "best_lag_hr": 0,
+      "r_at_lag0": 0.996065210206016,
+      "cems_to_eia_thermal_ratio": 1.0521409125180572
+    },
+    "SOCO": {
+      "n_hours": 19727,
+      "lag_corrs": {
+        "-2": 0.927430923191984,
+        "-1": 0.9756772083006578,
+        "0": 0.9925959641584591,
+        "1": 0.9700744410016672,
+        "2": 0.9165094469154346
+      },
+      "best_lag_hr": 0,
+      "r_at_lag0": 0.9925959641584591,
+      "cems_to_eia_thermal_ratio": 1.06999386655437
+    },
+    "DUK": {
+      "n_hours": 19727,
+      "lag_corrs": {
+        "-2": 0.9315719809243802,
+        "-1": 0.9745032460100594,
+        "0": 0.9908437779546777,
+        "1": 0.9717431611288803,
+        "2": 0.9270270208901538
+      },
+      "best_lag_hr": 0,
+      "r_at_lag0": 0.9908437779546777,
+      "cems_to_eia_thermal_ratio": 1.1665752570779164
+    }
+  },
+  "caiso_curtailment_overlap": {
+    "n_hours": 13175,
+    "date_min": "2024-07-01",
+    "date_max": "2025-12-31",
+    "total_curt_gwh": 4347.24390849786,
+    "system_curt_gwh": 655.9772521397027,
+    "local_curt_gwh": 3691.2666563581574,
+    "caiso_bess_chg_gwh": 19704.867416666664,
+    "caiso_bess_dis_gwh": 17020.033666666663
+  },
+  "metered_14_bas_totals": {
+    "n_bas_total": 14,
+    "n_bas_clean_ac": 13,
+    "total_14_dis_gwh": 52816.76866666667,
+    "total_14_chg_gwh": 62477.5885,
+    "total_13_ac_dis_gwh": 52701.98366666667,
+    "total_13_ac_chg_gwh": 62356.6265,
+    "fleet_13_ac_rte": 0.8451705396004171
+  },
+  "metered_14_bas_table": [
+    {
+      "ba": "CISO",
+      "source": "CAISO_fuelsource_csv",
+      "dc_coupled_flag": false,
+      "n_hours": 20464,
+      "cems_matched_hours": 19721,
+      "eia860m_bess_mw": 17265.5,
+      "dis_gwh": 30576.501666666667,
+      "chg_gwh": 35419.2385,
+      "rte": 0.8632738297483913,
+      "midday_solar_pct": 51.485084533691406,
+      "coal_gen_pct": -0.000850232841912657,
+      "chg_share_pct": {
+        "Overnight": 3.489962571235592,
+        "Morning Ramp": 10.924308362341932,
+        "Midday Solar": 83.10139511704446,
+        "Evening Peak": 2.48433394937801
+      },
+      "dis_share_pct": {
+        "Overnight": 20.4004889157529,
+        "Morning Ramp": 6.597598013856065,
+        "Midday Solar": 0.28202893932546563,
+        "Evening Peak": 72.71988413106557
+      }
+    },
+    {
+      "ba": "ERCO",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 17710,
+      "cems_matched_hours": 16967,
+      "eia860m_bess_mw": 19609.9,
+      "dis_gwh": 10748.058,
+      "chg_gwh": 13817.395,
+      "rte": 0.7778642790482577,
+      "midday_solar_pct": 34.52370071411133,
+      "coal_gen_pct": 12.6788330078125,
+      "chg_share_pct": {
+        "Overnight": 23.97968647491079,
+        "Morning Ramp": 8.970330514543443,
+        "Midday Solar": 63.23843242521474,
+        "Evening Peak": 3.8115505853310268
+      },
+      "dis_share_pct": {
+        "Overnight": 6.064025705853094,
+        "Morning Ramp": 16.402907390339724,
+        "Midday Solar": 0.5639995615952202,
+        "Evening Peak": 76.96906734221196
+      }
+    },
+    {
+      "ba": "AZPS",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 14208,
+      "cems_matched_hours": 13464,
+      "eia860m_bess_mw": 3269.8,
+      "dis_gwh": 4698.303,
+      "chg_gwh": 5371.151,
+      "rte": 0.8747292712493095,
+      "midday_solar_pct": 36.630611419677734,
+      "coal_gen_pct": 26.741670608520508,
+      "chg_share_pct": {
+        "Overnight": 0.8750266004437411,
+        "Morning Ramp": 18.275300768866863,
+        "Midday Solar": 79.77617832751305,
+        "Evening Peak": 1.0734943031763582
+      },
+      "dis_share_pct": {
+        "Overnight": 24.718925109768353,
+        "Morning Ramp": 5.499219611847086,
+        "Midday Solar": 0.43754095893772704,
+        "Evening Peak": 69.34431431944682
+      }
+    },
+    {
+      "ba": "PNM",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 15312,
+      "cems_matched_hours": 14568,
+      "eia860m_bess_mw": 1068.2,
+      "dis_gwh": 1852.475,
+      "chg_gwh": 2090.79,
+      "rte": 0.8860167687811784,
+      "midday_solar_pct": 82.51759338378906,
+      "coal_gen_pct": 12.186572074890137,
+      "chg_share_pct": {
+        "Overnight": 1.2613892356477696,
+        "Morning Ramp": 19.022283443100456,
+        "Midday Solar": 78.67155477116306,
+        "Evening Peak": 1.0447725500887226
+      },
+      "dis_share_pct": {
+        "Overnight": 17.21119043441882,
+        "Morning Ramp": 4.634232580736582,
+        "Midday Solar": 0.26505081040229966,
+        "Evening Peak": 77.8895261744423
+      }
+    },
+    {
+      "ba": "SRP",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 14111,
+      "cems_matched_hours": 13367,
+      "eia860m_bess_mw": 1668.0,
+      "dis_gwh": 1080.603,
+      "chg_gwh": 1224.908,
+      "rte": 0.8821911523151128,
+      "midday_solar_pct": 19.116348266601562,
+      "coal_gen_pct": 7.152977466583252,
+      "chg_share_pct": {
+        "Overnight": 10.029406290105054,
+        "Morning Ramp": 28.243753816613168,
+        "Midday Solar": 60.49254311344198,
+        "Evening Peak": 1.2342967798397921
+      },
+      "dis_share_pct": {
+        "Overnight": 13.755653093689357,
+        "Morning Ramp": 2.477505614920558,
+        "Midday Solar": 7.1541537456401665,
+        "Evening Peak": 76.61268754574992
+      }
+    },
+    {
+      "ba": "PGE",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 17902,
+      "cems_matched_hours": 17159,
+      "eia860m_bess_mw": 493.0,
+      "dis_gwh": 959.065,
+      "chg_gwh": 1114.998,
+      "rte": 0.8601495249318833,
+      "midday_solar_pct": 0.0,
+      "coal_gen_pct": 0.0,
+      "chg_share_pct": {
+        "Overnight": 32.35413875181838,
+        "Morning Ramp": 12.704148348248157,
+        "Midday Solar": 49.56340728862293,
+        "Evening Peak": 5.378305611310513
+      },
+      "dis_share_pct": {
+        "Overnight": 16.994468570951916,
+        "Morning Ramp": 14.637485467616898,
+        "Midday Solar": 5.514746132952406,
+        "Evening Peak": 62.85329982847877
+      }
+    },
+    {
+      "ba": "MISO",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 15720,
+      "cems_matched_hours": 14978,
+      "eia860m_bess_mw": 1175.9,
+      "dis_gwh": 781.079,
+      "chg_gwh": 977.787,
+      "rte": 0.7988232610987873,
+      "midday_solar_pct": 13.257848739624023,
+      "coal_gen_pct": 27.4462833404541,
+      "chg_share_pct": {
+        "Overnight": 56.686067620044035,
+        "Morning Ramp": 6.904264425687803,
+        "Midday Solar": 31.781359334906274,
+        "Evening Peak": 4.628308619361885
+      },
+      "dis_share_pct": {
+        "Overnight": 9.480987198478005,
+        "Morning Ramp": 15.291282956013411,
+        "Midday Solar": 10.930904556389303,
+        "Evening Peak": 64.29682528911928
+      }
+    },
+    {
+      "ba": "IPCO",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 16078,
+      "cems_matched_hours": 15334,
+      "eia860m_bess_mw": 659.0,
+      "dis_gwh": 673.352,
+      "chg_gwh": 776.189,
+      "rte": 0.8675103615227735,
+      "midday_solar_pct": 23.699356079101562,
+      "coal_gen_pct": 0.0,
+      "chg_share_pct": {
+        "Overnight": 25.50899329931241,
+        "Morning Ramp": 20.217498573156796,
+        "Midday Solar": 51.84471823228621,
+        "Evening Peak": 2.428789895244586
+      },
+      "dis_share_pct": {
+        "Overnight": 13.713629721156243,
+        "Morning Ramp": 8.88272404329385,
+        "Midday Solar": 3.923505090947974,
+        "Evening Peak": 73.48014114460193
+      }
+    },
+    {
+      "ba": "TEPC",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 15888,
+      "cems_matched_hours": 15144,
+      "eia860m_bess_mw": 570.0,
+      "dis_gwh": 613.712,
+      "chg_gwh": 717.599,
+      "rte": 0.855229731368076,
+      "midday_solar_pct": 22.05830192565918,
+      "coal_gen_pct": 22.762840270996094,
+      "chg_share_pct": {
+        "Overnight": 2.26839780991891,
+        "Morning Ramp": 24.240418395231877,
+        "Midday Solar": 73.26696386143236,
+        "Evening Peak": 0.2242199334168526
+      },
+      "dis_share_pct": {
+        "Overnight": 5.650370206220507,
+        "Morning Ramp": 0.4422269729123758,
+        "Midday Solar": 1.7705373204369474,
+        "Evening Peak": 92.13686550043018
+      }
+    },
+    {
+      "ba": "IID",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 16030,
+      "cems_matched_hours": 15287,
+      "eia860m_bess_mw": 215.0,
+      "dis_gwh": 349.704,
+      "chg_gwh": 405.09,
+      "rte": 0.8632748278160409,
+      "midday_solar_pct": 93.43421936035156,
+      "coal_gen_pct": 0.0,
+      "chg_share_pct": {
+        "Overnight": 5.786121602606829,
+        "Morning Ramp": 17.447974524179816,
+        "Midday Solar": 71.10888938260634,
+        "Evening Peak": 5.657014490607025
+      },
+      "dis_share_pct": {
+        "Overnight": 33.702502687987554,
+        "Morning Ramp": 11.117116189691854,
+        "Midday Solar": 2.9313362157710516,
+        "Evening Peak": 52.24904490654954
+      }
+    },
+    {
+      "ba": "SOCO",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 16030,
+      "cems_matched_hours": 15287,
+      "eia860m_bess_mw": 923.7,
+      "dis_gwh": 257.619,
+      "chg_gwh": 303.224,
+      "rte": 0.8495996359127247,
+      "midday_solar_pct": 12.605042457580566,
+      "coal_gen_pct": 17.774627685546875,
+      "chg_share_pct": {
+        "Overnight": 56.41901696435638,
+        "Morning Ramp": 14.709257842387146,
+        "Midday Solar": 25.314948684800676,
+        "Evening Peak": 3.556776508455795
+      },
+      "dis_share_pct": {
+        "Overnight": 5.934733074812027,
+        "Morning Ramp": 11.412201739778508,
+        "Midday Solar": 31.943684277945337,
+        "Evening Peak": 50.70938090746412
+      }
+    },
+    {
+      "ba": "DUK",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 9143,
+      "cems_matched_hours": 8400,
+      "eia860m_bess_mw": 53.5,
+      "dis_gwh": 82.358,
+      "chg_gwh": 102.364,
+      "rte": 0.8045601969442382,
+      "midday_solar_pct": 4.888701915740967,
+      "coal_gen_pct": 19.578420639038086,
+      "chg_share_pct": {
+        "Overnight": 50.55781329373608,
+        "Morning Ramp": 11.21390332538783,
+        "Midday Solar": 29.432222265640263,
+        "Evening Peak": 8.796061115235824
+      },
+      "dis_share_pct": {
+        "Overnight": 7.387260496855193,
+        "Morning Ramp": 17.585419752786613,
+        "Midday Solar": 8.104859272930376,
+        "Evening Peak": 66.92246047742782
+      }
+    },
+    {
+      "ba": "CPLE",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": false,
+      "n_hours": 14231,
+      "cems_matched_hours": 13488,
+      "eia860m_bess_mw": 259.6,
+      "dis_gwh": 29.154,
+      "chg_gwh": 35.893,
+      "rte": 0.8122475134427325,
+      "midday_solar_pct": 23.117431640625,
+      "coal_gen_pct": 14.956320762634277,
+      "chg_share_pct": {
+        "Overnight": 14.331485247819908,
+        "Morning Ramp": 30.958682751511436,
+        "Midday Solar": 49.97074638508901,
+        "Evening Peak": 4.739085615579639
+      },
+      "dis_share_pct": {
+        "Overnight": 1.5263771695136172,
+        "Morning Ramp": 34.69506757220279,
+        "Midday Solar": 8.108664334225148,
+        "Evening Peak": 55.66989092405845
+      }
+    },
+    {
+      "ba": "FPL",
+      "source": "EIA930_clean",
+      "dc_coupled_flag": true,
+      "n_hours": 10534,
+      "cems_matched_hours": 9792,
+      "eia860m_bess_mw": 1014.5,
+      "dis_gwh": 114.785,
+      "chg_gwh": 120.962,
+      "rte": 0.9489343760850515,
+      "midday_solar_pct": 26.246519088745117,
+      "coal_gen_pct": 0.0,
+      "chg_share_pct": {
+        "Overnight": 9.898976538086341,
+        "Morning Ramp": 5.28678427936046,
+        "Midday Solar": 76.48021692763017,
+        "Evening Peak": 8.334022254923033
+      },
+      "dis_share_pct": {
+        "Overnight": 0.4460513133249118,
+        "Morning Ramp": 4.567669991723658,
+        "Midday Solar": 3.0953521801629136,
+        "Evening Peak": 91.89092651478853
+      }
+    }
+  ],
+  "elapsed_sec": 75.82366156578064
+}
