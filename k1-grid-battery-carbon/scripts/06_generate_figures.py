@@ -95,7 +95,7 @@ def make_fig1(r2: dict) -> None:
     ax1.set_xticks([1, 4, 8, 12, 16, 20, 24])
     ax1.set_xlabel("Local Hour Ending (relative to Overnight Baseline HE 2-5)")
     ax1.set_ylabel(r"Diurnal NG Response ($\Delta$MW/$d_{19}$ per +1 BESS/$d_{19}$)")
-    ax1.set_title("A. 24-Hour Natural-Gas Displacement Profile (WLS)")
+    ax1.set_title("A. 24-Hour Conditional NG Displacement Profile (WLS)")
     ax1.grid(True, axis="y", ls=":", alpha=0.4)
     ax1.legend(loc="upper left", frameon=True, framealpha=0.92, fontsize=7.0)
     ax1.spines["top"].set_visible(False)
@@ -217,7 +217,7 @@ def make_fig2(r1: dict) -> None:
                 color=CRIMSON,
                 alpha=0.80,
                 edgecolor="white",
-                label="Raw / Unrepaired EIA-930" if i == 0 else None,
+                label="Raw / Unaligned EIA-930" if i == 0 else None,
             )
             dx_lbl = -0.09 if i == 3 else 0.0
             ax1.text(x[i] - w / 2 + dx_lbl, bar_h + 0.035, f"{rv:.2f}", ha="center", va="bottom", fontsize=7.2, color=CRIMSON, fontweight="bold")
@@ -241,7 +241,7 @@ def make_fig2(r1: dict) -> None:
         color=NAVY,
         alpha=0.92,
         edgecolor="white",
-        label="Repaired / Official Standalone",
+        label="Aligned / Official Standalone",
     )
     for i, cv in enumerate(clean_rtes):
         dx_lbl = 0.09 if i == 3 else 0.0
@@ -251,7 +251,7 @@ def make_fig2(r1: dict) -> None:
     ax1.set_xticklabels(labels_a, fontsize=7.2)
     ax1.set_ylim(0.0, 2.02)
     ax1.set_ylabel("Metered Round-Trip Efficiency (Dis / Chg)")
-    ax1.set_title("A. Physical Telemetry Forensics & Repair")
+    ax1.set_title("A. Physical Telemetry Forensics & Reconciliation")
     ax1.legend(loc="upper center", bbox_to_anchor=(0.50, -0.17), ncol=2, fontsize=6.9, frameon=True)
     ax1.grid(True, axis="y", ls=":", alpha=0.4)
     ax1.spines["top"].set_visible(False)
@@ -263,13 +263,13 @@ def make_fig2(r1: dict) -> None:
         0.98,
         0.97,
         f"Pumped-Hydro Leakage: 0/4 BAs\n"
-        f"FPL Glitch Filtered: {fpl_anom['raw_bess_mw']:,.0f} MW (HE{fpl_anom['hour']})\n"
-        f"CISO EIA NG Bug Repaired: +{ng_corr['mean_midday_phantom_ng_mw_2024_2025']:,.0f} MW\n"
+        f"FPL Outlier Filtered: {fpl_anom['raw_bess_mw']:,.0f} MW (HE{fpl_anom['hour']})\n"
+        f"CISO EIA-CAISO NG Gap Aligned: +{ng_corr['mean_midday_phantom_ng_mw_2024_2025']:,.0f} MW\n"
         f"CEMS Lag-0: r={cems_r['CISO']['r_at_lag0']:.3f} (CISO), {cems_r['MISO']['r_at_lag0']:.3f} (MISO)",
         transform=ax1.transAxes,
         va="top",
         ha="right",
-        fontsize=6.5,
+        fontsize=6.4,
         bbox={"boxstyle": "round,pad=0.32", "fc": "#f8fafc", "ec": "#94a3b8", "alpha": 0.96},
     )
 
@@ -322,8 +322,8 @@ def make_fig3(r3: dict) -> None:
     eg_v = np.array([r["net_egrid_kg_mwh"] for r in rows])
 
     ax1.axvline(0.0, color="#0f172a", lw=1.0, zorder=2)
-    ax1.barh(y - h / 2, aef_v, height=h, color=TEAL, alpha=0.82, label="Naive Average Emission Factor (AEF)")
-    ax1.barh(y + h / 2, cems_v, height=h, color=CRIMSON, alpha=0.88, label="Direct EPA CEMS Smokestack MEF (±95% 24h CI)")
+    ax1.barh(y - h / 2, aef_v, height=h, color=TEAL, alpha=0.82, label="Naive AEF Counterfactual (Incoming-Import Weighted)")
+    ax1.barh(y + h / 2, cems_v, height=h, color=CRIMSON, alpha=0.88, label="CEMS-MEF Marginal Counterfactual (±95% 24h CI)")
     ax1.errorbar(
         cems_v,
         y + h / 2,
@@ -343,34 +343,34 @@ def make_fig3(r3: dict) -> None:
         edgecolors=NAVY,
         linewidths=1.1,
         zorder=5,
-        label=f"EPA eGRID 2023 Peaker MEF (r={r3['cems_vs_egrid_cross_validation']['r_net_kg_mwh']:.2f})",
+        label=f"EPA eGRID 2023 Peaker MEF Counterfactual (r={r3['cems_vs_egrid_cross_validation']['r_net_kg_mwh']:.2f})",
     )
 
     ax1.set_yticks(y)
     ax1.set_yticklabels(bas, fontsize=7.8, fontweight="bold")
-    # Wider negative xlim so fleet callout box sits cleanly in empty upper-left with ZERO bar overlap!
-    ax1.set_xlim(-245, 245)
-    ax1.set_xlabel(r"Net $\mathrm{CO_2}$ per Discharged MWh (kg $\mathrm{CO_2}$/MWh; no curtailment credit)")
-    ax1.set_title("A. AEF-vs-EPA CEMS Carbon Accounting Sign Reversal")
+    # Wider negative xlim so fleet callout box sits cleanly in empty upper-left with generous margin from ERCO bar!
+    ax1.set_xlim(-280, 245)
+    ax1.set_xlabel(r"Counterfactual Net $\mathrm{CO_2}$ per Discharged MWh (kg $\mathrm{CO_2}$/MWh; $\alpha=0$)")
+    ax1.set_title("A. Counterfactual Accounting Discrepancy: AEF vs. CEMS-MEF")
     ax1.grid(True, axis="x", ls=":", alpha=0.4)
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
-    ax1.legend(loc="upper center", bbox_to_anchor=(0.48, -0.15), ncol=1, fontsize=6.8, frameon=True)
+    ax1.legend(loc="upper center", bbox_to_anchor=(0.48, -0.15), ncol=1, fontsize=6.7, frameon=True)
 
     fl = r3["fleet_aggregates"]["all_14_bas"]
     ax1.text(
-        -240,
+        -275,
         13.4,
-        f"14-Grid Fleet ({fl['dis_gwh_cems_window']/1000:.1f} TWh):\n"
-        f"Naive AEF: {fl['aef_kg_mwh']:+.1f} kg/MWh ({fl['aef_total_kt']/1000:+.2f} Mt)\n"
-        f"Direct CEMS: {fl['cems_mef_kg_mwh']:+.1f} kg/MWh ({fl['cems_mef_total_kt']/1000:+.2f} Mt)\n"
-        f"Sign Reversal: {fl['sign_reversal_cems_minus_aef_mt']:+.2f} Mt CO2",
+        f"14-Grid Counterfactual ({fl['dis_gwh_cems_window']/1000:.2f} TWh):\n"
+        f"AEF Model: {fl['aef_kg_mwh']:+.1f} kg/MWh ({fl['aef_total_kt']/1000:+.2f} Mt)\n"
+        f"CEMS-MEF: {fl['cems_mef_kg_mwh']:+.1f} kg/MWh ({fl['cems_mef_total_kt']/1000:+.2f} Mt)\n"
+        f"Discrepancy: {fl['sign_reversal_cems_minus_aef_mt']:+.2f} Mt CO2",
         va="top",
         ha="left",
-        fontsize=6.2,
+        fontsize=5.8,
         fontweight="bold",
         color="#0f172a",
-        bbox={"boxstyle": "round,pad=0.28", "fc": "#fffbeb", "ec": AMBER, "alpha": 0.96},
+        bbox={"boxstyle": "round,pad=0.26", "fc": "#fffbeb", "ec": AMBER, "alpha": 0.96},
     )
 
     # Panel B: 24-Hour Direct EPA CEMS Marginal Emission Curves for 4 Grid Archetypes
@@ -465,12 +465,14 @@ def make_fig4(r3: dict) -> None:
     ax1_r.tick_params(axis="y", colors="#78350f")
     ax1_r.spines["top"].set_visible(False)
 
+    dom_drop = 100.0 * (1.0 - mef_dom[3] / mef_dom[0])
+    sys_drop = 100.0 * (1.0 - mef_sys[3] / mef_sys[0])
     ax1.set_xticks(x)
     ax1.set_xticklabels(lbls, fontsize=8.0)
     ax1.set_ylim(0, 365)
     ax1.set_xlabel("Official CAISO Interior Hourly Curtailment Regime (2024-07 to 2025-12)")
     ax1.set_ylabel(r"Empirical EPA CEMS MEF (kg $\mathrm{CO_2}$/MWh, YM$\times$Hr FE)")
-    ax1.set_title("A. Non-Circular CAISO CEMS Collapse Under Real Curtailment")
+    ax1.set_title(f"A. CAISO Interior CEMS Collapse (-{dom_drop:.0f}% Dom., -{sys_drop:.0f}% Sys.)")
     ax1.grid(True, axis="y", ls=":", alpha=0.35)
     ax1.spines["top"].set_visible(False)
 
@@ -513,25 +515,30 @@ def make_fig4(r3: dict) -> None:
 
     ax2.set_yticks(y_b)
     ax2.set_yticklabels(bas_b, fontsize=7.8, fontweight="bold")
-    ax2.set_xlim(-2.0, 42.0)
+    ax2.set_xlim(-2.0, 44.5)
     ax2.set_xlabel(r"Break-Even Curtailment Threshold $\alpha_b^* = 1 - \eta_b\,\mathrm{MEF}_{\mathrm{dis}}/\mathrm{MEF}_{\mathrm{chg}}$ (%)")
     ax2.set_title("B. Break-Even Curtailment Frontier Across 14 U.S. Grids")
     ax2.grid(True, axis="x", ls=":", alpha=0.4)
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
-    ax2.legend(loc="lower right", fontsize=6.4, frameon=True, framealpha=0.95)
+    ax2.legend(loc="lower right", fontsize=6.3, frameon=True, framealpha=0.95)
 
+    jb = cc["joint_block_bootstrap_1000"]
+    jb_ms = jb["net_sys_main"]
+    jb_ls = jb["net_sys_pure_load"]
+    jb_md = jb["net_dom_main"]
     ax2.text(
-        21.2,
-        2.9,
-        f"CAISO Curtailment-Adj.:\n"
-        f"System: {cc['empirical_curt_adjusted_ciso_net_sys_kg_mwh']:+.1f} kg/MWh\n"
-        f"Domestic: {cc['empirical_curt_adjusted_ciso_net_dom_kg_mwh']:+.1f} kg/MWh\n"
-        f"(vs Naive AEF: {ciso_r['net_aef_kg_mwh']:+.1f})",
+        19.6,
+        3.0,
+        f"CAISO Curt.-Adj. (95% Joint Boot CI):\n"
+        f"Main Sys: {jb_ms['point_estimate']:+.2f} [{jb_ms['ci95_lo']:+.1f}, {jb_ms['ci95_hi']:+.1f}]\n"
+        f"ΔLoad Sys: {jb_ls['point_estimate']:+.2f} [{jb_ls['ci95_lo']:+.1f}, {jb_ls['ci95_hi']:+.1f}]\n"
+        f"Dom. Only: {jb_md['point_estimate']:+.1f} [{jb_md['ci95_lo']:+.1f}, {jb_md['ci95_hi']:+.1f}]\n"
+        f"(kg/MWh; vs. AEF: {ciso_r['net_aef_kg_mwh']:+.1f})",
         va="bottom",
         ha="left",
-        fontsize=6.5,
-        bbox={"boxstyle": "round,pad=0.3", "fc": "#f0fdfa", "ec": TEAL, "alpha": 0.96},
+        fontsize=5.9,
+        bbox={"boxstyle": "round,pad=0.28", "fc": "#f0fdfa", "ec": TEAL, "alpha": 0.96},
     )
 
     _save_fig(fig, "fig4_caiso_noncircular_curtailment_tipping")
@@ -586,10 +593,10 @@ def make_fig5(r2: dict, r3: dict) -> None:
 
     eff_items = sorted(
         [
-            ("ERCO Direct CEMS Net CO2 (>0)", erco_r["net_cems_kg_mwh"] / erco_r["se_net_cems_kg_mwh"], CRIMSON, True),
-            ("CAISO Unadj. CEMS Net CO2 (>0)", ciso_r["net_cems_kg_mwh"] / ciso_r["se_net_cems_kg_mwh"], CRIMSON, True),
+            ("ERCO CEMS-MEF Model (α=0, >0)", erco_r["net_cems_kg_mwh"] / erco_r["se_net_cems_kg_mwh"], CRIMSON, True),
+            ("CAISO CEMS-MEF Model (α=0, >0)", ciso_r["net_cems_kg_mwh"] / ciso_r["se_net_cems_kg_mwh"], CRIMSON, True),
             ("Collider-Free WLS NG (All 49)", abs(sp["WLS_ALL49_NO_EM_SOLAR_NG"]["coefs"]["bess_share"]["t_cr1"]), NAVY, True),
-            ("SOCO Direct CEMS Net CO2 (>0)", soco_r["net_cems_kg_mwh"] / soco_r["se_net_cems_kg_mwh"], CRIMSON, True),
+            ("SOCO CEMS-MEF Model (α=0, >0)", soco_r["net_cems_kg_mwh"] / soco_r["se_net_cems_kg_mwh"], CRIMSON, True),
             ("CAISO Curtailment Dispatch Elast.", abs(cc["dispatch_elasticity_total"]["coefs"]["total_curt_mw"]["t_day"]), TEAL, True),
             ("24h Peak HE 20 NG Displacement", abs(pk_he20["t_cr1"]), NAVY, True),
             ("WLS Drop CISO/ERCO NG (G=47)", abs(sp["WLS_DROP_CE_47_NG"]["coefs"]["bess_share"]["t_cr1"]), NAVY, True),

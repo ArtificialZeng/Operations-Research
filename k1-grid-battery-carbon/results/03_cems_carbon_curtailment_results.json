@@ -2723,8 +2723,84 @@
     },
     "empirical_curt_adjusted_ciso_net_sys_kg_mwh": -0.8010735852872699,
     "empirical_curt_adjusted_ciso_net_dom_kg_mwh": -30.643093559929213,
+    "empirical_curt_adjusted_ciso_pure_load_net_sys_kg_mwh": 1.3392368438100846,
+    "empirical_curt_adjusted_ciso_pure_load_net_dom_kg_mwh": -30.668935639258606,
     "empirical_chg_mef_sys_kg_mwh": 223.85713401537288,
     "empirical_dis_mef_sys_kg_mwh": 259.97066351899525,
+    "empirical_chg_mef_pure_load_sys_kg_mwh": 165.26965249116378,
+    "empirical_dis_mef_pure_load_sys_kg_mwh": 190.0009598982776,
+    "empirical_chg_mef_pure_load_dom_kg_mwh": 101.0107737256012,
+    "empirical_dis_mef_pure_load_dom_kg_mwh": 147.613704545095,
+    "joint_block_bootstrap_1000": {
+      "B": 1000,
+      "seed": 20261127,
+      "n_overlap_days": 549,
+      "n_extra_cems_days": 273,
+      "n_neighbor_bas": 10,
+      "net_sys_main": {
+        "point_estimate": -0.8010735852872699,
+        "boot_mean": -1.2331270030437171,
+        "boot_se": 4.7585873014422635,
+        "ci95_lo": -10.391116577301057,
+        "ci95_hi": 8.15234108440495,
+        "p_boot_vs_zero_2sided": 0.81,
+        "covers_zero": true
+      },
+      "net_dom_main": {
+        "point_estimate": -30.643093559929213,
+        "boot_mean": -30.81894424280961,
+        "boot_se": 4.2669151481868735,
+        "ci95_lo": -39.295766759345874,
+        "ci95_hi": -22.465011842248956,
+        "p_boot_vs_zero_2sided": 0.0,
+        "covers_zero": false
+      },
+      "net_sys_pure_load": {
+        "point_estimate": 1.3392368438100846,
+        "boot_mean": 1.7627735622046403,
+        "boot_se": 8.258237756526675,
+        "ci95_lo": -14.143295113386241,
+        "ci95_hi": 18.620323987280024,
+        "p_boot_vs_zero_2sided": 0.826,
+        "covers_zero": true
+      },
+      "net_dom_pure_load": {
+        "point_estimate": -30.668935639258606,
+        "boot_mean": -30.29654879281744,
+        "boot_se": 6.9162398213742255,
+        "ci95_lo": -44.07487948627706,
+        "ci95_hi": -17.039535520801763,
+        "p_boot_vs_zero_2sided": 0.0,
+        "covers_zero": false
+      },
+      "diff_pure_load_minus_main_sys": {
+        "point_estimate": 2.1403104290973545,
+        "boot_mean": 2.9959005652483572,
+        "boot_se": 7.401311187913222,
+        "ci95_lo": -10.878231167601458,
+        "ci95_hi": 17.926362959445473,
+        "p_boot_vs_zero_2sided": 0.716,
+        "covers_zero": true
+      },
+      "alpha_emp_unspill": {
+        "point_estimate": 0.14146476657241722,
+        "boot_mean": 0.1424636426485294,
+        "boot_se": 0.012601990893812667,
+        "ci95_lo": 0.11762802274039715,
+        "ci95_hi": 0.16721824178653485,
+        "p_boot_vs_zero_2sided": 0.0,
+        "covers_zero": false
+      },
+      "alpha_emp_mef_collapse": {
+        "point_estimate": 0.16716523949807027,
+        "boot_mean": 0.16837006198594048,
+        "boot_se": 0.016730708215275364,
+        "ci95_lo": 0.13461250159501975,
+        "ci95_hi": 0.2015183940101712,
+        "p_boot_vs_zero_2sided": 0.0,
+        "covers_zero": false
+      }
+    },
     "prop2_net_at_emp_unspill_kg_mwh": 18.11324718043784,
     "prop2_net_at_residual_headroom_kg_mwh": 5.412935337834767,
     "dispatch_elasticity_total": {
@@ -2823,5 +2899,5 @@
       }
     }
   },
-  "elapsed_sec": 9.017181396484375
+  "elapsed_sec": 14.035226821899414
 }

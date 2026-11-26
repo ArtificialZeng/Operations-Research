@@ -23,6 +23,7 @@ def main() -> int:
     targets: list[Path] = [
         WS_DIR / "manuscript_k1_boost.md",
         WS_DIR / "manuscript_k1_boost.pdf",
+        WS_DIR / "REFEREE_RESPONSE_v2.md",
     ]
     targets.extend(sorted((WS_DIR / "scripts").glob("*.py")))
     targets.extend(sorted((WS_DIR / "tests").glob("*.py")))

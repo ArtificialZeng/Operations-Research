@@ -98,16 +98,13 @@ def _within_ym_slope(
     return beta, float(np.sqrt(max(var_b, 0.0)))
 
 
-def _joint_24h_within_ym_cov(
+def _extract_24h_trimmed_df(
     gd: pd.DataFrame,
     y_col: str,
     x_col: str,
     trim_mad: float = 8.0,
-) -> tuple[np.ndarray, np.ndarray]:
-    """Joint 24-hour within-(YearMonth x Hour) slope vector beta (24,) and EXACT 24x24
-    date-clustered covariance matrix V_24 capturing full within-day cross-hour correlation,
-    using the exact same deterministic per-hour MAD extreme-ramp glitch mask as _within_ym_slope.
-    """
+) -> pd.DataFrame | None:
+    """Apply the exact per-hour finite + MAD extreme-ramp mask used in 24-hour CEMS MEF estimation."""
     keep_chunks = []
     for h in range(1, 25):
         sh = gd[gd["hour"] == h]
@@ -124,13 +121,68 @@ def _joint_24h_within_ym_cov(
                 if int(np.sum(km)) >= 30:
                     sh = sh.iloc[km]
         keep_chunks.append(sh)
+    if not keep_chunks:
+        return None
+    return pd.concat(keep_chunks, ignore_index=True)
 
+
+def _weighted_24h_within_ym_beta(
+    y: np.ndarray,
+    x: np.ndarray,
+    hr0: np.ndarray,
+    ymh_c: np.ndarray,
+    m_fe: int,
+    w: np.ndarray,
+) -> np.ndarray:
+    """Fast weighted within-(YearMonth x Hour) 24-hour slope vector (exact for integer bootstrap day weights)."""
+    sw = np.bincount(ymh_c, weights=w, minlength=m_fe)
+    sw_safe = np.where(sw > 0.0, sw, 1.0)
+    my = np.bincount(ymh_c, weights=w * y, minlength=m_fe) / sw_safe
+    mx = np.bincount(ymh_c, weights=w * x, minlength=m_fe) / sw_safe
+    yd = y - my[ymh_c]
+    xd = x - mx[ymh_c]
+    sxx = np.bincount(hr0, weights=w * xd * xd, minlength=24)
+    sxy = np.bincount(hr0, weights=w * xd * yd, minlength=24)
+    beta = np.where(sxx >= 1.0, sxy / np.where(sxx >= 1.0, sxx, 1.0), 0.0)
+    return np.clip(beta, 0.0, 1400.0)
+
+
+def _weighted_within_fe_slope(
+    y: np.ndarray,
+    x: np.ndarray,
+    fe_c: np.ndarray,
+    m_fe: int,
+    w: np.ndarray,
+) -> float:
+    """Fast weighted within-FE univariate slope (exact for integer calendar-day bootstrap weights)."""
+    sw = np.bincount(fe_c, weights=w, minlength=m_fe)
+    sw_safe = np.where(sw > 0.0, sw, 1.0)
+    my = np.bincount(fe_c, weights=w * y, minlength=m_fe) / sw_safe
+    mx = np.bincount(fe_c, weights=w * x, minlength=m_fe) / sw_safe
+    yd = y - my[fe_c]
+    xd = x - mx[fe_c]
+    sxx = float(np.sum(w * xd * xd))
+    if sxx < 1.0:
+        return 0.0
+    return float(np.sum(w * xd * yd) / sxx)
+
+
+def _joint_24h_within_ym_cov(
+    gd: pd.DataFrame,
+    y_col: str,
+    x_col: str,
+    trim_mad: float = 8.0,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Joint 24-hour within-(YearMonth x Hour) slope vector beta (24,) and EXACT 24x24
+    date-clustered covariance matrix V_24 capturing full within-day cross-hour correlation,
+    using the exact same deterministic per-hour MAD extreme-ramp glitch mask as _within_ym_slope.
+    """
     beta = np.zeros(24, dtype=np.float64)
     V = np.zeros((24, 24), dtype=np.float64)
-    if not keep_chunks:
+    df = _extract_24h_trimmed_df(gd, y_col, x_col, trim_mad=trim_mad)
+    if df is None:
         return beta, V
 
-    df = pd.concat(keep_chunks, ignore_index=True)
     n = len(df)
     hrs = df["hour"].to_numpy(dtype=np.int32)
     y = df[y_col].to_numpy(dtype=np.float64)
@@ -237,6 +289,7 @@ def main() -> int:
     print("[03.1] Estimating 24-hour EPA CEMS smokestack MEFs (with exact 24x24 date-clustered V) across all BAs...", flush=True)
     cems_dom_beta: dict[str, np.ndarray] = {}  # ba -> (24,) clipped kg/MWh
     cems_dom_V: dict[str, np.ndarray] = {}  # ba -> (24, 24) exact date-clustered covariance
+    cems_dom_gd_trim: dict[str, pd.DataFrame] = {}  # trimmed rows for joint date-clustered bootstrap
     cems_dom_comp: dict[tuple[str, int], dict[str, float]] = {}
     egrid_dom_mef: dict[tuple[str, int], float] = {}
     ba_aef_dom: dict[tuple[str, int], float] = {}
@@ -284,6 +337,9 @@ def main() -> int:
         b24_raw, V24 = _joint_24h_within_ym_cov(gd, "d_co2", "d_disp", trim_mad=8.0)
         cems_dom_beta[ba] = np.clip(b24_raw, 0.0, 1400.0)
         cems_dom_V[ba] = V24
+        gd_trim_ba = _extract_24h_trimmed_df(gd, "d_co2", "d_disp", trim_mad=8.0)
+        if gd_trim_ba is not None:
+            cems_dom_gd_trim[ba] = gd_trim_ba[["date", "hour", "ym", "d_co2", "d_disp"]].copy()
 
         ef_coal = get_ba_ef(ba, "COAL")
         ef_ngcc = get_ba_ef(ba, "NGCC")
@@ -703,10 +759,12 @@ def main() -> int:
     curt_bin_rows = []
     bin_mef_sys_map = {}
     bin_mef_dom_map = {}
+    bin_mef_pure_load_sys_map = {}
+    bin_mef_pure_load_dom_map = {}
     bin_unspill_map = {}
     print(
         f"  {'Curtailment Bin':22s} {'Hrs':6s} {'IntHr':5s} {'%Chg':6s} {'%Dis':6s} "
-        f"{'MEF_dom':8s} {'MEF_sys':8s} {'dCO2/dL':8s} {'-dC/dNL':8s}",
+        f"{'MEF_dom':8s} {'MEF_sys':8s} {'dL_dom':8s} {'dL_sys':8s} {'-dC/dNL':8s}",
         flush=True,
     )
     for lbl, mask_all, mask_int in curt_bins:
@@ -779,6 +837,8 @@ def main() -> int:
 
         bin_mef_dom_map[lbl] = max(m_dom, 0.0)
         bin_mef_sys_map[lbl] = max(m_sys, 0.0)
+        bin_mef_pure_load_dom_map[lbl] = max(m_dom_l, 0.0)
+        bin_mef_pure_load_sys_map[lbl] = max(m_sys_l, 0.0)
         bin_unspill_map[lbl] = max(-b_cr, 0.0)
         curt_bin_rows.append(
             {
@@ -806,7 +866,7 @@ def main() -> int:
         )
         print(
             f"  {lbl:22s} {len(sub_all):6d} {len(sd):5d} {pct_chg:5.1f}% {pct_dis:5.1f}% "
-            f"{m_dom:+8.1f} {m_sys:+8.1f} {m_dom_l:+8.1f} {-100*b_cr:7.1f}%",
+            f"{m_dom:+8.1f} {m_sys:+8.1f} {m_dom_l:+8.1f} {m_sys_l:+8.1f} {-100*b_cr:7.1f}%",
             flush=True,
         )
 
@@ -838,6 +898,8 @@ def main() -> int:
     cc["curt_bin"] = cc["total_curt_mw"].map(assign_bin)
     cc["emp_mef_sys"] = cc["curt_bin"].map(bin_mef_sys_map)
     cc["emp_mef_dom"] = cc["curt_bin"].map(bin_mef_dom_map)
+    cc["emp_mef_pure_load_sys"] = cc["curt_bin"].map(bin_mef_pure_load_sys_map)
+    cc["emp_mef_pure_load_dom"] = cc["curt_bin"].map(bin_mef_pure_load_dom_map)
     cc["emp_unspill"] = cc["curt_bin"].map(bin_unspill_map)
 
     emp_chg_mef_sys = float(np.average(cc["emp_mef_sys"].values, weights=cc["chg_mw"].values))
@@ -848,12 +910,227 @@ def main() -> int:
     emp_dis_mef_dom = float(np.average(cc["emp_mef_dom"].values, weights=cc["dis_mw"].values))
     emp_net_ciso_dom = float(emp_chg_mef_dom / ciso_rte_overlap - emp_dis_mef_dom)
 
+    emp_chg_mef_pure_load_sys = float(
+        np.average(cc["emp_mef_pure_load_sys"].values, weights=cc["chg_mw"].values)
+    )
+    emp_dis_mef_pure_load_sys = float(
+        np.average(cc["emp_mef_pure_load_sys"].values, weights=cc["dis_mw"].values)
+    )
+    emp_net_ciso_pure_load_sys = float(
+        emp_chg_mef_pure_load_sys / ciso_rte_overlap - emp_dis_mef_pure_load_sys
+    )
+
+    emp_chg_mef_pure_load_dom = float(
+        np.average(cc["emp_mef_pure_load_dom"].values, weights=cc["chg_mw"].values)
+    )
+    emp_dis_mef_pure_load_dom = float(
+        np.average(cc["emp_mef_pure_load_dom"].values, weights=cc["dis_mw"].values)
+    )
+    emp_net_ciso_pure_load_dom = float(
+        emp_chg_mef_pure_load_dom / ciso_rte_overlap - emp_dis_mef_pure_load_dom
+    )
+
     # Direct Empirical Marginal Curtailment Absorption Rates (ZERO post-dispatch fallacy!)
     # (1) Charging-weighted marginal un-curtailment slope across the 4 interior regimes
     alpha_emp_unspill = float(np.average(cc["emp_unspill"].values, weights=cc["chg_mw"].values))
     # (2) Charging-weighted empirical fractional CEMS System MEF reduction relative to 0 MW baseline
     mef0_sys = bin_mef_sys_map["0 MW (No Curtailment)"]
     alpha_emp_mef_sys = float(max(0.0, 1.0 - emp_chg_mef_sys / max(mef0_sys, 1.0)))
+
+    # ------------------------------------------------------------------
+    # JOINT DATE-CLUSTERED BLOCK BOOTSTRAP (B = 1,000) FOR CAISO CURTAILMENT-STRATIFIED NET CO2
+    # Jointly resamples full calendar days across:
+    #   (1) all CISO bilateral neighbor BAs' 24-hour CEMS MEF curves (import uncertainty),
+    #   (2) all 4 CAISO strictly interior curtailment-regime regressions (main & pure dLoad,
+    #       domestic & system, capturing cross-regime & diurnal correlation), and
+    #   (3) all 13,170 CAISO hourly battery charging/discharging weights & RTE!
+    # ------------------------------------------------------------------
+    print("\n[03.4] Running Joint Date-Clustered Block Bootstrap (B=1,000) for CAISO Curtailment Net CO2...", flush=True)
+    B_BOOT = 1000
+    BOOT_SEED = 20261127
+
+    ciso_nbr_pairs = get_neighbor_weights("CISO", weight_col="weight")
+    overlap_dates = np.sort(cc["date"].unique())
+    n_ov_days = len(overlap_dates)
+    all_nbr_dates_set = set(overlap_dates.tolist())
+    for diba, _ in ciso_nbr_pairs:
+        if diba in cems_dom_gd_trim:
+            all_nbr_dates_set.update(cems_dom_gd_trim[diba]["date"].unique().tolist())
+    extra_dates = np.sort(np.array(sorted(all_nbr_dates_set - set(overlap_dates.tolist()))))
+    n_ex_days = len(extra_dates)
+    all_boot_dates = np.concatenate([overlap_dates, extra_dates])
+    date_to_bidx = {d: idx for idx, d in enumerate(all_boot_dates)}
+
+    # Pre-encode CISO neighbor BA trimmed 24h arrays mapped to global calendar-day indices
+    nbr_boot_structs = []
+    for diba, w_norm in ciso_nbr_pairs:
+        gdf_n = cems_dom_gd_trim[diba]
+        ymh_n_c, ymh_n_u = pd.factorize(
+            (gdf_n["ym"].astype(str) + "_" + gdf_n["hour"].astype(str)).to_numpy(), sort=False
+        )
+        d_idx_n = np.array([date_to_bidx[d] for d in gdf_n["date"].to_numpy()], dtype=np.int32)
+        nbr_boot_structs.append(
+            {
+                "ba": diba,
+                "w_norm": float(w_norm),
+                "d_idx": d_idx_n,
+                "hr0": (gdf_n["hour"].to_numpy(dtype=np.int32) - 1),
+                "ymh_c": ymh_n_c.astype(np.int32),
+                "m_fe": len(ymh_n_u),
+                "y": gdf_n["d_co2"].to_numpy(dtype=np.float64),
+                "x": gdf_n["d_disp"].to_numpy(dtype=np.float64),
+            }
+        )
+
+    # Pre-encode CAISO 4 interior curtailment regimes mapped to global calendar-day indices
+    bin_labels = [b[0] for b in curt_bins]
+    bin_label_to_k = {lbl: k for k, lbl in enumerate(bin_labels)}
+    cc_d_idx = np.array([date_to_bidx[d] for d in cc["date"].to_numpy()], dtype=np.int32)
+    cc_bin_k = np.array([bin_label_to_k[lbl] for lbl in cc["curt_bin"].to_numpy()], dtype=np.int32)
+    cc_chg = cc["chg_mw"].to_numpy(dtype=np.float64)
+    cc_dis = cc["dis_mw"].to_numpy(dtype=np.float64)
+
+    # Pre-aggregate daily charging/discharging energy by (day_idx, bin_k) for O(N_days) bootstrap weights
+    day_chg_by_bin = np.zeros((n_ov_days, 4), dtype=np.float64)
+    day_dis_by_bin = np.zeros((n_ov_days, 4), dtype=np.float64)
+    for k in range(4):
+        mk = cc_bin_k == k
+        day_chg_by_bin[:, k] = np.bincount(cc_d_idx[mk], weights=cc_chg[mk], minlength=n_ov_days)
+        day_dis_by_bin[:, k] = np.bincount(cc_d_idx[mk], weights=cc_dis[mk], minlength=n_ov_days)
+
+    bin_boot_structs = []
+    for _lbl, _m_all, mask_int in curt_bins:
+        sd_k = cc_diff[mask_int]
+        fe_k_c, fe_k_u = pd.factorize(sd_k["ym_hr"].to_numpy(), sort=False)
+        d_idx_k = np.array([date_to_bidx[d] for d in sd_k["date"].to_numpy()], dtype=np.int32)
+        bin_boot_structs.append(
+            {
+                "d_idx": d_idx_k,
+                "hr0": (sd_k["hour"].to_numpy(dtype=np.int32) - 1),
+                "fe_c": fe_k_c.astype(np.int32),
+                "m_fe": len(fe_k_u),
+                "d_co2": sd_k["d_co2"].to_numpy(dtype=np.float64),
+                "d_imp": sd_k["d_imp"].to_numpy(dtype=np.float64),
+                "d_net_pot": sd_k["d_net_pot"].to_numpy(dtype=np.float64),
+                "d_load": sd_k["d_load"].to_numpy(dtype=np.float64),
+                "d_curt": sd_k["d_curt"].to_numpy(dtype=np.float64),
+            }
+        )
+
+    def _eval_caiso_curtailment_stat(day_mult_all: np.ndarray) -> tuple[float, float, float, float, float, float, np.ndarray]:
+        # 1. Re-estimate CISO trade-weighted 24h neighbor CEMS MEF vector on resampled days
+        nbr_vec_b = np.zeros(24, dtype=np.float64)
+        for ns in nbr_boot_structs:
+            wn = day_mult_all[ns["d_idx"]]
+            b24_n = _weighted_24h_within_ym_beta(ns["y"], ns["x"], ns["hr0"], ns["ymh_c"], ns["m_fe"], wn)
+            nbr_vec_b += ns["w_norm"] * b24_n
+
+        # 2. Re-estimate all 4 interior curtailment-regime MEFs jointly on the SAME resampled days
+        m_sys_b = np.empty(4, dtype=np.float64)
+        m_dom_b = np.empty(4, dtype=np.float64)
+        m_ld_sys_b = np.empty(4, dtype=np.float64)
+        m_ld_dom_b = np.empty(4, dtype=np.float64)
+        unsp_b = np.empty(4, dtype=np.float64)
+        for k, bs in enumerate(bin_boot_structs):
+            wk = day_mult_all[bs["d_idx"]]
+            d_sys_co2_k = bs["d_co2"] + bs["d_imp"] * nbr_vec_b[bs["hr0"]]
+            m_dom_b[k] = _weighted_within_fe_slope(bs["d_co2"], bs["d_net_pot"], bs["fe_c"], bs["m_fe"], wk)
+            m_sys_b[k] = _weighted_within_fe_slope(d_sys_co2_k, bs["d_net_pot"], bs["fe_c"], bs["m_fe"], wk)
+            m_ld_dom_b[k] = _weighted_within_fe_slope(bs["d_co2"], bs["d_load"], bs["fe_c"], bs["m_fe"], wk)
+            m_ld_sys_b[k] = _weighted_within_fe_slope(d_sys_co2_k, bs["d_load"], bs["fe_c"], bs["m_fe"], wk)
+            unsp_b[k] = max(
+                0.0,
+                -_weighted_within_fe_slope(bs["d_curt"], bs["d_net_pot"], bs["fe_c"], bs["m_fe"], wk),
+            )
+
+        # 3. Re-compute CAISO battery charge/discharge bin weights & RTE on the SAME overlap days
+        m_ov = day_mult_all[:n_ov_days]
+        chg_k = m_ov @ day_chg_by_bin
+        dis_k = m_ov @ day_dis_by_bin
+        tot_chg_b = float(np.sum(chg_k))
+        tot_dis_b = float(np.sum(dis_k))
+        rte_b = tot_dis_b / max(tot_chg_b, 1.0)
+        p_chg_b = chg_k / max(tot_chg_b, 1.0)
+        p_dis_b = dis_k / max(tot_dis_b, 1.0)
+
+        net_sys_b = float((p_chg_b @ m_sys_b) / rte_b - (p_dis_b @ m_sys_b))
+        net_dom_b = float((p_chg_b @ m_dom_b) / rte_b - (p_dis_b @ m_dom_b))
+        net_ld_sys_b = float((p_chg_b @ m_ld_sys_b) / rte_b - (p_dis_b @ m_ld_sys_b))
+        net_ld_dom_b = float((p_chg_b @ m_ld_dom_b) / rte_b - (p_dis_b @ m_ld_dom_b))
+        a_unsp_b = float(p_chg_b @ unsp_b)
+        a_mef_b = float(max(0.0, 1.0 - (p_chg_b @ m_sys_b) / max(m_sys_b[0], 1.0)))
+        return net_sys_b, net_dom_b, net_ld_sys_b, net_ld_dom_b, a_unsp_b, a_mef_b, nbr_vec_b
+
+    # Exact algebraic unit-weight verification against main point estimates (atol = 1e-10)
+    unit_mult = np.ones(len(all_boot_dates), dtype=np.float64)
+    u_sys, u_dom, u_lsys, u_ldom, u_aunsp, u_amef, u_nbr = _eval_caiso_curtailment_stat(unit_mult)
+    assert np.allclose(u_nbr, ciso_nbr_vec, atol=1e-10), "Neighbor 24h CEMS bootstrap unit check failed"
+    assert abs(u_sys - emp_net_ciso_sys) < 1e-10, f"Unit check net_sys mismatch: {u_sys} vs {emp_net_ciso_sys}"
+    assert abs(u_dom - emp_net_ciso_dom) < 1e-10, f"Unit check net_dom mismatch: {u_dom} vs {emp_net_ciso_dom}"
+    assert abs(u_lsys - emp_net_ciso_pure_load_sys) < 1e-10, "Unit check pure_load_sys mismatch"
+    assert abs(u_ldom - emp_net_ciso_pure_load_dom) < 1e-10, "Unit check pure_load_dom mismatch"
+    assert abs(u_aunsp - alpha_emp_unspill) < 1e-10, "Unit check alpha_emp_unspill mismatch"
+    assert abs(u_amef - alpha_emp_mef_sys) < 1e-10, "Unit check alpha_emp_mef_sys mismatch"
+
+    rng_boot = np.random.default_rng(BOOT_SEED)
+    p_ov = np.full(n_ov_days, 1.0 / n_ov_days, dtype=np.float64)
+    p_ex = np.full(n_ex_days, 1.0 / max(n_ex_days, 1), dtype=np.float64)
+    b_net_sys = np.empty(B_BOOT, dtype=np.float64)
+    b_net_dom = np.empty(B_BOOT, dtype=np.float64)
+    b_net_ld_sys = np.empty(B_BOOT, dtype=np.float64)
+    b_net_ld_dom = np.empty(B_BOOT, dtype=np.float64)
+    b_a_unsp = np.empty(B_BOOT, dtype=np.float64)
+    b_a_mef = np.empty(B_BOOT, dtype=np.float64)
+
+    for bi in range(B_BOOT):
+        m_ov_i = rng_boot.multinomial(n_ov_days, p_ov).astype(np.float64)
+        m_ex_i = (
+            rng_boot.multinomial(n_ex_days, p_ex).astype(np.float64)
+            if n_ex_days > 0
+            else np.empty(0, dtype=np.float64)
+        )
+        m_all_i = np.concatenate([m_ov_i, m_ex_i])
+        ns_b, nd_b, nls_b, nld_b, au_b, am_b, _ = _eval_caiso_curtailment_stat(m_all_i)
+        b_net_sys[bi] = ns_b
+        b_net_dom[bi] = nd_b
+        b_net_ld_sys[bi] = nls_b
+        b_net_ld_dom[bi] = nld_b
+        b_a_unsp[bi] = au_b
+        b_a_mef[bi] = am_b
+
+    def _summarize_boot(pt: float, arr: np.ndarray) -> dict[str, float | bool]:
+        lo = float(np.percentile(arr, 2.5))
+        hi = float(np.percentile(arr, 97.5))
+        se = float(np.std(arr, ddof=1))
+        p_le0 = float(np.mean(arr <= 0.0))
+        p_ge0 = float(np.mean(arr >= 0.0))
+        p_2s = float(min(1.0, 2.0 * min(p_le0, p_ge0)))
+        return {
+            "point_estimate": float(pt),
+            "boot_mean": float(np.mean(arr)),
+            "boot_se": se,
+            "ci95_lo": lo,
+            "ci95_hi": hi,
+            "p_boot_vs_zero_2sided": p_2s,
+            "covers_zero": bool(lo <= 0.0 <= hi),
+        }
+
+    joint_boot_summary = {
+        "B": int(B_BOOT),
+        "seed": int(BOOT_SEED),
+        "n_overlap_days": int(n_ov_days),
+        "n_extra_cems_days": int(n_ex_days),
+        "n_neighbor_bas": len(nbr_boot_structs),
+        "net_sys_main": _summarize_boot(emp_net_ciso_sys, b_net_sys),
+        "net_dom_main": _summarize_boot(emp_net_ciso_dom, b_net_dom),
+        "net_sys_pure_load": _summarize_boot(emp_net_ciso_pure_load_sys, b_net_ld_sys),
+        "net_dom_pure_load": _summarize_boot(emp_net_ciso_pure_load_dom, b_net_ld_dom),
+        "diff_pure_load_minus_main_sys": _summarize_boot(
+            emp_net_ciso_pure_load_sys - emp_net_ciso_sys, b_net_ld_sys - b_net_sys
+        ),
+        "alpha_emp_unspill": _summarize_boot(alpha_emp_unspill, b_a_unsp),
+        "alpha_emp_mef_collapse": _summarize_boot(alpha_emp_mef_sys, b_a_mef),
+    }
 
     ciso_row = next(r for r in ba_carbon_rows if r["ba"] == "CISO")
     ciso_alpha_star = float(ciso_row["alpha_star_cems"])
@@ -883,15 +1160,26 @@ def main() -> int:
         col_names=["system_curt_mw", "local_curt_mw", "fs_load", "solar_mw", "wind_mw"],
         nw_lags=24,
     )
+    jb_ms = joint_boot_summary["net_sys_main"]
+    jb_md = joint_boot_summary["net_dom_main"]
+    jb_ls = joint_boot_summary["net_sys_pure_load"]
+    jb_ld = joint_boot_summary["net_dom_pure_load"]
     print(
-        f"\n  CAISO Non-Circular Summary (2024-07..2025-12, {len(cc):,} hrs):\n"
+        f"\n  CAISO Non-Circular Summary (2024-07..2025-12, {len(cc):,} hrs, B={B_BOOT} Joint Day-Clustered Bootstrap):\n"
         f"    Observed Curt>0 Chg Share (alpha_any)            = {100*alpha_any_curt:.1f}%\n"
         f"    Empirical Marginal Un-Curtailment (alpha_unspill)= {100*alpha_emp_unspill:.1f}% "
         f"(Empirical MEF-Collapse alpha_mef = {100*alpha_emp_mef_sys:.1f}%)\n"
         f"    Incremental Residual Headroom (rho_res, Cor 2.1) = {100*rho_residual_headroom_tot:.1f}% "
         f"(System-only = {100*rho_residual_headroom_sys:.1f}%)\n"
         f"    Thermodynamic Break-Even (alpha*_CISO)           = {100*ciso_alpha_star:.1f}%\n"
-        f"    Curtailment-Stratified CEMS Net CO2 (Sys / Dom)  = {emp_net_ciso_sys:+.1f} / {emp_net_ciso_dom:+.1f} kg/MWh\n"
+        f"    Main System Net CO2 (dNetLoad_pot)               = {emp_net_ciso_sys:+.2f} kg/MWh "
+        f"(boot SE={jb_ms['boot_se']:.2f}, 95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}], p={jb_ms['p_boot_vs_zero_2sided']:.3f})\n"
+        f"    Pure Exog. dLoad System Net CO2                  = {emp_net_ciso_pure_load_sys:+.2f} kg/MWh "
+        f"(boot SE={jb_ls['boot_se']:.2f}, 95% CI [{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}], p={jb_ls['p_boot_vs_zero_2sided']:.3f})\n"
+        f"    Main Domestic Net CO2 (dNetLoad_pot)             = {emp_net_ciso_dom:+.2f} kg/MWh "
+        f"(boot SE={jb_md['boot_se']:.2f}, 95% CI [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}], p={jb_md['p_boot_vs_zero_2sided']:.3f})\n"
+        f"    Pure Exog. dLoad Domestic Net CO2                = {emp_net_ciso_pure_load_dom:+.2f} kg/MWh "
+        f"(boot SE={jb_ld['boot_se']:.2f}, 95% CI [{jb_ld['ci95_lo']:+.2f}, {jb_ld['ci95_hi']:+.2f}], p={jb_ld['p_boot_vs_zero_2sided']:.3f})\n"
         f"    Prop-2 Net CO2 at alpha_unspill / rho_res        = {prop2_net_at_emp_unspill:+.1f} / {prop2_net_at_residual_headroom:+.1f} kg/MWh\n"
         f"    Dispatch Elasticity dChg/dCurt (Total)           = {r_disp_tot['coefs']['total_curt_mw']['beta']:+.4f} "
         f"(t={r_disp_tot['coefs']['total_curt_mw']['t_day']:+.2f})",
@@ -942,8 +1230,15 @@ def main() -> int:
             "system_curt_gt500_mef_sys": r_sys500["coefs"]["d_net_pot"],
             "empirical_curt_adjusted_ciso_net_sys_kg_mwh": emp_net_ciso_sys,
             "empirical_curt_adjusted_ciso_net_dom_kg_mwh": emp_net_ciso_dom,
+            "empirical_curt_adjusted_ciso_pure_load_net_sys_kg_mwh": emp_net_ciso_pure_load_sys,
+            "empirical_curt_adjusted_ciso_pure_load_net_dom_kg_mwh": emp_net_ciso_pure_load_dom,
             "empirical_chg_mef_sys_kg_mwh": emp_chg_mef_sys,
             "empirical_dis_mef_sys_kg_mwh": emp_dis_mef_sys,
+            "empirical_chg_mef_pure_load_sys_kg_mwh": emp_chg_mef_pure_load_sys,
+            "empirical_dis_mef_pure_load_sys_kg_mwh": emp_dis_mef_pure_load_sys,
+            "empirical_chg_mef_pure_load_dom_kg_mwh": emp_chg_mef_pure_load_dom,
+            "empirical_dis_mef_pure_load_dom_kg_mwh": emp_dis_mef_pure_load_dom,
+            "joint_block_bootstrap_1000": joint_boot_summary,
             "prop2_net_at_emp_unspill_kg_mwh": prop2_net_at_emp_unspill,
             "prop2_net_at_residual_headroom_kg_mwh": prop2_net_at_residual_headroom,
             "dispatch_elasticity_total": r_disp_tot,

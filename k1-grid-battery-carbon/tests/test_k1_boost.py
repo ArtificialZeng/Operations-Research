@@ -417,6 +417,96 @@ def test_caiso_empirical_absorption_and_incremental_headroom_rigor() -> None:
     assert "physical curtailment absorption cannot exceed" not in md_txt.lower()
 
 
+def test_caiso_pure_load_and_joint_block_bootstrap_invariants() -> None:
+    """Verify v2 CAISO pure exogenous dLoad re-weighting (~+1.34 kg/MWh) & B=1,000 joint block-bootstrap CIs."""
+    r3 = _load_json("03_cems_carbon_curtailment_results.json")
+    cc = r3["caiso_noncircular_curtailment"]
+
+    net_sys_main = cc["empirical_curt_adjusted_ciso_net_sys_kg_mwh"]
+    net_sys_load = cc["empirical_curt_adjusted_ciso_pure_load_net_sys_kg_mwh"]
+    net_dom_main = cc["empirical_curt_adjusted_ciso_net_dom_kg_mwh"]
+    net_dom_load = cc["empirical_curt_adjusted_ciso_pure_load_net_dom_kg_mwh"]
+
+    # Point estimates straddle zero across main (-0.80) vs pure dLoad (+1.34) system specs!
+    assert -2.5 < net_sys_main < 0.0
+    assert 0.5 < net_sys_load < 2.5
+    assert -35.0 < net_dom_main < -25.0
+    assert -35.0 < net_dom_load < -25.0
+
+    jb = cc["joint_block_bootstrap_1000"]
+    assert jb["B"] == 1000
+    assert jb["n_overlap_days"] == 549
+    assert jb["n_neighbor_bas"] >= 5
+
+    for key in ("net_sys_main", "net_sys_pure_load"):
+        b_stat = jb[key]
+        assert b_stat["covers_zero"] is True, f"{key} joint 95% CI must cover zero"
+        assert b_stat["ci95_lo"] < 0.0 < b_stat["ci95_hi"]
+        assert b_stat["boot_se"] > 2.0
+        assert b_stat["p_boot_vs_zero_2sided"] > 0.20
+
+    assert jb["net_dom_main"]["covers_zero"] is False
+    assert jb["net_dom_pure_load"]["covers_zero"] is False
+
+    # Verify both specs & joint CIs are synced into manuscript MD & compiled PDF
+    md_txt = (WS_DIR / "manuscript_k1_boost.md").read_text(encoding="utf-8")
+    pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(WS_DIR / "manuscript_k1_boost.pdf")).pages)
+    for token in (
+        f"{net_sys_main:+.2f}",
+        f"{net_sys_load:+.2f}",
+        f"{jb['net_sys_main']['ci95_lo']:+.2f}",
+        f"{jb['net_sys_main']['ci95_hi']:+.2f}",
+        f"{jb['net_sys_pure_load']['ci95_lo']:+.2f}",
+        f"{jb['net_sys_pure_load']['ci95_hi']:+.2f}",
+    ):
+        assert token in md_txt, f"CAISO bootstrap token {token!r} missing from manuscript_k1_boost.md"
+        # Edge PDF uses Unicode minus (U+2212) in math spans and ASCII hyphen in plain text
+        assert (token in pdf_txt) or (token.replace("-", "\u2212") in pdf_txt), (
+            f"CAISO bootstrap token {token!r} missing from manuscript_k1_boost.pdf"
+        )
+
+
+def test_referee_v2_scientific_precision_invariants() -> None:
+    """Verify all 4 external referee v2 scientific precision & framing requirements in MD & PDF."""
+    md_txt = (WS_DIR / "manuscript_k1_boost.md").read_text(encoding="utf-8")
+    pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(WS_DIR / "manuscript_k1_boost.pdf")).pages)
+    md_lo = md_txt.lower()
+    pdf_lo = pdf_txt.lower()
+
+    # 1. Objective framing of +5,553 MW EIA-930 vs CAISO midday NG discrepancy (ZERO 'corruption' phrasing!)
+    forbidden_phrases = [
+        "federal data corruption",
+        "federal reporting corruption",
+        "reporting corruptions",
+        "natural-gas corruption",
+        "phantom gas",
+        "phantom natural gas",
+        "direct epa cems measures",
+        "direct epa cems smokestack mefs measure",
+    ]
+    for bad in forbidden_phrases:
+        assert bad not in md_lo, f"Forbidden phrasing {bad!r} found in manuscript_k1_boost.md"
+        assert bad not in pdf_lo, f"Forbidden phrasing {bad!r} found in manuscript_k1_boost.pdf"
+    assert "reporting discrepancy" in md_lo
+
+    # 2. Exact scientific meaning of +7.44 Mt CO2 as counterfactual accounting discrepancy
+    assert "counterfactual accounting discrepancy" in md_lo
+    assert "counterfactual accounting discrepancy" in pdf_lo
+
+    # 3. Prominent No Controls (-0.0579, p = 0.576) disclosure in BOTH Abstract AND Section 4
+    abs_sec = md_txt.split("## Abstract", 1)[1].split("## 1. Introduction", 1)[0]
+    sec4_sec = md_txt.split("## 4.", 1)[1].split("## 5.", 1)[0]
+    for sec_name, sec_txt in [("Abstract", abs_sec), ("Section 4", sec4_sec)]:
+        assert "No Controls" in sec_txt, f"No Controls missing from {sec_name}"
+        assert "-0.0579" in sec_txt, f"-0.0579 missing from {sec_name}"
+        assert "0.576" in sec_txt, f"p_Rad = 0.576 missing from {sec_name}"
+
+    # 4. Explicit 3-Sample Architecture Summary (Box 1) & 83% domestic vs 60% system drop clarity
+    assert "Box 1." in md_txt and "Box 1." in pdf_txt
+    assert "Sample 1:" in md_txt and "Sample 2:" in md_txt and "Sample 3:" in md_txt
+    assert "83%" in abs_sec and "60%" in abs_sec
+
+
 # ------------------------------------------------------------------
 # 6. Pillar 2 Formal Thermodynamic Model Invariants
 # ------------------------------------------------------------------

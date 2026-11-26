@@ -40,6 +40,7 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
     r1 = json.loads((RES_DIR / "01_telemetry_audit.json").read_text(encoding="utf-8"))
     r2 = json.loads((RES_DIR / "02_panel_a_wls_results.json").read_text(encoding="utf-8"))
     r3 = json.loads((RES_DIR / "03_cems_carbon_curtailment_results.json").read_text(encoding="utf-8"))
+    r4 = json.loads((RES_DIR / "04_formal_model_verification.json").read_text(encoding="utf-8"))
 
     sp = r2["main_and_robustness_specs"]
     ll = r2["distributed_6m_lead_lag"]["WLS_ALL49_BA_YM"]
@@ -65,6 +66,11 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
 
     dom_drop_pct = 100.0 * (1.0 - bins[3]["mef_cems_dom_kg_mwh"] / bins[0]["mef_cems_dom_kg_mwh"])
     sys_drop_pct = 100.0 * (1.0 - bins[3]["mef_cems_sys_kg_mwh"] / bins[0]["mef_cems_sys_kg_mwh"])
+    jb = cc["joint_block_bootstrap_1000"]
+    jb_ms = jb["net_sys_main"]
+    jb_ls = jb["net_sys_pure_load"]
+    jb_md = jb["net_dom_main"]
+    m_noctrl = sp["WLS_ALL49_NO_CONTROLS_NG"]
     cems_r_min = min(cems_al[b]["r_at_lag0"] for b in ["CISO", "ERCO", "MISO", "SOCO", "DUK"])
     cems_r_max = max(cems_al[b]["r_at_lag0"] for b in ["CISO", "ERCO", "MISO", "SOCO", "DUK"])
 
@@ -89,29 +95,30 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
 
     return {
         "fig1_diurnal_gas_displacement_and_leads.png": (
-            "Figure 1. 24-Hour Demand-Weighted WLS Natural-Gas Displacement Profile, Distributed 6-Month Lead-Lag Timing, and Robustness Forest (G = 49 U.S. BAs, 2019&ndash;2026).",
+            "Figure 1. 24-Hour Demand-Weighted WLS Conditional Natural-Gas Displacement Profile, Distributed 6-Month Lead-Lag Timing, and Robustness Forest (Sample 1: G = 49 U.S. BAs, 2019&ndash;2026).",
             (
-                f"Panel A plots local Hour-Ending WLS (<em>d</em><sub>19</sub> demand-weighted, repaired CISO) natural-gas responses relative to the overnight idle baseline "
+                f"Panel A plots local Hour-Ending conditional WLS (<em>d</em><sub>19</sub> demand-weighted, aligned CISO) natural-gas responses relative to the overnight idle baseline "
                 f"(HE 2&ndash;5, &plusmn;95% BA-clustered CR1 CIs): gas displacement peaks sharply at Hour Ending 20 "
                 f"({pk_all['beta']:+.3f}, <em>t</em> = {pk_all['t_cr1']:+.2f} across all 49 BAs; {pk_dce['beta']:+.3f}, <em>t</em> = {pk_dce['t_cr1']:+.2f} "
                 f"dropping CISO and ERCO), mirroring midday charging increases while baseload nuclear remains identically zero. "
                 f"Panel B contrasts the calendar-aligned distributed 6-month timing specification (top: installed <code>Stock(t-12)</code> = {ll['terms']['stock_tm12']['beta']:+.3f}, "
                 f"recent additions {ll['terms']['add_tm12_tm6']['beta']:+.3f} and {ll['terms']['add_tm6_t0']['beta']:+.3f} vs. spotless unbuilt future leads "
                 f"{ll['terms']['fut_t0_tp6']['beta']:+.3f} and {ll['terms']['fut_tp6_tp12']['beta']:+.3f}, Joint Future <em>F</em> = {ll['joint_future_leads_F']['F']:.2f}, "
-                f"<em>p</em> = {ll['joint_future_leads_F']['p']:.3f}) against eight WLS robustness checks (bottom: Main All 49 = {sp['WLS_ALL49_MAIN_NG']['coefs']['bess_share']['beta']:+.3f}, "
+                f"<em>p</em> = {ll['joint_future_leads_F']['p']:.3f}) against eight controlled WLS robustness checks (bottom: Main All 49 = {sp['WLS_ALL49_MAIN_NG']['coefs']['bess_share']['beta']:+.3f} "
+                f"vs. uncontrolled solar-confounded No Controls = {m_noctrl['coefs']['bess_share']['beta']:+.4f}, <em>p</em><sub>Rad</sub> = {_fmt_p_html(m_noctrl['wcb']['p_wcb'])}; "
                 f"Collider-Free = {sp['WLS_ALL49_NO_EM_SOLAR_NG']['coefs']['bess_share']['beta']:+.3f}, Drop CISO &amp; ERCO = {sp['WLS_DROP_CE_47_NG']['coefs']['bess_share']['beta']:+.3f}, "
                 f"Drop Top-7 BESS = {sp['WLS_DROP_TOP7_42_NG']['coefs']['bess_share']['beta']:+.3f}, BA &times; Post2024H2 FE = {sp['WLS_ALL49_BA_POST24H2_NG']['coefs']['bess_share']['beta']:+.3f}, "
                 f"Pre/Post-Schema splits, and BA linear trends; 49-BA LOBAO max <em>p</em><sub>CR1</sub> = {lob['p_cr1_max']:.4f})."
             ),
         ),
         "fig2_telemetry_forensics_and_diurnal_charging.png": (
-            "Figure 2. Physical Storage Telemetry Forensics, Official Standalone CAISO Repair, and Exact 4-Window Disjoint Diurnal Charging Mix (14 Metered Grids, 2024-07 to 2026-10).",
+            "Figure 2. Physical Storage Telemetry Forensics, Official Standalone CAISO Reconciliation, and Exact 4-Window Disjoint Diurnal Charging Mix (14 Metered Grids, 2024-07 to 2026-10).",
             (
-                f"Panel A compares raw unrepaired EIA-930 Round-Trip Efficiency (crimson) against repaired physical RTE (navy): replacing broken EIA-930 CISO "
-                f"<code>Other+Geothermal</code> (RTE = {c_rep['eia930_broken_other_geo_rte']:.2f}) and EIA-930&rsquo;s +{ng_corr['mean_midday_phantom_ng_mw_2024_2025']:,.0f} MW midday CISO gas bug "
-                f"with official standalone CAISO 5-minute <code>fuelsource.csv</code> recovers true physical RTE = {c_rep['caiso_fuelsource_rte']:.3f}; combining <code>Battery</code> + <code>Unknown Energy Storage</code> repairs "
+                f"Panel A compares raw unaligned EIA-930 Round-Trip Efficiency (crimson) against aligned physical RTE (navy): replacing unphysical EIA-930 CISO "
+                f"<code>Other+Geothermal</code> (RTE = {c_rep['eia930_broken_other_geo_rte']:.2f}) and resolving the +{ng_corr['mean_midday_phantom_ng_mw_2024_2025']:,.0f} MW 2024&ndash;2025 EIA-930 vs. CAISO/CEMS midday natural-gas reporting discrepancy "
+                f"with official standalone CAISO 5-minute <code>fuelsource.csv</code> recovers true physical RTE = {c_rep['caiso_fuelsource_rte']:.3f}; combining <code>Battery</code> + <code>Unknown Energy Storage</code> reconciles "
                 f"ERCO ({ues['ERCO']['raw_broken_rte']:.2f} &rarr; {ues['ERCO']['repaired_rte']:.3f}) and AZPS (zero raw charging &rarr; {ues['AZPS']['repaired_rte']:.3f}); "
-                f"filtering FPL&rsquo;s single {fpl_a['raw_bess_mw']:,.0f} MW glitch ({fpl_a['date']} HE {fpl_a['hour']}) yields DC-coupled RTE = {t14['FPL']['rte']:.3f}; "
+                f"filtering FPL&rsquo;s single {fpl_a['raw_bess_mw']:,.0f} MW outlier ({fpl_a['date']} HE {fpl_a['hour']}) yields DC-coupled RTE = {t14['FPL']['rte']:.3f}; "
                 f"and the 13 clean AC-coupled grids average RTE = {m14['fleet_13_ac_rte']:.3f} with 0/4 pumped-hydro leakage and lag-0 EPA CEMS sync "
                 f"<em>r</em> = {cems_r_min:.3f}&ndash;{cems_r_max:.3f}. "
                 f"Panel B decomposes charging energy across four disjoint windows (Overnight 23&ndash;06, Morning 07&ndash;09, Midday Solar 10&ndash;16, Evening 17&ndash;22), "
@@ -121,29 +128,31 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
             ),
         ),
         "fig3_cems_mef_vs_aef_sign_reversal.png": (
-            "Figure 3. Fleet-Wide AEF-vs-EPA CEMS Carbon Accounting Sign Reversal and Direct EPA CEMS 24-Hour Marginal Emission Profiles (2024-07 to 2026-09).",
+            "Figure 3. Fleet-Wide Counterfactual Accounting Discrepancy (Naive AEF vs. CEMS-MEF Marginal Model) and EPA CEMS 24-Hour Generator-Stack MEF Profiles (Sample 2: 2024-07 to 2026-09).",
             (
-                f"Panel A compares Naive Average Emission Factor accounting (teal, incoming-import weighted) against direct EPA CEMS hourly smokestack Marginal Emission Factor accounting "
-                f"(crimson, &plusmn;95% exact 24&times;24 date-clustered CI, no exogenous curtailment credit) across all 14 metered grids ({fl14['dis_gwh_cems_window']:,.1f} GWh discharged), "
-                f"with white diamonds overlaying independent 24-hour EPA eGRID 2023 rev2 Peaker MEFs (cross-grid <em>r</em> = {cv['r_net_kg_mwh']:.3f}, MAD = {cv['mad_net_kg_mwh']:.1f} kg/MWh): "
-                f"naive AEF claims {fl14['aef_kg_mwh']:+.1f} kg CO<sub>2</sub>/MWh ({fl14['aef_total_kt']/1000:+.2f} Mt CO<sub>2</sub>) whereas direct EPA CEMS measures "
-                f"{fl14['cems_mef_kg_mwh']:+.1f} kg CO<sub>2</sub>/MWh ({fl14['cems_mef_total_kt']/1000:+.2f} Mt CO<sub>2</sub>)&mdash;a +{fl14['sign_reversal_cems_minus_aef_mt']:.2f} Mt CO<sub>2</sub> sign reversal. "
-                f"Panel B traces direct bilateral-trade-adjusted EPA CEMS 24-hour MEF curves (&plusmn;95% CI) for four grid archetypes (MISO coal-heavy overnight, "
+                f"Panel A compares model-based counterfactual net CO<sub>2</sub> per discharged MWh under Naive AEF accounting (teal, incoming-import weighted) against our CEMS-MEF marginal displacement counterfactual model "
+                f"(crimson, &plusmn;95% exact 24&times;24 date-clustered CI, &alpha; = 0) across all 14 metered grids ({fl14['dis_gwh_cems_window']/1000:.2f} TWh / {fl14['dis_gwh_cems_window']:,.1f} GWh discharged), "
+                f"with white diamonds overlaying independent 24-hour EPA eGRID 2023 rev2 Peaker MEF counterfactuals (cross-grid <em>r</em> = {cv['r_net_kg_mwh']:.3f}, MAD = {cv['mad_net_kg_mwh']:.1f} kg/MWh). "
+                f"EPA CEMS directly measures hourly fossil generator smokestack emissions, whereas battery-induced net CO<sub>2</sub> relative to a no-storage baseline is estimated by our marginal displacement model: "
+                f"the AEF counterfactual implies {fl14['aef_kg_mwh']:+.1f} kg CO<sub>2</sub>/MWh ({fl14['aef_total_kt']/1000:+.2f} Mt CO<sub>2</sub>) versus "
+                f"{fl14['cems_mef_kg_mwh']:+.1f} kg CO<sub>2</sub>/MWh ({fl14['cems_mef_total_kt']/1000:+.2f} Mt CO<sub>2</sub>) under the CEMS-MEF counterfactual&mdash;a +{fl14['sign_reversal_cems_minus_aef_mt']:.2f} Mt CO<sub>2</sub> counterfactual accounting discrepancy (sign reversal in {r4['proposition_3_aef_mef_bias']['n_grids_sign_reversed']}/14 grids). "
+                f"Panel B traces bilateral-trade-adjusted EPA CEMS 24-hour generator-stack MEF curves (&plusmn;95% CI) for four grid archetypes (MISO coal-heavy overnight, "
                 f"ERCO solar/wind+gas/coal, AZPS desert solar+coal/gas, and CISO high-solar+imports)."
             ),
         ),
         "fig4_caiso_noncircular_curtailment_tipping.png": (
-            "Figure 4. Non-Circular Empirical CAISO Interior Smokestack CEMS Collapse Under Official Curtailment Regimes and Thermodynamic Break-Even Frontier Across 14 U.S. Grids.",
+            f"Figure 4. Non-Circular Empirical CAISO Interior CEMS Collapse (&minus;{dom_drop_pct:.0f}% Domestic, &minus;{sys_drop_pct:.0f}% System) Under Official Curtailment Regimes and Joint Block-Bootstrap Carbon Neutrality (Sample 3: 2024-07 to 2025-12).",
             (
                 f"Panel A merges official CAISO hourly curtailments (2024-07 to 2025-12, {cc['window']['n_hours']:,} hours) directly onto standalone CAISO battery telemetry "
-                f"and EPA CEMS smokestack CO<sub>2</sub> across strictly interior regime hours (requiring both <em>t</em> and <em>t</em>&minus;1 in bin; absorbing Year-Month &times; Hour FE, &plusmn;95% date-clustered CI): "
-                f"as curtailment climbs from 0 MW to &gt;2,000 MW, domestic CAISO CEMS MEF collapses by {dom_drop_pct:.0f}% ({bins[0]['mef_cems_dom_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_dom_kg_mwh']:.0f} kg/MWh), "
-                f"total system CEMS MEF drops {sys_drop_pct:.0f}% ({bins[0]['mef_cems_sys_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_sys_kg_mwh']:.0f} kg/MWh), and marginal un-curtailment (&minus;&part;Curt/&part;NL, crimson diamonds) climbs from exact "
+                f"and EPA CEMS generator-stack CO<sub>2</sub> across strictly interior regime hours (requiring both <em>t</em> and <em>t</em>&minus;1 in bin; absorbing Year-Month &times; Hour FE, &plusmn;95% date-clustered CI): "
+                f"in consecutive interior &gt;2,000 MW curtailment hours, in-state domestic CAISO CEMS MEF collapses by {dom_drop_pct:.0f}% ({bins[0]['mef_cems_dom_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_dom_kg_mwh']:.0f} kg/MWh), "
+                f"import-adjusted system-wide CEMS MEF drops {sys_drop_pct:.0f}% ({bins[0]['mef_cems_sys_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_sys_kg_mwh']:.0f} kg/MWh), and marginal un-curtailment (&minus;&part;Curt/&part;NL, crimson diamonds) climbs from exact "
                 f"{abs(-100*bins[0]['d_curt_per_d_netload']):.1f}% to {abs(-100*bins[3]['d_curt_per_d_netload']):.1f}%. Panel B plots Proposition 2&rsquo;s exact thermodynamic break-even threshold "
-                f"&alpha;<sub>b</sub><sup>*</sup> = 1 &minus; &eta;<sub>b</sub> MEF<sub>dis</sub>/MEF<sub>chg</sub> across all 14 grids alongside CAISO&rsquo;s direct empirical marginal curtailment absorption "
+                f"&alpha;<sub>b</sub><sup>*</sup> = 1 &minus; &eta;<sub>b</sub> MEF<sub>dis</sub>/MEF<sub>chg</sub> across all 14 grids alongside CAISO&rsquo;s empirical marginal curtailment absorption "
                 f"(&alpha;&#770;<sup>emp</sup> = {100*cc['alpha_emp_unspill_share']:.1f}%) and Corollary 2.1 incremental residual headroom (&rho;<sup>res</sup> = {100*cc['rho_residual_headroom_total']:.1f}%, system-only {100*cc['rho_residual_headroom_system']:.1f}% vs. &alpha;<sub>CISO</sub><sup>*</sup> = "
-                f"{100*cc['alpha_star_ciso_cems']:.1f}%), placing curtailment-adjusted CAISO near carbon neutrality ({cc['empirical_curt_adjusted_ciso_net_sys_kg_mwh']:+.1f} kg/MWh system-wide; "
-                f"{cc['empirical_curt_adjusted_ciso_net_dom_kg_mwh']:+.1f} kg/MWh domestic vs. {c3_map['CISO']['net_aef_kg_mwh']:+.1f} naive AEF)."
+                f"{100*cc['alpha_star_ciso_cems']:.1f}%). Propagating diurnal, cross-BA import, curtailment-regime, and cycling-weight uncertainty jointly via a <em>B</em> = {jb['B']:,} date-clustered block bootstrap places CAISO system-wide net CO<sub>2</sub> at "
+                f"{jb_ms['point_estimate']:+.2f} kg/MWh (95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}]) under the main specification and {jb_ls['point_estimate']:+.2f} kg/MWh (95% CI [{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}]) under the pure exogenous &Delta;Load alternative "
+                f"(vs. {jb_md['point_estimate']:+.2f} kg/MWh, 95% CI [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}], domestic-only and {c3_map['CISO']['net_aef_kg_mwh']:+.1f} naive AEF)&mdash;confirming statistical carbon neutrality across both system-wide specifications."
             ),
         ),
         "fig5_hourly_dispatch_and_master_audit.png": (
@@ -440,7 +449,7 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
         para_first = para_raw_lines[0].strip()
         p_cls = (
             ' class="table-caption"'
-            if para_first.startswith("**Table ")
+            if para_first.startswith(("**Table ", "**Box "))
             else (' class="table-notes"' if para_first.startswith(("*Notes:*", "*Source:*")) else "")
         )
         segs: list[str] = []
