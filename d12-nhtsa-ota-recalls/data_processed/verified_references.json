@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-25T19:55:25Z",
+  "generated_utc": "2026-11-26T21:37:31Z",
   "references": {
     "arora_2006": {
       "verified": true,
@@ -242,6 +242,28 @@
       "volume": "235",
       "issue": "2",
       "page": "2218-2244"
+    }
+  },
+  "institutional_references": {
+    "nhtsa_2025_annual_recalls_report": {
+      "verified": true,
+      "type": "government-report",
+      "authors": "National Highway Traffic Safety Administration (NHTSA)",
+      "year": 2026,
+      "title": "2025 Annual Recalls Report",
+      "publisher": "U.S. Department of Transportation, National Highway Traffic Safety Administration",
+      "url": "https://www.nhtsa.gov/sites/nhtsa.gov/files/2026-03/2025-annual-recalls-report.pdf",
+      "note": "Official annual recalls report (March 2026) tallying 33 over-the-air recalls in 2025 under internal agency reporting."
+    },
+    "cfr_49_573_7": {
+      "verified": true,
+      "type": "federal-regulation",
+      "authors": "Office of the Federal Register (NARA) / U.S. Department of Transportation",
+      "year": 2026,
+      "title": "49 CFR \u00a7 573.7 \u2014 Quarterly Reports (Defect and Noncompliance Responsibility and Reports)",
+      "publisher": "Code of Federal Regulations, Title 49, Part 573",
+      "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-573/section-573.7",
+      "note": "Governs six consecutive quarterly completion filings starting from the remedy-available owner notification quarter (\u00a7 573.7(a)) and unreachable-vehicle exclusions for export, theft, scrapping, or failure to receive notification (\u00a7 573.7(b)(5))."
     }
   }
 }

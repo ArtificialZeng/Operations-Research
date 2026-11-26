@@ -75,7 +75,7 @@ def build_tables(res: dict, audit: dict, df_camp: pd.DataFrame) -> None:
                 "Audited_Total_OTA": n_aud,
                 "Official_API_OTA_True": n_api,
                 "API_Agreement_Pct": agree_pct,
-                "API_Regime": "Pre-OTA" if yr == 2018 else ("Active_API_Flag" if yr <= 2024 else "Post_May2025_Silent_Cutoff"),
+                "API_Regime": "Pre-OTA" if yr == 2018 else ("Active_API_Flag" if yr <= 2024 else "Post_May8_2025_Public_API_Anomaly"),
             }
         )
     # Totals row
@@ -151,14 +151,14 @@ def build_tables(res: dict, audit: dict, df_camp: pd.DataFrame) -> None:
     ]:
         add_reg_rows("C_Robustness_Ladder", rlbl, p1["robustness_ladder"][rkey])
 
-    add_reg_rows("D_Endogenous_Selection_Decomp", "ITT Staggered OEM OTA Adoption (2015-26)", p1["itt_staggered_adoption"]["pooled_did"])
-    add_reg_rows("D_Endogenous_Selection_Decomp", "ITT Staggered Adoption + Min-MY FE", p1["itt_staggered_adoption"]["pooled_did_with_myfe"])
-    add_reg_rows("D_Endogenous_Selection_Decomp", "ITT Staggered Adoption (Excl. Tesla)", p1["itt_staggered_adoption"]["pooled_did_excl_tesla"])
+    add_reg_rows("D_Unconditional_ITT_and_Cohort", "ITT Staggered OEM OTA Adoption (2015-26)", p1["itt_staggered_adoption"]["pooled_did"])
+    add_reg_rows("D_Unconditional_ITT_and_Cohort", "ITT Staggered Adoption + Min-MY FE", p1["itt_staggered_adoption"]["pooled_did_with_myfe"])
+    add_reg_rows("D_Unconditional_ITT_and_Cohort", "ITT Staggered Adoption (Excl. Tesla)", p1["itt_staggered_adoption"]["pooled_did_excl_tesla"])
     sa = p1["itt_staggered_adoption"]["sun_abraham_iw"]
     if not sa.get("skipped"):
         t2_rows.append(
             {
-                "Panel": "D_Endogenous_Selection_Decomp",
+                "Panel": "D_Unconditional_ITT_and_Cohort",
                 "Specification": "True Sun-Abraham (2021) Cohort x Rel-Time IW (7 Cohorts)",
                 "Outcome": "log_potaff",
                 "Term": "iw_post_25cells",
@@ -175,7 +175,7 @@ def build_tables(res: dict, audit: dict, df_camp: pd.DataFrame) -> None:
             }
         )
     add_reg_rows(
-        "D_Endogenous_Selection_Decomp",
+        "D_Unconditional_ITT_and_Cohort",
         "Unconditional SW x SDV Cohort MY>=2021 DiD",
         p1["unconditional_sdv_cohort_shift"]["sw_vs_physical_sdv_did"],
     )
@@ -236,6 +236,11 @@ def build_tables(res: dict, audit: dict, df_camp: pd.DataFrame) -> None:
     add_p2("D_Vehicle_Age_Decay", "SW OTA-OEMs: Any OTA x Vehicle Age", p2["vehicle_age_decay"]["regressions"]["sw_ota_oems_anyota_x_age"])
     add_p2("D_Vehicle_Age_Decay", "SW OTA-OEMs: 4-Way OTA x Vehicle Age", p2["vehicle_age_decay"]["regressions"]["sw_ota_oems_4way_x_age"])
     add_p2("D_Vehicle_Age_Decay", "SW OTA-OEMs: Official API OTA x Vehicle Age", p2["vehicle_age_decay"]["regressions"]["sw_ota_oems_api_x_age"])
+    add_p2("D_Vehicle_Age_Decay", "SW Excl. Tesla: Any OTA x Vehicle Age", p2["vehicle_age_decay"]["regressions"]["sw_excl_tesla_anyota_x_age"])
+    add_p2("D_Vehicle_Age_Decay", "SW Excl. Tesla: Official API OTA x Vehicle Age", p2["vehicle_age_decay"]["regressions"]["sw_excl_tesla_api_x_age"])
+    add_p2("D_Vehicle_Age_Decay", "SW Excl. Tesla: 4-Way OTA x Vehicle Age", p2["vehicle_age_decay"]["regressions"]["sw_excl_tesla_4way_x_age"])
+    add_p2("D_Vehicle_Age_Decay", "SW Light-Duty Passenger: 4-Way OTA x Vehicle Age", p2["vehicle_age_decay"]["regressions"]["sw_light_duty_4way_x_age"])
+    add_p2("D_Vehicle_Age_Decay", "SW Light-Duty Passenger: Official API OTA x Vehicle Age", p2["vehicle_age_decay"]["regressions"]["sw_light_duty_api_x_age"])
     add_p2("D_Vehicle_Age_Decay", "All Vehicles: 4-Way OTA x Vehicle Age", p2["vehicle_age_decay"]["regressions"]["all_vehicles_4way_x_age"])
     pd.DataFrame(t3_rows).to_csv(TBL_DIR / "table3_remediation_velocity_and_age_decay.csv", index=False)
 
@@ -279,7 +284,7 @@ def build_tables(res: dict, audit: dict, df_camp: pd.DataFrame) -> None:
             )
     pd.DataFrame(t4_rows).to_csv(TBL_DIR / "table4_net_unremedied_exposure.csv", index=False)
 
-    # Table 4B: Aggregate Fleet Accounting & Break-Even Frontier
+    # Table 4B: Aggregate Recall-Level Vehicle-Instance Accounting & Break-Even Frontier
     acc = p3["aggregate_fleet_accounting_mature18m"]
     acc_rows = []
     for mod in [
@@ -296,18 +301,69 @@ def build_tables(res: dict, audit: dict, df_camp: pd.DataFrame) -> None:
             {
                 "Modality": mod,
                 "N_Mature_Campaigns": a["n_campaigns"],
-                "Total_Affected_Vehicles": a["total_affected"],
+                "Summed_Affected_Vehicle_Instances": a["total_affected"],
                 "Share_Affected_Pct": a["share_total_affected_pct"],
-                "Total_Unremedied_Vehicles": a["total_unremedied"],
-                "Share_Unremedied_Pct": a["share_total_unremedied_pct"],
+                "Summed_Unremedied_Instance_Proxy": a["total_unremedied"],
+                "Share_Unremedied_Proxy_Pct": a["share_total_unremedied_pct"],
                 "Mean_CR_Pct": a["mean_cr_pct"],
-                "Fleet_Weighted_Completion_Pct": a["completion_rate_fleet_weighted_pct"],
-                "Median_Affected": a["median_affected"],
-                "Median_Unremedied": a["median_unremedied"],
-                "Mean_Log_Unremedied": a["mean_log_unremedied"],
+                "Instance_Weighted_Completion_Pct": a["completion_rate_fleet_weighted_pct"],
+                "Median_Affected_Instances": a["median_affected"],
+                "Median_Unremedied_Proxy": a["median_unremedied"],
+                "Mean_Log_Unremedied_Proxy": a["mean_log_unremedied"],
             }
         )
     pd.DataFrame(acc_rows).to_csv(TBL_DIR / "table4b_aggregate_fleet_accounting.csv", index=False)
+
+    # Table 4C: Dedicated Mature Pure-OTA & Hybrid-OTA OEM Composition & Weight Disclosure
+    comp = p3["mature_sample_composition"]
+    comp_rows = []
+    for lbl, sub_d in [
+        ("Summary: Tesla Pure-OTA", comp["pure_ota_tesla_subsample"]),
+        ("Summary: Non-Tesla Pure-OTA (All)", comp["pure_ota_nontesla_subsample"]),
+        ("Summary: Non-Tesla Pure-OTA (Light-Duty)", comp["pure_ota_nontesla_light_duty_subsample"]),
+    ]:
+        comp_rows.append(
+            {
+                "Group": "Pure_OTA_Subsample_Summary",
+                "OEM_or_Slice": lbl,
+                "N_Campaigns": sub_d["n_campaigns"],
+                "Share_Modality_Campaigns_Pct": sub_d["share_pure_campaigns_pct"],
+                "Affected_Vehicle_Instances": sub_d["affected_vehicle_instances"],
+                "Share_Modality_Affected_Pct": sub_d["share_pure_affected_pct"],
+                "Unremedied_Instance_Proxy": sub_d["unremedied_instance_proxy"],
+                "Share_Modality_Unremedied_Pct": sub_d["share_pure_unremedied_pct"],
+                "Mean_CR_Pct": sub_d["mean_cr_pct"],
+                "Median_CR_Pct": sub_d["median_cr_pct"],
+                "Median_Affected_Instances": sub_d["median_affected"],
+                "Median_Unremedied_Proxy": sub_d["median_unremedied_proxy"],
+                "Max_Vehicle_Age_Yr": sub_d["max_vehicle_age_yr"],
+                "N_Age_6Plus_Yr": sub_d["n_age_6plus_yr"],
+            }
+        )
+    for grp_lbl, oem_list in [
+        ("Pure_OTA_OEM", comp["pure_ota_by_oem"]),
+        ("Hybrid_OTA_OEM", comp["hybrid_ota_by_oem"]),
+    ]:
+        for r in oem_list:
+            comp_rows.append(
+                {
+                    "Group": grp_lbl,
+                    "OEM_or_Slice": r["oem"],
+                    "N_Campaigns": r["n_campaigns"],
+                    "Share_Modality_Campaigns_Pct": r["share_campaigns_pct"],
+                    "Affected_Vehicle_Instances": r["affected_vehicle_instances"],
+                    "Share_Modality_Affected_Pct": r["share_affected_pct"],
+                    "Unremedied_Instance_Proxy": r["unremedied_instance_proxy"],
+                    "Share_Modality_Unremedied_Pct": r["share_unremedied_pct"],
+                    "Mean_CR_Pct": r["mean_cr_pct"],
+                    "Median_CR_Pct": r["median_cr_pct"],
+                    "Median_Affected_Instances": r["median_affected"],
+                    "Median_Unremedied_Proxy": r["median_unremedied_proxy"],
+                    "Max_Vehicle_Age_Yr": r["max_vehicle_age_yr"],
+                    "N_Age_6Plus_Yr": r["n_age_6plus_yr"],
+                }
+            )
+    pd.DataFrame(comp_rows).to_csv(TBL_DIR / "table4c_mature_ota_oem_composition.csv", index=False)
 
     # ---- Table 5: Pillar 4 Safety Severity, Oversight, Repeat Cascades & Complaint DiD ----
     p4 = res["pillar4_safety_and_complaints"]
@@ -431,14 +487,14 @@ def build_tables(res: dict, audit: dict, df_camp: pd.DataFrame) -> None:
                     }
                 )
     pd.DataFrame(t6_rows).to_csv(TBL_DIR / "table6_maturation_and_age_profiles.csv", index=False)
-    print("[OK] Wrote 8 publication CSV tables in tables/", flush=True)
+    print("[OK] Wrote 9 publication CSV tables in tables/", flush=True)
 
 
 def make_fig1(res: dict, df_camp: pd.DataFrame) -> None:
-    """Fig 1: Panel A = API Reconciliation & Silent May-2025 Cutoff; Panel B = Blast-Radius & Selection Forest Plot."""
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13.3, 5.2), gridspec_kw={"width_ratios": [1.02, 1.20]})
+    """Fig 1: Panel A = Public API Metadata Anomaly vs. 2025 Annual Report; Panel B = Conditional Size vs. Unconditional ITT."""
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13.5, 5.3), gridspec_kw={"width_ratios": [1.04, 1.24]})
 
-    # Panel A: 2019-2026 Audited Pure/Hybrid OTA vs Official NHTSA API Flag
+    # Panel A: 2019-2026 Audited Pure/Hybrid OTA vs Official NHTSA Public API Flag
     c19 = df_camp[df_camp["rec_year"].between(2019, 2026)]
     yrs = np.arange(2019, 2027)
     pure_cnt = np.array([int(((c19["rec_year"] == y) & (c19["modality4"] == "Pure_OTA")).sum()) for y in yrs])
@@ -448,7 +504,8 @@ def make_fig1(res: dict, df_camp: pd.DataFrame) -> None:
     w = 0.56
     ax1.bar(yrs, pure_cnt, width=w, color=COLORS["Pure_OTA"], label="Audited Pure-OTA (No Dealer Visit)", zorder=3)
     ax1.bar(yrs, hyb_cnt, width=w, bottom=pure_cnt, color=COLORS["Hybrid_OTA"], label="Audited Hybrid-OTA (OTA or Dealer)", zorder=3)
-    ax1.plot(yrs, api_cnt, color=COLORS["API_OTA"], marker="D", markersize=6.5, linewidth=2.2, label="Official NHTSA API overTheAirUpdate=True", zorder=5)
+    ax1.plot(yrs, api_cnt, color=COLORS["API_OTA"], marker="D", markersize=6.5, linewidth=2.2, label="Public NHTSA API overTheAirUpdate=True", zorder=5)
+    ax1.scatter([2025], [33], color=COLORS["Green"], marker="*", s=140, edgecolor="white", linewidth=0.7, label="NHTSA 2025 Annual Recalls Report (33)", zorder=6)
 
     for y, tot, ap in zip(yrs, pure_cnt + hyb_cnt, api_cnt):
         pct = round(100 * ap / tot) if tot > 0 else 0
@@ -459,7 +516,7 @@ def make_fig1(res: dict, df_camp: pd.DataFrame) -> None:
             f"{ap}/{tot}\n({pct}%)",
             ha="center",
             va="bottom",
-            fontsize=7.4,
+            fontsize=7.3,
             color="#1e293b",
             fontweight="bold" if y >= 2025 else "normal",
             bbox={"boxstyle": "round,pad=0.12", "facecolor": "white", "edgecolor": "none", "alpha": 0.8},
@@ -467,26 +524,34 @@ def make_fig1(res: dict, df_camp: pd.DataFrame) -> None:
 
     ax1.axvline(2024.55, color=COLORS["Red"], linestyle="--", linewidth=1.3, zorder=4)
     ax1.annotate(
-        "API Flag Silent Cutoff\nJan–May 8, 2025: 4/7 (57%)\nAfter May 8, 2025: 0/68 (0%)",
-        xy=(2024.55, 42.2),
-        xytext=(2019.65, 33.8),
-        fontsize=7.7,
+        "Public API Metadata Anomaly\nMay 8, 2025 (25V282000): 36/36 True\nMay 9, 2025 (25V315000): 44/44 False\nPost-May 8: 0/68 vs. 33 in 2025 Report",
+        xy=(2024.55, 42.8),
+        xytext=(2018.85, 29.2),
+        fontsize=7.0,
         color=COLORS["Red"],
         fontweight="bold",
-        bbox={"boxstyle": "round,pad=0.32", "facecolor": "#fef2f2", "edgecolor": "#fca5a5", "lw": 0.8},
+        bbox={"boxstyle": "round,pad=0.30", "facecolor": "#fef2f2", "edgecolor": "#fca5a5", "lw": 0.8},
         arrowprops={"arrowstyle": "->", "color": COLORS["Red"], "lw": 1.1, "connectionstyle": "arc3,rad=-0.12"},
     )
-    ax1.set_title("A. Official NHTSA API Ground-Truth Audit (2019–2026)", fontsize=10.5, fontweight="bold", loc="left", pad=8)
-    ax1.set_xlabel("Recall Filing Year", fontsize=9.2)
-    ax1.set_ylabel("Number of Vehicle Recall Campaigns", fontsize=9.2)
+    ax1.set_title("A. Public NHTSA API Endpoint Metadata Anomaly (2019–2026)", fontsize=10.2, fontweight="bold", loc="left", pad=8)
+    ax1.set_xlabel("Recall Filing Year", fontsize=9.1)
+    ax1.set_ylabel("Number of Vehicle Recall Campaigns", fontsize=9.1)
     ax1.set_xticks(yrs)
-    ax1.set_ylim(0, 48.5)
-    ax1.legend(loc="upper left", fontsize=7.3, frameon=True, facecolor="white", framealpha=0.95)
+    ax1.set_ylim(0, 52.5)
+    ax1.legend(loc="upper left", fontsize=7.0, frameon=True, facecolor="white", framealpha=0.95)
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
 
-    # Panel B: Blast-Radius Concentration & Endogenous Selection Decomposition Forest Plot
+    # Panel B: Conditional Within-OEM Size Differential vs. Distinct Unconditional Estimands (No % Share!)
     p1 = res["pillar1_blast_radius"]
+    sa = p1["itt_staggered_adoption"]["sun_abraham_iw"]
+    sa_item = {
+        "coef": sa["iw_post_coef"],
+        "ci95_lo": round(sa["iw_post_coef"] - 1.996 * sa["iw_se_cr1"], 4),
+        "ci95_hi": round(sa["iw_post_coef"] + 1.996 * sa["iw_se_cr1"], 4),
+        "p_t_G1": sa["iw_p_t_G1"],
+        "is_sa": True,
+    }
     items = [
         ("Hybrid-OTA vs. Dealer-SW (Main FE)", p1["main_sw_ota_oems"]["sw_ota_oems_4way_log_potaff"]["terms"]["is_ota_hybrid"], COLORS["Hybrid_OTA"]),
         ("Hybrid-OTA (OEM × Year FE)", p1["robustness_ladder"]["oem_x_year_fe_4way"]["terms"]["is_ota_hybrid"], COLORS["Hybrid_OTA"]),
@@ -495,13 +560,14 @@ def make_fig1(res: dict, df_camp: pd.DataFrame) -> None:
         ("Hybrid-OTA (Controlling Breadth)", p1["robustness_ladder"]["breadth_controlled_4way"]["terms"]["is_ota_hybrid"], COLORS["Hybrid_OTA"]),
         ("Official API OTA (2018–2024)", p1["main_sw_ota_oems"]["sw_ota_oems_api2018_24_log_potaff"]["terms"]["is_ota_api_full"], COLORS["API_OTA"]),
         ("Pure-OTA vs. Dealer-SW (Main FE)", p1["main_sw_ota_oems"]["sw_ota_oems_4way_log_potaff"]["terms"]["is_ota_pure"], COLORS["Pure_OTA"]),
-        ("ITT Staggered Adoption DiD (Uncond.)", p1["itt_staggered_adoption"]["pooled_did"]["terms"]["post_ota_adopt"], COLORS["ITT"]),
+        ("Uncond. TWFE First-OTA ITT (OEM)", p1["itt_staggered_adoption"]["pooled_did"]["terms"]["post_ota_adopt"], COLORS["ITT"]),
+        ("Uncond. Sun–Abraham IW First-OTA ITT", sa_item, "#1e3a8a"),
         ("Uncond. SW × SDV Cohort (MY ≥ 2021)", p1["unconditional_sdv_cohort_shift"]["sw_vs_physical_sdv_did"]["terms"]["sw_x_sdv_my2021p"], COLORS["Dealer_Software"]),
     ]
 
     y_pos = np.arange(len(items))[::-1]
     ax2.axvline(0.0, color="#334155", linestyle="--", linewidth=1.0, zorder=2)
-    ax2.axhspan(-0.5, 1.5, color="#f0f9ff", alpha=0.8, zorder=1)
+    ax2.axhspan(-0.5, 2.5, color="#f0f9ff", alpha=0.85, zorder=1)
     for idx, (_lbl, d, col) in enumerate(items):
         yp = y_pos[idx]
         c = d["coef"]
@@ -509,18 +575,21 @@ def make_fig1(res: dict, df_camp: pd.DataFrame) -> None:
         hi = d["ci95_hi"]
         ax2.errorbar(
             c, yp, xerr=[[c - lo], [hi - c]],
-            fmt="o", color=col, ecolor=col, elinewidth=2.0, capsize=3.5, markersize=6.5, zorder=4
+            fmt="o", color=col, ecolor=col, elinewidth=1.9, capsize=3.3, markersize=6.0, zorder=4
         )
-        p_str = f"$p_{{\\mathrm{{WCB}}}}$={d['p_wcb']:.3f}" if d["p_wcb"] >= 0.001 else "$p_{\\mathrm{WCB}}$<0.001"
-        txt_x = hi + 0.08
-        ax2.text(txt_x, yp, f"{c:+.2f} ({p_str})", va="center", ha="left", fontsize=7.5, color="#1e293b")
+        if d.get("is_sa"):
+            p_str = f"$p_t$={d['p_t_G1']:.3f}"
+        else:
+            p_str = f"$p_{{\\mathrm{{WCB}}}}$={d['p_wcb']:.3f}" if d["p_wcb"] >= 0.001 else "$p_{\\mathrm{WCB}}$<0.001"
+        txt_x = hi + 0.10
+        ax2.text(txt_x, yp, f"{c:+.2f} ({p_str})", va="center", ha="left", fontsize=7.3, color="#1e293b")
 
-    ax2.text(2.55, 0.50, "Unconditional ITT /\nArchitectural (~+0.2–0.3)", fontsize=7.5, color="#0369a1", fontweight="bold", ha="left", va="center")
+    ax2.text(2.45, 0.95, "Distinct Unconditional\nOEM-Level Estimands\n(No % Share Implied)", fontsize=7.2, color="#0369a1", fontweight="bold", ha="left", va="center")
     ax2.set_yticks(y_pos)
-    ax2.set_yticklabels([it[0] for it in items], fontsize=8.3)
-    ax2.set_xlabel("Effect on log(1 + Potentially Affected Vehicles) [CR1 $t(G-1)$ 95% CI]", fontsize=8.8)
-    ax2.set_title("B. Blast-Radius Gap: Endogenous Selection vs. Architecture", fontsize=10.5, fontweight="bold", loc="left", pad=8)
-    ax2.set_xlim(-1.05, 4.95)
+    ax2.set_yticklabels([it[0] for it in items], fontsize=8.0)
+    ax2.set_xlabel("Effect on log(1 + Affected Vehicle-Instances) [CR1 $t(G-1)$ 95% CI]", fontsize=8.6)
+    ax2.set_title("B. Conditional Campaign Size vs. Unconditional OEM ITT", fontsize=10.2, fontweight="bold", loc="left", pad=8)
+    ax2.set_xlim(-2.25, 5.25)
     ax2.set_ylim(-0.65, len(items) - 0.35)
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
@@ -597,7 +666,7 @@ def make_fig2(res: dict, df_camp: pd.DataFrame) -> None:
     ax1.set_xticks(ks)
     ax1.set_xticklabels(["≤ −3", "−2", "−1\n(Ref)", "0\n(1st OTA)", "+1", "+2", "≥ +3"], fontsize=8.4)
     ax1.set_xlabel("Years Relative to OEM's First OTA Recall (Unconditional All Software Recalls)", fontsize=8.7)
-    ax1.set_ylabel("Change in log(1 + Potentially Affected)", fontsize=9.0)
+    ax1.set_ylabel("Change in log(1 + Affected Vehicle-Instances)", fontsize=8.9)
     ax1.set_title("A. Intent-to-Treat OEM OTA-Adoption Event Study (2015–2026)", fontsize=10.1, fontweight="bold", loc="left", pad=8)
     ax1.set_ylim(-3.15, 2.45)
     ax1.set_xlim(-3.45, 3.45)
@@ -624,7 +693,7 @@ def make_fig2(res: dict, df_camp: pd.DataFrame) -> None:
     hyb_10k = dist["Hybrid_OTA"]["pct_ge_10k"]
     dsw_10k = dist["Dealer_Software"]["pct_ge_10k"]
     ax2.annotate(
-        f"Fixed-Cost Selection:\n{hyb_10k:.1f}% of Hybrid-OTA ≥ 10k\nvs. {dsw_10k:.1f}% of Dealer-SW",
+        f"Conditional Size Selection:\n{hyb_10k:.1f}% of Hybrid-OTA ≥ 10k\nvs. {dsw_10k:.1f}% of Dealer-SW",
         xy=(4.0, 1.0 - hyb_10k / 100.0),
         xytext=(4.32, 0.11),
         fontsize=7.9,
@@ -635,9 +704,9 @@ def make_fig2(res: dict, df_camp: pd.DataFrame) -> None:
     )
     ax2.set_xticks([1, 2, 3, 4, 5, 6])
     ax2.set_xticklabels(["10", "100", "1k", "10k", "100k", "1M"], fontsize=8.6)
-    ax2.set_xlabel("Campaign Fleet Size: Potentially Affected Vehicles ($\\log_{10}$ scale)", fontsize=8.8)
+    ax2.set_xlabel("Campaign Size: Affected Vehicle-Instances ($\\log_{10}$ scale)", fontsize=8.8)
     ax2.set_ylabel("Empirical Cumulative Distribution Function (ECDF)", fontsize=9.0)
-    ax2.set_title("B. Fleet-Size Distributions: Fixed-Cost Remedy Selection", fontsize=10.1, fontweight="bold", loc="left", pad=8)
+    ax2.set_title("B. Campaign-Size Distributions by Remedy Modality", fontsize=10.1, fontweight="bold", loc="left", pad=8)
     ax2.set_xlim(0.2, 6.7)
     ax2.set_ylim(-0.02, 1.03)
     ax2.legend(loc="upper left", fontsize=7.6, frameon=True, facecolor="white", framealpha=0.95)
@@ -665,7 +734,7 @@ def make_fig3(res: dict) -> None:
     bins = [r["age_bin"] for r in p2["maturation_curve"]]
     x = np.arange(len(bins))
     ax1.axvspan(3.5, 5.45, color="#f0fdf4", alpha=0.85, zorder=1)
-    ax1.text(4.48, 56.0, "Mature Zone\n(≥ 18 mo /\n6 Qtr Filings)", ha="center", va="center", fontsize=8.0, color="#166534", fontweight="bold")
+    ax1.text(4.48, 56.0, "Mature Window\n(≥ 18 mo post-RCDATE;\n49 CFR § 573.7 proxy)", ha="center", va="center", fontsize=7.6, color="#166534", fontweight="bold")
 
     mod_styles = [
         ("Pure_OTA", f"Pure-OTA (Mature med = {pure_med_mat:.2f}%)", "o", "-", 2.5),
@@ -741,29 +810,32 @@ def make_fig3(res: dict) -> None:
             else:
                 ax2.text(xi, yi - 3.0, f"{yi:.1f}%", ha="center", va="top", fontsize=7.6, color=COLORS[mod], fontweight="bold")
 
+    age_api = p2["vehicle_age_decay"]["regressions"]["sw_ota_oems_api_x_age"]["terms"]["api_ota_x_age"]
+    age_not_api = p2["vehicle_age_decay"]["regressions"]["sw_excl_tesla_api_x_age"]["terms"]["api_ota_x_age"]
     ax2.text(
         0.02,
-        0.03,
+        0.02,
         (
             "Within-OEM SW Compliance-Decay Slopes:\n"
-            f"Dealer-SW Age Slope: {age_slope:.2f} pp/yr ($p_{{\\mathrm{{WCB}}}}={age_reg['veh_age']['p_wcb']:.3f}$)\n"
+            f"Dealer-SW Age: {age_slope:.2f} pp/yr ($p_{{\\mathrm{{WCB}}}}={age_reg['veh_age']['p_wcb']:.3f}$)\n"
             f"Pure-OTA × Age: {age_reg['pure_x_age']['coef']:+.2f} pp/yr ($p_{{\\mathrm{{WCB}}}}={age_reg['pure_x_age']['p_wcb']:.3f}$, −{pure_off_pct}%)\n"
-            f"Hybrid-OTA × Age: {age_reg['hybrid_x_age']['coef']:+.2f} pp/yr ($p_{{\\mathrm{{WCB}}}}={age_reg['hybrid_x_age']['p_wcb']:.3f}$, −{hyb_off_pct}%)"
+            f"Hybrid-OTA × Age: {age_reg['hybrid_x_age']['coef']:+.2f} pp/yr ($p_{{\\mathrm{{WCB}}}}={age_reg['hybrid_x_age']['p_wcb']:.3f}$, −{hyb_off_pct}%)\n"
+            f"API OTA × Age: {age_api['coef']:+.2f} ($p_{{\\mathrm{{WCB}}}}={age_api['p_wcb']:.3f}$) | Excl. Tesla: {age_not_api['coef']:+.2f} ({age_not_api['p_wcb']:.3f})"
         ),
         transform=ax2.transAxes,
         va="bottom",
         ha="left",
-        fontsize=7.3,
-        bbox={"boxstyle": "round,pad=0.35", "facecolor": "#f8fafc", "edgecolor": "#94a3b8", "lw": 0.8},
+        fontsize=6.95,
+        bbox={"boxstyle": "round,pad=0.33", "facecolor": "#f8fafc", "edgecolor": "#94a3b8", "lw": 0.8},
     )
     ax2.set_xticks(xv)
     ax2.set_xticklabels(vbins, fontsize=8.8)
     ax2.set_xlabel("Vehicle Age at Recall Filing (Recall Year − Min Model Year)", fontsize=9.0)
     ax2.set_ylabel("Mean Mature (≥ 18 mo) Completion Rate (%)", fontsize=9.0)
     ax2.set_title("B. OTA Flattens the Vehicle-Age Compliance-Decay Cliff", fontsize=10.3, fontweight="bold", loc="left", pad=8)
-    ax2.set_ylim(16, 108.5)
+    ax2.set_ylim(14, 108.5)
     ax2.set_xlim(-0.38, 3.38)
-    ax2.legend(loc="lower left", bbox_to_anchor=(0.02, 0.27), fontsize=7.2, frameon=True, facecolor="white", framealpha=0.96)
+    ax2.legend(loc="lower left", bbox_to_anchor=(0.02, 0.30), fontsize=7.0, frameon=True, facecolor="white", framealpha=0.96)
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
 
@@ -774,11 +846,12 @@ def make_fig3(res: dict) -> None:
 
 
 def make_fig4(res: dict) -> None:
-    """Fig 4: Panel A = Sample-Matched Within-OTA-OEM Break-Even Frontier; Panel B = Net Unremedied Fleet Exposure."""
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13.4, 5.15), gridspec_kw={"width_ratios": [1.10, 1.02]})
+    """Fig 4: Panel A = Sample-Matched Break-Even Frontier (with Tesla 98.7% disclosure); Panel B = Unremedied Proxy Forest Plot with EXACT p_WCB."""
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13.6, 5.25), gridspec_kw={"width_ratios": [1.08, 1.08]})
     p3 = res["pillar3_net_unremedied_exposure"]
     bf = p3["breakeven_frontier"]
     mf = bf["within_ota_oem_matched_frontier"]
+    comp = p3["mature_sample_composition"]
     r0 = mf["r0_pct"] / 100.0
     raw_pts = bf["raw_median_multiplier_coordinates"]
 
@@ -793,6 +866,8 @@ def make_fig4(res: dict) -> None:
     # Consistent apples-to-apples empirical coordinates (all referenced to OTA-OEM Dealer-SW!)
     t_m = raw_pts["Tesla_Pure_OTA"]["M_vs_ota_oems_dsw_median"]
     t_r = raw_pts["Tesla_Pure_OTA"]["observed_mean_r_pct"]
+    t_sh = comp["pure_ota_tesla_subsample"]["share_pure_affected_pct"]
+    nt_r = comp["pure_ota_nontesla_subsample"]["mean_cr_pct"]
     pts = [
         (
             f"Pure-OTA (FE $M$={mf['pure_ota_M']:.2f}×)",
@@ -800,8 +875,8 @@ def make_fig4(res: dict) -> None:
             mf["pure_ota_observed_mean_r_pct"],
             COLORS["Pure_OTA"],
             "o",
-            (1.5, 99.75),
-            f"{mf['pure_ota_margin_above_frontier_pp']:+.2f} pp ABOVE frontier\n(99.18% mean / 99.99% med)",
+            (0.72, 100.35),
+            f"{mf['pure_ota_margin_above_frontier_pp']:+.2f} pp ABOVE (99.18%; Non-Tesla: {nt_r:.2f}%)",
         ),
         (
             f"Tesla Pure-OTA (Med $M$={t_m:.2f}×)",
@@ -809,8 +884,8 @@ def make_fig4(res: dict) -> None:
             t_r,
             "#0f172a",
             "D",
-            (7.1, 100.15),
-            f"{t_r:.2f}% mean (99.98% med)",
+            (6.95, 100.35),
+            f"{t_r:.2f}% mean ({t_sh:.1f}% Pure-OTA share)",
         ),
         (
             f"Hybrid-OTA (FE $M$={mf['hybrid_ota_M']:.2f}×)",
@@ -818,8 +893,8 @@ def make_fig4(res: dict) -> None:
             mf["hybrid_ota_observed_mean_r_pct"],
             COLORS["Hybrid_OTA"],
             "s",
-            (6.0, 92.2),
-            f"{mf['hybrid_ota_margin_above_frontier_pp']:+.2f} pp BELOW frontier!\n(SW-Choice: {mf['hybrid_swchoice_margin_above_frontier_pp']:+.2f} pp Trap)",
+            (5.9, 91.6),
+            f"{mf['hybrid_ota_margin_above_frontier_pp']:+.2f} pp BELOW frontier\n(SW-Choice: {mf['hybrid_swchoice_margin_above_frontier_pp']:+.2f} pp)",
         ),
         (
             "OTA-OEM Dealer-SW ($M$=1.0×)",
@@ -827,7 +902,7 @@ def make_fig4(res: dict) -> None:
             mf["r0_pct"],
             COLORS["Dealer_Software"],
             "^",
-            (2.15, 88.6),
+            (2.1, 88.3),
             f"Sample-matched $r_0$ = {mf['r0_pct']:.2f}%",
         ),
     ]
@@ -837,24 +912,24 @@ def make_fig4(res: dict) -> None:
             f"{lbl}\n{note}",
             xy=(mx, ry),
             xytext=txt_xy,
-            fontsize=7.3,
+            fontsize=6.6,
             color=col,
             fontweight="bold",
-            bbox={"boxstyle": "round,pad=0.28", "facecolor": "white", "edgecolor": col, "lw": 0.85, "alpha": 0.96},
+            bbox={"boxstyle": "round,pad=0.24", "facecolor": "white", "edgecolor": col, "lw": 0.85, "alpha": 0.96},
             arrowprops={"arrowstyle": "->", "color": col, "lw": 1.1},
             zorder=7,
         )
 
-    ax1.set_xlabel("Blast-Radius Fleet Multiplier $M$ vs. OTA-OEM Dealer-Software (×)", fontsize=8.9)
-    ax1.set_ylabel("Mature (≥ 18 mo) Campaign Completion Rate (%)", fontsize=9.0)
-    ax1.set_title("A. Sample-Matched Break-Even Completion-Rate Frontier", fontsize=10.2, fontweight="bold", loc="left", pad=8)
-    ax1.set_xlim(0.5, 11.2)
-    ax1.set_ylim(84.2, 102.2)
-    ax1.legend(loc="lower right", fontsize=7.2, frameon=True, facecolor="white", framealpha=0.96)
+    ax1.set_xlabel("Recall-Size Multiplier $M$ vs. OTA-OEM Dealer-Software (×)", fontsize=8.8)
+    ax1.set_ylabel("Mature (≥ 18 mo) Campaign Completion Rate (%)", fontsize=8.9)
+    ax1.set_title("A. Sample-Matched Break-Even Frontier (Recall-Instance Proxy)", fontsize=9.8, fontweight="bold", loc="left", pad=8)
+    ax1.set_xlim(0.45, 12.6)
+    ax1.set_ylim(84.0, 102.7)
+    ax1.legend(loc="lower right", fontsize=7.0, frameon=True, facecolor="white", framealpha=0.96)
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
 
-    # Panel B: Net Unremedied Fleet Exposure Forest Plot (log(1 + unremedied_vehicles))
+    # Panel B: Recall-Level Unremedied Vehicle-Instance Proxy Forest Plot (EXACT p_WCB on every row!)
     regs = p3["regressions"]
     w_diff = p3["hybrid_minus_pure_unremedied_wald"]
     b_items = [
@@ -864,8 +939,8 @@ def make_fig4(res: dict) -> None:
         ("Dealer-SW vs. Physical (All Veh FE)", regs["mature_all_vehicles_4way_vs_phys"]["terms"]["is_dealer_sw"], COLORS["Dealer_Software"]),
         ("Pure-OTA vs. Dealer-SW (Uncond. FE)", regs["mature_sw_ota_oems_4way"]["terms"]["is_ota_pure"], COLORS["Pure_OTA"]),
         ("Hybrid-OTA vs. Dealer-SW (Uncond. FE)", regs["mature_sw_ota_oems_4way"]["terms"]["is_ota_hybrid"], COLORS["Hybrid_OTA"]),
-        ("Pure-OTA (Holding Fleet Size Fixed)", regs["mature_sw_ota_oems_4way_ctrl_potaff"]["terms"]["is_ota_pure"], "#1e40af"),
-        ("Hybrid-OTA (Holding Fleet Size Fixed)", regs["mature_sw_ota_oems_4way_ctrl_potaff"]["terms"]["is_ota_hybrid"], "#ea580c"),
+        ("Pure-OTA (Holding Campaign Size Fixed)", regs["mature_sw_ota_oems_4way_ctrl_potaff"]["terms"]["is_ota_pure"], "#1e40af"),
+        ("Hybrid-OTA (Holding Campaign Size Fixed)", regs["mature_sw_ota_oems_4way_ctrl_potaff"]["terms"]["is_ota_hybrid"], "#ea580c"),
         ("Non-Tesla Pure-OTA (Light-Duty Tiers)", regs["mature_sw_tiers_light_duty"]["terms"]["is_nontesla_pure"], COLORS["Pure_OTA"]),
         ("Tesla Pure-OTA (Light-Duty Tiers)", regs["mature_sw_tiers_light_duty"]["terms"]["is_tesla_pure"], "#0f172a"),
     ]
@@ -876,31 +951,31 @@ def make_fig4(res: dict) -> None:
         y0 = yp[idx]
         c, lo, hi = d["coef"], d["ci95_lo"], d["ci95_hi"]
         ax2.errorbar(c, y0, xerr=[[c - lo], [hi - c]], fmt="o", color=col, ecolor=col, elinewidth=1.9, capsize=3.2, markersize=6.0, zorder=4)
-        p_txt = f"$p$={d['p_t_G1']:.3f}" if d["p_t_G1"] >= 0.001 else "$p$<0.001"
+        p_txt = f"$p_{{\\mathrm{{WCB}}}}$={d['p_wcb']:.3f}" if d["p_wcb"] >= 0.001 else "$p_{\\mathrm{WCB}}$<0.001"
         if c >= 0:
-            ax2.text(hi + 0.14, y0, f"{c:+.2f} ({p_txt})", va="center", ha="left", fontsize=7.3, color="#1e293b")
+            ax2.text(hi + 0.14, y0, f"{c:+.2f} ({p_txt})", va="center", ha="left", fontsize=7.0, color="#1e293b")
         else:
-            ax2.text(lo - 0.14, y0, f"{c:+.2f} ({p_txt})", va="center", ha="right", fontsize=7.3, color="#1e293b")
+            ax2.text(lo - 0.14, y0, f"{c:+.2f} ({p_txt})", va="center", ha="right", fontsize=7.0, color="#1e293b")
 
     ax2.text(
         0.98,
         0.03,
         (
-            "Hybrid − Pure Wald Gap:\n"
-            f"All Veh: +{w_diff['all_vehicles']['diff_hybrid_minus_pure']:.2f} log pts ($p<0.001$)\n"
-            f"SW-Only: +{w_diff['sw_ota_oems']['diff_hybrid_minus_pure']:.2f} log pts ($p={w_diff['sw_ota_oems']['p_t_G1']:.3f}$)"
+            "Hybrid − Pure Contrast (Exact WCB):\n"
+            f"All Veh: +{w_diff['all_vehicles']['diff_hybrid_minus_pure']:.2f} ($p_{{\\mathrm{{WCB}}}}={w_diff['all_vehicles']['p_wcb']:.3f}$)\n"
+            f"SW-Only: +{w_diff['sw_ota_oems']['diff_hybrid_minus_pure']:.2f} ($p_{{\\mathrm{{WCB}}}}={w_diff['sw_ota_oems']['p_wcb']:.3f}$)"
         ),
         transform=ax2.transAxes,
         ha="right",
         va="bottom",
-        fontsize=7.3,
+        fontsize=7.0,
         bbox={"boxstyle": "round,pad=0.32", "facecolor": "#fffbeb", "edgecolor": "#fcd34d", "lw": 0.8},
     )
     ax2.set_yticks(yp)
-    ax2.set_yticklabels([it[0] for it in b_items], fontsize=7.9)
-    ax2.set_xlabel("Effect on log(1 + Unremedied Vehicles) [Mature ≥ 18 mo, CR1 95% CI]", fontsize=8.5)
-    ax2.set_title("B. Net Unremedied Exposure: Pure-OTA Inversion vs. Hybrid Trap", fontsize=10.2, fontweight="bold", loc="left", pad=8)
-    ax2.set_xlim(-7.9, 5.1)
+    ax2.set_yticklabels([it[0] for it in b_items], fontsize=7.7)
+    ax2.set_xlabel("Effect on log(1 + Unremedied Vehicle-Instance Proxy) [Mature ≥ 18 mo, CR1 95% CI]", fontsize=8.1)
+    ax2.set_title("B. Recall-Level Unremedied Proxy: Exact WCB Inference", fontsize=9.8, fontweight="bold", loc="left", pad=8)
+    ax2.set_xlim(-8.8, 6.2)
     ax2.set_ylim(-0.65, len(b_items) - 0.35)
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
@@ -1041,7 +1116,7 @@ def main() -> None:
     make_fig3(res)
     make_fig4(res)
     make_fig5(res)
-    print("[DONE] Generated all 8 CSV tables and 5 publication figures (PNG + PDF)!", flush=True)
+    print("[DONE] Generated all 9 CSV tables and 5 publication figures (PNG + PDF)!", flush=True)
 
 
 if __name__ == "__main__":

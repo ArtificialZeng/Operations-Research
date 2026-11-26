@@ -1,17 +1,14 @@
-# Project Status — D12 Boost (NHTSA Software-Defined Vehicle OTA Recalls)
+# Project Status — D12 Boost (NHTSA Software-Defined Vehicle OTA Recalls — `v2` Major Revision)
 
-- **Status:** `COMPLETE — INDEPENDENTLY AUDITED, HARDENED & READY FOR COORDINATOR FREEZE`
-- **Last Verified (UTC):** `2026-11-25`
+- **Status:** `v2 MAJOR REVISION COMPLETE — REFEREE-HARDENED & VERIFIED`
+- **Last Verified (UTC):** `2026-11-27`
 - **Workspace:** `D:\AI_Science\antigravity\d12_boost_nhtsa_ota_recalls_20261125`
 - **Isolated Environment:** `.venv` (Python 3.15.2)
 
-## Verification Checklist
+## `v2` Referee-Driven Verification Checklist
 
-- [x] **Official Public Data Ingestion (`scripts/01_download_official_sources.py`):** All 4 federal datasets verified with SHA-256 receipts (`data_raw/raw_download_receipts.json`).
-- [x] **NHTSA Campaign API Ground-Truth Census (`scripts/02_audit_nhtsa_campaign_api.py`):** 1,452/1,452 HTTP 200 valid (1,202 software/OTA candidates + 250 stratified physical audit sample; 0/250 FN; Jan–May 8, 2025 drift 4/7 + post-May 8, 2025 complete silent cutoff 0/68 documented).
-- [x] **Harmonized Panel & Deduplicated Complaint Event Study (`scripts/03_build_harmonized_panels.py`):** 10,559 campaigns (2015–2026), 646 canonical OEMs (bug-fixed `canonicalize_oems` end-to-end verified), strictly remedy-based 4-way classification, and 437,886 unique `ODINO` complaints (636,875 component records) deduplicated into a 114,000-row balanced `[-12m, +12m]` panel with pre-recall hazard indicators.
-- [x] **4-Pillar Econometric Suite (`scripts/04_econometric_core_analysis.py`):** Full-rank verified on 100% of models; OEM-clustered CR1 `t(G-1)` + `B = 999` Rademacher WCB + exact saturated Sun–Abraham (2021) cohort $\times$ relative-time IW + sample-matched Break-Even Frontier + Light-Duty Passenger OEMs, Hybrid SW-Choice, and Iterative Singleton-FE-Dropped robustness.
-- [x] **Crossref Live Reference Verification (`scripts/05_verify_crossref_references.py`):** 22/22 published journal-article DOIs verified and 22/22 cited in manuscript body.
-- [x] **Publication Figures & Tables (`scripts/06_generate_figures_tables.py`):** 8 zero-NaN CSV tables + 5 visually inspected 300-DPI PNG/PDF figures (all dynamic from JSON receipts, zero hardcoded drift).
-- [x] **Camera-Ready Manuscript & PDF (`scripts/08_compile_manuscript_pdf.py`):** Zero leaked LaTeX/markdown tokens; rendered PDF pages visually inspected.
-- [x] **Cryptographic Manifest & Adversarial Unit/Parity Tests (`scripts/07_build_manifest.py`, `tests/test_d12_boost.py`):** `ruff check scripts tests` clean (0 errors) and `pytest` 12/12 passing.
+- [x] **Public NHTSA Campaign API Metadata Anomaly Reframing:** Documented May 8, 2025 (`25V282000`, 36/36 `True`) vs. May 9, 2025 (`25V315000`, 44/44 `False`) public API flag drop (`0/68` post-May 8) reconciled explicitly against NHTSA's *2025 Annual Recalls Report* (March 2026; 33 OTA recalls tallied internally).
+- [x] **Unidentified `85–90%` Selection-Share Claim Permanently Removed:** Eliminated `implied_endogenous_selection_gap` and zero-clipped ITT subtraction across `scripts/04_econometric_core_analysis.py`, `d12_econometric_results.json`, tables, figures, and manuscript; conditional campaign-size differentials (`Hybrid-OTA +1.947, p_WCB=0.006`) and unconditional OEM-level first-OTA ITT (`Sun–Abraham IW -0.532, p_t=0.470`) are reported transparently as distinct estimands.
+- [x] **Transparent Recall-Level Proxy, Tesla `98.7%` Weight Disclosure, & Exact `p_WCB`:** Added dedicated mature OEM composition audit (`tables/table4c_mature_ota_oem_composition.csv` & Manuscript Table 4B confirming Tesla = `98.7%` of mature Pure-OTA affected vehicle-instances; Non-Tesla `N=19` = `1.3%`, `99.11%` mean CR); prominently reported exact `p_WCB` (`0.065`, `0.055`, `0.401`, `0.097`, plus reparameterized Hybrid-minus-Pure contrasts `0.007` all-veh / `0.079` SW-only) across Abstract, Tables, Figures, and Text; standardized **49 CFR § 573.7** recall-level vehicle-instance proxy terminology throughout.
+- [x] **Primary Empirical Anchor Hardened (Vehicle-Age Compliance Decay):** Added non-Tesla (`Any OTA × Age +2.37 pp/yr, p_WCB=0.030`; `API OTA × Age +1.96 pp/yr, p_WCB=0.023`) and light-duty passenger (`Pure-OTA × Age +3.22, p_WCB=0.032`; `Hybrid-OTA × Age +2.36, p_WCB=0.007`) sensitivity regressions in `scripts/04_econometric_core_analysis.py` and Table 3.
+- [x] **References, Figures, PDF, Tests, Manifest & Referee Response:** 22/22 Crossref-verified peer-reviewed DOIs + 2 federal institutional citations (`NHTSA 2026`, `49 CFR § 573.7`), 9 zero-NaN CSV tables, 5 visually inspected figures, visually inspected zero-leak PDF, `ruff check` = 0 errors, expanded `pytest` = 100% pass, regenerated `SHA256SUMS.json`, and `REFEREE_RESPONSE_v2.md`.

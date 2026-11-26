@@ -6,6 +6,6 @@ Recall_Year,Total_Vehicle_Recalls,Dealer_Software,Audited_Pure_OTA,Audited_Hybri
 2022,933,103,12,10,22,22,100.0,Active_API_Flag
 2023,894,133,12,5,17,17,100.0,Active_API_Flag
 2024,950,147,21,12,33,31,93.9,Active_API_Flag
-2025,891,152,7,31,38,4,10.5,Post_May2025_Silent_Cutoff
-2026,738,104,7,30,37,0,0.0,Post_May2025_Silent_Cutoff
+2025,891,152,7,31,38,4,10.5,Post_May8_2025_Public_API_Anomaly
+2026,738,104,7,30,37,0,0.0,Post_May8_2025_Public_API_Anomaly
 Total_2018_2026,7967,984,61,101,162,89,54.9,PhysAudit_FN=0/250

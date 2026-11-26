@@ -1,7 +1,7 @@
 {
-  "generated_utc": "2026-11-25T20:44:54Z",
+  "generated_utc": "2026-11-26T21:47:49Z",
   "project": "d12_boost_nhtsa_ota_recalls_20261125",
-  "n_files_hashed": 40,
+  "n_files_hashed": 42,
   "files": {
     "data_processed/campaigns_2015_2026.csv": {
       "bytes": 5445502,
@@ -20,72 +20,76 @@
       "sha256": "cbab5fcfd8f4efdffca2b7c95d1e1f0731b3c9f94661832faa477a28c629362f"
     },
     "data_processed/verified_references.json": {
-      "bytes": 8635,
-      "sha256": "21c51c31fbfe85e0ab6a0934cfc5c6a996fc48253e6c27edf9841295c9a785ff"
+      "bytes": 10037,
+      "sha256": "5d8cd13d001730bf59d64a198bfb126cb65ac46776b18ca3ffe06ff4e86b13a6"
     },
     "data_raw/raw_download_receipts.json": {
       "bytes": 2900,
       "sha256": "15f7d26485a169453d56001e2cb8ae8ee325668ec20cde1578a1bd39f13ce7b2"
     },
     "figures/fig1_api_audit_and_blast_radius.pdf": {
-      "bytes": 61479,
-      "sha256": "f24562c1cb7eb6851b7bf5cb5eb00267b84c82cfeed2438dcf1a334fc7437333"
+      "bytes": 61529,
+      "sha256": "9393734dc0e4fe4bdd726ad80ab644cf6ef84eace55b9cfad87e6b51ed7d034b"
     },
     "figures/fig1_api_audit_and_blast_radius.png": {
-      "bytes": 486136,
-      "sha256": "b74fdcd8c523c18261b2a8df5d05b25ddcef202864dc8cdffd1c6b8996f8bfa3"
+      "bytes": 524931,
+      "sha256": "a6f4022d7104edd5bb5adff66547d2663236de7187c0efd437ec56c7f6645a80"
     },
     "figures/fig2_itt_event_study_and_fleet_selection.pdf": {
-      "bytes": 77564,
-      "sha256": "562d3d0fdf8fc1fac5a12e513a1da414e3ab24e4c2d1f7e38311d0e2707c1289"
+      "bytes": 77568,
+      "sha256": "6c9d3db39f1c1d84db46ff9306fdd2ef1858a727d14e3a4ac98ce96c0d4906c8"
     },
     "figures/fig2_itt_event_study_and_fleet_selection.png": {
-      "bytes": 498333,
-      "sha256": "b1a3b4f9ae73eb4ee7506a8e6401611ce77ec49b2da3619fac56cfcc0e3c8070"
+      "bytes": 498254,
+      "sha256": "d0dc1c5bff9a1bf33433dc5784419a58b9352492be4421f96c6f6dcb769ad950"
     },
     "figures/fig3_maturation_and_age_decay_cliff.pdf": {
-      "bytes": 56600,
-      "sha256": "f8ff82d37efec16ff370e1e114bdd54763fbfb2ab881da35ffa531742b5ce7f7"
+      "bytes": 59246,
+      "sha256": "bace9a77778e6813c7287f918bf085ff0c64cad3a551c0deec3b264bf502eae4"
     },
     "figures/fig3_maturation_and_age_decay_cliff.png": {
-      "bytes": 520392,
-      "sha256": "a9b32cc15c7efb9423a3d59a3aae53009c24b3d567d0682b90553afd34598fc7"
+      "bytes": 545630,
+      "sha256": "f78a2966cf2ee33f8423d097c4d9a0ea640c69bd1511176f75b6d72b2d374fda"
     },
     "figures/fig4_breakeven_frontier_and_net_exposure.pdf": {
-      "bytes": 72190,
-      "sha256": "8c97ca7a7be82414120e4cdddb8d066e8a2658e2ee20f98c732c2bfff8b25bff"
+      "bytes": 72984,
+      "sha256": "07de06d8dbe827708b8ccb1b5c8d1ac19fbd7b82b5aa05d11207ec57c0adaf81"
     },
     "figures/fig4_breakeven_frontier_and_net_exposure.png": {
-      "bytes": 554810,
-      "sha256": "43c4dbeb9395fc0264d6709f94d60286c1a4c90d1c01f5962fcd5eb9edab5686"
+      "bytes": 556776,
+      "sha256": "654d5bfd70a7d0d802c019093f410ab9e583db544d3178f11aa596e6070542d1"
     },
     "figures/fig5_safety_oversight_and_complaint_did.pdf": {
       "bytes": 61983,
-      "sha256": "193ba82bce663d76e387a908cc1967acb3aeb36002e418f6d190ab1f686fcc1f"
+      "sha256": "a560441dfd80fb016afe67dfed9584c516aed7e424b58788755b48052de72ff7"
     },
     "figures/fig5_safety_oversight_and_complaint_did.png": {
       "bytes": 437504,
       "sha256": "954b6392e0003cc002ca64129c1bcb9402d2f976706568eb515318b9252c7642"
     },
     "manuscript_d12_boost.md": {
-      "bytes": 92382,
-      "sha256": "36a398e03d3cb87caeed045538e2656d8680564a499b0aaaa67d20905afd927c"
+      "bytes": 104169,
+      "sha256": "3d81402de37cd7a2009c18e054a4d33e80dbdf280bc15c0e68ec54f9792d47b7"
     },
     "manuscript_d12_boost.pdf": {
-      "bytes": 3703775,
-      "sha256": "7729cce90064340ee5ef4d4049c022757b8b2c15535afdf53e41173262df75e4"
+      "bytes": 4018128,
+      "sha256": "cb986a0ae361eccf69e54711510e84c0d29fe33311a1adc04d127d6a287fb072"
     },
     "README.md": {
-      "bytes": 6509,
-      "sha256": "c9d2449f562727145e70f510e10fa363fd69d2ca0aad47e7078b1667a49c1637"
+      "bytes": 7429,
+      "sha256": "52d1380f8b5c87d0b30f7bc315b278a153c9752ae90a58148516a5b390b75636"
+    },
+    "REFEREE_RESPONSE_v2.md": {
+      "bytes": 9081,
+      "sha256": "a4c651d252992963e711145a6b616402657c9f936bc9391f2f2e75a26e89efa9"
     },
     "results/api_reconciliation_audit.json": {
       "bytes": 10454,
       "sha256": "1f165ab272813eccefb0999f2037bfb956b2754dcc762b0235e59e1463f178ef"
     },
     "results/d12_econometric_results.json": {
-      "bytes": 214520,
-      "sha256": "b09ad351a86f92dd755d77fdd9110150b16ce7c75ac1f85df45b92f1e91823e0"
+      "bytes": 241356,
+      "sha256": "f4404920f57543835f84d11a9ffb5a5382d2523d688622c78a6ef85987eed0b3"
     },
     "results/step3_panel_build_summary.json": {
       "bytes": 1058,
@@ -104,48 +108,52 @@
       "sha256": "2147808386752f2026706d3903d6a65d4d09244415088964afb8dca8e09218a9"
     },
     "scripts/04_econometric_core_analysis.py": {
-      "bytes": 84035,
-      "sha256": "ae622d4cd927ecdee7e6ff0d75a1234e07f19e301daf1dbc961d7e46950817dc"
+      "bytes": 91004,
+      "sha256": "2b5a74ec54285f2867f618a65e94156f46797a216ee841e2c49ac05707cae3d2"
     },
     "scripts/05_verify_crossref_references.py": {
-      "bytes": 6334,
-      "sha256": "f474799fd53900d7b6cbb742b76a3a9d5085eeb0f24da6ee576c78ae09981574"
+      "bytes": 7911,
+      "sha256": "4c8d7fa2ed83c0fef3825025559d4990e340b7f7c4b4b2d614f80001c854aa4c"
     },
     "scripts/06_generate_figures_tables.py": {
-      "bytes": 56853,
-      "sha256": "dd7549f6a71c85e36c49266db199e75927bc536aeb18d9a9b21e46b626f777ac"
+      "bytes": 61904,
+      "sha256": "c18b83d6483cc71e11f96b050e97cd33a441e847b519a18adc7742cb13f58b34"
     },
     "scripts/07_build_manifest.py": {
-      "bytes": 2645,
-      "sha256": "99b3f8481d4b2e9e86018abc07ed9ce81ce74313f2f22bf1c5af378bce8c563d"
+      "bytes": 2671,
+      "sha256": "ad14a88fbabe3598fa673b77a870dd2e65326cdebe13b7f106845049c28c030d"
     },
     "scripts/08_compile_manuscript_pdf.py": {
-      "bytes": 21742,
-      "sha256": "1b02f8dfce74d173ac9e461786a834540ab6138d7ac34787c71ed43e19d1c94e"
+      "bytes": 23194,
+      "sha256": "f79623fb8465fa200c697386b14b97f4d15e250e469dae77a8bc8ab5e9606cf0"
     },
     "STATUS.md": {
-      "bytes": 2372,
-      "sha256": "a1e6d6adaaffa7efca9c2f20892a3dca4e1d161717ac50e467172311d62c89e5"
+      "bytes": 2568,
+      "sha256": "e01b6ed00db3fdeba50a7c3367dedc0bb0580a39dc31b97b36d3aa6acbe76564"
     },
     "tables/table1_api_measurement_audit.csv": {
-      "bytes": 638,
-      "sha256": "ff6c84c1479ced4191caeb8f60e707c2c2f3c7e637841a5067067a4ade587b96"
+      "bytes": 652,
+      "sha256": "63faa44f69ac7e22a31d3066543f6093b68af7c1b6cb52e899d2fb684a814e09"
     },
     "tables/table2_blast_radius_and_selection.csv": {
-      "bytes": 7131,
-      "sha256": "098afe9b65f467d65ec3990447f3a0989d1f0fe27c6bd541dd917ba77736b121"
+      "bytes": 7138,
+      "sha256": "cf57504a70882e305eeb5aab3b98d30d6eb1fa9e1403913ca33582084e73b907"
     },
     "tables/table3_remediation_velocity_and_age_decay.csv": {
-      "bytes": 9634,
-      "sha256": "d930b9bc4b10cf24ae2464103d765ad47985c61e7f48fc2b5c7f8cee231521c4"
+      "bytes": 12624,
+      "sha256": "4e61d75bd97d016dd5387c1939f05514b19e9e0c22c0c003ddb68acbe9d838b4"
     },
     "tables/table4_net_unremedied_exposure.csv": {
       "bytes": 4653,
       "sha256": "b98deec5c4ab12e13d3a0c5135263bd2fd332f29fafd32ced9d89580f3d7948c"
     },
     "tables/table4b_aggregate_fleet_accounting.csv": {
-      "bytes": 784,
-      "sha256": "f526d7cb5934d1a695d3603a1174fbd57d0c1ff558705b0f42f5c638dd7402ce"
+      "bytes": 832,
+      "sha256": "309a8231f221d83401b0a2baef2f56fcc05d3a43e263e6504ae66870d13ac583"
+    },
+    "tables/table4c_mature_ota_oem_composition.csv": {
+      "bytes": 3402,
+      "sha256": "823821aa49ce15c8a6ba4f51cb5a20256168f5423ec47f874f428f15953e3f47"
     },
     "tables/table5_safety_cascades_and_complaints_did.csv": {
       "bytes": 6002,
@@ -160,8 +168,8 @@
       "sha256": "c28f505043aef0c2307887e650cb4698fe2550a702a0b42b0ee39e6aac22955d"
     },
     "tests/test_d12_boost.py": {
-      "bytes": 14989,
-      "sha256": "edbaf60ab449b8256076cfb4ed7d84306311ed6e6bb904492734d624cb1691e0"
+      "bytes": 18887,
+      "sha256": "3e76eb94aa0b8d2e4bad82dd28d5011e11f6fd7bcf490f70af03f34454adb3c2"
     }
   }
 }

@@ -206,6 +206,7 @@ def test_all_tables_exist_and_zero_nans():
         "table3_remediation_velocity_and_age_decay.csv",
         "table4_net_unremedied_exposure.csv",
         "table4b_aggregate_fleet_accounting.csv",
+        "table4c_mature_ota_oem_composition.csv",
         "table5_safety_cascades_and_complaints_did.csv",
         "table5b_prerecall_complaints_and_hazards.csv",
         "table6_maturation_and_age_profiles.csv",
@@ -308,12 +309,75 @@ def test_compiled_pdf_zero_leaks_and_pages():
     assert leaks == [], f"PDF contains leaked tokens: {leaks}"
 
 
+def test_v2_referee_revision_guards():
+    """Verify all three v2 major-revision referee requirements across code, JSON, tables, and manuscript."""
+    md = (BASE_DIR / "manuscript_d12_boost.md").read_text(encoding="utf-8")
+    readme = (BASE_DIR / "README.md").read_text(encoding="utf-8")
+    res_raw = (RES_DIR / "d12_econometric_results.json").read_text(encoding="utf-8")
+    res = json.loads(res_raw)
+    refs_json = json.loads((PROC_DIR / "verified_references.json").read_text(encoding="utf-8"))
+
+    # (a) Zero occurrences of unidentified 85-90% selection-share overclaim or zero-clipped ITT gap
+    for forbidden in ("85–90%", "85-90%", "implied_endogenous_selection_gap"):
+        assert forbidden not in md, f"Forbidden overclaim token '{forbidden}' found in manuscript"
+        assert forbidden not in readme, f"Forbidden overclaim token '{forbidden}' found in README.md"
+        assert forbidden not in res_raw, f"Forbidden token '{forbidden}' found in d12_econometric_results.json"
+    assert "conditional_vs_unconditional_estimands" in res["pillar1_blast_radius"]
+
+    # (b) Tesla 98.7% mature Pure-OTA vehicle-instance share & Non-Tesla composition + exact p_WCB disclosure
+    comp = res["pillar3_net_unremedied_exposure"]["mature_sample_composition"]
+    assert comp["pure_ota_total_n"] == 46
+    assert comp["pure_ota_tesla_subsample"]["n_campaigns"] == 27
+    assert abs(comp["pure_ota_tesla_subsample"]["share_pure_affected_pct"] - 98.73) < 0.05
+    assert comp["pure_ota_nontesla_subsample"]["n_campaigns"] == 19
+    assert "98.7%" in md
+    assert "table4c_mature_ota_oem_composition.csv" in md
+
+    # Exact p_WCB values for Pillar 3 unconditional physical and dealer-SW baselines must be prominently reported
+    p3_all = res["pillar3_net_unremedied_exposure"]["regressions"]["mature_all_vehicles_4way_vs_phys"]["terms"]
+    p3_sw = res["pillar3_net_unremedied_exposure"]["regressions"]["mature_sw_ota_oems_4way"]["terms"]
+    p3_diff = res["pillar3_net_unremedied_exposure"]["hybrid_minus_pure_unremedied_wald"]
+    assert p3_all["is_ota_pure"]["p_wcb"] == 0.065
+    assert p3_all["is_ota_hybrid"]["p_wcb"] == 0.055
+    assert p3_sw["is_ota_pure"]["p_wcb"] == 0.401
+    assert p3_sw["is_ota_hybrid"]["p_wcb"] == 0.097
+    assert p3_diff["all_vehicles"]["p_wcb"] == 0.007
+    assert p3_diff["sw_ota_oems"]["p_wcb"] == 0.079
+    for p_tok in ("0.065", "0.055", "0.401", "0.097", "0.007", "0.079"):
+        assert p_tok in md, f"Exact Pillar 3 p_WCB '{p_tok}' missing from manuscript"
+
+    # Non-Tesla vehicle-age compliance-decay sensitivity verified in JSON & manuscript
+    age_regs = res["pillar2_remediation_velocity"]["vehicle_age_decay"]["regressions"]
+    assert age_regs["sw_excl_tesla_anyota_x_age"]["terms"]["ota_any_x_age"]["p_wcb"] < 0.05
+    assert age_regs["sw_excl_tesla_api_x_age"]["terms"]["api_ota_x_age"]["p_wcb"] < 0.05
+    for tok in ("2.37", "0.030", "1.96", "0.023"):
+        assert tok in md, f"Non-Tesla age-decay sensitivity token '{tok}' missing from manuscript"
+
+    # (c) Recall-level vehicle-instance proxy terminology + 49 CFR § 573.7 + NHTSA 2025 Annual Recalls Report
+    for req_phrase in (
+        "recall-level unremedied vehicle-instance proxy",
+        "49 CFR § 573.7",
+        "2025 Annual Recalls Report",
+        "2025-annual-recalls-report.pdf",
+        "25V282000",
+        "25V315000",
+        "33 OTA recalls in 2025",
+    ):
+        assert req_phrase in md, f"Required v2 regulatory/terminology phrase '{req_phrase}' missing from manuscript"
+    assert "nhtsa_2025_annual_recalls_report" in refs_json.get("institutional_references", {})
+    assert "cfr_49_573_7" in refs_json.get("institutional_references", {})
+
+    # (d) Referee response deliverable exists
+    assert (BASE_DIR / "REFEREE_RESPONSE_v2.md").exists()
+
+
 def test_sha256_manifest_cryptographic_integrity():
     sha_path = BASE_DIR / "SHA256SUMS.json"
     assert sha_path.exists()
     manifest = json.loads(sha_path.read_text(encoding="utf-8"))
     assert manifest["n_files_hashed"] == len(manifest["files"])
     assert manifest["n_files_hashed"] >= 35
+    assert "REFEREE_RESPONSE_v2.md" in manifest["files"]
 
     for rel, info in manifest["files"].items():
         fpath = BASE_DIR / rel

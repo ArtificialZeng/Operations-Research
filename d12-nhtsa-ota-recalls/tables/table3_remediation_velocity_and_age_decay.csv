@@ -53,6 +53,25 @@ D_Vehicle_Age_Decay,SW OTA-OEMs: 4-Way OTA x Vehicle Age,completion_rate,hybrid_
 D_Vehicle_Age_Decay,SW OTA-OEMs: Official API OTA x Vehicle Age,completion_rate,is_ota_api_full,533,28,0.2323,1.3492,0.172,0.864601,0.85,-2.5361,3.0006,0.5747
 D_Vehicle_Age_Decay,SW OTA-OEMs: Official API OTA x Vehicle Age,completion_rate,veh_age,533,28,-3.5599,0.3016,-11.804,0.0,0.001,-4.1787,-2.9411,0.5747
 D_Vehicle_Age_Decay,SW OTA-OEMs: Official API OTA x Vehicle Age,completion_rate,api_ota_x_age,533,28,2.7417,0.4984,5.501,8e-06,0.002,1.719,3.7644,0.5747
+D_Vehicle_Age_Decay,SW Excl. Tesla: Any OTA x Vehicle Age,completion_rate,is_ota_audited,503,27,2.8546,1.3582,2.102,0.045418,0.076,0.0627,5.6465,0.5746
+D_Vehicle_Age_Decay,SW Excl. Tesla: Any OTA x Vehicle Age,completion_rate,veh_age,503,27,-3.6028,0.2967,-12.142,0.0,0.001,-4.2127,-2.9929,0.5746
+D_Vehicle_Age_Decay,SW Excl. Tesla: Any OTA x Vehicle Age,completion_rate,ota_any_x_age,503,27,2.3736,1.1412,2.08,0.047542,0.03,0.0277,4.7195,0.5746
+D_Vehicle_Age_Decay,SW Excl. Tesla: Official API OTA x Vehicle Age,completion_rate,is_ota_api_full,503,27,1.6122,1.2783,1.261,0.218453,0.206,-1.0155,4.2399,0.5661
+D_Vehicle_Age_Decay,SW Excl. Tesla: Official API OTA x Vehicle Age,completion_rate,veh_age,503,27,-3.5863,0.3007,-11.925,0.0,0.001,-4.2045,-2.9681,0.5661
+D_Vehicle_Age_Decay,SW Excl. Tesla: Official API OTA x Vehicle Age,completion_rate,api_ota_x_age,503,27,1.9602,0.9215,2.127,0.043047,0.023,0.0661,3.8543,0.5661
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,is_ota_pure,503,27,-2.6313,3.5054,-0.751,0.45961,0.508,-9.8367,4.5741,0.5756
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,is_ota_hybrid,503,27,3.4236,1.3372,2.56,0.016612,0.052,0.6751,6.1722,0.5756
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,veh_age,503,27,-3.6029,0.2971,-12.125,0.0,0.001,-4.2136,-2.9921,0.5756
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,pure_x_age,503,27,3.4419,2.0258,1.699,0.10125,0.168,-0.7222,7.606,0.5756
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,hybrid_x_age,503,27,2.2321,1.2237,1.824,0.079668,0.057,-0.2833,4.7475,0.5756
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,is_ota_pure,488,20,-4.2663,1.7749,-2.404,0.0266,0.084,-7.9812,-0.5514,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,is_ota_hybrid,488,20,2.9511,1.2011,2.457,0.0238,0.061,0.4371,5.4651,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,veh_age,488,20,-3.6882,0.2995,-12.313,0.0,0.001,-4.3151,-3.0613,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,pure_x_age,488,20,3.2166,0.3712,8.665,0.0,0.032,2.4396,3.9936,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,hybrid_x_age,488,20,2.3593,1.1401,2.069,0.052397,0.007,-0.027,4.7457,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: Official API OTA x Vehicle Age,completion_rate,is_ota_api_full,488,20,-0.2314,1.3384,-0.173,0.864577,0.865,-3.0328,2.57,0.5671
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: Official API OTA x Vehicle Age,completion_rate,veh_age,488,20,-3.6742,0.304,-12.086,0.0,0.001,-4.3105,-3.0379,0.5671
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: Official API OTA x Vehicle Age,completion_rate,api_ota_x_age,488,20,2.8386,0.511,5.555,2.3e-05,0.005,1.7691,3.9082,0.5671
 D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,is_ota_pure,6412,452,5.4172,2.1339,2.539,0.011463,0.15,1.2236,9.6109,0.5248
 D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,is_ota_hybrid,6412,452,7.1798,1.0003,7.178,0.0,0.002,5.2139,9.1456,0.5248
 D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,is_dealer_sw,6412,452,1.7447,0.8067,2.163,0.031083,0.028,0.1594,3.33,0.5248

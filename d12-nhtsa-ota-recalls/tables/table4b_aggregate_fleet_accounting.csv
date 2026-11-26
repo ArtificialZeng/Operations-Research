@@ -1,4 +1,4 @@
-Modality,N_Mature_Campaigns,Total_Affected_Vehicles,Share_Affected_Pct,Total_Unremedied_Vehicles,Share_Unremedied_Pct,Mean_CR_Pct,Fleet_Weighted_Completion_Pct,Median_Affected,Median_Unremedied,Mean_Log_Unremedied
+Modality,N_Mature_Campaigns,Summed_Affected_Vehicle_Instances,Share_Affected_Pct,Summed_Unremedied_Instance_Proxy,Share_Unremedied_Proxy_Pct,Mean_CR_Pct,Instance_Weighted_Completion_Pct,Median_Affected_Instances,Median_Unremedied_Proxy,Mean_Log_Unremedied_Proxy
 Pure_OTA,46,9139366,4.001,91604,0.143,99.18,98.998,14967.0,3.9,2.815
 Hybrid_OTA,49,7487800,3.278,348488,0.544,95.66,95.346,24226.0,364.0,6.079
 Hybrid_SW_Choice,43,7212679,3.158,346896,0.542,95.41,95.19,27354.0,442.6,6.198

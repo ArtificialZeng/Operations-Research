@@ -40,10 +40,10 @@ C_Robustness_Ladder,Iterative Singleton-FE Dropped (OEM x Year FE),log_potaff,is
 C_Robustness_Ladder,Iterative Singleton-FE Dropped (OEM x Year FE),log_potaff,is_ota_hybrid,686,25,2.0587,0.45,4.575,0.000122,0.013,1.13,2.9874,0.4499
 C_Robustness_Ladder,Iterative Singleton-FE Dropped (Make x Model FE),log_potaff,is_ota_pure,632,24,1.3725,1.1506,1.193,0.24508,0.227,-1.0077,3.7528,0.4849
 C_Robustness_Ladder,Iterative Singleton-FE Dropped (Make x Model FE),log_potaff,is_ota_hybrid,632,24,2.2126,0.5286,4.186,0.000355,0.004,1.119,3.3061,0.4849
-D_Endogenous_Selection_Decomp,ITT Staggered OEM OTA Adoption (2015-26),log_potaff,post_ota_adopt,1239,68,0.1763,0.298,0.592,0.556065,0.579,-0.4185,0.771,0.3837
-D_Endogenous_Selection_Decomp,ITT Staggered Adoption + Min-MY FE,log_potaff,post_ota_adopt,1239,68,0.1776,0.2742,0.648,0.51935,0.542,-0.3697,0.7249,0.44
-D_Endogenous_Selection_Decomp,ITT Staggered Adoption (Excl. Tesla),log_potaff,post_ota_adopt,1205,67,0.2005,0.2968,0.675,0.501819,0.506,-0.3922,0.7931,0.3848
-D_Endogenous_Selection_Decomp,True Sun-Abraham (2021) Cohort x Rel-Time IW (7 Cohorts),log_potaff,iw_post_25cells,1233,67,-0.5321,0.7315,-0.727,0.469517,0.469517,-1.9922,0.928,0.0
-D_Endogenous_Selection_Decomp,Unconditional SW x SDV Cohort MY>=2021 DiD,log_potaff,is_sw_any,8681,601,1.0085,0.1973,5.111,0.0,0.001,0.621,1.396,0.423
-D_Endogenous_Selection_Decomp,Unconditional SW x SDV Cohort MY>=2021 DiD,log_potaff,is_sdv_my2021p,8681,601,-2.2758,0.1481,-15.37,0.0,0.001,-2.5666,-1.985,0.423
-D_Endogenous_Selection_Decomp,Unconditional SW x SDV Cohort MY>=2021 DiD,log_potaff,sw_x_sdv_my2021p,8681,601,0.262,0.141,1.858,0.063633,0.094,-0.0149,0.5389,0.423
+D_Unconditional_ITT_and_Cohort,ITT Staggered OEM OTA Adoption (2015-26),log_potaff,post_ota_adopt,1239,68,0.1763,0.298,0.592,0.556065,0.579,-0.4185,0.771,0.3837
+D_Unconditional_ITT_and_Cohort,ITT Staggered Adoption + Min-MY FE,log_potaff,post_ota_adopt,1239,68,0.1776,0.2742,0.648,0.51935,0.542,-0.3697,0.7249,0.44
+D_Unconditional_ITT_and_Cohort,ITT Staggered Adoption (Excl. Tesla),log_potaff,post_ota_adopt,1205,67,0.2005,0.2968,0.675,0.501819,0.506,-0.3922,0.7931,0.3848
+D_Unconditional_ITT_and_Cohort,True Sun-Abraham (2021) Cohort x Rel-Time IW (7 Cohorts),log_potaff,iw_post_25cells,1233,67,-0.5321,0.7315,-0.727,0.469517,0.469517,-1.9922,0.928,0.0
+D_Unconditional_ITT_and_Cohort,Unconditional SW x SDV Cohort MY>=2021 DiD,log_potaff,is_sw_any,8681,601,1.0085,0.1973,5.111,0.0,0.001,0.621,1.396,0.423
+D_Unconditional_ITT_and_Cohort,Unconditional SW x SDV Cohort MY>=2021 DiD,log_potaff,is_sdv_my2021p,8681,601,-2.2758,0.1481,-15.37,0.0,0.001,-2.5666,-1.985,0.423
+D_Unconditional_ITT_and_Cohort,Unconditional SW x SDV Cohort MY>=2021 DiD,log_potaff,sw_x_sdv_my2021p,8681,601,0.262,0.141,1.858,0.063633,0.094,-0.0149,0.5389,0.423

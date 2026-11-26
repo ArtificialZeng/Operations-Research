@@ -32,7 +32,7 @@ def main() -> None:
     if raw_receipt.exists():
         targets.append(raw_receipt)
 
-    for root_f in ("manuscript_d12_boost.md", "manuscript_d12_boost.pdf", "README.md", "STATUS.md"):
+    for root_f in ("manuscript_d12_boost.md", "manuscript_d12_boost.pdf", "REFEREE_RESPONSE_v2.md", "README.md", "STATUS.md"):
         p = BASE_DIR / root_f
         if p.exists():
             targets.append(p)

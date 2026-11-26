@@ -811,9 +811,11 @@ def run_pillar1_blast_radius_and_selection(df_all: pd.DataFrame) -> dict:
         "p_t_G1": round(p_ph, 6),
     }
 
-    # (4) Within-OEM Dealer-Software vs Physical-Hardware baseline check & Selection Share Calculation
-    # Compare unconditional ITT post-adoption + architectural shift against conditional OTA premium
+    # (4) Transparent reporting of distinct conditional vs. unconditional estimands
+    # (No invalid percentage-share subtraction across distinct estimands or zero-clipping of negative ITT!)
     cond_any_beta = p1_main["sw_ota_oems_anyota_log_potaff"]["terms"]["is_ota_audited"]["coef"]
+    cond_hyb_beta = p1_main["sw_ota_oems_4way_log_potaff"]["terms"]["is_ota_hybrid"]["coef"]
+    cond_pure_beta = p1_main["sw_ota_oems_4way_log_potaff"]["terms"]["is_ota_pure"]["coef"]
     itt_beta = itt_did_pooled["terms"]["post_ota_adopt"]["coef"]
 
     return {
@@ -838,13 +840,18 @@ def run_pillar1_blast_radius_and_selection(df_all: pd.DataFrame) -> dict:
             "physical_hardware_placebo_my2021plus": phys_placebo_cohort,
             "sw_vs_physical_sdv_did": sw_vs_phys_sdv_did,
         },
-        "selection_vs_architecture_decomposition": {
+        "conditional_vs_unconditional_estimands": {
             "conditional_ota_vs_dealersw_log_potaff": cond_any_beta,
-            "conditional_hybrid_vs_dealersw_log_potaff": p1_main["sw_ota_oems_4way_log_potaff"]["terms"]["is_ota_hybrid"]["coef"],
-            "conditional_pure_vs_dealersw_log_potaff": p1_main["sw_ota_oems_4way_log_potaff"]["terms"]["is_ota_pure"]["coef"],
-            "unconditional_itt_post_ota_adoption_log_potaff": itt_beta,
+            "conditional_hybrid_vs_dealersw_log_potaff": cond_hyb_beta,
+            "conditional_pure_vs_dealersw_log_potaff": cond_pure_beta,
+            "unconditional_twfe_itt_log_potaff": itt_beta,
+            "unconditional_sun_abraham_iw_log_potaff": sa_iw_summary.get("iw_post_coef"),
+            "unconditional_sun_abraham_iw_p_t": sa_iw_summary.get("iw_p_t_G1"),
             "unconditional_sw_vs_phys_sdv_cohort_did": sw_vs_phys_sdv_did["terms"]["sw_x_sdv_my2021p"]["coef"],
-            "implied_endogenous_selection_gap": round(cond_any_beta - max(0.0, itt_beta), 4),
+            "estimand_note": (
+                "Conditional within-OEM modality differentials and unconditional OEM-level first-OTA ITT "
+                "estimates measure distinct estimands; no percentage selection-share decomposition is computed."
+            ),
         },
     }
 
@@ -1080,6 +1087,51 @@ def run_pillar2_remediation_velocity(df_all: pd.DataFrame) -> dict:
         "sw_ota_oems_api_x_age": strip_private(
             fit_ols_cr1_wcb(
                 mat_sw_age,
+                "completion_rate",
+                ["is_ota_api_full", "veh_age", "api_ota_x_age"],
+                ["mfg", "rec_quarter", "comp_fe"],
+                "mfg",
+            )
+        ),
+        "sw_excl_tesla_anyota_x_age": strip_private(
+            fit_ols_cr1_wcb(
+                mat_sw_age[mat_sw_age["is_tesla"] == 0],
+                "completion_rate",
+                ["is_ota_audited", "veh_age", "ota_any_x_age"],
+                ["mfg", "rec_quarter", "comp_fe"],
+                "mfg",
+            )
+        ),
+        "sw_excl_tesla_4way_x_age": strip_private(
+            fit_ols_cr1_wcb(
+                mat_sw_age[mat_sw_age["is_tesla"] == 0],
+                "completion_rate",
+                ["is_ota_pure", "is_ota_hybrid", "veh_age", "pure_x_age", "hybrid_x_age"],
+                ["mfg", "rec_quarter", "comp_fe"],
+                "mfg",
+            )
+        ),
+        "sw_excl_tesla_api_x_age": strip_private(
+            fit_ols_cr1_wcb(
+                mat_sw_age[mat_sw_age["is_tesla"] == 0],
+                "completion_rate",
+                ["is_ota_api_full", "veh_age", "api_ota_x_age"],
+                ["mfg", "rec_quarter", "comp_fe"],
+                "mfg",
+            )
+        ),
+        "sw_light_duty_4way_x_age": strip_private(
+            fit_ols_cr1_wcb(
+                mat_sw_age[mat_sw_age["is_light_duty_passenger"] == 1],
+                "completion_rate",
+                ["is_ota_pure", "is_ota_hybrid", "veh_age", "pure_x_age", "hybrid_x_age"],
+                ["mfg", "rec_quarter", "comp_fe"],
+                "mfg",
+            )
+        ),
+        "sw_light_duty_api_x_age": strip_private(
+            fit_ols_cr1_wcb(
+                mat_sw_age[mat_sw_age["is_light_duty_passenger"] == 1],
                 "completion_rate",
                 ["is_ota_api_full", "veh_age", "api_ota_x_age"],
                 ["mfg", "rec_quarter", "comp_fe"],
@@ -1366,6 +1418,78 @@ def run_pillar3_net_unremedied_exposure(df_all: pd.DataFrame) -> dict:
     agg_accounting["Hybrid_HW_Mixed"] = _agg_row(mat[mat["is_ota_hybrid_hwmixed"] == 1])
     agg_accounting["OTA_OEMs_Dealer_Software"] = _agg_row(mat_sw[mat_sw["modality4"] == "Dealer_Software"])
 
+    # 3B-2. Explicit Mature OTA Sample Composition & OEM Vehicle-Recall Weight Disclosure
+    # Confirms exact Tesla 98.7% share of mature Pure-OTA affected vehicle-recall instances and Non-Tesla subsamples.
+    def _oem_composition(sub: pd.DataFrame) -> list[dict]:
+        tot_n = len(sub)
+        tot_pa = float(sub["potaff"].sum())
+        tot_un = float(sub["unremedied_vehicles"].sum())
+        rows = []
+        for oem_name, grp in sub.groupby("mfg"):
+            pa = float(grp["potaff"].sum())
+            un = float(grp["unremedied_vehicles"].sum())
+            vage = grp["vehicle_age_years"].dropna()
+            rows.append(
+                {
+                    "oem": str(oem_name),
+                    "is_light_duty_passenger": int(grp["is_light_duty_passenger"].iloc[0]),
+                    "n_campaigns": len(grp),
+                    "share_campaigns_pct": round(100.0 * len(grp) / max(1, tot_n), 2),
+                    "affected_vehicle_instances": round(pa),
+                    "share_affected_pct": round(100.0 * pa / max(1.0, tot_pa), 3),
+                    "unremedied_instance_proxy": round(un),
+                    "share_unremedied_pct": round(100.0 * un / max(1.0, tot_un), 3),
+                    "mean_cr_pct": round(float(grp["completion_rate"].mean()), 2),
+                    "median_cr_pct": round(float(grp["completion_rate"].median()), 2),
+                    "fleet_weighted_cr_pct": round(100.0 * (1.0 - un / pa), 2) if pa > 0 else None,
+                    "median_affected": round(float(grp["potaff"].median()), 1),
+                    "median_unremedied_proxy": round(float(grp["unremedied_vehicles"].median()), 1),
+                    "max_vehicle_age_yr": round(float(vage.max()), 1) if len(vage) else None,
+                    "n_age_6plus_yr": int((vage >= 6).sum()),
+                }
+            )
+        return sorted(rows, key=lambda r: r["affected_vehicle_instances"], reverse=True)
+
+    mat_pure = mat[mat["modality4"] == "Pure_OTA"].copy()
+    mat_hyb = mat[mat["modality4"] == "Hybrid_OTA"].copy()
+    pure_tot_pa = float(mat_pure["potaff"].sum())
+    pure_tot_un = float(mat_pure["unremedied_vehicles"].sum())
+
+    def _pure_slice_stats(sub: pd.DataFrame) -> dict:
+        pa = float(sub["potaff"].sum())
+        un = float(sub["unremedied_vehicles"].sum())
+        vage = sub["vehicle_age_years"].dropna()
+        return {
+            "n_campaigns": len(sub),
+            "n_oems": int(sub["mfg"].nunique()),
+            "share_pure_campaigns_pct": round(100.0 * len(sub) / max(1, len(mat_pure)), 2),
+            "affected_vehicle_instances": round(pa),
+            "share_pure_affected_pct": round(100.0 * pa / max(1.0, pure_tot_pa), 2),
+            "unremedied_instance_proxy": round(un),
+            "share_pure_unremedied_pct": round(100.0 * un / max(1.0, pure_tot_un), 2),
+            "mean_cr_pct": round(float(sub["completion_rate"].mean()), 2),
+            "median_cr_pct": round(float(sub["completion_rate"].median()), 2),
+            "fleet_weighted_cr_pct": round(100.0 * (1.0 - un / pa), 2) if pa > 0 else None,
+            "median_affected": round(float(sub["potaff"].median()), 1),
+            "median_unremedied_proxy": round(float(sub["unremedied_vehicles"].median()), 1),
+            "max_vehicle_age_yr": round(float(vage.max()), 1) if len(vage) else None,
+            "n_age_6plus_yr": int((vage >= 6).sum()),
+        }
+
+    mature_sample_composition = {
+        "pure_ota_total_n": len(mat_pure),
+        "pure_ota_n_oems": int(mat_pure["mfg"].nunique()),
+        "pure_ota_tesla_subsample": _pure_slice_stats(mat_pure[mat_pure["is_tesla"] == 1]),
+        "pure_ota_nontesla_subsample": _pure_slice_stats(mat_pure[mat_pure["is_tesla"] == 0]),
+        "pure_ota_nontesla_light_duty_subsample": _pure_slice_stats(
+            mat_pure[(mat_pure["is_tesla"] == 0) & (mat_pure["is_light_duty_passenger"] == 1)]
+        ),
+        "pure_ota_by_oem": _oem_composition(mat_pure),
+        "hybrid_ota_total_n": len(mat_hyb),
+        "hybrid_ota_n_oems": int(mat_hyb["mfg"].nunique()),
+        "hybrid_ota_by_oem": _oem_composition(mat_hyb),
+    }
+
     # 3C. Sample-Matched Break-Even Completion-Rate Frontier Analysis
     # Given Dealer-SW baseline completion rate r0 and blast-radius multiplier M = potaff_OTA / potaff_DealerSW,
     # break-even completion rate r*(M) = 1 - (1 - r0) / M
@@ -1483,30 +1607,43 @@ def run_pillar3_net_unremedied_exposure(df_all: pd.DataFrame) -> dict:
         },
     }
 
-    # Formal Wald test H0: beta(Pure_OTA) == beta(Hybrid_OTA) on mature log_unremedied (SW & All-Vehicles)
-    p3_raw_sw = fit_ols_cr1_wcb(
-        mat_sw, "log_unremedied", ["is_ota_pure", "is_ota_hybrid"], ["mfg", "rec_quarter", "min_my_fe", "comp_fe"], "mfg", n_boot=99
+    # Formal Wald test + EXACT null-imposed WCB (B=999) for H0: beta(Hybrid_OTA) - beta(Pure_OTA) == 0
+    # Reparameterizing [is_ota_audited, is_ota_hybrid, ...] yields exact beta_hybrid - beta_pure on is_ota_hybrid!
+    p3_diff_sw = fit_ols_cr1_wcb(
+        mat_sw,
+        "log_unremedied",
+        ["is_ota_audited", "is_ota_hybrid"],
+        ["mfg", "rec_quarter", "min_my_fe", "comp_fe"],
+        "mfg",
+        target_vars=["is_ota_hybrid"],
     )
-    p3_raw_all = fit_ols_cr1_wcb(
-        mat, "log_unremedied", ["is_ota_pure", "is_ota_hybrid", "is_dealer_sw"], ["mfg", "rec_quarter", "min_my_fe", "comp_fe"], "mfg", n_boot=99
+    p3_diff_all = fit_ols_cr1_wcb(
+        mat,
+        "log_unremedied",
+        ["is_ota_audited", "is_ota_hybrid", "is_dealer_sw"],
+        ["mfg", "rec_quarter", "min_my_fe", "comp_fe"],
+        "mfg",
+        target_vars=["is_ota_hybrid"],
     )
     wald_p3_diff = {}
-    for lbl, r_obj in [("sw_ota_oems", p3_raw_sw), ("all_vehicles", p3_raw_all)]:
-        ip = r_obj["_name_to_idx"]["is_ota_pure"]
-        ih = r_obj["_name_to_idx"]["is_ota_hybrid"]
-        diff = float(r_obj["_beta"][ih] - r_obj["_beta"][ip])
-        cv = np.array([-1.0, 1.0])
-        Vp = r_obj["_V_cr1"][np.ix_([ip, ih], [ip, ih])]
-        se = float(np.sqrt(max(float(cv @ Vp @ cv), 1e-24)))
-        t_v = diff / se
-        p_v = float(2.0 * stats.t.sf(abs(t_v), df=r_obj["G_clusters"] - 1))
-        wald_p3_diff[lbl] = {"diff_hybrid_minus_pure": round(diff, 4), "se_cr1": round(se, 4), "t_cr1": round(t_v, 3), "p_t_G1": round(p_v, 6)}
+    for lbl, r_obj in [("sw_ota_oems", p3_diff_sw), ("all_vehicles", p3_diff_all)]:
+        trm = r_obj["terms"]["is_ota_hybrid"]
+        wald_p3_diff[lbl] = {
+            "diff_hybrid_minus_pure": trm["coef"],
+            "se_cr1": trm["se_cr1"],
+            "t_cr1": trm["t_cr1"],
+            "p_t_G1": trm["p_t_G1"],
+            "p_wcb": trm["p_wcb"],
+            "ci95_lo": trm["ci95_lo"],
+            "ci95_hi": trm["ci95_hi"],
+        }
 
     return {
         "regressions": p3_regs,
         "hybrid_minus_pure_unremedied_wald": wald_p3_diff,
         "mature_blast_radius_same_sample": br_mat,
         "aggregate_fleet_accounting_mature18m": agg_accounting,
+        "mature_sample_composition": mature_sample_composition,
         "breakeven_frontier": frontier_points,
     }
 
@@ -1759,9 +1896,12 @@ def main() -> None:
     print("P2 Mature Completion Rate (SW OTA-OEMs, 4way):", p2["mature_18m_regressions"]["sw_ota_oems_4way"]["terms"], flush=True)
     print("P2 Mature Completion Rate (SW OTA-OEMs, API OTA):", p2["mature_18m_regressions"]["sw_ota_oems_api_ota"]["terms"], flush=True)
     print("P2 Vehicle-Age Decay Interaction (SW 4way):", p2["vehicle_age_decay"]["regressions"]["sw_ota_oems_4way_x_age"]["terms"], flush=True)
-    print("P3 Mature Net Unremedied (SW OTA-OEMs, 4way):", p3["regressions"]["mature_sw_ota_oems_4way"]["terms"], flush=True)
-    print("P3 Mature Net Unremedied (SW OTA-OEMs, API OTA):", p3["regressions"]["mature_sw_ota_oems_api_ota"]["terms"], flush=True)
-    print("P3 Mature Net Unremedied (All Vehicles vs Phys):", p3["regressions"]["mature_all_vehicles_4way_vs_phys"]["terms"], flush=True)
+    print("P2 Vehicle-Age Decay Excl. Tesla (Any OTA / API):", p2["vehicle_age_decay"]["regressions"]["sw_excl_tesla_anyota_x_age"]["terms"]["ota_any_x_age"], p2["vehicle_age_decay"]["regressions"]["sw_excl_tesla_api_x_age"]["terms"]["api_ota_x_age"], flush=True)
+    print("P3 Mature Pure-OTA Composition (Tesla vs Non-Tesla):", p3["mature_sample_composition"]["pure_ota_tesla_subsample"], p3["mature_sample_composition"]["pure_ota_nontesla_subsample"], flush=True)
+    print("P3 Mature Net Unremedied Proxy (SW OTA-OEMs, 4way):", p3["regressions"]["mature_sw_ota_oems_4way"]["terms"], flush=True)
+    print("P3 Mature Net Unremedied Proxy (SW OTA-OEMs, API OTA):", p3["regressions"]["mature_sw_ota_oems_api_ota"]["terms"], flush=True)
+    print("P3 Mature Net Unremedied Proxy (All Vehicles vs Phys):", p3["regressions"]["mature_all_vehicles_4way_vs_phys"]["terms"], flush=True)
+    print("P3 Hybrid minus Pure Contrast (Exact WCB):", p3["hybrid_minus_pure_unremedied_wald"], flush=True)
     print("P3 Break-Even Frontier (OTA-OEM Matched):", p3["breakeven_frontier"]["within_ota_oem_matched_frontier"], flush=True)
     print("P4 Complaint DiD SW All (log_cmpl_fail, 4way):", p4["complaint_did_summary"]["did_regressions"]["sw_all_4way_oemcl__log_cmpl_fail"]["terms"], flush=True)
     print("P4 Complaint DiD SW Active (log_cmpl_fail, 4way):", p4["complaint_did_summary"]["did_regressions"]["sw_active_4way_oemcl__log_cmpl_fail"]["terms"], flush=True)

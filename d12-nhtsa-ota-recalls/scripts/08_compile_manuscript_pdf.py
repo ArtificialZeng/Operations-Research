@@ -20,51 +20,58 @@ EDGE_EXE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 
 FIGURE_BLOCKS: dict[str, tuple[str, str]] = {
     "fig1_api_audit_and_blast_radius.png": (
-        "Figure 1. Official NHTSA API Ground-Truth Audit (2019&ndash;2026) and Blast-Radius Endogenous Selection Decomposition.",
+        "Figure 1. Public NHTSA Campaign API Endpoint Metadata Anomaly (2019&ndash;2026) and Conditional Campaign Size vs. Unconditional OEM ITT.",
         (
-            "Panel A compares annual audited Pure-OTA and Hybrid-OTA vehicle recall counts against NHTSA's official Campaign API "
-            "<code>overTheAirUpdate = True</code> indicator across 1,452 live-queried campaigns, revealing 100.0% exact agreement in 2019&ndash;2023 (54/54), "
-            "93.9% in 2024 (31/33), early 2025 drift (4/7 = 57.1% through May 8, 2025), and a complete silent cutoff after May 8, 2025 (0/68 = 0.0%; "
-            "0/250 physical audit false negatives). Panel B plots within-OEM blast-radius effects on log(1 + Potentially Affected) with OEM-clustered CR1 "
-            "<em>t</em>(<em>G</em>&minus;1) 95% CIs and <em>B</em> = 999 Rademacher Wild Cluster Bootstrap <em>p</em>-values, contrasting conditional Hybrid-OTA "
-            "selection (+1.95 log points; Official API OTA +1.89) against unconditional ITT adoption (+0.18, n.s.) and Software &times; SDV cohort expansion (+0.26)."
+            "Panel A compares annual audited Pure-OTA and Hybrid-OTA vehicle recall counts against NHTSA's live public Campaign API "
+            "<code>overTheAirUpdate = True</code> indicator across 1,452 queried campaigns (0 HTTP errors; 0/250 physical false negatives) alongside NHTSA's separate "
+            "<em>2025 Annual Recalls Report</em> (green star: 33 OTA recalls in 2025). The public API matched audited text on 54/54 (100.0%) in 2019&ndash;2023 and "
+            "31/33 (93.9%) in 2024, drifted to 4/7 (57.1%) during Jan&ndash;May 8, 2025 (final <code>True</code>: Volvo <code>25V282000</code>, 36/36 records), and returned "
+            "0/68 (0.0%) <code>True</code> after May 8, 2025 (beginning May 9 with Ford <code>25V315000</code>, 44/44 <code>False</code> despite explicit OTA text). "
+            "Panel B contrasts conditional within-OEM campaign-size differentials on log(1 + Affected Vehicle-Instances) (Hybrid-OTA +1.95, <em>p</em><sub>WCB</sub> = 0.006; "
+            "Official API OTA +1.89, <em>p</em><sub>WCB</sub> = 0.039; Pure-OTA +1.08, <em>p</em><sub>WCB</sub> = 0.233) against distinct unconditional OEM-level estimands "
+            "(TWFE ITT +0.18, <em>p</em><sub>WCB</sub> = 0.579; Sun&ndash;Abraham IW &minus;0.53, <em>p</em><sub>t</sub> = 0.470; SW &times; SDV cohort +0.26, <em>p</em><sub>WCB</sub> = 0.094)."
         ),
     ),
     "fig2_itt_event_study_and_fleet_selection.png": (
-        "Figure 2. Unconditional Intent-to-Treat OEM OTA-Adoption Event Study (TWFE &amp; Sun&ndash;Abraham Saturated IW) and Fleet-Size Distributions.",
+        "Figure 2. Unconditional Intent-to-Treat OEM First-OTA Event Study (TWFE &amp; Sun&ndash;Abraham Saturated IW) and Campaign-Size Distributions.",
         (
             "Panel A estimates dynamic effects around each adopting OEM's first OTA recall pooling all unconditional software recalls (OTA + Dealer-Software; "
             "TWFE <em>N</em> = 1,239, <em>G</em> = 68; Sun&ndash;Abraham saturated cohort &times; relative-time IW <em>N</em> = 1,233, <em>G</em> = 67, 7 cohorts, "
-            "39 cells, reference <em>k</em> = &minus;1), confirming clean pre-trends (TWFE <em>p</em> = 0.424; SA IW <em>p</em> = 0.775) and insignificant post shifts "
-            "(TWFE +0.18, <em>p</em><sub>WCB</sub> = 0.579; SA IW &minus;0.53, <em>p</em> = 0.470). Panel B overlays empirical CDFs of campaign fleet size "
-            "(log<sub>10</sub> scale), illustrating legacy fixed-cost selection where 67.3% of Hybrid-OTA recalls affect &ge;10,000 vehicles vs. 38.8% of Dealer-Software."
+            "39 cells, reference <em>k</em> = &minus;1), confirming clean pre-trends (TWFE <em>p</em> = 0.424; SA IW <em>p</em> = 0.775) and statistically null post shifts "
+            "(TWFE +0.18, <em>p</em><sub>WCB</sub> = 0.579; SA IW &minus;0.53, <em>p</em><sub>t</sub> = 0.470). Panel B overlays empirical CDFs of campaign recall size "
+            "(affected vehicle-instances, log<sub>10</sub> scale), illustrating conditional size sorting where 67.3% of Hybrid-OTA recalls affect &ge;10,000 vehicle-instances "
+            "vs. 38.8% of Dealer-Software."
         ),
     ),
     "fig3_maturation_and_age_decay_cliff.png": (
-        "Figure 3. Official U.S. DOT Recall Maturation Curves and Eradication of the Vehicle-Age Compliance-Decay Cliff.",
+        "Figure 3. Official U.S. DOT Recall Maturation Curves and OTA Flattening of the Vehicle-Age Compliance-Decay Cliff.",
         (
-            "Panel A traces median official DOT completion rates across six statutory campaign-age intervals (0&ndash;3 months through &gt;24 months; shaded mature zone &ge;18 months "
-            "covering all six 49 CFR 573.7 quarterly filings; 0&ndash;3m physical median reflects <em>n</em> = 9 early-reporting pre-completed recalls). Panel B plots mean mature "
-            "(&ge;18-month) completion rates by vehicle age at recall filing, demonstrating that Dealer-Software completion collapses at &minus;3.57 pp/yr (<em>p</em><sub>WCB</sub> = 0.001, "
-            "matching Physical Hardware's &minus;3.41 pp/yr cliff), whereas Pure-OTA offsets 86.3% of age decay (+3.08 pp/yr, <em>p</em><sub>WCB</sub> = 0.039) and Hybrid-OTA offsets "
-            "63.0% (+2.25 pp/yr, <em>p</em><sub>WCB</sub> = 0.044)."
+            "Panel A traces median official DOT completion rates across six campaign-age intervals since <code>RCDATE</code> (0&ndash;3 months through &gt;24 months; "
+            "shaded mature window &ge;18 months post-<code>RCDATE</code> serving as an operational proxy for six quarterly reports under 49 CFR &sect; 573.7(a); "
+            "0&ndash;3m physical median reflects <em>n</em> = 9 pre-completed filings). Panel B plots mean mature (&ge;18-month) completion rates by vehicle age at recall filing, "
+            "showing that Dealer-Software completion declines at &minus;3.57 pp/yr (<em>p</em><sub>WCB</sub> = 0.001, matching Physical Hardware's &minus;3.41 pp/yr slope), "
+            "whereas Pure-OTA offsets 86.3% (+3.08 pp/yr, <em>p</em><sub>WCB</sub> = 0.039), Hybrid-OTA offsets 63.0% (+2.25 pp/yr, <em>p</em><sub>WCB</sub> = 0.044), "
+            "and Official API OTA offsets 77.0% (+2.74 pp/yr, <em>p</em><sub>WCB</sub> = 0.002; excluding Tesla: +1.96 pp/yr, <em>p</em><sub>WCB</sub> = 0.023; Any OTA excl. Tesla: +2.37 pp/yr, <em>p</em><sub>WCB</sub> = 0.030)."
         ),
     ),
     "fig4_breakeven_frontier_and_net_exposure.png": (
-        "Figure 4. Sample-Matched Break-Even Completion-Rate Frontier and Net Unremedied Fleet Exposure Divergence (Pure-OTA Inversion vs. Hybrid-OTA Safety Trap).",
+        "Figure 4. Sample-Matched Break-Even Frontier and Recall-Level Unremedied Vehicle-Instance Proxy with Exact Wild Cluster Bootstrap Inference.",
         (
-            "Panel A maps mature (&ge;18-month) completion rates and blast-radius multipliers against the sample-matched break-even frontier "
+            "Panel A maps mature (&ge;18-month) completion rates and recall-size multipliers against the descriptive break-even frontier "
             "<em>r</em>*(<em>M</em>) = 1 &minus; (1 &minus; <em>r</em><sub>0</sub>)/<em>M</em> anchored at OTA-capable OEMs' mature Dealer-Software baseline <em>r</em><sub>0</sub> = 85.71%: "
-            "Pure-OTA clears the frontier by +1.84 pp (99.18% vs. 97.34%; Tesla Pure-OTA 99.23% vs. 97.76%), whereas Legacy Hybrid-OTA falls &minus;2.53 pp inside the Penalty Zone "
-            "(95.66% vs. 98.19%; pure SW-choice Hybrid-OTA &minus;2.76 pp). Panel B plots CR1 95% CIs for mature log(1 + Unremedied Vehicles) across all-vehicle, Hybrid SW-choice, "
-            "software-only, fleet-size-controlled, and light-duty passenger-OEM execution-tier specifications (+3.33 log-point Hybrid-minus-Pure Wald gap, <em>p</em> &lt; 0.00001)."
+            "Pure-OTA (<em>N</em> = 46; Tesla accounts for 98.7% of affected vehicle-instances; Non-Tesla <em>N</em> = 19 mean 99.11%) clears its frontier by +1.84 pp (99.18% vs. 97.34%), "
+            "whereas Legacy Hybrid-OTA falls &minus;2.53 pp below (95.66% vs. 98.19%; pure SW-choice Hybrid-OTA &minus;2.76 pp). Panel B plots CR1 95% CIs and exact "
+            "<em>B</em> = 999 Rademacher <em>p</em><sub>WCB</sub> values on mature log(1 + Unremedied Vehicle-Instance Proxy): relative to physical recalls, Pure-OTA (&minus;1.92, <em>p</em><sub>WCB</sub> = 0.065) "
+            "and Hybrid-OTA (+1.42, <em>p</em><sub>WCB</sub> = 0.055) are marginally significant at 10% under WCB while their contrast (+3.33) has <em>p</em><sub>WCB</sub> = 0.007; "
+            "relative to OTA-capable OEMs' dealer software, Pure-OTA is null (&minus;0.60, <em>p</em><sub>WCB</sub> = 0.401), Hybrid-OTA is +1.13 (<em>p</em><sub>WCB</sub> = 0.097), "
+            "and their contrast (+1.73) has <em>p</em><sub>WCB</sub> = 0.079. Holding campaign size fixed, both Pure-OTA (&minus;2.06, <em>p</em><sub>WCB</sub> = 0.035) and Hybrid-OTA (&minus;0.67, <em>p</em><sub>WCB</sub> = 0.012) compress residuals."
         ),
     ),
     "fig5_safety_oversight_and_complaint_did.png": (
         "Figure 5. Within-OEM Safety Severity, Oversight, Repeat Cascades, and Deduplicated Consumer Complaint-Decay Event Study.",
         (
             "Panel A plots within-OEM fixed-effects differences (percentage points, CR1 95% CIs) comparing Pure-OTA and Hybrid-OTA against Dealer-Software across FMVSS noncompliance "
-            "(Pure-OTA +27.8 pp, <em>p</em><sub>WCB</sub> = 0.005), formal ODI investigations (Pure-OTA &minus;12.6 pp; API OTA &minus;5.6 pp, <em>p</em><sub>WCB</sub> = 0.019), "
+            "(Pure-OTA +27.8 pp, <em>p</em><sub>WCB</sub> = 0.005), formal ODI investigations (Pure-OTA &minus;12.6 pp, <em>p</em><sub>WCB</sub> = 0.090; API OTA &minus;5.6 pp, <em>p</em><sub>WCB</sub> = 0.019), "
             "acute hazard advisories, and uncensored 365- and 730-day repeat-defect cascades (nulls). Panel B displays the balanced [&minus;12m, +12m] dynamic event study linking "
             "437,886 unique deduplicated NHTSA ODI complaints (636,875 component records) to 737 software recalls (2021&ndash;2025), highlighting the pre-recall exposure ramp-up "
             "(pre-trend Wald <em>F</em>(11, 114) = 2.56, <em>p</em> = 0.006) and honest empirical nulls under both full [&minus;12, +12] and short [&minus;3, +12] windows "
