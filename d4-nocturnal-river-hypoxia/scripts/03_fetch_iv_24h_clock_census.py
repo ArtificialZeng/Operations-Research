@@ -77,7 +77,34 @@ def split_multi_site_rdb(text: str) -> dict[str, list[str]]:
     return out
 
 
-def parse_iv_season(lines: list[str], lon: float) -> pd.DataFrame | None:
+def astronomical_sunrise_sunset_solar_hr(
+    lat_deg: float | np.ndarray,
+    doy: int | np.ndarray,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Exact astronomical sunrise and sunset in Local Mean Solar Time (hours).
+
+    Computes solar declination delta via the 3-harmonic Spencer (1971) / Iqbal (1983)
+    Fourier expansion of day-of-year (gamma = 2*pi*(doy - 1)/365) and the geometric
+    hour-angle relation cos(omega_0) = -tan(phi) * tan(delta).
+    """
+    doy_arr = np.asarray(doy, dtype=float)
+    lat_arr = np.asarray(lat_deg, dtype=float)
+    gamma = 2.0 * np.pi * (doy_arr - 1.0) / 365.0
+    decl = (
+        0.006918
+        - 0.399912 * np.cos(gamma)
+        + 0.070257 * np.sin(gamma)
+        - 0.006758 * np.cos(2.0 * gamma)
+        + 0.000907 * np.sin(2.0 * gamma)
+        - 0.002697 * np.cos(3.0 * gamma)
+        + 0.001480 * np.sin(3.0 * gamma)
+    )
+    cos_w0 = np.clip(-np.tan(np.radians(lat_arr)) * np.tan(decl), -1.0, 1.0)
+    w0_hr = np.degrees(np.arccos(cos_w0)) / 15.0
+    return 12.0 - w0_hr, 12.0 + w0_hr
+
+
+def parse_iv_season(lines: list[str], lon: float, lat: float | None = None) -> pd.DataFrame | None:
     if len(lines) < 3:
         return None
     hdr = lines[0].split("\t")
@@ -168,6 +195,11 @@ def parse_iv_season(lines: list[str], lon: float) -> pd.DataFrame | None:
     daily["do_am0912"] = out[out["civil_hr"].between(9.0, 12.0)].groupby("day")["do"].mean()
     daily["t_am0912"] = out[out["civil_hr"].between(9.0, 12.0)].groupby("day")["temp"].mean()
     daily["do_dawn0507"] = out[out["solar_hr"].between(5.0, 7.0)].groupby("day")["do"].mean()
+    if lat is not None and np.isfinite(lat):
+        doy_s = pd.to_datetime(out["day"]).dt.day_of_year.values
+        sr_s, ss_s = astronomical_sunrise_sunset_solar_hr(lat, doy_s)
+        is_night = (out["solar_hr"].values < sr_s) | (out["solar_hr"].values >= ss_s)
+        daily["do_min_night_15m"] = out.loc[is_night].groupby("day")["do"].min()
 
     # 24-hour Local Mean Solar Time bins & Local Civil Clock bins
     piv_do_sol = out.pivot_table(index="day", columns="solar_bin", values="do", aggfunc="mean")
@@ -196,6 +228,7 @@ def fetch_iv_batch(batch_rows: list[dict]) -> list[dict]:
     if uncached:
         site_ids = [str(r["site_no"]).strip() for r in uncached]
         lon_map = {str(r["site_no"]).strip(): float(r["lon"]) for r in uncached}
+        lat_map = {str(r["site_no"]).strip(): float(r["lat"]) for r in uncached}
         parts_by_site: dict[str, list[pd.DataFrame]] = {s: [] for s in site_ids}
 
         for yr in YEARS_IV:
@@ -208,7 +241,7 @@ def fetch_iv_batch(batch_rows: list[dict]) -> list[dict]:
                 blocks = split_multi_site_rdb(txt)
                 for sno, blk in blocks.items():
                     if sno in lon_map:
-                        part = parse_iv_season(blk, lon_map[sno])
+                        part = parse_iv_season(blk, lon_map[sno], lat_map[sno])
                         if part is not None and len(part) >= 25:
                             parts_by_site[sno].append(part)
             else:
@@ -222,7 +255,7 @@ def fetch_iv_batch(batch_rows: list[dict]) -> list[dict]:
                     if t1:
                         blks = split_multi_site_rdb(t1)
                         if sno in blks:
-                            part = parse_iv_season(blks[sno], lon_map[sno])
+                            part = parse_iv_season(blks[sno], lon_map[sno], lat_map[sno])
                             if part is not None and len(part) >= 25:
                                 parts_by_site[sno].append(part)
 
@@ -671,6 +704,397 @@ def evaluate_transfer_function(iv_meta: pd.DataFrame) -> dict:
     return out_eval
 
 
+def _max_true_run(mask_1d: np.ndarray) -> int:
+    max_r = 0
+    cur = 0
+    for val in mask_1d:
+        if val:
+            cur += 1
+            max_r = max(max_r, cur)
+        else:
+            cur = 0
+    return max_r
+
+
+def compute_astronomical_nocturnal_audit(iv_meta: pd.DataFrame) -> dict:
+    """Exact sunset-to-sunrise nocturnal window, first-crossing timing, duration & completeness sensitivity.
+
+    Computes exact astronomical sunrise & sunset local solar hours (cos(w0) = -tan(phi)*tan(delta),
+    Spencer 1971 / Iqbal 1983) for every site-day across all cached high-frequency CONUS rivers.
+    Evaluates:
+      1. Strict astronomical night DO_min_night alongside full-24h DO_min_24h (15-min & hourly)
+         and true consecutive-overnight (sunset_d -> sunrise_{d+1}) continuity;
+      2. Within-river warming-sensitivity slopes against both DO_min_24h and strict DO_min_night;
+      3. First threshold-crossing solar hour and continuous hypoxia duration (hours/day);
+      4. 24-hour completeness sensitivity (>=86 of 96 15-min intervals/day and >=22/24 solar hours/day)
+         and equal-site weighting vs. site-day weighting.
+    """
+    sol_cols = [f"do_sol_{h:02d}" for h in range(24)]
+    bin_mid = np.arange(24, dtype=float) + 0.5
+    hrs_consec = np.arange(12, 36, dtype=float) + 0.5
+    thresholds = [(5.0, "lt_5_mgL"), (4.0, "lt_4_mgL"), (3.0, "lt_3_mgL"), (2.0, "lt_2_mgL")]
+
+    regimes = (
+        "full_24h_15min_siteday",
+        "full_24h_hourly_siteday",
+        "astro_night_sameday_siteday",
+        "astro_night_consec_overnight_siteday",
+        "completeness_ge86_24h_15min",
+        "completeness_ge86_astro_night",
+        "completeness_ge22h_24h_15min",
+        "completeness_ge22h_astro_night",
+    )
+    counts: dict[str, dict[str, dict[str, int]]] = {
+        reg: {
+            tag: {"pm_tot": 0, "pm_miss": 0, "ls_tot": 0, "ls_miss": 0}
+            for _, tag in thresholds
+        }
+        for reg in regimes
+    }
+    site_rates: dict[str, dict[str, list[tuple[float, int]]]] = {
+        k: {tag: [] for _, tag in thresholds}
+        for k in (
+            "pm_24h_15min",
+            "ls_24h_15min",
+            "pm_astro_night",
+            "ls_astro_night",
+            "pm_ge86_24h_15min",
+            "ls_ge86_24h_15min",
+            "pm_ge86_astro_night",
+            "ls_ge86_astro_night",
+        )
+    }
+
+    sr_all: list[np.ndarray] = []
+    ss_all: list[np.ndarray] = []
+    tot_valid_days = 0
+    tot_ge86_days = 0
+    tot_ge22h_days = 0
+    tot_consec_pairs = 0
+    min_in_night_all = 0
+    min_in_night_lag2_all = 0
+    hyp_timing: dict[str, dict] = {
+        tag: {
+            "hyp_days_hr": 0,
+            "min_in_night": 0,
+            "min_in_night_lag2": 0,
+            "consec_hyp_cycles": 0,
+            "consec_episodic_cycles": 0,
+            "consec_fc_in_night_all": 0,
+            "consec_fc_in_night_episodic": 0,
+            "fc_episodic_hrs_cont": [],
+            "cont_dur_all": [],
+            "cont_dur_episodic": [],
+            "tot_dur_all": [],
+        }
+        for _, tag in thresholds
+    }
+
+    slope_rows: list[dict] = []
+    slope_rows_ge86: list[dict] = []
+
+    for rec in iv_meta.to_dict("records"):
+        sno = str(rec["site_no"]).strip()
+        lat = float(rec["lat"])
+        df = pd.read_parquet(IV_DIR / f"{sno}_iv_daily24h.parquet")
+        dts = pd.to_datetime(df["day"])
+        doy = dts.dt.day_of_year.values
+        sr, ss = astronomical_sunrise_sunset_solar_hr(lat, doy)
+        sr_all.append(sr)
+        ss_all.append(ss)
+
+        mat = df[sol_cols].values.astype(float)
+        n_hrs_obs = np.sum(np.isfinite(mat), axis=1)
+        night_mask = (bin_mid[None, :] < sr[:, None]) | (bin_mid[None, :] >= ss[:, None])
+        night_lag2_mask = (bin_mid[None, :] < (sr[:, None] + 2.0)) | (bin_mid[None, :] >= ss[:, None])
+        mat_night = np.where(night_mask, mat, np.nan)
+
+        with np.errstate(all="ignore"):
+            do_min_hr24 = np.nanmin(mat, axis=1)
+            do_min_night = np.nanmin(mat_night, axis=1)
+            argmin_hr = np.nanargmin(np.where(np.isfinite(mat), mat, np.inf), axis=1)
+
+        valid = np.isfinite(do_min_hr24) & np.isfinite(do_min_night)
+        ge86 = valid & (df["n_obs"].values >= 86)
+        ge22h = valid & (n_hrs_obs >= 22)
+        tot_valid_days += int(valid.sum())
+        tot_ge86_days += int(ge86.sum())
+        tot_ge22h_days += int(ge22h.sum())
+
+        idx_v = np.where(valid)[0]
+        is_arg_night = night_mask[np.arange(len(df)), argmin_hr]
+        is_arg_lag2 = night_lag2_mask[np.arange(len(df)), argmin_hr]
+        min_in_night_all += int(is_arg_night[idx_v].sum())
+        min_in_night_lag2_all += int(is_arg_lag2[idx_v].sum())
+
+        do_min_15m = df["do_min"].values.astype(float)
+        pm = df["do_pm1316"].values.astype(float)
+        ls = df["do_ls10"].values.astype(float)
+        v_pm = np.isfinite(pm)
+        v_ls = np.isfinite(ls)
+
+        # True chronological consecutive overnight cycles: noon_d (12..23) -> noon_{d+1} (0..11),
+        # paired to day d+1 afternoon (13:00-16:00) and overpass (10:00-11:00) windows!
+        is_consec = (dts.values[1:] - dts.values[:-1]) == np.timedelta64(1, "D")
+        c_idx = np.where(is_consec)[0]
+        tot_consec_pairs += len(c_idx)
+        mat_24 = np.hstack([mat[c_idx, 12:24], mat[c_idx + 1, 0:12]])
+        night_24 = np.hstack([
+            bin_mid[12:24][None, :] >= ss[c_idx, None],
+            bin_mid[0:12][None, :] < sr[c_idx + 1, None],
+        ])
+        with np.errstate(all="ignore"):
+            do_min_consec_24 = np.nanmin(mat_24, axis=1)
+            do_min_consec_night = np.nanmin(np.where(night_24, mat_24, np.nan), axis=1)
+        pm_next = pm[c_idx + 1]
+        ls_next = ls[c_idx + 1]
+        vc_pm = np.isfinite(do_min_consec_night) & np.isfinite(pm_next)
+        vc_ls = np.isfinite(do_min_consec_night) & np.isfinite(ls_next)
+
+        for thr, tag in thresholds:
+            h24_15 = valid & (do_min_15m < thr)
+            h24_hr = valid & (do_min_hr24 < thr)
+            h_ngt = valid & (do_min_night < thr)
+            h_cngt = np.isfinite(do_min_consec_night) & (do_min_consec_night < thr)
+
+            def _accum(
+                reg_k: str,
+                mask_pm: np.ndarray,
+                obs_pm: np.ndarray,
+                mask_ls: np.ndarray,
+                obs_ls: np.ndarray,
+                tag_k: str = tag,
+                thr_v: float = thr,
+            ) -> None:
+                counts[reg_k][tag_k]["pm_tot"] += int(mask_pm.sum())
+                counts[reg_k][tag_k]["pm_miss"] += int((mask_pm & (obs_pm >= thr_v)).sum())
+                counts[reg_k][tag_k]["ls_tot"] += int(mask_ls.sum())
+                counts[reg_k][tag_k]["ls_miss"] += int((mask_ls & (obs_ls >= thr_v)).sum())
+
+            _accum("full_24h_15min_siteday", h24_15 & v_pm, pm, h24_15 & v_ls, ls)
+            _accum("full_24h_hourly_siteday", h24_hr & v_pm, pm, h24_hr & v_ls, ls)
+            _accum("astro_night_sameday_siteday", h_ngt & v_pm, pm, h_ngt & v_ls, ls)
+            _accum("astro_night_consec_overnight_siteday", h_cngt & vc_pm, pm_next, h_cngt & vc_ls, ls_next)
+            _accum("completeness_ge86_24h_15min", h24_15 & ge86 & v_pm, pm, h24_15 & ge86 & v_ls, ls)
+            _accum("completeness_ge86_astro_night", h_ngt & ge86 & v_pm, pm, h_ngt & ge86 & v_ls, ls)
+            _accum("completeness_ge22h_24h_15min", h24_15 & ge22h & v_pm, pm, h24_15 & ge22h & v_ls, ls)
+            _accum("completeness_ge22h_astro_night", h_ngt & ge22h & v_pm, pm, h_ngt & ge22h & v_ls, ls)
+
+            for sk, smask, sobs in [
+                ("pm_24h_15min", h24_15 & v_pm, pm),
+                ("ls_24h_15min", h24_15 & v_ls, ls),
+                ("pm_astro_night", h_ngt & v_pm, pm),
+                ("ls_astro_night", h_ngt & v_ls, ls),
+                ("pm_ge86_24h_15min", h24_15 & ge86 & v_pm, pm),
+                ("ls_ge86_24h_15min", h24_15 & ge86 & v_ls, ls),
+                ("pm_ge86_astro_night", h_ngt & ge86 & v_pm, pm),
+                ("ls_ge86_astro_night", h_ngt & ge86 & v_ls, ls),
+            ]:
+                n_s = int(smask.sum())
+                if n_s > 0:
+                    site_rates[sk][tag].append((float((smask & (sobs >= thr)).sum()) / n_s, n_s))
+
+            ht = hyp_timing[tag]
+            ht["hyp_days_hr"] += int(h24_hr.sum())
+            ht["min_in_night"] += int((h24_hr & is_arg_night).sum())
+            ht["min_in_night_lag2"] += int((h24_hr & is_arg_lag2).sum())
+
+            h_c24 = np.isfinite(do_min_consec_24) & (do_min_consec_24 < thr)
+            for j in np.where(h_c24)[0]:
+                below = mat_24[j] < thr
+                tot_h = int(np.sum(below))
+                if tot_h == 0:
+                    continue
+                max_run = _max_true_run(below)
+                ht["consec_hyp_cycles"] += 1
+                ht["tot_dur_all"].append(tot_h)
+                ht["cont_dur_all"].append(max_run)
+                fc_idx = int(np.argmax(below))
+                if night_24[j, fc_idx]:
+                    ht["consec_fc_in_night_all"] += 1
+                if not below[0]:
+                    ht["consec_episodic_cycles"] += 1
+                    ht["fc_episodic_hrs_cont"].append(float(hrs_consec[fc_idx]))
+                    ht["cont_dur_episodic"].append(max_run)
+                    if night_24[j, fc_idx]:
+                        ht["consec_fc_in_night_episodic"] += 1
+
+        # Within-river warming-sensitivity slopes against strict DO_min_night vs DO_min_24h
+        df["ym"] = df["day"].str.slice(0, 7)
+        df["do_min_hr24"] = do_min_hr24
+        df["do_min_night"] = do_min_night
+        use_q = int(df["q_cfs"].notna().sum() >= 100)
+        slope_rows.append(
+            {
+                "site_no": sno,
+                "state": rec["state"],
+                "huc2": str(rec["huc2"]).zfill(2),
+                "s_min24_15m": fwl_slope(df, "do_min", "temp_mean", use_q=False),
+                "s_min24_hr": fwl_slope(df, "do_min_hr24", "temp_mean", use_q=False),
+                "s_min_night": fwl_slope(df, "do_min_night", "temp_mean", use_q=False),
+                "s_pm1316": fwl_slope(df, "do_pm1316", "temp_mean", use_q=False),
+                "s_ls10": fwl_slope(df, "do_ls10", "temp_mean", use_q=False),
+                "s_min_night_q": fwl_slope(df, "do_min_night", "temp_mean", use_q=True) if use_q else np.nan,
+                "s_pm1316_q": fwl_slope(df, "do_pm1316", "temp_mean", use_q=True) if use_q else np.nan,
+                "s_ls10_q": fwl_slope(df, "do_ls10", "temp_mean", use_q=True) if use_q else np.nan,
+            }
+        )
+        df86 = df[ge86].copy()
+        if len(df86) >= 60:
+            slope_rows_ge86.append(
+                {
+                    "site_no": sno,
+                    "state": rec["state"],
+                    "huc2": str(rec["huc2"]).zfill(2),
+                    "s_min24_15m": fwl_slope(df86, "do_min", "temp_mean", use_q=False),
+                    "s_min_night": fwl_slope(df86, "do_min_night", "temp_mean", use_q=False),
+                    "s_pm1316": fwl_slope(df86, "do_pm1316", "temp_mean", use_q=False),
+                    "s_ls10": fwl_slope(df86, "do_ls10", "temp_mean", use_q=False),
+                }
+            )
+
+    sr_vec = np.concatenate(sr_all)
+    ss_vec = np.concatenate(ss_all)
+    night_len_vec = (24.0 - ss_vec) + sr_vec
+
+    # Format hypoxia miss rates across all regimes
+    miss_regimes_out: dict[str, dict] = {}
+    for reg in regimes:
+        miss_regimes_out[reg] = {}
+        for _, tag in thresholds:
+            c = counts[reg][tag]
+            miss_regimes_out[reg][tag] = {
+                "pm1316_hypoxic_days": c["pm_tot"],
+                "pm1316_missed_days": c["pm_miss"],
+                "pm1316_missed_pct": round(100.0 * c["pm_miss"] / max(1, c["pm_tot"]), 2),
+                "overpass1011_hypoxic_days": c["ls_tot"],
+                "overpass1011_missed_days": c["ls_miss"],
+                "overpass1011_missed_pct": round(100.0 * c["ls_miss"] / max(1, c["ls_tot"]), 2),
+            }
+
+    equal_site_out: dict[str, dict] = {}
+    for sk, by_thr in site_rates.items():
+        equal_site_out[sk] = {}
+        for _, tag in thresholds:
+            arr_all = [r for r, _ in by_thr[tag]]
+            arr_ge5 = [r for r, cnt in by_thr[tag] if cnt >= 5]
+            equal_site_out[sk][tag] = {
+                "n_sites_ge1day": len(arr_all),
+                "equal_site_missed_pct": round(100.0 * float(np.mean(arr_all)), 2) if arr_all else None,
+                "equal_site_median_pct": round(100.0 * float(np.median(arr_all)), 2) if arr_all else None,
+                "n_sites_ge5days": len(arr_ge5),
+                "equal_site_ge5days_missed_pct": round(100.0 * float(np.mean(arr_ge5)), 2) if arr_ge5 else None,
+            }
+
+    # Format first-crossing & continuous duration summaries
+    timing_duration_out: dict[str, dict] = {}
+    for _, tag in thresholds:
+        ht = hyp_timing[tag]
+        fc_e = np.array(ht["fc_episodic_hrs_cont"], dtype=float)
+        cd_all = np.array(ht["cont_dur_all"], dtype=float)
+        cd_ep = np.array(ht["cont_dur_episodic"], dtype=float)
+        td_all = np.array(ht["tot_dur_all"], dtype=float)
+        timing_duration_out[tag] = {
+            "hypoxic_days_hourly": ht["hyp_days_hr"],
+            "daily_min_in_astro_night_pct": round(100.0 * ht["min_in_night"] / max(1, ht["hyp_days_hr"]), 2),
+            "daily_min_in_astro_night_plus_2h_lag_pct": round(100.0 * ht["min_in_night_lag2"] / max(1, ht["hyp_days_hr"]), 2),
+            "consec_hypoxic_cycles": ht["consec_hyp_cycles"],
+            "consec_episodic_cycles": ht["consec_episodic_cycles"],
+            "consec_persistent_midday_cycles": ht["consec_hyp_cycles"] - ht["consec_episodic_cycles"],
+            "first_crossing_in_astro_night_all_pct": round(100.0 * ht["consec_fc_in_night_all"] / max(1, ht["consec_hyp_cycles"]), 2),
+            "first_crossing_in_astro_night_episodic_pct": round(100.0 * ht["consec_fc_in_night_episodic"] / max(1, ht["consec_episodic_cycles"]), 2),
+            "episodic_first_crossing_solar_hr_median": round(float(np.median(fc_e) % 24.0), 2) if len(fc_e) else None,
+            "episodic_first_crossing_solar_hr_p25": round(float(np.percentile(fc_e, 25) % 24.0), 2) if len(fc_e) else None,
+            "episodic_first_crossing_solar_hr_p75": round(float(np.percentile(fc_e, 75) % 24.0), 2) if len(fc_e) else None,
+            "continuous_duration_all_mean_hr": round(float(cd_all.mean()), 2) if len(cd_all) else None,
+            "continuous_duration_all_median_hr": round(float(np.median(cd_all)), 2) if len(cd_all) else None,
+            "continuous_duration_all_iqr_hr": [round(float(np.percentile(cd_all, 25)), 1), round(float(np.percentile(cd_all, 75)), 1)] if len(cd_all) else None,
+            "continuous_duration_episodic_mean_hr": round(float(cd_ep.mean()), 2) if len(cd_ep) else None,
+            "continuous_duration_episodic_median_hr": round(float(np.median(cd_ep)), 2) if len(cd_ep) else None,
+            "continuous_duration_episodic_iqr_hr": [round(float(np.percentile(cd_ep, 25)), 1), round(float(np.percentile(cd_ep, 75)), 1)] if len(cd_ep) else None,
+            "total_hypoxic_hours_all_mean_hr": round(float(td_all.mean()), 2) if len(td_all) else None,
+            "total_hypoxic_hours_all_median_hr": round(float(np.median(td_all)), 2) if len(td_all) else None,
+        }
+
+    # Format strict astronomical night warming-slope benchmarks
+    sdf = pd.DataFrame(slope_rows).dropna(subset=["s_min24_15m", "s_min_night", "s_pm1316", "s_ls10"]).copy()
+    sdf["pm_bias_vs_night"] = sdf["s_pm1316"] - sdf["s_min_night"]
+    sdf["ls_bias_vs_night"] = sdf["s_ls10"] - sdf["s_min_night"]
+    sdf_q = sdf.dropna(subset=["s_min_night_q", "s_pm1316_q", "s_ls10_q"]).copy()
+    sdf_q["pm_bias_vs_night_q"] = sdf_q["s_pm1316_q"] - sdf_q["s_min_night_q"]
+    sdf_q["ls_bias_vs_night_q"] = sdf_q["s_ls10_q"] - sdf_q["s_min_night_q"]
+
+    sdf86 = pd.DataFrame(slope_rows_ge86).dropna(subset=["s_min24_15m", "s_min_night", "s_pm1316", "s_ls10"]).copy()
+    sdf86["pm_bias_vs_24h"] = sdf86["s_pm1316"] - sdf86["s_min24_15m"]
+    sdf86["pm_bias_vs_night"] = sdf86["s_pm1316"] - sdf86["s_min_night"]
+    sdf86["ls_bias_vs_24h"] = sdf86["s_ls10"] - sdf86["s_min24_15m"]
+    sdf86["ls_bias_vs_night"] = sdf86["s_ls10"] - sdf86["s_min_night"]
+
+    def _att(win_s: pd.Series, ref_s: pd.Series) -> float:
+        return round(100.0 * (1.0 - float(win_s.mean()) / float(ref_s.mean())), 2)
+
+    slopes_out = {
+        "all_valid_rivers": {
+            "n_rivers": len(sdf),
+            "mean_DOmin_24h_15m_slope": round(float(sdf["s_min24_15m"].mean()), 5),
+            "mean_DOmin_24h_hourly_slope": round(float(sdf["s_min24_hr"].mean()), 5),
+            "mean_DOmin_astro_night_slope": round(float(sdf["s_min_night"].mean()), 5),
+            "mean_pm1316_slope": round(float(sdf["s_pm1316"].mean()), 5),
+            "mean_overpass1011_slope": round(float(sdf["s_ls10"].mean()), 5),
+            "pm1316_underest_vs_24h_15m_pct": _att(sdf["s_pm1316"], sdf["s_min24_15m"]),
+            "pm1316_underest_vs_astro_night_pct": _att(sdf["s_pm1316"], sdf["s_min_night"]),
+            "overpass1011_underest_vs_24h_15m_pct": _att(sdf["s_ls10"], sdf["s_min24_15m"]),
+            "overpass1011_underest_vs_astro_night_pct": _att(sdf["s_ls10"], sdf["s_min_night"]),
+            "pm1316_bias_vs_night_huc2": cluster_t_block(sdf, "pm_bias_vs_night", "huc2"),
+            "pm1316_bias_vs_night_state": cluster_t_block(sdf, "pm_bias_vs_night", "state"),
+            "overpass1011_bias_vs_night_huc2": cluster_t_block(sdf, "ls_bias_vs_night", "huc2"),
+            "overpass1011_bias_vs_night_state": cluster_t_block(sdf, "ls_bias_vs_night", "state"),
+            "qctrl_n_rivers": len(sdf_q),
+            "pm1316_underest_vs_astro_night_qctrl_pct": _att(sdf_q["s_pm1316_q"], sdf_q["s_min_night_q"]) if len(sdf_q) else None,
+            "overpass1011_underest_vs_astro_night_qctrl_pct": _att(sdf_q["s_ls10_q"], sdf_q["s_min_night_q"]) if len(sdf_q) else None,
+            "pm1316_bias_vs_night_qctrl_huc2": cluster_t_block(sdf_q, "pm_bias_vs_night_q", "huc2") if len(sdf_q) else None,
+            "overpass1011_bias_vs_night_qctrl_huc2": cluster_t_block(sdf_q, "ls_bias_vs_night_q", "huc2") if len(sdf_q) else None,
+        },
+        "completeness_ge86_obs_per_day": {
+            "n_rivers": len(sdf86),
+            "n_river_days": tot_ge86_days,
+            "mean_DOmin_24h_15m_slope": round(float(sdf86["s_min24_15m"].mean()), 5),
+            "mean_DOmin_astro_night_slope": round(float(sdf86["s_min_night"].mean()), 5),
+            "mean_pm1316_slope": round(float(sdf86["s_pm1316"].mean()), 5),
+            "mean_overpass1011_slope": round(float(sdf86["s_ls10"].mean()), 5),
+            "pm1316_underest_vs_24h_15m_pct": _att(sdf86["s_pm1316"], sdf86["s_min24_15m"]),
+            "pm1316_underest_vs_astro_night_pct": _att(sdf86["s_pm1316"], sdf86["s_min_night"]),
+            "overpass1011_underest_vs_24h_15m_pct": _att(sdf86["s_ls10"], sdf86["s_min24_15m"]),
+            "overpass1011_underest_vs_astro_night_pct": _att(sdf86["s_ls10"], sdf86["s_min_night"]),
+            "pm1316_bias_vs_night_huc2": cluster_t_block(sdf86, "pm_bias_vs_night", "huc2"),
+            "overpass1011_bias_vs_night_huc2": cluster_t_block(sdf86, "ls_bias_vs_night", "huc2"),
+        },
+    }
+
+    return {
+        "solar_geometry_summary": {
+            "formula": "cos(omega_0) = -tan(phi)*tan(delta); Spencer (1971) / Iqbal (1983) 3-harmonic declination",
+            "total_valid_site_days": tot_valid_days,
+            "total_ge86_15min_site_days": tot_ge86_days,
+            "share_ge86_15min_pct": round(100.0 * tot_ge86_days / max(1, tot_valid_days), 2),
+            "total_ge22h_site_days": tot_ge22h_days,
+            "share_ge22h_pct": round(100.0 * tot_ge22h_days / max(1, tot_valid_days), 2),
+            "total_consecutive_day_pairs": tot_consec_pairs,
+            "sunrise_solar_hr_mean": round(float(sr_vec.mean()), 2),
+            "sunrise_solar_hr_range": [round(float(sr_vec.min()), 2), round(float(sr_vec.max()), 2)],
+            "sunset_solar_hr_mean": round(float(ss_vec.mean()), 2),
+            "sunset_solar_hr_range": [round(float(ss_vec.min()), 2), round(float(ss_vec.max()), 2)],
+            "astro_night_length_mean_hr": round(float(night_len_vec.mean()), 2),
+            "all_days_min_in_astro_night_pct": round(100.0 * min_in_night_all / max(1, tot_valid_days), 2),
+            "all_days_min_in_astro_night_plus_2h_lag_pct": round(100.0 * min_in_night_lag2_all / max(1, tot_valid_days), 2),
+        },
+        "warming_slopes_astro_night_vs_24h": slopes_out,
+        "hypoxia_miss_rates_by_regime": miss_regimes_out,
+        "equal_site_weighting_miss_rates": equal_site_out,
+        "first_crossing_and_duration": timing_duration_out,
+    }
+
+
 def main() -> None:
     vdf = pd.read_csv(PROC_DIR / "conus_valid_rivers_meta.csv", dtype={"site_no": str, "huc2": str})
     sel = select_iv_sites(vdf, target_n=140)
@@ -880,9 +1304,12 @@ def main() -> None:
             },
         }
 
-    # Direct paired comparison: Afternoon (13:00-16:00) slope bias MINUS Landsat (10:00-11:00) slope bias
+    # Direct paired comparison: Afternoon (13:00-16:00) slope bias MINUS Overpass-Window (10:00-11:00) slope bias
     pair_al = rc_df[["s_pm1316", "s_ls10", "s_domin", "state", "huc2"]].dropna().copy()
     pair_al["pm_minus_ls_slope"] = pair_al["s_pm1316"] - pair_al["s_ls10"]
+
+    print("Computing exact astronomical sunset-to-sunrise nocturnal audit, crossing timing, duration & completeness sensitivity...", flush=True)
+    astro_audit = compute_astronomical_nocturnal_audit(iv_meta)
 
     print("Evaluating Leave-One-HUC2-Basin-Out & 2024 Temporal-Holdout Transfer Functions...", flush=True)
     tf_eval = evaluate_transfer_function(iv_meta)
@@ -896,6 +1323,7 @@ def main() -> None:
         "iv_mean_DOsat_alt_slope": round(float(rc_df["s_dosat_alt"].mean()), 5),
         "years_covered": YEARS_IV,
         "named_windows": window_results,
+        "astronomical_nocturnal_audit": astro_audit,
         "afternoon_minus_landsat_slope_contrast_huc2": cluster_t_block(pair_al, "pm_minus_ls_slope", "huc2"),
         "afternoon_minus_landsat_slope_contrast_state": cluster_t_block(pair_al, "pm_minus_ls_slope", "state"),
         "solar_24h_curve": solar_curve,

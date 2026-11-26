@@ -768,6 +768,100 @@
       }
     }
   },
+  "astronomical_nocturnal_15min_audit": {
+    "all_days_min_in_astro_night_pct": 58.75,
+    "all_days_min_in_astro_night_plus_2h_lag_pct": 74.35,
+    "DOmin_astro_night_slope": {
+      "n": 65,
+      "mean": -0.24703,
+      "se": 0.01221,
+      "ci95_lo": -0.27142,
+      "ci95_hi": -0.22264,
+      "median": -0.2605,
+      "pct_neg": 98.46,
+      "pct_pos": 1.54,
+      "t": -20.233,
+      "p_t": 1.65453092510011e-29,
+      "p_wilcoxon": 3.0360769542275828e-12,
+      "grid1deg_cluster": {
+        "n_clusters": 19,
+        "se_cr1": 0.01424,
+        "ci95_lo": -0.27694,
+        "ci95_hi": -0.21712,
+        "t_cr1": -17.351,
+        "p_cr1_t_Gminus1": 1.1022261784294842e-12,
+        "boot_p": 0.0002,
+        "cluster_equal_mean": -0.24595,
+        "cluster_equal_p_wilcoxon": 3.814697265625e-06
+      },
+      "river_cluster": {
+        "n_clusters": 54,
+        "se_cr1": 0.01317,
+        "ci95_lo": -0.27344,
+        "ci95_hi": -0.22061,
+        "t_cr1": -18.757,
+        "p_cr1_t_Gminus1": 4.656001410375972e-25,
+        "boot_p": 0.0002,
+        "cluster_equal_mean": -0.24312,
+        "cluster_equal_p_wilcoxon": 2.1526486410215738e-10
+      }
+    },
+    "afternoon_underest_vs_astro_night_pct": 25.21,
+    "overpass_underest_vs_astro_night_pct": 10.53,
+    "hypoxia_blindness_astro_night_15min": {
+      "ls10": {
+        "lt_5_mgL": {
+          "astro_night_hypoxic_days": 2804,
+          "missed_days": 1345,
+          "missed_pct": 47.97
+        },
+        "lt_3_mgL": {
+          "astro_night_hypoxic_days": 1055,
+          "missed_days": 511,
+          "missed_pct": 48.44
+        },
+        "lt_2_mgL": {
+          "astro_night_hypoxic_days": 648,
+          "missed_days": 350,
+          "missed_pct": 54.01
+        }
+      },
+      "pm14": {
+        "lt_5_mgL": {
+          "astro_night_hypoxic_days": 2807,
+          "missed_days": 1592,
+          "missed_pct": 56.72
+        },
+        "lt_3_mgL": {
+          "astro_night_hypoxic_days": 1057,
+          "missed_days": 618,
+          "missed_pct": 58.47
+        },
+        "lt_2_mgL": {
+          "astro_night_hypoxic_days": 650,
+          "missed_days": 408,
+          "missed_pct": 62.77
+        }
+      },
+      "pm_bst": {
+        "lt_5_mgL": {
+          "astro_night_hypoxic_days": 2807,
+          "missed_days": 1560,
+          "missed_pct": 55.58
+        },
+        "lt_3_mgL": {
+          "astro_night_hypoxic_days": 1057,
+          "missed_days": 597,
+          "missed_pct": 56.48
+        },
+        "lt_2_mgL": {
+          "astro_night_hypoxic_days": 650,
+          "missed_days": 397,
+          "missed_pct": 61.08
+        }
+      }
+    }
+  },
   "uk_secular_5yr_probe": {
     "n_rivers_ge5warm_yrs": 10,
     "dec_temp_mean": {

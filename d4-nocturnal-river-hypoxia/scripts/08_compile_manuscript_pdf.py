@@ -19,12 +19,12 @@ EDGE_EXE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 # Rich-HTML publication captions (zero raw underscores, carets, or ASCII inequality operators)
 FIGURE_BLOCKS: dict[str, tuple[str, str]] = {
     "fig1_conus_map_and_thermal_decoupling.png": (
-        "Figure 1. Continental Extent and Diurnal Thermal Decoupling Across Free-Flowing U.S. Rivers (2005&ndash;2025).",
+        "Figure 1. Continental Extent and Diurnal Thermal Decoupling Across Screened Free-Flowing U.S. Monitoring Stations (2005&ndash;2025).",
         (
-            "Panel A maps clean, dam-, lock-, swamp-, salinity-, and tidal-filtered USGS continuous dissolved oxygen rivers across all 17 populated contiguous U.S. HUC-2 watershed basins, "
-            "colored on a zero-centered diverging scale by within-river diurnal thermal decoupling "
-            "<em>d</em>(DO<sub>min</sub> &minus; DO<sub>max</sub>)/<em>dT</em> (Year &times; Month FE + log(<em>Q</em>) + log(<em>Q</em>)<sup>2</sup>; red &lt; 0 denotes nocturnal acceleration). "
-            "Panel B compares continental thermal slopes against physical Henry's Law solubility (Benson&ndash;Krause, barometric and water-vapor adjusted) across primary discharge-controlled, "
+            "Panel A maps screened dam-, lock-, swamp-, salinity-, and tidal-filtered USGS continuous dissolved oxygen monitoring stations across all 17 populated contiguous U.S. HUC-2 watershed basins "
+            "(397 screened stations total; 324 in the primary discharge-controlled specification), colored on a zero-centered diverging scale by within-station short-term diurnal decoupling "
+            "<em>d</em>(DO<sub>min</sub> &minus; DO<sub>max</sub>)/<em>dT</em> (Year &times; Month FE + log(<em>Q</em>) + log(<em>Q</em>)<sup>2</sup>; red &lt; 0 denotes steeper DO<sub>min</sub> decline). "
+            "Panel B compares continental short-term temperature slopes against physical Henry's Law equilibrium solubility (Benson&ndash;Krause, barometric and water-vapor adjusted) across primary flow-controlled, "
             "water-quality-controlled, ultra-strict zero-infrastructure, USACE National Inventory of Dams (NID) dam-free (&gt;5 km from &ge;500 acre-ft dams), long-record (&ge;10 yr), and pooled-panel specifications, "
             "showing finite-sample <em>t</em>(<em>G</em>&minus;1) 95% CIs clustered at HUC-2 watershed basin (thick) and State (thin) levels."
         ),
@@ -32,35 +32,36 @@ FIGURE_BLOCKS: dict[str, tuple[str, str]] = {
     "fig2_24h_clock_bias_and_transfer.png": (
         "Figure 2. The 24-Hour Observational Clock-Bias Curve and Out-of-Sample Transfer-Function Correction.",
         (
-            "Panel A traces apparent warm-season warming sensitivity <em>d</em>DO(<em>h</em>)/<em>dT</em> across all 24 hours of Local Mean Solar Time from multi-year 15-minute USGS IV records (2021&ndash;2024; <em>N</em> = 139 rivers), "
-            "contrasting the Landsat sun-synchronous overpass window (10:00&ndash;11:00 LST) and afternoon grab-sample window (13:00&ndash;16:00 local clock) against true nocturnal DO<sub>min</sub> sensitivity and Henry's Law. "
-            "Panel B plots the 24-hour missed-event rate for pre-dawn hypoxia (&lt;5, &lt;4, &lt;3, and &lt;2 mg L<sup>&minus;1</sup>). "
-            "Panel C validates 17-fold Leave-One-HUC2-Basin-Out spatial cross-validation mean bias reduction, RMSE reduction, warming-slope recovery, and &lt;5 mg L<sup>&minus;1</sup> hypoxia recall gains (dashed lines show raw daytime recall)."
+            "Panel A traces apparent warm-season short-term temperature sensitivity <em>d</em>DO(<em>h</em>)/<em>dT</em> across all 24 hours of Local Mean Solar Time from multi-year subdaily USGS IV records (2021&ndash;2024; <em>N</em> = 139 screened stations), "
+            "contrasting the overpass-time (Landsat-window, 10:00&ndash;11:00 LST; pure temporal sampling benchmark excluding optical retrieval error, cloud masking, and 16-day revisit gaps) and afternoon grab-sample window (13:00&ndash;16:00 local clock) "
+            "against daily DO<sub>min,24h</sub> sensitivity (strict astronomical sunset-to-sunrise DO<sub>min,night</sub> = &minus;0.206) and Henry's Law. "
+            "Panel B plots the 24-hour missed-event rate for daily hypoxia (&lt;5, &lt;4, &lt;3, and &lt;2 mg L<sup>&minus;1</sup>; strict astronomical-night, &ge;90% completeness, and equal-site sensitivity in Table 2b). "
+            "Panel C validates 17-fold Leave-One-HUC2-Basin-Out spatial cross-validation mean bias reduction, RMSE reduction, slope-bias recovery, and &lt;5 mg L<sup>&minus;1</sup> hypoxia recall gains (dashed lines show raw daytime/overpass recall)."
         ),
     ),
     "fig3_compound_heatwave_drought.png": (
         "Figure 3. Asymmetric Nocturnal Collapse and Super-Additive Hypoxia Surge Under Compound Heatwave &times; Low-Flow Drought Extremes.",
         (
-            "Panel A contrasts within-river Year &times; Month FE responses of DO<sub>min</sub>, DO<sub>mean</sub>, DO<sub>max</sub>, and Benson&ndash;Krause DO<sub>sat,alt</sub> across Hot-Only (<em>T</em> &ge; P<sub>90</sub>), "
-            "Dry-Only (<em>Q</em> &le; P<sub>20</sub>), and Compound Hot &times; Dry regimes (<em>N</em> = 319 rivers). "
-            "Panel B reports formal Hot &times; Dry interaction terms (excess beyond additivity) for solubility-adjusted biological deficit (DO<sub>min</sub> &minus; DO<sub>sat</sub>), physical DO<sub>sat</sub>, daytime DO<sub>max</sub>, "
-            "and nocturnal vs. daytime hypoxia incidence (&lt;5, &lt;3, &lt;2 mg L<sup>&minus;1</sup>), with HUC-2 basin-clustered finite-sample <em>t</em>(<em>G</em>&minus;1) 95% CIs."
+            "Panel A contrasts within-station Year &times; Month FE responses of DO<sub>min</sub>, DO<sub>mean</sub>, DO<sub>max</sub>, and Benson&ndash;Krause DO<sub>sat,alt</sub> across Hot-Only (<em>T</em> &ge; P<sub>90</sub>), "
+            "Dry-Only (<em>Q</em> &le; P<sub>20</sub>), and Compound Hot &times; Dry regimes (<em>N</em> = 319 screened stations). "
+            "Panel B reports formal Hot &times; Dry interaction terms (excess beyond additivity) for solubility-adjusted nocturnal deficit (DO<sub>min</sub> &minus; DO<sub>sat</sub>), physical DO<sub>sat</sub>, daytime DO<sub>max</sub>, "
+            "and nocturnal vs. daytime hypoxia incidence (&lt;5, &lt;3, &lt;2 mg L<sup>&minus;1</sup>; bounded night-minus-day compound gap +9.28 pp, 95% CI [+4.89, +13.68] pp), with HUC-2 basin-clustered finite-sample <em>t</em>(<em>G</em>&minus;1) 95% CIs."
         ),
     ),
     "fig4_biophysical_mechanism.png": (
-        "Figure 4. Biophysical Metabolic Mechanism: Split-Half Productivity, Ionic Loading, Turbidity Attenuation, and Latitude Gradients.",
+        "Figure 4. Biophysical Stratification: Split-Half Diurnal Amplitude, Ionic Loading, Turbidity, and Latitude Gradients.",
         (
-            "Panel A eliminates same-period mathematical coupling by predicting late-period uniform discharge-controlled thermal slopes strictly from early-period baseline diurnal DO swing "
-            "(split-half out-of-sample, <em>N</em> = 271 rivers), separating daytime photosynthetic buffering (<em>d</em>DO<sub>max</sub>/<em>dT</em>) from nocturnal respiratory acceleration (<em>d</em>DO<sub>min</sub>/<em>dT</em>). "
-            "Panel B stratifies discharge-controlled decoupling across specific conductance (00095), turbidity light-attenuation tertiles (63680), and latitude climate belts."
+            "Panel A eliminates same-period mathematical coupling by predicting late-period uniform discharge-controlled temperature slopes strictly from early-period baseline diurnal DO swing "
+            "(split-half out-of-sample, <em>N</em> = 271 screened stations), separating daytime DO<sub>max</sub> buffering from steeper nocturnal DO<sub>min</sub> sensitivity. "
+            "Panel B stratifies flow-controlled decoupling across specific conductance (00095), turbidity tertiles (63680), and latitude climate belts."
         ),
     ),
     "fig5_secular_cwa_and_uk_replication.png": (
         "Figure 5. Secular 20-Year CONUS Trend Audit (Clean Water Act Confounding) and Independent UK Environment Agency Replication.",
         (
-            "Panel A presents 2005&ndash;2025 decadal trends across long-record (&ge;10 warm-season, <em>N</em> = 194) CONUS rivers stratified by river warming rate, demonstrating how Clean Water Act nutrient/BOD recovery "
-            "masks average secular widening while faster-warming rivers neutralize CWA nocturnal oxygen gains and widen diurnal swings. "
-            "Panel B verifies full trans-Atlantic replication across 65 independent, 2-km-deduplicated free-flowing English rivers (UK Environment Agency Hydrology API), overlaying exact within-river biological excess sensitivity "
+            "Panel A presents 2005&ndash;2025 decadal trends across long-record (&ge;10 warm seasons, <em>N</em> = 194) screened CONUS stations stratified by warming rate, showing how Clean Water Act nutrient/BOD recovery "
+            "masks average secular widening while faster-warming stations neutralize nocturnal oxygen gains and widen diurnal swings. "
+            "Panel B verifies trans-Atlantic replication across 65 screened, 2-km-deduplicated free-flowing English monitoring stations (UK Environment Agency Hydrology API), overlaying exact within-station excess temperature sensitivity "
             "<em>d</em>(DO(<em>h</em>) &minus; DO<sub>sat</sub>)/<em>dT</em> across all 24 solar hours with HUC-2 (CONUS) and 1&deg; hydrometric grid (UK) clustered <em>t</em>(<em>G</em>&minus;1) 95% CIs."
         ),
     ),
@@ -134,6 +135,7 @@ def _tex_to_html(expr: str) -> str:
         (r"\log", "log"),
         (r"\sin", "sin"),
         (r"\cos", "cos"),
+        (r"\tan", "tan"),
         (r"\min", "min"),
         (r"\max", "max"),
         (r"\partial", "&part;"),
@@ -147,8 +149,10 @@ def _tex_to_html(expr: str) -> str:
         (r"\approx", "&approx;"),
         (r"\equiv", "&equiv;"),
         (r"\to", "&rarr;"),
+        (r"\cup", "&cup;"),
         (r"\in", "&isin;"),
         (r"\theta", "&theta;"),
+        (r"\omega", "&omega;"),
         (r"\pi", "&pi;"),
         (r"\beta", "&beta;"),
         (r"\alpha", "&alpha;"),
@@ -490,6 +494,7 @@ def verify_pdf_zero_leaks(pdf_path: Path) -> tuple[int, list[str]]:
         r"T_max",
         r"log\(Q\)\^2",
         r"fig[1-5]_[a-z0-9_]+\.png",
+        r"16\.0[×x]",
     ]
     leaks = []
     for pat in bad_patterns:

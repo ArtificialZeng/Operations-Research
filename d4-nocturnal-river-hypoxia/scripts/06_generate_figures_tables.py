@@ -82,17 +82,17 @@ def make_fig1(econ: dict, rdf: pd.DataFrame) -> None:
     ax1.grid(True, linestyle="--", alpha=0.30, color="#94a3b8", zorder=0)
     ax1.set_xlabel("Longitude (°W)")
     ax1.set_ylabel("Latitude (°N)")
-    ax1.set_title("A. Clean Free-Flowing CONUS Rivers: d(DO_min − DO_max)/dT")
+    ax1.set_title("A. Screened Free-Flowing CONUS Stations: d(DO_min − DO_max)/dT")
     cb = fig.colorbar(sc, ax=ax1, orientation="horizontal", pad=0.13, fraction=0.055, aspect=35)
     cb.set_ticks([-0.30, -0.20, -0.10, 0.0, 0.05, 0.10])
-    cb.set_label("Diurnal Decoupling d(DO_min − DO_max)/dT (mg/L/°C; red < 0 = nocturnal acceleration, white = 0)", fontsize=7.8)
+    cb.set_label("Diurnal Decoupling d(DO_min − DO_max)/dT (mg/L/°C; red < 0 = steeper DO_min drop, white = 0)", fontsize=7.8)
 
     ov = econ["census_overview"]
     sp2_diff = econ["spec2_ym_fe_logQ_quad_primary"]["diff_min_max"]
     box_txt = (
-        f"Q-Controlled: N = {ov['n_rivers_with_q_primary']} rivers ({ov['n_states_with_q']} states)\n"
+        f"Screened Q-Ctrl: N = {ov['n_rivers_with_q_primary']} sites ({ov['n_states_with_q']} states)\n"
         f"Basins: {ov['n_huc2_with_q']}/18 HUC-2 | Decoupling <0: {sp2_diff['pct_neg']:.1f}%\n"
-        f"Full Clean: {ov['n_clean_rivers_total']} rivers ({ov['total_station_days']:,} days)"
+        f"Screened Total: {ov['n_clean_rivers_total']} sites ({ov['total_station_days']:,} days)"
     )
     ax1.text(
         0.015,
@@ -176,12 +176,12 @@ def make_fig2(iv: dict, econ: dict) -> None:
     fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(15.0, 5.2), gridspec_kw={"width_ratios": [1.24, 1.12, 1.04]})
 
     hrs = sol["hour"].values
-    # Panel A: 24-hour Warming Sensitivity Curve (legend placed cleanly above axes so hours 0-8 are 100% unobstructed!)
+    # Panel A: 24-hour Warming Sensitivity Curve (legend placed cleanly below axes so hours 0-8 are 100% unobstructed!)
     ax1.axvspan(5.0, 7.0, color="#dbeafe", alpha=0.55, label="Pre-Dawn (05–07h)")
-    ax1.axvspan(10.0, 11.0, color="#fef3c7", alpha=0.75, label="Landsat (10–11h LST)")
-    ax1.axvspan(13.0, 16.0, color="#fee2e2", alpha=0.65, label="Afternoon (13–16h)")
+    ax1.axvspan(10.0, 11.0, color="#fef3c7", alpha=0.75, label="Overpass Window (10–11h LST)")
+    ax1.axvspan(13.0, 16.0, color="#fee2e2", alpha=0.65, label="Afternoon Grab (13–16h)")
 
-    ax1.axhline(s_domin, color=C_RED, linestyle="--", linewidth=1.3, label=f"True DO_min ({s_domin:.3f})")
+    ax1.axhline(s_domin, color=C_RED, linestyle="--", linewidth=1.3, label=f"24h DO_min ({s_domin:.3f})")
     ax1.axhline(henrys, color=C_GRAY, linestyle=":", linewidth=1.2, label=f"Henry's Law ({henrys:.3f})")
 
     ax1.fill_between(hrs, sol["slope_ci95_lo"], sol["slope_ci95_hi"], color=C_BLUE, alpha=0.22)
@@ -201,7 +201,7 @@ def make_fig2(iv: dict, econ: dict) -> None:
         bbox={"boxstyle": "round,pad=0.22", "facecolor": "white", "edgecolor": C_RED, "alpha": 0.94},
     )
     ax1.annotate(
-        f"Landsat 10:30:\n−{ls_att:.1f}% slope",
+        f"Overpass 10–11h:\n−{ls_att:.1f}% slope",
         xy=(10.1, sol.loc[sol["hour"] == 10, "slope_mean"].values[0]),
         xytext=(1.0, -0.075),
         fontsize=7.0,
@@ -214,8 +214,8 @@ def make_fig2(iv: dict, econ: dict) -> None:
     ax1.set_ylim(-0.255, 0.015)
     ax1.set_xticks([0, 3, 6, 9, 12, 15, 18, 21])
     ax1.set_xlabel("Local Mean Solar Time (Hour)")
-    ax1.set_ylabel("Apparent Warming Sensitivity dDO(h)/dT (mg/L/°C)")
-    ax1.set_title(f"A. 24-Hour Warming-Sensitivity Clock-Bias (N = {iv['n_iv_rivers']})", pad=10)
+    ax1.set_ylabel("Apparent Temperature Sensitivity dDO(h)/dT (mg/L/°C)")
+    ax1.set_title(f"A. 24-Hour Temperature-Sensitivity Clock-Bias (N = {iv['n_iv_rivers']})", pad=10)
     ax1.grid(True, linestyle="--", alpha=0.28)
     ax1.legend(
         loc="upper center",
@@ -244,11 +244,11 @@ def make_fig2(iv: dict, econ: dict) -> None:
     ax2.set_ylim(0, 90)
     ax2.set_xticks([0, 3, 6, 9, 12, 15, 18, 21])
     ax2.set_xlabel("Local Mean Solar Time (Hour)")
-    ax2.set_ylabel("Pre-Dawn Hypoxia Days Missed (%)")
+    ax2.set_ylabel("Daily Hypoxia Days Missed (%)")
     ax2.set_title("B. 24-Hour Hypoxia-Threshold Blindness", pad=10)
     ax2.grid(True, linestyle="--", alpha=0.28)
     ax2.legend(loc="lower right", fontsize=7.0, framealpha=0.94)
-    ax2.text(10.5, 86, "Landsat\n10–11h", ha="center", va="top", fontsize=7.0, color="#92400e", fontweight="bold")
+    ax2.text(10.5, 86, "Overpass\n10–11h", ha="center", va="top", fontsize=7.0, color="#92400e", fontweight="bold")
     ax2.text(14.5, 86, "Afternoon\n13–16h", ha="center", va="top", fontsize=7.0, color=C_RED, fontweight="bold")
 
     # Panel C: OOS Leave-One-HUC2-Basin-Out Transfer Function Validation
@@ -273,7 +273,7 @@ def make_fig2(iv: dict, econ: dict) -> None:
     x = np.arange(len(cat_labels))
     w = 0.35
     b1 = ax3.bar(x - w / 2, pm_gains, w, color=C_RED, alpha=0.88, label="Afternoon Grab (13:30–15:30)")
-    b2 = ax3.bar(x + w / 2, ls_gains, w, color=C_GOLD, alpha=0.90, label="Landsat Overpass (10:00–11:00)")
+    b2 = ax3.bar(x + w / 2, ls_gains, w, color=C_GOLD, alpha=0.90, label="Overpass Window (10:00–11:00 LST)")
     for bars in (b1, b2):
         for bar in bars:
             h_v = bar.get_height()
@@ -286,7 +286,7 @@ def make_fig2(iv: dict, econ: dict) -> None:
     ax3.text(
         3.0,
         78.0,
-        f"Dashed = raw recall\n(PM {raw_rec_pm:.0f}%, LS {raw_rec_ls:.0f}%)",
+        f"Dashed = raw recall\n(PM {raw_rec_pm:.0f}%, OV {raw_rec_ls:.0f}%)",
         ha="center",
         va="bottom",
         fontsize=6.6,
@@ -422,7 +422,7 @@ def make_fig4(econ: dict) -> None:
     ax1.set_ylim(-0.31, 0.115)
     ax1.set_xlabel("Early-Half Baseline Diurnal DO Swing Quartile (Out-of-Sample Productivity)")
     ax1.set_ylabel("Late-Half Thermal Slope (mg/L/°C; HUC-2 95% CI)")
-    ax1.set_title("A. Split-Half Productivity Scissors: Photosynthesis vs. Respiration")
+    ax1.set_title("A. Split-Half Diurnal Amplitude Stratification: DO_max vs. DO_min")
     ax1.grid(True, linestyle="--", alpha=0.28)
     ax1.legend(loc="upper left", fontsize=7.2, framealpha=0.94, ncol=1)
 
@@ -531,12 +531,12 @@ def make_fig5(econ: dict, iv: dict, uk: dict) -> None:
     uk_lo = sol_uk["bio_excess_ci95_lo"].values
     uk_hi = sol_uk["bio_excess_ci95_hi"].values
 
-    ax2.axvspan(10.0, 11.0, color="#fef3c7", alpha=0.75, label="Landsat Overpass (10–11h LST)")
+    ax2.axvspan(10.0, 11.0, color="#fef3c7", alpha=0.75, label="Overpass Window (10–11h LST)")
     ax2.axvspan(13.0, 16.0, color="#fee2e2", alpha=0.65, label="Afternoon Grab (13–16h)")
     ax2.axhline(0.0, color=C_GRAY, linestyle="--", linewidth=1.2, label="Physical Henry's Law Benchmark (= 0)")
 
     ax2.fill_between(hrs, us_lo, us_hi, color=C_BLUE, alpha=0.20)
-    ax2.plot(hrs, us_exc, color=C_BLUE, marker="o", markersize=3.5, linewidth=2.1, label=f"CONUS USGS (N={iv['n_iv_rivers']}, HUC-2 95% CI)")
+    ax2.plot(hrs, us_exc, color=C_BLUE, marker="o", markersize=3.5, linewidth=2.1, label=f"CONUS USGS (N={iv['n_iv_rivers']} screened, HUC-2 95% CI)")
 
     ax2.fill_between(hrs, uk_lo, uk_hi, color=C_RED, alpha=0.20)
     ax2.plot(
@@ -547,11 +547,11 @@ def make_fig5(econ: dict, iv: dict, uk: dict) -> None:
         markersize=3.5,
         linewidth=2.1,
         linestyle="-",
-        label=f"England UK EA (N={uk['n_valid_clean_uk_rivers']}, 1° Grid 95% CI)",
+        label=f"England UK EA (N={uk['n_valid_clean_uk_rivers']} screened, 1° Grid 95% CI)",
     )
 
     ax2.annotate(
-        "Photosynthetic\nbuffering (> 0)",
+        "Daytime buffering\n(> 0)",
         xy=(15, max(us_exc[15], uk_exc[15]) + 0.008),
         xytext=(17.2, 0.092),
         fontsize=7.5,
@@ -560,7 +560,7 @@ def make_fig5(econ: dict, iv: dict, uk: dict) -> None:
         arrowprops={"arrowstyle": "->", "color": C_NAVY, "lw": 0.9},
     )
     ax2.annotate(
-        "Nocturnal respiratory\nacceleration (< 0)",
+        "Nocturnal excess\nsensitivity (< 0)",
         xy=(5.5, min(us_exc[5], uk_exc[5]) - 0.004),
         xytext=(9.0, -0.072),
         fontsize=7.5,
@@ -572,7 +572,7 @@ def make_fig5(econ: dict, iv: dict, uk: dict) -> None:
     ax2.set_ylim(-0.088, 0.165)
     ax2.set_xticks([0, 3, 6, 9, 12, 15, 18, 21])
     ax2.set_xlabel("Local Mean Solar Time (Hour)")
-    ax2.set_ylabel("Biological Excess Sensitivity: d(DO(h) − DO_sat)/dT (mg/L/°C)")
+    ax2.set_ylabel("Excess Thermal Sensitivity: d(DO(h) − DO_sat)/dT (mg/L/°C)")
     ax2.set_title("B. Trans-Atlantic Replication: CONUS (USGS) vs. England (UK EA)")
     ax2.grid(True, linestyle="--", alpha=0.28)
     ax2.legend(loc="upper left", fontsize=7.0, framealpha=0.92)
@@ -638,7 +638,7 @@ def build_tables(econ: dict, iv: dict, uk: dict, disc: dict) -> None:
     t2_rows = []
     win_labels = {
         "dawn0507": "Pre-Dawn Solar (05:00-07:00 LST)",
-        "ls10": "Landsat Overpass (10:00-11:00 LST)",
+        "ls10": "Overpass Window (Landsat-Time, 10:00-11:00 LST)",
         "am0912": "Morning Grab (09:00-12:00 Civil)",
         "pm1316": "Afternoon Grab Wide (13:00-16:00 Civil)",
         "pm1330": "Afternoon Grab Core (13:30-15:30 Civil)",
@@ -672,7 +672,7 @@ def build_tables(econ: dict, iv: dict, uk: dict, disc: dict) -> None:
     for mode, mlbl in [
         ("afternoon_1316", "Afternoon Grab Wide (13:00-16:00)"),
         ("afternoon_1430", "Afternoon Grab Core (13:30-15:30)"),
-        ("landsat_1030", "Landsat Overpass (10:00-11:00 LST)"),
+        ("landsat_1030", "Overpass Window (Landsat-Time, 10:00-11:00 LST)"),
     ]:
         t = iv["transfer_function_oos"][mode]
         tf_rows.append(
@@ -703,10 +703,85 @@ def build_tables(econ: dict, iv: dict, uk: dict, disc: dict) -> None:
         )
     pd.DataFrame(tf_rows).to_csv(TBL_DIR / "table2b_transfer_function_oos.csv", index=False)
 
-    # Table 3: Compound Heatwave x Low-Flow Drought
+    # Table 2c: Astronomical Sunset-to-Sunrise Nocturnal Window, Completeness & Site-Weighting Sensitivity
+    astro = iv["astronomical_nocturnal_audit"]
+    mr = astro["hypoxia_miss_rates_by_regime"]
+    eq = astro["equal_site_weighting_miss_rates"]
+    t2c_rows = []
+    for reg_k, reg_lbl in [
+        ("full_24h_15min_siteday", "Full-Day 24h DO_min (15-min, Site-Day Weighted)"),
+        ("full_24h_hourly_siteday", "Full-Day 24h DO_min (Hourly Solar Grid, Site-Day)"),
+        ("astro_night_sameday_siteday", "Strict Astronomical Night (Sunset-to-Sunrise, Same-Day)"),
+        ("astro_night_consec_overnight_siteday", "Strict Consecutive Overnight (Sunset_d to Sunrise_d+1)"),
+        ("completeness_ge86_24h_15min", "Completeness >=90% (>=86/96 15-min) vs 24h DO_min"),
+        ("completeness_ge86_astro_night", "Completeness >=90% (>=86/96 15-min) vs Astro Night"),
+        ("completeness_ge22h_24h_15min", "Completeness >=90% (>=22/24 Solar Hr) vs 24h DO_min"),
+        ("completeness_ge22h_astro_night", "Completeness >=90% (>=22/24 Solar Hr) vs Astro Night"),
+    ]:
+        t2c_rows.append(
+            {
+                "benchmark_regime": reg_lbl,
+                "weighting": "site_day",
+                "hyp5_days_or_sites": mr[reg_k]["lt_5_mgL"]["pm1316_hypoxic_days"],
+                "pm1316_miss_lt5_pct": mr[reg_k]["lt_5_mgL"]["pm1316_missed_pct"],
+                "overpass_miss_lt5_pct": mr[reg_k]["lt_5_mgL"]["overpass1011_missed_pct"],
+                "pm1316_miss_lt3_pct": mr[reg_k]["lt_3_mgL"]["pm1316_missed_pct"],
+                "overpass_miss_lt3_pct": mr[reg_k]["lt_3_mgL"]["overpass1011_missed_pct"],
+                "pm1316_miss_lt2_pct": mr[reg_k]["lt_2_mgL"]["pm1316_missed_pct"],
+                "overpass_miss_lt2_pct": mr[reg_k]["lt_2_mgL"]["overpass1011_missed_pct"],
+            }
+        )
+    for pm_k, ls_k, eq_lbl in [
+        ("pm_24h_15min", "ls_24h_15min", "Equal-Site Weighted vs Full-Day 24h DO_min"),
+        ("pm_astro_night", "ls_astro_night", "Equal-Site Weighted vs Strict Astronomical Night"),
+        ("pm_ge86_24h_15min", "ls_ge86_24h_15min", "Equal-Site Weighted (>=86/96) vs 24h DO_min"),
+        ("pm_ge86_astro_night", "ls_ge86_astro_night", "Equal-Site Weighted (>=86/96) vs Astro Night"),
+    ]:
+        t2c_rows.append(
+            {
+                "benchmark_regime": eq_lbl,
+                "weighting": "equal_site",
+                "hyp5_days_or_sites": eq[pm_k]["lt_5_mgL"]["n_sites_ge1day"],
+                "pm1316_miss_lt5_pct": eq[pm_k]["lt_5_mgL"]["equal_site_missed_pct"],
+                "overpass_miss_lt5_pct": eq[ls_k]["lt_5_mgL"]["equal_site_missed_pct"],
+                "pm1316_miss_lt3_pct": eq[pm_k]["lt_3_mgL"]["equal_site_missed_pct"],
+                "overpass_miss_lt3_pct": eq[ls_k]["lt_3_mgL"]["equal_site_missed_pct"],
+                "pm1316_miss_lt2_pct": eq[pm_k]["lt_2_mgL"]["equal_site_missed_pct"],
+                "overpass_miss_lt2_pct": eq[ls_k]["lt_2_mgL"]["equal_site_missed_pct"],
+            }
+        )
+    pd.DataFrame(t2c_rows).to_csv(TBL_DIR / "table2c_astronomical_night_duration_sensitivity.csv", index=False)
+
+    # Table 2d: First Threshold-Crossing Solar Hour & Exact Continuous Hypoxia Duration
+    td = astro["first_crossing_and_duration"]
+    t2d_rows = []
+    for tag, thr_lbl in [("lt_5_mgL", "< 5.0 mg/L"), ("lt_4_mgL", "< 4.0 mg/L"), ("lt_3_mgL", "< 3.0 mg/L"), ("lt_2_mgL", "< 2.0 mg/L")]:
+        d = td[tag]
+        t2d_rows.append(
+            {
+                "threshold": thr_lbl,
+                "hypoxic_days_hourly": d["hypoxic_days_hourly"],
+                "daily_min_in_astro_night_pct": d["daily_min_in_astro_night_pct"],
+                "daily_min_in_astro_night_plus_2h_lag_pct": d["daily_min_in_astro_night_plus_2h_lag_pct"],
+                "consec_hypoxic_cycles": d["consec_hypoxic_cycles"],
+                "consec_episodic_cycles": d["consec_episodic_cycles"],
+                "first_crossing_in_astro_night_episodic_pct": d["first_crossing_in_astro_night_episodic_pct"],
+                "episodic_first_crossing_solar_hr_median": d["episodic_first_crossing_solar_hr_median"],
+                "episodic_first_crossing_solar_hr_p25": d["episodic_first_crossing_solar_hr_p25"],
+                "episodic_first_crossing_solar_hr_p75": d["episodic_first_crossing_solar_hr_p75"],
+                "continuous_duration_all_mean_hr": d["continuous_duration_all_mean_hr"],
+                "continuous_duration_all_median_hr": d["continuous_duration_all_median_hr"],
+                "continuous_duration_episodic_mean_hr": d["continuous_duration_episodic_mean_hr"],
+                "continuous_duration_episodic_median_hr": d["continuous_duration_episodic_median_hr"],
+                "total_hypoxic_hours_all_mean_hr": d["total_hypoxic_hours_all_mean_hr"],
+            }
+        )
+    pd.DataFrame(t2d_rows).to_csv(TBL_DIR / "table2d_nocturnal_crossing_duration.csv", index=False)
+
+    # Table 3: Compound Heatwave x Low-Flow Drought (with bounded night-minus-day contrast and exact 95% CIs)
     t3_rows = []
     eff = econ["compound_hot_x_dry"]["effects"]
-    for out_k in ("do_sat_alt", "do_max", "do_mean", "do_min", "diff_min_max", "diff_min_sat", "plunge", "hyp5_min", "hyp3_min", "hyp2_min", "hyp5_max"):
+    for out_k in ("do_sat_alt", "do_max", "do_mean", "do_min", "diff_min_max", "diff_min_sat", "plunge", "hyp5_min", "hyp3_min", "hyp2_min", "hyp5_max", "hyp5_min_minus_max"):
         e = eff[out_k]
         t3_rows.append(
             {
@@ -718,9 +793,13 @@ def build_tables(econ: dict, iv: dict, uk: dict, disc: dict) -> None:
                 "dry_only_p_huc2": e["dry_only"]["huc2_cluster"]["p_cr1_t_Gminus1"],
                 "hot_x_dry_interaction": e["hot_x_dry_interaction"]["mean"],
                 "interaction_se_huc2": e["hot_x_dry_interaction"]["huc2_cluster"]["se_cr1"],
+                "interaction_ci95_lo": e["hot_x_dry_interaction"]["huc2_cluster"]["ci95_lo"],
+                "interaction_ci95_hi": e["hot_x_dry_interaction"]["huc2_cluster"]["ci95_hi"],
                 "interaction_p_huc2": e["hot_x_dry_interaction"]["huc2_cluster"]["p_cr1_t_Gminus1"],
                 "interaction_p_state": e["hot_x_dry_interaction"]["state_cluster"]["p_cr1_t_Gminus1"],
                 "total_compound_vs_normal": e["total_compound_vs_normal"]["mean"],
+                "total_ci95_lo": e["total_compound_vs_normal"]["huc2_cluster"]["ci95_lo"],
+                "total_ci95_hi": e["total_compound_vs_normal"]["huc2_cluster"]["ci95_hi"],
                 "total_compound_p_huc2": e["total_compound_vs_normal"]["huc2_cluster"]["p_cr1_t_Gminus1"],
             }
         )
@@ -839,7 +918,7 @@ def build_tables(econ: dict, iv: dict, uk: dict, disc: dict) -> None:
 
     # Table 6: HUC-2 Basin Summary
     pd.DataFrame(econ["huc2_basin_summary"]).to_csv(TBL_DIR / "table6_huc2_basin_summary.csv", index=False)
-    print("  [TABLES] saved 7 zero-NaN CSV tables in tables/", flush=True)
+    print("  [TABLES] saved 9 zero-NaN CSV tables in tables/", flush=True)
 
 
 def main() -> None:

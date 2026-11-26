@@ -37,6 +37,22 @@ def _load_module(script_name: str):
 # ---------------------------------------------------------------------------
 # 1. Mathematical & Thermodynamic Unit Tests
 # ---------------------------------------------------------------------------
+def test_astronomical_sunrise_sunset_solar_geometry_and_symmetry() -> None:
+    mod3 = _load_module("03_fetch_iv_24h_clock_census.py")
+    # Equinox (~DOY 80 / 266) at mid-latitude 40 N -> sunrise ~6.0, sunset ~18.0
+    sr_eq, ss_eq = mod3.astronomical_sunrise_sunset_solar_hr(40.0, 80)
+    assert 5.8 < float(sr_eq) < 6.2
+    assert 17.8 < float(ss_eq) < 18.2
+    assert abs(float(sr_eq) + float(ss_eq) - 24.0) < 1e-12
+
+    # Northern hemisphere summer solstice (DOY 172): higher latitude -> earlier sunrise, later sunset
+    sr_28, ss_28 = mod3.astronomical_sunrise_sunset_solar_hr(28.0, 172)
+    sr_47, ss_47 = mod3.astronomical_sunrise_sunset_solar_hr(47.0, 172)
+    assert float(sr_47) < float(sr_28) < 5.3
+    assert float(ss_47) > float(ss_28) > 18.7
+    assert abs(float(sr_47) + float(ss_47) - 24.0) < 1e-12
+
+
 def test_benson_krause_thermodynamics_reference_values_and_cross_script_parity() -> None:
     mod5 = _load_module("05_econometric_hydrologic_suite.py")
     mod3 = _load_module("03_fetch_iv_24h_clock_census.py")
@@ -197,6 +213,8 @@ def test_zero_nans_and_table4_internal_arithmetic_integrity() -> None:
         "table1_core_thermal_decoupling.csv",
         "table2_24h_clock_bias_windows.csv",
         "table2b_transfer_function_oos.csv",
+        "table2c_astronomical_night_duration_sensitivity.csv",
+        "table2d_nocturnal_crossing_duration.csv",
         "table3_compound_hot_x_dry.csv",
         "table4_biophysical_mechanism_strata.csv",
         "table5_secular_trends_and_uk_replication.csv",
@@ -259,6 +277,47 @@ def test_core_results_nid_dam_free_and_well_conditioned_transfer() -> None:
         assert tf["rmse_reduction_pct"] > 40.0
         assert "oos_r2_do_min" in tf and "oos_r2_drawdown" in tf
         assert tf["nonlinear_spline_benchmark"]["lohuc2_rmse_mgL"] > 0.0
+
+    # Strict astronomical sunset-to-sunrise nocturnal audit, crossing timing, duration & completeness/site-weighting
+    astro = iv["astronomical_nocturnal_audit"]
+    sg = astro["solar_geometry_summary"]
+    assert sg["total_valid_site_days"] == iv["total_iv_warm_river_days"]
+    assert sg["all_days_min_in_astro_night_pct"] > 60.0
+    assert sg["all_days_min_in_astro_night_plus_2h_lag_pct"] > 80.0
+    assert sg["total_ge86_15min_site_days"] > 70_000
+
+    sl = astro["warming_slopes_astro_night_vs_24h"]["all_valid_rivers"]
+    assert sl["pm1316_underest_vs_astro_night_pct"] > 45.0
+    assert sl["overpass1011_underest_vs_astro_night_pct"] > 20.0
+    assert sl["pm1316_bias_vs_night_huc2"]["p_cr1_t_Gminus1"] < 1e-4
+
+    mr = astro["hypoxia_miss_rates_by_regime"]
+    for reg in ("astro_night_sameday_siteday", "astro_night_consec_overnight_siteday", "completeness_ge86_astro_night"):
+        assert mr[reg]["lt_5_mgL"]["pm1316_missed_pct"] > 55.0
+        assert mr[reg]["lt_5_mgL"]["overpass1011_missed_pct"] > 45.0
+    eq = astro["equal_site_weighting_miss_rates"]
+    assert eq["pm_astro_night"]["lt_5_mgL"]["equal_site_missed_pct"] > 65.0
+    assert eq["ls_astro_night"]["lt_5_mgL"]["equal_site_missed_pct"] > 60.0
+
+    td = astro["first_crossing_and_duration"]
+    for tag in ("lt_5_mgL", "lt_3_mgL", "lt_2_mgL"):
+        assert td[tag]["first_crossing_in_astro_night_episodic_pct"] > 60.0
+        assert td[tag]["continuous_duration_episodic_median_hr"] >= 5.0
+
+    # Bounded night-minus-day compound hypoxia contrast (replaces unstable ratio)
+    cmp_diff = econ["compound_hot_x_dry"]["effects"]["hyp5_min_minus_max"]
+    assert cmp_diff["total_compound_vs_normal"]["mean"] > 0.08
+    assert cmp_diff["total_compound_vs_normal"]["huc2_cluster"]["ci95_lo"] > 0.04
+    assert cmp_diff["total_compound_vs_normal"]["huc2_cluster"]["p_cr1_t_Gminus1"] < 0.001
+    assert cmp_diff["hot_x_dry_interaction"]["mean"] > 0.02
+    assert cmp_diff["hot_x_dry_interaction"]["huc2_cluster"]["p_cr1_t_Gminus1"] < 0.01
+
+    # UK raw 15-min astronomical night audit
+    uk = json.loads((RES_DIR / "uk_ea_replication_results.json").read_text(encoding="utf-8"))
+    uk_a = uk["astronomical_nocturnal_15min_audit"]
+    assert uk_a["all_days_min_in_astro_night_pct"] > 55.0
+    assert uk_a["hypoxia_blindness_astro_night_15min"]["pm14"]["lt_5_mgL"]["missed_pct"] > 50.0
+    assert uk_a["hypoxia_blindness_astro_night_15min"]["ls10"]["lt_5_mgL"]["missed_pct"] > 45.0
 
 
 def test_manuscript_tables_exact_parity_with_json_and_csv_receipts() -> None:
@@ -338,6 +397,25 @@ def test_manuscript_tables_exact_parity_with_json_and_csv_receipts() -> None:
     assert abs(clean_num(uk_row[2]) - uk_dec["mean"]) < 1.5e-4
     assert abs(clean_num(uk_row[3]) - uk_dec["grid1deg_cluster"]["se_cr1"]) < 1.5e-4
 
+    # Check Table 3 bounded Night - Day contrast & Table 2b astronomical night sensitivity parity
+    cmp_d = econ["compound_hot_x_dry"]["effects"]["hyp5_min_minus_max"]
+    nd_row = rows_by_label["**Night $-$ Day $P(<5\\text{ mg L}^{-1})$ Contrast (pp)**"]
+    assert abs(clean_num(nd_row[3]) - cmp_d["hot_x_dry_interaction"]["mean"] * 100.0) < 0.02
+    assert abs(clean_num(nd_row[4]) - cmp_d["total_compound_vs_normal"]["mean"] * 100.0) < 0.02
+
+    t2c = pd.read_csv(TBL_DIR / "table2c_astronomical_night_duration_sensitivity.csv")
+    astro_row_md = rows_by_label["**Strict Astronomical Night (Sunset–Sunrise, Same-Day)**"]
+    astro_row_csv = t2c[t2c["benchmark_regime"] == "Strict Astronomical Night (Sunset-to-Sunrise, Same-Day)"].iloc[0]
+    assert abs(clean_num(astro_row_md[2]) - float(astro_row_csv["pm1316_miss_lt5_pct"])) < 0.1
+    assert abs(clean_num(astro_row_md[3]) - float(astro_row_csv["overpass_miss_lt5_pct"])) < 0.1
+
+    # Verify v2 referee narrative guards: zero 16x ratio headline, overpass-time framing, and required Crossref DOIs
+    assert not re.search(r"(?<![0-9.])16(?:\.0)?\s*(?:×|\\times(?!\s*10\^)|x\b)", md, flags=re.IGNORECASE), "Unstable 16x ratio headline leaked in manuscript!"
+    assert "overpass-time (Landsat-window" in md or "Overpass-time (Landsat-window" in md
+    assert "10.1038/s41558-023-01793-3" in md  # Zhi et al. 2023
+    assert "10.1002/lol2.10297" in md  # Blaszczak et al. 2023
+    assert "10.1016/B978-0-12-373750-2.X5001-0" in md  # Iqbal 1983 solar geometry
+
 
 def test_figures_pdf_zero_leaks_and_sha256_manifest() -> None:
     expected_figs = [
@@ -362,7 +440,7 @@ def test_figures_pdf_zero_leaks_and_sha256_manifest() -> None:
     for bad in [
         r"\\[A-Za-z]+", r"\$\$", r"\*\*", r"\|---", r"\^°", r"\{,\}",
         r"S_\+", r"DO_min", r"DO_max", r"DO_sat", r"T_min", r"T_max",
-        r"log\(Q\)\^2", r"fig[1-5]_[a-z0-9_]+\.png",
+        r"log\(Q\)\^2", r"fig[1-5]_[a-z0-9_]+\.png", r"16(?:\.0)?[×x]",
     ]:
         assert not re.search(bad, full_txt), f"Leaked token {bad} found in manuscript_d4_boost.pdf"
 

@@ -248,5 +248,16 @@
     "volume": null,
     "page": "219-233",
     "doi": "10.1016/b978-0-12-813047-6.00012-7"
+  },
+  "Iqbal1983": {
+    "year": 1983,
+    "authors": [
+      "Iqbal M."
+    ],
+    "title": "An Introduction to Solar Radiation",
+    "journal": "Academic Press",
+    "volume": null,
+    "page": null,
+    "doi": "10.1016/B978-0-12-373750-2.X5001-0"
   }
 }

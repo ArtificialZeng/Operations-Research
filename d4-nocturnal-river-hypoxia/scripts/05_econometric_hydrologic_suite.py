@@ -253,6 +253,7 @@ def process_all_rivers(meta_df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         for thr_v, tt in [(5.0, "5"), (4.0, "4"), (3.0, "3"), (2.0, "2")]:
             df[f"hyp{tt}_min"] = (df["do_min"] < thr_v).astype(float)
             df[f"hyp{tt}_max"] = (df["do_max"] < thr_v).astype(float)
+        df["hyp5_min_minus_max"] = df["hyp5_min"] - df["hyp5_max"]
 
         warm = df[df["month"].between(5, 10)].copy()
         peak = df[df["month"].between(6, 8)].copy()
@@ -407,7 +408,7 @@ def process_all_rivers(meta_df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
             wq["hot_x_dry"] = wq["hot"] * wq["dry"]
             n_comp = int(wq["hot_x_dry"].sum())
             if n_comp >= 12:
-                comp_ys = ["do_sat_alt", "do_max", "do_mean", "do_min", "diff_min_max", "diff_min_sat", "plunge", "hyp5_min", "hyp3_min", "hyp2_min", "hyp5_max"]
+                comp_ys = ["do_sat_alt", "do_max", "do_mean", "do_min", "diff_min_max", "diff_min_sat", "plunge", "hyp5_min", "hyp3_min", "hyp2_min", "hyp5_max", "hyp5_min_minus_max"]
                 bc = fit_within_ym_full_betas(wq, comp_ys, ["hot", "dry", "hot_x_dry"], min_days=300)
                 if bc is not None:
                     out["has_compound"] = 1
@@ -741,7 +742,7 @@ def main() -> None:
         "total_compound_days": int(sub_cmp["n_compound_days"].sum()) if len(sub_cmp) else 0,
         "effects": {},
     }
-    for k in ("do_sat_alt", "do_max", "do_mean", "do_min", "diff_min_max", "diff_min_sat", "plunge", "hyp5_min", "hyp3_min", "hyp2_min", "hyp5_max"):
+    for k in ("do_sat_alt", "do_max", "do_mean", "do_min", "diff_min_max", "diff_min_sat", "plunge", "hyp5_min", "hyp3_min", "hyp2_min", "hyp5_max", "hyp5_min_minus_max"):
         compound_out["effects"][k] = {
             "hot_only": spatial_inference_block(sub_cmp, f"cmp_hot_{k}", rng),
             "dry_only": spatial_inference_block(sub_cmp, f"cmp_dry_{k}", rng),

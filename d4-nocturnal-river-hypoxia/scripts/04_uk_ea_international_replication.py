@@ -38,6 +38,28 @@ UK_EXCL_RE = re.compile(
 )
 
 
+def astronomical_sunrise_sunset_solar_hr(
+    lat_deg: float | np.ndarray,
+    doy: int | np.ndarray,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Exact Spencer (1971) / Iqbal (1983) astronomical sunrise & sunset in Local Mean Solar Time."""
+    doy_arr = np.asarray(doy, dtype=float)
+    lat_arr = np.asarray(lat_deg, dtype=float)
+    gamma = 2.0 * np.pi * (doy_arr - 1.0) / 365.0
+    decl = (
+        0.006918
+        - 0.399912 * np.cos(gamma)
+        + 0.070257 * np.sin(gamma)
+        - 0.006758 * np.cos(2.0 * gamma)
+        + 0.000907 * np.sin(2.0 * gamma)
+        - 0.002697 * np.cos(3.0 * gamma)
+        + 0.001480 * np.sin(3.0 * gamma)
+    )
+    cos_w0 = np.clip(-np.tan(np.radians(lat_arr)) * np.tan(decl), -1.0, 1.0)
+    w0_hr = np.degrees(np.arccos(cos_w0)) / 15.0
+    return 12.0 - w0_hr, 12.0 + w0_hr
+
+
 def benson_krause_do_sat(temp_c: np.ndarray) -> np.ndarray:
     t_k = np.asarray(temp_c, dtype=float) + 273.15
     ln_c = (
@@ -217,17 +239,22 @@ def process_uk_station(row: dict) -> dict | None:
     if len(df) < 2000:
         return None
 
-    # Compute Local Mean Solar Time (UK EA timestamps are UTC/GMT)
+    # Compute Local Mean Solar Time & exact astronomical night mask (UK EA timestamps are UTC/GMT)
+    lat = float(row["lat"])
     lon = float(row["lon"])
     dt_idx = pd.to_datetime(df.index)
     utc_hr = dt_idx.hour + dt_idx.minute / 60.0
     solar_hr = (utc_hr + lon / 15.0) % 24.0
+    sr_15, ss_15 = astronomical_sunrise_sunset_solar_hr(lat, dt_idx.day_of_year.values)
     df = df.copy()
     df["day"] = dt_idx.strftime("%Y-%m-%d")
     df["year"] = dt_idx.year
     df["month"] = dt_idx.month
+    df["solar_hr"] = solar_hr
     df["solar_hr_bin"] = np.floor(solar_hr).astype(int) % 24
     df["utc_hr"] = utc_hr
+    df["is_astro_night"] = (solar_hr < sr_15) | (solar_hr >= ss_15)
+    df["is_astro_night_lag2"] = (solar_hr < (sr_15 + 2.0)) | (solar_hr >= ss_15)
 
     # Keep only complete days (>= 20 distinct hours of the 24-hour cycle observed, cadence-agnostic for 15/30/60-min loggers!)
     day_hrs = df.groupby("day")["solar_hr_bin"].nunique()
@@ -347,13 +374,31 @@ def process_uk_station(row: dict) -> dict | None:
     else:
         res["has_uk_5yr"] = 0
 
-    # Specific windows: Landsat 10:00-11:00 solar, Afternoon 13:00-16:00 solar, and UK Civil BST 13:00-16:00 (= 12:00-15:00 UTC)
+    # Exact raw 15-minute astronomical sunset-to-sunrise nocturnal verification
+    g_idxmin = df.groupby("day")["do"].idxmin().reindex(daily.index)
+    min_in_ngt = df.loc[g_idxmin.dropna(), "is_astro_night"].values
+    min_in_ngt_lag2 = df.loc[g_idxmin.dropna(), "is_astro_night_lag2"].values
+    res["uk_min_in_astro_night_days"] = int(np.sum(min_in_ngt))
+    res["uk_min_in_astro_night_lag2_days"] = int(np.sum(min_in_ngt_lag2))
+    do_min_ngt = df[df["is_astro_night"]].groupby("day")["do"].min().reindex(daily.index)
+    sub_ngt = pd.DataFrame({"y": do_min_ngt, "t": daily["temp_mean"], "ym": daily["ym"]}).dropna()
+    yc_n = sub_ngt["ym"].value_counts()
+    sub_ngt = sub_ngt[sub_ngt["ym"].isin(yc_n[yc_n >= 5].index)]
+    if len(sub_ngt) >= 80:
+        td_n = sub_ngt["t"] - sub_ngt.groupby("ym")["t"].transform("mean")
+        yd_n = sub_ngt["y"] - sub_ngt.groupby("ym")["y"].transform("mean")
+        dn_n = float(np.dot(td_n.values, td_n.values))
+        res["s_domin_astro_night"] = float(np.dot(td_n.values, yd_n.values) / dn_n) if dn_n > 1e-6 else np.nan
+    else:
+        res["s_domin_astro_night"] = np.nan
+
+    # Specific windows: Overpass-window 10:00-11:00 solar, Afternoon 13:00-16:00 solar, and UK Civil BST 13:00-16:00 (= 12:00-15:00 UTC)
     ls_s = df[df["solar_hr_bin"] == 10].groupby("day")["do"].mean().reindex(daily.index)
     pm_s = df[df["solar_hr_bin"].isin([13, 14, 15])].groupby("day")["do"].mean().reindex(daily.index)
     bst_hr = (df["utc_hr"] + 1.0) % 24.0
     pm_bst = df[bst_hr.between(13.0, 16.0)].groupby("day")["do"].mean().reindex(daily.index)
     for tag, s_win in [("ls10", ls_s), ("pm14", pm_s), ("pm_bst", pm_bst)]:
-        sub = pd.DataFrame({"y": s_win, "t": daily["temp_mean"], "ym": daily["ym"], "dmin": daily["do_min"]}).dropna()
+        sub = pd.DataFrame({"y": s_win, "t": daily["temp_mean"], "ym": daily["ym"], "dmin": daily["do_min"], "dngt": do_min_ngt}).dropna(subset=["y", "t", "ym", "dmin"])
         yc = sub["ym"].value_counts()
         sub = sub[sub["ym"].isin(yc[yc >= 5].index)]
         if len(sub) >= 80:
@@ -362,15 +407,20 @@ def process_uk_station(row: dict) -> dict | None:
             dn = float(np.dot(td.values, td.values))
             res[f"slope_{tag}"] = float(np.dot(td.values, yd.values) / dn) if dn > 1e-6 else np.nan
             res[f"bias_{tag}"] = float((sub["y"] - sub["dmin"]).mean())
+            sub_ng = sub.dropna(subset=["dngt"])
             for thr, tt in [(5.0, "5"), (3.0, "3"), (2.0, "2")]:
                 res[f"hyp{tt}_min_{tag}"] = int((sub["dmin"] < thr).sum())
                 res[f"hyp{tt}_miss_{tag}"] = int(((sub["dmin"] < thr) & (sub["y"] >= thr)).sum())
+                res[f"hyp{tt}_ngt_min_{tag}"] = int((sub_ng["dngt"] < thr).sum())
+                res[f"hyp{tt}_ngt_miss_{tag}"] = int(((sub_ng["dngt"] < thr) & (sub_ng["y"] >= thr)).sum())
         else:
             res[f"slope_{tag}"] = np.nan
             res[f"bias_{tag}"] = np.nan
             for tt in ("5", "3", "2"):
                 res[f"hyp{tt}_min_{tag}"] = 0
                 res[f"hyp{tt}_miss_{tag}"] = 0
+                res[f"hyp{tt}_ngt_min_{tag}"] = 0
+                res[f"hyp{tt}_ngt_miss_{tag}"] = 0
 
     return res
 
@@ -515,6 +565,30 @@ def main() -> None:
         for col_u in ("temp_mean", "do_min", "do_max", "swing", "diff_min_sat"):
             uk_secular[f"dec_{col_u}"] = uk_spatial_summary(sub_5y, sub_5y[f"tr_dec_{col_u}"], rng)
 
+    # Raw 15-min UK astronomical sunset-to-sunrise nocturnal audit (independent RNG stream preserves existing bootstrap parity)
+    rng_astro = np.random.default_rng(20261126)
+    tot_uk_d = int(rdf["n_days"].sum()) if len(rdf) else 1
+    uk_ngt_hyp: dict = {}
+    for tag in ("ls10", "pm14", "pm_bst"):
+        uk_ngt_hyp[tag] = {}
+        for tt in ("5", "3", "2"):
+            tot_n = int(rdf[f"hyp{tt}_ngt_min_{tag}"].sum())
+            miss_n = int(rdf[f"hyp{tt}_ngt_miss_{tag}"].sum())
+            uk_ngt_hyp[tag][f"lt_{tt}_mgL"] = {
+                "astro_night_hypoxic_days": tot_n,
+                "missed_days": miss_n,
+                "missed_pct": round(100.0 * miss_n / tot_n, 2) if tot_n > 0 else None,
+            }
+    sub_ng_s = rdf.dropna(subset=["s_domin_astro_night", "slope_pm14", "slope_ls10"])
+    uk_astro_audit = {
+        "all_days_min_in_astro_night_pct": round(100.0 * int(rdf["uk_min_in_astro_night_days"].sum()) / max(1, tot_uk_d), 2),
+        "all_days_min_in_astro_night_plus_2h_lag_pct": round(100.0 * int(rdf["uk_min_in_astro_night_lag2_days"].sum()) / max(1, tot_uk_d), 2),
+        "DOmin_astro_night_slope": uk_spatial_summary(rdf, rdf["s_domin_astro_night"], rng_astro),
+        "afternoon_underest_vs_astro_night_pct": round(100.0 * (1.0 - float(sub_ng_s["slope_pm14"].mean()) / float(sub_ng_s["s_domin_astro_night"].mean())), 2) if len(sub_ng_s) else None,
+        "overpass_underest_vs_astro_night_pct": round(100.0 * (1.0 - float(sub_ng_s["slope_ls10"].mean()) / float(sub_ng_s["s_domin_astro_night"].mean())), 2) if len(sub_ng_s) else None,
+        "hypoxia_blindness_astro_night_15min": uk_ngt_hyp,
+    }
+
     summary = {
         "discovery": disc_meta,
         "n_valid_clean_uk_rivers": len(rdf),
@@ -549,6 +623,7 @@ def main() -> None:
             "landsat_mean_bias_mgL": uk_spatial_summary(rdf, rdf["bias_ls10"], rng),
             "hypoxia_blindness": hyp_block,
         },
+        "astronomical_nocturnal_15min_audit": uk_astro_audit,
         "uk_secular_5yr_probe": uk_secular,
         "hourly_24h_curve_solar_time": hourly_curve,
     }

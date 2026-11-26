@@ -1,0 +1,13 @@
+benchmark_regime,weighting,hyp5_days_or_sites,pm1316_miss_lt5_pct,overpass_miss_lt5_pct,pm1316_miss_lt3_pct,overpass_miss_lt3_pct,pm1316_miss_lt2_pct,overpass_miss_lt2_pct
+"Full-Day 24h DO_min (15-min, Site-Day Weighted)",site_day,10188,65.27,52.84,72.59,67.77,68.78,65.31
+"Full-Day 24h DO_min (Hourly Solar Grid, Site-Day)",site_day,9789,63.86,50.92,70.63,65.47,65.53,61.7
+"Strict Astronomical Night (Sunset-to-Sunrise, Same-Day)",site_day,9056,61.86,48.99,69.27,65.97,63.7,60.39
+Strict Consecutive Overnight (Sunset_d to Sunrise_d+1),site_day,9097,63.59,50.53,71.93,67.96,68.04,62.78
+Completeness >=90% (>=86/96 15-min) vs 24h DO_min,site_day,8223,67.04,54.19,77.72,72.79,74.16,71.48
+Completeness >=90% (>=86/96 15-min) vs Astro Night,site_day,7256,63.66,50.24,75.18,71.43,69.72,67.42
+Completeness >=90% (>=22/24 Solar Hr) vs 24h DO_min,site_day,10118,65.28,52.82,72.88,67.94,69.31,65.68
+Completeness >=90% (>=22/24 Solar Hr) vs Astro Night,site_day,8996,61.88,48.98,69.61,66.18,64.3,60.82
+Equal-Site Weighted vs Full-Day 24h DO_min,equal_site,96,77.46,71.64,77.26,73.46,81.1,76.26
+Equal-Site Weighted vs Strict Astronomical Night,equal_site,93,74.74,68.56,74.5,70.02,74.55,68.83
+Equal-Site Weighted (>=86/96) vs 24h DO_min,equal_site,84,77.91,72.7,80.38,76.73,81.8,77.29
+Equal-Site Weighted (>=86/96) vs Astro Night,equal_site,80,74.84,69.25,77.21,73.11,75.37,68.4

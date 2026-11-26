@@ -503,6 +503,789 @@
       }
     }
   },
+  "astronomical_nocturnal_audit": {
+    "solar_geometry_summary": {
+      "formula": "cos(omega_0) = -tan(phi)*tan(delta); Spencer (1971) / Iqbal (1983) 3-harmonic declination",
+      "total_valid_site_days": 92800,
+      "total_ge86_15min_site_days": 78405,
+      "share_ge86_15min_pct": 84.49,
+      "total_ge22h_site_days": 92365,
+      "share_ge22h_pct": 99.53,
+      "total_consecutive_day_pairs": 91495,
+      "sunrise_solar_hr_mean": 5.32,
+      "sunrise_solar_hr_range": [
+        4.0,
+        7.1
+      ],
+      "sunset_solar_hr_mean": 18.68,
+      "sunset_solar_hr_range": [
+        16.9,
+        20.0
+      ],
+      "astro_night_length_mean_hr": 10.63,
+      "all_days_min_in_astro_night_pct": 66.99,
+      "all_days_min_in_astro_night_plus_2h_lag_pct": 85.27
+    },
+    "warming_slopes_astro_night_vs_24h": {
+      "all_valid_rivers": {
+        "n_rivers": 139,
+        "mean_DOmin_24h_15m_slope": -0.21433,
+        "mean_DOmin_24h_hourly_slope": -0.21281,
+        "mean_DOmin_astro_night_slope": -0.20635,
+        "mean_pm1316_slope": -0.09998,
+        "mean_overpass1011_slope": -0.14786,
+        "pm1316_underest_vs_24h_15m_pct": 53.35,
+        "pm1316_underest_vs_astro_night_pct": 51.55,
+        "overpass1011_underest_vs_24h_15m_pct": 31.01,
+        "overpass1011_underest_vs_astro_night_pct": 28.35,
+        "pm1316_bias_vs_night_huc2": {
+          "n_rivers": 139,
+          "n_clusters": 17,
+          "mean": 0.10637,
+          "se_cr1": 0.0156,
+          "ci95_lo": 0.0733,
+          "ci95_hi": 0.13945,
+          "t_cr1": 6.818,
+          "p_cr1_t_Gminus1": 4.127955043391832e-06,
+          "cluster_equal_mean": 0.10035,
+          "cluster_equal_p_t": 5.879208847433961e-06,
+          "cluster_equal_p_wilcoxon": 3.0517578125e-05
+        },
+        "pm1316_bias_vs_night_state": {
+          "n_rivers": 139,
+          "n_clusters": 25,
+          "mean": 0.10637,
+          "se_cr1": 0.01603,
+          "ci95_lo": 0.07328,
+          "ci95_hi": 0.13947,
+          "t_cr1": 6.634,
+          "p_cr1_t_Gminus1": 7.319640993420443e-07,
+          "cluster_equal_mean": 0.10208,
+          "cluster_equal_p_t": 0.00013061505694270941,
+          "cluster_equal_p_wilcoxon": 1.7881393432617188e-07
+        },
+        "overpass1011_bias_vs_night_huc2": {
+          "n_rivers": 139,
+          "n_clusters": 17,
+          "mean": 0.05849,
+          "se_cr1": 0.00773,
+          "ci95_lo": 0.04211,
+          "ci95_hi": 0.07487,
+          "t_cr1": 7.569,
+          "p_cr1_t_Gminus1": 1.1284691834949053e-06,
+          "cluster_equal_mean": 0.05805,
+          "cluster_equal_p_t": 7.992178630932758e-06,
+          "cluster_equal_p_wilcoxon": 1.52587890625e-05
+        },
+        "overpass1011_bias_vs_night_state": {
+          "n_rivers": 139,
+          "n_clusters": 25,
+          "mean": 0.05849,
+          "se_cr1": 0.00804,
+          "ci95_lo": 0.04189,
+          "ci95_hi": 0.07509,
+          "t_cr1": 7.271,
+          "p_cr1_t_Gminus1": 1.6388800321680793e-07,
+          "cluster_equal_mean": 0.05442,
+          "cluster_equal_p_t": 3.0340579938673494e-05,
+          "cluster_equal_p_wilcoxon": 1.1920928955078125e-07
+        },
+        "qctrl_n_rivers": 116,
+        "pm1316_underest_vs_astro_night_qctrl_pct": 31.28,
+        "overpass1011_underest_vs_astro_night_qctrl_pct": 16.87,
+        "pm1316_bias_vs_night_qctrl_huc2": {
+          "n_rivers": 116,
+          "n_clusters": 17,
+          "mean": 0.06827,
+          "se_cr1": 0.01674,
+          "ci95_lo": 0.03278,
+          "ci95_hi": 0.10375,
+          "t_cr1": 4.078,
+          "p_cr1_t_Gminus1": 0.000876348748310661,
+          "cluster_equal_mean": 0.05675,
+          "cluster_equal_p_t": 0.0007334208086034754,
+          "cluster_equal_p_wilcoxon": 0.0003814697265625
+        },
+        "overpass1011_bias_vs_night_qctrl_huc2": {
+          "n_rivers": 116,
+          "n_clusters": 17,
+          "mean": 0.03682,
+          "se_cr1": 0.00864,
+          "ci95_lo": 0.01851,
+          "ci95_hi": 0.05512,
+          "t_cr1": 4.264,
+          "p_cr1_t_Gminus1": 0.0005940751261469915,
+          "cluster_equal_mean": 0.03226,
+          "cluster_equal_p_t": 0.0016340951046195248,
+          "cluster_equal_p_wilcoxon": 0.0005035400390625
+        }
+      },
+      "completeness_ge86_obs_per_day": {
+        "n_rivers": 120,
+        "n_river_days": 78405,
+        "mean_DOmin_24h_15m_slope": -0.2089,
+        "mean_DOmin_astro_night_slope": -0.20037,
+        "mean_pm1316_slope": -0.09162,
+        "mean_overpass1011_slope": -0.14082,
+        "pm1316_underest_vs_24h_15m_pct": 56.14,
+        "pm1316_underest_vs_astro_night_pct": 54.28,
+        "overpass1011_underest_vs_24h_15m_pct": 32.59,
+        "overpass1011_underest_vs_astro_night_pct": 29.72,
+        "pm1316_bias_vs_night_huc2": {
+          "n_rivers": 120,
+          "n_clusters": 17,
+          "mean": 0.10875,
+          "se_cr1": 0.0166,
+          "ci95_lo": 0.07356,
+          "ci95_hi": 0.14394,
+          "t_cr1": 6.552,
+          "p_cr1_t_Gminus1": 6.664913395488865e-06,
+          "cluster_equal_mean": 0.10922,
+          "cluster_equal_p_t": 6.33006574508821e-05,
+          "cluster_equal_p_wilcoxon": 3.0517578125e-05
+        },
+        "overpass1011_bias_vs_night_huc2": {
+          "n_rivers": 120,
+          "n_clusters": 17,
+          "mean": 0.05955,
+          "se_cr1": 0.00872,
+          "ci95_lo": 0.04105,
+          "ci95_hi": 0.07804,
+          "t_cr1": 6.826,
+          "p_cr1_t_Gminus1": 4.0743145497118595e-06,
+          "cluster_equal_mean": 0.0634,
+          "cluster_equal_p_t": 1.9103975825331306e-05,
+          "cluster_equal_p_wilcoxon": 1.52587890625e-05
+        }
+      }
+    },
+    "hypoxia_miss_rates_by_regime": {
+      "full_24h_15min_siteday": {
+        "lt_5_mgL": {
+          "pm1316_hypoxic_days": 10188,
+          "pm1316_missed_days": 6650,
+          "pm1316_missed_pct": 65.27,
+          "overpass1011_hypoxic_days": 10163,
+          "overpass1011_missed_days": 5370,
+          "overpass1011_missed_pct": 52.84
+        },
+        "lt_4_mgL": {
+          "pm1316_hypoxic_days": 5468,
+          "pm1316_missed_days": 3645,
+          "pm1316_missed_pct": 66.66,
+          "overpass1011_hypoxic_days": 5459,
+          "overpass1011_missed_days": 3161,
+          "overpass1011_missed_pct": 57.9
+        },
+        "lt_3_mgL": {
+          "pm1316_hypoxic_days": 3079,
+          "pm1316_missed_days": 2235,
+          "pm1316_missed_pct": 72.59,
+          "overpass1011_hypoxic_days": 3075,
+          "overpass1011_missed_days": 2084,
+          "overpass1011_missed_pct": 67.77
+        },
+        "lt_2_mgL": {
+          "pm1316_hypoxic_days": 1105,
+          "pm1316_missed_days": 760,
+          "pm1316_missed_pct": 68.78,
+          "overpass1011_hypoxic_days": 1104,
+          "overpass1011_missed_days": 721,
+          "overpass1011_missed_pct": 65.31
+        }
+      },
+      "full_24h_hourly_siteday": {
+        "lt_5_mgL": {
+          "pm1316_hypoxic_days": 9789,
+          "pm1316_missed_days": 6251,
+          "pm1316_missed_pct": 63.86,
+          "overpass1011_hypoxic_days": 9765,
+          "overpass1011_missed_days": 4972,
+          "overpass1011_missed_pct": 50.92
+        },
+        "lt_4_mgL": {
+          "pm1316_hypoxic_days": 5191,
+          "pm1316_missed_days": 3368,
+          "pm1316_missed_pct": 64.88,
+          "overpass1011_hypoxic_days": 5183,
+          "overpass1011_missed_days": 2885,
+          "overpass1011_missed_pct": 55.66
+        },
+        "lt_3_mgL": {
+          "pm1316_hypoxic_days": 2874,
+          "pm1316_missed_days": 2030,
+          "pm1316_missed_pct": 70.63,
+          "overpass1011_hypoxic_days": 2870,
+          "overpass1011_missed_days": 1879,
+          "overpass1011_missed_pct": 65.47
+        },
+        "lt_2_mgL": {
+          "pm1316_hypoxic_days": 1001,
+          "pm1316_missed_days": 656,
+          "pm1316_missed_pct": 65.53,
+          "overpass1011_hypoxic_days": 1000,
+          "overpass1011_missed_days": 617,
+          "overpass1011_missed_pct": 61.7
+        }
+      },
+      "astro_night_sameday_siteday": {
+        "lt_5_mgL": {
+          "pm1316_hypoxic_days": 9056,
+          "pm1316_missed_days": 5602,
+          "pm1316_missed_pct": 61.86,
+          "overpass1011_hypoxic_days": 9037,
+          "overpass1011_missed_days": 4427,
+          "overpass1011_missed_pct": 48.99
+        },
+        "lt_4_mgL": {
+          "pm1316_hypoxic_days": 4703,
+          "pm1316_missed_days": 2958,
+          "pm1316_missed_pct": 62.9,
+          "overpass1011_hypoxic_days": 4696,
+          "overpass1011_missed_days": 2562,
+          "overpass1011_missed_pct": 54.56
+        },
+        "lt_3_mgL": {
+          "pm1316_hypoxic_days": 2636,
+          "pm1316_missed_days": 1826,
+          "pm1316_missed_pct": 69.27,
+          "overpass1011_hypoxic_days": 2633,
+          "overpass1011_missed_days": 1737,
+          "overpass1011_missed_pct": 65.97
+        },
+        "lt_2_mgL": {
+          "pm1316_hypoxic_days": 920,
+          "pm1316_missed_days": 586,
+          "pm1316_missed_pct": 63.7,
+          "overpass1011_hypoxic_days": 919,
+          "overpass1011_missed_days": 555,
+          "overpass1011_missed_pct": 60.39
+        }
+      },
+      "astro_night_consec_overnight_siteday": {
+        "lt_5_mgL": {
+          "pm1316_hypoxic_days": 9097,
+          "pm1316_missed_days": 5785,
+          "pm1316_missed_pct": 63.59,
+          "overpass1011_hypoxic_days": 9078,
+          "overpass1011_missed_days": 4587,
+          "overpass1011_missed_pct": 50.53
+        },
+        "lt_4_mgL": {
+          "pm1316_hypoxic_days": 4727,
+          "pm1316_missed_days": 3075,
+          "pm1316_missed_pct": 65.05,
+          "overpass1011_hypoxic_days": 4719,
+          "overpass1011_missed_days": 2661,
+          "overpass1011_missed_pct": 56.39
+        },
+        "lt_3_mgL": {
+          "pm1316_hypoxic_days": 2633,
+          "pm1316_missed_days": 1894,
+          "pm1316_missed_pct": 71.93,
+          "overpass1011_hypoxic_days": 2628,
+          "overpass1011_missed_days": 1786,
+          "overpass1011_missed_pct": 67.96
+        },
+        "lt_2_mgL": {
+          "pm1316_hypoxic_days": 895,
+          "pm1316_missed_days": 609,
+          "pm1316_missed_pct": 68.04,
+          "overpass1011_hypoxic_days": 892,
+          "overpass1011_missed_days": 560,
+          "overpass1011_missed_pct": 62.78
+        }
+      },
+      "completeness_ge86_24h_15min": {
+        "lt_5_mgL": {
+          "pm1316_hypoxic_days": 8223,
+          "pm1316_missed_days": 5513,
+          "pm1316_missed_pct": 67.04,
+          "overpass1011_hypoxic_days": 8215,
+          "overpass1011_missed_days": 4452,
+          "overpass1011_missed_pct": 54.19
+        },
+        "lt_4_mgL": {
+          "pm1316_hypoxic_days": 4494,
+          "pm1316_missed_days": 3127,
+          "pm1316_missed_pct": 69.58,
+          "overpass1011_hypoxic_days": 4492,
+          "overpass1011_missed_days": 2762,
+          "overpass1011_missed_pct": 61.49
+        },
+        "lt_3_mgL": {
+          "pm1316_hypoxic_days": 2630,
+          "pm1316_missed_days": 2044,
+          "pm1316_missed_pct": 77.72,
+          "overpass1011_hypoxic_days": 2628,
+          "overpass1011_missed_days": 1913,
+          "overpass1011_missed_pct": 72.79
+        },
+        "lt_2_mgL": {
+          "pm1316_hypoxic_days": 867,
+          "pm1316_missed_days": 643,
+          "pm1316_missed_pct": 74.16,
+          "overpass1011_hypoxic_days": 866,
+          "overpass1011_missed_days": 619,
+          "overpass1011_missed_pct": 71.48
+        }
+      },
+      "completeness_ge86_astro_night": {
+        "lt_5_mgL": {
+          "pm1316_hypoxic_days": 7256,
+          "pm1316_missed_days": 4619,
+          "pm1316_missed_pct": 63.66,
+          "overpass1011_hypoxic_days": 7249,
+          "overpass1011_missed_days": 3642,
+          "overpass1011_missed_pct": 50.24
+        },
+        "lt_4_mgL": {
+          "pm1316_hypoxic_days": 3876,
+          "pm1316_missed_days": 2566,
+          "pm1316_missed_pct": 66.2,
+          "overpass1011_hypoxic_days": 3874,
+          "overpass1011_missed_days": 2256,
+          "overpass1011_missed_pct": 58.23
+        },
+        "lt_3_mgL": {
+          "pm1316_hypoxic_days": 2248,
+          "pm1316_missed_days": 1690,
+          "pm1316_missed_pct": 75.18,
+          "overpass1011_hypoxic_days": 2247,
+          "overpass1011_missed_days": 1605,
+          "overpass1011_missed_pct": 71.43
+        },
+        "lt_2_mgL": {
+          "pm1316_hypoxic_days": 710,
+          "pm1316_missed_days": 495,
+          "pm1316_missed_pct": 69.72,
+          "overpass1011_hypoxic_days": 709,
+          "overpass1011_missed_days": 478,
+          "overpass1011_missed_pct": 67.42
+        }
+      },
+      "completeness_ge22h_24h_15min": {
+        "lt_5_mgL": {
+          "pm1316_hypoxic_days": 10118,
+          "pm1316_missed_days": 6605,
+          "pm1316_missed_pct": 65.28,
+          "overpass1011_hypoxic_days": 10100,
+          "overpass1011_missed_days": 5335,
+          "overpass1011_missed_pct": 52.82
+        },
+        "lt_4_mgL": {
+          "pm1316_hypoxic_days": 5428,
+          "pm1316_missed_days": 3625,
+          "pm1316_missed_pct": 66.78,
+          "overpass1011_hypoxic_days": 5425,
+          "overpass1011_missed_days": 3147,
+          "overpass1011_missed_pct": 58.01
+        },
+        "lt_3_mgL": {
+          "pm1316_hypoxic_days": 3057,
+          "pm1316_missed_days": 2228,
+          "pm1316_missed_pct": 72.88,
+          "overpass1011_hypoxic_days": 3054,
+          "overpass1011_missed_days": 2075,
+          "overpass1011_missed_pct": 67.94
+        },
+        "lt_2_mgL": {
+          "pm1316_hypoxic_days": 1085,
+          "pm1316_missed_days": 752,
+          "pm1316_missed_pct": 69.31,
+          "overpass1011_hypoxic_days": 1084,
+          "overpass1011_missed_days": 712,
+          "overpass1011_missed_pct": 65.68
+        }
+      },
+      "completeness_ge22h_astro_night": {
+        "lt_5_mgL": {
+          "pm1316_hypoxic_days": 8996,
+          "pm1316_missed_days": 5567,
+          "pm1316_missed_pct": 61.88,
+          "overpass1011_hypoxic_days": 8980,
+          "overpass1011_missed_days": 4398,
+          "overpass1011_missed_pct": 48.98
+        },
+        "lt_4_mgL": {
+          "pm1316_hypoxic_days": 4671,
+          "pm1316_missed_days": 2945,
+          "pm1316_missed_pct": 63.05,
+          "overpass1011_hypoxic_days": 4668,
+          "overpass1011_missed_days": 2552,
+          "overpass1011_missed_pct": 54.67
+        },
+        "lt_3_mgL": {
+          "pm1316_hypoxic_days": 2616,
+          "pm1316_missed_days": 1821,
+          "pm1316_missed_pct": 69.61,
+          "overpass1011_hypoxic_days": 2614,
+          "overpass1011_missed_days": 1730,
+          "overpass1011_missed_pct": 66.18
+        },
+        "lt_2_mgL": {
+          "pm1316_hypoxic_days": 902,
+          "pm1316_missed_days": 580,
+          "pm1316_missed_pct": 64.3,
+          "overpass1011_hypoxic_days": 901,
+          "overpass1011_missed_days": 548,
+          "overpass1011_missed_pct": 60.82
+        }
+      }
+    },
+    "equal_site_weighting_miss_rates": {
+      "pm_24h_15min": {
+        "lt_5_mgL": {
+          "n_sites_ge1day": 96,
+          "equal_site_missed_pct": 77.46,
+          "equal_site_median_pct": 91.29,
+          "n_sites_ge5days": 86,
+          "equal_site_ge5days_missed_pct": 75.61
+        },
+        "lt_4_mgL": {
+          "n_sites_ge1day": 71,
+          "equal_site_missed_pct": 75.23,
+          "equal_site_median_pct": 84.77,
+          "n_sites_ge5days": 57,
+          "equal_site_ge5days_missed_pct": 76.17
+        },
+        "lt_3_mgL": {
+          "n_sites_ge1day": 52,
+          "equal_site_missed_pct": 77.26,
+          "equal_site_median_pct": 90.42,
+          "n_sites_ge5days": 34,
+          "equal_site_ge5days_missed_pct": 74.54
+        },
+        "lt_2_mgL": {
+          "n_sites_ge1day": 34,
+          "equal_site_missed_pct": 81.1,
+          "equal_site_median_pct": 94.26,
+          "n_sites_ge5days": 23,
+          "equal_site_ge5days_missed_pct": 75.32
+        }
+      },
+      "ls_24h_15min": {
+        "lt_5_mgL": {
+          "n_sites_ge1day": 96,
+          "equal_site_missed_pct": 71.64,
+          "equal_site_median_pct": 82.74,
+          "n_sites_ge5days": 86,
+          "equal_site_ge5days_missed_pct": 69.12
+        },
+        "lt_4_mgL": {
+          "n_sites_ge1day": 71,
+          "equal_site_missed_pct": 72.74,
+          "equal_site_median_pct": 84.62,
+          "n_sites_ge5days": 57,
+          "equal_site_ge5days_missed_pct": 70.43
+        },
+        "lt_3_mgL": {
+          "n_sites_ge1day": 52,
+          "equal_site_missed_pct": 73.46,
+          "equal_site_median_pct": 80.65,
+          "n_sites_ge5days": 34,
+          "equal_site_ge5days_missed_pct": 67.5
+        },
+        "lt_2_mgL": {
+          "n_sites_ge1day": 34,
+          "equal_site_missed_pct": 76.26,
+          "equal_site_median_pct": 87.86,
+          "n_sites_ge5days": 23,
+          "equal_site_ge5days_missed_pct": 68.16
+        }
+      },
+      "pm_astro_night": {
+        "lt_5_mgL": {
+          "n_sites_ge1day": 93,
+          "equal_site_missed_pct": 74.74,
+          "equal_site_median_pct": 87.1,
+          "n_sites_ge5days": 81,
+          "equal_site_ge5days_missed_pct": 73.06
+        },
+        "lt_4_mgL": {
+          "n_sites_ge1day": 66,
+          "equal_site_missed_pct": 75.01,
+          "equal_site_median_pct": 85.01,
+          "n_sites_ge5days": 51,
+          "equal_site_ge5days_missed_pct": 71.58
+        },
+        "lt_3_mgL": {
+          "n_sites_ge1day": 45,
+          "equal_site_missed_pct": 74.5,
+          "equal_site_median_pct": 87.5,
+          "n_sites_ge5days": 31,
+          "equal_site_ge5days_missed_pct": 67.83
+        },
+        "lt_2_mgL": {
+          "n_sites_ge1day": 30,
+          "equal_site_missed_pct": 74.55,
+          "equal_site_median_pct": 89.44,
+          "n_sites_ge5days": 19,
+          "equal_site_ge5days_missed_pct": 71.66
+        }
+      },
+      "ls_astro_night": {
+        "lt_5_mgL": {
+          "n_sites_ge1day": 93,
+          "equal_site_missed_pct": 68.56,
+          "equal_site_median_pct": 78.67,
+          "n_sites_ge5days": 81,
+          "equal_site_ge5days_missed_pct": 65.65
+        },
+        "lt_4_mgL": {
+          "n_sites_ge1day": 66,
+          "equal_site_missed_pct": 69.7,
+          "equal_site_median_pct": 80.0,
+          "n_sites_ge5days": 51,
+          "equal_site_ge5days_missed_pct": 64.71
+        },
+        "lt_3_mgL": {
+          "n_sites_ge1day": 45,
+          "equal_site_missed_pct": 70.02,
+          "equal_site_median_pct": 78.95,
+          "n_sites_ge5days": 31,
+          "equal_site_ge5days_missed_pct": 60.24
+        },
+        "lt_2_mgL": {
+          "n_sites_ge1day": 30,
+          "equal_site_missed_pct": 68.83,
+          "equal_site_median_pct": 71.46,
+          "n_sites_ge5days": 19,
+          "equal_site_ge5days_missed_pct": 65.27
+        }
+      },
+      "pm_ge86_24h_15min": {
+        "lt_5_mgL": {
+          "n_sites_ge1day": 84,
+          "equal_site_missed_pct": 77.91,
+          "equal_site_median_pct": 91.8,
+          "n_sites_ge5days": 74,
+          "equal_site_ge5days_missed_pct": 74.93
+        },
+        "lt_4_mgL": {
+          "n_sites_ge1day": 60,
+          "equal_site_missed_pct": 74.23,
+          "equal_site_median_pct": 81.44,
+          "n_sites_ge5days": 49,
+          "equal_site_ge5days_missed_pct": 75.59
+        },
+        "lt_3_mgL": {
+          "n_sites_ge1day": 45,
+          "equal_site_missed_pct": 80.38,
+          "equal_site_median_pct": 93.33,
+          "n_sites_ge5days": 30,
+          "equal_site_ge5days_missed_pct": 77.79
+        },
+        "lt_2_mgL": {
+          "n_sites_ge1day": 30,
+          "equal_site_missed_pct": 81.8,
+          "equal_site_median_pct": 95.67,
+          "n_sites_ge5days": 20,
+          "equal_site_ge5days_missed_pct": 76.45
+        }
+      },
+      "ls_ge86_24h_15min": {
+        "lt_5_mgL": {
+          "n_sites_ge1day": 84,
+          "equal_site_missed_pct": 72.7,
+          "equal_site_median_pct": 83.74,
+          "n_sites_ge5days": 74,
+          "equal_site_ge5days_missed_pct": 69.01
+        },
+        "lt_4_mgL": {
+          "n_sites_ge1day": 60,
+          "equal_site_missed_pct": 72.67,
+          "equal_site_median_pct": 83.97,
+          "n_sites_ge5days": 49,
+          "equal_site_ge5days_missed_pct": 70.61
+        },
+        "lt_3_mgL": {
+          "n_sites_ge1day": 45,
+          "equal_site_missed_pct": 76.73,
+          "equal_site_median_pct": 82.35,
+          "n_sites_ge5days": 30,
+          "equal_site_ge5days_missed_pct": 70.93
+        },
+        "lt_2_mgL": {
+          "n_sites_ge1day": 30,
+          "equal_site_missed_pct": 77.29,
+          "equal_site_median_pct": 87.77,
+          "n_sites_ge5days": 20,
+          "equal_site_ge5days_missed_pct": 69.69
+        }
+      },
+      "pm_ge86_astro_night": {
+        "lt_5_mgL": {
+          "n_sites_ge1day": 80,
+          "equal_site_missed_pct": 74.84,
+          "equal_site_median_pct": 87.3,
+          "n_sites_ge5days": 69,
+          "equal_site_ge5days_missed_pct": 72.28
+        },
+        "lt_4_mgL": {
+          "n_sites_ge1day": 55,
+          "equal_site_missed_pct": 74.18,
+          "equal_site_median_pct": 80.23,
+          "n_sites_ge5days": 44,
+          "equal_site_ge5days_missed_pct": 71.13
+        },
+        "lt_3_mgL": {
+          "n_sites_ge1day": 40,
+          "equal_site_missed_pct": 77.21,
+          "equal_site_median_pct": 93.61,
+          "n_sites_ge5days": 25,
+          "equal_site_ge5days_missed_pct": 69.53
+        },
+        "lt_2_mgL": {
+          "n_sites_ge1day": 26,
+          "equal_site_missed_pct": 75.37,
+          "equal_site_median_pct": 93.15,
+          "n_sites_ge5days": 17,
+          "equal_site_ge5days_missed_pct": 74.09
+        }
+      },
+      "ls_ge86_astro_night": {
+        "lt_5_mgL": {
+          "n_sites_ge1day": 80,
+          "equal_site_missed_pct": 69.25,
+          "equal_site_median_pct": 80.62,
+          "n_sites_ge5days": 69,
+          "equal_site_ge5days_missed_pct": 65.44
+        },
+        "lt_4_mgL": {
+          "n_sites_ge1day": 55,
+          "equal_site_missed_pct": 69.02,
+          "equal_site_median_pct": 80.0,
+          "n_sites_ge5days": 44,
+          "equal_site_ge5days_missed_pct": 64.68
+        },
+        "lt_3_mgL": {
+          "n_sites_ge1day": 40,
+          "equal_site_missed_pct": 73.11,
+          "equal_site_median_pct": 83.41,
+          "n_sites_ge5days": 25,
+          "equal_site_ge5days_missed_pct": 61.65
+        },
+        "lt_2_mgL": {
+          "n_sites_ge1day": 26,
+          "equal_site_missed_pct": 68.4,
+          "equal_site_median_pct": 70.98,
+          "n_sites_ge5days": 17,
+          "equal_site_ge5days_missed_pct": 68.82
+        }
+      }
+    },
+    "first_crossing_and_duration": {
+      "lt_5_mgL": {
+        "hypoxic_days_hourly": 9793,
+        "daily_min_in_astro_night_pct": 53.72,
+        "daily_min_in_astro_night_plus_2h_lag_pct": 76.61,
+        "consec_hypoxic_cycles": 9926,
+        "consec_episodic_cycles": 6359,
+        "consec_persistent_midday_cycles": 3567,
+        "first_crossing_in_astro_night_all_pct": 46.48,
+        "first_crossing_in_astro_night_episodic_pct": 72.56,
+        "episodic_first_crossing_solar_hr_median": 22.5,
+        "episodic_first_crossing_solar_hr_p25": 19.5,
+        "episodic_first_crossing_solar_hr_p75": 2.5,
+        "continuous_duration_all_mean_hr": 12.19,
+        "continuous_duration_all_median_hr": 11.0,
+        "continuous_duration_all_iqr_hr": [
+          5.0,
+          19.0
+        ],
+        "continuous_duration_episodic_mean_hr": 8.45,
+        "continuous_duration_episodic_median_hr": 8.0,
+        "continuous_duration_episodic_iqr_hr": [
+          4.0,
+          12.0
+        ],
+        "total_hypoxic_hours_all_mean_hr": 13.03,
+        "total_hypoxic_hours_all_median_hr": 12.0
+      },
+      "lt_4_mgL": {
+        "hypoxic_days_hourly": 5192,
+        "daily_min_in_astro_night_pct": 55.64,
+        "daily_min_in_astro_night_plus_2h_lag_pct": 76.89,
+        "consec_hypoxic_cycles": 5292,
+        "consec_episodic_cycles": 3460,
+        "consec_persistent_midday_cycles": 1832,
+        "first_crossing_in_astro_night_all_pct": 48.53,
+        "first_crossing_in_astro_night_episodic_pct": 74.22,
+        "episodic_first_crossing_solar_hr_median": 22.5,
+        "episodic_first_crossing_solar_hr_p25": 19.5,
+        "episodic_first_crossing_solar_hr_p75": 2.5,
+        "continuous_duration_all_mean_hr": 11.63,
+        "continuous_duration_all_median_hr": 11.0,
+        "continuous_duration_all_iqr_hr": [
+          5.0,
+          17.0
+        ],
+        "continuous_duration_episodic_mean_hr": 8.41,
+        "continuous_duration_episodic_median_hr": 8.0,
+        "continuous_duration_episodic_iqr_hr": [
+          3.0,
+          13.0
+        ],
+        "total_hypoxic_hours_all_mean_hr": 12.59,
+        "total_hypoxic_hours_all_median_hr": 12.0
+      },
+      "lt_3_mgL": {
+        "hypoxic_days_hourly": 2875,
+        "daily_min_in_astro_night_pct": 61.43,
+        "daily_min_in_astro_night_plus_2h_lag_pct": 82.26,
+        "consec_hypoxic_cycles": 2954,
+        "consec_episodic_cycles": 2151,
+        "consec_persistent_midday_cycles": 803,
+        "first_crossing_in_astro_night_all_pct": 54.64,
+        "first_crossing_in_astro_night_episodic_pct": 75.03,
+        "episodic_first_crossing_solar_hr_median": 23.5,
+        "episodic_first_crossing_solar_hr_p25": 20.5,
+        "episodic_first_crossing_solar_hr_p75": 1.5,
+        "continuous_duration_all_mean_hr": 10.11,
+        "continuous_duration_all_median_hr": 9.0,
+        "continuous_duration_all_iqr_hr": [
+          4.0,
+          13.0
+        ],
+        "continuous_duration_episodic_mean_hr": 7.67,
+        "continuous_duration_episodic_median_hr": 7.0,
+        "continuous_duration_episodic_iqr_hr": [
+          3.0,
+          11.0
+        ],
+        "total_hypoxic_hours_all_mean_hr": 11.01,
+        "total_hypoxic_hours_all_median_hr": 10.0
+      },
+      "lt_2_mgL": {
+        "hypoxic_days_hourly": 1002,
+        "daily_min_in_astro_night_pct": 67.76,
+        "daily_min_in_astro_night_plus_2h_lag_pct": 82.04,
+        "consec_hypoxic_cycles": 1019,
+        "consec_episodic_cycles": 717,
+        "consec_persistent_midday_cycles": 302,
+        "first_crossing_in_astro_night_all_pct": 44.95,
+        "first_crossing_in_astro_night_episodic_pct": 63.88,
+        "episodic_first_crossing_solar_hr_median": 23.5,
+        "episodic_first_crossing_solar_hr_p25": 18.5,
+        "episodic_first_crossing_solar_hr_p75": 2.5,
+        "continuous_duration_all_mean_hr": 9.39,
+        "continuous_duration_all_median_hr": 7.0,
+        "continuous_duration_all_iqr_hr": [
+          3.0,
+          14.0
+        ],
+        "continuous_duration_episodic_mean_hr": 6.47,
+        "continuous_duration_episodic_median_hr": 5.0,
+        "continuous_duration_episodic_iqr_hr": [
+          2.0,
+          10.0
+        ],
+        "total_hypoxic_hours_all_mean_hr": 10.47,
+        "total_hypoxic_hours_all_median_hr": 9.0
+      }
+    }
+  },
   "afternoon_minus_landsat_slope_contrast_huc2": {
     "n_rivers": 139,
     "n_clusters": 17,
