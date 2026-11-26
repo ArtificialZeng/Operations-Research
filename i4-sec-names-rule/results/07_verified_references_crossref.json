@@ -1,0 +1,268 @@
+{
+  "n_total_references": 21,
+  "n_academic_dois_verified_live_crossref": 17,
+  "n_official_sec_releases": 4,
+  "all_bibliography_cited_in_body": true,
+  "all_body_citations_in_bibliography": true,
+  "references": [
+    {
+      "label": "Abadie et al., 2023",
+      "doi": "10.1093/qje/qjac038",
+      "http_status": 200,
+      "crossref_title": "When Should You Adjust Standard Errors for Clustering?",
+      "crossref_container": "The Quarterly Journal of Economics",
+      "crossref_authors": [
+        "Abadie",
+        "Athey",
+        "Imbens",
+        "Wooldridge"
+      ],
+      "crossref_year": 2022,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Allcott, Egan, Smeets, and Yang, 2026",
+      "doi": "10.3386/w34624",
+      "http_status": 200,
+      "crossref_title": "The Effects of Regulating Greenwashing: Evidence from Europe\u2019s Sustainable Finance Disclosure Regulation (SFDR)",
+      "crossref_container": "",
+      "crossref_authors": [
+        "Allcott",
+        "Egan",
+        "Smeets",
+        "Yang"
+      ],
+      "crossref_year": 2026,
+      "body_citation_count": 2
+    },
+    {
+      "label": "Barber, Huang, and Odean, 2016",
+      "doi": "10.1093/rfs/hhw054",
+      "http_status": 200,
+      "crossref_title": "Which Factors Matter to Investors? Evidence from Mutual Fund Flows",
+      "crossref_container": "Review of Financial Studies",
+      "crossref_authors": [
+        "Barber",
+        "Huang",
+        "Odean"
+      ],
+      "crossref_year": 2016,
+      "body_citation_count": 2
+    },
+    {
+      "label": "Berk and Green, 2004",
+      "doi": "10.1086/424739",
+      "http_status": 200,
+      "crossref_title": "Mutual Fund Flows and Performance in Rational Markets",
+      "crossref_container": "Journal of Political Economy",
+      "crossref_authors": [
+        "Berk",
+        "Green"
+      ],
+      "crossref_year": 2004,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Cameron, Gelbach, and Miller, 2008",
+      "doi": "10.1162/rest.90.3.414",
+      "http_status": 200,
+      "crossref_title": "Bootstrap-Based Improvements for Inference with Clustered Errors",
+      "crossref_container": "Review of Economics and Statistics",
+      "crossref_authors": [
+        "Cameron",
+        "Gelbach",
+        "Miller"
+      ],
+      "crossref_year": 2008,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Chevalier and Ellison, 1997",
+      "doi": "10.1086/516389",
+      "http_status": 200,
+      "crossref_title": "Risk Taking by Mutual Funds as a Response to Incentives",
+      "crossref_container": "Journal of Political Economy",
+      "crossref_authors": [
+        "Chevalier",
+        "Ellison"
+      ],
+      "crossref_year": 1997,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Cooper, Gulen, and Rau, 2005",
+      "doi": "10.1111/j.1540-6261.2005.00818.x",
+      "http_status": 200,
+      "crossref_title": "Changing Names with Style: Mutual Fund Name Changes and Their Effects on Fund Flows",
+      "crossref_container": "The Journal of Finance",
+      "crossref_authors": [
+        "COOPER",
+        "GULEN",
+        "RAU"
+      ],
+      "crossref_year": 2005,
+      "body_citation_count": 4
+    },
+    {
+      "label": "Espenlaub, ul Haq, and Khurshed, 2017",
+      "doi": "10.1016/j.jbankfin.2017.07.008",
+      "http_status": 200,
+      "crossref_title": "It's all in the name: Mutual fund name changes after SEC Rule 35d-1",
+      "crossref_container": "Journal of Banking &amp; Finance",
+      "crossref_authors": [
+        "Espenlaub",
+        "Haq",
+        "Khurshed"
+      ],
+      "crossref_year": 2017,
+      "body_citation_count": 2
+    },
+    {
+      "label": "Fisch and Robertson, 2023",
+      "doi": "10.2139/ssrn.4398419",
+      "http_status": 200,
+      "crossref_title": "What\u2019s in a Name? ESG Mutual Funds and the SEC\u2019s Names Rule",
+      "crossref_container": "",
+      "crossref_authors": [
+        "Fisch",
+        "Robertson"
+      ],
+      "crossref_year": 2023,
+      "body_citation_count": 2
+    },
+    {
+      "label": "Gibson Brandon et al., 2022",
+      "doi": "10.1093/rof/rfac064",
+      "http_status": 200,
+      "crossref_title": "Do Responsible Investors Invest Responsibly?",
+      "crossref_container": "Review of Finance",
+      "crossref_authors": [
+        "Gibson Brandon",
+        "Glossner",
+        "Krueger",
+        "Matos",
+        "Steffen"
+      ],
+      "crossref_year": 2022,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Hartzmark and Sussman, 2019",
+      "doi": "10.1111/jofi.12841",
+      "http_status": 200,
+      "crossref_title": "Do Investors Value Sustainability? A Natural Experiment Examining Ranking and Fund Flows",
+      "crossref_container": "The Journal of Finance",
+      "crossref_authors": [
+        "HARTZMARK",
+        "SUSSMAN"
+      ],
+      "crossref_year": 2019,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Kacperczyk, Sialm, and Zheng, 2008",
+      "doi": "10.1093/rfs/hhl041",
+      "http_status": 200,
+      "crossref_title": "Unobserved Actions of Mutual Funds",
+      "crossref_container": "Review of Financial Studies",
+      "crossref_authors": [
+        "Kacperczyk",
+        "Sialm",
+        "Zheng"
+      ],
+      "crossref_year": 2008,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Kim and Yoon, 2023",
+      "doi": "10.1287/mnsc.2022.4394",
+      "http_status": 200,
+      "crossref_title": "Analyzing Active Fund Managers\u2019 Commitment to ESG: Evidence from the United Nations Principles for Responsible Investment",
+      "crossref_container": "Management Science",
+      "crossref_authors": [
+        "Kim",
+        "Yoon"
+      ],
+      "crossref_year": 2023,
+      "body_citation_count": 1
+    },
+    {
+      "label": "P\u00e1stor, Stambaugh, and Taylor, 2021",
+      "doi": "10.1016/j.jfineco.2020.12.011",
+      "http_status": 200,
+      "crossref_title": "Sustainable investing in equilibrium",
+      "crossref_container": "Journal of Financial Economics",
+      "crossref_authors": [
+        "P\u00e1stor",
+        "Stambaugh",
+        "Taylor"
+      ],
+      "crossref_year": 2021,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Roodman et al., 2019",
+      "doi": "10.1177/1536867X19830877",
+      "http_status": 200,
+      "crossref_title": "Fast and wild: Bootstrap inference in Stata using boottest",
+      "crossref_container": "The Stata Journal: Promoting communications on statistics and Stata",
+      "crossref_authors": [
+        "Roodman",
+        "Nielsen",
+        "MacKinnon",
+        "Webb"
+      ],
+      "crossref_year": 2019,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Sensoy, 2009",
+      "doi": "10.1016/j.jfineco.2008.02.011",
+      "http_status": 200,
+      "crossref_title": "Performance evaluation and self-designated benchmark indexes in the mutual fund industry",
+      "crossref_container": "Journal of Financial Economics",
+      "crossref_authors": [
+        "Sensoy"
+      ],
+      "crossref_year": 2009,
+      "body_citation_count": 2
+    },
+    {
+      "label": "Sirri and Tufano, 1998",
+      "doi": "10.1111/0022-1082.00066",
+      "http_status": 200,
+      "crossref_title": "Costly Search and Mutual Fund Flows",
+      "crossref_container": "The Journal of Finance",
+      "crossref_authors": [
+        "Sirri",
+        "Tufano"
+      ],
+      "crossref_year": 1998,
+      "body_citation_count": 3
+    },
+    {
+      "label": "SEC IC-24828 (2001)",
+      "doi": null,
+      "official_sec_release": true,
+      "body_citation_count": 1
+    },
+    {
+      "label": "SEC IC-35000 (2023)",
+      "doi": null,
+      "official_sec_release": true,
+      "body_citation_count": 2
+    },
+    {
+      "label": "SEC IC-35500 (2025)",
+      "doi": null,
+      "official_sec_release": true,
+      "body_citation_count": 1
+    },
+    {
+      "label": "SEC IC-35962 (2026)",
+      "doi": null,
+      "official_sec_release": true,
+      "body_citation_count": 4
+    }
+  ]
+}

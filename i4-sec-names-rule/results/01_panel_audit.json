@@ -1,0 +1,242 @@
+{
+  "nport_dedup_audit": {
+    "n_raw_total_all_rows": 355115,
+    "n_excluded_cef_sentinel_S000000000": 42,
+    "n_excluded_blank_series_id": 18820,
+    "n_raw_valid_series_id": 336253,
+    "n_sub_type_NPORT_P": 331337,
+    "n_sub_type_NPORT_PA_amendments": 4916,
+    "n_amendments_replaced_same_report_dt": 5164,
+    "n_within_qtr_multi_report_dedup": 287,
+    "n_unique_series_rep_yq_pre_mmf": 330802,
+    "n_excluded_money_market_rows": 25,
+    "n_final_quarterly_panel_2020Q1_2026Q3": 307298,
+    "n_final_quarterly_complete_2020Q1_2026Q2": 303372,
+    "n_final_unique_series": 17151,
+    "n_final_unique_complexes": 1027,
+    "total_latest_aum_T": 46.202275473088214,
+    "rep_yq_counts": {
+      "20201": 10360,
+      "20202": 10794,
+      "20203": 11303,
+      "20204": 11215,
+      "20211": 11257,
+      "20212": 11251,
+      "20213": 11334,
+      "20214": 11407,
+      "20221": 11509,
+      "20222": 11603,
+      "20223": 11700,
+      "20224": 11704,
+      "20231": 11767,
+      "20232": 11748,
+      "20233": 11779,
+      "20234": 11660,
+      "20241": 11741,
+      "20242": 11793,
+      "20243": 11787,
+      "20244": 11892,
+      "20251": 11981,
+      "20252": 12084,
+      "20253": 12122,
+      "20254": 12337,
+      "20261": 12548,
+      "20262": 12696,
+      "20263": 3926
+    }
+  },
+  "ncen_stats": {
+    "n_ncen_quarters": 27,
+    "n_ncen_unique_series": 17057,
+    "n_ncen_matched_primary_adviser": 17053,
+    "n_ncen_unique_complexes": 989,
+    "n_etf_series": 5467,
+    "n_fof_series": 2302,
+    "n_target_date_series": 869,
+    "n_index_series": 3275,
+    "n_money_market_series": 444
+  },
+  "negative_redemption_audit": {
+    "MON1": {
+      "n_nonnull": 334533,
+      "n_nonzero": 281882,
+      "n_negative": 61991,
+      "pct_negative_of_nonnull": 18.530608340582244,
+      "pct_negative_of_nonzero": 21.991826367061396
+    },
+    "MON2": {
+      "n_nonnull": 335387,
+      "n_nonzero": 283547,
+      "n_negative": 62367,
+      "pct_negative_of_nonnull": 18.595532921669594,
+      "pct_negative_of_nonzero": 21.99529531259368
+    },
+    "MON3": {
+      "n_nonnull": 336221,
+      "n_nonzero": 285310,
+      "n_negative": 62905,
+      "pct_negative_of_nonnull": 18.709420292010314,
+      "pct_negative_of_nonzero": 22.047947846202376
+    },
+    "POOLED_MON1_TO_MON3": {
+      "n_nonnull": 1006141,
+      "n_nonzero": 850739,
+      "n_negative": 187263,
+      "pct_negative_of_nonnull": 18.612003685368155,
+      "pct_negative_of_nonzero": 22.011803855236447
+    }
+  },
+  "flow_sign_fix_validation": {
+    "n_valid_qtr_obs": 299416,
+    "pearson_raw_unclipped_vs_tna": 0.08817537752706626,
+    "pearson_raw_clipped100_vs_tna": 0.6106978802733288,
+    "spearman_raw_vs_tna": 0.6316627356810808,
+    "pearson_fixed_abs_vs_tna": 0.9546391727740352,
+    "spearman_fixed_abs_vs_tna": 0.9021382355933821,
+    "n_neg_redemption_obs": 58750,
+    "neg_subset_pearson_raw_vs_tna": 0.1854975627347665,
+    "neg_subset_pearson_fixed_vs_tna": 0.9579311455128212
+  },
+  "monthly_panel_stats": {
+    "n_fund_months": 935950,
+    "n_unique_series": 17740,
+    "min_ym": 202001,
+    "max_ym": 202607
+  },
+  "economic_scale_2025Q1_2026Q3_rep_yq": {
+    "MULTI_ASSET_GVI": {
+      "n_funds": 50,
+      "aum_B": 117.62559000000002,
+      "n_complexes": 19
+    },
+    "ALL_GVI": {
+      "n_funds": 106,
+      "aum_B": 276.0867,
+      "n_complexes": 50
+    },
+    "ESG": {
+      "n_funds": 56,
+      "aum_B": 22.94169,
+      "n_complexes": 26
+    },
+    "PURE_EQUITY_OR_BOND_GVI": {
+      "n_funds": 56,
+      "aum_B": 158.46111,
+      "n_complexes": 37,
+      "n_funds_excl_sequential_esg_dropper": 55,
+      "aum_B_excl_sequential_esg_dropper": 158.45818999999997,
+      "n_sequential_esg_then_pure_gvi": 1
+    },
+    "ANY_RULE35D1_GVI_OR_ESG": {
+      "n_funds": 161,
+      "aum_B": 299.02547,
+      "n_complexes": 65
+    }
+  },
+  "bifurcated_equilibrium_multi_asset_gvi": {
+    "OPAQUE_SYNONYM": {
+      "n_funds": 42,
+      "pct_funds": 84.0,
+      "aum_B": 49.79138,
+      "pct_aum": 42.33039766261746,
+      "n_complexes": 16,
+      "pct_index": 0.0,
+      "pct_etf": 0.0,
+      "pct_va_insurance": 52.38095238095239,
+      "pct_fof": 85.71428571428571
+    },
+    "NUMERIC_RATIO": {
+      "n_funds": 7,
+      "pct_funds": 14.0,
+      "aum_B": 67.82361999999999,
+      "pct_aum": 57.66059919444398,
+      "n_complexes": 3,
+      "pct_index": 28.57142857142857,
+      "pct_etf": 28.57142857142857,
+      "pct_va_insurance": 14.285714285714285,
+      "pct_fof": 100.0
+    },
+    "OTHER_MERGER_BRAND": {
+      "n_funds": 1,
+      "pct_funds": 2.0,
+      "aum_B": 0.01059,
+      "pct_aum": 0.009003142938539137,
+      "n_complexes": 1,
+      "pct_index": 100.0,
+      "pct_etf": 100.0,
+      "pct_va_insurance": 0.0,
+      "pct_fof": 100.0
+    }
+  },
+  "major_complex_unification_check": {
+    "VANGUARD": {
+      "n_series": 247,
+      "n_ciks": 33,
+      "tna_23Q2_B": 7601.303297537441
+    },
+    "FIDELITY": {
+      "n_series": 731,
+      "n_ciks": 52,
+      "tna_23Q2_B": 3060.2673251027004
+    },
+    "PRUDENTIAL / PGIM": {
+      "n_series": 280,
+      "n_ciks": 33,
+      "tna_23Q2_B": 313.86069019362
+    },
+    "BRIGHTHOUSE": {
+      "n_series": 74,
+      "n_ciks": 2,
+      "tna_23Q2_B": 136.88410372496
+    },
+    "BLACKROCK / ISHARES": {
+      "n_series": 764,
+      "n_ciks": 50,
+      "tna_23Q2_B": 2837.9812327425498
+    },
+    "CAPITAL GROUP / AMERICAN FUNDS": {
+      "n_series": 158,
+      "n_ciks": 68,
+      "tna_23Q2_B": 2516.54626165376
+    },
+    "GOLDMAN SACHS": {
+      "n_series": 176,
+      "n_ciks": 5,
+      "tna_23Q2_B": 156.07112939767
+    },
+    "STATE STREET / SSGA": {
+      "n_series": 248,
+      "n_ciks": 17,
+      "tna_23Q2_B": 630.48490710711
+    },
+    "WISDOMTREE": {
+      "n_series": 124,
+      "n_ciks": 2,
+      "tna_23Q2_B": 64.84531465588
+    },
+    "ADVISORS PREFERRED / QUANTIFIED": {
+      "n_series": 24,
+      "n_ciks": 1,
+      "tna_23Q2_B": 1.72915461001
+    }
+  },
+  "individual_fixes_verified": {
+    "S000004397_vanguard_capital_growth_is_alloc": 0,
+    "CIK_0001126087_brighthouse_complex_id": [
+      "BRIGHTHOUSE"
+    ],
+    "n_malformed_xml_series_names_repaired": 2,
+    "malformed_xml_series_names_repaired": [
+      {
+        "SERIES_ID": "S000012023",
+        "REP_YQ": 20232,
+        "RAW_SERIES_NAME": "845-623-7637"
+      },
+      {
+        "SERIES_ID": "S000012125",
+        "REP_YQ": 20261,
+        "RAW_SERIES_NAME": "303-626-0600"
+      }
+    ]
+  }
+}

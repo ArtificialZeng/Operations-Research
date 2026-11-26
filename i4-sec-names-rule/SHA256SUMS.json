@@ -1,0 +1,175 @@
+{
+  "workspace": "D:\\AI_Science\\antigravity\\i4_boost_sec_names_rule_20261126",
+  "n_files": 42,
+  "line_endings_policy": "LF-normalized for all text files; raw disk bytes hashed",
+  "files": {
+    "scripts/01_build_clean_panel.py": {
+      "bytes": 61632,
+      "sha256": "B719305C7CD40B3CD7C1240D91F0DA5D4032850849611FFD3FD958108CA4B798"
+    },
+    "scripts/02_edgar_prospectus_audit.py": {
+      "bytes": 37113,
+      "sha256": "B78A541E258CDC35E57B9B8A688C1074CB63648995497335B452C58929A34C70"
+    },
+    "scripts/03_holdings_lookthrough_rebalancing.py": {
+      "bytes": 55035,
+      "sha256": "3A8DA0324E6F1B78FB75252906A9FD9DDAC20260352FAC27F9271F1EBADF56AF"
+    },
+    "scripts/04_econometrics_main_and_robustness.py": {
+      "bytes": 41926,
+      "sha256": "694C5D136B1B11CE0A83468604B8CF979726C59C68157B64A5DCF46902AAD704"
+    },
+    "scripts/05_monthly_flow_event_study.py": {
+      "bytes": 25566,
+      "sha256": "40D5DEA0A3D94FD0D953B93EC521E301E5BAC3A110D04043241376DF0E08DB1F"
+    },
+    "scripts/06_generate_figures.py": {
+      "bytes": 30512,
+      "sha256": "22E88C04C408522A00693675BFA0D7438E4A36CE2E0AE4F0A7D2009B0C74F2D8"
+    },
+    "scripts/07_verify_citations.py": {
+      "bytes": 7728,
+      "sha256": "5E4987B12BC7A041ECEFAD55BDC1BBA26BEFD87371ACD9DAFF92809FE95D4B44"
+    },
+    "scripts/07a_generate_manuscript_md.py": {
+      "bytes": 116294,
+      "sha256": "36223E38AE91AFC30D74FF4E7B0CF327B9071EE7445BB6C63DFB71763EC37E8D"
+    },
+    "scripts/08_compile_manuscript_pdf.py": {
+      "bytes": 29801,
+      "sha256": "FBCF303884B72CDDFB4056E4B7344883C947FF628F32305C4822DF3498B46F53"
+    },
+    "scripts/09_generate_checksums.py": {
+      "bytes": 2505,
+      "sha256": "AB901BB7DABB95F246EF13922C79D3660123FC7DBBE8C5DB64125929B70B0D4C"
+    },
+    "scripts/econometrics.py": {
+      "bytes": 11297,
+      "sha256": "0760298751472263FEBD5E6DA293EC65A18F84CE7B28C34A2407F4696F5811B1"
+    },
+    "tests/test_i4_boost.py": {
+      "bytes": 18680,
+      "sha256": "1900A6CBE993CCA5C66B523039BC6E23E8D1D611E6738EE0548B307027E13AE3"
+    },
+    "tables/table1_main_did_bifurcation.csv": {
+      "bytes": 5270,
+      "sha256": "BE6FA598F91269D0B0A4915E9038039339014DEEDA1E5A364482A233C2B8BA56"
+    },
+    "tables/table1b_high_dim_fe.csv": {
+      "bytes": 2423,
+      "sha256": "E4832374058CC639CC2EE6658D41F0F3DBF4370BB4E2C3EAC523F8F1773F3318"
+    },
+    "tables/table2_mechanisms_and_cutoff.csv": {
+      "bytes": 1454,
+      "sha256": "255E1DC49133196D1A95ABC68BD1584B6D78E3401E6CAC7144024EBF51843300"
+    },
+    "tables/table2b_mechanism_bifurcation.csv": {
+      "bytes": 3144,
+      "sha256": "B7636CAD7BEFCEEC1AEDB64D9925FB24D4AE9778FADE8BA0265545C8A264672A"
+    },
+    "tables/table3_event_study_quarterly.csv": {
+      "bytes": 25606,
+      "sha256": "D01245EEF20403A25F9798C26C3CA75D5907DCB803375420FD14AF57A4CB914B"
+    },
+    "tables/table_all_droppers_2025_2026_audit.csv": {
+      "bytes": 37588,
+      "sha256": "136FB3406699A61FF8225D5EAFC967F9D3E740DAD7D89C1CF75B5222D44AA33D"
+    },
+    "tables/table_edgar_prospectus_attribution.csv": {
+      "bytes": 1324,
+      "sha256": "16633F9C99DA8E7715906EA2754C107F6C2C2D47FF4B104B5FF8F2545C45B32F"
+    },
+    "tables/table_holdings_lookthrough_inertia.csv": {
+      "bytes": 4862,
+      "sha256": "6BD1AED35F8245753D4E20D43456C92038D6931DD60D1C6027D7976DE967C579"
+    },
+    "tables/table_lookthrough_100pos_audit.csv": {
+      "bytes": 21432,
+      "sha256": "E9384CC5CC015E2CC1D229F475250334A5D1493E26EE9B1FE31F4CACE2DA40B4"
+    },
+    "tables/table_monthly_flow_event_study.csv": {
+      "bytes": 26331,
+      "sha256": "8ABA8816491A3F2E3EA3F7DA622CE68ACF71466B24880F5BC91D8397B6BC112A"
+    },
+    "tables/table_quarterly_flow_crossval.csv": {
+      "bytes": 3713,
+      "sha256": "80C222253A4B34EE1A143813436D5D6AB3D06A796089DDC4B70669C2AC5582F4"
+    },
+    "results/01_panel_audit.json": {
+      "bytes": 6426,
+      "sha256": "F641D08DAE0FAAD8A9D3BC16578D049A1E8FE50C4D71E836F6133EDB367DAC14"
+    },
+    "results/02_edgar_audit_summary.json": {
+      "bytes": 35282,
+      "sha256": "31C55374845087F546A0DD3B8A2D7E04312DAB15A810D4A7D19E4B47E6D9C6CB"
+    },
+    "results/03_holdings_lookthrough.json": {
+      "bytes": 26084,
+      "sha256": "785A8AD26B76175EA1E21EE3C929B4B8D45998BAC6B47F09B483ED0A218666C4"
+    },
+    "results/04_econometrics_results.json": {
+      "bytes": 82433,
+      "sha256": "FF814C45056AC17E2BE425F9A2FAB1394FDAA36727DA8046485D7DF250FC69F4"
+    },
+    "results/05_monthly_flow_results.json": {
+      "bytes": 44474,
+      "sha256": "F07B261F8244C4349A1C1E747C99E2F10A2E70A913563460392E3FDF285A4C0D"
+    },
+    "results/07_verified_references_crossref.json": {
+      "bytes": 7978,
+      "sha256": "C20910960DCD3545124EC9168B133546ACC5C4A573EEFD1E270E6D4C7B7D98A4"
+    },
+    "figures/fig1_compliance_cliffs_and_bifurcation.pdf": {
+      "bytes": 54999,
+      "sha256": "6ED601733DB9F481E4414B2D8703ADF9E4DB4C6E1CD3B6FC6FBC5B6FCB9390E2"
+    },
+    "figures/fig1_compliance_cliffs_and_bifurcation.png": {
+      "bytes": 581951,
+      "sha256": "E9E3EDA225DD954E4097E2C10FC4643B143FB68E166AAB82C9945FFB9B8266C1"
+    },
+    "figures/fig2_bifurcated_equilibrium_and_edgar_proof.pdf": {
+      "bytes": 50752,
+      "sha256": "44A328DB085A295E959D90E3194E575D4BF3D01441637303E25F931F6B720B10"
+    },
+    "figures/fig2_bifurcated_equilibrium_and_edgar_proof.png": {
+      "bytes": 362393,
+      "sha256": "19D8B91DDB934322C3A02B934F8FE76981271625D12E4A7C6AC478B59B633092"
+    },
+    "figures/fig3_statutory_cutoff_and_robustness_forest.pdf": {
+      "bytes": 51737,
+      "sha256": "4F124885D2F0A5228D68A60B49D7279491C529D01F61770D265267EA0449E4F7"
+    },
+    "figures/fig3_statutory_cutoff_and_robustness_forest.png": {
+      "bytes": 405304,
+      "sha256": "C47E78B3FC73B6E03953062B654FA33434B3C835D35DD3EA24E98A8A40EC0125"
+    },
+    "figures/fig4_lookthrough_holdings_inertia.pdf": {
+      "bytes": 68671,
+      "sha256": "EDC177C9899C167CCB1377D36E2B24B3189FD27138D5BA23F8E6B8A9F7530F49"
+    },
+    "figures/fig4_lookthrough_holdings_inertia.png": {
+      "bytes": 540886,
+      "sha256": "4467B684EF3AADF1AF9BAEB60D5F48867C07745B3D7DC90B2138A917AFCD791C"
+    },
+    "figures/fig5_monthly_investor_flows_reversal.pdf": {
+      "bytes": 49056,
+      "sha256": "BC8DDD159469F6A6C82455567C8B691CE2EFF4C7A7620335F90BC1D1A553FB6A"
+    },
+    "figures/fig5_monthly_investor_flows_reversal.png": {
+      "bytes": 587493,
+      "sha256": "D35A7EDD8E872C5D983DA8F69FFF03A99F5784B0D2D478CA1C63E222629726D0"
+    },
+    "manuscript_i4_boost.md": {
+      "bytes": 73969,
+      "sha256": "77531FF688E7CFC1AF6E5A1B42C60FCD5534D23CFAB6599662AD95845B3E0DE1"
+    },
+    "manuscript_i4_boost.pdf": {
+      "bytes": 3494106,
+      "sha256": "AD02DD8EA323028200106316F665E2959D2D4F6AB7D8F21DC181C1B72C399C65"
+    },
+    "data/edgar_prospectus_audit.json": {
+      "bytes": 258529,
+      "sha256": "56E508EDEF56D568DDE9020504B5C55776BE45C435382E45D8FF1F08DBB97427"
+    }
+  }
+}
