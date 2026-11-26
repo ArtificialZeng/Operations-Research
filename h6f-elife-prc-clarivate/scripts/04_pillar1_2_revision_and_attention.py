@@ -1,10 +1,24 @@
-"""Step 4: Pillars 1 & 2 Econometric Engine.
-- Pillar 1: Complete true v1 -> VoR transition dynamics, intrinsic revision norms,
-  and the Clarivate Dec 2024 ESCI Solid-threshold natural experiment (fixed 365d/450d/540d windows).
+"""Step 4: Pillars 1 & 2 Econometric Engine (v2 Major Revision).
+- Pillar 1: Complete true v1 -> VoR transition dynamics (reporting both unconditional all-v1
+  and conditional-on-VoR denominators + exact v1-to-VoR calendar intervals), AND the
+  Clarivate Dec 19, 2024 ESCI Solid-threshold analysis:
+    * Aligned cleanly to v1_dt >= 2024-12-19 with explicit Oct 1-Dec 18, 2024 transition
+      donut excluded (plus sensitivities at >= 2025-01-01, >= 2024-10-24 suspension date,
+      and clean 2023-only pre-cohort).
+    * Primary estimands = UNCONDITIONAL Intention-to-Treat (ITT) across ALL v1 Incomplete /
+      Inadequate preprints (removing VoR collider conditioning!) for P(VoR within win_days),
+      P(Upgraded to Solid+ within win_days), and P(Unrevised <Solid VoR within win_days)
+      across exact right-censoring-free 365d, 450d, and 540d windows.
+    * Nonparametric Kaplan-Meier VoR conversion & Aalen-Johansen competing-risks cumulative
+      incidence (Solid+ VoR vs. Unrevised <Solid VoR) across all v1 Incomplete preprints
+      handling right-censoring transparently with bootstrap SEs and 95% CIs.
+    * Conditional-on-VoR upgrade shares retained strictly as a secondary descriptive
+      decomposition (explicitly labeled as conditional on post-treatment VoR conversion).
 - Pillar 2: Evaluation-Market Paradox across strictly post-v1 OpenAlex citations,
   Crossref citations, AND live eLife reader page-views & downloads (cumulative,
-  strictly post-VoR, fixed 12m post-VoR, and within-paper post-vs-pre VoR rate DiD),
-  plus Methodological VoR-Date Alignment Autopsy, TOST equivalence, WCB, and 18-subject LOSO.
+  strictly post-VoR, local VoR event study, and balanced 22m trajectory), plus exact 95% CIs,
+  Methodological VoR-Date Alignment Autopsy, full TOST equivalence (±15% & ±20%), WCB, and
+  18-subject LOSO.
 """
 from __future__ import annotations
 
@@ -87,12 +101,21 @@ def fe_ols_cr1(
     se = np.sqrt(np.maximum(np.diag(V_cr1), 0.0))
 
     out: dict = {"n": N, "G": G, "M_fe": M, "K": K, "rank": rank, "params": {}}
+    df_t = max(G - 1, 1)
+    t_crit = float(stats.t.ppf(0.975, df=df_t))
     for idx, c in enumerate(keep):
         b = float(beta[idx])
         s = float(se[idx])
         tval = b / s if s > 0 else float("nan")
-        pval = float(2.0 * stats.t.sf(abs(tval), df=max(G - 1, 1)))
-        out["params"][c] = {"beta": b, "se": s, "t": float(tval), "p": pval}
+        pval = float(2.0 * stats.t.sf(abs(tval), df=df_t))
+        out["params"][c] = {
+            "beta": b,
+            "se": s,
+            "ci95_lo": float(b - t_crit * s),
+            "ci95_hi": float(b + t_crit * s),
+            "t": float(tval),
+            "p": pval,
+        }
 
     # Optional Restricted Wild Cluster Bootstrap (Rademacher weights) on wcb_target
     if wcb_target and wcb_target in keep and G >= 4:
@@ -181,15 +204,23 @@ def fe_ppml_cr1(
             "converged": True,
             "params": {},
         }
+        df_t = max(G - 1, 1)
+        t_crit = float(stats.t.ppf(0.975, df=df_t))
         for c in keep:
             b = float(glm.params[c])
             se = float(glm.bse[c])
             tval = b / se if se > 0 else float("nan")
-            pval = float(2.0 * stats.t.sf(abs(tval), df=max(G - 1, 1)))
+            pval = float(2.0 * stats.t.sf(abs(tval), df=df_t))
+            lo = float(b - t_crit * se)
+            hi = float(b + t_crit * se)
             out["params"][c] = {
                 "beta": b,
                 "pct": float(100.0 * (np.exp(b) - 1.0)),
                 "se": se,
+                "ci95_lo": lo,
+                "ci95_hi": hi,
+                "pct_ci95_lo": float(100.0 * (np.exp(lo) - 1.0)),
+                "pct_ci95_hi": float(100.0 * (np.exp(hi) - 1.0)),
                 "t": float(tval),
                 "p": pval,
             }
@@ -249,6 +280,127 @@ def compute_tost(beta: float, se: float, df_t: int, bounds: tuple[float, ...] = 
     return out
 
 
+def compute_km_and_aalen_johansen(
+    t: np.ndarray,
+    ev: np.ndarray,
+    eval_times: tuple[int, ...] = (180, 270, 365, 450, 540),
+    curve_grid: tuple[int, ...] | None = None,
+) -> dict:
+    """Exact Kaplan-Meier VoR conversion (1 - S(t)) and Aalen-Johansen competing-risks CIF.
+    Event coding: 0 = right-censored (still RP-only at snapshot),
+                  1 = VoR Upgraded to Solid+,
+                  2 = VoR Unrevised (<Solid).
+    Note that by exact identity, CIF_1(t) + CIF_2(t) == 1 - S_KM(t) for every t >= 0.
+    """
+    uniq_t = np.sort(np.unique(t[ev > 0]))
+    S = 1.0
+    cif1 = 0.0
+    cif2 = 0.0
+    ts = [0.0]
+    vor_cum = [0.0]
+    c1_arr = [0.0]
+    c2_arr = [0.0]
+    for tj in uniq_t:
+        at_risk = int(np.sum(t >= tj))
+        if at_risk <= 0:
+            break
+        d1 = int(np.sum((t == tj) & (ev == 1)))
+        d2 = int(np.sum((t == tj) & (ev == 2)))
+        cif1 += S * (d1 / at_risk)
+        cif2 += S * (d2 / at_risk)
+        S *= 1.0 - (d1 + d2) / at_risk
+        ts.append(float(tj))
+        vor_cum.append(float(1.0 - S))
+        c1_arr.append(float(cif1))
+        c2_arr.append(float(cif2))
+    ts_np = np.array(ts, dtype=float)
+    out: dict = {
+        "n": len(t),
+        "n_ev1_solid": int(np.sum(ev == 1)),
+        "n_ev2_unrev": int(np.sum(ev == 2)),
+        "n_censored": int(np.sum(ev == 0)),
+        "horizons": {},
+    }
+    for et in eval_times:
+        idx = int(np.searchsorted(ts_np, float(et), side="right") - 1)
+        out["horizons"][f"t{et}"] = {
+            "days": int(et),
+            "n_at_risk": int(np.sum(t >= et)),
+            "km_vor_pct": float(100.0 * vor_cum[idx]),
+            "cif_solid_pct": float(100.0 * c1_arr[idx]),
+            "cif_unrev_pct": float(100.0 * c2_arr[idx]),
+        }
+    if curve_grid is not None:
+        curve = []
+        for gt in curve_grid:
+            idx = int(np.searchsorted(ts_np, float(gt), side="right") - 1)
+            curve.append({
+                "days": int(gt),
+                "km_vor_pct": round(float(100.0 * vor_cum[idx]), 2),
+                "cif_solid_pct": round(float(100.0 * c1_arr[idx]), 2),
+                "cif_unrev_pct": round(float(100.0 * c2_arr[idx]), 2),
+            })
+        out["curve"] = curve
+    return out
+
+
+def bootstrap_aj_contrast(
+    pre_df: pd.DataFrame,
+    post_df: pd.DataFrame,
+    eval_times: tuple[int, ...] = (180, 270, 365, 450, 540),
+    B: int = 1000,
+    seed: int = 2026,
+) -> dict:
+    """Nonparametric bootstrap SEs, 95% CIs, and 2-sided p-values for Post vs. Pre KM/AJ CIF differences."""
+    t_pre = pre_df["time_days"].to_numpy(dtype=float)
+    e_pre = pre_df["event"].to_numpy(dtype=int)
+    t_post = post_df["time_days"].to_numpy(dtype=float)
+    e_post = post_df["event"].to_numpy(dtype=int)
+
+    obs_pre = compute_km_and_aalen_johansen(t_pre, e_pre, eval_times)
+    obs_post = compute_km_and_aalen_johansen(t_post, e_post, eval_times)
+
+    rng = np.random.default_rng(seed)
+    metrics = ("km_vor_pct", "cif_solid_pct", "cif_unrev_pct")
+    draws: dict[str, dict[str, np.ndarray]] = {
+        f"t{et}": {m: np.empty(B, dtype=float) for m in metrics} for et in eval_times
+    }
+    n_pre = len(t_pre)
+    n_post = len(t_post)
+    for b in range(B):
+        ip = rng.integers(0, n_pre, size=n_pre)
+        iq = rng.integers(0, n_post, size=n_post)
+        rp = compute_km_and_aalen_johansen(t_pre[ip], e_pre[ip], eval_times)
+        rq = compute_km_and_aalen_johansen(t_post[iq], e_post[iq], eval_times)
+        for et in eval_times:
+            hk = f"t{et}"
+            for m in metrics:
+                draws[hk][m][b] = rq["horizons"][hk][m] - rp["horizons"][hk][m]
+
+    out: dict = {"B": int(B), "pre_n": int(n_pre), "post_n": int(n_post), "contrasts": {}}
+    for et in eval_times:
+        hk = f"t{et}"
+        out["contrasts"][hk] = {}
+        for m in metrics:
+            pre_v = obs_pre["horizons"][hk][m]
+            post_v = obs_post["horizons"][hk][m]
+            diff = post_v - pre_v
+            se = float(np.std(draws[hk][m], ddof=1))
+            z = diff / se if se > 0 else float("nan")
+            pval = float(2.0 * stats.norm.sf(abs(z))) if np.isfinite(z) else float("nan")
+            out["contrasts"][hk][m] = {
+                "pre_pct": round(pre_v, 2),
+                "post_pct": round(post_v, 2),
+                "diff_pp": round(diff, 2),
+                "boot_se_pp": round(se, 2),
+                "ci95_lo_pp": round(float(np.percentile(draws[hk][m], 2.5)), 2),
+                "ci95_hi_pp": round(float(np.percentile(draws[hk][m], 97.5)), 2),
+                "z": round(float(z), 3),
+                "p": pval,
+            }
+    return out
+
+
 def add_within_cell_ranks(df: pd.DataFrame, cols: list[str], cell_col: str) -> pd.DataFrame:
     out = df.copy()
     for c in cols:
@@ -262,7 +414,7 @@ def add_within_cell_ranks(df: pd.DataFrame, cols: list[str], cell_col: str) -> p
 
 def main() -> None:
     t0 = time.time()
-    print("=== STEP 4: PILLARS 1 & 2 (INTRINSIC REVISION NORMS, CITATIONS & LIVE READER ATTENTION) ===", flush=True)
+    print("=== STEP 4: PILLARS 1 & 2 (VOLUNTARY REVISION, ESCI ITT/CIF, CITATIONS & LIVE READER ATTENTION) ===", flush=True)
     RES_DIR.mkdir(parents=True, exist_ok=True)
     TBL_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -315,6 +467,7 @@ def main() -> None:
             "pct_all_upgraded_vor": float(100.0 * len(up) / max(len(g), 1)),
             "pct_vor_upgraded": float(100.0 * len(up) / max(len(vg), 1)),
             "n_vor_upgraded_to_solid": int(vg["str_upgraded_to_solid"].sum()),
+            "pct_all_upgraded_to_solid": float(100.0 * vg["str_upgraded_to_solid"].sum() / max(len(g), 1)),
             "pct_vor_upgraded_to_solid": float(100.0 * vg["str_upgraded_to_solid"].mean()) if len(vg) else 0.0,
             "n_vor_unchanged": len(un),
             "n_rp_only": len(rp),
@@ -353,51 +506,143 @@ def main() -> None:
             flush=True,
         )
 
-    # Clarivate Dec 2024 ESCI Solid-Threshold Natural Experiment (365d, 450d primary, 540d windows + clean 2023-only pre!)
-    esci_results: dict = {}
-    for win_days, max_v1_dt in [(365, "2025-10-01"), (450, "2025-07-01"), (540, "2025-04-01")]:
+    # Clarivate Dec 19, 2024 ESCI Solid-Threshold Analysis (v2 Major Revision):
+    # - Primary cutoff aligned strictly to v1_dt >= 2024-12-19 with explicit Oct 1-Dec 18, 2024
+    #   transition donut excluded (pre: 2023-04-01..2024-09-30 vs. post: >= 2024-12-19).
+    # - Cutoff sensitivities: >= 2025-01-01 (excluding Oct-Dec 2024), >= 2024-10-24 (Clarivate's
+    #   late-October indexing suspension), and clean 2023-only pre-cohort (< 2024-01-01).
+    # - PRIMARY ESTIMANDS: UNCONDITIONAL Intention-to-Treat (ITT) across ALL v1 Incomplete /
+    #   Inadequate preprints (NO VoR collider conditioning!) for P(VoR within win_days),
+    #   P(Upgraded to Solid+ within win_days), and P(Unrevised <Solid VoR within win_days)
+    #   across exact right-censoring-free 365d (max v1 2025-11-25), 450d (2025-09-01),
+    #   and 540d (2025-06-03) windows relative to the 2026-11-25 data snapshot.
+    # - SECONDARY DESCRIPTIVE DECOMPOSITION: P(Upgraded to Solid+ | VoR within win_days),
+    #   explicitly labeled as conditioning on post-treatment VoR conversion.
+    # - NONPARAMETRIC SURVIVAL: Kaplan-Meier VoR conversion & Aalen-Johansen competing-risks
+    #   cumulative incidence (Solid+ VoR vs. Unrevised <Solid VoR) across all v1 Incomplete
+    #   preprints handling right-censoring transparently.
+    esci_results: dict = {
+        "policy_dates": {
+            "clarivate_suspension_date": "2024-10-24",
+            "esci_solid_policy_date": "2024-12-19",
+            "transition_donut_excluded": ["2024-10-01", "2024-12-18"],
+            "snapshot_date": "2026-11-25",
+            "primary_cutoff_spec": "primary_dec19_donut",
+        },
+        "fixed_windows": {},
+    }
+
+    def _run_esci_spec(sub_in: pd.DataFrame, post_cut: str) -> dict:
+        sub = sub_in.copy()
+        sub["post_esci"] = (sub["v1_dt"] >= post_cut).astype(float)
+        sub["post_x_CN"] = sub["post_esci"] * sub["is_CN"]
+        pre_s = sub[sub["post_esci"] == 0]
+        post_s = sub[sub["post_esci"] == 1]
+        vors_s = sub[sub["vor_win"] == 1].copy()
+        return {
+            "post_cutoff_date": post_cut,
+            "pre_n": len(pre_s),
+            "post_n": len(post_s),
+            "pre_vor_pct": float(100.0 * pre_s["vor_win"].mean()),
+            "pre_up_all_pct": float(100.0 * pre_s["up_win"].mean()),
+            "pre_unrev_all_pct": float(100.0 * pre_s["unrev_win"].mean()),
+            "pre_cond_up_given_vor_pct": float(100.0 * pre_s[pre_s["vor_win"] == 1]["str_upgraded_to_solid"].mean()) if (pre_s["vor_win"] == 1).any() else 0.0,
+            "post_vor_pct": float(100.0 * post_s["vor_win"].mean()),
+            "post_up_all_pct": float(100.0 * post_s["up_win"].mean()),
+            "post_unrev_all_pct": float(100.0 * post_s["unrev_win"].mean()),
+            "post_cond_up_given_vor_pct": float(100.0 * post_s[post_s["vor_win"] == 1]["str_upgraded_to_solid"].mean()) if (post_s["vor_win"] == 1).any() else 0.0,
+            # PRIMARY UNCONDITIONAL ITT (all v1 Incomplete/Inadequate preprints, zero VoR collider!)
+            "itt_vor_win": fe_ols_cr1(sub, "vor_win", ["post_esci", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_esci"),
+            "itt_up_solid_win": fe_ols_cr1(sub, "up_win", ["post_esci", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_esci"),
+            "itt_unrev_vor_win": fe_ols_cr1(sub, "unrev_win", ["post_esci", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_esci"),
+            "itt_up_solid_cn_het": fe_ols_cr1(sub, "up_win", ["post_esci", "is_CN", "post_x_CN", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_x_CN"),
+            # SECONDARY DESCRIPTIVE DECOMPOSITION (strictly labeled as conditional on VoR conversion!)
+            "secondary_cond_up_given_vor": fe_ols_cr1(vors_s, "str_upgraded_to_solid", ["post_esci", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_esci"),
+            "secondary_cond_up_given_vor_cn_het": fe_ols_cr1(vors_s, "str_upgraded_to_solid", ["post_esci", "is_CN", "post_x_CN", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_x_CN"),
+        }
+
+    for win_days, max_v1_dt in [(365, "2025-11-25"), (450, "2025-09-01"), (540, "2025-06-03")]:
         d_rev = df[(df["v1_dt"] >= "2023-04-01") & (df["v1_dt"] <= max_v1_dt) & (df["v1_str_min"] <= 2)].copy()
         d_rev["vor_win"] = ((d_rev["is_vor"] == 1) & (d_rev["rev_lag_days"] <= win_days)).astype(float)
         d_rev["up_win"] = ((d_rev["vor_win"] == 1) & (d_rev["str_upgraded_to_solid"] == 1)).astype(float)
         d_rev["unrev_win"] = ((d_rev["vor_win"] == 1) & (d_rev["str_upgraded_to_solid"] == 0)).astype(float)
-        d_rev["post_esci"] = (d_rev["v1_dt"] >= "2024-10-01").astype(float)
-        d_rev["post_x_CN"] = d_rev["post_esci"] * d_rev["is_CN"]
-        pre_e = d_rev[d_rev["v1_dt"] < "2024-07-01"]
-        post_e = d_rev[d_rev["v1_dt"] >= "2024-10-01"]
-        vors_win = d_rev[d_rev["vor_win"] == 1].copy()
-        vors_donut = d_rev[(d_rev["vor_win"] == 1) & ((d_rev["v1_dt"] < "2024-07-01") | (d_rev["v1_dt"] >= "2024-10-01"))].copy()
-        vors_2023_only = d_rev[(d_rev["vor_win"] == 1) & ((d_rev["v1_dt"] < "2024-01-01") | (d_rev["v1_dt"] >= "2024-10-01"))].copy()
-        esci_results[f"win_{win_days}d"] = {
+
+        n_donut = int(((d_rev["v1_dt"] >= "2024-10-01") & (d_rev["v1_dt"] < "2024-12-19")).sum())
+        sub_dec19 = d_rev[(d_rev["v1_dt"] < "2024-10-01") | (d_rev["v1_dt"] >= "2024-12-19")]
+        sub_jan01 = d_rev[(d_rev["v1_dt"] < "2024-10-01") | (d_rev["v1_dt"] >= "2025-01-01")]
+        sub_2023 = d_rev[(d_rev["v1_dt"] < "2024-01-01") | (d_rev["v1_dt"] >= "2024-12-19")]
+
+        esci_results["fixed_windows"][f"win_{win_days}d"] = {
             "window_days": win_days,
             "max_v1_date": max_v1_dt,
-            "pre_n": len(pre_e),
-            "pre_vor_pct": float(100.0 * pre_e["vor_win"].mean()),
-            "pre_up_all_pct": float(100.0 * pre_e["up_win"].mean()),
-            "pre_up_among_vor_pct": float(100.0 * pre_e[pre_e["vor_win"] == 1]["str_upgraded_to_solid"].mean()) if (pre_e["vor_win"] == 1).any() else 0.0,
-            "pre_unrev_pct": float(100.0 * pre_e["unrev_win"].mean()),
-            "post_n": len(post_e),
-            "post_vor_pct": float(100.0 * post_e["vor_win"].mean()),
-            "post_up_all_pct": float(100.0 * post_e["up_win"].mean()),
-            "post_up_among_vor_pct": float(100.0 * post_e[post_e["vor_win"] == 1]["str_upgraded_to_solid"].mean()) if (post_e["vor_win"] == 1).any() else 0.0,
-            "post_unrev_pct": float(100.0 * post_e["unrev_win"].mean()),
-            "fe_up_among_vors": fe_ols_cr1(vors_win, "str_upgraded_to_solid", ["post_esci", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_esci"),
-            "fe_up_among_vors_donut": fe_ols_cr1(vors_donut, "str_upgraded_to_solid", ["post_esci", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_esci"),
-            "fe_up_among_vors_2023_only_pre": fe_ols_cr1(vors_2023_only, "str_upgraded_to_solid", ["post_esci", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_esci"),
-            "fe_up_all_incomp": fe_ols_cr1(d_rev, "up_win", ["post_esci", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_esci"),
-            "fe_up_among_vors_cn_het": fe_ols_cr1(vors_win, "str_upgraded_to_solid", ["post_esci", "is_CN", "post_x_CN", "v1_sig_rank"], "primary_subject", "primary_subject", wcb_target="post_x_CN"),
+            "n_transition_donut_excluded": n_donut,
+            "primary_dec19_donut": _run_esci_spec(sub_dec19, "2024-12-19"),
+            "sens_jan01_donut": _run_esci_spec(sub_jan01, "2025-01-01"),
+            "sens_oct24_suspension": _run_esci_spec(d_rev, "2024-10-24"),
+            "sens_clean2023_pre_dec19": _run_esci_spec(sub_2023, "2024-12-19"),
         }
-    e450 = esci_results["win_450d"]
-    p450 = e450["fe_up_among_vors"]["params"]["post_esci"]
-    p450_d = e450["fe_up_among_vors_donut"]["params"]["post_esci"]
-    p450_23 = e450["fe_up_among_vors_2023_only_pre"]["params"]["post_esci"]
-    print(
-        f"[ESCI 450d Natural Experiment] Pre(n={e450['pre_n']}): Up/VoR={e450['pre_up_among_vor_pct']:.1f}% -> "
-        f"Post(n={e450['post_n']}): Up/VoR={e450['post_up_among_vor_pct']:.1f}% | "
-        f"Full FE={100*p450['beta']:+.2f} pp (p_WCB={p450.get('p_wcb', np.nan):.4f}) | "
-        f"Donut FE={100*p450_d['beta']:+.2f} pp (p_WCB={p450_d.get('p_wcb', np.nan):.4f}) | "
-        f"2023-Only Pre={100*p450_23['beta']:+.2f} pp (p_WCB={p450_23.get('p_wcb', np.nan):.4f})",
-        flush=True,
+
+    # Kaplan-Meier VoR Conversion & Aalen-Johansen Competing-Risks CIF (ALL v1 Incomplete, right-censoring handled!)
+    ref_dt = pd.Timestamp("2026-11-26")
+    surv_inc = df[(df["v1_dt"] >= "2023-04-01") & (df["v1_str_min"] <= 2)].copy()
+    surv_inc["time_days"] = np.where(
+        surv_inc["is_vor"] == 1,
+        surv_inc["rev_lag_days"],
+        (ref_dt - surv_inc["v1_dt"]).dt.days,
+    ).clip(min=0.0)
+    surv_inc["event"] = np.where(
+        surv_inc["is_vor"] == 0,
+        0,
+        np.where(surv_inc["str_upgraded_to_solid"] == 1, 1, 2),
     )
+    curve_grid = tuple(range(0, 541, 15))
+    eval_ts = (180, 270, 365, 450, 540)
+
+    s_pre = surv_inc[surv_inc["v1_dt"] < "2024-10-01"]
+    s_donut = surv_inc[(surv_inc["v1_dt"] >= "2024-10-01") & (surv_inc["v1_dt"] < "2024-12-19")]
+    s_post_dec19 = surv_inc[surv_inc["v1_dt"] >= "2024-12-19"]
+    s_post_jan01 = surv_inc[surv_inc["v1_dt"] >= "2025-01-01"]
+    s_post_oct24 = surv_inc[surv_inc["v1_dt"] >= "2024-10-24"]
+    s_pre_oct24 = surv_inc[surv_inc["v1_dt"] < "2024-10-24"]
+    s_pre_2023 = surv_inc[surv_inc["v1_dt"] < "2024-01-01"]
+
+    esci_results["km_competing_risks"] = {
+        "n_all_v1_incomp_ge_2023q2": len(surv_inc),
+        "cohorts": {
+            "pre_esci_lt_2024_10_01": compute_km_and_aalen_johansen(s_pre["time_days"].to_numpy(float), s_pre["event"].to_numpy(int), eval_ts, curve_grid),
+            "transition_donut_2024_10_01_to_12_18": compute_km_and_aalen_johansen(s_donut["time_days"].to_numpy(float), s_donut["event"].to_numpy(int), eval_ts, curve_grid),
+            "post_esci_ge_2024_12_19": compute_km_and_aalen_johansen(s_post_dec19["time_days"].to_numpy(float), s_post_dec19["event"].to_numpy(int), eval_ts, curve_grid),
+            "post_esci_ge_2025_01_01": compute_km_and_aalen_johansen(s_post_jan01["time_days"].to_numpy(float), s_post_jan01["event"].to_numpy(int), eval_ts),
+            "pre_2023_only_lt_2024_01_01": compute_km_and_aalen_johansen(s_pre_2023["time_days"].to_numpy(float), s_pre_2023["event"].to_numpy(int), eval_ts),
+        },
+        "contrast_dec19_vs_pre_donut": bootstrap_aj_contrast(s_pre, s_post_dec19, eval_ts, B=1000, seed=2026),
+        "contrast_jan01_vs_pre_donut": bootstrap_aj_contrast(s_pre, s_post_jan01, eval_ts, B=1000, seed=2027),
+        "contrast_oct24_suspension": bootstrap_aj_contrast(s_pre_oct24, s_post_oct24, eval_ts, B=1000, seed=2028),
+    }
+
+    for wk in ("win_365d", "win_450d"):
+        wobj = esci_results["fixed_windows"][wk]["primary_dec19_donut"]
+        p_vor = wobj["itt_vor_win"]["params"]["post_esci"]
+        p_up = wobj["itt_up_solid_win"]["params"]["post_esci"]
+        p_unr = wobj["itt_unrev_vor_win"]["params"]["post_esci"]
+        p_cond = wobj["secondary_cond_up_given_vor"]["params"]["post_esci"]
+        print(
+            f"[ESCI {wk} Primary Dec 19 Donut (Pre n={wobj['pre_n']}, Post n={wobj['post_n']})] "
+            f"ITT VoR={100*p_vor['beta']:+.2f} pp (p_WCB={p_vor['p_wcb']:.4f}) | "
+            f"ITT Solid+={100*p_up['beta']:+.2f} pp (p_WCB={p_up['p_wcb']:.4f}) | "
+            f"ITT UnrevVoR={100*p_unr['beta']:+.2f} pp (p_WCB={p_unr['p_wcb']:.4f}) | "
+            f"Sec Cond Solid+|VoR={100*p_cond['beta']:+.2f} pp (p_WCB={p_cond['p_wcb']:.4f})",
+            flush=True,
+        )
+    c_aj = esci_results["km_competing_risks"]["contrast_dec19_vs_pre_donut"]["contrasts"]
+    for hk in ("t365", "t450", "t540"):
+        print(
+            f"[KM/AJ Competing Risks {hk}] "
+            f"VoR: {c_aj[hk]['km_vor_pct']['pre_pct']:.1f}%->{c_aj[hk]['km_vor_pct']['post_pct']:.1f}% ({c_aj[hk]['km_vor_pct']['diff_pp']:+.2f}pp, p={c_aj[hk]['km_vor_pct']['p']:.4f}) | "
+            f"Solid+: {c_aj[hk]['cif_solid_pct']['pre_pct']:.1f}%->{c_aj[hk]['cif_solid_pct']['post_pct']:.1f}% ({c_aj[hk]['cif_solid_pct']['diff_pp']:+.2f}pp, p={c_aj[hk]['cif_solid_pct']['p']:.4f}) | "
+            f"Unrev<Solid: {c_aj[hk]['cif_unrev_pct']['pre_pct']:.1f}%->{c_aj[hk]['cif_unrev_pct']['post_pct']:.1f}% ({c_aj[hk]['cif_unrev_pct']['diff_pp']:+.2f}pp, p={c_aj[hk]['cif_unrev_pct']['p']:.4f})",
+            flush=True,
+        )
 
     # =========================================================================
     # PILLAR 2A: FIRST-IMPRESSION v1 ASSESSMENT GRADIENT (CITATIONS + PAGE-VIEWS + DOWNLOADS + VoR LOCK-IN)
@@ -677,7 +922,7 @@ def main() -> None:
     # =========================================================================
     # BUILD PUBLICATION CSV TABLES (ZERO NaN, UNAMBIGUOUS UNITS!)
     # =========================================================================
-    # Table 1: Transition Matrix & ESCI Natural Experiment (both any-step upgrade AND Solid+ threshold!)
+    # Table 1: Transition Matrix (reporting BOTH unconditional all-v1 and conditional-on-VoR denominators!)
     t1_rows = []
     for lbl, _ in tiers:
         tm = trans_mature[lbl]
@@ -687,8 +932,10 @@ def main() -> None:
             "n_vor": tm["n_vor"],
             "vor_conversion_pct": round(tm["pct_vor"], 2),
             "n_vor_upgraded_any": tm["n_vor_upgraded"],
+            "all_upgrade_any_pct": round(tm["pct_all_upgraded_vor"], 2),
             "vor_upgrade_any_pct": round(tm["pct_vor_upgraded"], 2),
             "n_vor_upgraded_to_solid": tm["n_vor_upgraded_to_solid"],
+            "all_upgrade_to_solid_pct": round(tm["pct_all_upgraded_to_solid"], 2),
             "vor_upgrade_to_solid_pct": round(tm["pct_vor_upgraded_to_solid"], 2),
             "mean_rev_lag_up_days": round(tm["mean_rev_lag_up"], 1),
             "mean_rev_lag_unch_days": round(tm["mean_rev_lag_unch"], 1),
@@ -702,6 +949,71 @@ def main() -> None:
     t1_df = pd.DataFrame(t1_rows)
     t1_path = TBL_DIR / "table1_transition_and_esci.csv"
     t1_df.to_csv(t1_path, index=False, lineterminator="\n")
+
+    # Table 1B: ESCI Unconditional ITT, Cutoff Sensitivities, Secondary Conditional VoR Decomposition, & KM/AJ CIF
+    t1b_rows = []
+    for wk, wdays in [("win_365d", 365), ("win_450d", 450), ("win_540d", 540)]:
+        for skey, slbl in [
+            ("primary_dec19_donut", "Primary_Dec19_DonutExcl"),
+            ("sens_jan01_donut", "Sens_Jan01_DonutExcl"),
+            ("sens_oct24_suspension", "Sens_Oct24_Suspension"),
+            ("sens_clean2023_pre_dec19", "Sens_Clean2023Pre_Dec19"),
+        ]:
+            sp = esci_results["fixed_windows"][wk][skey]
+            for mkey, mlbl, pre_raw, post_raw in [
+                ("itt_vor_win", "ITT_VoR_Conversion_All_v1Incomp", sp["pre_vor_pct"], sp["post_vor_pct"]),
+                ("itt_up_solid_win", "ITT_Upgrade_SolidPlus_All_v1Incomp", sp["pre_up_all_pct"], sp["post_up_all_pct"]),
+                ("itt_unrev_vor_win", "ITT_Unrevised_VoR_All_v1Incomp", sp["pre_unrev_all_pct"], sp["post_unrev_all_pct"]),
+                ("secondary_cond_up_given_vor", "Secondary_Cond_SolidPlus_Given_VoR", sp["pre_cond_up_given_vor_pct"], sp["post_cond_up_given_vor_pct"]),
+            ]:
+                rm = sp[mkey]
+                pm = rm["params"]["post_esci"]
+                t1b_rows.append({
+                    "analysis_type": "FixedWindow_SubjectFE",
+                    "horizon_days": wdays,
+                    "cutoff_spec": slbl,
+                    "estimand": mlbl,
+                    "pre_n": sp["pre_n"],
+                    "post_n": sp["post_n"],
+                    "reg_n": int(rm["n"]),
+                    "pre_pct": round(float(pre_raw), 2),
+                    "post_pct": round(float(post_raw), 2),
+                    "diff_pp": round(float(100.0 * pm["beta"]), 2),
+                    "se_pp": round(float(100.0 * pm["se"]), 2),
+                    "ci95_lo_pp": round(float(100.0 * pm["ci95_lo"]), 2),
+                    "ci95_hi_pp": round(float(100.0 * pm["ci95_hi"]), 2),
+                    "p_value": float(pm["p"]),
+                    "p_wcb_or_boot": float(pm.get("p_wcb", pm["p"])),
+                })
+    c_aj_main = esci_results["km_competing_risks"]["contrast_dec19_vs_pre_donut"]
+    for et in (365, 450, 540):
+        hk = f"t{et}"
+        for mkey, mlbl in [
+            ("km_vor_pct", "KM_Any_VoR_Conversion"),
+            ("cif_solid_pct", "AJ_CIF_Upgraded_SolidPlus_VoR"),
+            ("cif_unrev_pct", "AJ_CIF_Unrevised_UnderSolid_VoR"),
+        ]:
+            cv = c_aj_main["contrasts"][hk][mkey]
+            t1b_rows.append({
+                "analysis_type": "KM_AJ_CompetingRisks",
+                "horizon_days": et,
+                "cutoff_spec": "Primary_Dec19_DonutExcl",
+                "estimand": mlbl,
+                "pre_n": c_aj_main["pre_n"],
+                "post_n": c_aj_main["post_n"],
+                "reg_n": c_aj_main["pre_n"] + c_aj_main["post_n"],
+                "pre_pct": cv["pre_pct"],
+                "post_pct": cv["post_pct"],
+                "diff_pp": cv["diff_pp"],
+                "se_pp": cv["boot_se_pp"],
+                "ci95_lo_pp": cv["ci95_lo_pp"],
+                "ci95_hi_pp": cv["ci95_hi_pp"],
+                "p_value": cv["p"],
+                "p_wcb_or_boot": cv["p"],
+            })
+    t1b_df = pd.DataFrame(t1b_rows)
+    t1b_path = TBL_DIR / "table1b_esci_itt_and_cif.csv"
+    t1b_df.to_csv(t1b_path, index=False, lineterminator="\n")
 
     # Table 2: Pillar 2 Gradient, VoR-Date Autopsy, and Clean Untruncated Upgrade Payoff
     t2_rows = []
@@ -803,12 +1115,25 @@ def main() -> None:
     t2_path = TBL_DIR / "table2_v1_gradient_upgrade_autopsy.csv"
     t2_df.to_csv(t2_path, index=False, lineterminator="\n")
 
+    inc_v_mat = mat[(mat["v1_str_min"] <= 2) & (mat["is_vor"] == 1)]
+    post_vor_months_inc = (pd.Timestamp("2026-11-26") - inc_v_mat["fin_dt"]).dt.days / 30.4375
+
     out_obj = {
         "n_full_v1_panel": len(df),
         "n_mature_2023_2024": len(mat),
         "n_mature_with_metrics": int((mat["has_metrics"] == 1).sum()),
         "n_mature_complete_monthly_ge_2023_11": int((mat["has_complete_monthly_metrics"] == 1).sum()),
         "n_mature_vors": len(mat_v),
+        "observation_horizons": {
+            "mature_v1_date_min": str(mat["v1_dt"].min())[:10],
+            "mature_v1_date_max": str(mat["v1_dt"].max())[:10],
+            "mature_v1_age_months_min": round(float(mat["v1_age_days"].min() / 30.4375), 1),
+            "mature_v1_age_months_median": round(float(mat["v1_age_days"].median() / 30.4375), 1),
+            "mature_v1_age_months_max": round(float(mat["v1_age_days"].max() / 30.4375), 1),
+            "incomp_vor_post_vor_months_min": round(float(post_vor_months_inc.min()), 1),
+            "incomp_vor_post_vor_months_median": round(float(post_vor_months_inc.median()), 1),
+            "incomp_vor_post_vor_months_max": round(float(post_vor_months_inc.max()), 1),
+        },
         "pillar1_transition_mature": trans_mature,
         "pillar1_transition_all_4541": trans_all_4541,
         "pillar1_esci_solid_cliff": esci_results,
@@ -818,6 +1143,7 @@ def main() -> None:
         "pillar2_upgrade_payoff": upgrade_res,
         "tables_sha256": {
             t1_path.name: sha256_bytes(t1_path),
+            t1b_path.name: sha256_bytes(t1b_path),
             t2_path.name: sha256_bytes(t2_path),
         },
         "elapsed_sec": round(time.time() - t0, 2),

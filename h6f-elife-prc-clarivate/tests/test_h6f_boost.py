@@ -230,6 +230,7 @@ def test_tables_zero_nan_units_and_expected_files() -> None:
     """Verify every publication CSV table has zero NaNs, clean units, and all 5 PNG+PDF figures exist."""
     expected_tables = [
         "table1_transition_and_esci.csv",
+        "table1b_esci_itt_and_cif.csv",
         "table2_v1_gradient_upgrade_autopsy.csv",
         "table3_synthetic_control_and_editorial.csv",
         "table4_global_country_elasticity.csv",
@@ -240,6 +241,17 @@ def test_tables_zero_nan_units_and_expected_files() -> None:
         df = pd.read_csv(p, keep_default_na=True)
         assert len(df) >= 4
         assert int(df.isna().sum().sum()) == 0, f"Found NaN values in {fname}"
+
+    t1 = pd.read_csv(TBL_DIR / "table1_transition_and_esci.csv")
+    assert "all_upgrade_any_pct" in t1.columns and "all_upgrade_to_solid_pct" in t1.columns
+    r_inc = t1.loc[t1["v1_strength_tier"] == "v1_Incomp_Inad"].iloc[0]
+    assert int(r_inc["n_mature_2023_2024"]) == 964
+    assert int(r_inc["n_vor"]) == 793
+    assert int(r_inc["n_vor_upgraded_any"]) == 644
+    assert np.isclose(float(r_inc["all_upgrade_any_pct"]), 66.80, atol=0.05)
+    assert np.isclose(float(r_inc["vor_upgrade_any_pct"]), 81.21, atol=0.05)
+    assert np.isclose(float(r_inc["all_upgrade_to_solid_pct"]), 64.42, atol=0.05)
+    assert np.isclose(float(r_inc["vor_upgrade_to_solid_pct"]), 78.31, atol=0.05)
 
     t2 = pd.read_csv(TBL_DIR / "table2_v1_gradient_upgrade_autopsy.csv")
     assert set(t2["effect_unit"].unique()).issubset({"pct", "pct_rank_pp"})
@@ -300,8 +312,11 @@ def test_manuscript_to_json_and_csv_full_table_parity() -> None:
         ]:
             assert tok in md, f"Table 4 CSV value {tok} ({r['country_code']}) missing/drifted in manuscript!"
 
-    # Headline Pillar 1-4 JSON tokens
-    e450 = p4["pillar1_esci_solid_cliff"]["win_450d"]["fe_up_among_vors"]["params"]["post_esci"]
+    # Headline Pillar 1-4 JSON tokens (v2: Dec 19 ESCI alignment, unconditional ITT, KM/AJ CIF, dual denominators, both TOST bounds)
+    esci = p4["pillar1_esci_solid_cliff"]
+    e365 = esci["fixed_windows"]["win_365d"]["primary_dec19_donut"]
+    e450 = esci["fixed_windows"]["win_450d"]["primary_dec19_donut"]
+    aj450 = esci["km_competing_risks"]["contrast_dec19_vs_pre_donut"]["contrasts"]["t450"]
     g_oa = p4["pillar2_v1_gradient_and_autopsy"]["vor_true_v1_oa_post_ppml"]["params"]["v1_incomp_d"]
     u_inc = p4["pillar2_upgrade_payoff"]["v1_Incomp_VoRs"]
     ed = p5["pillar3a_editorial_cushioning"]
@@ -314,7 +329,26 @@ def test_manuscript_to_json_and_csv_full_table_parity() -> None:
         f"{p3['v1_panel_audit']['v1_recovery_pct']:.2f}%",
         f"{p3['v1_panel_audit']['n_mature_2023_2024']:,}",
         f"{p3['v1_panel_audit']['n_mature_complete_monthly_ge_2023_11']:,}",
-        f"{100 * e450['beta']:+.2f}",
+        # Dual unconditional (66.8%) & conditional (81.2%) denominators + exact Dec 19 ESCI ITT & AJ CIF
+        "66.8%",
+        "81.2%",
+        "64.4%",
+        "78.3%",
+        "2024-12-19",
+        f"{100 * e365['itt_vor_win']['params']['post_esci']['beta']:+.2f}",
+        f"{100 * e365['itt_up_solid_win']['params']['post_esci']['beta']:+.2f}",
+        f"{100 * e450['itt_vor_win']['params']['post_esci']['beta']:+.2f}",
+        f"{100 * e450['itt_up_solid_win']['params']['post_esci']['beta']:+.2f}",
+        f"{aj450['cif_unrev_pct']['diff_pp']:+.2f}",
+        # Both citation TOST bounds (±20% p=0.0125 AND ±15% p=0.0508) + 95% CI
+        f"{u_inc['tost']['ppml_oa_post_v1']['tost_pm20']:.4f}",
+        f"{u_inc['tost']['ppml_oa_post_v1']['tost_pm15']:.4f}",
+        f"{u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct_ci95_lo']:+.1f}%",
+        f"{u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct_ci95_hi']:+.1f}%",
+        # Clean separation of official submissions vs published output vs 3 JIF vs 7 DORA
+        "6,396",
+        "2,853",
+        "-55.4%",
         f"{g_oa['pct']:+.1f}%",
         f"{u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct']:+.1f}%",
         f"{u_inc['ols_did_log_pv_rate_clean']['params']['str_upgraded_to_solid']['beta']:+.4f}",
@@ -331,6 +365,68 @@ def test_manuscript_to_json_and_csv_full_table_parity() -> None:
     ]
     missing = [tok for tok in required_tokens if tok not in md]
     assert not missing, f"Headline JSON tokens missing from manuscript: {missing}"
+
+
+def test_v2_esci_dec19_alignment_unconditional_itt_and_competing_risks_identities() -> None:
+    """Verify v2 referee fixes: Dec 19 ESCI alignment + transition donut, unconditional ITT across all v1
+    Incomplete preprints, exact KM/AJ competing-risks identity, dual denominators, transparent TOST bounds,
+    and zero regression to old VoR-conditioned +0.40 pp overclaim."""
+    p4 = json.loads((RES_DIR / "04_pillar1_2_results.json").read_bytes().decode("utf-8"))
+    t1b = pd.read_csv(TBL_DIR / "table1b_esci_itt_and_cif.csv")
+    md = MD_PATH.read_text(encoding="utf-8")
+
+    esci = p4["pillar1_esci_solid_cliff"]
+    pol = esci["policy_dates"]
+    assert pol["clarivate_suspension_date"] == "2024-10-24"
+    assert pol["esci_solid_policy_date"] == "2024-12-19"
+    assert pol["transition_donut_excluded"] == ["2024-10-01", "2024-12-18"]
+    assert pol["primary_cutoff_spec"] == "primary_dec19_donut"
+
+    # Unconditional ITT & sensitivities present for both 365d and 450d right-censoring-free windows
+    for wk in ("win_365d", "win_450d"):
+        w = esci["fixed_windows"][wk]
+        assert w["n_transition_donut_excluded"] == 135
+        for skey, expected_cut in [
+            ("primary_dec19_donut", "2024-12-19"),
+            ("sens_jan01_donut", "2025-01-01"),
+            ("sens_oct24_suspension", "2024-10-24"),
+            ("sens_clean2023_pre_dec19", "2024-12-19"),
+        ]:
+            sp = w[skey]
+            assert sp["post_cutoff_date"] == expected_cut
+            # Unconditional ITT sample must strictly exceed conditional VoR sample!
+            assert sp["itt_vor_win"]["n"] > sp["secondary_cond_up_given_vor"]["n"]
+            assert sp["itt_up_solid_win"]["n"] == sp["itt_vor_win"]["n"]
+            assert sp["itt_unrev_vor_win"]["n"] == sp["itt_vor_win"]["n"]
+            # Additive identity on raw ITT rates: pre_up + pre_unrev == pre_vor
+            assert np.isclose(sp["pre_up_all_pct"] + sp["pre_unrev_all_pct"], sp["pre_vor_pct"], atol=1e-9)
+            assert np.isclose(sp["post_up_all_pct"] + sp["post_unrev_all_pct"], sp["post_vor_pct"], atol=1e-9)
+
+    # Exact Aalen-Johansen competing-risks identity: CIF_Solid+(t) + CIF_Unrev(t) == KM_VoR(t)
+    km = esci["km_competing_risks"]
+    for ck in ("pre_esci_lt_2024_10_01", "post_esci_ge_2024_12_19", "transition_donut_2024_10_01_to_12_18"):
+        coh = km["cohorts"][ck]
+        for hk, hval in coh["horizons"].items():
+            assert np.isclose(
+                hval["cif_solid_pct"] + hval["cif_unrev_pct"], hval["km_vor_pct"], atol=1e-9
+            ), f"Competing-risks sum violated in {ck}/{hk}"
+
+    # Verify Table 1B CSV rows sync to manuscript
+    prim_rows = t1b[
+        (t1b["cutoff_spec"] == "Primary_Dec19_DonutExcl")
+        & (t1b["horizon_days"].isin([365, 450]))
+    ]
+    assert len(prim_rows) >= 14
+    for _, r in prim_rows.iterrows():
+        tok = f"{r['diff_pp']:+.2f}"
+        assert tok in md, f"Table 1B primary value {tok} ({r['estimand']} {r['horizon_days']}d) missing in manuscript!"
+
+    # Retraction guard: old mis-dated +0.40 pp overclaim must NOT appear anywhere in manuscript
+    assert "+0.40" not in md, "Stale v1 +0.40 pp VoR-conditioned ESCI estimate still present in manuscript!"
+    assert "proving that intrinsic scientific norms" not in md.lower()
+    assert "calendar-date interval" in md.lower()
+    assert "0.0508" in md and "0.0125" in md, "Both citation TOST bounds (±15% p=0.0508 and ±20% p=0.0125) must appear!"
+    assert (BASE_DIR / "REFEREE_RESPONSE_v2.md").exists()
 
 
 def test_bibliography_crossref_and_cooccurring_body_citation_parity() -> None:
@@ -404,11 +500,13 @@ def test_live_disk_sha256sums_integrity_and_lf_endings() -> None:
     # Verify LF-only line endings on key generated text artifacts
     for rel in [
         "manuscript_h6f_boost.md",
+        "REFEREE_RESPONSE_v2.md",
         "VERIFICATION_MANIFEST.md",
         "SHA256SUMS.json",
         "README.md",
         "STATUS.md",
         "tables/table1_transition_and_esci.csv",
+        "tables/table1b_esci_itt_and_cif.csv",
         "tables/table2_v1_gradient_upgrade_autopsy.csv",
         "tables/table3_synthetic_control_and_editorial.csv",
         "tables/table4_global_country_elasticity.csv",

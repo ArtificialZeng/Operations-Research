@@ -29,9 +29,14 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
     p5 = json.loads((RES_DIR / "05_pillar3_4_results.json").read_bytes().decode("utf-8"))
 
     t_inc = p4["pillar1_transition_mature"]["v1_Incomp_Inad"]
-    e450 = p4["pillar1_esci_solid_cliff"]["win_450d"]
-    p450 = e450["fe_up_among_vors"]["params"]["post_esci"]
-    p450_d = e450["fe_up_among_vors_donut"]["params"]["post_esci"]
+    e365 = p4["pillar1_esci_solid_cliff"]["fixed_windows"]["win_365d"]["primary_dec19_donut"]
+    e450 = p4["pillar1_esci_solid_cliff"]["fixed_windows"]["win_450d"]["primary_dec19_donut"]
+    p365_vor = e365["itt_vor_win"]["params"]["post_esci"]
+    p365_up = e365["itt_up_solid_win"]["params"]["post_esci"]
+    p450_vor = e450["itt_vor_win"]["params"]["post_esci"]
+    p450_up = e450["itt_up_solid_win"]["params"]["post_esci"]
+    p450_cond = e450["secondary_cond_up_given_vor"]["params"]["post_esci"]
+    aj450 = p4["pillar1_esci_solid_cliff"]["km_competing_risks"]["contrast_dec19_vs_pre_donut"]["contrasts"]["t450"]
     g_oa = p4["pillar2_v1_gradient_and_autopsy"]["vor_true_v1_oa_post_ppml"]["params"]["v1_incomp_d"]
     g_oa_f = p4["pillar2_v1_gradient_and_autopsy"]["vor_flawed_vor_oa_post_ppml"]["params"]["fin_incomp_d"]
     g_pv_sig = p4["pillar2_v1_gradient_and_autopsy"]["vor_true_v1_pv_ppml"]["params"]["v1_sig_imp"]
@@ -52,19 +57,25 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
 
     return {
         "fig1_transition_and_esci_norms.png": (
-            "Figure 1. Complete Longitudinal v1 &rarr; VoR Revision Architecture and Clarivate ESCI Solid-Threshold Experiment.",
+            "Figure 1. Longitudinal v1 &rarr; VoR Revision Architecture and Post-ESCI (December 19, 2024) Unconditional Competing-Risks Cumulative Incidence.",
             (
                 f"Panel A decomposes final outcomes for all mature 2023&ndash;2024 <em>eLife</em> PRC cohorts (<em>N</em> = {p4['n_mature_2023_2024']:,}): "
-                f"among initially <em>Incomplete/Inadequate</em> v1 preprints (<em>n</em> = {t_inc['n_total']}), {t_inc['pct_vor']:.1f}% convert to VoR "
-                f"and {t_inc['pct_vor_upgraded']:.1f}% of those VoRs ({t_inc['pct_vor_upgraded_to_solid']:.1f}% crossing to <em>Solid+</em>) upgrade their "
-                f"Strength of Evidence over a mean {t_inc['mean_rev_lag_up']:.1f}-day lag. "
-                f"Panel B tests Clarivate&rsquo;s December 2024 ESCI <em>Solid</em>-threshold indexing rule across fixed uncensored 365-, 450-, and 540-day "
-                f"windows on v1 <em>Incomplete</em> manuscripts: 450-day full Subject-FE DiD is {100*p450['beta']:+.2f} pp (<em>p</em><sub>WCB</sub> = {p450.get('p_wcb', 0):.3f}; "
-                f"donut excluding 2024Q3: {100*p450_d['beta']:+.2f} pp, <em>p</em> = {p450_d['p']:.2f}), confirming intrinsic scientific norms sustain revision."
+                f"among <em>n</em> = {t_inc['n_total']} initially <em>Incomplete/Inadequate</em> v1 preprints, {t_inc['n_vor']} ({t_inc['pct_vor']:.1f}%) convert to VoR "
+                f"and {t_inc['n_vor_upgraded']} upgrade their Strength of Evidence ({t_inc['pct_all_upgraded_vor']:.1f}% of all {t_inc['n_total']} v1 preprints; "
+                f"{t_inc['pct_vor_upgraded']:.1f}% of converted VoRs; {t_inc['n_vor_upgraded_to_solid']} crossing to <em>Solid+</em>, i.e., {t_inc['pct_all_upgraded_to_solid']:.1f}% of all v1 / {t_inc['pct_vor_upgraded_to_solid']:.1f}% of VoRs) "
+                f"over a mean {t_inc['mean_rev_lag_up']:.1f}-day calendar interval between v1 posting and VoR publication. "
+                f"Panel B plots nonparametric Kaplan&ndash;Meier VoR conversion and Aalen&ndash;Johansen competing-risks cumulative incidence across all v1 <em>Incomplete</em> preprints "
+                f"comparing Pre-ESCI (v1 &lt; Oct 1, 2024; <em>n</em> = {p4['pillar1_esci_solid_cliff']['km_competing_risks']['cohorts']['pre_esci_lt_2024_10_01']['n']}) against "
+                f"Post-ESCI (v1 &ge; Dec 19, 2024; <em>n</em> = {p4['pillar1_esci_solid_cliff']['km_competing_risks']['cohorts']['post_esci_ge_2024_12_19']['n']}, excluding the Oct 1&ndash;Dec 18, 2024 transition donut and handling right-censoring transparently). "
+                f"Unconditional Subject-FE ITT estimates across all v1 <em>Incomplete</em> preprints show lower fixed-horizon VoR conversion "
+                f"({100*p365_vor['beta']:+.2f} pp at 365d, <em>p</em><sub>WCB</sub> = {p365_vor['p_wcb']:.3f}; {100*p450_vor['beta']:+.2f} pp at 450d, <em>p</em><sub>WCB</sub> = {p450_vor['p_wcb']:.3f}), "
+                f"no surge in unconditional <em>Solid+</em> upgrades ({100*p365_up['beta']:+.2f} pp at 365d; {100*p450_up['beta']:+.2f} pp at 450d), "
+                f"and a {aj450['cif_unrev_pct']['diff_pp']:+.2f} pp reduction in unrevised &lt;<em>Solid</em> VoRs at 450d (<em>p</em> = {aj450['cif_unrev_pct']['p']:.4f}); "
+                f"conditioning on post-treatment VoR conversion shifts 450d <em>Solid+</em> shares descriptively by {100*p450_cond['beta']:+.2f} pp (<em>p</em><sub>WCB</sub> = {p450_cond['p_wcb']:.3f})."
             ),
         ),
         "fig2_evaluation_market_paradox.png": (
-            "Figure 2. First-Impression v1 Gradient, VoR-Date Autopsy, and Zero Sustained Upgrade Payoff vs. Version-Release Traffic.",
+            "Figure 2. First-Impression v1 Gradient, VoR-Date Autopsy, and Modest/Null Badge Upgrade Payoff vs. Version-Release Traffic.",
             (
                 f"Panel A contrasts Subject-clustered (<em>G</em> = {p4['pillar2_v1_gradient_and_autopsy']['vor_true_v1_oa_post_ppml']['G']}) PPML estimates across mature VoRs inside FE "
                 f"(<em>N</em> = {p4['pillar2_v1_gradient_and_autopsy']['vor_true_v1_oa_post_ppml']['n']:,}): "
@@ -73,8 +84,10 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
                 f"while live <em>eLife</em> page-views respond primarily to headline v1 <em>Significance</em> ({g_pv_sig['pct']:+.1f}%, <em>p</em> = {g_pv_sig['p']:.4f}). "
                 f"Panel B reports Subject-clustered upgrade effects within v1 <em>Incomplete</em> VoRs (<em>N</em> = {u_inc['ppml_oa_post_v1']['n']:,} total; "
                 f"<em>N</em> = {u_inc['ols_did_log_pv_rate_clean']['n']:,} untruncated v1 &ge; 2023-11 monthly; <em>N</em> = {u_inc['ev_pv_m0']['n']:,} local VoR event study): "
-                f"upgrading to <em>Solid+</em> yields zero sustained gain in citations ({u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct']:+.1f}%, "
-                f"<em>p</em> = {u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['p']:.3f}), untruncated monthly rate DiD "
+                f"upgrading to <em>Solid+</em> yields no statistically significant gain in post-v1 OpenAlex citations ({u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct']:+.1f}%, "
+                f"95% CI [{u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct_ci95_lo']:+.1f}%, {u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct_ci95_hi']:+.1f}%], "
+                f"<em>p</em> = {u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['p']:.3f}; TOST &plusmn;20% <em>p</em> = {u_inc['tost']['ppml_oa_post_v1']['tost_pm20']:.4f}, "
+                f"&plusmn;15% <em>p</em> = {u_inc['tost']['ppml_oa_post_v1']['tost_pm15']:.4f}), untruncated monthly rate DiD "
                 f"({u_inc['ols_did_log_pv_rate_clean']['params']['str_upgraded_to_solid']['beta']:+.3f}, <em>p</em><sub>WCB</sub> = {u_inc['ols_did_log_pv_rate_clean']['params']['str_upgraded_to_solid'].get('p_wcb', 0):.3f}), "
                 f"or local VoR post-months 1&ndash;6 ({u_inc['ev_pv_p16']['params']['str_upgraded_to_solid']['beta']:+.3f}, <em>p</em><sub>WCB</sub> = {u_inc['ev_pv_p16']['params']['str_upgraded_to_solid'].get('p_wcb', 0):.3f}), "
                 f"with an identical VoR month-0 spike ({ev_raw['dlog_pv_ev_m0']['upgraded_mean']:+.2f} vs. {ev_raw['dlog_pv_ev_m0']['unchanged_mean']:+.2f}); "
@@ -85,39 +98,40 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
             ),
         ),
         "fig3_clarivate_two_margin_cushioning.png": (
-            "Figure 3. Clarivate October 24, 2024 Delisting Shock: Submission Velocity Collapse and Two-Margin Editorial Cushioning.",
+            "Figure 3. Clarivate October 24, 2024 Delisting Shock: Sequential Submission Velocity and Editorial Peer-Review Acceptance.",
             (
                 f"Panel A tracks implied quarterly submissions from sequential manuscript ID velocity calibrated against <em>N</em> = {ed['n_sfr_sample']} "
                 f"exact <code>sentForReview</code> timestamps (Spearman <em>r</em> = {ed['spearman_eid_sfr_r']:.4f}), documenting a {ed['vel_drop_pct']:.1f}% "
-                f"intake contraction ({ed['pre_vel_mean_subs_q']:,.0f} &rarr; {ed['post_vel_mean_subs_q']:,.0f}/qtr). Panel B plots peer-review acceptance across "
+                f"intake contraction ({ed['pre_vel_mean_subs_q']:,.0f} &rarr; {ed['post_vel_mean_subs_q']:,.0f}/qtr), aligning closely with <em>eLife</em>&rsquo;s "
+                f"published full-year submission drop (6,396 &rarr; 2,853, &minus;55.4%; Rodgers &amp; Pattinson, 2026; Behrens et al., 2026). Panel B plots peer-review acceptance across "
                 f"{len(ed['blocks_500'])} sequential 500-<code>eid</code> blocks (<code>eid</code> 87.5k&ndash;112k): acceptance jumped discontinuously from "
                 f"{ed['acc_pre_mean_pct']:.2f}% to {ed['acc_post_mean_pct']:.2f}% ({ed['acc_jump_pp']:+.2f} pp, HAC <em>t</em> = {ed['acc_jump_hac_t']:+.2f}, "
                 f"Perm <em>p</em> = {ed['acc_jump_perm_p']:.4f}, Sup-Wald <em>F</em> = {ed['sup_wald_best_F_hac']:.1f}) while v1 <em>Incomplete</em> quality "
-                f"remained completely invariant ({100*v1_inc_q['beta']:+.2f} pp, <em>p</em> = {v1_inc_q['p']:.3f})."
+                f"remained invariant ({100*v1_inc_q['beta']:+.2f} pp, <em>p</em> = {v1_inc_q['p']:.3f})."
             ),
         ),
         "fig4_expanded_synthetic_control.png": (
-            f"Figure 4. Expanded {sc_cn_f['n_units']}-Journal Strict (&amp; {sc_cn_35['n_units']}-Journal Expanded) Abadie&ndash;Diamond&ndash;Hainmueller Synthetic Control and Event Study.",
+            f"Figure 4. Published-Output Expanded {sc_cn_f['n_units']}-Journal Strict (&amp; {sc_cn_35['n_units']}-Journal Expanded) Abadie&ndash;Diamond&ndash;Hainmueller Synthetic Control and Event Study.",
             (
-                f"Panel A displays exact in-space placebo gap trajectories for China output (<code>log_n_CN</code>) under Full-Pre (<em>T</em><sub>0</sub> = 7) "
+                f"Panel A displays exact in-space placebo gap trajectories for China-affiliated published output (<code>log_n_CN</code>) under Full-Pre (<em>T</em><sub>0</sub> = 7) "
                 f"strictly convex ADH Synthetic Control across all <em>N</em> = {sc_cn_f['n_units']} strict (&ge;90% true country coverage every half-year) peer biology journals: "
                 f"<em>eLife</em> diverges sharply post-delisting ({sc_cn_f['treated']['post_mean_gap']:+.3f} log pts, RMSPE Rank {sc_cn_f['rmspe_ratio_rank_of_N']}/{sc_cn_f['n_units']}, "
                 f"<em>p</em> = {sc_cn_f['p_rmspe_ratio']:.4f}; Clarivate <em>T</em><sub>0</sub> = 3 gap {sc_cn_c['treated']['post_mean_gap']:+.3f}, Rank {sc_cn_c['rmspe_ratio_rank_of_N']}/{sc_cn_c['n_units']}; "
                 f"Expanded <em>N</em> = {sc_cn_35['n_units']} Rank {sc_cn_35['rmspe_ratio_rank_of_N']}/{sc_cn_35['n_units']}, <em>p</em> = {sc_cn_35['p_rmspe_ratio']:.4f}). "
-                f"Panel B plots half-yearly DiD event-study paths (base 2022H2) exposing the two-phase inverted-V China surge ({es_cn_24h2:+.2f} log pts by 2024H2) and post-Clarivate collapse "
-                f"alongside Total Volume Clarivate SC ({sc_all_c['treated']['post_mean_gap']:+.3f}, Rank {sc_all_c['rmspe_ratio_rank_of_N']}/{sc_all_c['n_units']}, "
+                f"Panel B plots half-yearly published-output DiD event-study paths (base 2022H2) exposing the two-phase inverted-V China surge ({es_cn_24h2:+.2f} log pts by 2024H2) and post-Clarivate collapse "
+                f"alongside Total Published-Output Clarivate SC ({sc_all_c['treated']['post_mean_gap']:+.3f}, Rank {sc_all_c['rmspe_ratio_rank_of_N']}/{sc_all_c['n_units']}, "
                 f"<em>p</em> = {sc_all_c['p_rmspe_ratio']:.4f}; Expanded Rank {sc_all_35['rmspe_ratio_rank_of_N']}/{sc_all_35['n_units']}, <em>p</em> = {sc_all_35['p_rmspe_ratio']:.4f})."
             ),
         ),
         "fig5_asymmetric_global_jif_dependence.png": (
-            "Figure 5. Two-Phase Asymmetric Global Impact-Factor Dependence: Senior-PI Geography and 12-Nation Regime Test.",
+            "Figure 5. Asymmetric Geographic Shifts: Senior-PI Shares and 12-Nation Policy-Label Groupings (3 JIF-Codified vs. 7 DORA-Reformed).",
             (
                 f"Panel A tracks Senior/Last-Author PI shares inside <em>eLife</em> PRC (2023H2&ndash;2026H1): China surged to {pi['2024H2']['pi_CN_pct']:.1f}% "
-                f"before crashing overnight to {pi['2025H1']['pi_CN_pct']:.1f}% in 2025H1 while US Senior-PI share held flat ({pi['2024H2']['pi_US_pct']:.1f}% "
-                f"&rarr; {pi['2026H1']['pi_US_pct']:.1f}%). Panel B ranks Phase-2 Clarivate DiD output shifts across 12 major research nations: JIF-codified "
-                f"systems (CN, ES, IT; mean {reg['jif_mean_p2_pct']:+.1f}%) contracted {reg['jif_mean_p2_pct'] - reg['dora_mean_p2_pct']:.1f} pp more "
-                f"severely than DORA-reformed systems (7 nations; mean {reg['dora_mean_p2_pct']:+.1f}%, exact permutation <em>p</em> = "
-                f"{reg['exact_comb_perm_p_1sided']:.4f}), tracking <em>eLife</em>&rsquo;s March 2026 official submission drops "
+                f"before dropping to {pi['2025H1']['pi_CN_pct']:.1f}% in 2025H1 while US Senior-PI share held steady ({pi['2024H2']['pi_US_pct']:.1f}% "
+                f"&rarr; {pi['2026H1']['pi_US_pct']:.1f}%). Panel B ranks Phase-2 Clarivate published-output DiD shifts across 12 major research nations: "
+                f"in a small-sample policy-label comparison, 3 JIF-codified systems (CN, ES, IT; mean {reg['jif_mean_p2_pct']:+.1f}%) contracted {reg['jif_mean_p2_pct'] - reg['dora_mean_p2_pct']:.1f} pp more "
+                f"severely than 7 DORA-reformed systems (GB, FR, US, CH, NL, DE, CA; mean {reg['dora_mean_p2_pct']:+.1f}%, exact permutation <em>p</em> = "
+                f"{reg['exact_comb_perm_p_1sided']:.4f}), tracking <em>eLife</em>&rsquo;s published country-level submission drops "
                 f"(<em>N</em> = {ext['n_countries']}, Spearman <em>&rho;</em> = {ext['spearman_rho']:.3f}, <em>p</em> = {ext['spearman_p']:.3f})."
             ),
         ),
@@ -156,6 +170,7 @@ def _tex_to_html(expr: str) -> str:
         (r"\mathbf{", "<b>", "</b>"),
         (r"\boldsymbol{", "<b>", "</b>"),
         (r"\hat{", "", "&#770;"),
+        (r"\widehat{", "", "&#770;"),
         (r"\bar{", "", "&#772;"),
         (r"\overline{", "", "&#772;"),
         (r"\tilde{", "", "&#771;"),
@@ -441,7 +456,7 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
       size: letter;
       margin: 0.65in 0.65in 0.72in 0.65in;
       @top-right {
-        content: "Intrinsic Revision Norms & Asymmetric Impact-Factor Dependence (eLife PRC, 2021–2026)";
+        content: "Voluntary Revision & Asymmetric Impact-Factor Dependence (eLife PRC, 2021–2026)";
         font-family: Georgia, "Times New Roman", serif;
         font-size: 7.3pt;
         color: #555;

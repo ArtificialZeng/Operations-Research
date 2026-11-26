@@ -141,6 +141,7 @@ def build_sha256_manifest() -> dict[str, str]:
     for fname in [
         "manuscript_h6f_boost.md",
         "manuscript_h6f_boost.pdf",
+        "REFEREE_RESPONSE_v2.md",
         "VERIFICATION_MANIFEST.md",
         "README.md",
         "STATUS.md",
@@ -188,8 +189,13 @@ def write_verification_manifest(refs: dict[str, dict]) -> None:
     v1a = p3["v1_panel_audit"]
     jpa = p3["journal_panel_audit"]
     t_inc = p4["pillar1_transition_mature"]["v1_Incomp_Inad"]
-    e450 = p4["pillar1_esci_solid_cliff"]["win_450d"]
-    p_esci = e450["fe_up_among_vors"]["params"]["post_esci"]
+    e365 = p4["pillar1_esci_solid_cliff"]["fixed_windows"]["win_365d"]["primary_dec19_donut"]
+    e450 = p4["pillar1_esci_solid_cliff"]["fixed_windows"]["win_450d"]["primary_dec19_donut"]
+    p365_vor = e365["itt_vor_win"]["params"]["post_esci"]
+    p365_up = e365["itt_up_solid_win"]["params"]["post_esci"]
+    p450_vor = e450["itt_vor_win"]["params"]["post_esci"]
+    p450_up = e450["itt_up_solid_win"]["params"]["post_esci"]
+    aj450 = p4["pillar1_esci_solid_cliff"]["km_competing_risks"]["contrast_dec19_vs_pre_donut"]["contrasts"]["t450"]
     g_oa = p4["pillar2_v1_gradient_and_autopsy"]["vor_true_v1_oa_post_ppml"]["params"]["v1_incomp_d"]
     g_oa_f = p4["pillar2_v1_gradient_and_autopsy"]["vor_flawed_vor_oa_post_ppml"]["params"]["fin_incomp_d"]
     g_pv_sig = p4["pillar2_v1_gradient_and_autopsy"]["vor_true_v1_pv_ppml"]["params"]["v1_sig_imp"]
@@ -204,11 +210,11 @@ def write_verification_manifest(refs: dict[str, dict]) -> None:
 
     n_refs_ok = sum(1 for v in refs.values() if v.get("http_status") == 200)
 
-    md = f"""# VERIFICATION MANIFEST — H6f `/boost` Flagship Build
+    md = f"""# VERIFICATION MANIFEST — H6f `/boost` Flagship Build (v2 Major Revision)
 
-**Project:** Intrinsic Revision Norms and Asymmetric Impact-Factor Dependence: Causal Evidence from the *eLife* Publish-Review-Curate Experiment and Clarivate's 2024 Delisting, 2021–2026
+**Project:** Voluntary Revision and Asymmetric Impact-Factor Dependence: Evidence from the *eLife* Publish-Review-Curate Experiment and Clarivate's 2024 Delisting, 2021–2026
 **Workspace:** `D:\\AI_Science\\antigravity\\h6f_boost_elife_prc_clarivate_20261126`
-**Build Date:** 2026-11-26
+**Build Date:** 2026-11-26 (v2 Referee Revision)
 
 ## 1. Data Completeness & Alignment Invariants
 
@@ -223,25 +229,27 @@ def write_verification_manifest(refs: dict[str, dict]) -> None:
 
 | Pillar | Estimator / Specification | Verified Estimate | Inference |
 | :--- | :--- | ---: | :--- |
-| **P1: Revision Norms** | `v1_Incomplete` VoR conversion & upgrade share | `{t_inc['pct_vor']:.1f}%` VoR; `{t_inc['pct_vor_upgraded']:.1f}%` any (`{t_inc['pct_vor_upgraded_to_solid']:.1f}%` Solid+) | Mean lag `{t_inc['mean_rev_lag_up']:.1f}` days (`N = {t_inc['n_total']}`) |
-| **P1: ESCI Solid-Cliff** | Fixed 450d Subject-FE DiD (`Post` vs `Pre` ESCI) | `{100*p_esci['beta']:+.2f}` pp | `SE = {100*p_esci['se']:.2f}`, `t = {p_esci['t']:+.2f}`, `p = {p_esci['p']:.4f}`, `p_WCB = {p_esci.get('p_wcb', 0):.4f}` |
+| **P1: Revision Funnel** | `v1_Incomplete` (`N={t_inc['n_total']}`) -> VoR (`{t_inc['n_vor']}`) -> Upgraded (`{t_inc['n_vor_upgraded']}`) | `{t_inc['pct_vor']:.1f}%` VoR; `{t_inc['pct_all_upgraded_vor']:.1f}%` of all `v1` (`{t_inc['pct_vor_upgraded']:.1f}%` of VoRs; `{t_inc['pct_all_upgraded_to_solid']:.1f}%` / `{t_inc['pct_vor_upgraded_to_solid']:.1f}%` Solid+) | Mean `v1`-to-VoR calendar interval `{t_inc['mean_rev_lag_up']:.1f}` d |
+| **P1: ESCI Unconditional ITT (365d)** | `v1 >= 2024-12-19` vs `< 2024-10-01` (Oct–Dec 18 donut excl.) | VoR `{100*p365_vor['beta']:+.2f}` pp; Solid+ `{100*p365_up['beta']:+.2f}` pp | `p_WCB = {p365_vor['p_wcb']:.4f}` (VoR) / `{p365_up['p_wcb']:.4f}` (Solid+) |
+| **P1: ESCI Unconditional ITT (450d)** | `v1 >= 2024-12-19` vs `< 2024-10-01` (Oct–Dec 18 donut excl.) | VoR `{100*p450_vor['beta']:+.2f}` pp; Solid+ `{100*p450_up['beta']:+.2f}` pp | `p_WCB = {p450_vor['p_wcb']:.4f}` (VoR) / `{p450_up['p_wcb']:.4f}` (Solid+) |
+| **P1: KM/AJ Competing Risks (450d)** | All `v1_Incomplete` (`Pre n=807` vs `Post n=733`, right-censoring handled) | KM VoR `{aj450['km_vor_pct']['diff_pp']:+.2f}` pp; Solid+ `{aj450['cif_solid_pct']['diff_pp']:+.2f}` pp; Unrev `<Solid` `{aj450['cif_unrev_pct']['diff_pp']:+.2f}` pp | Boot `p = {aj450['km_vor_pct']['p']:.4f}` / `{aj450['cif_solid_pct']['p']:.4f}` / `{aj450['cif_unrev_pct']['p']:.4f}` |
 | **P2: First-Impression Stigma** | True `v1_Incomplete` -> Post-`v1` OA Cites (PPML, `G=18`) | `{g_oa['pct']:+.2f}%` (`beta={g_oa['beta']:+.4f}`) | `t = {g_oa['t']:+.2f}`, `p = {g_oa['p']:.2e}` |
 | **P2: VoR-Date Autopsy** | Flawed `VoR`-date `fin_Incomplete` -> OA Cites (PPML) | `{g_oa_f['pct']:+.2f}%` (`beta={g_oa_f['beta']:+.4f}`) | `t = {g_oa_f['t']:+.2f}`, `p = {g_oa_f['p']:.4f}` (erased!) |
 | **P2: Reader Salience (`v1`)** | True `v1_Sig_Important` -> eLife Page-Views (PPML, `G=18`) | `{g_pv_sig['pct']:+.2f}%` (`beta={g_pv_sig['beta']:+.4f}`) | `t = {g_pv_sig['t']:+.2f}`, `p = {g_pv_sig['p']:.4f}` |
-| **P2: Upgrade -> OA Cites** | Within `v1_Incomplete` VoRs: `Solid+` vs `Unchanged` (PPML, `G=18`) | `{u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct']:+.2f}%` | `t = {u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['t']:+.2f}`, `p = {u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['p']:.4f}`, TOST `±20% p = {u_inc['tost']['ppml_oa_post_v1']['tost_pm20']:.4f}` |
+| **P2: Upgrade -> OA Cites** | Within `v1_Incomplete` VoRs: `Solid+` vs `Unchanged` (PPML, `G=18`) | `{u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct']:+.2f}%` (95% CI `[{u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct_ci95_lo']:+.1f}%, {u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['pct_ci95_hi']:+.1f}%]`) | `p = {u_inc['ppml_oa_post_v1']['params']['str_upgraded_to_solid']['p']:.4f}`, TOST `±20% p = {u_inc['tost']['ppml_oa_post_v1']['tost_pm20']:.4f}`, `±15% p = {u_inc['tost']['ppml_oa_post_v1']['tost_pm15']:.4f}` |
 | **P2: Upgrade -> Clean Views DiD** | Untruncated `v1 >= 2023-11` Monthly Rate DiD (`N={u_inc['ols_did_log_pv_rate_clean']['n']}`, `G=18`) | `{u_inc['ols_did_log_pv_rate_clean']['params']['str_upgraded_to_solid']['beta']:+.4f}` log | `t = {u_inc['ols_did_log_pv_rate_clean']['params']['str_upgraded_to_solid']['t']:+.2f}`, `p_WCB = {u_inc['ols_did_log_pv_rate_clean']['params']['str_upgraded_to_solid']['p_wcb']:.4f}`, TOST `±15% p = {u_inc['tost']['ols_did_log_pv_rate_clean']['tost_pm15']:.4f}` |
 | **P2: Local VoR Event Study** | Month `t=0` / Post `t=+1..+6` Views DiD (`N={u_inc['ev_pv_m0']['n']}`, `G=17`) | `{u_inc['ev_pv_m0']['params']['str_upgraded_to_solid']['beta']:+.4f}` / `{u_inc['ev_pv_p16']['params']['str_upgraded_to_solid']['beta']:+.4f}` | `p_WCB = {u_inc['ev_pv_m0']['params']['str_upgraded_to_solid']['p_wcb']:.4f}` / `{u_inc['ev_pv_p16']['params']['str_upgraded_to_solid']['p_wcb']:.4f}` (uniform VoR spike `{u_inc['ev_raw_summary']['dlog_pv_ev_m0']['upgraded_mean']:+.2f}` vs `{u_inc['ev_raw_summary']['dlog_pv_ev_m0']['unchanged_mean']:+.2f}`) |
 | **P2: Version-Release Effect** | Per Extra Published Version (`cr_n_versions`, M`12–21`, `G=18`) | `{u_inc['traj_dlog_pv_12_21_ctrl_ver']['params']['cr_n_versions']['beta']:+.4f}` log | `t = {u_inc['traj_dlog_pv_12_21_ctrl_ver']['params']['cr_n_versions']['t']:+.2f}`, `p = {u_inc['traj_dlog_pv_12_21_ctrl_ver']['params']['cr_n_versions']['p']:.4f}` |
-| **P3: Editorial Cushioning** | 500-`eid` Acceptance Rate Jump (`eid >= {ed['clarivate_bp_eid_used']:,}`) | `{ed['acc_pre_mean_pct']:.2f}% -> {ed['acc_post_mean_pct']:.2f}%` (`{ed['acc_jump_pp']:+.2f}` pp) | `HAC t = {ed['acc_jump_hac_t']:+.2f}`, `Perm p = {ed['acc_jump_perm_p']:.4f}`, `Sup-Wald F = {ed['sup_wald_best_F_hac']:.2f}` |
-| **P3: Expanded SC (`log_n_all`)** | Unique Min-L2 ADH SC (`25H1–26H1` vs `23H2–24H2`) | `{sc_all['treated']['post_mean_gap']:+.4f}` (`N=30`) / `{sc_all35['treated']['post_mean_gap']:+.4f}` (`N=35`) | Rank `{sc_all['rmspe_ratio_rank_of_N']}/30` (`p = {sc_all['p_rmspe_ratio']:.4f}`); Exp35 Rank `{sc_all35['rmspe_ratio_rank_of_N']}/35` (`p = {sc_all35['p_rmspe_ratio']:.4f}`) |
-| **P3: Expanded SC (`log_n_CN`)** | Unique Min-L2 ADH SC China Output (`25H1–26H1`) | `{sc_cn['treated']['post_mean_gap']:+.4f}` (`N=30`) / `{sc_cn35['treated']['post_mean_gap']:+.4f}` (`N=35`) | Rank `{sc_cn['rmspe_ratio_rank_of_N']}/30` (`p = {sc_cn['p_rmspe_ratio']:.4f}`); Exp35 Rank `{sc_cn35['rmspe_ratio_rank_of_N']}/35` (`p = {sc_cn35['p_rmspe_ratio']:.4f}`) |
-| **P4: Blog Cross-Validation** | OpenAlex Phase-2 DiD vs *eLife* March 2026 Blog (`N={ext['n_countries']}`) | Spearman `rho = {ext['spearman_rho']:.4f}` | `p = {ext['spearman_p']:.4f}` (Pearson `r = {ext['pearson_r']:.4f}`) |
-| **P4: JIF vs DORA Regimes** | JIF-Codified (`CN,IT,ES`) vs DORA-Reformed (7 nations) | `{reg['jif_mean_p2_pct']:+.1f}%` vs `{reg['dora_mean_p2_pct']:+.1f}%` | Exact Perm 1-sided `p = {reg['exact_comb_perm_p_1sided']:.4f}` (2-sided `p = {reg['exact_comb_perm_p_2sided']:.4f}`) |
+| **P3: Submission Velocity & Editorial Cushioning** | Sequential `eid` Velocity (`-56.3%`, cf. official `6,396->2,853`, `-55.4%`) & 500-`eid` Acceptance Jump | `{ed['acc_pre_mean_pct']:.2f}% -> {ed['acc_post_mean_pct']:.2f}%` (`{ed['acc_jump_pp']:+.2f}` pp) | `HAC t = {ed['acc_jump_hac_t']:+.2f}`, `Perm p = {ed['acc_jump_perm_p']:.4f}`, `Sup-Wald F = {ed['sup_wald_best_F_hac']:.2f}` |
+| **P3: Published-Output SC (`log_n_all`)** | Unique Min-L2 ADH SC (`25H1–26H1` vs `23H2–24H2`) | `{sc_all['treated']['post_mean_gap']:+.4f}` (`N=30`) / `{sc_all35['treated']['post_mean_gap']:+.4f}` (`N=35`) | Rank `{sc_all['rmspe_ratio_rank_of_N']}/30` (`p = {sc_all['p_rmspe_ratio']:.4f}`); Exp35 Rank `{sc_all35['rmspe_ratio_rank_of_N']}/35` (`p = {sc_all35['p_rmspe_ratio']:.4f}`) |
+| **P3: Published-Output SC (`log_n_CN`)** | Unique Min-L2 ADH SC China-Affiliated Output (`25H1–26H1`) | `{sc_cn['treated']['post_mean_gap']:+.4f}` (`N=30`) / `{sc_cn35['treated']['post_mean_gap']:+.4f}` (`N=35`) | Rank `{sc_cn['rmspe_ratio_rank_of_N']}/30` (`p = {sc_cn['p_rmspe_ratio']:.4f}`); Exp35 Rank `{sc_cn35['rmspe_ratio_rank_of_N']}/35` (`p = {sc_cn35['p_rmspe_ratio']:.4f}`) |
+| **P4: Blog Cross-Validation** | OpenAlex Phase-2 Published-Output DiD vs *eLife* Mar 2026 Blog Submissions (`N={ext['n_countries']}`) | Spearman `rho = {ext['spearman_rho']:.4f}` | `p = {ext['spearman_p']:.4f}` (Pearson `r = {ext['pearson_r']:.4f}`) |
+| **P4: Policy-Label Groupings** | `3` JIF-Codified (`CN,IT,ES`) vs `7` DORA-Reformed country groups | `{reg['jif_mean_p2_pct']:+.1f}%` vs `{reg['dora_mean_p2_pct']:+.1f}%` (`-21.2` pp) | Exact Perm 1-sided `p = {reg['exact_comb_perm_p_1sided']:.4f}` (2-sided `p = {reg['exact_comb_perm_p_2sided']:.4f}`) |
 
 ## 3. Reproducibility & Gate Checklist
 
 - `ruff check scripts tests`: **0 errors**
-- `pytest -v tests/test_h6f_boost.py`: **100% passing** (including non-nested LSDV WCB equivalence, rolling-window anti-truncation guard, SC uniqueness, GLM convergence, full Table 1–4 CSV/JSON parity, co-occurring body citation parity, zero-leak PDF, and live disk SHA-256)
+- `pytest -v tests/test_h6f_boost.py`: **100% passing** (including `2024-12-19` ESCI alignment + transition donut + unconditional ITT & KM/AJ CIF parity, dual `66.8%`/`81.2%` denominators, citation TOST `±15%` & `±20%` reporting, non-nested LSDV WCB equivalence, rolling-window anti-truncation guard, SC uniqueness, GLM convergence, full Table 1–4 CSV/JSON parity, co-occurring body citation parity, zero-leak PDF, and live disk SHA-256)
 - `manuscript_h6f_boost.pdf`: **0 leaked LaTeX/Markdown tokens**, visually verified across pages
 - `SHA256SUMS.json`: **100% exact match** with live disk `Path.read_bytes()`
 """

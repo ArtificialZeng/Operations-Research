@@ -59,11 +59,17 @@ def save_both(fig: plt.Figure, stem: str) -> None:
 
 
 def make_fig1(p4: dict) -> None:
-    """Figure 1: True v1 -> VoR Revision Architecture & Clarivate ESCI Solid-Threshold Experiment."""
+    """Figure 1: True v1 -> VoR Revision Architecture & Post-ESCI (Dec 19, 2024) Unconditional CIF/ITT."""
     trans = p4["pillar1_transition_mature"]
     esci = p4["pillar1_esci_solid_cliff"]
+    km = esci["km_competing_risks"]
+    pre_c = km["cohorts"]["pre_esci_lt_2024_10_01"]
+    post_c = km["cohorts"]["post_esci_ge_2024_12_19"]
+    c_aj = km["contrast_dec19_vs_pre_donut"]["contrasts"]
+    w365 = esci["fixed_windows"]["win_365d"]["primary_dec19_donut"]
+    w450 = esci["fixed_windows"]["win_450d"]["primary_dec19_donut"]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.6, 4.5), gridspec_kw={"width_ratios": [1.15, 1.0]})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.2, 4.8), gridspec_kw={"width_ratios": [1.08, 1.12]})
 
     # Panel A: 100% stacked bar breakdown of v1 strength cohorts (N=2,653 mature)
     order = [
@@ -90,68 +96,68 @@ def make_fig1(p4: dict) -> None:
     for i, (k, _) in enumerate(order):
         r = trans[k]
         if up_a[i] >= 12:
-            ax1.text(up_a[i] / 2, y_pos[i], f"{up_a[i]:.1f}%", ha="center", va="center", color="white", fontweight="bold", fontsize=8.3)
+            ax1.text(up_a[i] / 2, y_pos[i], f"{up_a[i]:.1f}%", ha="center", va="center", color="white", fontweight="bold", fontsize=8.1)
         if un_a[i] >= 12:
-            ax1.text(up_a[i] + un_a[i] / 2, y_pos[i], f"{un_a[i]:.1f}%", ha="center", va="center", color="white", fontweight="bold", fontsize=8.3)
+            ax1.text(up_a[i] + un_a[i] / 2, y_pos[i], f"{un_a[i]:.1f}%", ha="center", va="center", color="white", fontweight="bold", fontsize=8.1)
         if rp_a[i] >= 9:
-            ax1.text(up_a[i] + un_a[i] + rp_a[i] / 2, y_pos[i], f"{rp_a[i]:.1f}%", ha="center", va="center", color="#1E293B", fontsize=7.8)
+            ax1.text(up_a[i] + un_a[i] + rp_a[i] / 2, y_pos[i], f"{rp_a[i]:.1f}%", ha="center", va="center", color="#1E293B", fontsize=7.6)
         ax1.text(
             101.5, y_pos[i],
-            f"n={r['n_total']}\nUp/VoR: {r['pct_vor_upgraded']:.1f}%\nLag: {r['mean_rev_lag_up']:.0f}d",
-            va="center", ha="left", fontsize=7.5, color="#1E293B",
+            f"n={r['n_total']} | Up/All: {r['pct_all_upgraded_vor']:.1f}%\nUp/VoR: {r['pct_vor_upgraded']:.1f}% | Δt: {r['mean_rev_lag_up']:.0f}d",
+            va="center", ha="left", fontsize=7.2, color="#1E293B",
         )
 
     ax1.set_yticks(y_pos)
     ax1.set_yticklabels([lbl for _, lbl in order], fontweight="bold")
     ax1.invert_yaxis()
-    ax1.set_xlim(0, 128)
+    ax1.set_xlim(0, 140)
     ax1.set_xticks([0, 20, 40, 60, 80, 100])
     ax1.set_xlabel("Share of Mature 2023–2024 v1 Cohort (%)")
     ax1.set_title("A. Longitudinal v1 → VoR Outcomes (N = 2,653)")
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
-    ax1.legend(loc="lower center", bbox_to_anchor=(0.42, -0.27), ncol=2, frameon=True)
+    ax1.legend(loc="upper center", bbox_to_anchor=(0.45, -0.17), ncol=2, frameon=True, fontsize=7.5)
 
-    # Panel B: Clarivate Dec 2024 ESCI Solid-Threshold Natural Experiment (365d, 450d, 540d)
-    wins = ["win_365d", "win_450d", "win_540d"]
-    w_lbls = ["365-Day\nWindow", "450-Day\n(Primary)", "540-Day\nWindow"]
-    x = np.arange(len(wins))
-    w = 0.30
-    pre_vals = [esci[wk]["pre_up_among_vor_pct"] for wk in wins]
-    post_vals = [esci[wk]["post_up_among_vor_pct"] for wk in wins]
+    # Panel B: Unconditional Competing-Risks Cumulative Incidence (KM VoR, AJ Solid+, AJ Unrevised <Solid)
+    # Aligned strictly to v1 >= Dec 19, 2024 vs Pre < Oct 1, 2024 (Oct-Dec 18 transition donut excluded)
+    days = [pt["days"] for pt in pre_c["curve"]]
+    ax2.plot(days, [pt["km_vor_pct"] for pt in pre_c["curve"]], color=NAVY, lw=2.2, ls="-", label=f"Pre (<Oct 2024, n={pre_c['n']}): Any VoR (KM)")
+    ax2.plot(days, [pt["km_vor_pct"] for pt in post_c["curve"]], color=NAVY, lw=2.2, ls="--", label=f"Post (≥Dec 19, n={post_c['n']}): Any VoR (KM)")
+    ax2.plot(days, [pt["cif_solid_pct"] for pt in pre_c["curve"]], color=TEAL, lw=2.1, ls="-", label="Pre: Upgraded Solid+ VoR (AJ CIF)")
+    ax2.plot(days, [pt["cif_solid_pct"] for pt in post_c["curve"]], color=TEAL, lw=2.1, ls="--", label="Post: Upgraded Solid+ VoR (AJ CIF)")
+    ax2.plot(days, [pt["cif_unrev_pct"] for pt in pre_c["curve"]], color=CRIMSON, lw=2.0, ls="-", label="Pre: Unrevised <Solid VoR (AJ CIF)")
+    ax2.plot(days, [pt["cif_unrev_pct"] for pt in post_c["curve"]], color=CRIMSON, lw=2.0, ls="--", label="Post: Unrevised <Solid VoR (AJ CIF)")
 
-    b1 = ax2.bar(x - w / 2, pre_vals, width=w, color=NAVY, label="Pre-ESCI (2023Q2–2024Q2)")
-    b2 = ax2.bar(x + w / 2, post_vals, width=w, color=CRIMSON, label="Post-ESCI (2024Q4–2025Q2)")
+    ax2.axvline(365, color="#94A3B8", ls=":", lw=1.0)
+    ax2.axvline(450, color="#94A3B8", ls=":", lw=1.0)
+    ax2.text(369, 24.5, "365d", fontsize=7.3, color="#475569", fontweight="bold")
+    ax2.text(454, 24.5, "450d", fontsize=7.3, color="#475569", fontweight="bold")
 
-    for rect in list(b1) + list(b2):
-        val = rect.get_height()
-        ax2.text(rect.get_x() + rect.get_width() / 2, val + 1.4, f"{val:.1f}%", ha="center", va="bottom", fontsize=7.8, fontweight="bold")
+    p365_vor = w365["itt_vor_win"]["params"]["post_esci"]
+    p365_up = w365["itt_up_solid_win"]["params"]["post_esci"]
+    p450_vor = w450["itt_vor_win"]["params"]["post_esci"]
+    p450_up = w450["itt_up_solid_win"]["params"]["post_esci"]
+    aj450_unr = c_aj["t450"]["cif_unrev_pct"]
 
-    # Annotate exact Donut Subject-FE DiD matching Pre (2023Q2-2024Q2) vs Post (2024Q4-2025Q2) bars
-    for i, wk in enumerate(wins):
-        p_did = esci[wk]["fe_up_among_vors_donut"]["params"]["post_esci"]
-        ax2.text(
-            x[i], 13.0,
-            f"Donut FE:\n{100*p_did['beta']:+.2f} pp\n(p={p_did['p']:.2f})",
-            ha="center", va="center", fontsize=7.5,
-            bbox={"boxstyle": "round,pad=0.25", "facecolor": BG_TINT, "edgecolor": "#94A3B8", "lw": 0.7},
-        )
+    ax2.text(
+        0.02, 0.98,
+        f"Unconditional ITT (≥Dec 19 vs. Pre; Oct–Dec 18 Donut Excl.):\n"
+        f"• 365d (n={w365['itt_vor_win']['n']:,}): VoR {100*p365_vor['beta']:+.2f} pp ($p_{{\\mathrm{{WCB}}}}$={p365_vor['p_wcb']:.3f}) | Solid+ {100*p365_up['beta']:+.2f} pp ($p_{{\\mathrm{{WCB}}}}$={p365_up['p_wcb']:.3f})\n"
+        f"• 450d (n={w450['itt_vor_win']['n']:,}): VoR {100*p450_vor['beta']:+.2f} pp ($p_{{\\mathrm{{WCB}}}}$={p450_vor['p_wcb']:.3f}) | Solid+ {100*p450_up['beta']:+.2f} pp ($p_{{\\mathrm{{WCB}}}}$={p450_up['p_wcb']:.3f})\n"
+        f"• 450d AJ Unrev. <Solid CIF: {aj450_unr['pre_pct']:.1f}% → {aj450_unr['post_pct']:.1f}% ({aj450_unr['diff_pp']:+.2f} pp, p={aj450_unr['p']:.4f})",
+        transform=ax2.transAxes, ha="left", va="top", fontsize=6.5, color="#0F172A", zorder=10,
+        bbox={"boxstyle": "round,pad=0.28", "facecolor": BG_TINT, "edgecolor": "#94A3B8", "lw": 0.75, "alpha": 0.97},
+    )
 
-    p450 = esci["win_450d"]["fe_up_among_vors"]["params"]["post_esci"]
-    ax2.set_ylim(0, 104)
-    ax2.set_xticks(x)
-    ax2.set_xticklabels(w_lbls, fontweight="bold")
-    ax2.set_ylabel("Upgraded to Solid+ Among VoRs (%)")
-    ax2.set_title("B. Clarivate ESCI Solid-Cliff Test (v1 Incomplete)")
+    ax2.set_xlim(0, 545)
+    ax2.set_ylim(0, 90)
+    ax2.set_xticks([0, 90, 180, 270, 365, 450, 540])
+    ax2.set_xlabel("Calendar Days Since v1 Reviewed Preprint Posting")
+    ax2.set_ylabel("Cumulative Incidence Across All v1 Incomplete (%)")
+    ax2.set_title("B. Post-ESCI (≥Dec 19, 2024) Unconditional CIF & ITT")
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
-    ax2.legend(loc="lower center", bbox_to_anchor=(0.50, -0.27), ncol=1, frameon=True)
-    ax2.text(
-        0.50, 0.94,
-        f"450d Full Subject-FE DiD = {100*p450['beta']:+.2f} pp ($p_{{\\mathrm{{WCB}}}}$ = {p450.get('p_wcb', 0):.3f})",
-        transform=ax2.transAxes, ha="center", va="top", fontsize=8.0, color=NAVY, fontweight="bold",
-        bbox={"boxstyle": "round,pad=0.28", "facecolor": "#FEF3C7", "edgecolor": AMBER, "lw": 0.8},
-    )
+    ax2.legend(loc="upper center", bbox_to_anchor=(0.48, -0.17), ncol=2, frameon=True, fontsize=6.9)
 
     fig.tight_layout()
     save_both(fig, "fig1_transition_and_esci_norms")
@@ -228,7 +234,7 @@ def make_fig2(p4: dict) -> None:
     ax2.invert_yaxis()
     ax2.set_xlim(-0.30, 0.78)
     ax2.set_xlabel("Log-Point Effect (95% CI, Subject-Clustered G = 17–18)")
-    ax2.set_title("B. Zero Sustained Upgrade Payoff vs. Version-Release Traffic")
+    ax2.set_title("B. Modest/Null Badge Upgrade Payoff vs. Version-Release Traffic")
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
     ax2.text(
@@ -369,7 +375,7 @@ def make_fig4(p5: dict) -> None:
     ax1.set_xticklabels(pers_cn, rotation=32, ha="right")
     ax1.set_ylim(-1.60, 0.95)
     ax1.set_ylabel("Synthetic Control Gap: log(China Articles) − Synthetic")
-    ax1.set_title("A. ADH Synthetic Control Placebo Fan: China Output (N = 30)")
+    ax1.set_title("A. Published-Output ADH SC Placebo Fan: China (N = 30)")
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
     ax1.legend(loc="upper left", fontsize=7.6)
@@ -495,23 +501,23 @@ def make_fig5(p5: dict) -> None:
     ax2.set_yticklabels([f"{r['country_name']} ({r['country_code']})" for _, r in c_df.iterrows()], fontsize=8.0, fontweight="bold")
     ax2.set_xlim(-110, 4)
     ax2.set_ylim(-0.7, 13.7)
-    ax2.set_xlabel("Phase-2 Clarivate DiD Output Change vs. Clean Peer Journals (%)")
-    ax2.set_title("B. 12-Nation JIF-Dependence Spectrum & Regime Test")
+    ax2.set_xlabel("Phase-2 Clarivate Published-Output DiD vs. Peer Journals (%)")
+    ax2.set_title("B. 12-Nation Policy-Label Groupings (3 JIF vs. 7 DORA)")
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
 
     from matplotlib.patches import Patch
     handles = [
-        Patch(facecolor=CRIMSON, edgecolor="#1E293B", label=f"JIF-Codified (CN, ES, IT): mean {reg['jif_mean_p2_pct']:+.1f}%"),
-        Patch(facecolor=NAVY, edgecolor="#1E293B", label=f"DORA-Reformed (7 nations): mean {reg['dora_mean_p2_pct']:+.1f}%"),
-        Patch(facecolor=AMBER, edgecolor="#1E293B", label="Mixed / Other (IN, JP)"),
+        Patch(facecolor=CRIMSON, edgecolor="#1E293B", label=f"3 JIF-Codified (CN, ES, IT): mean {reg['jif_mean_p2_pct']:+.1f}%"),
+        Patch(facecolor=NAVY, edgecolor="#1E293B", label=f"7 DORA-Reformed (GB, FR, US, CH, NL, DE, CA): mean {reg['dora_mean_p2_pct']:+.1f}%"),
+        Patch(facecolor=AMBER, edgecolor="#1E293B", label="2 Mixed / Other (IN, JP)"),
     ]
-    ax2.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.48, -0.15), ncol=1, fontsize=7.4)
+    ax2.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.48, -0.15), ncol=1, fontsize=7.2)
     ax2.text(
-        0.50, 0.98,
-        f"JIF vs. DORA Perm p = {reg['exact_comb_perm_p_1sided']:.4f}  |  vs. eLife Blog (N={ext['n_countries']}): Spearman ρ = {ext['spearman_rho']:.3f} (p = {ext['spearman_p']:.3f})",
-        transform=ax2.transAxes, va="top", ha="center", fontsize=6.9, color="#0F172A", fontweight="bold",
-        bbox={"boxstyle": "round,pad=0.25", "facecolor": "#FEF3C7", "edgecolor": AMBER, "lw": 0.8},
+        0.47, 0.98,
+        f"3 JIF vs. 7 DORA Perm p = {reg['exact_comb_perm_p_1sided']:.4f}  |  vs. eLife Blog Subs (N={ext['n_countries']}): Spearman ρ = {ext['spearman_rho']:.3f} (p = {ext['spearman_p']:.3f})",
+        transform=ax2.transAxes, va="top", ha="center", fontsize=6.5, color="#0F172A", fontweight="bold",
+        bbox={"boxstyle": "round,pad=0.24", "facecolor": "#FEF3C7", "edgecolor": AMBER, "lw": 0.8},
     )
 
     fig.tight_layout()
