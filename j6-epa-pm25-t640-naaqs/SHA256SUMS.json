@@ -1,16 +1,21 @@
 {
   "workspace": "D:\\AI_Science\\antigravity\\j6_boost_epa_pm25_t640_naaqs_20261126",
-  "n_files": 30,
+  "n_files": 31,
   "files": {
     "manuscript_j6_boost.md": {
-      "sha256": "107ad15e6c8e4173d4fe8b346cfe6babbeecb94ba38193187c0fe223a54424ed",
-      "bytes": 67998,
+      "sha256": "cdae3746c64282db0ec8f0c73e2999382456d7dcdd053ef03beaafd4bf0d4afa",
+      "bytes": 79717,
       "mode": "lf_text"
     },
     "manuscript_j6_boost.pdf": {
-      "sha256": "e20c3f51732440a1e295e9edcfcd8f432e5bccc2f024dd87cd330a06d7e8bad8",
-      "bytes": 2968704,
+      "sha256": "ab21018625f2825cc6e90384a96b8786d9229a52deb979df74aebe53a5876ecf",
+      "bytes": 3155543,
       "mode": "raw_binary"
+    },
+    "REFEREE_RESPONSE_v2.md": {
+      "sha256": "07a540ab0db666adcce98a9b817524d5c96c811baa0ee58de85b8c691b2e380a",
+      "bytes": 11626,
+      "mode": "lf_text"
     },
     "scripts/00_download_external_enrichments.py": {
       "sha256": "83dd9afd5962464e50d14e291606e99455afc43995f15ff2d7eb1b2ce33ccf10",
@@ -28,8 +33,8 @@
       "mode": "lf_text"
     },
     "scripts/03_ee_triage_and_hms_unification.py": {
-      "sha256": "c2318a63d462af09d54634324fa12bcbaf5bb8630fd2e4a9760b2f963da6e2eb",
-      "bytes": 46627,
+      "sha256": "ca36eed746a8e88c70c962cc3c1c2f61567561d50ee1d9e69979ba4a03e34cdd",
+      "bytes": 53820,
       "mode": "lf_text"
     },
     "scripts/04_formal_metrology_model.py": {
@@ -38,8 +43,8 @@
       "mode": "lf_text"
     },
     "scripts/06_generate_figures.py": {
-      "sha256": "45ee28ce819031cde7d85ad2740d7c2a81c5b247f170fdb788a7a22643995a5d",
-      "bytes": 41716,
+      "sha256": "89d7d305324a59fa043508a4f51b7ade0ec2e93750ff49096c2802b9af983b6a",
+      "bytes": 42594,
       "mode": "lf_text"
     },
     "scripts/07_verify_citations.py": {
@@ -48,18 +53,18 @@
       "mode": "lf_text"
     },
     "scripts/07a_generate_manuscript_md.py": {
-      "sha256": "f864587ca337e063b7fa0d7375e24a8b2629a835e9ea590a56f8c7db1fb6fd44",
-      "bytes": 109279,
+      "sha256": "cc48c8e863d333c9a9f46fcdc6b8137683c601c7036b0158cafc11c79fdbeb58",
+      "bytes": 125106,
       "mode": "lf_text"
     },
     "scripts/08_compile_manuscript_pdf.py": {
-      "sha256": "036334ac88b7341e338c382c7bab3fdd55e0635e1b4d0f49bffed6e2e9328c33",
-      "bytes": 35279,
+      "sha256": "69e03058b7a3b809fda0b50b7a08e0e755ede119c7e0dc9c1b0716a6c44ae99d",
+      "bytes": 36255,
       "mode": "lf_text"
     },
     "scripts/09_generate_checksums.py": {
-      "sha256": "76edbdd494eb11857ea6f233fa47e77a91cc7b6da872a0f7a9ac616db0a5f639",
-      "bytes": 1882,
+      "sha256": "37d9c88291630f44eb11c25395e1dc83c960b406e0efd176c017921947a84ee9",
+      "bytes": 1925,
       "mode": "lf_text"
     },
     "scripts/econ_utils.py": {
@@ -68,8 +73,8 @@
       "mode": "lf_text"
     },
     "tests/test_j6_boost.py": {
-      "sha256": "c38fa861dc60d00ebb5eb2b8f217a555069d5ec8d7874135fa3060bcc272e706",
-      "bytes": 20853,
+      "sha256": "56b5f99177f3cb63726a726db4e13b4a84b44ed243d678f80aece2209ba850a5",
+      "bytes": 25923,
       "mode": "lf_text"
     },
     "results/00_enrichment_audit.json": {
@@ -88,8 +93,8 @@
       "mode": "lf_text"
     },
     "results/03_ee_triage_hms_unification.json": {
-      "sha256": "f57b6621193887fa3aeeba56d86052a627c94eca77e8493458dfad5ada0184f8",
-      "bytes": 418587,
+      "sha256": "05c1db746c0fb99c752793304288a0ccefc662753991f5785a1fd886dfd19211",
+      "bytes": 447074,
       "mode": "lf_text"
     },
     "results/04_formal_model_verification.json": {
@@ -103,18 +108,18 @@
       "mode": "lf_text"
     },
     "figures/fig1_t640_windfall_and_ej_map.png": {
-      "sha256": "02893de4a38c2d6d4f7053192210a13d1b1375697c70ff31ccc9a0d48649e13b",
-      "bytes": 368606,
+      "sha256": "dd0a9a60efb32d16278251a135c539ae667de94eace3e1e4e8b3036e4bb9a05b",
+      "bytes": 381225,
       "mode": "raw_binary"
     },
     "figures/fig2_rooftop_lottery_and_regional_bias.png": {
-      "sha256": "edcf2f132b1fb30d353a2c51238704f25903958890c14dd0ab19ad175cad3d8e",
-      "bytes": 414609,
+      "sha256": "b3ef716685e59bf6082f23b956cb1407372531b1331c4571e2c03c57d2e17a58",
+      "bytes": 418281,
       "mode": "raw_binary"
     },
     "figures/fig3_zero_eiv_smoke_and_speciation_physics.png": {
-      "sha256": "9c980bb392cbdec75dd659fc98d169d68109c59c65af97d900f0ae99bd5db61e",
-      "bytes": 411900,
+      "sha256": "158ec5b3bfe3f2c716c3bc0d5e077b2f8b94d7959343284ed3e33c224351ae4a",
+      "bytes": 410720,
       "mode": "raw_binary"
     },
     "figures/fig4_ee_triage_event_study_and_decomposition.png": {
@@ -123,33 +128,33 @@
       "mode": "raw_binary"
     },
     "figures/fig5_optical_to_flagging_multiplier.png": {
-      "sha256": "9b87f55bcb4965f0fbcc2d26815ffacc57fa07a6c7ab153231e05a19f449555c",
-      "bytes": 513681,
+      "sha256": "acba4469b643b2e987e19cfe8e213c07f311d4e49a622a72afabad216c1c5243",
+      "bytes": 552467,
       "mode": "raw_binary"
     },
     "figures/fig1_t640_windfall_and_ej_map.pdf": {
-      "sha256": "1ef023d9d355bc51c0c571caf0fb0e3008cc8148d275e6ee7bbdcf34ce78d9d0",
-      "bytes": 61990,
+      "sha256": "bedd35d52434c2eb08e0365d773c88e5561e20082a16a334e9ed27b25ff072ab",
+      "bytes": 62532,
       "mode": "raw_binary"
     },
     "figures/fig2_rooftop_lottery_and_regional_bias.pdf": {
-      "sha256": "7619025e764d60d2c72c347919d28735474499f580f4995fe2ec41df7bfc8199",
-      "bytes": 47416,
+      "sha256": "938f30183beed010d939d495a6caeb559fa14535980b87ff5021dcb8179016a8",
+      "bytes": 47454,
       "mode": "raw_binary"
     },
     "figures/fig3_zero_eiv_smoke_and_speciation_physics.pdf": {
-      "sha256": "f8482ba171d188820fb2bf8bd8b99563424c06b327ffd1e244082b740f04d4b6",
-      "bytes": 55708,
+      "sha256": "0ec010575309c0971cff327286352857270fe84bf7a83e91b49b98b7513b581d",
+      "bytes": 55641,
       "mode": "raw_binary"
     },
     "figures/fig4_ee_triage_event_study_and_decomposition.pdf": {
-      "sha256": "8f426ce050a272f708100db6320d0cc81c1d947bfb9d9ad34a8d596028445451",
+      "sha256": "f8c8154fe8ddc9e5024a8303b68b5553cd1d52173bd32142b933b62715e08d88",
       "bytes": 65721,
       "mode": "raw_binary"
     },
     "figures/fig5_optical_to_flagging_multiplier.pdf": {
-      "sha256": "facb88242fb45e5e5e85b62338a8972d86b5b3de803cdb51769b35f1582cc6bf",
-      "bytes": 68542,
+      "sha256": "0b56ba4fb7723fa76f9c64485dc28aab555df75f409873aa64d38b28004f0a70",
+      "bytes": 64190,
       "mode": "raw_binary"
     }
   }

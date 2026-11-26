@@ -67,14 +67,18 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
     s2_t = sp_t["model_s2_interactions_level_site_cr1"]
     s1_b = sp_b["model_s1_spec_met_level_site_cr1"]
     u1_t_hms = r2["unification_u1_exceedance_multiplier"]["t640_fw"]["hms_heavy_smoke"]["gt_35_naaqs24h"]
-    u1_t_oth = r2["unification_u1_exceedance_multiplier"]["t640_fw"]["other_site_ge25"]["gt_35_naaqs24h"]
     u1_b_hms = r2["unification_u1_exceedance_multiplier"]["bam"]["hms_heavy_smoke"]["gt_35_naaqs24h"]
+    u1h = r3["unification_u1_historical_tier1_1822"]
+    u1h_t_hms = u1h["t640_fw"]["hms_heavy_smoke"]["gt_tier1_min_p98_35"]
+    u1h_t_all = u1h["t640_fw"]["all_paired_days"]["gt_tier1_min_p98_35"]
+    u1h_b_hms = u1h["bam"]["hms_heavy_smoke"]["gt_tier1_min_p98_35"]
 
     m3 = r3["monitor_year_dv1820_85_115"]
     c3 = r3["county_year_dv1820_85_115"]
     ri = r3["within_state_ri_B1000"]
     iu = r3["inverted_u_profile_dv1820"]["monitor_year_county_cr1"]["coefs"]
     u2 = r3["unification_u2_t640_ee_flagging"]
+    u2_wcy = u2["borderline_within_county_year_fe_flag"]
 
     pct_t_oth = 100.0 * (math.exp(smk_t["inst1_other_site_logratio_site_cr1"]["coefs"]["oth_ge25"]["beta"]) - 1.0)
     pct_t_hms = 100.0 * (math.exp(smk_t["inst3_noaa_hms_logratio_site_cr1"]["coefs"]["hms_h"]["beta"]) - 1.0)
@@ -86,12 +90,14 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
         abs(rt_t["t_bias"]),
         abs(s1_t["coefs"]["oc"]["t_cr1"]),
         abs(smk_t["inst1_other_site_level_site_cr1"]["coefs"]["oth_ge25"]["t_cr1"]),
+        abs(u1h_t_hms["t_site_cr1"]),
         abs(u1_t_hms["t_site_cr1"]),
         abs(u2["borderline_2225_t640_x_hms_heavy_flag"]["coefs"]["t640_x_hms_h"]["t_cr1"]),
         abs(m3["true_ee_flag"]["did_2225_state_cr1"]["coefs"]["tp_2225"]["t_cr1"]),
         abs(m3["unconc_flag"]["did_2225_state_cr1"]["coefs"]["tp_2225"]["t_cr1"]),
     ]
     null_ts = [
+        abs(u2_wcy["coefs"]["is_t640_f"]["t_cr1"]),
         abs(smk_b["inst1_other_site_level_site_cr1"]["coefs"]["oth_ge25"]["t_cr1"]),
         abs(nulls["margin_d_frm_exog_dv1820_county_cr1"]["coefs"]["tp"]["t_cr1"]),
         abs(nulls["margin_a_share_fem_exog_dv1820"]["coefs"]["tp"]["t_cr1"]),
@@ -100,6 +106,7 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
         abs(c3["true_ee_conc"]["event_study_county_cr1"]["coefs"]["nb_2025"]["t_cr1"]),
     ]
     null_ps = [
+        u2_wcy["wcb"]["p_wcb"],
         smk_b["inst1_other_site_level_site_cr1"]["wcb"]["p_wcb"],
         nulls["margin_d_frm_exog_dv1820_county_cr1"]["wcb"]["p_wcb"],
         nulls["margin_a_share_fem_exog_dv1820"]["wcb"]["p_wcb"],
@@ -110,32 +117,33 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
 
     return {
         "fig1_t640_windfall_and_ej_map.png": (
-            "Figure 1. Stitched 40 CFR Part 50 Appendix N Nonattainment Waterfall, Official EPA Reconciliation, and Regional &amp; Demographic Audit.",
+            "Figure 1. Stitched 40 CFR Part 50 Appendix N Monitor Design-Value Threshold Waterfall (&ge; 9.1 &mu;g/m<sup>3</sup>), Official EPA Reconciliation, and Regional &amp; Demographic Audit.",
             (
-                f"Panel A traces county nonattainment counts (&ge; 9.1 &mu;g/m<sup>3</sup>) and affected U.S. populations across the "
-                f"{cs11['n_counties_matched_2123']} matched Combined-Site regulatory counties: EPA&rsquo;s May 2024 T640 software alignment "
-                f"alone drops 2021&ndash;2023 nonattainment from {wf21['raw_2123']['counties']} ({wf21['raw_2123']['pop_millions']:.2f}M) to "
-                f"{wf21['aln_2123']['counties']} ({wf21['aln_2123']['pop_millions']:.2f}M)&mdash;flipping {wf21['flip_t640_alone']['counties']} "
-                f"counties ({wf21['flip_t640_alone']['pop_millions']:.2f}M residents)&mdash;with diamonds overlaying official EPA published "
-                f"Table 4a counts ({epa21['epa_na_counties']} in 2021&ndash;2023 [{epa21['overlap_epa_with_cs_reg_incl']}/"
+                f"Panel A traces counties exceeding the 9.0 &mu;g/m<sup>3</sup> monitor Design-Value threshold (DV &ge; 9.1 &mu;g/m<sup>3</sup>) "
+                f"and affected U.S. populations across the {cs11['n_counties_matched_2123']} matched Combined-Site regulatory counties: EPA&rsquo;s "
+                f"May 2024 T640 software alignment alone lowers 2021&ndash;2023 counts from {wf21['raw_2123']['counties']} "
+                f"({wf21['raw_2123']['pop_millions']:.2f}M) to {wf21['aln_2123']['counties']} ({wf21['aln_2123']['pop_millions']:.2f}M)&mdash;producing "
+                f"{wf21['flip_t640_alone']['counties']} monitor Design-Value threshold reclassifications ({wf21['flip_t640_alone']['pop_millions']:.2f}M "
+                f"residents; distinct from formal Clean Air Act &sect; 107(d) 5-factor legal designations)&mdash;with diamonds overlaying official EPA "
+                f"published Table 4a counts ({epa21['epa_na_counties']} in 2021&ndash;2023 [{epa21['overlap_epa_with_cs_reg_incl']}/"
                 f"{epa21['combined_site_reg_na_incl']} = {prec_21:.1f}% precision], {epa22['epa_na_counties']} in 2022&ndash;2024, "
                 f"{epa23['epa_na_counties']} in 2023&ndash;2025). Panel B displays the geographic and Census SAIPE 2023 / PEP 2024 "
                 f"demographic audit: {g_fl['region_counts'].get('MW',0)+g_fl['region_counts'].get('SO',0)+g_fl['region_counts'].get('NE',0)}/"
-                f"{g_fl['n_counties']} T640-flipped counties lie outside the West ({ej_t['Flipped_vs_Still_Nonattainment']['midwest_south_share']['flipped_pct']:.1f}% "
-                f"MW+SO vs. {ej_t['Flipped_vs_Still_Nonattainment']['midwest_south_share']['comp_pct']:.1f}% Still-NA, Fisher <em>p</em> = "
+                f"{g_fl['n_counties']} DV-reclassified counties lie outside the West ({ej_t['Flipped_vs_Still_Nonattainment']['midwest_south_share']['flipped_pct']:.1f}% "
+                f"MW+SO vs. {ej_t['Flipped_vs_Still_Nonattainment']['midwest_south_share']['comp_pct']:.1f}% still &ge;9.1, Fisher <em>p</em> = "
                 f"{ej_t['Flipped_vs_Still_Nonattainment']['midwest_south_share']['fisher_p']:.3f}), with significantly higher Black resident shares "
-                f"than cleanly attaining counties ({g_fl['unweighted_means']['pct_black_nh']:.1f}% vs. {g_cl['unweighted_means']['pct_black_nh']:.1f}%, "
+                f"than cleanly &le;9.0 counties ({g_fl['unweighted_means']['pct_black_nh']:.1f}% vs. {g_cl['unweighted_means']['pct_black_nh']:.1f}%, "
                 f"Welch <em>p</em> = {ej_t['Flipped_vs_Cleanly_Attaining']['pct_black_nh']['welch_p']:.3f}) while heavily Hispanic Western basins "
-                f"remain in nonattainment ({g_st['unweighted_means']['pct_hispanic']:.1f}% vs. {g_fl['unweighted_means']['pct_hispanic']:.1f}%)."
+                f"remain &ge;9.1 &mu;g/m<sup>3</sup> ({g_st['unweighted_means']['pct_hispanic']:.1f}% vs. {g_fl['unweighted_means']['pct_hispanic']:.1f}%)."
             ),
         ),
         "fig2_rooftop_lottery_and_regional_bias.png": (
-            "Figure 2. Same-Rooftop 2023&ndash;2025 Statutory Nonattainment Lottery and Regional &amp; Seasonal Optical Bias Gradient.",
+            "Figure 2. Same-Rooftop 2023&ndash;2025 Design-Value Threshold Classification Lottery and Regional &amp; Seasonal Optical Bias Gradient.",
             (
                 f"Panel A scatters paired-day 2023&ndash;2025 Appendix N Design Values for post-alignment firmware T640_FW (636/638) against "
                 f"collocated gravimetric FRMs across {rt_t['n_sites']} rooftops (mean DV bias +{rt_t['mean_dv_bias']:.3f} &mu;g/m<sup>3</sup>, "
-                f"<em>t</em> = {rt_t['t_bias']:+.2f}, <em>p</em> = {_fmt_p_html(rt_t['p_bias'])}): {rt_t['fem_na_frm_att']} rooftops violate "
-                f"9.0 &mu;g/m<sup>3</sup> on T640_FW while attaining on FRM two meters away versus only {rt_t['frm_na_fem_att']} in reverse "
+                f"<em>t</em> = {rt_t['t_bias']:+.2f}, <em>p</em> = {_fmt_p_html(rt_t['p_bias'])}): {rt_t['fem_na_frm_att']} rooftops exceed "
+                f"9.0 &mu;g/m<sup>3</sup> on T640_FW while remaining &le;9.0 on collocated FRM two meters away versus only {rt_t['frm_na_fem_att']} in reverse "
                 f"({rt_t['odds_ratio_lottery']:.1f}:1, exact binomial <em>p</em> = {_fmt_p_html(rt_t['binom_p'])}; strict 4q&times;3y stitched "
                 f"{rt_t_st['fem_na_frm_att']} vs. {rt_t_st['frm_na_fem_att']}, <em>p</em> = {_fmt_p_html(rt_t_st['binom_p'])}; BAM "
                 f"{rt_b['fem_na_frm_att']} vs. {rt_b['frm_na_fem_att']}, <em>p</em> = {rt_b['binom_p']:.3f}). Panel B compares Site-clustered "
@@ -146,20 +154,21 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
             ),
         ),
         "fig3_zero_eiv_smoke_and_speciation_physics.png": (
-            "Figure 3. Strictly Zero-EIV Nonlinear Wildfire Smoke Amplification and Direct EPA Chemical Speciation &amp; Hygroscopicity Physics.",
+            "Figure 3. EIV-Robust Nonlinear Wildfire Smoke Amplification and Observational EPA Chemical Speciation &amp; Hygroscopicity Associations.",
             (
-                f"Panel A compares daily (FEM &minus; FRM) bias across three EIV-free smoke instruments (Site FE + Month FE, 95% Site CR1 CIs): "
-                f"post-alignment T640_FW explodes by +{smk_t['inst1_other_site_level_site_cr1']['coefs']['oth_ge25']['beta']:.2f} &mu;g/m<sup>3</sup> "
+                f"Panel A compares daily (FEM &minus; FRM) bias across EIV-robust smoke instruments (Site FE + Month FE, 95% Site CR1 CIs): "
+                f"post-alignment T640_FW rises +{smk_t['inst1_other_site_level_site_cr1']['coefs']['oth_ge25']['beta']:.2f} &mu;g/m<sup>3</sup> "
                 f"(+{pct_t_oth:.1f}%, <em>p</em><sub>WCB</sub> = {smk_t['inst1_other_site_level_site_cr1']['wcb']['p_wcb']:.3f}) on independent "
                 f"other-site &ge;25 &mu;g/m<sup>3</sup> days, +{smk_t['inst2_bland_altman_level_site_cr1']['coefs']['ba_ge25']['beta']:.2f} on "
-                f"Bland-Altman &ge;25, and +{smk_t['inst3_noaa_hms_level_site_cr1']['coefs']['hms_h']['beta']:.2f} (+{pct_t_hms:.1f}%, "
+                f"Bland-Altman &ge;25 diagnostics, and +{smk_t['inst3_noaa_hms_level_site_cr1']['coefs']['hms_h']['beta']:.2f} (+{pct_t_hms:.1f}%, "
                 f"<em>t</em> = {smk_t['inst3_noaa_hms_level_site_cr1']['coefs']['hms_h']['t_cr1']:+.2f}) under external satellite NOAA HMS Heavy "
                 f"plumes, whereas BAM stays flat on other-site &ge;25 ({smk_b['inst1_other_site_level_site_cr1']['coefs']['oth_ge25']['beta']:+.2f}, "
-                f"<em>p</em><sub>WCB</sub> = {smk_b['inst1_other_site_level_site_cr1']['wcb']['p_wcb']:.3f}). Panel B plots Site+Month FE chemical "
-                f"speciation and meteorology slopes ({s1_t['n']:,} T640_FW vs. {s1_b['n']:,} BAM paired days): T640_FW over-responds to light-scattering "
-                f"Organic Carbon (+{s1_t['coefs']['oc']['beta']:.3f}, <em>t</em> = {s1_t['coefs']['oc']['t_cr1']:+.2f}; +{s2_t['coefs']['oc_x_hms_h']['beta']:.3f} "
-                f"more under HMS Heavy smoke) and RH (+{s1_t['coefs']['rh_10']['beta']:.3f} per +10%, <em>t</em> = {s1_t['coefs']['rh_10']['t_cr1']:+.2f}) "
-                f"while under-reading light-absorbing Elemental Carbon ({s1_t['coefs']['ec']['beta']:+.3f}, <em>t</em> = {s1_t['coefs']['ec']['t_cr1']:+.2f}); "
+                f"<em>p</em><sub>WCB</sub> = {smk_b['inst1_other_site_level_site_cr1']['wcb']['p_wcb']:.3f}). Panel B plots observational Site+Month FE "
+                f"speciation and meteorology associations ({s1_t['n']:,} T640_FW vs. {s1_b['n']:,} BAM paired days) consistent with Mie optical theory "
+                f"and Long, Urbanski, &amp; Lincoln (2023): T640_FW covaries positively with Organic Carbon (+{s1_t['coefs']['oc']['beta']:.3f}, "
+                f"<em>t</em> = {s1_t['coefs']['oc']['t_cr1']:+.2f}; +{s2_t['coefs']['oc_x_hms_h']['beta']:.3f} additional under HMS Heavy) and RH "
+                f"(+{s1_t['coefs']['rh_10']['beta']:.3f} per +10%, <em>t</em> = {s1_t['coefs']['rh_10']['t_cr1']:+.2f}) and negatively with "
+                f"light-absorbing Elemental Carbon ({s1_t['coefs']['ec']['beta']:+.3f}, <em>t</em> = {s1_t['coefs']['ec']['t_cr1']:+.2f}); "
                 f"BAM is null on OC/EC and negative on RH and semi-volatile NO<sub>3</sub><sup>&minus;</sup>."
             ),
         ),
@@ -173,9 +182,9 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
                 f"{c3['true_ee_flag']['did_2225_state_cr1']['wcb']['p_wcb']:.3f}, RI <em>p</em> = {ri['county_year']['p_ri_2sided']:.4f}) into "
                 f"Unconcurred Precautionary Flags (amber; pre-<em>F</em> <em>p</em> = {c3['unconc_flag']['event_study_county_cr1']['joint_F']['p']:.3f}) "
                 f"and True EPA-Concurred Exclusions (teal; joint pre-<em>F</em> <em>p</em> = "
-                f"{c3['true_ee_conc']['event_study_county_cr1']['joint_F']['p']:.3f}), displaying both the 2023 designation-window peak "
-                f"(+{100*c3['true_ee_flag']['event_study_county_cr1']['coefs']['nb_2023']['beta']:.1f} pp) and honest 2024&ndash;2025 EPA-concurred nulls. "
-                f"Panel B traces the Monitor-Year inverted-U across pre-rule DV<sub>18&ndash;20</sub> bins (ref &lt;7.0): "
+                f"{c3['true_ee_conc']['event_study_county_cr1']['joint_F']['p']:.3f}), displaying the anticipatory 2022&ndash;2023 peak "
+                f"(+{100*c3['true_ee_flag']['event_study_county_cr1']['coefs']['nb_2023']['beta']:.1f} pp prior to the Feb 2024 final rule) and honest "
+                f"2024&ndash;2025 EPA-concurred nulls. Panel B traces the Monitor-Year inverted-U across pre-rule DV<sub>18&ndash;20</sub> bins (ref &lt;7.0): "
                 f"7.0&ndash;8.5 ({100*iu['b_70_85']['beta']:+.2f} pp), 8.5&ndash;9.5 (+{100*iu['b_85_95']['beta']:.2f} pp), "
                 f"9.5&ndash;11.5 (+{100*iu['b_95_115']['beta']:.2f} pp), and &gt;11.5 (+{100*iu['b_gt115']['beta']:.2f} pp), with inset "
                 f"Monitor-Year headline +{100*m3['true_ee_flag']['did_2225_state_cr1']['coefs']['tp_2225']['beta']:.2f} pp "
@@ -184,23 +193,24 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
             ),
         ),
         "fig5_optical_to_flagging_multiplier.png": (
-            "Figure 5. Unifying Optical Physics and 40 CFR &sect; 50.14 Triage: Exceedance Trigger Doubling (U1 &amp; U2) and Master Empirical Audit Across Verified Effects vs. Clean Honest Nulls.",
+            "Figure 5. Same-Rooftop Screening Divergence Under NOAA HMS Heavy Smoke (U1: 24-Hr Level-Equivalent &amp; EPA Tier-1 5-Year Historical p98) and Master Audit of Verified Effects vs. Clean Honest Nulls.",
             (
-                f"Panel A (Tests U1 &amp; U2) plots collocated same-rooftop &gt;35 &mu;g/m<sup>3</sup> daily exceedance rates: under satellite NOAA HMS Heavy "
-                f"smoke, post-alignment T640_FW triggers {u1_t_hms['trigger_multiplier_ratio']:.2f}&times; more federal exceedances than collocated FRMs "
+                f"Panel A (Causal Core Test U1) compares same-rooftop exceedance rates on satellite NOAA HMS Heavy smoke days across two distinct "
+                f"benchmarks: (i) 24-hr NAAQS level-equivalent daily exceedances (&gt;35 &mu;g/m<sup>3</sup>), where T640_FW doubles FRM exceedances "
                 f"({u1_t_hms['fem_exceed_n']} vs. {u1_t_hms['frm_exceed_n']}, {u1_t_hms['fem_only_discordant']} vs. {u1_t_hms['frm_only_discordant']} "
-                f"discordant days, exact McNemar <em>p</em> = {_fmt_p_html(u1_t_hms['mcnemar_exact_p'])}; other-site &ge;25: "
-                f"{u1_t_oth['trigger_multiplier_ratio']:.2f}&times;, {u1_t_oth['fem_only_discordant']} vs. {u1_t_oth['frm_only_discordant']}, "
-                f"<em>p</em> = {_fmt_p_html(u1_t_oth['mcnemar_exact_p'])}), while BAM is dead zero (HMS Heavy <em>p</em> = {u1_b_hms['mcnemar_exact_p']:.3f}). "
-                f"Inset summarizes Test U2 (State&times;Year FE + satellite HMS controls inside DV<sub>18&ndash;20</sub> [8.5, 11.5], 2022&ndash;2025): "
-                f"T640 &times; log(HMS Heavy) raises EE flagging by +{100*u2['borderline_2225_t640_x_hms_heavy_flag']['coefs']['t640_x_hms_h']['beta']:.2f} pp "
-                f"(<em>t</em> = {u2['borderline_2225_t640_x_hms_heavy_flag']['coefs']['t640_x_hms_h']['t_cr1']:+.2f}, <em>p</em><sub>WCB</sub> = "
-                f"{u2['borderline_2225_t640_x_hms_heavy_flag']['wcb']['p_wcb']:.3f}) and T640 claims "
-                f"+{u2['borderline_2225_state_yr_fe_ee_red']['coefs']['is_t640_f']['beta']:.3f} &mu;g/m<sup>3</sup> larger annual EE exclusions "
-                f"(<em>p</em><sub>WCB</sub> = {u2['borderline_2225_state_yr_fe_ee_red']['wcb']['p_wcb']:.3f}); see Table 5 for Test U3 satellite strata. "
-                f"Panel B presents the unified Master Audit forest of cluster-robust <em>t</em>-statistics across all 14 core tests, contrasting all eight "
-                f"verified optical and regulatory effects (|<em>t</em>| = {min(eff_ts):.1f}&ndash;{max(eff_ts):.1f}) directly against all six clean honest nulls "
-                f"(pure BAM 170/209 smoke bias, Margin D FRM, Margin A switching, Margin C monitor survival, Fake-Rule Placebo, and 2025 concurred EE flow; "
+                f"discordant days, exact McNemar <em>p</em> = {_fmt_p_html(u1_t_hms['mcnemar_exact_p'])}; BAM <em>p</em> = {u1_b_hms['mcnemar_exact_p']:.3f}); "
+                f"and (ii) EPA&rsquo;s Wildfire Tier-1 5-year historical (2018&ndash;2022) FRM 98th-percentile criterion min(<em>p</em><sub>98,18&ndash;22</sub>, 35), "
+                f"where T640_FW reaches {u1h_t_hms['trigger_multiplier_ratio']:.2f}&times; ({u1h_t_hms['fem_exceed_n']} vs. {u1h_t_hms['frm_exceed_n']}, "
+                f"{u1h_t_hms['fem_only_discordant']} vs. {u1h_t_hms['frm_only_discordant']} discordant days, exact McNemar <em>p</em> = "
+                f"{_fmt_p_html(u1h_t_hms['mcnemar_exact_p'])}; all paired days {u1h_t_all['trigger_multiplier_ratio']:.2f}&times;, <em>p</em> = "
+                f"{_fmt_p_html(u1h_t_all['mcnemar_exact_p'])}) while BAM is completely null ({u1h_b_hms['fem_exceed_n']} vs. {u1h_b_hms['frm_exceed_n']}, "
+                f"<em>p</em> = {u1h_b_hms['mcnemar_exact_p']:.3f}). Inset reports observational Test U2 candidly: cross-monitor T640 &times; log(HMS Heavy) "
+                f"associates with +{100*u2['borderline_2225_t640_x_hms_heavy_flag']['coefs']['t640_x_hms_h']['beta']:.1f} pp higher flagging "
+                f"(State <em>p</em><sub>WCB</sub> = {u2['borderline_2225_t640_x_hms_heavy_flag_state_cr1']['wcb']['p_wcb']:.3f}), but the within-county-year "
+                f"FE comparison is null ({100*u2_wcy['coefs']['is_t640_f']['beta']:+.2f} pp, <em>p</em><sub>WCB</sub> = {u2_wcy['wcb']['p_wcb']:.3f}); "
+                f"no causal strategic-filing claim is made. Panel B presents the Master Audit forest across 16 core tests, contrasting nine verified "
+                f"physical/administrative estimates (|<em>t</em>| = {min(eff_ts):.1f}&ndash;{max(eff_ts):.1f}) directly against seven clean honest nulls "
+                f"(including U2 within-county-year flagging, pure BAM smoke bias, Margins D/A/C, Fake-Rule Placebo, and 2025 concurred EE flow; "
                 f"|<em>t</em>| &le; {max(null_ts):.2f}, <em>p</em> &ge; {min(null_ps):.2f})."
             ),
         ),

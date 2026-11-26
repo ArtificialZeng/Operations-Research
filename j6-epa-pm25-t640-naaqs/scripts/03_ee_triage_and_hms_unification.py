@@ -37,11 +37,16 @@ from econ_utils import (
     read_zip_csv,
     save_json_lf,
 )
+from scipy import stats
 
 
-def build_monitor_daily_smoke_and_hms(my_aln: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+def build_monitor_daily_smoke_and_hms(
+    my_aln: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Compute annual monitor-level & county-level ground smoke severity + satellite NOAA HMS
-    exposure metrics across 2018-2025 (aligned daily records only, no raw 236/238).
+    exposure metrics across 2018-2025 (aligned daily records only, no raw 236/238), plus each
+    site's strictly pre-period 5-year historical (2018-2022) FRM 98th-percentile baseline for
+    official EPA Wildfire Tier-1/Tier-2 Exceptional Event screening.
     """
     # Build stitch map from my_aln? Wait: load daily 2018-2025 aligned and map canon_id cleanly
     # Reuse stitch logic consistent with Step 01: map POC>=21 for 736/738 to POC-20
@@ -87,6 +92,25 @@ def build_monitor_daily_smoke_and_hms(my_aln: pd.DataFrame) -> tuple[pd.DataFram
     mc_u = daily[["method_code", "Method Name"]].drop_duplicates("method_code")
     mc_dict = {r["method_code"]: mc_class(r["method_code"], r["Method Name"]) for _, r in mc_u.iterrows()}
     daily["inst"] = daily["method_code"].map(mc_dict)
+
+    # Strictly pre-period 5-year historical (2018-2022) gravimetric FRM site baseline for
+    # official EPA Wildfire Tier-1/Tier-2 screening (98th percentile & min(98th pct, 35 ug/m3))
+    frm_hist_day = (
+        daily[(daily["inst"] == "FRM") & (daily["Year"].between(2018, 2022))]
+        .groupby(["site_id", "Year", "Date Local"], as_index=False)
+        .agg(frm_pm=("Arithmetic Mean", "mean"))
+    )
+    site_hist_1822 = (
+        frm_hist_day.groupby("site_id", as_index=False)
+        .agg(
+            n_days_1822=("frm_pm", "size"),
+            n_yrs_1822=("Year", "nunique"),
+            p98_hist_1822=("frm_pm", lambda s: float(np.percentile(s, 98))),
+        )
+    )
+    site_hist_1822["tier1_min_p98_35"] = np.minimum(site_hist_1822["p98_hist_1822"], 35.0)
+    site_hist_1822["tier1_max_p98_35"] = np.maximum(site_hist_1822["p98_hist_1822"], 35.0)
+
     # Aligned universe only (drop T640_RAW 236/238)
     daily = daily[daily["inst"] != "T640_RAW"].copy()
     # Apply the exact canonical stitch_map saved by Step 01 so zero regulatory monitors are dropped!
@@ -186,7 +210,122 @@ def build_monitor_daily_smoke_and_hms(my_aln: pd.DataFrame) -> tuple[pd.DataFram
         df["log_hms_h"] = np.log1p(df["hms_heavy_days"])
         df["hms_h_sq"] = df["log_hms_h"] ** 2
 
-    return m_smk.drop(columns=["site_id"]), c_smk
+    return m_smk.drop(columns=["site_id"]), c_smk, site_hist_1822
+
+
+def run_u1_historical_tier1_screening(site_hist_1822: pd.DataFrame) -> dict[str, Any]:
+    """Compute official EPA Wildfire Tier-1/Tier-2 screening divergence in 2023-2025 using each
+    collocated site's strictly pre-period 5-year historical (2018-2022) gravimetric FRM
+    98th percentile and min(98th percentile, 35 ug/m3), via exact paired McNemar tests and
+    Site-clustered CR1 + Roodman WCB paired-difference LPMs for T640_FW vs FRM and BAM vs FRM.
+    """
+    out: dict[str, Any] = {}
+    for key, fname, label in [
+        ("t640_fw", "collocated_t640_fw_frm_2023_2026.parquet", "T640_FW (636/638)"),
+        ("bam", "collocated_bam_frm_2023_2026.parquet", "BAM (170/209)"),
+    ]:
+        col = pd.read_parquet(PROC_DIR / fname)
+        col = col[col["Year"].isin([2023, 2024, 2025])].copy()
+        n_sites_tot = int(col["site_id"].nunique())
+        merged = col.merge(site_hist_1822, on="site_id", how="left")
+        base = merged[merged["n_days_1822"] >= 30].copy()
+        u_sites = base.drop_duplicates("site_id")
+        u_sites_3y = base[base["n_yrs_1822"] >= 3].drop_duplicates("site_id")
+
+        inst_out: dict[str, Any] = {
+            "baseline_audit_2018_2022": {
+                "n_collocated_sites_total": n_sites_tot,
+                "n_sites_matched_ge30d": len(u_sites),
+                "n_sites_matched_ge3y": len(u_sites_3y),
+                "matched_site_share_pct": float(100.0 * len(u_sites) / max(n_sites_tot, 1)),
+                "median_p98_hist_1822": float(u_sites["p98_hist_1822"].median()),
+                "p25_p98_hist_1822": float(u_sites["p98_hist_1822"].quantile(0.25)),
+                "p75_p98_hist_1822": float(u_sites["p98_hist_1822"].quantile(0.75)),
+                "pct_sites_p98_gt35": float(100.0 * (u_sites["p98_hist_1822"] > 35.0).mean()),
+            }
+        }
+
+        subsets = {
+            "all_paired_days": base,
+            "hms_any_smoke": base[base["hms_max_level"] >= 1],
+            "hms_medium_or_heavy": base[base["hms_max_level"] >= 2],
+            "hms_heavy_smoke": base[base["hms_max_level"] == 3],
+            "other_site_ge25": base[base["other_site_pm"] >= 25.0],
+        }
+        for sname, sub in subsets.items():
+            rec: dict[str, Any] = {
+                "n_days": len(sub),
+                "n_sites": int(sub["site_id"].nunique()),
+            }
+            sub_3y = sub[sub["n_yrs_1822"] >= 3]
+            thresh_specs = [
+                ("gt_hist_p98_1822", sub, "p98_hist_1822"),
+                ("gt_tier1_min_p98_35", sub, "tier1_min_p98_35"),
+                ("gt_tier1_min_p98_35_ge3y", sub_3y, "tier1_min_p98_35"),
+                ("gt_max_p98_35", sub, "tier1_max_p98_35"),
+            ]
+            for tname, df_t, tcol in thresh_specs:
+                valid = df_t[tcol].notna()
+                sv = df_t[valid]
+                n_v = len(sv)
+                if n_v < 10:
+                    rec[tname] = {"n_valid_days": n_v, "skipped": True}
+                    continue
+                fh = (sv["fem"] > sv[tcol]).to_numpy(dtype=bool)
+                gh = (sv["frm"] > sv[tcol]).to_numpy(dtype=bool)
+                fem_n = int(fh.sum())
+                frm_n = int(gh.sum())
+                fem_only = int((fh & (~gh)).sum())
+                frm_only = int(((~fh) & gh).sum())
+                both = int((fh & gh).sum())
+                disc = fem_only + frm_only
+                mcnemar_p = float(stats.binomtest(fem_only, disc, 0.5).pvalue) if disc > 0 else 1.0
+                ratio = float(fem_n / frm_n) if frm_n > 0 else None
+                diff_arr = fh.astype(float) - gh.astype(float)
+                lpm = ols_cr1(
+                    diff_arr,
+                    np.ones((n_v, 1), dtype=float),
+                    sv["site_id"].to_numpy(),
+                    None,
+                    ["fem_minus_frm"],
+                    wcb_var_idx=0,
+                    wcb_B=499,
+                )
+                c = lpm.get("coefs", {}).get("fem_minus_frm", {})
+                rec[tname] = {
+                    "n_valid_days": n_v,
+                    "n_sites": int(sv["site_id"].nunique()),
+                    "fem_exceed_n": fem_n,
+                    "frm_exceed_n": frm_n,
+                    "fem_rate_pct": float(100.0 * fem_n / max(n_v, 1)),
+                    "frm_rate_pct": float(100.0 * frm_n / max(n_v, 1)),
+                    "trigger_multiplier_ratio": ratio,
+                    "fem_only_discordant": fem_only,
+                    "frm_only_discordant": frm_only,
+                    "both_exceed": both,
+                    "mcnemar_exact_p": mcnemar_p,
+                    "paired_diff_pp": float(100.0 * c["beta"]) if "beta" in c else None,
+                    "se_site_cr1_pp": float(100.0 * c["se_cr1"]) if "se_cr1" in c else None,
+                    "t_site_cr1": float(c["t_cr1"]) if "t_cr1" in c else None,
+                    "p_site_cr1": float(c["p_cr1"]) if "p_cr1" in c else None,
+                    "p_wcb": float(lpm["wcb"]["p_wcb"]) if "wcb" in lpm else None,
+                }
+            inst_out[sname] = rec
+        out[key] = inst_out
+
+        # Concise audit log
+        hh = inst_out["hms_heavy_smoke"]["gt_tier1_min_p98_35"]
+        aa = inst_out["all_paired_days"]["gt_tier1_min_p98_35"]
+        print(
+            f"  [U1 Historical 5-Yr (2018-22) Tier-1 min(p98,35): {label}] "
+            f"All: {aa['fem_exceed_n']} vs {aa['frm_exceed_n']} ({aa['trigger_multiplier_ratio']:.2f}x, "
+            f"disc {aa['fem_only_discordant']} vs {aa['frm_only_discordant']}, p={aa['mcnemar_exact_p']:.2e}) | "
+            f"HMS Heavy: {hh['fem_exceed_n']} vs {hh['frm_exceed_n']} ({hh['trigger_multiplier_ratio']:.2f}x, "
+            f"disc {hh['fem_only_discordant']} vs {hh['frm_only_discordant']}, p={hh['mcnemar_exact_p']:.2e}, "
+            f"t={hh['t_site_cr1']:+.2f}, p_WCB={hh['p_wcb']:.3f})",
+            flush=True,
+        )
+    return out
 
 
 def run_within_state_ri(
@@ -271,8 +410,9 @@ def main() -> int:
     # Regulatory App. N-eligible monitors only, with >= 30 valid days in year
     my = my_all[(my_all["is_appn_reg"] == 1) & (my_all["total_days"] >= 30)].copy()
 
-    print("  Building monitor-year & county-year ground smoke + satellite NOAA HMS covariates...", flush=True)
-    m_smk, c_smk = build_monitor_daily_smoke_and_hms(my)
+    print("  Building monitor-year & county-year ground smoke + satellite NOAA HMS covariates + 2018-2022 FRM Tier-1 baseline...", flush=True)
+    m_smk, c_smk, site_hist_1822 = build_monitor_daily_smoke_and_hms(my)
+    u1_hist_tier1 = run_u1_historical_tier1_screening(site_hist_1822)
 
     # Pure FRM-only 2018-2020 county DV and Clean non-smoke (<25) 2018-2020 county baseline
     frm_1820 = (
@@ -962,6 +1102,7 @@ def main() -> int:
         "inverted_u_profile_dv1820": inverted_u,
         "t640_bailout_substitution_dv1820": bailout_sub,
         "test4_honest_primary_selection": test4_honest,
+        "unification_u1_historical_tier1_1822": u1_hist_tier1,
         "unification_u2_t640_ee_flagging": unification_u2,
         "unification_u3_hms_triage_validation": unification_u3,
     }

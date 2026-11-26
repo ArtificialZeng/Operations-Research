@@ -408,6 +408,14 @@ def test_15_pdf_zero_leaks_and_receipt_sync() -> None:
     fig4_cap = fig_blocks["fig4_ee_triage_event_study_and_decomposition.png"][1]
     assert "Unconcurred Precautionary Flags (amber" in fig4_cap
     assert "True EPA-Concurred Exclusions (teal" in fig4_cap
+    # Verify v2 PDF figure captions reflect all referee recalibrations
+    fig1_cap = fig_blocks["fig1_t640_windfall_and_ej_map.png"][1]
+    fig3_cap = fig_blocks["fig3_zero_eiv_smoke_and_speciation_physics.png"][1]
+    fig5_cap = fig_blocks["fig5_optical_to_flagging_multiplier.png"][1]
+    assert "Design-Value threshold reclassifications" in fig1_cap
+    assert "5-factor" in fig1_cap
+    assert "EIV-robust" in fig3_cap and "observational" in fig3_cap.lower()
+    assert "5-year historical" in fig5_cap and "within-county-year FE comparison is null" in fig5_cap
 
     # Verify key dynamic numbers from receipts appear verbatim in manuscript_j6_boost.md
     md_txt = md_path.read_text(encoding="utf-8")
@@ -419,3 +427,88 @@ def test_15_pdf_zero_leaks_and_receipt_sync() -> None:
     assert f"{r2['speciation_and_meteorology']['t640_fw']['model_s1_spec_met_level_site_cr1']['coefs']['oc']['beta']:.3f}" in md_txt
     assert f"{100 * r3['monitor_year_dv1820_85_115']['true_ee_flag']['did_2225_state_cr1']['coefs']['tp_2225']['beta']:.2f}" in md_txt
     assert f"{r3['unification_u2_t640_ee_flagging']['borderline_2225_state_yr_fe_ee_red']['coefs']['is_t640_f']['beta']:.3f}" in md_txt
+
+
+def test_16_v2_historical_tier1_screening_and_referee_recalibrations() -> None:
+    """Verify all 4 Major Revision v2 referee fixes in receipts and manuscript_j6_boost.md:
+    (a) Strictly pre-period 5-year historical (2018-2022) FRM 98th-percentile EPA Wildfire Tier-1
+        screening McNemar tests computed and synced;
+    (b) Within-county-year null (p_WCB = 0.931) explicitly disclosed in Abstract & Section 6;
+    (c) Zero conflation of DV reclassification with formal EPA legal designations or single-day >35
+        with 24-hr NAAQS violations;
+    (d) Zero leftover absolute 'zero-EIV' / causal speciation overclaims.
+    """
+    import re
+
+    r3 = _load_json("03_ee_triage_hms_unification.json")
+    assert "unification_u1_historical_tier1_1822" in r3
+    u1h = r3["unification_u1_historical_tier1_1822"]
+
+    t_aud = u1h["t640_fw"]["baseline_audit_2018_2022"]
+    b_aud = u1h["bam"]["baseline_audit_2018_2022"]
+    assert t_aud["n_sites_matched_ge30d"] >= 200
+    assert b_aud["n_sites_matched_ge30d"] >= 90
+
+    t_hms = u1h["t640_fw"]["hms_heavy_smoke"]["gt_tier1_min_p98_35"]
+    t_hms_3y = u1h["t640_fw"]["hms_heavy_smoke"]["gt_tier1_min_p98_35_ge3y"]
+    t_all = u1h["t640_fw"]["all_paired_days"]["gt_tier1_min_p98_35"]
+    b_hms = u1h["bam"]["hms_heavy_smoke"]["gt_tier1_min_p98_35"]
+    b_all = u1h["bam"]["all_paired_days"]["gt_tier1_min_p98_35"]
+
+    # T640_FW causal screening divergence on true pre-period 2018-2022 FRM Tier-1 threshold
+    assert t_hms["trigger_multiplier_ratio"] >= 1.25
+    assert t_hms["fem_only_discordant"] >= 35 and t_hms["frm_only_discordant"] == 0
+    assert t_hms["mcnemar_exact_p"] < 1e-10
+    assert t_hms["p_wcb"] <= 0.01
+    assert t_hms_3y["mcnemar_exact_p"] < 1e-9
+    assert t_all["trigger_multiplier_ratio"] >= 1.50 and t_all["mcnemar_exact_p"] < 1e-100
+
+    # Pure Met One BAM (170/209) clean null across historical Tier-1 strata
+    assert b_hms["mcnemar_exact_p"] > 0.50
+    assert b_all["mcnemar_exact_p"] > 0.10
+
+    # Manuscript text checks: Abstract, Section 4, Section 5, Section 6, Section 7
+    md_txt = (WS_DIR / "manuscript_j6_boost.md").read_text(encoding="utf-8")
+    abs_sec = md_txt.split("## Abstract", 1)[1].split("## 1.", 1)[0]
+    sec4 = md_txt.split("## 4.", 1)[1].split("## 5.", 1)[0]
+    sec5 = md_txt.split("## 5.", 1)[1].split("## 6.", 1)[0]
+    sec6 = md_txt.split("## 6.", 1)[1].split("## 7.", 1)[0]
+    sec7 = md_txt.split("## 7.", 1)[1].split("## References", 1)[0]
+
+    # (a) Historical Tier-1 counts synced into Abstract & Section 6
+    assert f"{t_hms['fem_exceed_n']} vs. {t_hms['frm_exceed_n']}" in abs_sec
+    assert f"{t_hms['fem_only_discordant']} vs. {t_hms['frm_only_discordant']}" in sec6
+    assert "level-equivalent daily exceedance" in abs_sec.lower()
+    assert "level-equivalent daily exceedance" in sec6.lower()
+
+    # (b) Within-county-year null (p_WCB = 0.931) and explicit non-causal disclaimer in Abstract & Section 6 & Conclusion
+    wcy_p = f"{r3['unification_u2_t640_ee_flagging']['borderline_within_county_year_fe_flag']['wcb']['p_wcb']:.3f}"
+    assert wcy_p in abs_sec and "within-county-year" in abs_sec.lower()
+    assert wcy_p in sec6 and "do not claim that optical bias causally" in sec6.lower()
+    assert wcy_p in sec7 and "within-county-year" in sec7.lower()
+    assert "do not claim that optical bias causally" in abs_sec.lower()
+    assert "anticipatory" in abs_sec.lower() and "before" in abs_sec.lower()
+
+    # (c) DV threshold reclassification vs formal EPA § 107(d) 5-factor legal designations
+    assert "monitor design-value threshold reclassifications" in abs_sec.lower()
+    assert "5-factor" in abs_sec.lower()
+    assert "monitor design-value threshold reclassifications" in sec4.lower()
+    assert "five-factor" in sec4.lower()
+    assert "5-factor" in sec7.lower()
+
+    # (d) Zero forbidden v1 overclaim phrases anywhere in manuscript
+    forbidden = [
+        r"zero[- ]EIV",
+        r"EIV[- ]free",
+        r"errors-in-variables-free",
+        r"Killer Unification",
+        r"exact Mie-scattering mechanism",
+        r"Tier-1 Exceptional Event visibility",
+        r"statutory nonattainment lottery",
+        r"causes strategic",
+    ]
+    for pat in forbidden:
+        assert not re.search(pat, md_txt, flags=re.IGNORECASE), f"Forbidden v1 phrase leaked: {pat}"
+    assert "controlled multi-site physical calibration" in sec5.lower()
+    assert "controlled multi-site physical calibration" in sec7.lower()
+    assert (WS_DIR / "REFEREE_RESPONSE_v2.md").exists()

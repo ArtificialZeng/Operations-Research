@@ -145,7 +145,7 @@ def make_fig1(r1: dict) -> None:
     ax1.text(
         0.58,
         counts[0] + 22,
-        f"T640 Alignment Alone:\n−{flip['counties']} counties (−{flip['pop_millions']:.1f}M)",
+        f"T640 Alignment Alone:\n−{flip['counties']} DV-reclassified (−{flip['pop_millions']:.1f}M)",
         ha="center",
         va="bottom",
         fontsize=7.9,
@@ -175,7 +175,7 @@ def make_fig1(r1: dict) -> None:
     ax1.set_xticklabels(labels)
     ax1.set_ylabel("Counties Exceeding 9.0 µg/m³ (DV ≥ 9.1)")
     ax1.set_ylim(0, max(counts) + 58)
-    ax1.set_title("A. Stitched App. N Nonattainment Waterfall & EPA Reconciliation", loc="left", pad=10)
+    ax1.set_title("A. Stitched App. N DV Threshold Waterfall (≥9.1 µg/m³) & EPA Reconciliation", loc="left", pad=10)
     ax1.legend(loc="upper right", bbox_to_anchor=(0.98, 0.77), frameon=True, facecolor="white", edgecolor="#CBD5E1", fontsize=7.2)
 
     # Panel B: Regional & Environmental Justice Profile (Census SAIPE 2023 + PEP 2024)
@@ -220,9 +220,9 @@ def make_fig1(r1: dict) -> None:
 
     y = np.arange(len(cats))[::-1]
     h = 0.25
-    ax2.barh(y + h, v_fl, height=h, color=CRIMSON, edgecolor="#0F172A", lw=0.5, label=f"T640-Flipped ({g_fl['n_counties']} cntys, {g_fl['pop_2024_millions']:.1f}M)", zorder=3)
-    ax2.barh(y, v_st, height=h, color=NAVY, edgecolor="#0F172A", lw=0.5, label=f"Still Nonattainment ({g_st['n_counties']} cntys, {g_st['pop_2024_millions']:.1f}M)", zorder=3)
-    ax2.barh(y - h, v_cl, height=h, color="#94A3B8", edgecolor="#0F172A", lw=0.5, label=f"Cleanly Attaining ({g_cl['n_counties']} cntys, {g_cl['pop_2024_millions']:.1f}M)", zorder=3)
+    ax2.barh(y + h, v_fl, height=h, color=CRIMSON, edgecolor="#0F172A", lw=0.5, label=f"T640 DV-Reclassified ({g_fl['n_counties']} cntys, {g_fl['pop_2024_millions']:.1f}M)", zorder=3)
+    ax2.barh(y, v_st, height=h, color=NAVY, edgecolor="#0F172A", lw=0.5, label=f"Still ≥9.1 µg/m³ DV ({g_st['n_counties']} cntys, {g_st['pop_2024_millions']:.1f}M)", zorder=3)
+    ax2.barh(y - h, v_cl, height=h, color="#94A3B8", edgecolor="#0F172A", lw=0.5, label=f"Cleanly ≤9.0 µg/m³ DV ({g_cl['n_counties']} cntys, {g_cl['pop_2024_millions']:.1f}M)", zorder=3)
     ax2.grid(axis="x", color=GRID_COL, linestyle="--", linewidth=0.6, alpha=0.7, zorder=0)
 
     # Escape $ so matplotlib NEVER interprets paired dollar signs as math mode!
@@ -247,7 +247,7 @@ def make_fig1(r1: dict) -> None:
     ax2.set_yticklabels(cats)
     ax2.set_xlabel("Percentage (%)")
     ax2.set_xlim(0, 108)
-    ax2.set_title("B. Regional & Demographic Profile of T640-Flipped Counties", loc="left", pad=10)
+    ax2.set_title("B. Regional & Demographic Profile of DV-Reclassified Counties", loc="left", pad=10)
     ax2.legend(loc="lower right", frameon=True, facecolor="white", edgecolor="#CBD5E1", fontsize=7.0)
 
     save_fig(fig, "fig1_t640_windfall_and_ej_map")
@@ -273,8 +273,8 @@ def make_fig2(r2: dict) -> None:
     m_both_na = (sdv["dv_fem_r"] >= 9.1) & (sdv["dv_frm_r"] >= 9.1)
     m_both_att = (sdv["dv_fem_r"] <= 9.0) & (sdv["dv_frm_r"] <= 9.0)
 
-    ax1.scatter(sdv.loc[m_both_att, "dv_frm"], sdv.loc[m_both_att, "dv_fem"], s=24, color="#94A3B8", alpha=0.75, edgecolor="white", lw=0.4, zorder=3, label=f"Both Attaining ({int(m_both_att.sum())})")
-    ax1.scatter(sdv.loc[m_both_na, "dv_frm"], sdv.loc[m_both_na, "dv_fem"], s=34, color=NAVY, alpha=0.88, edgecolor="white", lw=0.5, zorder=4, label=f"Both Nonattainment ({int(m_both_na.sum())})")
+    ax1.scatter(sdv.loc[m_both_att, "dv_frm"], sdv.loc[m_both_att, "dv_fem"], s=24, color="#94A3B8", alpha=0.75, edgecolor="white", lw=0.4, zorder=3, label=f"Both ≤ 9.0 µg/m³ ({int(m_both_att.sum())})")
+    ax1.scatter(sdv.loc[m_both_na, "dv_frm"], sdv.loc[m_both_na, "dv_fem"], s=34, color=NAVY, alpha=0.88, edgecolor="white", lw=0.5, zorder=4, label=f"Both ≥ 9.1 µg/m³ ({int(m_both_na.sum())})")
     ax1.scatter(sdv.loc[m_frm_only, "dv_frm"], sdv.loc[m_frm_only, "dv_fem"], s=46, marker="s", color=AMBER, edgecolor="#0F172A", lw=0.7, zorder=5, label=f"FRM ≥ 9.1, T640 ≤ 9.0 ({int(m_frm_only.sum())})")
     ax1.scatter(sdv.loc[m_t640_only, "dv_frm"], sdv.loc[m_t640_only, "dv_fem"], s=52, marker="o", color=CRIMSON, edgecolor="#0F172A", lw=0.7, zorder=6, label=f"T640 ≥ 9.1, FRM ≤ 9.0 ({int(m_t640_only.sum())})")
 
@@ -308,7 +308,7 @@ def make_fig2(r2: dict) -> None:
     ax1.set_ylim(lim_lo, lim_hi)
     ax1.set_xlabel("Collocated Gravimetric FRM Design Value (µg/m³)")
     ax1.set_ylabel("Post-Alignment T640_FW (636/638) Design Value (µg/m³)")
-    ax1.set_title("A. Same-Rooftop 2023–2025 App. N Statutory Lottery", loc="left", pad=10)
+    ax1.set_title("A. Same-Rooftop 2023–2025 App. N DV Threshold Lottery", loc="left", pad=10)
     ax1.legend(loc="lower right", bbox_to_anchor=(0.99, 0.22), frameon=True, facecolor="white", edgecolor="#CBD5E1", fontsize=7.2)
 
     # Panel B: Regional & Seasonal Residual Bias (T640_FW vs BAM, generous lower ylim so ZERO clipping!)
@@ -428,7 +428,7 @@ def make_fig3(r2: dict) -> None:
     ax1.set_xticklabels(["<15\n(Ref)", "15–25\nµg/m³", "≥25\nµg/m³", "None\n(Ref)", "Light", "Med.", "Heavy"])
     ax1.set_ylabel("Excess Daily Bias vs. Clean Baseline (µg/m³)\n(Site FE + Month FE, 95% Site-CR1 CI)")
     ax1.set_ylim(-2.15, 6.35)
-    ax1.set_title("A. Zero-EIV Nonlinear Wildfire Smoke Amplification", loc="left", pad=10)
+    ax1.set_title("A. EIV-Robust Nonlinear Wildfire Smoke Amplification", loc="left", pad=10)
     ax1.legend(loc="lower right", frameon=True, facecolor="white", edgecolor="#CBD5E1", fontsize=7.5)
 
     # Panel B: Aerosol Speciation & Hygroscopicity Mechanism (legend cleanly tucked in empty upper-left!)
@@ -466,7 +466,7 @@ def make_fig3(r2: dict) -> None:
     ax2.set_xlabel("Partial Effect on Daily Bias (FEM − FRM, µg/m³)")
     ax2.set_xlim(-1.58, 2.02)
     ax2.set_ylim(-0.65, 5.75)
-    ax2.set_title("B. Aerosol Speciation & Hygroscopicity Mechanism (2023–25)", loc="left", pad=10)
+    ax2.set_title("B. Observational Speciation & RH Associations (2023–25)", loc="left", pad=10)
     # Place legend cleanly in empty upper-left region where ZERO data points sit!
     ax2.legend(loc="upper left", frameon=True, facecolor="white", edgecolor="#CBD5E1", fontsize=7.1)
 
@@ -612,19 +612,23 @@ def make_fig4(r3: dict) -> None:
 
 
 def make_fig5(r1: dict, r2: dict, r3: dict) -> None:
-    """Figure 5: Unification U1/U2 Trigger Multiplier & Master Forest Plot of Verified Effects vs Honest Nulls."""
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15.4, 6.1), gridspec_kw={"width_ratios": [1.0, 1.15]})
-    fig.subplots_adjust(wspace=0.68)
+    """Figure 5: Same-Rooftop Screening Divergence (U1: >35 Level-Equiv & EPA Tier-1 5-Yr Hist p98)
+    and Master Forest Plot of Verified Effects vs Honest Nulls (incl. U2 Within-County-Year Null).
+    """
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15.8, 6.7), gridspec_kw={"width_ratios": [1.0, 1.18]})
+    fig.subplots_adjust(wspace=0.70)
 
     u1_t = r2["unification_u1_exceedance_multiplier"]["t640_fw"]
     u1_b = r2["unification_u1_exceedance_multiplier"]["bam"]
+    u1_hist_t = r3["unification_u1_historical_tier1_1822"]["t640_fw"]
+    u1_hist_b = r3["unification_u1_historical_tier1_1822"]["bam"]
     u2 = r3["unification_u2_t640_ee_flagging"]
 
     groups = [
-        ("HMS Heavy\nSmoke Days\n(T640 vs FRM)", u1_t["hms_heavy_smoke"]["gt_35_naaqs24h"], CRIMSON),
-        ("HMS Heavy\nSmoke Days\n(BAM vs FRM)", u1_b["hms_heavy_smoke"]["gt_35_naaqs24h"], TEAL),
-        ("Other-Site ≥25\nSmoke Days\n(T640 vs FRM)", u1_t["other_site_ge25"]["gt_35_naaqs24h"], CRIMSON),
-        ("Other-Site ≥25\nSmoke Days\n(BAM vs FRM)", u1_b["other_site_ge25"]["gt_35_naaqs24h"], TEAL),
+        ("24-hr Level-Equiv.\n(>35 µg/m³)\nT640 vs FRM", u1_t["hms_heavy_smoke"]["gt_35_naaqs24h"], CRIMSON),
+        ("24-hr Level-Equiv.\n(>35 µg/m³)\nBAM vs FRM", u1_b["hms_heavy_smoke"]["gt_35_naaqs24h"], TEAL),
+        ("EPA Tier-1 5-Yr p98\nmin(p98₁₈–₂₂, 35)\nT640 vs FRM", u1_hist_t["hms_heavy_smoke"]["gt_tier1_min_p98_35"], CRIMSON),
+        ("EPA Tier-1 5-Yr p98\nmin(p98₁₈–₂₂, 35)\nBAM vs FRM", u1_hist_b["hms_heavy_smoke"]["gt_tier1_min_p98_35"], TEAL),
     ]
     gx = np.arange(len(groups))
     w = 0.34
@@ -644,7 +648,7 @@ def make_fig5(r1: dict, r2: dict, r3: dict) -> None:
         top_y = max(rec["fem_rate_pct"], rec["frm_rate_pct"])
         ax1.text(
             idx,
-            top_y + 1.1,
+            top_y + 1.2,
             f"{ratio:.2f}×\n({disc_s})\n{p_str}",
             ha="center",
             va="bottom",
@@ -654,28 +658,28 @@ def make_fig5(r1: dict, r2: dict, r3: dict) -> None:
         )
 
     c_u2_int = u2["borderline_2225_t640_x_hms_heavy_flag"]["coefs"]["t640_x_hms_h"]
-    c_u2_red = u2["borderline_2225_state_yr_fe_ee_red"]["coefs"]["is_t640_f"]
+    c_u2_wcy = u2["borderline_within_county_year_fe_flag"]["coefs"]["is_t640_f"]
     ax1.text(
         0.50,
         0.975,
-        f"Unification U2 (DV18–20 [8.5, 11.5], State×Yr FE + HMS):\n"
-        f"• T640 × log(HMS Heavy) → Flag: +{100*c_u2_int['beta']:.1f} pp (t={c_u2_int['t_cr1']:+.2f}, $p_{{\\mathrm{{WCB}}}}$={u2['borderline_2225_t640_x_hms_heavy_flag']['wcb']['p_wcb']:.3f})\n"
-        f"• T640 vs FRM/BAM → EE Red.: +{c_u2_red['beta']:.3f} µg/m³ (t={c_u2_red['t_cr1']:+.2f}, $p_{{\\mathrm{{WCB}}}}$={u2['borderline_2225_state_yr_fe_ee_red']['wcb']['p_wcb']:.3f})",
+        f"Observational U2 (DV18–20 [8.5, 11.5], State×Yr FE + HMS):\n"
+        f"• Cross-monitor T640 × log(HMS Heavy) → Flag: +{100*c_u2_int['beta']:.1f} pp (St $p_{{\\mathrm{{WCB}}}}$={u2['borderline_2225_t640_x_hms_heavy_flag_state_cr1']['wcb']['p_wcb']:.3f})\n"
+        f"• Within-County-Year FE (T640 → Flag): {100*c_u2_wcy['beta']:+.1f} pp ($p_{{\\mathrm{{WCB}}}}$={u2['borderline_within_county_year_fe_flag']['wcb']['p_wcb']:.3f}, Null)",
         transform=ax1.transAxes,
         ha="center",
         va="top",
-        fontsize=6.6,
+        fontsize=6.4,
         color="#0F172A",
         bbox={"boxstyle": "round,pad=0.30", "facecolor": "#FEF2F2", "edgecolor": CRIMSON, "lw": 0.9},
     )
 
     ax1.axvline(1.5, color="#94A3B8", linestyle="--", lw=0.9, zorder=2)
     ax1.set_xticks(gx)
-    ax1.set_xticklabels([g[0] for g in groups], fontsize=7.6)
-    ax1.set_ylabel("Daily >35 µg/m³ Exceedance Rate (%)")
-    ax1.set_ylim(0, 62)
-    ax1.set_title("A. Same-Rooftop >35 µg/m³ Trigger Multiplier (U1 & U2)", loc="left", pad=10)
-    ax1.legend(loc="upper left", bbox_to_anchor=(0.01, 0.79), frameon=True, facecolor="white", edgecolor="#CBD5E1", fontsize=7.0)
+    ax1.set_xticklabels([g[0] for g in groups], fontsize=7.4)
+    ax1.set_ylabel("Exceedance Rate on NOAA HMS Heavy Smoke Days (%)")
+    ax1.set_ylim(0, 70)
+    ax1.set_title("A. Same-Rooftop HMS Heavy Smoke Screening Divergence (U1)", loc="left", pad=10)
+    ax1.legend(loc="upper left", bbox_to_anchor=(0.01, 0.79), frameon=True, facecolor="white", edgecolor="#CBD5E1", fontsize=6.9)
 
     # Panel B: 100% dynamically driven from JSON receipts (ZERO hardcoded numbers!)
     st = r2["zero_eiv_smoke_amplification"]["t640_fw"]
@@ -686,6 +690,8 @@ def make_fig5(r1: dict, r2: dict, r3: dict) -> None:
     c3 = r3["county_year_dv1820_85_115"]
     pl_c = r3["robustness_specs_dv1820"]["fake_rule_placebo_2020_21_vs_18_19"]["coefs"]["treat_post"]
     u1_hms = u1_t["hms_heavy_smoke"]["gt_35_naaqs24h"]
+    u1_t1 = u1_hist_t["hms_heavy_smoke"]["gt_tier1_min_p98_35"]
+    u2_wcy_r = u2["borderline_within_county_year_fe_flag"]
 
     def _pfmt(p: float) -> str:
         return f".{round(p * 1000):03d}" if p < 0.1 else f".{round(p * 100):02d}"
@@ -693,12 +699,14 @@ def make_fig5(r1: dict, r2: dict, r3: dict) -> None:
     rows = [
         ("P2: NOAA HMS Heavy Bias (T640)", st["inst3_noaa_hms_level_site_cr1"]["coefs"]["hms_h"]["t_cr1"], f"+{st['inst3_noaa_hms_level_site_cr1']['coefs']['hms_h']['beta']:.2f} µg/m³ ($p_{{\\mathrm{{WCB}}}}$={_pfmt(st['inst3_noaa_hms_level_site_cr1']['wcb']['p_wcb'])})", CRIMSON),
         ("P2: Rooftop 2023–25 DV Bias (T640)", r2["rooftop_dv_lottery_2023_2025"]["t640_fw"]["t_bias"], f"+{r2['rooftop_dv_lottery_2023_2025']['t640_fw']['mean_dv_bias']:.3f} µg/m³ (p<10⁻¹⁵)", CRIMSON),
-        ("P2: Speciation OC Effect (T640)", sp_t["oc"]["t_cr1"], f"+{sp_t['oc']['beta']:.2f} per µg/m³ OC", CRIMSON),
+        ("P2: Speciation OC Assoc. (T640)", sp_t["oc"]["t_cr1"], f"+{sp_t['oc']['beta']:.2f} per µg/m³ OC", CRIMSON),
         ("P2: Other-Site ≥25 Bias (T640)", st["inst1_other_site_level_site_cr1"]["coefs"]["oth_ge25"]["t_cr1"], f"+{st['inst1_other_site_level_site_cr1']['coefs']['oth_ge25']['beta']:.2f} µg/m³ ($p_{{\\mathrm{{WCB}}}}$={_pfmt(st['inst1_other_site_level_site_cr1']['wcb']['p_wcb'])})", CRIMSON),
-        ("U1: >35 Trigger on HMS Heavy", u1_hms["t_site_cr1"], f"+{u1_hms['paired_diff_pp']:.1f} pp ({u1_hms['fem_only_discordant']} vs {u1_hms['frm_only_discordant']})", NAVY),
-        ("U2: T640 × log(HMS) EE Flagging", c_u2_int["t_cr1"], f"+{100*c_u2_int['beta']:.1f} pp ($p_{{\\mathrm{{WCB}}}}$={_pfmt(u2['borderline_2225_t640_x_hms_heavy_flag']['wcb']['p_wcb'])})", NAVY),
+        ("U1: EPA Tier-1 5-Yr p98 (Heavy)", u1_t1["t_site_cr1"], f"+{u1_t1['paired_diff_pp']:.1f} pp ({u1_t1['fem_only_discordant']} vs {u1_t1['frm_only_discordant']})", NAVY),
+        ("U1: >35 Level-Equiv (Heavy)", u1_hms["t_site_cr1"], f"+{u1_hms['paired_diff_pp']:.1f} pp ({u1_hms['fem_only_discordant']} vs {u1_hms['frm_only_discordant']})", NAVY),
+        ("U2 (Obs): T640 × log(HMS) Flag", c_u2_int["t_cr1"], f"+{100*c_u2_int['beta']:.1f} pp (St $p_{{\\mathrm{{WCB}}}}$={_pfmt(u2['borderline_2225_t640_x_hms_heavy_flag_state_cr1']['wcb']['p_wcb'])})", NAVY),
         ("P3: Mon-Yr EE Flag DiD (State)", m3["true_ee_flag"]["did_2225_state_cr1"]["coefs"]["tp_2225"]["t_cr1"], f"+{100*m3['true_ee_flag']['did_2225_state_cr1']['coefs']['tp_2225']['beta']:.1f} pp ($p_{{\\mathrm{{WCB}}}}$={_pfmt(m3['true_ee_flag']['did_2225_state_cr1']['wcb']['p_wcb'])})", NAVY),
         ("P3: Unconcurred EE Flags (State)", m3["unconc_flag"]["did_2225_state_cr1"]["coefs"]["tp_2225"]["t_cr1"], f"+{100*m3['unconc_flag']['did_2225_state_cr1']['coefs']['tp_2225']['beta']:.1f} pp ($p_{{\\mathrm{{WCB}}}}$={_pfmt(m3['unconc_flag']['did_2225_state_cr1']['wcb']['p_wcb'])})", AMBER),
+        ("NULL: U2 Within-Cnty-Yr T640 Flag", c_u2_wcy["t_cr1"], f"{100*c_u2_wcy['beta']:+.1f} pp ($p_{{\\mathrm{{WCB}}}}$={_pfmt(u2_wcy_r['wcb']['p_wcb'])})", TEAL),
         ("NULL: BAM 170/209 Smoke (Oth ≥25)", sb["inst1_other_site_level_site_cr1"]["coefs"]["oth_ge25"]["t_cr1"], f"{sb['inst1_other_site_level_site_cr1']['coefs']['oth_ge25']['beta']:+.2f} µg/m³ ($p_{{\\mathrm{{WCB}}}}$={_pfmt(sb['inst1_other_site_level_site_cr1']['wcb']['p_wcb'])})", TEAL),
         ("NULL: Margin D FRM (DV18–20)", nulls["margin_d_frm_exog_dv1820_county_cr1"]["coefs"]["tp"]["t_cr1"], f"{nulls['margin_d_frm_exog_dv1820_county_cr1']['coefs']['tp']['beta']:+.3f} µg/m³ ($p_{{\\mathrm{{WCB}}}}$={_pfmt(nulls['margin_d_frm_exog_dv1820_county_cr1']['wcb']['p_wcb'])})", TEAL),
         ("NULL: Margin A FEM→FRM Switch", nulls["margin_a_share_fem_exog_dv1820"]["coefs"]["tp"]["t_cr1"], f"{nulls['margin_a_share_fem_exog_dv1820']['coefs']['tp']['beta']:+.3f} ($p_{{\\mathrm{{WCB}}}}$={_pfmt(nulls['margin_a_share_fem_exog_dv1820']['wcb']['p_wcb'])})", TEAL),
@@ -710,18 +718,19 @@ def make_fig5(r1: dict, r2: dict, r3: dict) -> None:
     ys = np.arange(len(rows))[::-1]
     ax2.axvspan(-1.96, 1.96, color="#E2E8F0", alpha=0.65, zorder=0, label="|t| < 1.96 Null Zone (p > 0.05)")
     ax2.axvline(0.0, color="#334155", lw=0.9, zorder=1)
-    ax2.axhline(5.5, color="#475569", linestyle="--", lw=1.0, zorder=2)
+    ax2.axhline(6.5, color="#475569", linestyle="--", lw=1.0, zorder=2)
     ax2.grid(axis="x", color=GRID_COL, linestyle="--", lw=0.5, alpha=0.6, zorder=0)
 
     for yi, (_, tval, txt, col) in zip(ys, rows):
         t_plot = min(tval, 14.2)
         ax2.barh(yi, t_plot, height=0.58, color=col, edgecolor="#0F172A", lw=0.5, alpha=0.9, zorder=3)
         x_txt = max(t_plot, 0.0) + 0.42 if t_plot >= 0 else 0.42
-        ax2.text(x_txt, yi, txt, va="center", ha="left", fontsize=6.9, color="#0F172A", fontweight="bold" if abs(tval) >= 1.96 else "normal")
+        ax2.text(x_txt, yi, txt, va="center", ha="left", fontsize=6.7, color="#0F172A", fontweight="bold" if abs(tval) >= 1.96 else "normal")
 
-    eff_ts = [abs(r[1]) for r in rows[:8]]
-    null_ts = [abs(r[1]) for r in rows[8:]]
+    eff_ts = [abs(r[1]) for r in rows[:9]]
+    null_ts = [abs(r[1]) for r in rows[9:]]
     null_ps = [
+        u2_wcy_r["wcb"]["p_wcb"],
         sb["inst1_other_site_level_site_cr1"]["wcb"]["p_wcb"],
         nulls["margin_d_frm_exog_dv1820_county_cr1"]["wcb"]["p_wcb"],
         nulls["margin_a_share_fem_exog_dv1820"]["wcb"]["p_wcb"],
@@ -730,15 +739,15 @@ def make_fig5(r1: dict, r2: dict, r3: dict) -> None:
         c3["true_ee_conc"]["event_study_county_cr1"]["coefs"]["nb_2025"]["p_cr1"],
     ]
     # Section badges tucked cleanly in empty far-right space!
-    ax2.text(24.6, 6.2, f"VERIFIED EFFECTS\n(|t| = {min(eff_ts):.1f} to {max(eff_ts):.1f})", ha="right", va="bottom", fontsize=7.4, fontweight="bold", color=CRIMSON, bbox={"boxstyle": "round,pad=0.22", "facecolor": "#FEF2F2", "edgecolor": CRIMSON, "lw": 0.7})
-    ax2.text(24.6, 4.9, f"VERIFIED HONEST NULLS\n(|t| ≤ {max(null_ts):.2f}, p ≥ {min(null_ps):.2f})", ha="right", va="top", fontsize=7.4, fontweight="bold", color=TEAL, bbox={"boxstyle": "round,pad=0.22", "facecolor": "#F0FDFA", "edgecolor": TEAL, "lw": 0.7})
+    ax2.text(25.2, 7.2, f"VERIFIED EFFECTS\n(|t| = {min(eff_ts):.1f} to {max(eff_ts):.1f})", ha="right", va="bottom", fontsize=7.3, fontweight="bold", color=CRIMSON, bbox={"boxstyle": "round,pad=0.22", "facecolor": "#FEF2F2", "edgecolor": CRIMSON, "lw": 0.7})
+    ax2.text(25.2, 5.9, f"VERIFIED HONEST NULLS\n(|t| ≤ {max(null_ts):.2f}, p ≥ {min(null_ps):.2f})", ha="right", va="top", fontsize=7.3, fontweight="bold", color=TEAL, bbox={"boxstyle": "round,pad=0.22", "facecolor": "#F0FDFA", "edgecolor": TEAL, "lw": 0.7})
 
     ax2.set_yticks(ys)
-    ax2.set_yticklabels([r[0] for r in rows], fontsize=7.5)
+    ax2.set_yticklabels([r[0] for r in rows], fontsize=7.2)
     ax2.set_xlabel("Cluster-Robust t-Statistic (with Native Estimate & WCB p)")
-    ax2.set_xlim(-2.6, 25.2)
+    ax2.set_xlim(-2.6, 25.8)
     ax2.set_title("B. Master Audit: Verified Effects vs. Clean Honest Nulls", loc="left", pad=10)
-    ax2.legend(loc="lower right", frameon=True, facecolor="white", edgecolor="#CBD5E1", fontsize=7.2)
+    ax2.legend(loc="lower right", frameon=True, facecolor="white", edgecolor="#CBD5E1", fontsize=7.1)
 
     save_fig(fig, "fig5_optical_to_flagging_multiplier")
 
