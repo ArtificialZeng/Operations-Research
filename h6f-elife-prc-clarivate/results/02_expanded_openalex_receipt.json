@@ -1,0 +1,360 @@
+{
+  "n_candidates": 54,
+  "n_verified_sources": 55,
+  "n_clean_donors": 27,
+  "n_total_with_elife": 28,
+  "clean_donors": [
+    {
+      "journal": "BMC Biology",
+      "min_geo_cov": 100.0,
+      "mean_geo_cov": 100.0,
+      "min_n_half": 123,
+      "mean_n_half": 147.3
+    },
+    {
+      "journal": "Cell",
+      "min_geo_cov": 90.08,
+      "mean_geo_cov": 93.54,
+      "min_n_half": 186,
+      "mean_n_half": 228.9
+    },
+    {
+      "journal": "Cell Death & Differentiation",
+      "min_geo_cov": 100.0,
+      "mean_geo_cov": 100.0,
+      "min_n_half": 52,
+      "mean_n_half": 80.0
+    },
+    {
+      "journal": "Cell Host & Microbe",
+      "min_geo_cov": 97.2,
+      "mean_geo_cov": 99.18,
+      "min_n_half": 83,
+      "mean_n_half": 96.4
+    },
+    {
+      "journal": "Cell Reports",
+      "min_geo_cov": 93.96,
+      "mean_geo_cov": 96.43,
+      "min_n_half": 656,
+      "mean_n_half": 739.9
+    },
+    {
+      "journal": "Communications Biology",
+      "min_geo_cov": 96.52,
+      "mean_geo_cov": 98.9,
+      "min_n_half": 546,
+      "mean_n_half": 762.5
+    },
+    {
+      "journal": "Current Biology",
+      "min_geo_cov": 94.24,
+      "mean_geo_cov": 95.22,
+      "min_n_half": 417,
+      "mean_n_half": 445.3
+    },
+    {
+      "journal": "Developmental Cell",
+      "min_geo_cov": 94.92,
+      "mean_geo_cov": 97.92,
+      "min_n_half": 84,
+      "mean_n_half": 117.7
+    },
+    {
+      "journal": "EMBO Journal",
+      "min_geo_cov": 100.0,
+      "mean_geo_cov": 100.0,
+      "min_n_half": 106,
+      "mean_n_half": 138.5
+    },
+    {
+      "journal": "EMBO Reports",
+      "min_geo_cov": 93.85,
+      "mean_geo_cov": 97.54,
+      "min_n_half": 129,
+      "mean_n_half": 144.1
+    },
+    {
+      "journal": "Genome Biology",
+      "min_geo_cov": 99.15,
+      "mean_geo_cov": 99.77,
+      "min_n_half": 117,
+      "mean_n_half": 161.7
+    },
+    {
+      "journal": "Genome Research",
+      "min_geo_cov": 98.78,
+      "mean_geo_cov": 99.7,
+      "min_n_half": 61,
+      "mean_n_half": 87.2
+    },
+    {
+      "journal": "Immunity",
+      "min_geo_cov": 93.75,
+      "mean_geo_cov": 96.33,
+      "min_n_half": 91,
+      "mean_n_half": 108.8
+    },
+    {
+      "journal": "Journal of Experimental Medicine",
+      "min_geo_cov": 96.25,
+      "mean_geo_cov": 98.69,
+      "min_n_half": 77,
+      "mean_n_half": 99.5
+    },
+    {
+      "journal": "Molecular Biology and Evolution",
+      "min_geo_cov": 96.3,
+      "mean_geo_cov": 98.63,
+      "min_n_half": 122,
+      "mean_n_half": 147.8
+    },
+    {
+      "journal": "Molecular Biology of the Cell",
+      "min_geo_cov": 98.31,
+      "mean_geo_cov": 99.21,
+      "min_n_half": 70,
+      "mean_n_half": 98.8
+    },
+    {
+      "journal": "Nature Communications",
+      "min_geo_cov": 99.71,
+      "mean_geo_cov": 99.83,
+      "min_n_half": 3091,
+      "mean_n_half": 4673.1
+    },
+    {
+      "journal": "Nucleic Acids Research",
+      "min_geo_cov": 98.11,
+      "mean_geo_cov": 99.08,
+      "min_n_half": 545,
+      "mean_n_half": 633.4
+    },
+    {
+      "journal": "PLOS Biology",
+      "min_geo_cov": 99.06,
+      "mean_geo_cov": 99.7,
+      "min_n_half": 157,
+      "mean_n_half": 220.3
+    },
+    {
+      "journal": "PLOS Computational Biology",
+      "min_geo_cov": 99.33,
+      "mean_geo_cov": 99.79,
+      "min_n_half": 317,
+      "mean_n_half": 412.5
+    },
+    {
+      "journal": "PLOS Genetics",
+      "min_geo_cov": 97.61,
+      "mean_geo_cov": 99.62,
+      "min_n_half": 145,
+      "mean_n_half": 204.7
+    },
+    {
+      "journal": "PLOS Pathogens",
+      "min_geo_cov": 99.44,
+      "mean_geo_cov": 99.74,
+      "min_n_half": 278,
+      "mean_n_half": 332.9
+    },
+    {
+      "journal": "PNAS",
+      "min_geo_cov": 96.25,
+      "mean_geo_cov": 97.06,
+      "min_n_half": 1628,
+      "mean_n_half": 1865.5
+    },
+    {
+      "journal": "Proc. R. Soc. B",
+      "min_geo_cov": 99.59,
+      "mean_geo_cov": 99.84,
+      "min_n_half": 232,
+      "mean_n_half": 271.9
+    },
+    {
+      "journal": "Science Advances",
+      "min_geo_cov": 99.5,
+      "mean_geo_cov": 99.85,
+      "min_n_half": 925,
+      "mean_n_half": 1187.7
+    },
+    {
+      "journal": "iScience",
+      "min_geo_cov": 96.97,
+      "mean_geo_cov": 98.4,
+      "min_n_half": 672,
+      "mean_n_half": 1170.3
+    },
+    {
+      "journal": "mBio",
+      "min_geo_cov": 99.03,
+      "mean_geo_cov": 99.79,
+      "min_n_half": 296,
+      "mean_n_half": 359.7
+    }
+  ],
+  "excluded_donors": [
+    {
+      "journal": "Cell Metabolism",
+      "min_geo_cov": 88.68,
+      "min_n_half": 78,
+      "min_ratio": 0.918,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Cell Systems",
+      "min_geo_cov": 92.11,
+      "min_n_half": 39,
+      "min_ratio": 0.812,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Development",
+      "min_geo_cov": 73.66,
+      "min_n_half": 150,
+      "min_ratio": 0.806,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "EMBO Molecular Medicine",
+      "reason": "incomplete_periods(5)"
+    },
+    {
+      "journal": "Genes & Development",
+      "min_geo_cov": 96.77,
+      "min_n_half": 27,
+      "min_ratio": 0.692,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Genetics",
+      "reason": "incomplete_periods(9)"
+    },
+    {
+      "journal": "Journal of Biological Chemistry",
+      "reason": "incomplete_periods(10)"
+    },
+    {
+      "journal": "Journal of Cell Biology",
+      "reason": "incomplete_periods(10)"
+    },
+    {
+      "journal": "Journal of Cell Science",
+      "reason": "incomplete_periods(10)"
+    },
+    {
+      "journal": "Journal of Neuroscience",
+      "reason": "incomplete_periods(10)"
+    },
+    {
+      "journal": "Life Science Alliance",
+      "reason": "incomplete_periods(10)"
+    },
+    {
+      "journal": "Molecular Cell",
+      "min_geo_cov": 88.04,
+      "min_n_half": 150,
+      "min_ratio": 0.847,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Molecular Systems Biology",
+      "reason": "incomplete_periods(5)"
+    },
+    {
+      "journal": "Nature",
+      "min_geo_cov": 52.19,
+      "min_n_half": 1423,
+      "min_ratio": 0.86,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Nature Cell Biology",
+      "min_geo_cov": 64.18,
+      "min_n_half": 54,
+      "min_ratio": 0.614,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Nature Chemical Biology",
+      "min_geo_cov": 66.94,
+      "min_n_half": 79,
+      "min_ratio": 0.767,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Nature Ecology & Evolution",
+      "min_geo_cov": 68.09,
+      "min_n_half": 82,
+      "min_ratio": 0.766,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Nature Genetics",
+      "min_geo_cov": 64.84,
+      "min_n_half": 69,
+      "min_ratio": 0.479,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Nature Immunology",
+      "reason": "incomplete_periods(8)"
+    },
+    {
+      "journal": "Nature Metabolism",
+      "min_geo_cov": 85.94,
+      "min_n_half": 48,
+      "min_ratio": 0.706,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Nature Microbiology",
+      "min_geo_cov": 87.36,
+      "min_n_half": 62,
+      "min_ratio": 0.614,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Nature Neuroscience",
+      "min_geo_cov": 63.56,
+      "min_n_half": 71,
+      "min_ratio": 0.602,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Nature Plants",
+      "min_geo_cov": 63.11,
+      "min_n_half": 69,
+      "min_ratio": 0.663,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Nature Structural & Molecular Biology",
+      "min_geo_cov": 78.31,
+      "min_n_half": 45,
+      "min_ratio": 0.542,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Neuron",
+      "min_geo_cov": 87.88,
+      "min_n_half": 145,
+      "min_ratio": 0.895,
+      "reason": "failed_strict_audit"
+    },
+    {
+      "journal": "Open Biology",
+      "reason": "incomplete_periods(9)"
+    },
+    {
+      "journal": "Science",
+      "min_geo_cov": 29.9,
+      "min_n_half": 665,
+      "min_ratio": 0.894,
+      "reason": "failed_strict_audit"
+    }
+  ],
+  "panel_json_sha256": "ca5bd2d7e246b35d910d1e2ca77e90be41a23ab66dd2a80132ca1238d1f48e88",
+  "elapsed_sec": 290.68
+}

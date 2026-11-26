@@ -1,0 +1,17 @@
+{
+  "n_mature_eids": 2654,
+  "seed_files_sha256": {
+    "elife_prc_search_census.json": "a356fb1bfbecf5d31218274b50395392d5f79bb7348ab38568cf89fab8763239",
+    "elife_v1_assessments.json": "1ca6bf4845d1f60ec78b746f82d6f1c0a953a263d63a994cde47190d9cae8604",
+    "crossref_elife_2023_2026.json": "29c664068317319b96b4b8fab36580e43b05d0abe6a2f04a4e48494b49412470",
+    "openalex_elife_prc_dois.json": "4bf6684f8697fb2801fb92b7b59cb9c8988476d470507fef71ba10ca3ddb7904",
+    "openalex_preprint_dois.json": "2fcf4ea7900f0964bbffc549dd11b72b90a802fd2cc153b33da4c46846907215",
+    "elife_blog_7da92a51_ground_truth.json": "b6d7b81833e2ee21c7117384b79f518af0e56027ac14d90e47938e71f32ba195",
+    "r2_sent_for_review_sample.json": "e4a592b9587da6b891fcda5c86488923d64bd1d73ba7b79ad1ce19871bd028e4",
+    "r2_elife_110392_editorial.json": "66ff1a0f9bbe1b5e35447802a87d243470f48ac2e1c00bdd5bc4e6392b941520",
+    "r2_elife_openalex_all_2021_2026.json": "1a39c3734c5f3a77f3da7aad1cd1195c69982eb6539f92a2ea46b2e359961b14"
+  },
+  "metrics_jsonl": "elife_article_metrics_2023_2024.jsonl",
+  "metrics_jsonl_sha256": "c0a089c91b4b5ccdd1bf666cd71f7dd2b403d236056701114fd3368e58f23fbd",
+  "elapsed_sec": 312.9
+}
