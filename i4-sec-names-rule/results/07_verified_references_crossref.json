@@ -1,7 +1,7 @@
 {
-  "n_total_references": 21,
+  "n_total_references": 23,
   "n_academic_dois_verified_live_crossref": 17,
-  "n_official_sec_releases": 4,
+  "n_official_sec_releases": 6,
   "all_bibliography_cited_in_body": true,
   "all_body_citations_in_bibliography": true,
   "references": [
@@ -244,24 +244,48 @@
       "label": "SEC IC-24828 (2001)",
       "doi": null,
       "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/rules/final/ic-24828.htm",
+      "http_status": 200,
       "body_citation_count": 1
     },
     {
-      "label": "SEC IC-35000 (2023)",
+      "label": "SEC 33-11238 / IC-35000 (2023)",
       "doi": null,
       "official_sec_release": true,
-      "body_citation_count": 2
+      "sec_url": "https://www.sec.gov/files/rules/final/2023/33-11238.pdf",
+      "http_status": 200,
+      "body_citation_count": 8
     },
     {
-      "label": "SEC IC-35500 (2025)",
+      "label": "SEC 33-11368 / IC-35500 (2025)",
       "doi": null,
       "official_sec_release": true,
-      "body_citation_count": 1
+      "sec_url": "https://www.sec.gov/files/rules/final/2025/33-11368.pdf",
+      "http_status": 200,
+      "body_citation_count": 19
     },
     {
-      "label": "SEC IC-35962 (2026)",
+      "label": "SEC IC-35963 (2026a)",
       "doi": null,
       "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/files/rules/final/2026/ic-35963.pdf",
+      "http_status": 200,
+      "body_citation_count": 5
+    },
+    {
+      "label": "SEC 2025-26 Names Rule FAQs",
+      "doi": null,
+      "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/2025-26-names-rule-faqs",
+      "http_status": 200,
+      "body_citation_count": 7
+    },
+    {
+      "label": "SEC Press Release 2026-19 (2026b)",
+      "doi": null,
+      "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/newsroom/press-releases/2026-19-sec-proposes-amendments-reduce-burdens-reporting-fund-portfolio-holdings",
+      "http_status": 200,
       "body_citation_count": 4
     }
   ]

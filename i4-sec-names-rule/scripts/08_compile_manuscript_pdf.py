@@ -44,8 +44,11 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
     n_eff_apr_may26 = eff_hm.get("2026-04", 0) + eff_hm.get("2026-05", 0)
     in_all = r3["inertia_cross_section"]["MULTI_ASSET_GVI_ALL"]
     in_lt = r3["inertia_cross_section"]["HOLD_LT_CONSTR_GVI"]
+    in_faq = r3["inertia_cross_section"]["HOLD_LT_CONSTR_GV_NO_INC"]
+    xv = r4["ex_vanguard_sensitivity"]
     a3 = r4["main_did_full_20_26Q3"]["A3_GVI_ALL"]
     a3_opq = r4["main_did_full_20_26Q3"]["A3_GVI_OPAQUE_ONLY"]
+    a3_faq = r4["main_did_full_20_26Q3"]["FAQ2_GV_NO_INC"]["post_25_26"]
     fe_id = r4["high_dim_fe"]["FULL_20_26Q3_GVI_ALLOC_COMPLEX_X_QTR_IDENTIFYING"]
     step = r4["statutory_size_step_function"]
     b4_loc = r4["statutory_cutoff_tests"]["B4_LOCAL_1B_10B_VS_LT1B"]["did_post_25_26"]
@@ -64,17 +67,20 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
                 f"Panel B plots quarter-by-quarter DiD event-study coefficients (ref = 2023Q2, CR1 95% CI clustered by unified COMPLEX_ID): "
                 f"all 13 pre-rule quarters are flat (All GVI joint <em>F</em> = {a3['joint_pre_F']['F']:.2f}, <em>p</em> = {a3['joint_pre_F']['p']:.3f}; "
                 f"Opaque Only joint <em>F</em> = {a3_opq['joint_pre_F']['F']:.2f}, <em>p</em> = {a3_opq['joint_pre_F']['p']:.3f}), followed by sharp "
-                f"May-2025 lock-in and June-2026 statutory cliff surges (pooled DiD {a3['post_25_26']['beta']*100:+.2f} pp/qtr, <em>p</em><sub>WCB</sub> = {a3['post_25_26']['p_wcb']:.3f})."
+                f"May-2025 lock-in and June-2026 on-cycle compliance surges (pooled DiD {a3['post_25_26']['beta']*100:+.2f} pp/qtr, <em>p</em><sub>WCB</sub> = {a3['post_25_26']['p_wcb']:.3f})."
             ),
         ),
         "fig2_bifurcated_equilibrium_and_edgar_proof.png": (
-            "Figure 2. Bifurcated Compliance Equilibrium and Symmetric Live SEC EDGAR 497/485BPOS Prospectus Attribution Proof.",
+            "Figure 2. Bifurcated Compliance Equilibrium (Including Ex-Vanguard Sensitivity) and Symmetric Live SEC EDGAR 497/485BPOS Proof.",
             (
-                f"Panel A contrasts Fund Count share, Renamed AUM share, Variable-Annuity channel share, and Index/ETF share across multi-asset GVI droppers: "
-                f"Opaque Synonyms account for {bif['OPAQUE_SYNONYM']['pct_funds']:.1f}% of funds ({bif['OPAQUE_SYNONYM']['n_funds']} funds, "
-                f"${bif['OPAQUE_SYNONYM']['aum_B']:.1f}B, {bif['OPAQUE_SYNONYM']['pct_va_insurance']:.1f}% VA/insurance, 0.0% index/ETF), whereas "
-                f"Numeric Ratios account for {bif['NUMERIC_RATIO']['pct_funds']:.1f}% of funds ({bif['NUMERIC_RATIO']['n_funds']} funds) but "
-                f"{bif['NUMERIC_RATIO']['pct_aum']:.1f}% of renamed AUM (${bif['NUMERIC_RATIO']['aum_B']:.1f}B). "
+                f"Panel A contrasts Fund Count share, Renamed AUM share (All vs. Ex-Vanguard), Variable-Annuity share, and Index/ETF share across multi-asset GVI droppers: "
+                f"Opaque Synonyms represent {bif['OPAQUE_SYNONYM']['pct_funds']:.1f}% of funds ({bif['OPAQUE_SYNONYM']['n_funds']} funds across "
+                f"{xv['all_ma_gvi']['OPAQUE_SYNONYM']['n_complexes']} complexes, ${bif['OPAQUE_SYNONYM']['aum_B']:.1f}B, {bif['OPAQUE_SYNONYM']['pct_va_insurance']:.1f}% VA/insurance, 0.0% index/ETF), "
+                f"whereas Numeric Ratios represent {bif['NUMERIC_RATIO']['pct_funds']:.1f}% of funds ({bif['NUMERIC_RATIO']['n_funds']} funds) and "
+                f"{bif['NUMERIC_RATIO']['pct_aum']:.1f}% of renamed AUM overall (${bif['NUMERIC_RATIO']['aum_B']:.1f}B) but drop to "
+                f"{xv['ex_vanguard_ma_gvi']['NUMERIC_RATIO']['pct_aum']:.1f}% (${xv['ex_vanguard_ma_gvi']['NUMERIC_RATIO']['aum_B']:.2f}B; Opaque = "
+                f"{xv['ex_vanguard_ma_gvi']['OPAQUE_SYNONYM']['pct_aum']:.1f}% of AUM and {xv['ex_vanguard_ma_gvi']['OPAQUE_SYNONYM']['pct_funds']:.1f}% of funds) "
+                f"excluding Vanguard LifeStrategy ({xv['vanguard_share_of_numeric_aum_pct']:.1f}% of numeric AUM). "
                 f"Panel B summarizes 100% symmetric live EDGAR 497/485BPOS audits (up to 6 MB per filing) across all {ed_all['n_funds']} droppers and "
                 f"{ed_keep['n_funds']} matched Keepers: Keepers cite trust-level Rule 35d-1 boilerplate significantly more often "
                 f"({ed_keep['trust_cites_35d1_pct']:.0f}% vs. {ed_ma['trust_cites_35d1_pct']:.0f}% in MA droppers, "
@@ -83,33 +89,36 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
                 f"{ed_num['no_strategy_change_pct']:.0f}% of numeric droppers certifying strategies remain unchanged). "
                 f"Panel C plots window-validated legal effective months parsed from 497/497K supplements ({ed_eff['n_ma_gvi_with_parsed_eff_date']} MA GVI funds): "
                 f"{n_eff_apr_may25} cluster in Apr&ndash;May 2025 ({ed_eff['exact_2025_05_01_ma_gvi']}/{eff_hm.get('2025-05', 0)} May-2025 dates on exact May 1, 2025), "
-                f"{n_eff_sep25} in Sept 2025, and {n_eff_apr_may26} in Apr&ndash;May 2026 ahead of the June 11, 2026 cliff."
+                f"{n_eff_sep25} in Sept 2025, and {n_eff_apr_may26} in Apr&ndash;May 2026 ahead of the June 11, 2026 on-cycle start date."
             ),
         ),
         "fig3_statutory_cutoff_and_robustness_forest.png": (
-            "Figure 3. Statutory $1 Billion vs. $10 Billion Step Function and Full Econometric &amp; LOFO Specification Forest.",
+            "Figure 3. Statutory $1 Billion vs. $10 Billion Step Function and Full Econometric, Ex-Vanguard, SEC-FAQ &amp; LOFO Forest.",
             (
                 f"Panel A compares post-period (2025Q1&ndash;2026Q3) quarterly drop rates across pre-rule (2023Q2) unified complex net-asset bins for active 2024+ complexes: "
                 f"Non-political Multi-Asset GVI jumps sharply right above Rule 35d-1&rsquo;s $1B statutory threshold "
                 f"(&lt;$1B: {step['MULTI_ASSET_GVI']['<$1B (Exempt in 26Q3)']['post_pct']:.2f}% vs. $1B&ndash;$10B: {step['MULTI_ASSET_GVI']['$1B-$10B (Binding Jun26)']['post_pct']:.2f}%, "
-                f"exempt from the delayed $10B Form N-PORT rule), whereas Political ESG drops are highest below $1B ({step['ESG']['<$1B (Exempt in 26Q3)']['post_pct']:.2f}%) "
+                f"exempt from the delayed $10B Form N-PORT reporting cutoff under Release IC-35963), whereas Political ESG drops are highest below $1B ({step['ESG']['<$1B (Exempt in 26Q3)']['post_pct']:.2f}%) "
                 f"and Legacy-2001 placebos stay flat ({min(leg_vals):.2f}%&ndash;{max(leg_vals):.2f}%). Panel B displays point estimates, 95% CR1 CIs, and exact LSDV-equivalent WCB <em>p</em>-values "
-                f"across 11 specifications, including identifying-complexes-only COMPLEX_ID &times; REP_YQ FE ({fe_id['beta']*100:+.2f} pp, <em>p</em><sub>WCB</sub> = {fe_id['p_wcb']:.3f}), "
-                f"zero-keyword 4-tier look-through holdings (&lt;80%), saturated DDD, worst-case LOFO (dropping Fidelity), and local $1B&ndash;$10B Legacy-2001 placebo "
-                f"({b4_loc['beta']*100:+.2f} pp, <em>p</em><sub>WCB</sub> = {b4_loc['p_wcb']:.3f})."
+                f"across 13 specifications, including Ex-Vanguard Opaque GVI, SEC-FAQ strict non-exempt Growth/Value excluding Income and Growth &amp; Income "
+                f"({a3_faq['beta']*100:+.2f} pp, <em>p</em><sub>WCB</sub> = {a3_faq['p_wcb']:.3f}), identifying-complexes-only COMPLEX_ID &times; REP_YQ FE "
+                f"({fe_id['beta']*100:+.2f} pp, <em>p</em><sub>WCB</sub> = {fe_id['p_wcb']:.3f}), zero-keyword 4-tier look-through (&lt;80% single-class proxy), "
+                f"saturated DDD, worst-case LOFO (dropping Fidelity), and local $1B&ndash;$10B Legacy-2001 placebo ({b4_loc['beta']*100:+.2f} pp, <em>p</em><sub>WCB</sub> = {b4_loc['p_wcb']:.3f})."
             ),
         ),
         "fig4_lookthrough_holdings_inertia.png": (
-            "Figure 4. 4-Tier Cross-Quarter CUSIP-Consensus Look-Through Holdings Stability (2023Q2 &rarr; 2026Q2/Q3) and Zero Active Rebalancing.",
+            "Figure 4. 4-Tier Cross-Quarter CUSIP-Consensus Look-Through Stock-Bond Allocation Inertia (2023Q2 &rarr; 2026Q2/Q3).",
             (
                 f"Panel A scatters pre-rule 2023Q2 versus post-cliff 2026Q2/Q3 true 4-tier look-through equity shares across all paired multi-asset GVI funds "
                 f"(<em>n</em> = {in_all['n_droppers']} droppers vs. {in_all['n_keepers']} keepers, resolved via a 5,597-CUSIP cross-quarter title registry with 100/100 top-100 accuracy), "
-                f"confirming Vanguard LifeStrategy 20/80, 40/60, 60/40, and 80/20 and Prudential AST sit along the 45&deg; zero-reallocation diagonal inside the shaded &lt;80% zone. "
-                f"Panel B plots Dropper minus Keeper differentials (95% CR1 CI &amp; WCB <em>p</em>) against exact non-overlapping monthly passive drift: "
-                f"constrained &lt;80% droppers shift {in_lt['metrics']['ACTIVE_TOWARD_80']['beta']:+.2f} pp relative to &lt;80% keepers away from 80% "
-                f"(<em>p</em><sub>WCB</sub> = {in_lt['metrics']['ACTIVE_TOWARD_80']['p_wcb']:.3f}; all MA GVI {in_all['metrics']['ACTIVE_TOWARD_80']['beta']:+.2f} pp, "
-                f"<em>p</em><sub>WCB</sub> = {in_all['metrics']['ACTIVE_TOWARD_80']['p_wcb']:.3f}), IS_FOF-controlled 3-year CUSIP overlap is "
-                f"{in_all['metrics']['CUSIP_OVERLAP_PCT_CTRL_FOF']['beta']:+.2f} pp <em>higher</em> among droppers "
+                f"confirming Vanguard LifeStrategy 20/80, 40/60, 60/40, and 80/20 and Prudential AST sit along the 45&deg; zero-reallocation diagonal inside the shaded &lt;80% single-asset-class blended zone "
+                f"(a holdings proxy for blended mandates rather than literal statutory noncompliance, as Rule 35d-1 permits prospectus-defined multi-asset 80% baskets). "
+                f"Panel B plots Dropper minus Keeper allocation-inertia differentials (95% CR1 CI &amp; WCB <em>p</em>) against exact non-overlapping monthly passive drift: "
+                f"inside the &lt;80% single-class proxy sample, droppers shift {in_lt['metrics']['ACTIVE_TOWARD_80']['beta']:+.2f} pp relative to keepers away from 80% single-class concentration "
+                f"(<em>p</em><sub>WCB</sub> = {in_lt['metrics']['ACTIVE_TOWARD_80']['p_wcb']:.3f}; SEC-FAQ strict GV excl. Income/G&amp;I: "
+                f"{in_faq['metrics']['ACTIVE_TOWARD_80']['beta']:+.2f} pp, <em>p</em><sub>WCB</sub> = {in_faq['metrics']['ACTIVE_TOWARD_80']['p_wcb']:.3f}; "
+                f"all MA GVI {in_all['metrics']['ACTIVE_TOWARD_80']['beta']:+.2f} pp, <em>p</em><sub>WCB</sub> = {in_all['metrics']['ACTIVE_TOWARD_80']['p_wcb']:.3f}), "
+                f"IS_FOF-controlled 3-year CUSIP overlap is {in_all['metrics']['CUSIP_OVERLAP_PCT_CTRL_FOF']['beta']:+.2f} pp <em>higher</em> among droppers "
                 f"(<em>p</em><sub>WCB</sub> = {in_all['metrics']['CUSIP_OVERLAP_PCT_CTRL_FOF']['p_wcb']:.3f}), and panel TWFE cash and volatility are zero."
             ),
         ),

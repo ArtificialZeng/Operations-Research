@@ -130,7 +130,7 @@ def make_fig1(r4: dict, es_df: pd.DataFrame) -> None:
         arrowprops={"arrowstyle": "->", "color": SLATE, "lw": 0.9},
     )
     ax1.annotate(
-        "Binding Cliff\n(Jun 11, 2026)",
+        "On-Cycle Start\n(Jun 11, 2026)",
         xy=(idx_jun26, 2.75),
         xytext=(idx_jun26 - 1.35, 6.65),
         fontsize=7.3,
@@ -190,30 +190,33 @@ def make_fig1(r4: dict, es_df: pd.DataFrame) -> None:
     save_fig(fig, "fig1_compliance_cliffs_and_bifurcation")
 
 
-def make_fig2(r1: dict, r2: dict) -> None:
-    """Figure 2: Bifurcated Compliance Equilibrium & Live SEC EDGAR 485BPOS/497 Attribution Proof."""
+def make_fig2(r1: dict, r2: dict, r4: dict) -> None:
+    """Figure 2: Bifurcated Compliance Equilibrium (All vs. Ex-Vanguard) & Live SEC EDGAR Attribution Proof."""
     bif = r1["bifurcated_equilibrium_multi_asset_gvi"]
+    xv = r4["ex_vanguard_sensitivity"]["ex_vanguard_ma_gvi"]
     arms = r2["arm_summary"]
     eff_ma = r2["effective_date_clustering"]["monthly_histogram_ma_gvi"]
 
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(14.8, 4.9), gridspec_kw={"wspace": 0.27, "width_ratios": [1.05, 1.15, 1.08]})
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(15.2, 5.0), gridspec_kw={"wspace": 0.27, "width_ratios": [1.14, 1.12, 1.06]})
 
-    # Panel A: Bifurcated Equilibrium
-    cats = ["Fund\nCount", "Renamed\nAUM", "Variable\nAnnuity", "Index /\nETF"]
+    # Panel A: Bifurcated Equilibrium (including Ex-Vanguard Renamed AUM transparency!)
+    cats = ["Fund\nCount", "Renamed\nAUM\n(All)", "Renamed\nAUM\n(Ex-VG)", "Variable\nAnnuity", "Index /\nETF"]
     opq_vals = [
         bif["OPAQUE_SYNONYM"]["pct_funds"],
         bif["OPAQUE_SYNONYM"]["pct_aum"],
+        xv["OPAQUE_SYNONYM"]["pct_aum"],
         bif["OPAQUE_SYNONYM"]["pct_va_insurance"],
         bif["OPAQUE_SYNONYM"]["pct_index"],
     ]
     num_vals = [
         bif["NUMERIC_RATIO"]["pct_funds"],
         bif["NUMERIC_RATIO"]["pct_aum"],
+        xv["NUMERIC_RATIO"]["pct_aum"],
         bif["NUMERIC_RATIO"]["pct_va_insurance"],
         bif["NUMERIC_RATIO"]["pct_index"],
     ]
     x = np.arange(len(cats))
-    w = 0.35
+    w = 0.36
     b1 = ax1.bar(
         x - w / 2,
         opq_vals,
@@ -228,18 +231,18 @@ def make_fig2(r1: dict, r2: dict) -> None:
         w,
         color=TEAL,
         alpha=0.90,
-        label=f"Numeric Ratio (n={bif['NUMERIC_RATIO']['n_funds']}, ${bif['NUMERIC_RATIO']['aum_B']:.1f}B)",
+        label=f"Numeric Ratio (n={bif['NUMERIC_RATIO']['n_funds']}, ${bif['NUMERIC_RATIO']['aum_B']:.1f}B; VG={r4['ex_vanguard_sensitivity']['vanguard_share_of_numeric_aum_pct']:.1f}%)",
     )
     for bars in (b1, b2):
         for bar in bars:
             h = bar.get_height()
-            ax1.text(bar.get_x() + bar.get_width() / 2, h + 1.8, f"{h:.1f}%", ha="center", va="bottom", fontsize=7.2, fontweight="bold")
-    ax1.set_ylim(0, 112)
+            ax1.text(bar.get_x() + bar.get_width() / 2, h + 1.8, f"{h:.1f}%", ha="center", va="bottom", fontsize=6.5, fontweight="bold")
+    ax1.set_ylim(0, 126)
     ax1.set_xticks(x)
-    ax1.set_xticklabels(cats, fontsize=7.8)
+    ax1.set_xticklabels(cats, fontsize=7.2)
     ax1.set_ylabel("Share (%)")
-    ax1.set_title("A. Bifurcated Compliance Equilibrium")
-    leg1 = ax1.legend(loc="upper right", fontsize=7.1, framealpha=0.96)
+    ax1.set_title("A. Bifurcated Equilibrium & Ex-Vanguard Split")
+    leg1 = ax1.legend(loc="upper right", fontsize=6.6, framealpha=0.96)
     for t in leg1.get_texts():
         t.set_parse_math(False)
     ax1.spines["top"].set_visible(False)
@@ -290,7 +293,7 @@ def make_fig2(r1: dict, r2: dict) -> None:
     n_apr25 = eff_ma.get("2025-04", 0)
     ax3.annotate(
         f"Apr–May 2025 Lock-In\n({n_apr25 + n_may25} funds; {n_may1}/{n_may25} May 1)",
-        xy=(4.0, n_may25 + 0.4),
+        xy=(4.0, n_may25 + 0.72),
         xytext=(8.3, 10.65),
         fontsize=7.0,
         fontweight="bold",
@@ -299,7 +302,7 @@ def make_fig2(r1: dict, r2: dict) -> None:
         arrowprops={"arrowstyle": "->", "color": CRIMSON, "lw": 1.0},
     )
     ax3.annotate(
-        "Pre-Jun 11, 2026\nStatutory Cliff",
+        "Pre-Jun 11, 2026\nOn-Cycle Start",
         xy=(15.65, eff_ma.get("2026-05", 9) - 0.2),
         xytext=(11.8, 8.2),
         fontsize=7.2,
@@ -326,7 +329,7 @@ def make_fig3(r4: dict) -> None:
     bins = ["<$1B (Exempt in 26Q3)", "$1B-$10B (Binding Jun26)", "$10B-$100B (Binding Jun26)", ">=$100B (Binding Jun26)"]
     short_bins = ["<$1B\n(Exempt\nin 26Q3)", "$1B–$10B\n(Rule 35d-1\nBinding)", "$10B–$100B\n(Binding)", "≥$100B\n(Binding)"]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15.2, 5.4), gridspec_kw={"wspace": 0.62, "width_ratios": [1.0, 1.08]})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15.4, 5.8), gridspec_kw={"wspace": 0.64, "width_ratios": [1.0, 1.08]})
 
     # Panel A: Step-function across $1B vs $10B cutoffs
     x = np.arange(len(bins))
@@ -361,7 +364,7 @@ def make_fig3(r4: dict) -> None:
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
 
-    # Panel B: Forest plot across 11 specifications
+    # Panel B: Forest plot across 13 specifications (including Ex-Vanguard & SEC-FAQ strict non-exempt GV)
     m_full = r4["main_did_full_20_26Q3"]
     m_comp = r4["main_did_complete_20_26Q2"]
     hd = r4["high_dim_fe"]
@@ -373,10 +376,12 @@ def make_fig3(r4: dict) -> None:
         ("Main DiD: Multi-Asset GVI (Full)", m_full["A3_GVI_ALL"]["post_25_26"], NAVY),
         ("Complete Quarters (20Q1–26Q2)", m_comp["A3_GVI_ALL"]["post_25_26"], NAVY),
         ("Opaque Synonyms Only (GVI)", m_full["A3_GVI_OPAQUE_ONLY"]["post_25_26"], CRIMSON),
+        ("Ex-Vanguard: GVI Opaque Only", m_full["A3_GVI_OPAQUE_EX_VANGUARD"]["post_25_26"], CRIMSON),
+        ("SEC-FAQ Strict GV (Excl. Inc/G&I)", m_full["FAQ2_GV_NO_INC"]["post_25_26"], TEAL),
         ("Series FE + Qtr FE + Ctrls", hd["FULL_20_26Q3_GVI_ALLOC_SERIES_FE"], NAVY),
         ("Complex × Qtr FE (Id-Only)", hd["FULL_20_26Q3_GVI_ALLOC_COMPLEX_X_QTR_IDENTIFYING"], TEAL),
         ("N-CEN Structural FOF/TD Only", m_full["S2_NCEN_FOF_TD_GVI"]["post_25_26"], TEAL),
-        ("4-Tier Look-Through (<80%)", m_full["LT2_HOLD_LT80_GVI"]["post_25_26"], TEAL),
+        ("4-Tier Look-Through (<80% Proxy)", m_full["LT2_HOLD_LT80_GVI"]["post_25_26"], TEAL),
         ("Holdings (<80%) + Cplx×Qtr FE", hd["FULL_20_26Q3_GVI_HOLD_LT80_COMPLEX_X_QTR_ALL"], TEAL),
         ("Saturated DDD (Large23Q2)", ddd["DDD_GVI_COMPLEX23Q2_FULL"]["ddd_25_26"], OCHRE),
         ("LOFO Worst-Case (ex-Fidelity)", lofo["LOFO_A3_GVI"]["worst_result"], NAVY),
@@ -398,7 +403,7 @@ def make_fig3(r4: dict) -> None:
     ax2.set_yticklabels([s[0] for s in specs], fontsize=7.7)
     for lbl in ax2.get_yticklabels():
         lbl.set_parse_math(False)
-    ax2.set_xlim(-0.7, 5.75)
+    ax2.set_xlim(-0.7, 6.55)
     ax2.set_xlabel("Treatment Effect (pp/qtr, 95% CR1 CI & WCB p)")
     ax2.set_title("B. Specification, Within-Complex FE & LOFO Forest")
     ax2.spines["top"].set_visible(False)
@@ -450,7 +455,7 @@ def make_fig4(r3: dict, lt_pair: pd.DataFrame) -> None:
             )
             ann.set_parse_math(False)
 
-    ax1.text(4, 96, "<80% Non-Compliant\nBlended Zone", fontsize=7.2, color=CRIMSON, style="italic", va="top")
+    ax1.text(4, 96, "<80% Single-Class\nBlended Zone", fontsize=7.2, color=CRIMSON, style="italic", va="top")
     ax1.set_xlim(0, 105)
     ax1.set_ylim(0, 105)
     ax1.set_xlabel("Pre-Rule 2023Q2 True Look-Through Equity Share (%)")
@@ -460,14 +465,16 @@ def make_fig4(r3: dict, lt_pair: pd.DataFrame) -> None:
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
 
-    # Panel B: Portfolio Inertia & Stability Differentials
+    # Panel B: Portfolio Inertia & Stability Differentials (Allocation Inertia Proxy)
     m_all = r3["inertia_cross_section"]["MULTI_ASSET_GVI_ALL"]["metrics"]
     m_lt = r3["inertia_cross_section"]["HOLD_LT_CONSTR_GVI"]["metrics"]
+    m_faq = r3["inertia_cross_section"]["HOLD_LT_CONSTR_GV_NO_INC"]["metrics"]
     p_twfe = r3["panel_twfe_balance_sheet"]["MULTI_ASSET_GVI"]
 
     items = [
-        ("Active Shift Toward 80%\n(<80% Holdings Sample, pp)", m_lt["ACTIVE_TOWARD_80"], CRIMSON),
-        ("Active Shift Toward 80%\n(All Multi-Asset GVI, pp)", m_all["ACTIVE_TOWARD_80"], NAVY),
+        ("Active Single-Class Shift\n(<80% Proxy GVI, pp)", m_lt["ACTIVE_TOWARD_80"], CRIMSON),
+        ("Active Single-Class Shift\n(SEC-FAQ Strict GV <80%, pp)", m_faq["ACTIVE_TOWARD_80"], CRIMSON),
+        ("Active Single-Class Shift\n(All Multi-Asset GVI, pp)", m_all["ACTIVE_TOWARD_80"], NAVY),
         ("|Active Eq Rebalancing|\n(Drift-Adjusted, pp)", m_all["ABS_ACTIVE_REBAL_EQ"], NAVY),
         ("|Δ True Equity Weight|\n(Raw 3-Year, pp)", m_all["ABS_D_TRUE_EQ"], SLATE),
         ("IS_FOF-Controlled 3-Yr\nCUSIP Overlap (pp)", m_all["CUSIP_OVERLAP_PCT_CTRL_FOF"], TEAL),
@@ -636,7 +643,7 @@ def main() -> int:
     lt_pair = pd.read_parquet(WORK_DIR / "data" / "holdings_lt" / "lookthrough_panel_2023_2026.parquet")
 
     make_fig1(r4, es_q)
-    make_fig2(r1, r2)
+    make_fig2(r1, r2, r4)
     make_fig3(r4)
     make_fig4(r3, lt_pair)
     make_fig5(r1, r5, es_mon)

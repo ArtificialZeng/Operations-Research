@@ -178,6 +178,15 @@ def main() -> int:
     ]
     qtr = qtr.join(lt_map, on="SERIES_ID")
 
+    # SEC 2025-26 Names Rule FAQ Carve-Out Indicators (strictly excluding "Income" & "Growth and Income" hybrids)
+    prev_nm_s = qtr["PREV_SERIES_NAME"].fillna("")
+    qtr["PREV_HAS_GI"] = prev_nm_s.str.contains(r"\bgrowth\s*(?:&|and)\s*income\b", case=False, regex=True).astype(int)
+    qtr["PREV_HAS_GV_NO_GI"] = ((qtr["PREV_HAS_GV"] == 1) & (qtr["PREV_HAS_GI"] == 0)).astype(int)
+    qtr["PREV_HAS_GV_NO_INC"] = ((qtr["PREV_HAS_GV"] == 1) & (qtr["PREV_HAS_INCOME"] == 0)).astype(int)
+    qtr["DROP_GV_NO_GI"] = ((qtr["PREV_HAS_GV_NO_GI"] == 1) & (qtr["HAS_GV"] == 0)).astype(int)
+    qtr["DROP_GV_NO_INC"] = ((qtr["PREV_HAS_GV_NO_INC"] == 1) & (qtr["HAS_GV"] == 0)).astype(int)
+    qtr["DROP_GV_NO_INC_OPAQUE"] = ((qtr["DROP_GV_NO_INC"] == 1) & (qtr["COMPLIANCE_TYPE"] == "OPAQUE_SYNONYM")).astype(int)
+
     # Two sample windows:
     # - FULL_20_26Q3: all available REP_YQ 2020Q1-2026Q3
     # - COMPLETE_20_26Q2: strictly complete calendar quarters 2020Q1-2026Q2 (excludes partial 2026Q3)
@@ -191,9 +200,9 @@ def main() -> int:
     es_export_rows: list[dict] = []
 
     # -----------------------------------------------------------------------
-    # [2/7] Core DiD & Bifurcation Decomposition (BOTH 2020Q1-2026Q2 & 2020Q1-2026Q3)
+    # [2/7] Core DiD, Bifurcation, Ex-Vanguard & SEC-FAQ Robustness (BOTH Windows)
     # -----------------------------------------------------------------------
-    print("[2/7] Estimating Main DiD & Opaque-vs-Numeric Bifurcation (Complete 20Q1-26Q2 & Full 20Q1-26Q3)...", flush=True)
+    print("[2/7] Estimating Main DiD, Bifurcation, Ex-Vanguard & SEC-FAQ Robustness...", flush=True)
     core_specs = [
         ("A1_GV_ALL", "PREV_HAS_GV == 1", "PREV_IS_ALLOC_FUND", "DROP_GV"),
         ("A1_GV_OPAQUE_ONLY", "PREV_HAS_GV == 1", "PREV_IS_ALLOC_FUND", "DROP_GV_OPAQUE"),
@@ -202,6 +211,13 @@ def main() -> int:
         ("A3_GVI_ALL", "PREV_HAS_GVI == 1", "PREV_IS_ALLOC_FUND", "DROP_GVI"),
         ("A3_GVI_OPAQUE_ONLY", "PREV_HAS_GVI == 1", "PREV_IS_ALLOC_FUND", "DROP_GVI_OPAQUE"),
         ("A3_GVI_NUMERIC_ONLY", "PREV_HAS_GVI == 1", "PREV_IS_ALLOC_FUND", "DROP_GVI_NUMERIC"),
+        ("A3_GVI_EX_VANGUARD", "PREV_HAS_GVI == 1 and COMPLEX_ID != 'VANGUARD'", "PREV_IS_ALLOC_FUND", "DROP_GVI"),
+        ("A3_GVI_OPAQUE_EX_VANGUARD", "PREV_HAS_GVI == 1 and COMPLEX_ID != 'VANGUARD'", "PREV_IS_ALLOC_FUND", "DROP_GVI_OPAQUE"),
+        ("A3_GVI_NUMERIC_EX_VANGUARD", "PREV_HAS_GVI == 1 and COMPLEX_ID != 'VANGUARD'", "PREV_IS_ALLOC_FUND", "DROP_GVI_NUMERIC"),
+        ("FAQ1_GV_NO_GI", "PREV_HAS_GV_NO_GI == 1", "PREV_IS_ALLOC_FUND", "DROP_GV_NO_GI"),
+        ("FAQ2_GV_NO_INC", "PREV_HAS_GV_NO_INC == 1", "PREV_IS_ALLOC_FUND", "DROP_GV_NO_INC"),
+        ("FAQ3_GV_NO_INC_OPAQUE", "PREV_HAS_GV_NO_INC == 1", "PREV_IS_ALLOC_FUND", "DROP_GV_NO_INC_OPAQUE"),
+        ("FAQ4_GV_NO_INC_HOLD_LT80", "PREV_HAS_GV_NO_INC == 1 and HOLD_LT_CONSTR.notna()", "HOLD_LT_CONSTR", "DROP_GV_NO_INC"),
         ("A4_WITHIN_ALLOC_GVI_VS_EXEMPT", "PREV_IS_ALLOC_FUND == 1", "PREV_HAS_GVI", "ANY_RENAME"),
         ("S1_NCEN_FOF_TD_GV", "PREV_HAS_GV == 1", "PREV_STRUCT_FOF_TD", "DROP_GV"),
         ("S2_NCEN_FOF_TD_GVI", "PREV_HAS_GVI == 1", "PREV_STRUCT_FOF_TD", "DROP_GVI"),
@@ -313,6 +329,7 @@ def main() -> int:
     for win_tag, win_df in [("FULL_20_26Q3", df_full), ("COMP_20_26Q2", df_comp)]:
         for spec_name, mask_expr, tr_col, y_col in [
             ("GV_ALLOC", "PREV_HAS_GV == 1", "PREV_IS_ALLOC_FUND", "DROP_GV"),
+            ("GV_NO_INC_ALLOC", "PREV_HAS_GV_NO_INC == 1", "PREV_IS_ALLOC_FUND", "DROP_GV_NO_INC"),
             ("GVI_ALLOC", "PREV_HAS_GVI == 1", "PREV_IS_ALLOC_FUND", "DROP_GVI"),
             ("GVI_OPAQUE", "PREV_HAS_GVI == 1", "PREV_IS_ALLOC_FUND", "DROP_GVI_OPAQUE"),
             ("GVI_HOLD_LT80", "PREV_HAS_GVI == 1 and HOLD_LT_CONSTR.notna()", "HOLD_LT_CONSTR", "DROP_GVI"),
@@ -768,6 +785,120 @@ def main() -> int:
             flush=True,
         )
     results["lofo"] = lofo_out
+
+    # -----------------------------------------------------------------------
+    # [7b] Ex-Vanguard Concentration Sensitivity & SEC-FAQ Carve-Out Breakdown
+    # -----------------------------------------------------------------------
+    ma_aud = audit_df[audit_df["DROP_GROUP"] == "MULTI_ASSET_GVI"].drop_duplicates("SERIES_ID").copy()
+    ma_aud_xv = ma_aud[ma_aud["COMPLEX_ID"] != "VANGUARD"].copy()
+
+    def _bif_share_block(df_sub: pd.DataFrame) -> dict:
+        tot_n = len(df_sub)
+        tot_aum_b = float(df_sub["AUM_M"].sum() / 1000.0)
+        out_b: dict = {
+            "n_funds": int(tot_n),
+            "n_complexes": int(df_sub["COMPLEX_ID"].nunique()),
+            "total_aum_B": tot_aum_b,
+        }
+        for ct in ("OPAQUE_SYNONYM", "NUMERIC_RATIO", "OTHER_MERGER_BRAND"):
+            g = df_sub[df_sub["COMPLIANCE_TYPE"] == ct]
+            aum_b = float(g["AUM_M"].sum() / 1000.0)
+            out_b[ct] = {
+                "n_funds": len(g),
+                "pct_funds": float(100.0 * len(g) / max(tot_n, 1)),
+                "n_complexes": int(g["COMPLEX_ID"].nunique()),
+                "aum_B": aum_b,
+                "pct_aum": float(100.0 * aum_b / max(tot_aum_b, 1e-9)),
+            }
+        return out_b
+
+    vg_num_b = float(
+        ma_aud.loc[
+            (ma_aud["COMPLEX_ID"] == "VANGUARD") & (ma_aud["COMPLIANCE_TYPE"] == "NUMERIC_RATIO"),
+            "AUM_M",
+        ].sum()
+        / 1000.0
+    )
+    all_num_b = float(ma_aud.loc[ma_aud["COMPLIANCE_TYPE"] == "NUMERIC_RATIO", "AUM_M"].sum() / 1000.0)
+    all_ma_b = float(ma_aud["AUM_M"].sum() / 1000.0)
+
+    results["ex_vanguard_sensitivity"] = {
+        "vanguard_numeric_n_funds": int(
+            ((ma_aud["COMPLEX_ID"] == "VANGUARD") & (ma_aud["COMPLIANCE_TYPE"] == "NUMERIC_RATIO")).sum()
+        ),
+        "vanguard_numeric_aum_B": vg_num_b,
+        "all_numeric_aum_B": all_num_b,
+        "vanguard_share_of_numeric_aum_pct": float(100.0 * vg_num_b / max(all_num_b, 1e-9)),
+        "vanguard_share_of_total_ma_gvi_aum_pct": float(100.0 * vg_num_b / max(all_ma_b, 1e-9)),
+        "all_ma_gvi": _bif_share_block(ma_aud),
+        "ex_vanguard_ma_gvi": _bif_share_block(ma_aud_xv),
+        "did_full_20_26Q3": {
+            "A3_GVI_EX_VANGUARD": results["main_did_full_20_26Q3"]["A3_GVI_EX_VANGUARD"],
+            "A3_GVI_OPAQUE_EX_VANGUARD": results["main_did_full_20_26Q3"]["A3_GVI_OPAQUE_EX_VANGUARD"],
+            "A3_GVI_NUMERIC_EX_VANGUARD": results["main_did_full_20_26Q3"]["A3_GVI_NUMERIC_EX_VANGUARD"],
+        },
+        "did_complete_20_26Q2": {
+            "A3_GVI_EX_VANGUARD": results["main_did_complete_20_26Q2"]["A3_GVI_EX_VANGUARD"],
+            "A3_GVI_OPAQUE_EX_VANGUARD": results["main_did_complete_20_26Q2"]["A3_GVI_OPAQUE_EX_VANGUARD"],
+            "A3_GVI_NUMERIC_EX_VANGUARD": results["main_did_complete_20_26Q2"]["A3_GVI_NUMERIC_EX_VANGUARD"],
+        },
+    }
+
+    # Exact SEC-FAQ (Jan 8, 2025) breakdown of the 50 multi-asset GVI droppers
+    old_nm_aud = ma_aud["OLD_NAME"].fillna("")
+    has_gv_aud = old_nm_aud.str.contains(r"\b(?:growth|value)\b", case=False, regex=True)
+    has_inc_aud = old_nm_aud.str.contains(r"\bincome\b", case=False, regex=True)
+    has_gi_aud = old_nm_aud.str.contains(r"\bgrowth\s*(?:&|and)\s*income\b", case=False, regex=True)
+
+    pure_gv_aud = ma_aud[has_gv_aud & (~has_inc_aud)]
+    gi_hyb_aud = ma_aud[has_gi_aud]
+    inc_only_aud = ma_aud[(~has_gv_aud) & has_inc_aud]
+
+    results["sec_faq_robustness"] = {
+        "ma_gvi_dropper_faq_breakdown": {
+            "total_ma_gvi_droppers": len(ma_aud),
+            "strict_non_faq_gv_no_income": {
+                "n_funds": len(pure_gv_aud),
+                "pct_funds": float(100.0 * len(pure_gv_aud) / max(len(ma_aud), 1)),
+                "n_complexes": int(pure_gv_aud["COMPLEX_ID"].nunique()),
+                "aum_B": float(pure_gv_aud["AUM_M"].sum() / 1000.0),
+                "n_opaque": int((pure_gv_aud["COMPLIANCE_TYPE"] == "OPAQUE_SYNONYM").sum()),
+                "n_numeric": int((pure_gv_aud["COMPLIANCE_TYPE"] == "NUMERIC_RATIO").sum()),
+            },
+            "growth_and_income_hybrids": {
+                "n_funds": len(gi_hyb_aud),
+                "pct_funds": float(100.0 * len(gi_hyb_aud) / max(len(ma_aud), 1)),
+                "aum_B": float(gi_hyb_aud["AUM_M"].sum() / 1000.0),
+            },
+            "income_only": {
+                "n_funds": len(inc_only_aud),
+                "pct_funds": float(100.0 * len(inc_only_aud) / max(len(ma_aud), 1)),
+                "aum_B": float(inc_only_aud["AUM_M"].sum() / 1000.0),
+            },
+        },
+        "did_full_20_26Q3": {
+            "FAQ1_GV_NO_GI": results["main_did_full_20_26Q3"]["FAQ1_GV_NO_GI"],
+            "FAQ2_GV_NO_INC": results["main_did_full_20_26Q3"]["FAQ2_GV_NO_INC"],
+            "FAQ3_GV_NO_INC_OPAQUE": results["main_did_full_20_26Q3"]["FAQ3_GV_NO_INC_OPAQUE"],
+            "FAQ4_GV_NO_INC_HOLD_LT80": results["main_did_full_20_26Q3"]["FAQ4_GV_NO_INC_HOLD_LT80"],
+        },
+        "high_dim_fe_gv_no_inc_idonly": hd_fe["FULL_20_26Q3_GV_NO_INC_ALLOC_COMPLEX_X_QTR_IDENTIFYING"],
+    }
+
+    print(
+        f"\n  [EX-VANGUARD] Numeric AUM share: {results['ex_vanguard_sensitivity']['all_ma_gvi']['NUMERIC_RATIO']['pct_aum']:.1f}% overall -> "
+        f"{results['ex_vanguard_sensitivity']['ex_vanguard_ma_gvi']['NUMERIC_RATIO']['pct_aum']:.1f}% ex-Vanguard "
+        f"(Vanguard = {results['ex_vanguard_sensitivity']['vanguard_share_of_numeric_aum_pct']:.1f}% of Numeric AUM; "
+        f"Opaque ex-Vanguard = {results['ex_vanguard_sensitivity']['ex_vanguard_ma_gvi']['OPAQUE_SYNONYM']['pct_funds']:.1f}% funds / "
+        f"{results['ex_vanguard_sensitivity']['ex_vanguard_ma_gvi']['OPAQUE_SYNONYM']['pct_aum']:.1f}% AUM)",
+        flush=True,
+    )
+    print(
+        f"  [SEC-FAQ BREAKDOWN] Strict non-FAQ GV (excl. Income & G&I): {len(pure_gv_aud)}/{len(ma_aud)} funds "
+        f"(${pure_gv_aud['AUM_M'].sum() / 1000:.2f}B, {pure_gv_aud['COMPLEX_ID'].nunique()} cplx) | "
+        f"G&I hybrids={len(gi_hyb_aud)} | Income-only={len(inc_only_aud)}",
+        flush=True,
+    )
 
     # Save CSV tables & JSON receipt
     pd.DataFrame(table1_rows).to_csv(TABLES_OUT / "table1_main_did_bifurcation.csv", index=False, lineterminator="\n")

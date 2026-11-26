@@ -31,7 +31,7 @@ def main() -> int:
             for p in sorted(d.rglob("*")):
                 if p.is_file() and "__pycache__" not in p.parts:
                     targets.append(p)
-    for top_fn in ("manuscript_i4_boost.md", "manuscript_i4_boost.pdf"):
+    for top_fn in ("manuscript_i4_boost.md", "manuscript_i4_boost.pdf", "REFEREE_RESPONSE_v2.md"):
         p = WORK_DIR / top_fn
         if p.exists():
             targets.append(p)

@@ -803,6 +803,10 @@ def main() -> int:
     lt_pair["DROPPED_MA_GVI_25_26"] = lt_pair["SERIES_ID"].isin(set(d_ma["SERIES_ID"])).astype(int)
     lt_pair["DROPPED_ESG_25_26"] = lt_pair["SERIES_ID"].isin(set(d_esg["SERIES_ID"])).astype(int)
     lt_pair["COMPLIANCE_TYPE_25_26"] = lt_pair["SERIES_ID"].map(ct_map).fillna("KEEPER")
+    # Strict SEC-FAQ non-exempt Growth/Value subsample (excluding all "Income" and "Growth and Income" hybrids)
+    lt_pair["HAS_INCOME_23"] = lt_pair["SERIES_NAME_23"].fillna("").str.contains(r"\bincome\b", case=False, regex=True).astype(int)
+    lt_pair["HAS_GI_23"] = lt_pair["SERIES_NAME_23"].fillna("").str.contains(r"\bgrowth\s*(?:&|and)\s*income\b", case=False, regex=True).astype(int)
+    lt_pair["HAS_GV_NO_INC_23"] = ((lt_pair["HAS_GV"] == 1) & (lt_pair["HAS_INCOME_23"] == 0)).astype(int)
 
     # Compute exact CUSIP overlap (2023Q2 -> 2026)
     overlaps = []
@@ -888,12 +892,14 @@ def main() -> int:
 
     lt_pair.to_parquet(LT_CACHE / "lookthrough_panel_2023_2026.parquet", index=False)
 
-    # Inertia regressions on Constrained Multi-Asset GVI funds (BOTH HOLD_LT_CONSTR==1 AND IS_ALLOC_FUND==1)
+    # Inertia regressions on Constrained Multi-Asset GVI funds AND strict SEC-FAQ non-exempt Growth/Value (excl. Income & Growth and Income)
     inertia_results = {}
     inertia_rows = []
     for sample_name, smask in [
         ("HOLD_LT_CONSTR_GVI", (lt_pair["HAS_GVI"] == 1) & (lt_pair["HOLD_LT_CONSTR"] == 1) & lt_pair["TRUE_EQ_26"].notna()),
         ("MULTI_ASSET_GVI_ALL", (lt_pair["HAS_GVI"] == 1) & (lt_pair["IS_ALLOC_FUND"] == 1) & lt_pair["TRUE_EQ_26"].notna()),
+        ("HOLD_LT_CONSTR_GV_NO_INC", (lt_pair["HAS_GV_NO_INC_23"] == 1) & (lt_pair["HOLD_LT_CONSTR"] == 1) & lt_pair["TRUE_EQ_26"].notna()),
+        ("MULTI_ASSET_GV_NO_INC", (lt_pair["HAS_GV_NO_INC_23"] == 1) & (lt_pair["IS_ALLOC_FUND"] == 1) & lt_pair["TRUE_EQ_26"].notna()),
     ]:
         sub = lt_pair[smask].copy()
         d_flag = sub["DROPPED_GVI_25_26"].to_numpy(dtype=float)

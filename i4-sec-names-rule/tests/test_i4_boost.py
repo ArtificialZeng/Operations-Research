@@ -219,7 +219,7 @@ def test_06_manuscript_receipt_sync_and_100pct_citation_check() -> None:
 
     # 100% live Crossref verification and 2-way citation sync
     assert r7["n_academic_dois_verified_live_crossref"] == 17
-    assert r7["n_official_sec_releases"] == 4
+    assert r7["n_official_sec_releases"] == 6
     assert r7["all_bibliography_cited_in_body"] is True
     assert r7["all_body_citations_in_bibliography"] is True
 
@@ -387,3 +387,65 @@ def test_14_formal_model_algebra_and_crossref_integrity() -> None:
     assert "161 unique" in md
     assert "-6.92 pp" in md
     assert "66.0% vs. 42.0%" in md
+
+
+def test_15_v2_sec_citations_ex_vanguard_and_sec_faq_robustness() -> None:
+    """Enforce all 4 Major Revision v2 referee fixes:
+    (a) zero IC-35962 and positive presence of IC-35963 + 33-11238 + 33-11368 + SEC FAQs + 2026-19,
+    (b) Ex-Vanguard numeric AUM share (<6%) computed and synced in manuscript,
+    (c) SEC-FAQ strict non-exempt Growth/Value DiD & look-through holdings inertia present,
+    (d) accurate on-cycle compliance timing (no 2026Q4 small-group completion overclaim) and zero PDF leaks.
+    """
+    md = (WORK_DIR / "manuscript_i4_boost.md").read_text(encoding="utf-8")
+    readme = (WORK_DIR / "README.md").read_text(encoding="utf-8")
+    r3 = json.loads((RES_DIR / "03_holdings_lookthrough.json").read_text(encoding="utf-8"))
+    r4 = json.loads((RES_DIR / "04_econometrics_results.json").read_text(encoding="utf-8"))
+    r7 = json.loads((RES_DIR / "07_verified_references_crossref.json").read_text(encoding="utf-8"))
+    reader = PdfReader(str(WORK_DIR / "manuscript_i4_boost.pdf"))
+    pdf_txt = "\n".join((p.extract_text() or "") for p in reader.pages)
+
+    # (a) Statutory citation fix: zero IC-35962 anywhere; positive presence of all official v2 SEC citations
+    for label, blob in [
+        ("manuscript_i4_boost.md", md),
+        ("manuscript_i4_boost.pdf", pdf_txt),
+        ("README.md", readme),
+        ("07_verified_references_crossref.json", json.dumps(r7)),
+        ("07a_generate_manuscript_md.py", (WORK_DIR / "scripts" / "07a_generate_manuscript_md.py").read_text(encoding="utf-8")),
+    ]:
+        assert "35962" not in blob, f"Deprecated IC-35962 found in {label}!"
+
+    for req_tok in ("IC-35963", "33-11238", "33-11368", "Names Rule FAQs", "2026-19"):
+        assert req_tok in md, f"Missing required SEC citation {req_tok!r} in manuscript_i4_boost.md"
+        assert req_tok in pdf_txt, f"Missing required SEC citation {req_tok!r} in manuscript_i4_boost.pdf"
+
+    sec_refs = [r for r in r7["references"] if r.get("official_sec_release")]
+    assert len(sec_refs) == 6
+    assert all(r.get("http_status") == 200 for r in sec_refs), "All 6 official SEC URLs must verify HTTP 200!"
+
+    # (b) Ex-Vanguard concentration sensitivity (<6% numeric AUM share ex-Vanguard) + Ex-Vanguard DiD
+    xv = r4["ex_vanguard_sensitivity"]
+    assert xv["vanguard_share_of_numeric_aum_pct"] > 95.0
+    xv_num_pct = xv["ex_vanguard_ma_gvi"]["NUMERIC_RATIO"]["pct_aum"]
+    xv_opq_pct = xv["ex_vanguard_ma_gvi"]["OPAQUE_SYNONYM"]["pct_aum"]
+    assert xv_num_pct < 6.0, f"Expected ex-Vanguard numeric AUM share < 6%, got {xv_num_pct:.2f}%"
+    assert xv_opq_pct > 90.0
+    assert f"{xv_num_pct:.1f}%" in md and f"{xv_num_pct:.1f}%" in pdf_txt
+    assert f"{xv['vanguard_share_of_numeric_aum_pct']:.1f}%" in md
+    assert r4["main_did_full_20_26Q3"]["A3_GVI_EX_VANGUARD"]["post_25_26"]["p_wcb"] <= 0.01
+    assert r4["main_did_full_20_26Q3"]["A3_GVI_OPAQUE_EX_VANGUARD"]["post_25_26"]["p_wcb"] <= 0.01
+
+    # (c) SEC-FAQ strict non-exempt Growth/Value DiD + within-complex FE + look-through inertia
+    faq = r4["sec_faq_robustness"]
+    assert faq["ma_gvi_dropper_faq_breakdown"]["strict_non_faq_gv_no_income"]["n_funds"] == 35
+    assert r4["main_did_full_20_26Q3"]["FAQ1_GV_NO_GI"]["post_25_26"]["p_wcb"] <= 0.01
+    assert r4["main_did_full_20_26Q3"]["FAQ2_GV_NO_INC"]["post_25_26"]["p_wcb"] <= 0.01
+    assert r4["main_did_full_20_26Q3"]["FAQ3_GV_NO_INC_OPAQUE"]["post_25_26"]["p_wcb"] <= 0.01
+    assert r4["main_did_full_20_26Q3"]["FAQ4_GV_NO_INC_HOLD_LT80"]["post_25_26"]["p_wcb"] <= 0.01
+    assert faq["high_dim_fe_gv_no_inc_idonly"]["p_wcb"] <= 0.01
+    faq_inertia = r3["inertia_cross_section"]["HOLD_LT_CONSTR_GV_NO_INC"]["metrics"]["ACTIVE_TOWARD_80"]
+    assert faq_inertia["beta"] < -4.0 and faq_inertia["p_wcb"] <= 0.055
+
+    # (d) Accurate on-cycle timing (no 2026Q4 completion overclaim) and no literal noncompliance overclaim
+    assert "on-cycle" in md.lower() and "on-cycle" in pdf_txt.lower()
+    assert "will appear in `2026Q4` N-PORT" not in md
+    assert "Non-Compliant" not in pdf_txt

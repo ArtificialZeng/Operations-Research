@@ -20,34 +20,47 @@ OUT_PATH = WORK_DIR / "results" / "07_verified_references_crossref.json"
 
 HEADERS = {"User-Agent": "AcademicResearch/1.0 (mailto:research@university.edu)"}
 
-# Expected citation match tokens (author surname + year or SEC release number) for each bibliography entry
-REF_MATCH_SPECS = [
-    ("Abadie et al., 2023", r"Abadie et al\., 2023", "10.1093/qje/qjac038"),
-    ("Allcott, Egan, Smeets, and Yang, 2026", r"Allcott, Egan, Smeets, and Yang, 2026", "10.3386/w34624"),
-    ("Barber, Huang, and Odean, 2016", r"Barber, Huang, and Odean, 2016", "10.1093/rfs/hhw054"),
-    ("Berk and Green, 2004", r"Berk and Green, 2004", "10.1086/424739"),
-    ("Cameron, Gelbach, and Miller, 2008", r"Cameron, Gelbach, and Miller, 2008", "10.1162/rest.90.3.414"),
-    ("Chevalier and Ellison, 1997", r"Chevalier and Ellison, 1997", "10.1086/516389"),
-    ("Cooper, Gulen, and Rau, 2005", r"Cooper, Gulen, and Rau(?:\s*\(2005\)|,\s*2005)", "10.1111/j.1540-6261.2005.00818.x"),
-    ("Espenlaub, ul Haq, and Khurshed, 2017", r"Espenlaub, ul Haq, and Khurshed, 2017", "10.1016/j.jbankfin.2017.07.008"),
-    ("Fisch and Robertson, 2023", r"Fisch and Robertson, 2023", "10.2139/ssrn.4398419"),
-    ("Gibson Brandon et al., 2022", r"Gibson Brandon et al\., 2022", "10.1093/rof/rfac064"),
-    ("Hartzmark and Sussman, 2019", r"Hartzmark and Sussman, 2019", "10.1111/jofi.12841"),
-    ("Kacperczyk, Sialm, and Zheng, 2008", r"Kacperczyk, Sialm, and Zheng, 2008", "10.1093/rfs/hhl041"),
-    ("Kim and Yoon, 2023", r"Kim and Yoon, 2023", "10.1287/mnsc.2022.4394"),
-    ("Pástor, Stambaugh, and Taylor, 2021", r"Pástor, Stambaugh, and Taylor, 2021", "10.1016/j.jfineco.2020.12.011"),
-    ("Roodman et al., 2019", r"Roodman et al\., 2019", "10.1177/1536867X19830877"),
-    ("Sensoy, 2009", r"Sensoy, 2009", "10.1016/j.jfineco.2008.02.011"),
-    ("Sirri and Tufano, 1998", r"Sirri and Tufano, 1998", "10.1111/0022-1082.00066"),
-    ("SEC IC-24828 (2001)", r"IC-24828", None),
-    ("SEC IC-35000 (2023)", r"IC-35000", None),
-    ("SEC IC-35500 (2025)", r"IC-35500", None),
-    ("SEC IC-35962 (2026)", r"IC-35962", None),
+# Expected citation match tokens (author surname + year or SEC release/guidance identifier), DOI, and official SEC URL
+REF_MATCH_SPECS: list[tuple[str, str, str | None, str | None]] = [
+    ("Abadie et al., 2023", r"Abadie et al\., 2023", "10.1093/qje/qjac038", None),
+    ("Allcott, Egan, Smeets, and Yang, 2026", r"Allcott, Egan, Smeets, and Yang, 2026", "10.3386/w34624", None),
+    ("Barber, Huang, and Odean, 2016", r"Barber, Huang, and Odean, 2016", "10.1093/rfs/hhw054", None),
+    ("Berk and Green, 2004", r"Berk and Green, 2004", "10.1086/424739", None),
+    ("Cameron, Gelbach, and Miller, 2008", r"Cameron, Gelbach, and Miller, 2008", "10.1162/rest.90.3.414", None),
+    ("Chevalier and Ellison, 1997", r"Chevalier and Ellison, 1997", "10.1086/516389", None),
+    ("Cooper, Gulen, and Rau, 2005", r"Cooper, Gulen, and Rau(?:\s*\(2005\)|,\s*2005)", "10.1111/j.1540-6261.2005.00818.x", None),
+    ("Espenlaub, ul Haq, and Khurshed, 2017", r"Espenlaub, ul Haq, and Khurshed, 2017", "10.1016/j.jbankfin.2017.07.008", None),
+    ("Fisch and Robertson, 2023", r"Fisch and Robertson, 2023", "10.2139/ssrn.4398419", None),
+    ("Gibson Brandon et al., 2022", r"Gibson Brandon et al\., 2022", "10.1093/rof/rfac064", None),
+    ("Hartzmark and Sussman, 2019", r"Hartzmark and Sussman, 2019", "10.1111/jofi.12841", None),
+    ("Kacperczyk, Sialm, and Zheng, 2008", r"Kacperczyk, Sialm, and Zheng, 2008", "10.1093/rfs/hhl041", None),
+    ("Kim and Yoon, 2023", r"Kim and Yoon, 2023", "10.1287/mnsc.2022.4394", None),
+    ("Pástor, Stambaugh, and Taylor, 2021", r"Pástor, Stambaugh, and Taylor, 2021", "10.1016/j.jfineco.2020.12.011", None),
+    ("Roodman et al., 2019", r"Roodman et al\., 2019", "10.1177/1536867X19830877", None),
+    ("Sensoy, 2009", r"Sensoy, 2009", "10.1016/j.jfineco.2008.02.011", None),
+    ("Sirri and Tufano, 1998", r"Sirri and Tufano, 1998", "10.1111/0022-1082.00066", None),
+    ("SEC IC-24828 (2001)", r"IC-24828", None, "https://www.sec.gov/rules/final/ic-24828.htm"),
+    ("SEC 33-11238 / IC-35000 (2023)", r"33-11238|IC-35000", None, "https://www.sec.gov/files/rules/final/2023/33-11238.pdf"),
+    ("SEC 33-11368 / IC-35500 (2025)", r"33-11368|IC-35500", None, "https://www.sec.gov/files/rules/final/2025/33-11368.pdf"),
+    ("SEC IC-35963 (2026a)", r"IC-35963", None, "https://www.sec.gov/files/rules/final/2026/ic-35963.pdf"),
+    (
+        "SEC 2025-26 Names Rule FAQs",
+        r"Names Rule FAQs",
+        None,
+        "https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/2025-26-names-rule-faqs",
+    ),
+    (
+        "SEC Press Release 2026-19 (2026b)",
+        r"2026-19",
+        None,
+        "https://www.sec.gov/newsroom/press-releases/2026-19-sec-proposes-amendments-reduce-burdens-reporting-fund-portfolio-holdings",
+    ),
 ]
 
 
 def main() -> int:
     md_text = MD_PATH.read_text(encoding="utf-8")
+    assert "35962" not in md_text, "Deprecated/invalid SEC release IC-35962 found in manuscript!"
     parts = md_text.split("## References")
     assert len(parts) == 2, "Expected exactly one '## References' section in manuscript."
     body_text, refs_text = parts[0], parts[1]
@@ -57,7 +70,7 @@ def main() -> int:
 
     # Extract all DOIs listed in References
     dois_in_refs = re.findall(r"DOI:\s*`([^`]+)`", refs_text)
-    expected_dois = [d for _, _, d in REF_MATCH_SPECS if d is not None]
+    expected_dois = [d for _, _, d, _ in REF_MATCH_SPECS if d is not None]
     assert set(dois_in_refs) == set(expected_dois), f"DOI set mismatch: {set(dois_in_refs) ^ set(expected_dois)}"
 
     sess = requests.Session()
@@ -65,7 +78,7 @@ def main() -> int:
 
     verified_dois = []
     uncited_in_body = []
-    for label, pat, doi in REF_MATCH_SPECS:
+    for label, pat, doi, sec_url in REF_MATCH_SPECS:
         cited_hits = len(re.findall(pat, body_text))
         if cited_hits == 0:
             uncited_in_body.append(label)
@@ -94,11 +107,29 @@ def main() -> int:
             )
             time.sleep(0.08)
         else:
+            sec_status = None
+            if sec_url:
+                for att in range(3):
+                    try:
+                        r_sec = sess.head(sec_url, timeout=20, allow_redirects=True)
+                        if r_sec.status_code == 405:
+                            r_sec = sess.get(sec_url, timeout=20, stream=True)
+                            r_sec.close()
+                        sec_status = int(r_sec.status_code)
+                        if sec_status == 200:
+                            break
+                    except requests.RequestException:
+                        time.sleep(1.5 * (att + 1))
+                assert sec_status == 200, f"Live SEC URL verification FAILED (HTTP {sec_status}) for {sec_url} ({label})"
+                assert sec_url in refs_text, f"Expected verified SEC URL {sec_url} in References section!"
+                time.sleep(0.12)
             verified_dois.append(
                 {
                     "label": label,
                     "doi": None,
                     "official_sec_release": True,
+                    "sec_url": sec_url,
+                    "http_status": sec_status,
                     "body_citation_count": cited_hits,
                 }
             )
@@ -128,6 +159,7 @@ def main() -> int:
             "Table", "Figure", "Panel", "Draft", "Nov", "Dec", "Jun", "Sep",
             "Aug", "Feb", "Mar", "Apr", "Jul", "Oct", "Complete", "Full", "Large",
             "Small", "Pre", "Post", "Effective", "Dated", "Overhaul", "SEC", "Inc",
+            "FAQs", "Guidance", "Commission", "Extension", "Update", "Jan", "Press",
         }:
             continue
         if (word.lower(), yr_s) not in verified_author_years:
