@@ -36,8 +36,11 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
     hac_jul = p234["pillar3"]["hac_its_results"]["jul2024_2024Q3"]
     persist = p234["pillar3"]["post_jan2025_contract_persistence"]["Mkt_FD_China"]["photo_verify"]
     hw_fd = p234["pillar4"]["hazwaste_by_archetype"]["1_Mkt_FD_China"]
+    hw_conc = p234["pillar4"]["hazwaste_concentration_audit"]
+    fba_aud = p234["pillar3"]["fba_scope_audit"]
     desc = p1["descriptives_6_archetypes_2022_2026"]
     cuts = theory["cutoffs"]
+    dtc_pv = mm["photo_verify"]["terms"]["a_dtc_online"]
 
     return {
         "fig1_regime_emergence_and_diffusion.png": (
@@ -54,41 +57,47 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
             ),
         ),
         "fig2_theory_equilibrium_and_archetype_gaps.png": (
-            "Figure 2. Formal Principal&ndash;Agent Equilibrium Phase Diagram and Strict-Era (2022&ndash;2026) Ultra-Saturated Contract Gaps.",
+            "Figure 2. Formal Principal&ndash;Agent Equilibrium Phase Diagram and Strict-Era (2022&ndash;2026) Conditional Observational Contract Gaps.",
             (
                 f"Panel A plots exact equilibrium regions from Section 2 in normalized reverse-logistics cost (<em>c</em><sub>rev</sub>/<em>p</em>) "
                 f"and first-party buyer observability (<em>&theta;</em>) space, illustrating how institutional audit-cost reduction (<em>a</em><sub>2022</sub> &rarr; "
                 f"<em>a</em><sub>2026</sub>) shifts <em>c</em><sub>rev</sub>*/<em>p</em> from {cuts['us_2022_crev_ratio']:.3f} to {cuts['us_2026_crev_ratio']:.3f} "
-                f"(dashed crimson to solid navy) while keeping high-observability DTC brands protected inside Direct First-Party Remedy (<em>D/U</em>). "
-                f"Panel B reports full-rank ultra-saturated FE effects (CR1 95% CIs, <em>N</em> = {mm['photo_verify']['n']:,}, <em>G</em> = {mm['photo_verify']['n_clusters']:,} firm clusters) vs. Brick-and-Mortar: "
-                f"<code>1_Mkt_FD_China</code> drives +{100*mm['photo_verify']['terms']['a_mkt_fd_cn']['beta']:.2f} pp photo-verify, "
+                f"(dashed crimson to solid navy) while keeping high-observability DTC brands inside Direct First-Party Remedy (<em>D/U</em>). "
+                f"Panel B reports full-rank ultra-saturated FE conditional observational associations (CR1 95% CIs, <em>N</em> = {mm['photo_verify']['n']:,}, <em>G</em> = {mm['photo_verify']['n_clusters']:,} firm clusters) vs. Brick-and-Mortar: "
+                f"<code>1_Mkt_FD_China</code> is associated with +{100*mm['photo_verify']['terms']['a_mkt_fd_cn']['beta']:.2f} pp photo-verify, "
                 f"+{100*mm['physical_mutilate']['terms']['a_mkt_fd_cn']['beta']:.2f} pp physical mutilation, "
                 f"{100*mm['direct_return']['terms']['a_mkt_fd_cn']['beta']:.2f} pp direct return, and "
                 f"+{100*mm['free_webmail']['terms']['a_mkt_fd_cn']['beta']:.2f} pp free webmail (all <em>p</em><sub>WCB</sub> = 0.001), whereas "
-                f"<code>4_DTC_Online_Only</code> and <code>5_Omnichannel</code> remain statistically indistinguishable from zero on photo verification."
+                f"<code>4_DTC_Online_Only</code> exhibits an imprecisely estimated null on photo verification (+{100*dtc_pv['beta']:.2f} pp, "
+                f"95% CI [{100*dtc_pv['ci_lo']:+.2f}, {100*dtc_pv['ci_hi']:+.2f}] pp, <em>p</em><sub>WCB</sub> = {dtc_pv['p_wcb']:.3f})."
             ),
         ),
         "fig3_robustness_forest_and_platforms.png": (
-            "Figure 3. Identification Robustness Forest Plot and Identical Product-Noun Head-to-Head Comparison (2022&ndash;2026).",
+            "Figure 3. Specification Robustness Forest Plot and Identical Product-Noun Head-to-Head Comparison (2022&ndash;2026).",
             (
                 f"Panel A displays both <code>1_Mkt_FD_China</code> vs. Brick-and-Mortar (navy circles) and the exact within-marketplace contrast "
-                f"<code>1_Mkt_FD_China &minus; 3_Mkt_True_US</code> (crimson diamonds, CR1 95% CIs) across 12 strict-era specifications, peaking at "
+                f"<code>1_Mkt_FD_China &minus; 3_Mkt_True_US</code> (crimson diamonds, CR1 95% CIs) across 13 strict-era specifications, reaching "
                 f"+{100*rob['R7_high_price_ge_100']['terms']['a_mkt_fd_cn']['beta']:.1f} pp (<em>t</em> = +{rob['R7_high_price_ge_100']['terms']['a_mkt_fd_cn']['t']:.2f}) "
-                f"inside High-Price Durables (&ge;$100) and surviving Fine-Noun &times; Year FE (+{100*rob['R3_fine_noun_x_year_fe']['terms']['a_mkt_fd_cn']['beta']:.1f} pp), "
-                f"within Made-in-China (+{100*rob['R9_within_made_in_china']['terms']['a_mkt_fd_cn']['beta']:.1f} pp), mediation for webmail &amp; no-phone "
+                f"in Products Priced &ge;$100 (all categories, <em>N</em> = {rob['R7_high_price_ge_100']['n']}) and "
+                f"+{100*rob['R7b_strict_durables_ge_100']['terms']['a_mkt_fd_cn']['beta']:.1f} pp (<em>t</em> = +{rob['R7b_strict_durables_ge_100']['terms']['a_mkt_fd_cn']['t']:.2f}, "
+                f"within-mkt +{100*rob['R7b_strict_durables_ge_100']['contrast']['diff']:.1f} pp) in Strict Durables &ge;$100 (<em>N</em> = {rob['R7b_strict_durables_ge_100']['n']}, "
+                f"excluding apparel, textiles/bedding, personal care, and chemical/consumable categories), while surviving Fine-Noun &times; Year FE "
+                f"(+{100*rob['R3_fine_noun_x_year_fe']['terms']['a_mkt_fd_cn']['beta']:.1f} pp), within Made-in-China "
+                f"(+{100*rob['R9_within_made_in_china']['terms']['a_mkt_fd_cn']['beta']:.1f} pp), mediation for webmail &amp; no-phone "
                 f"(+{100*rob['R10_control_webmail_nophone']['terms']['a_mkt_fd_cn']['beta']:.1f} pp), and shell-front adjustment "
                 f"(within-mkt +{100*rob['R11_shell_front_audit']['contrast']['diff']:.1f} pp). Panel B compares raw <code>photo_verify</code> shares "
                 f"strictly inside identical fine product nouns (Domestic B&amp;M/Omnichannel vs. <code>1_Mkt_FD_China</code>)."
             ),
         ),
         "fig4_amazon_enforcement_ramp.png": (
-            "Figure 4. Intermediary Liability Shock (In re Amazon.com, 2024&ndash;2026): Quarterly Enforcement Ramp and Contract Persistence.",
+            "Figure 4. Descriptive Structural Acceleration Around In re Amazon.com (2024&ndash;2026): Pooled Public Amazon-Only Volume and Contract Persistence.",
             (
-                f"Panel A tracks complete-quarter recall volumes (2021Q1&ndash;2026Q3, <em>T</em> = 23; partial 2026Q4 excluded) across Amazon-Only "
-                f"(total and mandatory-rule subset), Brick-and-Mortar, and Non-Amazon 3P marketplaces, shading the 3-quarter administrative lag between "
-                f"the July 30, 2024 Distributor Decision and January 16, 2025 Final Remedy Order. Panel B fits Newey&ndash;West HAC (<em>L</em> = 4) "
-                f"interrupted time-series regressions to relative log recall ratios, confirming sharp post-ruling slope acceleration in both "
-                f"<code>log(Amz/B&amp;M)</code> (+{hac_jul['log_amz_over_bm_L4']['its_params']['slope_change']['beta']:.3f}/qtr, "
+                f"Panel A tracks complete-quarter recall volumes (2021Q1&ndash;2026Q3, <em>T</em> = 23; partial 2026Q4 excluded) across pooled public "
+                f"Amazon-Only notices (explicit FBA labeling appears in only {fba_aud['n_explicit_fba_mentions_2022_2026']}/{fba_aud['n_amazon_only_2022_2026']} "
+                f"notices, whereas In re Amazon.com legally governs FBA merchandise), Brick-and-Mortar, and Non-Amazon 3P marketplaces, shading the 3-quarter "
+                f"interval between the July 30, 2024 FBA Distributor Decision and January 16, 2025 Final Remedy Order. Panel B fits Newey&ndash;West HAC "
+                f"(<em>L</em> = 4) associative interrupted time-series models to relative log recall ratios, showing a sharp post-order structural acceleration "
+                f"in <code>log(Amz/B&amp;M)</code> (+{hac_jul['log_amz_over_bm_L4']['its_params']['slope_change']['beta']:.3f}/qtr, "
                 f"<em>t</em> = +{hac_jul['log_amz_over_bm_L4']['its_params']['slope_change']['t']:.2f}) and <code>log(Amz/NonAmz)</code> "
                 f"(+{hac_jul['log_amz_over_nonamz_L4']['its_params']['slope_change']['beta']:.3f}/qtr, "
                 f"<em>t</em> = +{hac_jul['log_amz_over_nonamz_L4']['its_params']['slope_change']['t']:.2f}), while <code>1_Mkt_FD_China</code> "
@@ -96,17 +105,19 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
             ),
         ),
         "fig5_safety_hazwaste_and_infrastructure.png": (
-            "Figure 5. Mandatory Safety-Rule Violations, Hazardous-Waste Externalization, and Contact/Traceability Collapse (2022&ndash;2026).",
+            "Figure 5. Mandatory Safety-Rule Violations, Hazardous-Product Consumer Self-Disposal Remedies, and Contact/Traceability Collapse (2022&ndash;2026).",
             (
                 f"Panel A contrasts five supply-chain archetypes across mandatory federal safety-rule violation rates "
                 f"(<code>1_Mkt_FD_China</code> {100*desc['1_Mkt_FD_China']['mandatory_rule']:.1f}% vs. Brick-and-Mortar "
-                f"{100*desc['6_Brick_and_Mortar']['mandatory_rule']:.1f}%) and hazardous-waste recall remedies (lithium-ion batteries, button cells, "
-                f"lead/phthalates/chemicals): <code>1_Mkt_FD_China</code> exhibits {100*hw_fd['share_direct_return']:.1f}% firm direct return, "
-                f"{100*hw_fd['share_photo_self_disposal']:.1f}% photo self-destruction, and {100*hw_fd['share_household_self_disposal']:.1f}% "
-                f"household self-disposal ({hw_fd['units_self_disposed_total']:,} units externalized). Panel B documents simultaneous collapse in "
-                f"contact infrastructure ({100*desc['1_Mkt_FD_China']['free_webmail']:.1f}% free webmail; {100*desc['1_Mkt_FD_China']['no_phone']:.1f}% no phone), "
-                f"GS1 UPC listing ({100*desc['1_Mkt_FD_China']['has_upc']:.1f}% vs. {100*desc['6_Brick_and_Mortar']['has_upc']:.1f}%), and joint "
-                f"Canada/Mexico recalls ({100*desc['1_Mkt_FD_China']['has_inconjunction']:.1f}% vs. {100*desc['6_Brick_and_Mortar']['has_inconjunction']:.1f}%)."
+                f"{100*desc['6_Brick_and_Mortar']['mandatory_rule']:.1f}%) and hazardous-product recall remedies (lithium-ion batteries, button cells, "
+                f"lead/phthalates/chemicals): <code>1_Mkt_FD_China</code> exhibits {100*hw_fd['share_direct_return']:.1f}% firm direct-return programs, "
+                f"{100*hw_fd['share_photo_self_disposal']:.1f}% photo-verified non-return remedies, and {100*hw_fd['share_household_self_disposal']:.1f}% "
+                f"consumer self-disposal remedies ({hw_fd['units_self_disposed_total']:,} recalled units assigned to consumer self-disposal, of which "
+                f"{100*hw_conc['top2_ocoopa_anker_share']:.1f}% stem from OCOOPA and Anker; actual waste-stream routing is unobserved). Panel B documents "
+                f"simultaneous collapse in contact infrastructure ({100*desc['1_Mkt_FD_China']['free_webmail']:.1f}% free webmail; "
+                f"{100*desc['1_Mkt_FD_China']['no_phone']:.1f}% no phone), GS1 UPC listing ({100*desc['1_Mkt_FD_China']['has_upc']:.1f}% vs. "
+                f"{100*desc['6_Brick_and_Mortar']['has_upc']:.1f}%), and joint Canada/Mexico recalls ({100*desc['1_Mkt_FD_China']['has_inconjunction']:.1f}% vs. "
+                f"{100*desc['6_Brick_and_Mortar']['has_inconjunction']:.1f}%)."
             ),
         ),
     }

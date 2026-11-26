@@ -29,5 +29,5 @@
   "months_on_sale_nonmissing_share_2022_2026": 0.9685,
   "audit_sample_n": 150,
   "oos_audit_sample_n": 50,
-  "audit_csv_sha256": "2d71cc6d713ea69ed123dffbe4575322866cc7cf38af96cee4f434885a6c74fb"
+  "audit_csv_sha256": "f4009f9ec798ae80878219e8a3fe29e8763d20f5f4538dcfc90aa152cc5c5836"
 }

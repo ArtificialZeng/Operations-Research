@@ -3,11 +3,16 @@ Strict-Era (2022-2026) 6-Archetype Contract-Design Econometrics.
 
 Strict Era Discipline (Audit Fix 2):
   - photo_verify was ~0% prior to 2022. Therefore ALL primary contract-design
-    and contact-infrastructure regressions run strictly on 2022-2026 (N=1,803,
-    G=1,400 independent firm clusters), with zero era splicing.
+    and contact-infrastructure regressions run strictly on 2022-2026 (N=1,822,
+    G=1,414 independent firm clusters), with zero era splicing.
   - Historical 2000-2026 annual series tracks the 27-year structural shift.
+  - Exact 4-way remedy disaggregation inside photo_verify recalls separates
+    photo + physical destruction, photo + marking/defacing only, photo + local
+    HHW/recycling instructions only, and photo-only instructions.
   - Complete robustness battery: Product x Year clustering, Fine-Product-Noun x Year FE,
-    Binomial Logit ORs, Within Refund-Only, Within Repair/Replace, High-Price (>= $100),
+    Binomial Logit ORs, Within Refund-Only, Within Repair/Replace, Products Priced >= $100
+    (all categories), Strict Durables >= $100 (excluding apparel/clothing, textiles/bedding,
+    cosmetics/personal care, food/beverages, and chemical/consumable categories),
     Large-Batch (>= 10,000 units), Within Made-in-China, Mediation (free_webmail + no_phone),
     Suspected U.S. Shell-Front LLC Sensitivity, General vs. Mandatory Rules,
     Exact Stratified Permutation (B=1,000), Leave-One-Category-Out, Leave-One-Year-Out,
@@ -16,6 +21,7 @@ Strict Era Discipline (Audit Fix 2):
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -36,8 +42,71 @@ from econometrics_lib import (
 )
 
 BASE_DIR = Path(r"D:\AI_Science\antigravity\f7_boost_cpsc_ecommerce_recalls_20261126")
+RAW_JSON = BASE_DIR / "data" / "cpsc_recalls_2000_2026.json"
 PARSED_CSV = BASE_DIR / "data" / "cpsc_parsed_2000_2026.csv"
 OUT_JSON = BASE_DIR / "results" / "04_pillar1_econometrics.json"
+
+# Deterministic non-durable exclusion definitions for R7b_strict_durables_ge_100
+# Excludes apparel/clothing, textiles/bedding, cosmetics/personal care, food/beverages,
+# and chemical/consumable categories (while preserving furniture like "clothing storage units").
+NONDURABLE_PROD_CATS: tuple[str, ...] = (
+    "Adult_Apparel_Footwear",
+    "Child_Sleepwear_Apparel",
+    "Chemicals_Medicine_Packaging",
+)
+NONDURABLE_FINE_NOUNS: tuple[str, ...] = (
+    "Adult_Apparel_Footwear",
+    "Child_Apparel_Shoes",
+    "Child_Sleepwear",
+    "Mattress_Bedding",
+    "Hair_Dryer_PersonalCare",
+    "Supplement_Bottle_Chem",
+)
+NONDURABLE_RESIDUAL_TITLE_PAT = re.compile(
+    r"\b(?:blanket|bedding|sheet|sheets|pillow|pillows|quilt|comforter|duvet|towel|towels|"
+    r"rug|rugs|carpet|throw|throws|curtain|curtains|sleep\s+sack|mattress\s+pad|"
+    r"cosmetic|cosmetics|skincare|lotion|cream|shampoo|conditioner|perfume|fragrance|"
+    r"makeup|wipe|wipes|personal\s+care|sunscreen|serum|soap|"
+    r"beverage|beverages|supplement|supplements|vitamin|vitamins|formula|candy|snack|"
+    r"essential\s+oil|detergent|pesticide|fertilizer|solvent|lubricant|candle|wax|"
+    r"apparel|clothing|garment|garments|shirt|shirts|sweater|sweaters|sweatshirt|sweatshirts|"
+    r"hoodie|hoodies|jacket|jackets|coat|coats|dress|dresses|skirt|skirts|pants|jeans|"
+    r"robe|robes|pajama|pajamas|sleepwear|nightgown|nightgowns|boot|boots|sandal|sandals|shoe|shoes)\b",
+    re.IGNORECASE,
+)
+
+# Exact 4-way remedy component patterns inside photo_verify recalls
+REMEDY_MARKING_PAT = re.compile(
+    r"(?:permanent\s+mar?ker|indelible\s+(?:\(permanent\)\s+)?mar?ker|"
+    r"writ(?:e|ing)\s+(?:in\s+permanent\s+mar?ker\s+)?[\"\'\u201c]?recall(?:ed)?|"
+    r"\binitial\s+and\s+date\b|permanently\s+mark|"
+    r"mark(?:ing)?\s+(?:the\s+)?(?:product|unit|item|helmet|mattress|fabric|label|charger|power\s+bank|battery|container|package|plastic\s+\w+)\s+with|"
+    r"\bdeface\b)",
+    re.IGNORECASE,
+)
+REMEDY_PHYSICAL_DESTRUCT_PAT = re.compile(
+    r"(?:cut(?:ting)?\s+(?:off\s+|out\s+|through\s+|up\s+)?(?:the\s+|a\s+|an\s+)?[^\n.;]{0,55}?\b(?:cord|cords|wire|wires|plug|strap|straps|string|strings|tie|ties|drawstring|drawstrings|loop|loops|tail|pom[\s\-]poms?|fabric|cloth|padding|skirt|dress|pajamas?|nightgowns?|robes?|clothing|garment|garments|mattress|pad|cover|foam|belt|belts|tether|hose|tube|battery\s+compartment|power\s+supply|webbing|harness|handle|mesh|liner|pillow|lounger|bouncer|net|band|bands|suction\s+cups?|wick|wicks|in\s+half|into\s+(?:two|several|pieces|halves)|vertically\s+and\s+horizontally|with\s+(?:a\s+pair\s+of\s+)?scissors|large\s+[\"\'\u201c]?x[\"\'\u201d]?|an\s+[\"\'\u201c]?x[\"\'\u201d]?)\b|"
+    r"\b(?:garment|product|item|unit|mattress|cord|strap|power\s+cord|robe|nightgown|pajamas?|skirt|dress|cover)\s+cut\s+(?:in\s+half|off|into)\b|"
+    r"(?:render|make)\s+(?:it|them|the\s+[^\n.;]{1,35})\s+unusable|"
+    r"destroy(?:ing)?\s+(?:it\b|them\b|(?:the\s+)?[a-z0-9\s\-]{1,42}\b)|"
+    r"disable\s+(?:it\b|them\b|the\s+[a-z0-9\s\-]{1,35})|"
+    r"disassemble\s+(?:it\b|them\b|the\s+[^\n.;]{1,35})[^\n.;]{0,75}\b(?:dispose|discard|trash|waste|photo)\b|"
+    r"disassembled\s+[a-z0-9\s\-]{1,25}\s+in\s+(?:an\s+)?(?:outdoor\s+)?(?:waste|trash|garbage)|"
+    r"pour(?:ing)?\s+(?:out\s+)?the\s+contents[^\n.;]{0,45}\b(?:trash|garbage|drain|sink|dispos)|"
+    r"puncture|crush|smash|saw\s+(?:in\s+half|through)|dismantle\s+and\s+dispose|"
+    r"submerge\s+(?:in\s+)?(?:salt\s+)?water|"
+    r"break\s+(?:the\s+)?(?:product|item|unit|handle|prong|blade))",
+    re.IGNORECASE,
+)
+REMEDY_HHW_RECYCLE_PAT = re.compile(
+    r"(?:hazardous\s+waste|local\s+and\s+state\s+(?:regulations|laws|requirements)|"
+    r"state\s+and\s+local\s+(?:regulations|laws|requirements)|"
+    r"applicable\s+(?:local|state|federal)?\s*(?:and\s+state\s+)?(?:laws|regulations|requirements)|"
+    r"municipal\s+(?:hazardous|recycling|waste)|recycling\s+(?:facility|center|location|program)|"
+    r"household\s+hazardous\s+waste|\bhhw\b|"
+    r"do\s+not\s+(?:throw|place|dispose)[^\n.]{0,40}(?:trash|garbage|curbside))",
+    re.IGNORECASE,
+)
 
 ARCH_INDICATORS = [
     "a_mkt_fd_cn",
@@ -125,8 +194,99 @@ def run_saturated_spec(
     }
 
 
+def compute_photo_remedy_disaggregation(
+    d22_all: pd.DataFrame,
+    raw_by_id: dict[int, dict[str, Any]],
+) -> dict[str, Any]:
+    """Compute exact 4-way remedy disaggregation inside photo_verify=1 recalls (2022-2026),
+    separating photo + physical destruction, photo + marking/defacing only,
+    photo + local HHW/recycling disposal instructions only, and photo-only.
+    """
+    pv_df = d22_all[d22_all["photo_verify"] == 1].copy()
+    records = []
+    for _, row in pv_df.iterrows():
+        rid = int(row["recall_id"])
+        rec = raw_by_id[rid]
+        rem = " ".join(str(x.get("Name") or "") for x in (rec.get("Remedies") or []))
+        has_dest = int(bool(REMEDY_PHYSICAL_DESTRUCT_PAT.search(rem)))
+        has_mark = int(bool(REMEDY_MARKING_PAT.search(rem)))
+        has_hhw = int(bool(REMEDY_HHW_RECYCLE_PAT.search(rem)))
+        has_pm = int(row["physical_mutilate"])
+        if has_dest == 1:
+            bucket = "photo_plus_physical_destruction"
+        elif has_mark == 1:
+            bucket = "photo_plus_marking_defacing_only"
+        elif has_hhw == 1:
+            bucket = "photo_plus_hhw_recycling_only"
+        else:
+            bucket = "photo_only"
+        records.append({
+            "recall_id": rid,
+            "archetype_6": str(row["archetype_6"]),
+            "physical_mutilate": has_pm,
+            "has_physical_destruction": has_dest,
+            "has_marking_defacing": has_mark,
+            "has_hhw_recycling": has_hhw,
+            "bucket_4way": bucket,
+        })
+    rdf = pd.DataFrame(records)
+
+    def summarize_group(g: pd.DataFrame) -> dict[str, Any]:
+        n_pv = len(g)
+        if n_pv == 0:
+            return {"n_photo_verify": 0}
+        b_counts = g["bucket_4way"].value_counts().to_dict()
+        n_pm1 = int((g["physical_mutilate"] == 1).sum())
+        n_pm0 = int((g["physical_mutilate"] == 0).sum())
+        n_dest = int(g["has_physical_destruction"].sum())
+        n_mark = int(g["has_marking_defacing"].sum())
+        n_both_dm = int(((g["has_physical_destruction"] == 1) & (g["has_marking_defacing"] == 1)).sum())
+        n_hhw = int(g["has_hhw_recycling"].sum())
+        return {
+            "n_photo_verify": n_pv,
+            "n_with_physical_mutilate": n_pm1,
+            "share_with_physical_mutilate": round(n_pm1 / n_pv, 4),
+            "n_without_physical_mutilate": n_pm0,
+            "share_without_physical_mutilate": round(n_pm0 / n_pv, 4),
+            "mutually_exclusive_4way_counts": {
+                "photo_plus_physical_destruction": int(b_counts.get("photo_plus_physical_destruction", 0)),
+                "photo_plus_marking_defacing_only": int(b_counts.get("photo_plus_marking_defacing_only", 0)),
+                "photo_plus_hhw_recycling_only": int(b_counts.get("photo_plus_hhw_recycling_only", 0)),
+                "photo_only": int(b_counts.get("photo_only", 0)),
+            },
+            "mutually_exclusive_4way_shares": {
+                "photo_plus_physical_destruction": round(b_counts.get("photo_plus_physical_destruction", 0) / n_pv, 4),
+                "photo_plus_marking_defacing_only": round(b_counts.get("photo_plus_marking_defacing_only", 0) / n_pv, 4),
+                "photo_plus_hhw_recycling_only": round(b_counts.get("photo_plus_hhw_recycling_only", 0) / n_pv, 4),
+                "photo_only": round(b_counts.get("photo_only", 0) / n_pv, 4),
+            },
+            "marginal_component_counts": {
+                "any_physical_destruction": n_dest,
+                "any_marking_defacing": n_mark,
+                "both_destruction_and_marking": n_both_dm,
+                "any_hhw_or_recycling_instruction": n_hhw,
+            },
+            "marginal_component_shares": {
+                "any_physical_destruction": round(n_dest / n_pv, 4),
+                "any_marking_defacing": round(n_mark / n_pv, 4),
+                "both_destruction_and_marking": round(n_both_dm / n_pv, 4),
+                "any_hhw_or_recycling_instruction": round(n_hhw / n_pv, 4),
+            },
+        }
+
+    out: dict[str, Any] = {
+        "all_classified_2022_2026": summarize_group(rdf),
+        "by_archetype": {},
+    }
+    for arch in sorted(rdf["archetype_6"].unique()):
+        out["by_archetype"][arch] = summarize_group(rdf[rdf["archetype_6"] == arch])
+    return out
+
+
 def main() -> int:
     df = pd.read_csv(PARSED_CSV, low_memory=False)
+    raw_records = json.loads(RAW_JSON.read_text(encoding="utf-8"))
+    raw_by_id = {int(r["RecallID"]): r for r in raw_records if r.get("RecallID") is not None}
     print(f"[STEP 4] Loaded {len(df):,} parsed recalls (2000-2026).", flush=True)
 
     # 1. Historical 2000-2026 annual regime emergence table
@@ -287,11 +447,61 @@ def main() -> int:
         sub_rep, "photo_verify", ARCH_INDICATORS, run_wcb=True, wcb_B=999, seed=3006
     )
 
-    # R7: High-Price Durables (Price >= $100)
+    # R7: Products Priced >= $100 (All Categories — transparently noting apparel/textiles/chemicals included)
     sub_hi_p = add_reg_features(d22_reg[d22_reg["price"] >= 100.0])
     robust["R7_high_price_ge_100"] = run_saturated_spec(
         sub_hi_p, "photo_verify", ARCH_INDICATORS, run_wcb=True, wcb_B=999, seed=3007
     )
+    robust["R7_high_price_ge_100"]["subsample_label"] = "Products Priced >= $100 (All Categories)"
+    robust["R7_high_price_ge_100"]["subsample_note"] = (
+        "Filters strictly on retail price >= $100 across all 15 product categories, "
+        "including apparel/footwear, child sleepwear/apparel, mattresses/bedding, "
+        "personal care, and chemicals/packaging."
+    )
+
+    # R7b: Strict Durables (>= $100) — deterministically excluding apparel/clothing,
+    # textiles/bedding, cosmetics/personal care, food/beverages, and chemical/consumable categories
+    hi_base = d22_reg[d22_reg["price"] >= 100.0].copy()
+    mask_cat_excl = hi_base["prod_cat"].isin(NONDURABLE_PROD_CATS)
+    mask_noun_excl = hi_base["fine_noun"].isin(NONDURABLE_FINE_NOUNS)
+    clean_title_hi = hi_base["title_snip"].fillna("").str.replace(
+        r"clothing\s+storage", "", case=False, regex=True
+    )
+    mask_title_excl = clean_title_hi.str.contains(NONDURABLE_RESIDUAL_TITLE_PAT)
+    mask_any_excl = mask_cat_excl | mask_noun_excl | mask_title_excl
+
+    excl_df = hi_base[mask_any_excl].copy()
+    sub_strict_dur = add_reg_features(hi_base[~mask_any_excl])
+    robust["R7b_strict_durables_ge_100"] = run_saturated_spec(
+        sub_strict_dur, "photo_verify", ARCH_INDICATORS, run_wcb=True, wcb_B=999, seed=3077
+    )
+    robust["R7b_strict_durables_ge_100"]["subsample_label"] = "Strict Durables (>= $100)"
+    residual_only_df = hi_base[mask_title_excl & (~mask_cat_excl) & (~mask_noun_excl)]
+    robust["R7b_strict_durables_ge_100"]["exclusion_audit"] = {
+        "n_price_ge_100_all": len(hi_base),
+        "n_excluded_total": int(mask_any_excl.sum()),
+        "n_strict_durables_retained": len(sub_strict_dur),
+        "excluded_prod_cats_rule": list(NONDURABLE_PROD_CATS),
+        "excluded_fine_nouns_rule": list(NONDURABLE_FINE_NOUNS),
+        "excluded_counts_by_prod_cat_rule": {
+            cat: int((hi_base["prod_cat"] == cat).sum()) for cat in NONDURABLE_PROD_CATS
+        },
+        "excluded_counts_by_fine_noun_rule": {
+            noun: int((hi_base["fine_noun"] == noun).sum()) for noun in NONDURABLE_FINE_NOUNS
+        },
+        "excluded_total_by_prod_cat": excl_df["prod_cat"].value_counts().to_dict(),
+        "excluded_total_by_fine_noun": excl_df["fine_noun"].value_counts().to_dict(),
+        "residual_title_regex_only_exclusions": [
+            {
+                "recall_id": int(r["recall_id"]),
+                "prod_cat": str(r["prod_cat"]),
+                "fine_noun": str(r["fine_noun"]),
+                "price": float(r["price"]),
+                "title_snip": str(r["title_snip"]),
+            }
+            for _, r in residual_only_df.iterrows()
+        ],
+    }
 
     # R8: Large Batches (Units >= 10,000)
     sub_hi_u = add_reg_features(d22_reg[d22_reg["units"] >= 10000.0])
@@ -426,10 +636,24 @@ def main() -> int:
     robust["R16a_era_2021_2026"] = run_saturated_spec(d21_reg, "photo_verify", ARCH_INDICATORS, run_wcb=True, wcb_B=999, seed=3016)
     robust["R16b_era_2018_2026"] = run_saturated_spec(d18_reg, "photo_verify", ARCH_INDICATORS, run_wcb=True, wcb_B=999, seed=3017)
 
+    # 5. Exact 4-Way Remedy Disaggregation inside photo_verify=1 recalls (2022-2026)
+    remedy_disagg = compute_photo_remedy_disaggregation(d22_all, raw_by_id)
+    fd_rd = remedy_disagg["by_archetype"]["1_Mkt_FD_China"]
+    print("\n=== 4-WAY REMEDY DISAGGREGATION INSIDE 1_Mkt_FD_China photo_verify=1 (2022-2026) ===", flush=True)
+    print(
+        f"  N_photo_verify={fd_rd['n_photo_verify']} | "
+        f"With physical_mutilate={fd_rd['n_with_physical_mutilate']} ({100*fd_rd['share_with_physical_mutilate']:.1f}%) | "
+        f"Without physical_mutilate={fd_rd['n_without_physical_mutilate']} ({100*fd_rd['share_without_physical_mutilate']:.1f}%)",
+        flush=True,
+    )
+    for bk, cnt in fd_rd["mutually_exclusive_4way_counts"].items():
+        print(f"    {bk:36s}: {cnt:3d} ({100*fd_rd['mutually_exclusive_4way_shares'][bk]:5.1f}%)", flush=True)
+
     # Print crisp robustness summary
     for rk in [
         "R1_baseline_firm_cr1", "R2_prod_year_cluster", "R3_fine_noun_x_year_fe",
         "R5_within_refund_only", "R6_within_repair_replace", "R7_high_price_ge_100",
+        "R7b_strict_durables_ge_100",
         "R8_large_batch_ge_10k", "R9_within_made_in_china", "R10_control_webmail_nophone",
         "R11_shell_front_audit", "R12_general_defects_only", "R13_mandatory_rules_only",
         "R16a_era_2021_2026", "R16b_era_2018_2026",
@@ -455,6 +679,7 @@ def main() -> int:
         "historical_2000_2026": hist_rows,
         "concentration_2022_2026": concentration_stats,
         "descriptives_6_archetypes_2022_2026": desc_6,
+        "remedy_disaggregation_photo_verify_2022_2026": remedy_disagg,
         "main_models_2022_2026": main_models,
         "robustness_photo_verify_2022_2026": robust,
     }

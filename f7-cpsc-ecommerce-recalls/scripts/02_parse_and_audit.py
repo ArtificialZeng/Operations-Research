@@ -1,11 +1,18 @@
 """Step 2: Parse the complete 2000-2026 CPSC Recall Census (N = 8,386) using
 frozen parser_lib.py, export data/cpsc_parsed_2000_2026.csv, and produce:
-  1. Reproducible deterministic 150-recall stratified ground-truth parser audit
-     (tables/table_parser_audit_150.csv + results/02_parser_audit_metrics.json)
-     covering archetype_6, 7 binary fields (including direct_return), and 3
-     numeric fields.
-  2. Completely disjoint fresh 50-recall out-of-sample 2025-2026 validation
-     stress-test (seed=9992026) honestly quantifying residual generalization F1.
+  1. Reproducible deterministic 150-recall stratified author-reviewed parser
+     consistency audit (tables/table_parser_audit_150.csv +
+     results/02_parser_audit_metrics.json) covering archetype_6, 7 binary
+     fields (including direct_return), and 3 numeric fields.
+  2. Completely disjoint fresh 50-recall 2025-2026 out-of-sample author-reviewed
+     parser consistency stress-test (seed=9992026) quantifying residual
+     generalization F1.
+
+Honesty Note: In both batches, reference labels (gt_*) are initialized from
+frozen parser_lib.py outputs and edited line-by-line by the author against raw
+CPSC JSON text. Accordingly, these metrics constitute an author-reviewed parser
+consistency audit—NOT an independent double-blind human annotation (which
+remains required prior to formal journal submission).
 """
 from __future__ import annotations
 
@@ -32,8 +39,10 @@ AUDIT_CSV_PATH = BASE_DIR / "tables" / "table_parser_audit_150.csv"
 AUDIT_METRICS_PATH = BASE_DIR / "results" / "02_parser_audit_metrics.json"
 
 
-# Genuine line-by-line manual-inspection ground-truth overrides against raw CPSC
-# JSON text for the 150-recall stratified sample (seed=20261126) on frozen parser_lib.py.
+# Author-reviewed line-by-line inspection overrides against raw CPSC JSON text
+# for the 150-recall stratified sample (seed=20261126) on frozen parser_lib.py.
+# Note: labels are initialized from parser outputs before editing, making this
+# an author-reviewed parser consistency audit rather than independent blind coding.
 MANUAL_GT_OVERRIDES_150: dict[int, dict[str, Any]] = {
     # Recall 10072 (PowerBlock): sold online + commercial fitness dealers ("Advanced Exercise Equipment, Advantage Sport & Fitness...")
     10072: {
@@ -74,8 +83,8 @@ MANUAL_GT_OVERRIDES_150: dict[int, dict[str, Any]] = {
     },
 }
 
-# Genuine line-by-line manual-inspection overrides on the completely disjoint
-# 50-recall fresh out-of-sample 2025-2026 validation stress-test (seed=9992026).
+# Author-reviewed line-by-line inspection overrides on the completely disjoint
+# 50-recall fresh out-of-sample 2025-2026 consistency stress-test (seed=9992026).
 MANUAL_GT_OVERRIDES_OOS50: dict[int, dict[str, Any]] = {
     # Recall 10451 (3M laminators): "upload a photograph of the machine with the unplugged power cord cut"
     10451: {
@@ -193,8 +202,9 @@ def score_audit_batch(
     audit_df: pd.DataFrame,
     overrides: dict[int, dict[str, Any]],
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
-    """Attach verified ground-truth labels and compute confusion matrices across
-    all audited fields (including direct_return!).
+    """Attach author-reviewed parser consistency labels (initialized from parser
+    outputs and edited on line-by-line inspection) and compute confusion matrices
+    across all audited fields (including direct_return).
     """
     audited_fields = [
         "archetype_6",
@@ -212,7 +222,7 @@ def score_audit_batch(
     df_out = audit_df.copy()
     for fld in audited_fields:
         df_out[f"gt_{fld}"] = df_out[fld]
-    df_out["audit_note"] = "Verified exact match against raw CPSC JSON text."
+    df_out["audit_note"] = "Author-reviewed consistency check: matched raw CPSC JSON text."
 
     for idx, row in df_out.iterrows():
         rid = int(row["recall_id"])
@@ -296,9 +306,21 @@ def main() -> int:
         & d22["units"].notna()
     ].copy()
 
-    # 1. Primary 150-recall stratified ground-truth audit
+    # 1. Primary 150-recall stratified author-reviewed parser consistency audit
     audit_raw = build_stratified_150_sample(df, raw_by_id)
     audit_scored, audit_metrics = score_audit_batch(audit_raw, MANUAL_GT_OVERRIDES_150)
+    audit_metrics["audit_methodology"] = {
+        "audit_type": "author_reviewed_parser_consistency_audit",
+        "independent_blind_annotation": False,
+        "initialization_procedure": (
+            "Reference columns (gt_*) are initialized from frozen parser_lib.py outputs "
+            "and subsequently edited by the author following line-by-line review of raw CPSC JSON text."
+        ),
+        "journal_submission_requirement": (
+            "Independent double-blind human annotation of remedy categories and seller legal entities "
+            "is required prior to formal journal submission."
+        ),
+    }
 
     keep_cols = [
         "recall_id", "recall_date", "year", "audit_stratum",
@@ -362,14 +384,14 @@ def main() -> int:
     SUMMARY_JSON_PATH.write_text(json.dumps(summary_payload, indent=2), encoding="utf-8")
 
     print(f"[DONE STEP 2] Parsed {len(df):,} recalls | Clean 2022-2026 sample: N={len(d22_clean):,} ({d22_clean['firm_cluster'].nunique():,} firm clusters)", flush=True)
-    print("\n=== 150-Recall Stratified Ground-Truth Parser Audit Metrics ===", flush=True)
+    print("\n=== 150-Recall Stratified Author-Reviewed Parser Consistency Audit Metrics ===", flush=True)
     print(f"  archetype_6 (6-class): Accuracy={audit_metrics['archetype_6']['exact_accuracy']:.4f}, Macro-F1={audit_metrics['archetype_6']['macro_f1']:.4f} (disagreements={audit_metrics['archetype_6']['n_disagreements']}/150)", flush=True)
     for bf, m in audit_metrics["binary_fields"].items():
         print(f"  {bf:20s}: Acc={m['accuracy']:.4f} | Prec={m['precision']:.4f} | Rec={m['recall']:.4f} | F1={m['f1']:.4f} (TP={m['tp']}, FP={m['fp']}, TN={m['tn']}, FN={m['fn']})", flush=True)
     nf = audit_metrics["numeric_fields"]
     print(f"  clean_injuries exact: {nf['clean_injuries_exact_acc']:.4f} | price exact: {nf['price_exact_acc']:.4f} | units exact: {nf['units_exact_acc']:.4f}", flush=True)
 
-    print("\n=== Fresh Out-of-Sample 50-Recall (2025-2026) Validation Stress-Test ===", flush=True)
+    print("\n=== Fresh Out-of-Sample 50-Recall (2025-2026) Author-Reviewed Consistency Stress-Test ===", flush=True)
     print(f"  archetype_6 (OOS 50): Accuracy={oos_metrics['archetype_6']['exact_accuracy']:.4f} (disagreements={oos_metrics['archetype_6']['n_disagreements']}/50)", flush=True)
     for bf in ("photo_verify", "physical_mutilate", "direct_return", "has_injury"):
         m = oos_metrics["binary_fields"][bf]

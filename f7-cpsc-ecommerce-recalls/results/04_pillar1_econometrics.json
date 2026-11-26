@@ -529,6 +529,227 @@
       "has_injury": 0.1914
     }
   },
+  "remedy_disaggregation_photo_verify_2022_2026": {
+    "all_classified_2022_2026": {
+      "n_photo_verify": 719,
+      "n_with_physical_mutilate": 472,
+      "share_with_physical_mutilate": 0.6565,
+      "n_without_physical_mutilate": 247,
+      "share_without_physical_mutilate": 0.3435,
+      "mutually_exclusive_4way_counts": {
+        "photo_plus_physical_destruction": 364,
+        "photo_plus_marking_defacing_only": 108,
+        "photo_plus_hhw_recycling_only": 54,
+        "photo_only": 193
+      },
+      "mutually_exclusive_4way_shares": {
+        "photo_plus_physical_destruction": 0.5063,
+        "photo_plus_marking_defacing_only": 0.1502,
+        "photo_plus_hhw_recycling_only": 0.0751,
+        "photo_only": 0.2684
+      },
+      "marginal_component_counts": {
+        "any_physical_destruction": 364,
+        "any_marking_defacing": 189,
+        "both_destruction_and_marking": 81,
+        "any_hhw_or_recycling_instruction": 103
+      },
+      "marginal_component_shares": {
+        "any_physical_destruction": 0.5063,
+        "any_marking_defacing": 0.2629,
+        "both_destruction_and_marking": 0.1127,
+        "any_hhw_or_recycling_instruction": 0.1433
+      }
+    },
+    "by_archetype": {
+      "1_Mkt_FD_China": {
+        "n_photo_verify": 371,
+        "n_with_physical_mutilate": 253,
+        "share_with_physical_mutilate": 0.6819,
+        "n_without_physical_mutilate": 118,
+        "share_without_physical_mutilate": 0.3181,
+        "mutually_exclusive_4way_counts": {
+          "photo_plus_physical_destruction": 202,
+          "photo_plus_marking_defacing_only": 51,
+          "photo_plus_hhw_recycling_only": 26,
+          "photo_only": 92
+        },
+        "mutually_exclusive_4way_shares": {
+          "photo_plus_physical_destruction": 0.5445,
+          "photo_plus_marking_defacing_only": 0.1375,
+          "photo_plus_hhw_recycling_only": 0.0701,
+          "photo_only": 0.248
+        },
+        "marginal_component_counts": {
+          "any_physical_destruction": 202,
+          "any_marking_defacing": 114,
+          "both_destruction_and_marking": 63,
+          "any_hhw_or_recycling_instruction": 51
+        },
+        "marginal_component_shares": {
+          "any_physical_destruction": 0.5445,
+          "any_marking_defacing": 0.3073,
+          "both_destruction_and_marking": 0.1698,
+          "any_hhw_or_recycling_instruction": 0.1375
+        }
+      },
+      "2_Mkt_FD_NonChina": {
+        "n_photo_verify": 12,
+        "n_with_physical_mutilate": 11,
+        "share_with_physical_mutilate": 0.9167,
+        "n_without_physical_mutilate": 1,
+        "share_without_physical_mutilate": 0.0833,
+        "mutually_exclusive_4way_counts": {
+          "photo_plus_physical_destruction": 8,
+          "photo_plus_marking_defacing_only": 3,
+          "photo_plus_hhw_recycling_only": 0,
+          "photo_only": 1
+        },
+        "mutually_exclusive_4way_shares": {
+          "photo_plus_physical_destruction": 0.6667,
+          "photo_plus_marking_defacing_only": 0.25,
+          "photo_plus_hhw_recycling_only": 0.0,
+          "photo_only": 0.0833
+        },
+        "marginal_component_counts": {
+          "any_physical_destruction": 8,
+          "any_marking_defacing": 3,
+          "both_destruction_and_marking": 0,
+          "any_hhw_or_recycling_instruction": 1
+        },
+        "marginal_component_shares": {
+          "any_physical_destruction": 0.6667,
+          "any_marking_defacing": 0.25,
+          "both_destruction_and_marking": 0.0,
+          "any_hhw_or_recycling_instruction": 0.0833
+        }
+      },
+      "3_Mkt_True_US": {
+        "n_photo_verify": 98,
+        "n_with_physical_mutilate": 65,
+        "share_with_physical_mutilate": 0.6633,
+        "n_without_physical_mutilate": 33,
+        "share_without_physical_mutilate": 0.3367,
+        "mutually_exclusive_4way_counts": {
+          "photo_plus_physical_destruction": 46,
+          "photo_plus_marking_defacing_only": 19,
+          "photo_plus_hhw_recycling_only": 9,
+          "photo_only": 24
+        },
+        "mutually_exclusive_4way_shares": {
+          "photo_plus_physical_destruction": 0.4694,
+          "photo_plus_marking_defacing_only": 0.1939,
+          "photo_plus_hhw_recycling_only": 0.0918,
+          "photo_only": 0.2449
+        },
+        "marginal_component_counts": {
+          "any_physical_destruction": 46,
+          "any_marking_defacing": 24,
+          "both_destruction_and_marking": 5,
+          "any_hhw_or_recycling_instruction": 15
+        },
+        "marginal_component_shares": {
+          "any_physical_destruction": 0.4694,
+          "any_marking_defacing": 0.2449,
+          "both_destruction_and_marking": 0.051,
+          "any_hhw_or_recycling_instruction": 0.1531
+        }
+      },
+      "4_DTC_Online_Only": {
+        "n_photo_verify": 29,
+        "n_with_physical_mutilate": 26,
+        "share_with_physical_mutilate": 0.8966,
+        "n_without_physical_mutilate": 3,
+        "share_without_physical_mutilate": 0.1034,
+        "mutually_exclusive_4way_counts": {
+          "photo_plus_physical_destruction": 17,
+          "photo_plus_marking_defacing_only": 9,
+          "photo_plus_hhw_recycling_only": 0,
+          "photo_only": 3
+        },
+        "mutually_exclusive_4way_shares": {
+          "photo_plus_physical_destruction": 0.5862,
+          "photo_plus_marking_defacing_only": 0.3103,
+          "photo_plus_hhw_recycling_only": 0.0,
+          "photo_only": 0.1034
+        },
+        "marginal_component_counts": {
+          "any_physical_destruction": 17,
+          "any_marking_defacing": 10,
+          "both_destruction_and_marking": 1,
+          "any_hhw_or_recycling_instruction": 4
+        },
+        "marginal_component_shares": {
+          "any_physical_destruction": 0.5862,
+          "any_marking_defacing": 0.3448,
+          "both_destruction_and_marking": 0.0345,
+          "any_hhw_or_recycling_instruction": 0.1379
+        }
+      },
+      "5_Omnichannel": {
+        "n_photo_verify": 98,
+        "n_with_physical_mutilate": 56,
+        "share_with_physical_mutilate": 0.5714,
+        "n_without_physical_mutilate": 42,
+        "share_without_physical_mutilate": 0.4286,
+        "mutually_exclusive_4way_counts": {
+          "photo_plus_physical_destruction": 42,
+          "photo_plus_marking_defacing_only": 14,
+          "photo_plus_hhw_recycling_only": 5,
+          "photo_only": 37
+        },
+        "mutually_exclusive_4way_shares": {
+          "photo_plus_physical_destruction": 0.4286,
+          "photo_plus_marking_defacing_only": 0.1429,
+          "photo_plus_hhw_recycling_only": 0.051,
+          "photo_only": 0.3776
+        },
+        "marginal_component_counts": {
+          "any_physical_destruction": 42,
+          "any_marking_defacing": 21,
+          "both_destruction_and_marking": 7,
+          "any_hhw_or_recycling_instruction": 10
+        },
+        "marginal_component_shares": {
+          "any_physical_destruction": 0.4286,
+          "any_marking_defacing": 0.2143,
+          "both_destruction_and_marking": 0.0714,
+          "any_hhw_or_recycling_instruction": 0.102
+        }
+      },
+      "6_Brick_and_Mortar": {
+        "n_photo_verify": 111,
+        "n_with_physical_mutilate": 61,
+        "share_with_physical_mutilate": 0.5495,
+        "n_without_physical_mutilate": 50,
+        "share_without_physical_mutilate": 0.4505,
+        "mutually_exclusive_4way_counts": {
+          "photo_plus_physical_destruction": 49,
+          "photo_plus_marking_defacing_only": 12,
+          "photo_plus_hhw_recycling_only": 14,
+          "photo_only": 36
+        },
+        "mutually_exclusive_4way_shares": {
+          "photo_plus_physical_destruction": 0.4414,
+          "photo_plus_marking_defacing_only": 0.1081,
+          "photo_plus_hhw_recycling_only": 0.1261,
+          "photo_only": 0.3243
+        },
+        "marginal_component_counts": {
+          "any_physical_destruction": 49,
+          "any_marking_defacing": 17,
+          "both_destruction_and_marking": 5,
+          "any_hhw_or_recycling_instruction": 22
+        },
+        "marginal_component_shares": {
+          "any_physical_destruction": 0.4414,
+          "any_marking_defacing": 0.1532,
+          "both_destruction_and_marking": 0.045,
+          "any_hhw_or_recycling_instruction": 0.1982
+        }
+      }
+    }
+  },
   "main_models_2022_2026": {
     "photo_verify": {
       "ycol": "photo_verify",
@@ -1506,6 +1727,144 @@
         "ci_lo": 0.27297736916410037,
         "ci_hi": 0.5409715629515468,
         "p_wcb": 0.001
+      },
+      "subsample_label": "Products Priced >= $100 (All Categories)",
+      "subsample_note": "Filters strictly on retail price >= $100 across all 15 product categories, including apparel/footwear, child sleepwear/apparel, mattresses/bedding, personal care, and chemicals/packaging."
+    },
+    "R7b_strict_durables_ge_100": {
+      "ycol": "photo_verify",
+      "n": 685,
+      "k": 63,
+      "rank": 63,
+      "n_clusters": 481,
+      "df_t": 480,
+      "r2": 0.4875,
+      "cluster_col": "firm_cluster",
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.4138504590518832,
+          "se": 0.0760190103419748,
+          "t": 5.444039026424563,
+          "p": 8.325692177293756e-08,
+          "ci_lo": 0.26447930005171627,
+          "ci_hi": 0.5632216180520502,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.36055371374118184,
+          "se": 0.14914099581768103,
+          "t": 2.4175359146853523,
+          "p": 0.015997553971096114,
+          "ci_lo": 0.06750381346610074,
+          "ci_hi": 0.6536036140162629,
+          "p_wcb": 0.08
+        },
+        "a_mkt_true_us": {
+          "beta": 0.04810835671330849,
+          "se": 0.06056552995456608,
+          "t": 0.7943190912289139,
+          "p": 0.42740222512172693,
+          "ci_lo": -0.0708979729412832,
+          "ci_hi": 0.16711468636790017,
+          "p_wcb": 0.452
+        },
+        "a_dtc_online": {
+          "beta": -0.044121217920759154,
+          "se": 0.048584161564237505,
+          "t": -0.908139947262906,
+          "p": 0.3642599999842156,
+          "ci_lo": -0.13958513529162822,
+          "ci_hi": 0.05134269945010991,
+          "p_wcb": 0.39
+        },
+        "a_omnichannel": {
+          "beta": -0.011856710762940668,
+          "se": 0.04091459319425124,
+          "t": -0.28979173046272916,
+          "p": 0.7721007126294979,
+          "ci_lo": -0.09225055143454353,
+          "ci_hi": 0.0685371299086622,
+          "p_wcb": 0.755
+        }
+      },
+      "contrast": {
+        "diff": 0.36574210233857474,
+        "se": 0.0788635117670389,
+        "t": 4.637659345160395,
+        "p": 4.549595153095921e-06,
+        "ci_lo": 0.21078172989392743,
+        "ci_hi": 0.5207024747832221,
+        "p_wcb": 0.001
+      },
+      "subsample_label": "Strict Durables (>= $100)",
+      "exclusion_audit": {
+        "n_price_ge_100_all": 794,
+        "n_excluded_total": 109,
+        "n_strict_durables_retained": 685,
+        "excluded_prod_cats_rule": [
+          "Adult_Apparel_Footwear",
+          "Child_Sleepwear_Apparel",
+          "Chemicals_Medicine_Packaging"
+        ],
+        "excluded_fine_nouns_rule": [
+          "Adult_Apparel_Footwear",
+          "Child_Apparel_Shoes",
+          "Child_Sleepwear",
+          "Mattress_Bedding",
+          "Hair_Dryer_PersonalCare",
+          "Supplement_Bottle_Chem"
+        ],
+        "excluded_counts_by_prod_cat_rule": {
+          "Adult_Apparel_Footwear": 10,
+          "Child_Sleepwear_Apparel": 53,
+          "Chemicals_Medicine_Packaging": 10
+        },
+        "excluded_counts_by_fine_noun_rule": {
+          "Adult_Apparel_Footwear": 10,
+          "Child_Apparel_Shoes": 47,
+          "Child_Sleepwear": 1,
+          "Mattress_Bedding": 28,
+          "Hair_Dryer_PersonalCare": 5,
+          "Supplement_Bottle_Chem": 10
+        },
+        "excluded_total_by_prod_cat": {
+          "Child_Sleepwear_Apparel": 53,
+          "Furniture_Dresser_Chair": 27,
+          "Chemicals_Medicine_Packaging": 10,
+          "Adult_Apparel_Footwear": 10,
+          "Other_Product": 6,
+          "Heater_HVAC_Fan": 1,
+          "Stroller_HighChair": 1,
+          "Safety_Locks_Alarms": 1
+        },
+        "excluded_total_by_fine_noun": {
+          "Child_Apparel_Shoes": 47,
+          "Mattress_Bedding": 28,
+          "Supplement_Bottle_Chem": 10,
+          "Adult_Apparel_Footwear": 10,
+          "Hair_Dryer_PersonalCare": 5,
+          "Chair_Stool_Table": 4,
+          "Other_Noun": 2,
+          "Child_Sleepwear": 1,
+          "Dresser_Chest": 1,
+          "Ebike_Scooter": 1
+        },
+        "residual_title_regex_only_exclusions": [
+          {
+            "recall_id": 9771,
+            "prod_cat": "Other_Product",
+            "fine_noun": "Other_Noun",
+            "price": 115.0,
+            "title_snip": "Berkshire Blanket & Home Company Recalls Heated Throws and Blankets Due to Fire and Thermal Burn Hazards"
+          },
+          {
+            "recall_id": 10868,
+            "prod_cat": "Other_Product",
+            "fine_noun": "Other_Noun",
+            "price": 143.0,
+            "title_snip": "Madewell Recalls Women's Sweaters Due to Due to Risk of Serious Injury or Death from Burn Hazard; Violate Mandatory Standard for Clothing Te"
+          }
+        ]
       }
     },
     "R8_large_batch_ge_10k": {

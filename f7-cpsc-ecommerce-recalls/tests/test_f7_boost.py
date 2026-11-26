@@ -58,6 +58,12 @@ _spec08.loader.exec_module(_mod08)
 verify_pdf_zero_leaks = _mod08.verify_pdf_zero_leaks
 _tex_to_html = _mod08._tex_to_html
 
+_spec07 = importlib.util.spec_from_file_location("gen07", SCRIPT_DIR / "07_generate_figures_and_tables.py")
+assert _spec07 is not None and _spec07.loader is not None
+_mod07 = importlib.util.module_from_spec(_spec07)
+_spec07.loader.exec_module(_mod07)
+build_canonical_table5_markdown = _mod07.build_canonical_table5_markdown
+
 
 def _sha256(path: Path) -> str:
     h = hashlib.sha256()
@@ -228,6 +234,15 @@ def test_all_saved_regressions_are_full_rank() -> None:
         if isinstance(r, dict) and "rank" in r and "k" in r:
             assert r["rank"] == r["k"], f"Robustness {sk} rank deficient"
 
+    assert "R7b_strict_durables_ge_100" in p1["robustness_photo_verify_2022_2026"]
+    r7b = p1["robustness_photo_verify_2022_2026"]["R7b_strict_durables_ge_100"]
+    assert r7b["n"] == 685
+    assert r7b["n_clusters"] == 481
+    assert r7b["rank"] == r7b["k"]
+    assert r7b["exclusion_audit"]["n_price_ge_100_all"] == 794
+    assert r7b["exclusion_audit"]["n_excluded_total"] == 109
+    assert r7b["exclusion_audit"]["n_strict_durables_retained"] == 685
+
     for key in ("traceability_upc_fe", "coordination_inconjunction_fe", "platform_amazon_vs_nonamazon_fe"):
         m = p234["pillar2"][key]
         assert m["rank"] == m["k"], f"Pillar 2 {key} rank deficient"
@@ -325,7 +340,23 @@ def test_manuscript_numerical_parity_with_receipts() -> None:
     hac_mo = p234["pillar3"]["hac_monthly_its_2021_2026"]["log_amz_over_bm_L6"]["params"]["slope_change_mo"]
     bm_dec = p234["pillar2"]["bm_diffusion_decomposition"]
     hw_fd = p234["pillar4"]["hazwaste_by_archetype"]["1_Mkt_FD_China"]
+    hw_conc = p234["pillar4"]["hazwaste_concentration_audit"]
+    rd_fd = p1["remedy_disaggregation_photo_verify_2022_2026"]["by_archetype"]["1_Mkt_FD_China"]
+    fba_aud = p234["pillar3"]["fba_scope_audit"]
     oos = aud["oos_50_2025_2026"]
+    r7b = rob["R7b_strict_durables_ge_100"]
+    dtc_pv = mm["photo_verify"]["terms"]["a_dtc_online"]
+
+    # Verify exact 4-way remedy disaggregation & hazwaste concentration receipts
+    assert rd_fd["n_photo_verify"] == 371
+    assert rd_fd["n_without_physical_mutilate"] == 118
+    assert rd_fd["n_with_physical_mutilate"] == 253
+    assert sum(rd_fd["mutually_exclusive_4way_counts"].values()) == 371
+    assert hw_conc["total_units_assigned_consumer_self_disposal"] == 3_947_390
+    assert hw_conc["top2_ocoopa_anker_units"] == 2_658_000
+    assert hw_conc["ocoopa_10895_prohibits_ordinary_trash_and_curbside_bins"] is True
+    assert fba_aud["n_amazon_only_2022_2026"] == 601
+    assert fba_aud["n_explicit_fba_mentions_2022_2026"] == 1
 
     expected_tokens = [
         "8{,}386",
@@ -337,8 +368,20 @@ def test_manuscript_numerical_parity_with_receipts() -> None:
         f"{100 * mm['direct_return']['terms']['a_mkt_fd_cn']['beta']:.2f}",
         f"+{100 * mm['free_webmail']['terms']['a_mkt_fd_cn']['beta']:.2f}",
         f"+{100 * mm['no_phone']['terms']['a_mkt_fd_cn']['beta']:.2f}",
-        f"+{100 * mm['photo_verify']['terms']['a_dtc_online']['beta']:.2f}",
+        f"+{100 * dtc_pv['beta']:.2f}",
+        f"{100 * dtc_pv['ci_lo']:+.2f}",
+        f"{100 * dtc_pv['ci_hi']:+.2f}",
         f"+{100 * rob['R7_high_price_ge_100']['terms']['a_mkt_fd_cn']['beta']:.2f}",
+        f"+{100 * r7b['terms']['a_mkt_fd_cn']['beta']:.2f}",
+        f"+{100 * r7b['contrast']['diff']:.2f}",
+        f"{r7b['n']}",
+        f"{r7b['n_clusters']}",
+        "118/371",
+        "253/371",
+        "202/371",
+        "51/371",
+        "26/371",
+        "92/371",
         f"{rob['R4_binomial_logit_or']['terms']['a_mkt_fd_cn']['or']:.2f}",
         f"+{100 * bm_dec['BM_Made_in_China']['annual_slope_pp']:.2f}",
         f"+{hac['log_amz_over_bm_L4']['its_params']['slope_change']['beta']:.4f}",
@@ -346,12 +389,83 @@ def test_manuscript_numerical_parity_with_receipts() -> None:
         f"+{hac_stat['beta']:.4f}",
         f"+{hac_mo['beta']:.4f}",
         f"{hw_fd['units_self_disposed_total']:,}",
+        "67.34%",
+        "1/601",
         f"{100 * aud['archetype_6']['exact_accuracy']:.2f}\\%",
         f"{aud['binary_fields']['has_injury']['f1']:.4f}",
         f"{oos['binary_fields']['physical_mutilate']['f1']:.4f}",
     ]
     for tok in expected_tokens:
         assert tok in md, f"Expected verified receipt number {tok!r} missing from manuscript_f7_boost.md!"
+
+
+def test_table5_exact_programmatic_parity_and_table3_table7_sync() -> None:
+    md = (BASE_DIR / "manuscript_f7_boost.md").read_text(encoding="utf-8")
+
+    # 1. Exact block match between Table 5 in manuscript_f7_boost.md and canonical CSV generator
+    canonical_t5 = build_canonical_table5_markdown()
+    assert canonical_t5 in md, "Table 5 in manuscript_f7_boost.md drifted from canonical table5 CSV!"
+
+    # 2. Independent cell-by-cell numeric parity audit of every Table 5 data row against CSV
+    df5 = pd.read_csv(BASE_DIR / "tables" / "table5_amazon_hac_shock_and_persistence.csv", dtype={"slope_change_p": str})
+    lookup = {(str(r["cutoff"]), str(r["series"])): r for _, r in df5.iterrows()}
+    t5_lines = [ln.strip() for ln in canonical_t5.splitlines() if ln.strip().startswith("|")]
+    expected_row_keys = [
+        ("jul2024_2024Q3", "log_amz_over_bm_L4"),
+        ("jul2024_2024Q3", "log_amz_over_nonamz_L4"),
+        ("jul2024_2024Q3", "log_amz_1p_L4"),
+        ("jul2024_2024Q3", "log_bm_1p_L4"),
+        ("jan2025_2025Q1", "log_amz_over_bm_L4"),
+        ("jan2025_2025Q1", "log_amz_over_nonamz_L4"),
+        ("ramp_2025Q2", "log_amz_over_bm_L4"),
+        ("jul2024_2024Q3_statutory_ctrl", "log_amz_over_bm_L4"),
+        ("monthly_2024_08_T70", "log_amz_over_bm_L6"),
+        ("monthly_2024_08_T70", "log_amz_over_nonamz_L6"),
+    ]
+    data_rows = [
+        ln for ln in t5_lines[2:]
+        if not ln.startswith("| **")
+    ]
+    assert len(data_rows) == len(expected_row_keys)
+    for row_md, key in zip(data_rows, expected_row_keys, strict=True):
+        cells = [c.strip().replace("*", "") for c in row_md.strip("|").split("|")]
+        rec = lookup[key]
+        assert np.isclose(float(cells[1]), float(rec["pre_slope"]), atol=1e-4)
+        assert np.isclose(float(cells[2]), float(rec["pre_slope_t"]), atol=1e-2)
+        assert np.isclose(float(cells[3]), float(rec["level_jump"]), atol=1e-4)
+        assert np.isclose(float(cells[4]), float(rec["level_jump_t"]), atol=1e-2)
+        assert np.isclose(float(cells[5]), float(rec["slope_change"]), atol=1e-4)
+        assert np.isclose(float(cells[6]), float(rec["slope_change_se"]), atol=1e-4)
+        assert np.isclose(float(cells[7]), float(rec["slope_change_t"]), atol=1e-2)
+        assert cells[8] == str(rec["slope_change_p"]).strip()
+        assert np.isclose(float(cells[9]), float(rec["r2"]), atol=1e-3)
+
+    # 3. Verify Table 3 R7/R7b & Table 7 OOS-50 exact counts match CSVs
+    assert "| R7. **Products Priced $\\ge \\$100$ (All Categories)** | 794 | 571 | **+45.17** |" in md
+    assert "| R7b. **Strict Durables ($\\ge \\$100$)** | 685 | 481 | **+41.39** |" in md
+    assert "| OOS `photo_verify` | 50 | 32 | 0 | 18 | 0 |" in md
+    assert "| OOS `direct_return` | 50 | 6 | 0 | 44 | 0 |" in md
+
+
+def test_no_referee_overclaims_in_manuscript_and_audit_json() -> None:
+    md = (BASE_DIR / "manuscript_f7_boost.md").read_text(encoding="utf-8")
+    aud = json.loads((BASE_DIR / "results" / "02_parser_audit_metrics.json").read_text(encoding="utf-8"))
+
+    assert aud["audit_methodology"]["audit_type"] == "author_reviewed_parser_consistency_audit"
+    assert aud["audit_methodology"]["independent_blind_annotation"] is False
+
+    forbidden_patterns = [
+        r"\bground[\s\-]truth\b",
+        r"\bindependent\s+blind\s+ground",
+        r"\bmunicipal\s+trash\b",
+        r"\bmunicipal\s+solid[\s\-]waste\b",
+        r"\binto\s+household\s+trash\b",
+        r"\bisolate\s+the\s+causal\s+effect\b",
+        r"\bHigh[\s\-]Price\s+Durables\b",
+        r"\bproves\s+that\b",
+    ]
+    for pat in forbidden_patterns:
+        assert not re.search(pat, md, re.IGNORECASE), f"Forbidden referee-flagged overclaim {pat!r} found in manuscript!"
 
 
 def test_references_100_percent_cited_and_crossref_verified() -> None:

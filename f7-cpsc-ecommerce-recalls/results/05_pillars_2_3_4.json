@@ -2516,6 +2516,16 @@
           "fe_p": 2.1395530946063478e-07
         }
       }
+    },
+    "fba_scope_audit": {
+      "legal_order_scope": "Fulfilled-by-Amazon (FBA) third-party products",
+      "public_cpsc_series_scope": "Pools all Amazon-exclusive CPSC recall announcements (FBA, FBM, and other Amazon-listed 3P) because public CPSC notices almost never report fulfillment mode.",
+      "n_amazon_only_2022_2026": 601,
+      "n_explicit_fba_mentions_2022_2026": 1,
+      "share_explicit_fba_2022_2026": 0.0017,
+      "n_amazon_only_2021_2026": 646,
+      "n_explicit_fba_mentions_2021_2026": 1,
+      "share_explicit_fba_2021_2026": 0.0015
     }
   },
   "pillar4": {
@@ -2662,6 +2672,102 @@
         "units_self_disposed_total": 1115199,
         "units_photo_disposed_total": 941584
       }
+    },
+    "hazwaste_concentration_audit": {
+      "n_recalls_consumer_self_disposal": 67,
+      "total_units_assigned_consumer_self_disposal": 3947390,
+      "top2_ocoopa_anker_units": 2658000,
+      "top2_ocoopa_anker_share": 0.6734,
+      "top4_units": 3278000,
+      "top4_share": 0.8304,
+      "n_explicit_hhw_warning": 52,
+      "share_recalls_explicit_hhw_warning": 0.7761,
+      "units_explicit_hhw_warning": 2697571,
+      "share_units_explicit_hhw_warning": 0.6834,
+      "ocoopa_10895_prohibits_ordinary_trash_and_curbside_bins": true,
+      "anker_10311_requires_disposal_per_applicable_laws": true,
+      "top_10_recalls": [
+        {
+          "recall_id": 10895,
+          "units": 1500000,
+          "share_of_total": 0.38,
+          "photo_verify": 1,
+          "explicit_hhw_warning": 1,
+          "title_snip": "OCOOPA Direct Recalls 1.5 Million Rechargeable Hand Warmers Due to Risk of Serious Injury or Death from Fire and Burn Hazards; One Death Rep"
+        },
+        {
+          "recall_id": 10311,
+          "units": 1158000,
+          "share_of_total": 0.2934,
+          "photo_verify": 1,
+          "explicit_hhw_warning": 0,
+          "title_snip": "More than One Million Anker Power Banks Recalled Due to Fire and Burn Hazards; Manufactured by Anker Innovations"
+        },
+        {
+          "recall_id": 10115,
+          "units": 488000,
+          "share_of_total": 0.1236,
+          "photo_verify": 1,
+          "explicit_hhw_warning": 1,
+          "title_snip": "Charmast Power Banks Recalled Due to Fire and Burn Hazards; Sold by Charmast Exclusively on Amazon.com"
+        },
+        {
+          "recall_id": 9991,
+          "units": 132000,
+          "share_of_total": 0.0334,
+          "photo_verify": 1,
+          "explicit_hhw_warning": 1,
+          "title_snip": "Baseus Magnetic Wireless Charging Power Banks Recalled Due to Fire Hazard; Imported by Shenzhen Baseus Technology"
+        },
+        {
+          "recall_id": 10771,
+          "units": 94000,
+          "share_of_total": 0.0238,
+          "photo_verify": 0,
+          "explicit_hhw_warning": 1,
+          "title_snip": "Lithium Coin Batteries Recalled Due?to Risk of Serious Injury or Death from Battery Ingestion; Violates Federal Statute for Child-Resistant "
+        },
+        {
+          "recall_id": 10099,
+          "units": 69000,
+          "share_of_total": 0.0175,
+          "photo_verify": 0,
+          "explicit_hhw_warning": 1,
+          "title_snip": "Anker Soundcore Lithium-Ion Battery Powered Bluetooth Speakers Recalled Due to Fire Hazard; Sold Exclusively on Amazon.com by Anker Innovati"
+        },
+        {
+          "recall_id": 10849,
+          "units": 67000,
+          "share_of_total": 0.017,
+          "photo_verify": 1,
+          "explicit_hhw_warning": 1,
+          "title_snip": "Junpower CR2032 Lithium Coin Batteries Recalled Due to Risk of Serious Injury or Death from Battery Ingestion Hazard; Violate Federal Statut"
+        },
+        {
+          "recall_id": 10844,
+          "units": 62490,
+          "share_of_total": 0.0158,
+          "photo_verify": 1,
+          "explicit_hhw_warning": 1,
+          "title_snip": "Projecting LED Finger Light Toys Recalled Due to Risk of Serious Injury Death from Battery Ingestion; Violate Mandatory Standard for Toys; S"
+        },
+        {
+          "recall_id": 10258,
+          "units": 55380,
+          "share_of_total": 0.014,
+          "photo_verify": 1,
+          "explicit_hhw_warning": 0,
+          "title_snip": "Baseus Portable Chargers Recalled Due to Fire Hazard; Sold on Amazon.com by Shenzhen Baseus Technology"
+        },
+        {
+          "recall_id": 10423,
+          "units": 48000,
+          "share_of_total": 0.0122,
+          "photo_verify": 0,
+          "explicit_hhw_warning": 1,
+          "title_snip": "Living Glow Portable Waist Fans Recalled Due to Fire Hazard; Manufactured by Guangzhou Jiguang Lighting; Sold by HSN"
+        }
+      ]
     },
     "hazwaste_subtypes": {
       "Lithium_Ion_Battery": {

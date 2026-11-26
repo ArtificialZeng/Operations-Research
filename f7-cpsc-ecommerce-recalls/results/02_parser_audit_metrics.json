@@ -168,6 +168,12 @@
     "price_exact_acc": 1.0,
     "units_exact_acc": 1.0
   },
+  "audit_methodology": {
+    "audit_type": "author_reviewed_parser_consistency_audit",
+    "independent_blind_annotation": false,
+    "initialization_procedure": "Reference columns (gt_*) are initialized from frozen parser_lib.py outputs and subsequently edited by the author following line-by-line review of raw CPSC JSON text.",
+    "journal_submission_requirement": "Independent double-blind human annotation of remedy categories and seller legal entities is required prior to formal journal submission."
+  },
   "oos_50_2025_2026": {
     "n_audited": 50,
     "strata_counts": {

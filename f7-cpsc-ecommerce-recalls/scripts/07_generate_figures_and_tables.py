@@ -5,6 +5,7 @@ directly from saved JSON receipts (ZERO hardcoded numerical drift!).
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -155,7 +156,8 @@ def generate_tables(
         ("R3_fine_noun_x_year_fe", "Fine-Product-Noun x Year FE"),
         ("R5_within_refund_only", "Subsample: Refund-Only Recalls"),
         ("R6_within_repair_replace", "Subsample: Repair/Replace Recalls"),
-        ("R7_high_price_ge_100", "Subsample: High-Price Durables (>= $100)"),
+        ("R7_high_price_ge_100", "Subsample: Products Priced >= $100 (All Categories)"),
+        ("R7b_strict_durables_ge_100", "Subsample: Strict Durables (>= $100)"),
         ("R8_large_batch_ge_10k", "Subsample: Large Batches (>= 10,000 Units)"),
         ("R9_within_made_in_china", "Subsample: Strictly Made in China"),
         ("R10_control_webmail_nophone", "Mediation: Controlling Webmail & No-Phone"),
@@ -426,7 +428,72 @@ def generate_tables(
             "f1_or_macro_f1": m["f1"],
         })
     pd.DataFrame(t7_rows).to_csv(TBL_DIR / "table7_parser_audit_summary_150.csv", index=False)
-    print("[TABLES] Generated all 7 dynamic zero-NaN CSV tables in tables/.", flush=True)
+    sync_table5_markdown_from_canonical_csv()
+    print("[TABLES] Generated all 7 dynamic zero-NaN CSV tables in tables/ and synced Table 5.", flush=True)
+
+
+def build_canonical_table5_markdown() -> str:
+    """Build Table 5 Markdown strictly from canonical tables/table5_amazon_hac_shock_and_persistence.csv."""
+    df5 = pd.read_csv(TBL_DIR / "table5_amazon_hac_shock_and_persistence.csv", dtype={"slope_change_p": str})
+    lookup = {(str(r["cutoff"]), str(r["series"])): r for _, r in df5.iterrows()}
+
+    def _row_md(label: str, cutoff: str, series: str, bold_level: bool = False) -> str:
+        r = lookup[(cutoff, series)]
+        pre_b = f"{float(r['pre_slope']):+.4f}"
+        pre_t = f"{float(r['pre_slope_t']):+.2f}"
+        lvl_b_raw = f"{float(r['level_jump']):+.4f}"
+        lvl_t_raw = f"{float(r['level_jump_t']):+.2f}"
+        lvl_b = f"**{lvl_b_raw}**" if bold_level else lvl_b_raw
+        lvl_t = f"**{lvl_t_raw}**" if bold_level else lvl_t_raw
+        sc_p_val = float(r["slope_change_p"])
+        sc_b_raw = f"{float(r['slope_change']):+.4f}"
+        sc_t_raw = f"{float(r['slope_change_t']):+.2f}"
+        sc_b = f"**{sc_b_raw}**" if sc_p_val <= 0.05 else sc_b_raw
+        sc_t = f"**{sc_t_raw}**" if sc_p_val <= 0.05 else sc_t_raw
+        sc_se = f"{float(r['slope_change_se']):.4f}"
+        sc_p = str(r["slope_change_p"]).strip()
+        r2_str = f"{float(r['r2']):.3f}"
+        return f"| {label} | {pre_b} | {pre_t} | {lvl_b} | {lvl_t} | {sc_b} | {sc_se} | {sc_t} | {sc_p} | {r2_str} |"
+
+    lines = [
+        "| Policy Cutoff & Relative Series | Pre-Slope | Pre $t$ | Level Jump | Level $t$ | Slope Change | HAC SE | Slope $t$ | Slope $p$ | $R^2$ |",
+        "|:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "| **Jul 30, 2024 (`2024Q3`) — FBA Distributor Order** | | | | | | | | | |",
+        _row_md("`log(Amazon_Only / Brick_and_Mortar)`", "jul2024_2024Q3", "log_amz_over_bm_L4"),
+        _row_md("`log(Amazon_Only / NonAmazon_3P)`", "jul2024_2024Q3", "log_amz_over_nonamz_L4"),
+        _row_md("`log(1 + Amazon_Only)`", "jul2024_2024Q3", "log_amz_1p_L4"),
+        _row_md("`log(1 + Brick_and_Mortar)` *(Placebo)*", "jul2024_2024Q3", "log_bm_1p_L4"),
+        "| **Jan 16, 2025 (`2025Q1`) — Final Remedy Order** | | | | | | | | | |",
+        _row_md("`log(Amazon_Only / Brick_and_Mortar)`", "jan2025_2025Q1", "log_amz_over_bm_L4"),
+        _row_md("`log(Amazon_Only / NonAmazon_3P)`", "jan2025_2025Q1", "log_amz_over_nonamz_L4"),
+        "| **Post-Lag Ramp (`2025Q2–2026Q3`)** | | | | | | | | | |",
+        _row_md("`log(Amazon_Only / Brick_and_Mortar)`", "ramp_2025Q2", "log_amz_over_bm_L4", bold_level=True),
+        "| **Stress Tests (Statutory Controls & Monthly)** | | | | | | | | | |",
+        _row_md("`+ STURDY (23Q4) & Reese's (24Q2)`: `Amz/BM`", "jul2024_2024Q3_statutory_ctrl", "log_amz_over_bm_L4"),
+        _row_md("`Monthly (T=70, L=6, 2024-08)`: `Amz/BM` (/mo)", "monthly_2024_08_T70", "log_amz_over_bm_L6"),
+        _row_md("`Monthly (T=70, L=6, 2024-08)`: `Amz/NonAmz` (/mo)", "monthly_2024_08_T70", "log_amz_over_nonamz_L6"),
+    ]
+    return "\n".join(lines)
+
+
+def sync_table5_markdown_from_canonical_csv() -> None:
+    """Write canonical Table 5 Markdown to tables/table5_canonical.md and sync
+    manuscript_f7_boost.md programmatically so zero numeric drift can occur.
+    """
+    tbl5_md = build_canonical_table5_markdown()
+    (TBL_DIR / "table5_canonical.md").write_text(tbl5_md + "\n", encoding="utf-8")
+    md_path = BASE_DIR / "manuscript_f7_boost.md"
+    if not md_path.exists():
+        return
+    txt = md_path.read_text(encoding="utf-8")
+    pat = re.compile(
+        r"(\| Policy Cutoff & Relative Series \|.*?\n)(?=\n\*Notes:\* Directly from `tables/table5_amazon_hac_shock_and_persistence\.csv`)",
+        re.DOTALL,
+    )
+    if pat.search(txt):
+        new_txt = pat.sub(lambda _m: tbl5_md + "\n", txt, count=1)
+        if new_txt != txt:
+            md_path.write_text(new_txt, encoding="utf-8")
 
 
 def save_fig(fig: plt.Figure, stem: str) -> None:
@@ -644,7 +711,7 @@ def make_fig2(theory: dict, p1: dict) -> None:
     ax2.set_yticks(y_pos)
     ax2.set_yticklabels([a[1] for a in arches], fontweight="bold")
     ax2.set_xlim(-68, 98)
-    ax2.set_xlabel("Ultra-Saturated FE Effect vs. Brick-and-Mortar (pp, CR1 95% CI)")
+    ax2.set_xlabel("Conditional Association vs. Brick-and-Mortar (pp, CR1 95% CI)")
     n_reg = mm["photo_verify"]["n"]
     g_reg = mm["photo_verify"]["n_clusters"]
     ax2.set_title(f"B. 2022–2026 Contract & Contact Gaps (N = {n_reg:,}, G = {g_reg:,})")
@@ -667,7 +734,8 @@ def make_fig3(p1: dict, p234: dict) -> None:
         ("R3_fine_noun_x_year_fe", "Fine-Noun × Year FE"),
         ("R5_within_refund_only", "Within Refund-Only"),
         ("R6_within_repair_replace", "Within Repair/Replace"),
-        ("R7_high_price_ge_100", "High-Price (≥ $100)"),
+        ("R7_high_price_ge_100", "Products ≥ $100 (All Cats)"),
+        ("R7b_strict_durables_ge_100", "Strict Durables (≥ $100)"),
         ("R8_large_batch_ge_10k", "Large Batch (≥ 10k Units)"),
         ("R9_within_made_in_china", "Within Made-in-China"),
         ("R10_control_webmail_nophone", "+ Webmail & No-Phone"),
@@ -688,22 +756,22 @@ def make_fig3(p1: dict, p234: dict) -> None:
         err_ct = [[b_ct - 100 * ct["ci_lo"]], [100 * ct["ci_hi"] - b_ct]]
 
         ax1.errorbar(
-            [b_fd], [yp[idx] + 0.14], xerr=err_fd, fmt="o", color=C_NAVY, ms=5.4, lw=1.4, capsize=2.6,
+            [b_fd], [yp[idx] + 0.15], xerr=err_fd, fmt="o", color=C_NAVY, ms=5.2, lw=1.35, capsize=2.5,
             label="Mkt FD (China) vs. Brick & Mortar" if idx == 0 else None,
         )
         ax1.errorbar(
-            [b_ct], [yp[idx] - 0.14], xerr=err_ct, fmt="D", color=C_CRIMSON, ms=4.8, lw=1.3, capsize=2.6,
+            [b_ct], [yp[idx] - 0.15], xerr=err_ct, fmt="D", color=C_CRIMSON, ms=4.6, lw=1.25, capsize=2.5,
             label="Within-Mkt Gap: FD (China) − U.S. Entity" if idx == 0 else None,
         )
-        ax1.text(100 * fd["ci_hi"] + 1.2, yp[idx] + 0.14, f"+{b_fd:.1f}", fontsize=7.0, color=C_NAVY, va="center", fontweight="bold")
+        ax1.text(100 * fd["ci_hi"] + 1.2, yp[idx] + 0.15, f"+{b_fd:.1f}", fontsize=6.9, color=C_NAVY, va="center", fontweight="bold")
 
     ax1.set_yticks(yp)
-    ax1.set_yticklabels([x[1] for x in forest_specs], fontsize=8.1, fontweight="bold")
-    ax1.set_xlim(-4, 70)
-    ax1.set_ylim(-2.1, len(forest_specs) - 0.3)
-    ax1.set_xlabel("Effect on Proof-of-Destruction Photo-Verify (pp, CR1 95% CI)")
-    ax1.set_title("A. Identification & Subsample Forest Plot (2022–2026)")
-    ax1.legend(loc="lower center", frameon=True, facecolor="white", framealpha=0.96, fontsize=7.5, ncol=1)
+    ax1.set_yticklabels([x[1] for x in forest_specs], fontsize=7.9, fontweight="bold")
+    ax1.set_xlim(-4, 71)
+    ax1.set_ylim(-2.3, len(forest_specs) - 0.3)
+    ax1.set_xlabel("Conditional Association on Photo-Verify (pp, CR1 95% CI)")
+    ax1.set_title("A. Specification & Subsample Forest Plot (2022–2026)")
+    ax1.legend(loc="lower center", frameon=True, facecolor="white", framealpha=0.96, fontsize=7.4, ncol=1)
 
     # Panel B: Identical Fine-Product-Noun Dumbbell Chart (Domestic vs Mkt FD China)
     pretty_noun = {
@@ -773,7 +841,7 @@ def make_fig4(p234: dict) -> None:
     ax1.set_xticklabels([qdf.loc[i, "yq"] for i in tick_idx], rotation=35, ha="right", fontsize=7.8)
     ax1.set_ylabel("Quarterly U.S. CPSC Recall Count")
     ax1.set_xlabel("Complete Calendar Quarters (2021Q1–2026Q3; 2026Q4 Partial Excluded)")
-    ax1.set_title("A. Quarterly Recall Volume Surge After In re Amazon.com")
+    ax1.set_title("A. Pooled Public Amazon-Only Recalls Around In re Amazon.com")
     ax1.set_ylim(-2, 98)
     ax1.legend(loc="upper left", frameon=True, facecolor="white", framealpha=0.95, fontsize=7.2)
 
@@ -822,7 +890,7 @@ def make_fig4(p234: dict) -> None:
     ax2.set_xticklabels([qdf.loc[i, "yq"] for i in tick_idx], rotation=35, ha="right", fontsize=7.8)
     ax2.set_ylabel("Quarterly Log Recall Ratio")
     ax2.set_xlabel("Complete Calendar Quarters (2021Q1–2026Q3)")
-    ax2.set_title("B. HAC Relative Surge & Post-Order Contract Persistence")
+    ax2.set_title("B. Descriptive Structural Acceleration & Contract Persistence")
     ax2.set_ylim(-3.55, 4.15)
     ax2.legend(loc="upper left", frameon=True, facecolor="white", framealpha=0.95, fontsize=7.4)
 
@@ -853,8 +921,8 @@ def make_fig5(p1: dict, p234: dict) -> None:
     hw_ret = [100 * (hw[a]["share_direct_return"] or 0.0) for a, _ in arches]
 
     b1 = ax1.bar(x - 1.5 * w, m_rule, width=w, color=C_NAVY, label="Mandatory Safety-Rule Violation (%)")
-    ax1.bar(x - 0.5 * w, hw_self, width=w, color=C_AMBER, label="HazWaste: Household Self-Disposal (%)")
-    b3 = ax1.bar(x + 0.5 * w, hw_phot, width=w, color=C_CRIMSON, label="HazWaste: Photo Self-Destruction (%)")
+    ax1.bar(x - 0.5 * w, hw_self, width=w, color=C_AMBER, label="HazWaste: Consumer Self-Disposal (%)")
+    b3 = ax1.bar(x + 0.5 * w, hw_phot, width=w, color=C_CRIMSON, label="HazWaste: Photo-Verified Non-Return (%)")
     b4 = ax1.bar(x + 1.5 * w, hw_ret, width=w, color=C_TEAL, label="HazWaste: Firm Direct Return (%)")
 
     for bars, colr, xshift in [(b1, C_NAVY, -0.02), (b3, C_CRIMSON, 0.02), (b4, C_TEAL, 0.02)]:
@@ -863,18 +931,20 @@ def make_fig5(p1: dict, p234: dict) -> None:
             ax1.text(bar.get_x() + bar.get_width() / 2 + xshift, h + 1.6, f"{h:.0f}%", ha="center", va="bottom", fontsize=6.6, fontweight="bold", color=colr)
 
     u_fd = hw["1_Mkt_FD_China"]["units_self_disposed_total"]
+    conc = p234["pillar4"]["hazwaste_concentration_audit"]
+    top2_pct = 100 * conc["top2_ocoopa_anker_share"]
     ax1.text(
-        2.90, 82.0,
+        2.95, 81.0,
         f"Mkt FD (China) HazWaste (N={hw['1_Mkt_FD_China']['n_hazwaste_recalls']}):\n"
-        f"• 0.0% direct firm return\n"
-        f"• 90.5% household self-disposal\n"
-        f"• {u_fd/1e6:.2f}M units externalized",
-        fontsize=7.1,
+        f"• 0.0% firm direct-return programs\n"
+        f"• 90.5% consumer self-disposal remedies\n"
+        f"• {u_fd/1e6:.2f}M recalled units ({top2_pct:.1f}% OCOOPA+Anker)",
+        fontsize=6.8,
         fontweight="bold",
         color=C_CRIMSON,
         ha="center",
         va="center",
-        bbox={"boxstyle": "round,pad=0.38", "facecolor": "#FEF2F2", "edgecolor": C_CRIMSON, "alpha": 0.96},
+        bbox={"boxstyle": "round,pad=0.36", "facecolor": "#FEF2F2", "edgecolor": C_CRIMSON, "alpha": 0.96},
     )
 
     ax1.set_xticks(x)

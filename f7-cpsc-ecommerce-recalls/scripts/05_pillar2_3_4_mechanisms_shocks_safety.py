@@ -15,6 +15,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -35,6 +36,7 @@ from econometrics_lib import (
 )
 
 BASE_DIR = Path(r"D:\AI_Science\antigravity\f7_boost_cpsc_ecommerce_recalls_20261126")
+RAW_JSON = BASE_DIR / "data" / "cpsc_recalls_2000_2026.json"
 PARSED_CSV = BASE_DIR / "data" / "cpsc_parsed_2000_2026.csv"
 OUT_JSON = BASE_DIR / "results" / "05_pillars_2_3_4.json"
 
@@ -112,6 +114,8 @@ def run_sat(
 
 def main() -> int:
     df = pd.read_csv(PARSED_CSV, low_memory=False)
+    raw_records = json.loads(RAW_JSON.read_text(encoding="utf-8"))
+    raw_by_id = {int(r["RecallID"]): r for r in raw_records if r.get("RecallID") is not None}
     d22_all = df[(df["year"] >= 2022) & (df["archetype_6"] != "7_Other_Unclear")].copy()
     d22_reg = prep_reg(d22_all[d22_all["price"].notna() & d22_all["units"].notna()])
 
@@ -462,12 +466,37 @@ def main() -> int:
                 "fe_t": round(fit_p["params"]["post_jan2025"]["t"], 2),
                 "fe_p": fit_p["params"]["post_jan2025"]["p"],
             }
+    # FBA Legal Scope Audit inside public CPSC Amazon-Only notices
+    amz_22_all = d22_all[d22_all["amazon_only_mkt"] == 1]
+    amz_21_all = d21[d21["amazon_only_mkt"] == 1]
+    fba_pat = re.compile(r"fulfilled\s+by\s+amazon|\bFBA\b", re.IGNORECASE)
+    fba_22_cnt = sum(1 for rid in amz_22_all["recall_id"] if fba_pat.search(json.dumps(raw_by_id[int(rid)])))
+    fba_21_cnt = sum(1 for rid in amz_21_all["recall_id"] if fba_pat.search(json.dumps(raw_by_id[int(rid)])))
+    fba_scope_audit = {
+        "legal_order_scope": "Fulfilled-by-Amazon (FBA) third-party products",
+        "public_cpsc_series_scope": (
+            "Pools all Amazon-exclusive CPSC recall announcements (FBA, FBM, and other Amazon-listed 3P) "
+            "because public CPSC notices almost never report fulfillment mode."
+        ),
+        "n_amazon_only_2022_2026": len(amz_22_all),
+        "n_explicit_fba_mentions_2022_2026": int(fba_22_cnt),
+        "share_explicit_fba_2022_2026": round(fba_22_cnt / max(len(amz_22_all), 1), 4),
+        "n_amazon_only_2021_2026": len(amz_21_all),
+        "n_explicit_fba_mentions_2021_2026": int(fba_21_cnt),
+        "share_explicit_fba_2021_2026": round(fba_21_cnt / max(len(amz_21_all), 1), 4),
+    }
+
     print(
         f"  Post-Jan-2025 Contract Persistence (Mkt_FD_China photo_verify): "
         f"Pre={contract_persistence['Mkt_FD_China']['photo_verify']['pre_mean']*100:.1f}% -> "
         f"Post={contract_persistence['Mkt_FD_China']['photo_verify']['post_mean']*100:.1f}% "
         f"(FE beta={contract_persistence['Mkt_FD_China']['photo_verify']['fe_beta']:+.4f}, "
         f"t={contract_persistence['Mkt_FD_China']['photo_verify']['fe_t']:+.2f})",
+        flush=True,
+    )
+    print(
+        f"  FBA Scope Audit: explicit FBA mention in {fba_22_cnt}/{len(amz_22_all)} "
+        f"({100*fba_scope_audit['share_explicit_fba_2022_2026']:.2f}%) Amazon-Only 2022-2026 notices.",
         flush=True,
     )
 
@@ -504,6 +533,46 @@ def main() -> int:
             f"SelfDispUnits={hw_summary[arch]['units_self_disposed_total']:,}",
             flush=True,
         )
+
+    # Concentration & HHW-Instruction Audit inside 1_Mkt_FD_China hazardous-product consumer self-disposal (3,947,390 units)
+    hw_fd_sd = hw_all[(hw_all["archetype_6"] == "1_Mkt_FD_China") & (hw_all["haz_household_disposal"] == 1)].sort_values(
+        "units", ascending=False
+    )
+    tot_sd_units = int(hw_fd_sd["units"].fillna(0).sum())
+    top2_units = int(hw_fd_sd.head(2)["units"].fillna(0).sum())
+    top4_units = int(hw_fd_sd.head(4)["units"].fillna(0).sum())
+    hhw_flagged = hw_fd_sd[hw_fd_sd["explicit_hhw_warning"] == 1]
+    ocoopa_rem = " ".join(str(x.get("Name") or "") for x in (raw_by_id[10895].get("Remedies") or []))
+    anker_rem = " ".join(str(x.get("Name") or "") for x in (raw_by_id[10311].get("Remedies") or []))
+    hw_concentration_audit = {
+        "n_recalls_consumer_self_disposal": len(hw_fd_sd),
+        "total_units_assigned_consumer_self_disposal": tot_sd_units,
+        "top2_ocoopa_anker_units": top2_units,
+        "top2_ocoopa_anker_share": round(top2_units / max(tot_sd_units, 1), 4),
+        "top4_units": top4_units,
+        "top4_share": round(top4_units / max(tot_sd_units, 1), 4),
+        "n_explicit_hhw_warning": len(hhw_flagged),
+        "share_recalls_explicit_hhw_warning": round(len(hhw_flagged) / max(len(hw_fd_sd), 1), 4),
+        "units_explicit_hhw_warning": int(hhw_flagged["units"].fillna(0).sum()),
+        "share_units_explicit_hhw_warning": round(int(hhw_flagged["units"].fillna(0).sum()) / max(tot_sd_units, 1), 4),
+        "ocoopa_10895_prohibits_ordinary_trash_and_curbside_bins": bool(
+            re.search(r"do\s+not\s+throw.*trash.*recycling", ocoopa_rem, re.IGNORECASE)
+        ),
+        "anker_10311_requires_disposal_per_applicable_laws": bool(
+            re.search(r"confirm\s+disposal.*applicable\s+laws\s+and\s+regulations", anker_rem, re.IGNORECASE)
+        ),
+        "top_10_recalls": [
+            {
+                "recall_id": int(r["recall_id"]),
+                "units": int(r["units"]) if pd.notna(r["units"]) else 0,
+                "share_of_total": round(float(r["units"]) / max(tot_sd_units, 1), 4) if pd.notna(r["units"]) else 0.0,
+                "photo_verify": int(r["photo_verify"]),
+                "explicit_hhw_warning": int(r["explicit_hhw_warning"]),
+                "title_snip": str(r["title_snip"]),
+            }
+            for _, r in hw_fd_sd.head(10).iterrows()
+        ],
+    }
 
     # FE regression strictly inside hazardous-waste recalls (2022-2026)
     hw_reg = prep_reg(d22_reg[d22_reg["haz_waste_product"] == 1])
@@ -621,10 +690,12 @@ def main() -> int:
             "hac_monthly_its_2021_2026": hac_monthly_its,
             "annual_amazon_decomposition": amz_decomp,
             "post_jan2025_contract_persistence": contract_persistence,
+            "fba_scope_audit": fba_scope_audit,
         },
         "pillar4": {
             "mandatory_rule_fe": reg_mandatory,
             "hazwaste_by_archetype": hw_summary,
+            "hazwaste_concentration_audit": hw_concentration_audit,
             "hazwaste_subtypes": hw_subtypes,
             "hazwaste_photo_verify_fe": reg_hw_photo,
             "hazwaste_self_dispose_fe": reg_hw_selfdisp,
