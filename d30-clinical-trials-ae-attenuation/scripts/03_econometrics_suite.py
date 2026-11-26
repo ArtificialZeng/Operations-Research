@@ -132,7 +132,7 @@ def fit_fe_cluster(
             sub = sub[sub[fe_col].isin(counts[counts >= 2].index)].copy()
 
     if len(sub) < 30:
-        return {"n": int(len(sub)), "error": "insufficient_n"}
+        return {"n": len(sub), "error": "insufficient_n"}
 
     # Keep only covariates with non-zero variation (and within-FE variation when fe_col is absorbed!)
     if fe_col:
@@ -144,7 +144,7 @@ def fit_fe_cluster(
         active_covs = [c for c in cov_cols if sub[c].nunique(dropna=True) > 1]
     active_xs = [c for c in x_cols if sub[c].nunique(dropna=True) > 1]
     if not active_xs:
-        return {"n": int(len(sub)), "error": "no_x_variation"}
+        return {"n": len(sub), "error": "no_x_variation"}
 
     # Build FE + covariate formula; drop any covariate linearly spanned by FE dummies (exact full rank!)
     fe_terms: list[str] = []
@@ -192,16 +192,17 @@ def fit_fe_cluster(
             fit = mod.fit(cov_type="HC3", use_t=True)
             se_type = "HC3"
             t_df = max(1, int(fit.df_resid))
-    except Exception as exc:
-        return {"n": int(len(sub)), "error": str(exc)[:180]}
+    except (ValueError, np.linalg.LinAlgError, KeyError, ZeroDivisionError, RuntimeError) as exc:
+        return {"n": len(sub), "error": str(exc)[:180]}
 
     t_crit = float(stats.t.ppf(0.975, df=t_df))
-    mat_rank = int(round(fit.df_model)) + 1
+    t_crit_90 = float(stats.t.ppf(0.95, df=t_df))
+    mat_rank = round(float(fit.df_model)) + 1
     out: dict = {
         "n": int(fit.nobs),
         "n_fe_groups": int(sub[fe_col].nunique()) if fe_col else 0,
         "n_clusters": n_clusters,
-        "n_params": int(len(fit.params)),
+        "n_params": len(fit.params),
         "matrix_rank": mat_rank,
         "is_full_rank": bool(mat_rank == len(fit.params)),
         "se_type": se_type,
@@ -220,13 +221,25 @@ def fit_fe_cluster(
             pval = float(fit.pvalues[term])
             if not (np.isfinite(coef) and np.isfinite(se) and se > 0 and np.isfinite(pval)):
                 continue
+            ci95_lo = coef - t_crit * se
+            ci95_hi = coef + t_crit * se
+            ci90_lo = coef - t_crit_90 * se
+            ci90_hi = coef + t_crit_90 * se
             out["terms"][term] = {
                 "coef": round(coef, 5),
                 "se": round(se, 5),
                 "t": round(tval, 3),
                 "p": pval,
-                "ci95_lo": round(coef - t_crit * se, 5),
-                "ci95_hi": round(coef + t_crit * se, 5),
+                "ci95_lo": round(ci95_lo, 5),
+                "ci95_hi": round(ci95_hi, 5),
+                "ci90_lo": round(ci90_lo, 5),
+                "ci90_hi": round(ci90_hi, 5),
+                "tost_90_margin": round(max(abs(ci90_lo), abs(ci90_hi)), 5),
+                "excludable_95_abs": round(max(abs(ci95_lo), abs(ci95_hi)), 5),
+                "per_10pp_coef": round(0.10 * coef, 5),
+                "per_10pp_se": round(0.10 * se, 5),
+                "per_10pp_ci95_lo": round(0.10 * ci95_lo, 5),
+                "per_10pp_ci95_hi": round(0.10 * ci95_hi, 5),
             }
     return out
 
@@ -255,7 +268,7 @@ def fit_twoway_and_wildboot(
     sub = sub[(sub[fe_col].astype(str) != "") & (sub[cl2_col].astype(str) != "")].copy()
     sub = _prune_twoway_connected(sub, fe_col, "start_year") if year_fe else sub
     if len(sub) < 40:
-        return {"n": int(len(sub)), "error": "insufficient_n"}
+        return {"n": len(sub), "error": "insufficient_n"}
 
     active_covs = [
         c for c in cov_cols
@@ -399,7 +412,7 @@ def compute_fwl_binscatter(
     bins_out = []
     for _, grp in sub.groupby("_bin", observed=True):
         row = {
-            "n": int(len(grp)),
+            "n": len(grp),
             "x_mean": round(float(grp["_x_res"].mean()), 5),
         }
         for y in y_cols:
@@ -409,7 +422,7 @@ def compute_fwl_binscatter(
             row[f"{y}_se"] = round(se, 5)
         bins_out.append(row)
     return {
-        "n_total": int(len(sub)),
+        "n_total": len(sub),
         "n_fe_groups": int(sub[fe_col].nunique()),
         "fwl_exact_slopes": fwl_slopes,
         "bins": bins_out,
@@ -422,6 +435,11 @@ def main() -> int:
     df_p23 = pd.read_parquet(PROC_DIR / "d30_mrct_placebo_panel.parquet")
     df_allst = pd.read_parquet(PROC_DIR / "d30_mrct_placebo_allstatus.parquet")
 
+    soc_abs_path = PROC_DIR / "d30_meddra_soc_abs_rates.parquet"
+    if soc_abs_path.exists():
+        df_soc_abs = pd.read_parquet(soc_abs_path)
+        df_p23 = df_p23.merge(df_soc_abs, on="nct_id", how="left")
+
     df_p3 = df_p23[df_p23["is_phase3"] == 1].copy()
     df_p2 = df_p23[df_p23["is_phase2_only"] == 1].copy()
 
@@ -432,10 +450,10 @@ def main() -> int:
 
     results: dict = {
         "sample_overview": {
-            "p23_completed_mrct_placebo": int(len(df_p23)),
-            "p3_completed_mrct_placebo": int(len(df_p3)),
-            "p2_standalone_completed_mrct_placebo": int(len(df_p2)),
-            "p23_allstatus_mrct_placebo": int(len(df_allst)),
+            "p23_completed_mrct_placebo": len(df_p23),
+            "p3_completed_mrct_placebo": len(df_p3),
+            "p2_standalone_completed_mrct_placebo": len(df_p2),
+            "p23_allstatus_mrct_placebo": len(df_allst),
             "p3_unique_sponsors": int(df_p3["sponsor_nm"].nunique()),
             "p3_unique_molecules": int(df_p3[df_p3["primary_molecule"] != ""]["primary_molecule"].nunique()),
             "p23_unique_sponsors": int(df_p23["sponsor_nm"].nunique()),
@@ -539,7 +557,7 @@ def main() -> int:
         ]:
             g = sub[m]
             raw_q[tag][lbl] = {
-                "n": int(len(g)),
+                "n": len(g),
                 "ctrl_oth_pct": round(100.0 * float(g["ctrl_oth"].mean()), 2),
                 "act_oth_pct": round(100.0 * float(g["act_oth"].mean()), 2),
                 "oth_rd_pp": round(100.0 * float(g["oth_rd"].mean()), 2),
@@ -548,6 +566,30 @@ def main() -> int:
                 "ctrl_mort_pct": round(100.0 * float(g["ctrl_mort"].mean()), 2) if g["ctrl_mort"].notna().any() else None,
             }
     results["block_a_core_twin_trial"]["raw_ee_bins"] = raw_q
+
+    # 7. Exact 95% CIs & Minimum Excludable Equivalence Bounds (TOST 90% & 95% CI) for Null Endpoints
+    eq_bounds: dict = {}
+    for spec_key in ["p3_mol_sponsor_split", "p23_mol_sponsor_split", "p3_mol_sp_cond_split"]:
+        eq_bounds[spec_key] = {}
+        blk_s = results["block_a_core_twin_trial"][spec_key]
+        for y in ["oth_rd", "ctrl_sae", "act_sae", "ctrl_mort", "act_mort"]:
+            rec_y = blk_s[y]
+            t = rec_y["terms"]["eu_east_sh"]
+            eq_bounds[spec_key][y] = {
+                "n": rec_y["n"],
+                "t_df": rec_y["t_df"],
+                "coef_pp": round(100.0 * t["coef"], 2),
+                "se_pp": round(100.0 * t["se"], 2),
+                "p": t["p"],
+                "ci95_pp": [round(100.0 * t["ci95_lo"], 2), round(100.0 * t["ci95_hi"], 2)],
+                "ci90_pp": [round(100.0 * t["ci90_lo"], 2), round(100.0 * t["ci90_hi"], 2)],
+                "tost_90_excludable_pp": round(100.0 * t["tost_90_margin"], 2),
+                "ci95_excludable_abs_pp": round(100.0 * t["excludable_95_abs"], 2),
+                "per_10pp_coef_pp": round(100.0 * t["per_10pp_coef"], 3),
+                "per_10pp_ci95_pp": [round(100.0 * t["per_10pp_ci95_lo"], 2), round(100.0 * t["per_10pp_ci95_hi"], 2)],
+                "per_10pp_tost_90_pp": round(10.0 * t["tost_90_margin"], 2),
+            }
+    results["block_a_core_twin_trial"]["null_endpoint_equivalence_bounds"] = eq_bounds
 
     # =========================================================================
     # BLOCK B: SENSITIVITY, PROTOCOL RULES, SURVIVORSHIP, OOS, LEAVE-ONE-OUT
@@ -649,10 +691,67 @@ def main() -> int:
         for y in ["ctrl_oth", "act_oth", "ctrl_sae"]
     }
 
-    # B6. MedDRA SOC Composition Check (Subjective vs Objective SOC share)
+    # B6. MedDRA SOC Composition Check (Subjective vs Objective SOC share) AND Absolute SOC Event/Term Rates!
     sens["meddra_soc_composition_p23_mol_sp"] = {
         y: fit_fe_cluster(df_p23, y, reg_xs_split, base_covs, fe_col="mol_sponsor", year_fe=True, phase_fe=True)
         for y in ["subj_soc_share", "obj_soc_share", "n_other_terms", "n_serious_terms"]
+    }
+    abs_soc_outcomes = [
+        "n_subj_terms", "n_obj_terms", "log_subj_terms", "log_obj_terms",
+        "n_serious_subj_terms", "n_serious_obj_terms",
+    ]
+    if "ctrl_subj_sum_aff_rate" in df_p23.columns:
+        abs_soc_outcomes.extend([
+            "ctrl_subj_sum_aff_rate", "act_subj_sum_aff_rate",
+            "ctrl_obj_sum_aff_rate", "act_obj_sum_aff_rate",
+            "log_ctrl_subj_sum_aff_rate", "log_act_subj_sum_aff_rate",
+            "log_ctrl_obj_sum_aff_rate", "log_act_obj_sum_aff_rate",
+            "ctrl_subj_max_pct", "act_subj_max_pct",
+            "ctrl_obj_max_pct", "act_obj_max_pct",
+            "ctrl_subj_n_pos_terms", "act_subj_n_pos_terms",
+            "ctrl_obj_n_pos_terms", "act_obj_n_pos_terms",
+        ])
+    sens["meddra_soc_absolute_p23_mol_sp"] = {
+        y: fit_fe_cluster(
+            df_p23, y, reg_xs_split,
+            sae_covs if "serious" in y else base_covs,
+            fe_col="mol_sponsor", year_fe=True, phase_fe=True,
+        )
+        for y in abs_soc_outcomes
+    }
+    sens["meddra_soc_absolute_p23_mol_sp_ee"] = {
+        y: fit_fe_cluster(
+            df_p23, y, reg_xs_pool_ee,
+            sae_covs if "serious" in y else base_covs,
+            fe_col="mol_sponsor", year_fe=True, phase_fe=True,
+        )
+        for y in abs_soc_outcomes
+    }
+    sens["meddra_soc_absolute_p3_mol_sp"] = {
+        y: fit_fe_cluster(
+            df_p3, y, reg_xs_split,
+            sae_covs if "serious" in y else base_covs,
+            fe_col="mol_sponsor", year_fe=True, phase_fe=False,
+        )
+        for y in abs_soc_outcomes
+    }
+    df_p23_f5 = df_p23[df_p23["freq_thr"] == 5.0].copy()
+    sens["meddra_soc_absolute_p23_freq5_mol_sp"] = {
+        y: fit_fe_cluster(
+            df_p23_f5, y, reg_xs_split, sae_covs,
+            fe_col="mol_sponsor", year_fe=True, phase_fe=True,
+        )
+        for y in [
+            c for c in [
+                "subj_soc_share", "obj_soc_share",
+                "ctrl_subj_sum_aff_rate", "act_subj_sum_aff_rate",
+                "ctrl_obj_sum_aff_rate", "act_obj_sum_aff_rate",
+                "ctrl_subj_max_pct", "act_subj_max_pct",
+                "ctrl_obj_max_pct", "act_obj_max_pct",
+                "n_subj_terms", "n_obj_terms",
+            ]
+            if c in df_p23_f5.columns
+        ]
     }
 
     # B7. Pan-Disease Therapeutic-Area Consistency (Pooled P2+P3, >= 50 trials)
@@ -661,7 +760,7 @@ def main() -> int:
         if len(grp) < 50:
             continue
         ta_res[ta] = {
-            "n_total": int(len(grp)),
+            "n_total": len(grp),
             "mean_ee_sh": round(float(grp["ee_sh"].mean()), 4),
             "ctrl_oth": fit_fe_cluster(grp, "ctrl_oth", ["ee_sh"], base_covs, fe_col=None, year_fe=True, phase_fe=True),
             "act_oth": fit_fe_cluster(grp, "act_oth", ["ee_sh"], base_covs, fe_col=None, year_fe=True, phase_fe=True),
@@ -704,7 +803,7 @@ def main() -> int:
             continue
         regime_by_pcomp.append({
             "year": int(yr),
-            "n": int(len(g)),
+            "n": len(g),
             "freq0_share": round(float((g["freq_thr"] == 0.0).mean()), 4),
             "freq5_share": round(float((g["freq_thr"] == 5.0).mean()), 4),
             "mean_freq_thr": round(float(g["freq_thr"].mean()), 3),
@@ -720,8 +819,8 @@ def main() -> int:
     pre_fdaaa = df_p23[df_p23["post_fdaaa_2017"] == 0]
     post_fdaaa = df_p23[df_p23["post_fdaaa_2017"] == 1]
     blk_c["fdaaa_jan2017_structural_shift"] = {
-        "pre_fdaaa_n": int(len(pre_fdaaa)),
-        "post_fdaaa_n": int(len(post_fdaaa)),
+        "pre_fdaaa_n": len(pre_fdaaa),
+        "post_fdaaa_n": len(post_fdaaa),
         "pre_fdaaa_freq0_pct": round(100.0 * float((pre_fdaaa["freq_thr"] == 0.0).mean()), 2),
         "post_fdaaa_freq0_pct": round(100.0 * float((post_fdaaa["freq_thr"] == 0.0).mean()), 2),
         "freq0_jump_ratio": round(float((post_fdaaa["freq_thr"] == 0.0).mean() / max(1e-6, (pre_fdaaa["freq_thr"] == 0.0).mean())), 2),
@@ -833,7 +932,7 @@ def main() -> int:
     es_out = []
     for lbl, y0, y1 in era_bins:
         sub_b = df_p23[df_p23["start_year"].between(y0, y1)].copy()
-        entry = {"era": lbl, "n": int(len(sub_b)), "mean_eu_east_sh": round(float(sub_b["eu_east_sh"].mean()), 4), "mean_ru_ua_sh": round(float(sub_b["ru_ua_sh"].mean()), 4)}
+        entry = {"era": lbl, "n": len(sub_b), "mean_eu_east_sh": round(float(sub_b["eu_east_sh"].mean()), 4), "mean_ru_ua_sh": round(float(sub_b["ru_ua_sh"].mean()), 4)}
         for y in ["ctrl_oth", "act_oth", "oth_rd", "ctrl_sae"]:
             fit_r = fit_fe_cluster(sub_b, y, reg_xs_split, base_covs if "oth" in y else sae_covs, fe_col="therapeutic_area", year_fe=True, phase_fe=True)
             entry[y] = {
@@ -883,8 +982,8 @@ def main() -> int:
         gp = df_p23[df_p23["start_year"] == yr]
         annual_geo.append({
             "year": int(yr),
-            "n_all_mrct": int(len(g)),
-            "n_placebo_mrct": int(len(gp)),
+            "n_all_mrct": len(g),
+            "n_placebo_mrct": len(gp),
             "median_dur_yr": round(float(g["dur_yr"].median()), 2) if g["dur_yr"].notna().any() else None,
             "phase3_pct": round(100.0 * float(g["is_phase3"].mean()), 1) if len(g) else None,
             "all_ru_ua_strict_pct": round(100.0 * float(g["ru_ua_strict_sh"].mean()), 3) if len(g) else None,
@@ -895,6 +994,7 @@ def main() -> int:
             "all_asia_pct": round(100.0 * float(g["asia_sh"].mean()), 3) if len(g) else None,
             "all_other_pct": round(100.0 * float(g["other_sh"].mean()), 3) if len(g) else None,
             "all_any_ru_ua_trial_pct": round(100.0 * float((g["ru_ua_strict_sh"] > 0).mean()), 2) if len(g) else None,
+            "n_all_any_ru_ua": int((g["ru_ua_strict_sh"] > 0).sum()),
             "pl_ru_ua_strict_pct": round(100.0 * float(gp["ru_ua_strict_sh"].mean()), 3) if len(gp) else None,
             "pl_eu_east_pct": round(100.0 * float(gp["eu_east_sh"].mean()), 3) if len(gp) else None,
         })
@@ -1026,13 +1126,153 @@ def main() -> int:
         fe_col="sponsor_nm", year_fe=True, phase_fe=True, extra_fe_cols=["therapeutic_area"],
     )
     blk_d["war_sample_counts"] = {
-        "n_postwar_shift_2017_2024": int(len(war_shift_df)),
-        "n_did_all_mrct": int(len(did_oos)),
+        "n_postwar_shift_2017_2024": len(war_shift_df),
+        "n_did_all_mrct": len(did_oos),
         "n_postwar_all_mrct": int((did_oos["post_war_2022"] == 1).sum()),
-        "n_did_placebo_mrct": int(len(did_oos_pl)),
+        "n_did_placebo_mrct": len(did_oos_pl),
         "n_postwar_placebo_mrct": int((did_oos_pl["post_war_2022"] == 1).sum()),
         "n_all_postwar_placebo_mrct": int((df_p23["post_war_2022"] == 1).sum()),
     }
+
+    # D6. Uncensored All-Registered ClinicalTrials.gov War Cohort (2017-2025, incl. ongoing/no results!)
+    war_all_path = PROC_DIR / "ctgov_all_registered_war_2017_2025.parquet"
+    if war_all_path.exists():
+        print("  [Block D6] Uncensored All-Registered War Cohort (2017-2025, HasResults=True & False)...", flush=True)
+        df_reg = pd.read_parquet(war_all_path)
+        reg_mrct = df_reg[
+            (df_reg["start_year"].between(2017, 2025))
+            & (df_reg["n_sites"] >= 5)
+            & (df_reg["n_countries"] >= 3)
+            & (df_reg["enrollment"] >= 50)
+        ].copy()
+        reg_mrct_rand = reg_mrct[reg_mrct["is_randomized"] == 1].copy()
+
+        ann_reg = []
+        for yr in range(2017, 2026):
+            g = reg_mrct[reg_mrct["start_year"] == yr]
+            gr = reg_mrct_rand[reg_mrct_rand["start_year"] == yr]
+            ann_reg.append({
+                "year": int(yr),
+                "n_all_registered": int((df_reg["start_year"] == yr).sum()),
+                "n_mrct": len(g),
+                "n_mrct_with_ru_ua": int(g["has_ru_ua_site"].sum()),
+                "pct_mrct_with_ru_ua": round(100.0 * float(g["has_ru_ua_site"].mean()), 2) if len(g) else None,
+                "n_mrct_with_ru": int(g["has_ru_site"].sum()),
+                "pct_mrct_with_ru": round(100.0 * float(g["has_ru_site"].mean()), 2) if len(g) else None,
+                "n_mrct_with_ua": int(g["has_ua_site"].sum()),
+                "pct_mrct_with_ua": round(100.0 * float(g["has_ua_site"].mean()), 2) if len(g) else None,
+                "pct_mrct_has_results": round(100.0 * float(g["has_results"].mean()), 2) if len(g) else None,
+                "mean_ru_ua_strict_pct": round(100.0 * float(g["ru_ua_strict_sh"].mean()), 3) if len(g) else None,
+                "mean_eu_east_pct": round(100.0 * float(g["eu_east_sh"].mean()), 3) if len(g) else None,
+                "mean_us_pct": round(100.0 * float(g["us_sh"].mean()), 3) if len(g) else None,
+                "mean_we_pct": round(100.0 * float(g["we_sh"].mean()), 3) if len(g) else None,
+                "mean_latam_pct": round(100.0 * float(g["latam_sh"].mean()), 3) if len(g) else None,
+                "mean_asia_pct": round(100.0 * float(g["asia_sh"].mean()), 3) if len(g) else None,
+                "mean_other_pct": round(100.0 * float(g["other_sh"].mean()), 3) if len(g) else None,
+                "n_rand_mrct": len(gr),
+                "n_rand_with_ru_ua": int(gr["has_ru_ua_site"].sum()),
+                "pct_rand_with_ru_ua": round(100.0 * float(gr["has_ru_ua_site"].mean()), 2) if len(gr) else None,
+            })
+
+        # Uncensored within-sponsor post-war shift (2017-2025)
+        reg_shift = {}
+        reg_covs = ["log_enroll", "log_sites", "log_countries"]
+        for dest in ["ru_ua_strict_sh", "us_sh", "eu_east_sh", "we_sh", "latam_sh", "asia_sh", "other_sh"]:
+            reg_shift[dest] = fit_fe_cluster(
+                reg_mrct, dest, ["post_war_2022"], reg_covs,
+                fe_col="sponsor_nm", year_fe=False, phase_fe=True, extra_fe_cols=["therapeutic_area"],
+            )
+
+        # Uncensored Strictly OOS Sponsor Exposure DiD: 2017-2019 exposure -> strictly disjoint 2020-2025 DiD
+        pre_reg_17_19 = (
+            reg_mrct[reg_mrct["start_year"].between(2017, 2019)]
+            .groupby("sponsor_nm")["ru_ua_strict_sh"]
+            .agg(["mean", "count"])
+            .rename(columns={"mean": "prewar_reg_exp", "count": "prewar_reg_n"})
+        )
+        did_reg_20_25 = reg_mrct[reg_mrct["start_year"].between(2020, 2025)].merge(
+            pre_reg_17_19[pre_reg_17_19["prewar_reg_n"] >= 2], left_on="sponsor_nm", right_index=True, how="inner"
+        )
+        did_reg_20_25["exp_x_postwar"] = did_reg_20_25["prewar_reg_exp"] * did_reg_20_25["post_war_2022"]
+
+        did_reg_main = {}
+        for dest in ["ru_ua_strict_sh", "us_sh", "eu_east_sh", "we_sh", "latam_sh", "asia_sh", "other_sh"]:
+            did_reg_main[dest] = fit_fe_cluster(
+                did_reg_20_25, dest, ["exp_x_postwar", "post_war_2022"], reg_covs,
+                fe_col="sponsor_nm", year_fe=True, phase_fe=True, extra_fe_cols=["therapeutic_area"],
+            )
+
+        # Randomized-only uncensored OOS DiD (2017-2019 -> 2020-2025)
+        pre_rand_17_19 = (
+            reg_mrct_rand[reg_mrct_rand["start_year"].between(2017, 2019)]
+            .groupby("sponsor_nm")["ru_ua_strict_sh"]
+            .agg(["mean", "count"])
+            .rename(columns={"mean": "prewar_reg_exp", "count": "prewar_reg_n"})
+        )
+        did_rand_20_25 = reg_mrct_rand[reg_mrct_rand["start_year"].between(2020, 2025)].merge(
+            pre_rand_17_19[pre_rand_17_19["prewar_reg_n"] >= 2], left_on="sponsor_nm", right_index=True, how="inner"
+        )
+        did_rand_20_25["exp_x_postwar"] = did_rand_20_25["prewar_reg_exp"] * did_rand_20_25["post_war_2022"]
+        did_reg_rand = {
+            dest: fit_fe_cluster(
+                did_rand_20_25, dest, ["exp_x_postwar", "post_war_2022"], reg_covs,
+                fe_col="sponsor_nm", year_fe=True, phase_fe=True, extra_fe_cols=["therapeutic_area"],
+            )
+            for dest in ["ru_ua_strict_sh", "us_sh", "eu_east_sh", "we_sh", "latam_sh", "asia_sh"]
+        }
+
+        # Alternate uncensored OOS window: 2017-2018 exposure -> 2019-2025 DiD & Fake-2020 OOS Placebo (2019-2021)
+        pre_reg_17_18 = (
+            reg_mrct[reg_mrct["start_year"].between(2017, 2018)]
+            .groupby("sponsor_nm")["ru_ua_strict_sh"]
+            .agg(["mean", "count"])
+            .rename(columns={"mean": "prewar_reg_exp", "count": "prewar_reg_n"})
+        )
+        did_reg_19_25 = reg_mrct[reg_mrct["start_year"].between(2019, 2025)].merge(
+            pre_reg_17_18[pre_reg_17_18["prewar_reg_n"] >= 2], left_on="sponsor_nm", right_index=True, how="inner"
+        )
+        did_reg_19_25["exp_x_postwar"] = did_reg_19_25["prewar_reg_exp"] * did_reg_19_25["post_war_2022"]
+        did_reg_alt = {
+            dest: fit_fe_cluster(
+                did_reg_19_25, dest, ["exp_x_postwar", "post_war_2022"], reg_covs,
+                fe_col="sponsor_nm", year_fe=True, phase_fe=True, extra_fe_cols=["therapeutic_area"],
+            )
+            for dest in ["ru_ua_strict_sh", "us_sh", "eu_east_sh", "we_sh", "latam_sh", "asia_sh"]
+        }
+
+        plc_reg_19_21 = reg_mrct[reg_mrct["start_year"].between(2019, 2021)].merge(
+            pre_reg_17_18[pre_reg_17_18["prewar_reg_n"] >= 2], left_on="sponsor_nm", right_index=True, how="inner"
+        )
+        plc_reg_19_21["fake_post_2020"] = (plc_reg_19_21["start_year"] >= 2020).astype(float)
+        plc_reg_19_21["exp_x_fakepost"] = plc_reg_19_21["prewar_reg_exp"] * plc_reg_19_21["fake_post_2020"]
+        plc_reg = {
+            "oos_placebo_ru_ua": fit_fe_cluster(
+                plc_reg_19_21, "ru_ua_strict_sh", ["exp_x_fakepost"], reg_covs,
+                fe_col="sponsor_nm", year_fe=True, phase_fe=True, extra_fe_cols=["therapeutic_area"],
+            ),
+            "oos_placebo_us": fit_fe_cluster(
+                plc_reg_19_21, "us_sh", ["exp_x_fakepost"], reg_covs,
+                fe_col="sponsor_nm", year_fe=True, phase_fe=True, extra_fe_cols=["therapeutic_area"],
+            ),
+        }
+
+        blk_d["all_registered_war_2017_2025"] = {
+            "sample_counts": {
+                "total_registered_p2_p3_2017_2025": len(df_reg),
+                "mrct_ge5sites_ge3countries_ge50enroll": len(reg_mrct),
+                "randomized_mrct": len(reg_mrct_rand),
+                "pct_mrct_has_results_overall": round(100.0 * float(reg_mrct["has_results"].mean()), 2),
+                "n_mrct_post_war_2022_2025": int((reg_mrct["post_war_2022"] == 1).sum()),
+                "n_did_2020_2025": len(did_reg_20_25),
+                "n_did_2020_2025_postwar": int((did_reg_20_25["post_war_2022"] == 1).sum()),
+            },
+            "annual_participation_2017_2025": ann_reg,
+            "within_sponsor_postwar_shift_2017_2025": reg_shift,
+            "oos_did_2017_19_to_2020_25": did_reg_main,
+            "oos_did_2017_19_to_2020_25_randomized": did_reg_rand,
+            "oos_did_2017_18_to_2019_25": did_reg_alt,
+            "oos_placebo_fake2020_2017_18_to_2019_21": plc_reg,
+        }
 
     # =========================================================================
     # BLOCK E: SITE-SHARE VS PATIENT-ACCRUAL BOUNDS & EIV DEATTENUATION
@@ -1195,6 +1435,10 @@ def main() -> int:
                 "se": t.get("se"),
                 "t": t.get("t"),
                 "p": t.get("p"),
+                "ci95_lo": t.get("ci95_lo"),
+                "ci95_hi": t.get("ci95_hi"),
+                "tost_90_margin": t.get("tost_90_margin"),
+                "per_10pp_coef": t.get("per_10pp_coef"),
             })
     pd.DataFrame(t1_rows).to_csv(TAB_DIR / "table1_core_twin_trial.csv", index=False)
 
@@ -1260,6 +1504,84 @@ def main() -> int:
     pd.DataFrame(blk_e["nonlinear_patient_share_calibration_p23"]).to_csv(
         TAB_DIR / "table4_accrual_calibration_bounds.csv", index=False
     )
+
+    # Table 2b: MedDRA Compositional Share vs Absolute SOC Event/Term Rates (zero NaNs)
+    t2b_rows = []
+    for spec_lbl, blk_m in [
+        ("P2+P3 Mol x Sponsor FE (Composition)", sens.get("meddra_soc_composition_p23_mol_sp", {})),
+        ("P2+P3 Mol x Sponsor FE (Absolute)", sens.get("meddra_soc_absolute_p23_mol_sp", {})),
+        ("P3 Mol x Sponsor FE (Absolute)", sens.get("meddra_soc_absolute_p3_mol_sp", {})),
+        ("P2+P3 Strict freq==5% (Absolute)", sens.get("meddra_soc_absolute_p23_freq5_mol_sp", {})),
+    ]:
+        for y, r in blk_m.items():
+            t = r.get("terms", {}).get("eu_east_sh", {})
+            if not t:
+                continue
+            t2b_rows.append({
+                "specification": spec_lbl,
+                "outcome": y,
+                "n": r.get("n"),
+                "y_mean": r.get("y_mean"),
+                "coef_eu_east": t.get("coef"),
+                "se": t.get("se"),
+                "p": t.get("p"),
+                "ci95_lo": t.get("ci95_lo"),
+                "ci95_hi": t.get("ci95_hi"),
+                "per_10pp_coef": t.get("per_10pp_coef"),
+            })
+    if t2b_rows:
+        pd.DataFrame(t2b_rows).to_csv(TAB_DIR / "table2b_meddra_absolute_soc_rates.csv", index=False)
+
+    # Table 4b: Uncensored All-Registered CT.gov War Cohort (2017-2025) Annual & OOS DiD (zero NaNs)
+    if "all_registered_war_2017_2025" in blk_d:
+        reg_blk = blk_d["all_registered_war_2017_2025"]
+        t4b_rows = []
+        for dest, r in reg_blk["oos_did_2017_19_to_2020_25"].items():
+            t = r.get("terms", {}).get("exp_x_postwar", {})
+            if not t:
+                continue
+            t4b_rows.append({
+                "cohort": "All-Registered MRCT (2017-19 -> 2020-25)",
+                "destination_region": dest,
+                "n": r.get("n"),
+                "coef": t.get("coef"),
+                "se": t.get("se"),
+                "t": t.get("t"),
+                "p": t.get("p"),
+                "ci95_lo": t.get("ci95_lo"),
+                "ci95_hi": t.get("ci95_hi"),
+            })
+        for dest, r in reg_blk["oos_did_2017_19_to_2020_25_randomized"].items():
+            t = r.get("terms", {}).get("exp_x_postwar", {})
+            if not t:
+                continue
+            t4b_rows.append({
+                "cohort": "All-Registered Randomized MRCT (2017-19 -> 2020-25)",
+                "destination_region": dest,
+                "n": r.get("n"),
+                "coef": t.get("coef"),
+                "se": t.get("se"),
+                "t": t.get("t"),
+                "p": t.get("p"),
+                "ci95_lo": t.get("ci95_lo"),
+                "ci95_hi": t.get("ci95_hi"),
+            })
+        for dest, r in reg_blk["within_sponsor_postwar_shift_2017_2025"].items():
+            t = r.get("terms", {}).get("post_war_2022", {})
+            if not t:
+                continue
+            t4b_rows.append({
+                "cohort": "All-Registered Within-Sponsor Shift (2017-25)",
+                "destination_region": dest,
+                "n": r.get("n"),
+                "coef": t.get("coef"),
+                "se": t.get("se"),
+                "t": t.get("t"),
+                "p": t.get("p"),
+                "ci95_lo": t.get("ci95_lo"),
+                "ci95_hi": t.get("ci95_hi"),
+            })
+        pd.DataFrame(t4b_rows).to_csv(TAB_DIR / "table4b_all_registered_war_2017_2025.csv", index=False)
 
     print(f"\n[DONE] Econometrics suite complete! JSON SHA-256: {sha}", flush=True)
     # Print crisp executive console summary of every key result

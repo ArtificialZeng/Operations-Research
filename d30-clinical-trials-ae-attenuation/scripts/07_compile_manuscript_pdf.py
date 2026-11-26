@@ -16,31 +16,42 @@ EDGE_EXE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 
 FIGURE_BLOCKS: dict[str, tuple[str, str]] = {
     "fig1_twin_trial_identification.png": (
-        "Figure 1. Exact Twin-Trial Identification, Objectivity Gradient, and Out-of-Sample Replication.",
-        "Panel A shows Phase-3 Same-Molecule × Same-Sponsor FE regional gradients (N = 1,282). "
-        "Panel B contrasts subjective non-serious AEs and MedDRA SOC shifts against invariant SAEs, mortality, and within-trial risk differences (N = 1,764). "
-        "Panel C verifies replication across triplet FE, Phase-2 OOS, protocol controls, terminated trials, and non-placebo MRCTs. Finite-sample t(G-1) 95% CIs.",
+        "Figure 1. Exact Twin-Trial Identification, Absolute MedDRA Objectivity Gradient, and Out-of-Sample Replication.",
+        (
+            "Panel A shows Phase-3 Same-Molecule × Same-Sponsor FE regional gradients (N = 1,282; 0→100% site-share contrast, divide by 10 for per-+10 pp effect). "
+            "Panel B contrasts registered non-serious AE proportions and non-compositional absolute MedDRA SOC peak-term rates (Subjective −9.6/−10.8 pp vs. Objective −1.2/−1.0 pp) against statistically null SAEs, mortality, and within-trial risk differences (N = 1,764). "
+            "Panel C verifies replication across triplet FE, Phase-2 OOS, protocol controls, terminated trials, and non-placebo MRCTs. Finite-sample t(G−1) 95% CIs."
+        ),
     ),
     "fig2_binscatter_and_disease_breadth.png": (
         "Figure 2. Exact FWL Residualized Dose-Response Binscatter and Pan-Disease Generality.",
-        "Panel A plots exact Frisch–Waugh–Lovell decile binscatters (N = 1,764, 457 programs; binscatter slopes match full-model OLS to 1e-5). "
-        "Panel B reports therapeutic-area-specific EU-East slopes across all 9 major MeSH disease domains (9/9 negative, 7/9 p < 0.05).",
+        (
+            "Panel A plots exact Frisch–Waugh–Lovell decile binscatters of registered arm AE proportions (N = 1,764, 457 programs; binscatter slopes match full-model OLS to 1e−5). "
+            "Panel B reports therapeutic-area-specific EE-share slopes across all 9 major MeSH disease domains (9/9 negative, 7/9 p < 0.05)."
+        ),
     ),
     "fig3_post2017_regulatory_convergence.png": (
-        "Figure 3. Post-2017 ICH E6(R2)/E17 Implementation Lag vs. Non-EU Border Persistence and FDAAA 42 CFR Part 11.",
-        "Panels A–B contrast symmetric 2020–2024 EU-East convergence against zero convergence across the EU border in Non-EU Eastern Europe/RU-UA. "
-        "Panel C documents the post-FDAAA 1.59x rise in 0%-threshold reporting, which does not drive convergence (eu × freq0 p = 0.909).",
+        "Figure 3. Post-2017 EU-East Convergence Lag vs. Non-EU Cross-Sectional Persistence and FDAAA 42 CFR Part 11.",
+        (
+            "Panel A plots era-specific cross-sectional slopes (2020–2024 Non-EU cross-sectional slope −49.37 pp, p = 0.000113). "
+            "Panel B reports Twin-Trial FE implementation-lag shifts (2020–2024 EU-East +35.68 pp placebo p_WCB = 0.030; +40.10 pp active borderline p_WCB = 0.051) and joint ICH/FDAAA horse-race interactions (overlapping 2017 timelines not individually separable). "
+            "Panel C documents the post-FDAAA 1.59x rise in 0%-threshold reporting (eu × freq0 p = 0.909)."
+        ),
     ),
     "fig4_war2022_and_accrual_bounds.png": (
-        "Figure 4. February 2022 Russia–Ukraine Geopolitical Shock and Simplex-Valid Patient-Accrual Calibration.",
-        "Panel A tracks the collapse of Russia/Ukraine MRCT participation from 47.0% (2019) to 0.0% (2024). "
-        "Panel B presents unbiased out-of-sample pre-war exposure DiDs (validated by fake-2020 placebo). "
-        "Panel C bounds patient-level attenuation across accrual ratios w in [0.5, 3.0] preserving regional simplex sum = 1.0.",
+        "Figure 4. Uncensored All-Registered Russia–Ukraine War Reallocation (2017–2025) and Simplex-Valid Accrual Bounds.",
+        (
+            "Panel A compares uncensored all-registered MRCT participation (2017–2025, N = 6,011; Russia 34.1%→0.0% in 2025; Ukraine 22.3%→2.95%→6.10%) against the right-censored results-posted subsample (187/398→0/43). "
+            "Panel B plots uncensored within-sponsor post-war site-share shifts (N = 5,362: RU/UA −3.58 pp, LatAm +1.48 pp, Asia +1.37 pp, U.S. +0.36 pp; uncensored OOS U.S. DiD +0.33, 95% CI [−0.08, +0.74], p = 0.117). "
+            "Panel C bounds patient-level attenuation across accrual ratios w in [0.5, 3.0] preserving regional simplex sum = 1.0."
+        ),
     ),
     "fig5_gate2_openfda_faers.png": (
-        "Figure 5. Gate-2 Post-Approval FDA Labeling Supplements, Boxed Warnings, and U.S. FAERS Audit (N = 229 Drugs).",
-        "Panel A shows raw pre-approval AE attenuation vs. post-approval FDA/FAERS profiles across EE-share bins. "
-        "Panel B reports full-rank adjusted t-statistics (finite-sample t_0.975(G-1) null band shaded): strong -36.0 pp first-stage tolerability illusion enters FDA-approved profiles, while post-approval labeling supplements and boxed warnings are cleanly null.",
+        "Figure 5. Gate-2 Post-Approval FDA Labeling Supplements, Boxed Warnings, and Exploratory FAERS Audit (N = 229 Drugs).",
+        (
+            "Panel A shows raw pre-approval registered AE proportions vs. post-approval FDA/FAERS profiles across EE-share bins. "
+            "Panel B reports full-rank adjusted t-statistics (finite-sample t_0.975(G−1) null band shaded): pre-approval registered active AEs fall −36.0 pp, while post-approval labeling supplements and boxed warnings are statistically null (exact 95% CIs and TOST bounds in Table 5); FAERS outcomes reflect exploratory spontaneous-reporting profiles only and cannot estimate true incidence rates."
+        ),
     ),
 }
 
@@ -290,10 +301,7 @@ def convert_md_to_html(md_text: str) -> str:
             if (
                 not nxt
                 or nxt == "---"
-                or nxt.startswith("#")
-                or nxt.startswith("|")
-                or nxt.startswith("- ")
-                or nxt.startswith("$$")
+                or nxt.startswith(("#", "|", "- ", "$$"))
                 or re.match(r"^\d+\.\s+", nxt)
             ):
                 break
@@ -301,7 +309,7 @@ def convert_md_to_html(md_text: str) -> str:
             i += 1
         para_raw = " ".join(para_lines)
         p_cls = ' class="table-caption"' if para_raw.startswith("**Table ") else (
-            ' class="table-notes"' if para_raw.startswith("*Notes:*") or para_raw.startswith("*Source:*") else ""
+            ' class="table-notes"' if para_raw.startswith(("*Notes:*", "*Source:*")) else ""
         )
         body.append(f"<p{p_cls}>{_inline_md(para_raw)}</p>")
 
@@ -321,7 +329,7 @@ def convert_md_to_html(md_text: str) -> str:
       size: letter;
       margin: 0.72in 0.72in 0.78in 0.72in;
       @top-right {
-        content: "Geographic Ascertainment Bias in Global Clinical Trials (D30)";
+        content: "Geographic Non-Serious AE Reporting & Regulatory Dynamics (D30 v2)";
         font-family: Georgia, "Times New Roman", serif;
         font-size: 7.5pt;
         color: #555;

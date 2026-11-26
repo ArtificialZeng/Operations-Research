@@ -1,0 +1,21 @@
+{
+  "fetched_utc": "2026-11-26T21:38:32.485527+00:00",
+  "endpoint": "https://clinicaltrials.gov/api/v2/studies",
+  "panel_nct_requested": 2771,
+  "parsed_trials": 2771,
+  "coverage_pct": 100.0,
+  "elapsed_seconds": 39.98,
+  "means": {
+    "ctrl_subj_sum_aff_rate": 0.9142,
+    "act_subj_sum_aff_rate": 1.1499,
+    "ctrl_obj_sum_aff_rate": 0.4844,
+    "act_obj_sum_aff_rate": 0.5824,
+    "ctrl_subj_max_pct": 0.1469,
+    "act_subj_max_pct": 0.1849,
+    "ctrl_obj_max_pct": 0.118,
+    "act_obj_max_pct": 0.133,
+    "ctrl_subj_n_pos_terms": 15.773,
+    "ctrl_obj_n_pos_terms": 10.0787
+  },
+  "sha256": "8fc394677448f5af975eb1b52e0104de5ed65023fbc3e4d3cbaa262bf1d4401d"
+}

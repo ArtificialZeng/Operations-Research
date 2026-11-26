@@ -252,16 +252,14 @@ def _is_valid_mesh_drug(term: str) -> bool:
         return False
     if low in MESH_ARTIFACT_EXCLUSIONS or is_placebo_term(low):
         return False
-    if any(
+    return not any(
         bad in low
         for bad in (
             "drug combination", "vaccine", "method", "collection", "solutions",
             "compounds", "hormones", "antibodies", "agents", "inhibitors",
             "bid protein", "salicylhydroxamic",
         )
-    ):
-        return False
-    return True
+    )
 
 
 def extract_primary_molecule(ps: dict, derived: dict) -> tuple[str, str, list[str]]:
@@ -578,14 +576,22 @@ def parse_study_record(st: dict) -> dict | None:
         all_systematic = np.nan
         all_nonsystematic = np.nan
 
-    # Subjective vs objective MedDRA SOC share among reported non-serious events (case-insensitive)
+    # Subjective vs objective MedDRA SOC share & absolute term counts among reported non-serious/serious events
     socs = [(e.get("organSystem") or "").strip().lower() for e in other_events if e.get("organSystem")]
     if socs:
-        subj_soc_share = sum(1 for s in socs if s in SUBJECTIVE_SOCS) / len(socs)
-        obj_soc_share = sum(1 for s in socs if s in OBJECTIVE_SOCS) / len(socs)
+        n_subj_terms = sum(1 for s in socs if s in SUBJECTIVE_SOCS)
+        n_obj_terms = sum(1 for s in socs if s in OBJECTIVE_SOCS)
+        subj_soc_share = n_subj_terms / len(socs)
+        obj_soc_share = n_obj_terms / len(socs)
     else:
+        n_subj_terms = 0
+        n_obj_terms = 0
         subj_soc_share = np.nan
         obj_soc_share = np.nan
+
+    ser_socs = [(e.get("organSystem") or "").strip().lower() for e in serious_events if e.get("organSystem")]
+    n_serious_subj_terms = sum(1 for s in ser_socs if s in SUBJECTIVE_SOCS)
+    n_serious_obj_terms = sum(1 for s in ser_socs if s in OBJECTIVE_SOCS)
 
     # Parse eventGroups into Placebo vs Active arms (risk-weighted AND unweighted)
     ctrl_list, act_list = [], []
@@ -686,6 +692,10 @@ def parse_study_record(st: dict) -> dict | None:
         "all_nonsystematic": all_nonsystematic,
         "subj_soc_share": subj_soc_share,
         "obj_soc_share": obj_soc_share,
+        "n_subj_terms": int(n_subj_terms),
+        "n_obj_terms": int(n_obj_terms),
+        "n_serious_subj_terms": int(n_serious_subj_terms),
+        "n_serious_obj_terms": int(n_serious_obj_terms),
         "trial_mean_sae": float(all_sae_num / all_sae_den) if all_sae_den >= 20 else np.nan,
         "trial_mean_oth": float(all_oth_num / all_oth_den) if all_oth_den >= 20 else np.nan,
         "trial_mean_mort": float(all_mrt_num / all_mrt_den) if all_mrt_den >= 20 else np.nan,
@@ -767,6 +777,8 @@ def main() -> int:
     df["log_countries"] = np.log(df["n_countries"].where(df["n_countries"] > 0))
     df["log_pps"] = np.log(df["patients_per_site"].where(df["patients_per_site"] > 0))
     df["log_other_terms"] = np.log1p(df["n_other_terms"])
+    df["log_subj_terms"] = np.log1p(df["n_subj_terms"])
+    df["log_obj_terms"] = np.log1p(df["n_obj_terms"])
 
     df["mol_sponsor"] = np.where(
         (df["primary_molecule"] != "") & (df["sponsor_nm"] != ""),
@@ -815,14 +827,14 @@ def main() -> int:
 
     summary = {
         "total_raw_studies_scanned": int(total_raw),
-        "parsed_randomized_industry_p2_p3_allstatus": int(len(df)),
+        "parsed_randomized_industry_p2_p3_allstatus": len(df),
         "parsed_completed_total": int((df["is_completed"] == 1).sum()),
         "parsed_completed_phase3": int(((df["is_completed"] == 1) & (df["is_phase3"] == 1)).sum()),
         "parsed_completed_phase2_only": int(((df["is_completed"] == 1) & (df["is_phase2_only"] == 1)).sum()),
-        "mrct_placebo_completed_p2_p3": int(len(mrct_comp)),
-        "mrct_placebo_completed_phase3": int(len(p3_comp)),
-        "mrct_placebo_completed_phase2_only": int(len(p2_comp)),
-        "mrct_placebo_allstatus_p2_p3": int(len(mrct_all_status)),
+        "mrct_placebo_completed_p2_p3": len(mrct_comp),
+        "mrct_placebo_completed_phase3": len(p3_comp),
+        "mrct_placebo_completed_phase2_only": len(p2_comp),
+        "mrct_placebo_allstatus_p2_p3": len(mrct_all_status),
         "mrct_placebo_terminated_p2_p3": int((mrct_all_status["is_terminated"] == 1).sum()),
         "p3_twin_mol_sponsor_n": int(p3_comp[p3_comp["mol_sponsor"] != ""].groupby("mol_sponsor")["nct_id"].transform("count").ge(2).sum()),
         "p3_twin_mol_cond_n": int(p3_comp[p3_comp["mol_cond"] != ""].groupby("mol_cond")["nct_id"].transform("count").ge(2).sum()),

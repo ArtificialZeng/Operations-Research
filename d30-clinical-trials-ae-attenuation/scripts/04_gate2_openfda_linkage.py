@@ -117,7 +117,7 @@ def parse_fda_date(s: str | None) -> datetime | None:
 def summarize_drugsfda_record(rec: dict) -> dict | None:
     """Extract clean originator NDA/BLA submission & safety-labeling metrics."""
     app_num = (rec.get("application_number") or "").upper()
-    if not (app_num.startswith("NDA") or app_num.startswith("BLA")):
+    if not app_num.startswith(("NDA", "BLA")):
         return None  # Strictly exclude ANDA generics
 
     subs = rec.get("submissions") or []
@@ -270,7 +270,7 @@ def match_drugsfda_batch(
             for pr in parsed_recs:
                 ing_pool = set(pr["generic_names"]) | set(pr["active_ingredients"])
                 exact_hit = (m_up in ing_pool) or any(
-                    (g == m_up or g.startswith(m_up + " ") or g.startswith(m_up + "-"))
+                    (g == m_up or g.startswith((m_up + " ", m_up + "-")))
                     for g in ing_pool
                 )
                 # Exclude multi-ingredient combos if single-ingredient molecule is queried
@@ -319,9 +319,9 @@ def match_labels_batch(client: OpenFDAClient, app_nums: list[str], cache: dict[s
             ar_text = " ".join(ar) if isinstance(ar, list) else str(ar)
             info = {
                 "has_boxed_warning": int(len(bw_text.strip()) > 10),
-                "boxed_warning_chars": int(len(bw_text)),
-                "warnings_chars": int(len(wc_text)),
-                "adverse_reactions_chars": int(len(ar_text)),
+                "boxed_warning_chars": len(bw_text),
+                "warnings_chars": len(wc_text),
+                "adverse_reactions_chars": len(ar_text),
                 "effective_time": r.get("effective_time"),
             }
             for a in apps:
@@ -421,7 +421,7 @@ def run_ols_hc3(df: pd.DataFrame, formula: str, target_terms: list[str]) -> dict
     req = [c for c in dict.fromkeys(cols_needed) if c not in reserved and c in df.columns]
     sub = df.dropna(subset=req).copy()
     if len(sub) < 25:
-        return {"n": int(len(sub)), "error": "insufficient_n"}
+        return {"n": len(sub), "error": "insufficient_n"}
     try:
         mod = smf.ols(formula, data=sub)
         n_cl = int(sub["lead_sponsor"].nunique()) if "lead_sponsor" in sub.columns else 0
@@ -437,17 +437,19 @@ def run_ols_hc3(df: pd.DataFrame, formula: str, target_terms: list[str]) -> dict
             fit = mod.fit(cov_type="HC3", use_t=True)
             se_type = "HC3"
             t_df = max(1, int(fit.df_resid))
-    except Exception as exc:
-        return {"n": int(len(sub)), "error": str(exc)[:180]}
+    except (ValueError, np.linalg.LinAlgError, KeyError, ZeroDivisionError, RuntimeError) as exc:
+        return {"n": len(sub), "error": str(exc)[:180]}
     t_crit = float(stats.t.ppf(0.975, df=t_df))
-    mat_rank = int(round(fit.df_model)) + 1
+    t_crit_90 = float(stats.t.ppf(0.95, df=t_df))
+    mat_rank = round(float(fit.df_model)) + 1
     out = {
         "n": int(fit.nobs),
         "n_clusters": int(n_cl),
-        "n_params": int(len(fit.params)),
+        "n_params": len(fit.params),
         "matrix_rank": mat_rank,
         "is_full_rank": bool(mat_rank == len(fit.params)),
         "use_t": bool(fit.use_t),
+        "t_df": int(t_df),
         "r2": round(float(fit.rsquared), 4),
         "se_type": se_type,
         "y_mean": round(float(sub[req[0]].mean()), 4),
@@ -458,13 +460,23 @@ def run_ols_hc3(df: pd.DataFrame, formula: str, target_terms: list[str]) -> dict
             c, s = float(fit.params[t]), float(fit.bse[t])
             if not (np.isfinite(c) and np.isfinite(s) and s > 0):
                 continue
+            ci95_lo, ci95_hi = c - t_crit * s, c + t_crit * s
+            ci90_lo, ci90_hi = c - t_crit_90 * s, c + t_crit_90 * s
             out["terms"][t] = {
                 "coef": round(c, 5),
                 "se": round(s, 5),
                 "t": round(float(fit.tvalues[t]), 3),
                 "p": float(fit.pvalues[t]),
-                "ci95_lo": round(c - t_crit * s, 5),
-                "ci95_hi": round(c + t_crit * s, 5),
+                "ci95_lo": round(ci95_lo, 5),
+                "ci95_hi": round(ci95_hi, 5),
+                "ci90_lo": round(ci90_lo, 5),
+                "ci90_hi": round(ci90_hi, 5),
+                "tost_90_margin": round(max(abs(ci90_lo), abs(ci90_hi)), 5),
+                "excludable_95_abs": round(max(abs(ci95_lo), abs(ci95_hi)), 5),
+                "per_10pp_coef": round(0.10 * c, 5),
+                "per_10pp_se": round(0.10 * s, 5),
+                "per_10pp_ci95_lo": round(0.10 * ci95_lo, 5),
+                "per_10pp_ci95_hi": round(0.10 * ci95_hi, 5),
             }
     return out
 
@@ -476,7 +488,7 @@ def run_poisson_cluster(df: pd.DataFrame, formula: str, target_terms: list[str])
     req = [c for c in dict.fromkeys(cols_needed) if c not in reserved and c in df.columns]
     sub = df.dropna(subset=req).copy()
     if len(sub) < 25:
-        return {"n": int(len(sub)), "error": "insufficient_n"}
+        return {"n": len(sub), "error": "insufficient_n"}
     try:
         mod = smf.glm(formula, data=sub, family=sm.families.Poisson())
         n_cl = int(sub["lead_sponsor"].nunique()) if "lead_sponsor" in sub.columns else 0
@@ -486,8 +498,8 @@ def run_poisson_cluster(df: pd.DataFrame, formula: str, target_terms: list[str])
         else:
             fit = mod.fit(cov_type="HC3")
             se_type = "HC3"
-    except Exception as exc:
-        return {"n": int(len(sub)), "error": str(exc)[:180]}
+    except (ValueError, np.linalg.LinAlgError, KeyError, ZeroDivisionError, RuntimeError) as exc:
+        return {"n": len(sub), "error": str(exc)[:180]}
     out = {
         "n": int(fit.nobs),
         "n_clusters": int(n_cl),
@@ -499,12 +511,20 @@ def run_poisson_cluster(df: pd.DataFrame, formula: str, target_terms: list[str])
     for t in target_terms:
         if t in fit.params.index:
             c, s = float(fit.params[t]), float(fit.bse[t])
+            lo95, hi95 = c - 1.96 * s, c + 1.96 * s
             out["terms"][t] = {
                 "coef_log_irr": round(c, 5),
                 "irr": round(float(np.exp(c)), 4),
+                "irr_ci95_lo": round(float(np.exp(lo95)), 4),
+                "irr_ci95_hi": round(float(np.exp(hi95)), 4),
+                "irr_per_10pp": round(float(np.exp(0.10 * c)), 4),
+                "irr_per_10pp_ci95_lo": round(float(np.exp(0.10 * lo95)), 4),
+                "irr_per_10pp_ci95_hi": round(float(np.exp(0.10 * hi95)), 4),
                 "se": round(s, 5),
                 "z": round(float(fit.tvalues[t]), 3),
                 "p": float(fit.pvalues[t]),
+                "ci95_lo": round(lo95, 5),
+                "ci95_hi": round(hi95, 5),
             }
     return out
 
@@ -592,7 +612,7 @@ def main() -> int:
                 return float(np.sum(vals[ok] * w[ok]) / np.sum(w[ok]))
 
             return {
-                "n_trials": int(len(g)),
+                "n_trials": len(g),
                 "total_enroll": float(w_sum),
                 "eu_east_sh": wavg("eu_east_sh"),
                 "ru_ua_sh": wavg("ru_ua_sh"),
@@ -737,12 +757,12 @@ def main() -> int:
 
     g2_res: dict = {
         "linkage_audit": {
-            "total_p3_unique_named_molecules": int(len(named_mols)),
-            "matched_originator_nda_bla": int(len(gdf)),
+            "total_p3_unique_named_molecules": len(named_mols),
+            "matched_originator_nda_bla": len(gdf),
             "match_rate_pct": round(100.0 * len(gdf) / max(1, len(named_mols)), 2),
-            "with_pre_approval_p3_2005_2024": int(len(g_pre)),
-            "with_5yr_followup_2005_2021": int(len(g_pre_5yr)),
-            "with_3yr_followup_2005_2023": int(len(g_pre_3yr)),
+            "with_pre_approval_p3_2005_2024": len(g_pre),
+            "with_5yr_followup_2005_2021": len(g_pre_5yr),
+            "with_3yr_followup_2005_2023": len(g_pre_3yr),
             "with_fda_label_match": int(g_pre["has_label_match"].sum()),
             "with_us_faers_ge20_reports": int((g_pre["us_total_n"] >= 20).sum()),
             "with_us_and_nonus_faers_ge20": int(g_pre["us_vs_nonus_nonser_lor"].notna().sum()),
@@ -757,6 +777,7 @@ def main() -> int:
         "faers_us_serious_forensic_audit": {},
         "era_split_pre2017_vs_post2017": {},
         "all_p3_robustness_check": {},
+        "null_endpoint_equivalence_bounds": {},
     }
 
     # First-stage sanity check at the molecule level: does pivotal pre_ee_sh still predict lower pre_act_oth?
@@ -776,8 +797,8 @@ def main() -> int:
         s = g_pre[m]
         s5 = g_pre_5yr[g_pre_5yr["molecule"].isin(s["molecule"])]
         g2_res["descriptive_by_ee_tertile_pre_2005_2024"][lbl] = {
-            "n_drugs": int(len(s)),
-            "n_drugs_5yr": int(len(s5)),
+            "n_drugs": len(s),
+            "n_drugs_5yr": len(s5),
             "mean_pre_ee_sh": round(float(s["pre_ee_sh"].mean()), 4) if len(s) else None,
             "mean_pre_act_oth": round(float(s["pre_act_oth"].mean()), 4) if len(s) else None,
             "mean_labeling_per_yr": round(float(s["labeling_per_yr"].mean()), 3) if len(s) else None,
@@ -869,7 +890,7 @@ def main() -> int:
     # Test 4: Pre-2017 vs Post-2017 Approval Cohort Split
     for era_lbl, esub in [("approved_2005_2016", g_pre_before17), ("approved_2017_2024", g_pre_after17)]:
         g2_res["era_split_pre2017_vs_post2017"][era_lbl] = {
-            "n_drugs": int(len(esub)),
+            "n_drugs": len(esub),
             "log_labeling_per_yr": run_ols_hc3(esub, f"log_labeling_per_yr ~ pre_ee_sh + {base_controls_eff}", ["pre_ee_sh"]),
             "has_boxed_warning": run_ols_hc3(esub, f"has_boxed_warning ~ pre_ee_sh + {base_controls}", ["pre_ee_sh"]),
             "us_serious_share": run_ols_hc3(esub, f"us_serious_share ~ pre_ee_sh + {base_controls}", ["pre_ee_sh"]),
@@ -883,6 +904,35 @@ def main() -> int:
         g2_res["all_p3_robustness_check"][y] = run_ols_hc3(
             g_all05, f"{y} ~ all_ee_sh + {all_ctrl}", ["all_ee_sh"]
         )
+
+    # Exact 95% CIs & Minimum Excludable Equivalence Bounds (TOST 90% & 95% CI) for Gate-2 Null Endpoints
+    g2_eq_targets = [
+        ("n_labeling_5yr", g2_res["drugsfda_labeling_supplements"]["n_labeling_5yr_ee"]),
+        ("n_labeling_3yr", g2_res["drugsfda_labeling_supplements"]["n_labeling_3yr_ee"]),
+        ("log_labeling_per_yr", g2_res["drugsfda_labeling_supplements"]["log_labeling_per_yr_ee"]),
+        ("labeling_share", g2_res["drugsfda_labeling_supplements"]["labeling_share_ee"]),
+        ("any_safety_rems", g2_res["drugsfda_labeling_supplements"]["any_safety_rems_ee"]),
+        ("has_boxed_warning", g2_res["fda_label_warnings"]["has_boxed_warning_ee"]),
+        ("us_vs_nonus_nonser_lor", g2_res["faers_pharmacovigilance"]["us_vs_nonus_nonser_lor_ee"]),
+    ]
+    for name, rec in g2_eq_targets:
+        t = rec.get("terms", {}).get("pre_ee_sh", {})
+        if not t:
+            continue
+        g2_res["null_endpoint_equivalence_bounds"][name] = {
+            "n": rec["n"],
+            "y_mean": rec["y_mean"],
+            "coef": t["coef"],
+            "se": t["se"],
+            "p": t["p"],
+            "ci95": [t["ci95_lo"], t["ci95_hi"]],
+            "ci90": [t["ci90_lo"], t["ci90_hi"]],
+            "tost_90_margin": t["tost_90_margin"],
+            "excludable_95_abs": t["excludable_95_abs"],
+            "per_10pp_coef": t["per_10pp_coef"],
+            "per_10pp_ci95": [t["per_10pp_ci95_lo"], t["per_10pp_ci95_hi"]],
+            "per_10pp_tost_90": round(0.10 * t["tost_90_margin"], 5),
+        }
 
     out_json = RES_DIR / "d30_gate2_openfda_results.json"
     out_json.write_text(json.dumps(g2_res, indent=2), encoding="utf-8")
@@ -909,6 +959,10 @@ def main() -> int:
                 "se": t.get("se"),
                 "t": t.get("t"),
                 "p": t.get("p"),
+                "ci95_lo": t.get("ci95_lo"),
+                "ci95_hi": t.get("ci95_hi"),
+                "tost_90_margin": t.get("tost_90_margin"),
+                "per_10pp_coef": t.get("per_10pp_coef"),
             })
     pd.DataFrame(t5_rows).to_csv(TAB_DIR / "table5_gate2_openfda_faers.csv", index=False)
 

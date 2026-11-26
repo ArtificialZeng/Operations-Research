@@ -1,92 +1,111 @@
 {
-  "generated_utc": "2026-11-25T17:13:47.477445+00:00",
+  "generated_utc": "2026-11-26T21:53:49.997696+00:00",
   "project_dir": "D:\\AI_Science\\antigravity\\d30_boost_clinical_trials_20261125",
-  "n_files": 38,
+  "n_files": 47,
   "files": {
-    "scripts/00_api_probe.py": "6055d95f37e288088433a340a2e3a8ffa178f69e80d1f71cf6d57ec042aa16df",
-    "scripts/01_fetch_ctgov_universe.py": "b81a8924f89d0a3fe849f0013f28934a28413ba5dac3cd7666463bc3dcd4669c",
-    "scripts/02_build_panel.py": "6775853275837b0e8f5e96ae7b2d8dedc4a83f34df3b03c46b5d33c72f3c7b65",
-    "scripts/03_econometrics_suite.py": "a1442361b78d01ec6b3f8e1090be157e33c97b6b62f8e443452798a22c595961",
-    "scripts/04_gate2_openfda_linkage.py": "2576643911d7c2ba04ab6a7b5e1bdc3cd49420966d19d40b9606811cb034d920",
-    "scripts/05_generate_figures_tables.py": "98c0799fa5ffbb3a777b4d8fceab132210633cc7c897c4537f45765038d55512",
-    "scripts/06_build_manifest.py": "1f75c3c98818c75aaea62a4cb4bda0e3f7548bac28650075ddd268556d8ae989",
-    "scripts/07_compile_manuscript_pdf.py": "6c4739237b5f7f68380a73ac035f6feb7907f12f05e52401d7074f88cdb67aa4",
-    "tests/test_d30_pipeline.py": "1b27b18bd142da8272c864602263b028afb532d10bf9a85680ab2501a0044123",
+    "scripts/00_api_probe.py": "5fae945fb6ef87dcdebf2409c182baeb0ff3bb7fc8dde4ee3d51033070b5fba6",
+    "scripts/01_fetch_ctgov_universe.py": "c8613f0229625d7ff1986939ac55e1fa42bb9068f21e7fd9c139f2a2f374abb0",
+    "scripts/01b_fetch_war_all_registered.py": "945f00108cd601e4415f856125c2832018021909f1bc88cad8927afe794992e4",
+    "scripts/02_build_panel.py": "b8e073ddfe800b5a136d6ba2b4f8214dd78b72ab9ab37768ce895e77f1bc7d06",
+    "scripts/02b_fetch_meddra_soc_stats.py": "792e5da501daa26fdeef21816e7fbd5277c6af556b8ea385615bcd8d3ab248c8",
+    "scripts/03_econometrics_suite.py": "e20915068ace3c108bb8d3a1e8730d1c05ad6586ca6263d652d04ed8fcc9cab2",
+    "scripts/04_gate2_openfda_linkage.py": "7061a649da11f670d91de154a33d8e60c9d0bbbf6e81575d2709e4f5ca7d02ff",
+    "scripts/05_generate_figures_tables.py": "39cccbb2ad1fc5f327bd4d30315781db0cba8ff65d248d103fdc2dfabf6f6d5e",
+    "scripts/06_build_manifest.py": "b9e226340ae3167a1b655dbf92f0de09e1c2c724f80878505b8c8d324b93122f",
+    "scripts/07_compile_manuscript_pdf.py": "a263ba3f9cca8dc7c8f69076ed9fba6a4dae660fc46c43c5ae0a7e3c5c269d75",
+    "tests/test_d30_pipeline.py": "1dfffd04d9cfb43da4b2e47004d3757e6e90a0113f38d96aa002dc1132bd28c1",
     "data/raw_ctgov/ctgov_fetch_manifest.json": "c4a649b82f07aef2bba53628684eec0566be748adcd703b14b4b072a0e144f72",
-    "data/processed/d30_all_trials.parquet": "0ba6b491f73962fac92139db24dd77c6a6747146c84c9f3aefb5749a3c799eb7",
-    "data/processed/d30_mrct_placebo_allstatus.parquet": "7606cdf4b5aee47bd11271ca2118bfc6974bc6a3d8dcf24cd0ef5437086bae27",
-    "data/processed/d30_mrct_placebo_panel.parquet": "4ac9671c2d2242ddf9172383aa506de50e0874566d8a2d8403a39eb9358ffa4c",
+    "data/processed/ctgov_all_registered_war_2017_2025.parquet": "fb2dca4f688986ed3b19b1ecc7df95c025c2e364fc564f8b7421dd0f4063c0bc",
+    "data/processed/d30_all_trials.parquet": "eff7fab79c914fadab449951be2938aba483491f2f1582336f24cf4a25c422a9",
+    "data/processed/d30_meddra_soc_abs_rates.parquet": "8fc394677448f5af975eb1b52e0104de5ed65023fbc3e4d3cbaa262bf1d4401d",
+    "data/processed/d30_mrct_placebo_allstatus.parquet": "0f76c73a097d57329ea52018e1e924c01f2502b89b062363af7200a745a283cd",
+    "data/processed/d30_mrct_placebo_panel.parquet": "63bf1393eb9fe98da5185d97c114f92cc0ebc2c8615d31313dfb978bb1d70742",
     "data/processed/d30_gate2_openfda_molecules.csv": "930546947d0290909f461c9edf9cc9c17e1aa87f15481efb9c395e0291e2d313",
-    "data/processed/d30_mrct_placebo_panel.csv": "f2413b8bf8a677e17b79549d7a4bd86497a4939e30a4a40cfd83f4284490430b",
-    "data/processed/panel_build_summary.json": "47eef9f203c33a45b05d020670769cbe73c1ea5493b0a7a4b1412b440315c867",
+    "data/processed/d30_mrct_placebo_panel.csv": "cc23d387fa57c01de5370e2351dbaf10f9bd38368be12385055ef7e1a46861b7",
+    "data/processed/meddra_soc_abs_summary.json": "5774d8eabda0a6de235542ca1cb3d9d47e05d0d09f8c38340cd53f771bf95d2c",
+    "data/processed/panel_build_summary.json": "3096102ef3c5cdbfde7ff1b9cd5f89c344c4f230ab4a2bb2c175ab131827e6bf",
+    "data/processed/war_all_registered_summary.json": "e1502b52eceb16e47e36e8118c84645c7917f46fc611308f3c493c73b868718a",
     "data/raw_openfda/drugsfda_cache.json": "d1edb09e9aa891b88d908518d6b570a6cd97ae3dc628f738e8ccc41e47408935",
     "data/raw_openfda/faers_cache.json": "d9f50a4fac7d4aa6a407e8afcb637a735976d2f0d212c70deea75eb2eb3ed9dd",
     "data/raw_openfda/label_cache.json": "9c9d5e0d208e0a45db693799c101021d44a471b81c65cbbb22dbb2384ec4f57f",
-    "results/d30_econometrics_results.json": "c88c2a8caa8d397a38a64c5d208fbb59281c609f719a32475a92aeca365e4aaf",
-    "results/d30_gate2_openfda_results.json": "570c5f748ef64c18478c874b6c55ddaa808b80b7f1dd51fc80847af3354d59cb",
-    "tables/table1_core_twin_trial.csv": "5dd340c705760e1aaf6deef8c364d21bf5a365cf8d78f72408b8684334e64f6d",
+    "results/d30_econometrics_results.json": "3afea4ec0f56264b5a014c2ae46e534beb99c8a56a8e1b9e66f2321a05af9340",
+    "results/d30_gate2_openfda_results.json": "9f55106820a7a9f22bf8fc7ecb03436785b133960800790cc68084f99983a11c",
+    "tables/table1_core_twin_trial.csv": "f8bff3daed31b37f278cd58288fc4b1ef141221d884b6e2957fd38f2d714e9d4",
     "tables/table2_sensitivity_subsamples.csv": "7b6958f36185320d89499bc31e3054badb9970320e5c718cd9857947f8683239",
+    "tables/table2b_meddra_absolute_soc_rates.csv": "0737c9dd5f12e48896b46232e4e7b09438354c4c8f874332bf4ea27f690545b5",
     "tables/table3_post2017_fdaaa_decomposition.csv": "d023ac51cad31ffa39ebfdbe6d43aac74a1c10e45d919201d25d3109aa4539cf",
     "tables/table4_accrual_calibration_bounds.csv": "c791f1cb2223a07c236c9149442fdb6460a30ed811683bbd2d111e8574beea04",
-    "tables/table5_gate2_openfda_faers.csv": "9b407d43c5073baac47e8962438b5635e735a54d492ad4d07f532b004d096bd7",
-    "figures/fig1_twin_trial_identification.png": "eaaa634ece96cb4a46185227f60caaa104a6711e8ef8ad37efc1f7666bed901f",
-    "figures/fig2_binscatter_and_disease_breadth.png": "6417c473c51db1192f6a6d541edf11df7d2e64efc911b7c284d3e3a8ce6708c1",
-    "figures/fig3_post2017_regulatory_convergence.png": "4bf9e60c6935cd7dbcb422bd5f6baf903275d6896817b4d8253dfa4a37d1c18e",
-    "figures/fig4_war2022_and_accrual_bounds.png": "4a346595c87ae301ba11991e3825cc5190145299f6403265aa867c04c460bd0a",
-    "figures/fig5_gate2_openfda_faers.png": "f6be7841e1e9f76788f1d95b5bc35b91483276c67ef19a613ec1f87ff18f9b2a",
-    "figures/fig1_twin_trial_identification.pdf": "2f7c25b6bbd5b401b356ae9032b7ea184211622bb67f38833b8cfb14af9c8405",
-    "figures/fig2_binscatter_and_disease_breadth.pdf": "a205e081a84c2fe6946037d2f963c0786dcd8a9576e1659ad47959679698f680",
-    "figures/fig3_post2017_regulatory_convergence.pdf": "e792ac6527a94ff30d0ff464db6ffc17498211c76e8c5d0beef7697401c46e80",
-    "figures/fig4_war2022_and_accrual_bounds.pdf": "1dd638aa541fe33781b571c51bc6de43d371110aa282ed52284b9882451baa7d",
-    "figures/fig5_gate2_openfda_faers.pdf": "013cb5ad89da4d8870f5920ee93e67e661af4d82e1bfbff563c59be73bb127af",
-    "manuscript_d30_boost.md": "e9feb028a51ca21461126d59679666bad4a773233bc0c4b24c268ad7ca9bb816",
-    "manuscript_d30_boost.pdf": "22afed733131a18982c15fbb7ca34ed9d471aaadc803ca5eccc6426fad0bf5e5"
+    "tables/table4b_all_registered_war_2017_2025.csv": "db71e115bf5de07bf57586220e5761431c081e8032d43cb2de716d08dcd12bda",
+    "tables/table5_gate2_openfda_faers.csv": "e6c62c8a603a1a069e459d480561e7e4a93b934166eb724de9c11dacc59a53e4",
+    "figures/fig1_twin_trial_identification.png": "2a521b484f1b9bef2f2281244c5f32d342b7e65f69fbe23b287944180a554d22",
+    "figures/fig2_binscatter_and_disease_breadth.png": "c030d19a9bfd9bf658677dd32670610dcb483d4eb874d6f0e65eda9909a61418",
+    "figures/fig3_post2017_regulatory_convergence.png": "df1e0d8f7d70e1a47d2dd12b864fbe82a355730aa1c7137b0ed97f28bd82ca78",
+    "figures/fig4_war2022_and_accrual_bounds.png": "052f9164af7b41b18a4fdeee9895c4c6b3e3d18efbb58490186b6025fb9a2683",
+    "figures/fig5_gate2_openfda_faers.png": "a66ad94ca2dae87c2de69a9bdc95bd1632827c6138c2dc97d242a851f886181c",
+    "figures/fig1_twin_trial_identification.pdf": "ee3c9f49ff3cd169d417d4ee3874eaaaff293f904676c6f7e6a4aab53bb85bc2",
+    "figures/fig2_binscatter_and_disease_breadth.pdf": "c39649f1655005f7d25c7745f3c6ed59c6298ce80d09ca38f4ad47229a67c696",
+    "figures/fig3_post2017_regulatory_convergence.pdf": "ff989dcd1c7f129ca80323f899cd2ef59e9d5e48fbc15d079bf7001a6c4a4a0f",
+    "figures/fig4_war2022_and_accrual_bounds.pdf": "601bd7efc0c238065d257c2682296c6b6b1bd6cbfc304d836d66a0b1f83d8f5a",
+    "figures/fig5_gate2_openfda_faers.pdf": "8dbbaeacc5d3ab87511b43ada96df58e533057720720c435e4e4d09fae2a45d2",
+    "manuscript_d30_boost.md": "1ecfbf0737f2c5eb050c57fb6329e74d0854518b7dda93ac5a75618ae06974c5",
+    "manuscript_d30_boost.pdf": "ff2fddbf42a1c1000391a0380f1238c3ea0d8660e9526158e8c07c1c6be67f9d",
+    "REFEREE_RESPONSE_v2.md": "731c06bb41c3f4f423809d24d0696cbefeca3377ccf84f4b1bdb64c21d86b248"
   },
   "details": [
     {
       "file": "scripts/00_api_probe.py",
-      "bytes": 5734,
-      "sha256": "6055d95f37e288088433a340a2e3a8ffa178f69e80d1f71cf6d57ec042aa16df"
+      "bytes": 5727,
+      "sha256": "5fae945fb6ef87dcdebf2409c182baeb0ff3bb7fc8dde4ee3d51033070b5fba6"
     },
     {
       "file": "scripts/01_fetch_ctgov_universe.py",
-      "bytes": 8900,
-      "sha256": "b81a8924f89d0a3fe849f0013f28934a28413ba5dac3cd7666463bc3dcd4669c"
+      "bytes": 8910,
+      "sha256": "c8613f0229625d7ff1986939ac55e1fa42bb9068f21e7fd9c139f2a2f374abb0"
+    },
+    {
+      "file": "scripts/01b_fetch_war_all_registered.py",
+      "bytes": 9814,
+      "sha256": "945f00108cd601e4415f856125c2832018021909f1bc88cad8927afe794992e4"
     },
     {
       "file": "scripts/02_build_panel.py",
-      "bytes": 39893,
-      "sha256": "6775853275837b0e8f5e96ae7b2d8dedc4a83f34df3b03c46b5d33c72f3c7b65"
+      "bytes": 40540,
+      "sha256": "b8e073ddfe800b5a136d6ba2b4f8214dd78b72ab9ab37768ce895e77f1bc7d06"
+    },
+    {
+      "file": "scripts/02b_fetch_meddra_soc_stats.py",
+      "bytes": 11178,
+      "sha256": "792e5da501daa26fdeef21816e7fbd5277c6af556b8ea385615bcd8d3ab248c8"
     },
     {
       "file": "scripts/03_econometrics_suite.py",
-      "bytes": 69544,
-      "sha256": "a1442361b78d01ec6b3f8e1090be157e33c97b6b62f8e443452798a22c595961"
+      "bytes": 86075,
+      "sha256": "e20915068ace3c108bb8d3a1e8730d1c05ad6586ca6263d652d04ed8fcc9cab2"
     },
     {
       "file": "scripts/04_gate2_openfda_linkage.py",
-      "bytes": 45215,
-      "sha256": "2576643911d7c2ba04ab6a7b5e1bdc3cd49420966d19d40b9606811cb034d920"
+      "bytes": 48176,
+      "sha256": "7061a649da11f670d91de154a33d8e60c9d0bbbf6e81575d2709e4f5ca7d02ff"
     },
     {
       "file": "scripts/05_generate_figures_tables.py",
-      "bytes": 27659,
-      "sha256": "98c0799fa5ffbb3a777b4d8fceab132210633cc7c897c4537f45765038d55512"
+      "bytes": 28628,
+      "sha256": "39cccbb2ad1fc5f327bd4d30315781db0cba8ff65d248d103fdc2dfabf6f6d5e"
     },
     {
       "file": "scripts/06_build_manifest.py",
-      "bytes": 2554,
-      "sha256": "1f75c3c98818c75aaea62a4cb4bda0e3f7548bac28650075ddd268556d8ae989"
+      "bytes": 2574,
+      "sha256": "b9e226340ae3167a1b655dbf92f0de09e1c2c724f80878505b8c8d324b93122f"
     },
     {
       "file": "scripts/07_compile_manuscript_pdf.py",
-      "bytes": 17793,
-      "sha256": "6c4739237b5f7f68380a73ac035f6feb7907f12f05e52401d7074f88cdb67aa4"
+      "bytes": 18673,
+      "sha256": "a263ba3f9cca8dc7c8f69076ed9fba6a4dae660fc46c43c5ae0a7e3c5c269d75"
     },
     {
       "file": "tests/test_d30_pipeline.py",
-      "bytes": 26248,
-      "sha256": "1b27b18bd142da8272c864602263b028afb532d10bf9a85680ab2501a0044123"
+      "bytes": 32463,
+      "sha256": "1dfffd04d9cfb43da4b2e47004d3757e6e90a0113f38d96aa002dc1132bd28c1"
     },
     {
       "file": "data/raw_ctgov/ctgov_fetch_manifest.json",
@@ -94,19 +113,29 @@
       "sha256": "c4a649b82f07aef2bba53628684eec0566be748adcd703b14b4b072a0e144f72"
     },
     {
+      "file": "data/processed/ctgov_all_registered_war_2017_2025.parquet",
+      "bytes": 815757,
+      "sha256": "fb2dca4f688986ed3b19b1ecc7df95c025c2e364fc564f8b7421dd0f4063c0bc"
+    },
+    {
       "file": "data/processed/d30_all_trials.parquet",
-      "bytes": 3483231,
-      "sha256": "0ba6b491f73962fac92139db24dd77c6a6747146c84c9f3aefb5749a3c799eb7"
+      "bytes": 3579266,
+      "sha256": "eff7fab79c914fadab449951be2938aba483491f2f1582336f24cf4a25c422a9"
+    },
+    {
+      "file": "data/processed/d30_meddra_soc_abs_rates.parquet",
+      "bytes": 380861,
+      "sha256": "8fc394677448f5af975eb1b52e0104de5ed65023fbc3e4d3cbaa262bf1d4401d"
     },
     {
       "file": "data/processed/d30_mrct_placebo_allstatus.parquet",
-      "bytes": 1334504,
-      "sha256": "7606cdf4b5aee47bd11271ca2118bfc6974bc6a3d8dcf24cd0ef5437086bae27"
+      "bytes": 1364503,
+      "sha256": "0f76c73a097d57329ea52018e1e924c01f2502b89b062363af7200a745a283cd"
     },
     {
       "file": "data/processed/d30_mrct_placebo_panel.parquet",
-      "bytes": 1120157,
-      "sha256": "4ac9671c2d2242ddf9172383aa506de50e0874566d8a2d8403a39eb9358ffa4c"
+      "bytes": 1146237,
+      "sha256": "63bf1393eb9fe98da5185d97c114f92cc0ebc2c8615d31313dfb978bb1d70742"
     },
     {
       "file": "data/processed/d30_gate2_openfda_molecules.csv",
@@ -115,13 +144,23 @@
     },
     {
       "file": "data/processed/d30_mrct_placebo_panel.csv",
-      "bytes": 3152500,
-      "sha256": "f2413b8bf8a677e17b79549d7a4bd86497a4939e30a4a40cfd83f4284490430b"
+      "bytes": 3278925,
+      "sha256": "cc23d387fa57c01de5370e2351dbaf10f9bd38368be12385055ef7e1a46861b7"
+    },
+    {
+      "file": "data/processed/meddra_soc_abs_summary.json",
+      "bytes": 688,
+      "sha256": "5774d8eabda0a6de235542ca1cb3d9d47e05d0d09f8c38340cd53f771bf95d2c"
     },
     {
       "file": "data/processed/panel_build_summary.json",
       "bytes": 1645,
-      "sha256": "47eef9f203c33a45b05d020670769cbe73c1ea5493b0a7a4b1412b440315c867"
+      "sha256": "3096102ef3c5cdbfde7ff1b9cd5f89c344c4f230ab4a2bb2c175ab131827e6bf"
+    },
+    {
+      "file": "data/processed/war_all_registered_summary.json",
+      "bytes": 3041,
+      "sha256": "e1502b52eceb16e47e36e8118c84645c7917f46fc611308f3c493c73b868718a"
     },
     {
       "file": "data/raw_openfda/drugsfda_cache.json",
@@ -140,23 +179,28 @@
     },
     {
       "file": "results/d30_econometrics_results.json",
-      "bytes": 930310,
-      "sha256": "c88c2a8caa8d397a38a64c5d208fbb59281c609f719a32475a92aeca365e4aaf"
+      "bytes": 2188513,
+      "sha256": "3afea4ec0f56264b5a014c2ae46e534beb99c8a56a8e1b9e66f2321a05af9340"
     },
     {
       "file": "results/d30_gate2_openfda_results.json",
-      "bytes": 42900,
-      "sha256": "570c5f748ef64c18478c874b6c55ddaa808b80b7f1dd51fc80847af3354d59cb"
+      "bytes": 75446,
+      "sha256": "9f55106820a7a9f22bf8fc7ecb03436785b133960800790cc68084f99983a11c"
     },
     {
       "file": "tables/table1_core_twin_trial.csv",
-      "bytes": 11304,
-      "sha256": "5dd340c705760e1aaf6deef8c364d21bf5a365cf8d78f72408b8684334e64f6d"
+      "bytes": 15126,
+      "sha256": "f8bff3daed31b37f278cd58288fc4b1ef141221d884b6e2957fd38f2d714e9d4"
     },
     {
       "file": "tables/table2_sensitivity_subsamples.csv",
       "bytes": 3519,
       "sha256": "7b6958f36185320d89499bc31e3054badb9970320e5c718cd9857947f8683239"
+    },
+    {
+      "file": "tables/table2b_meddra_absolute_soc_rates.csv",
+      "bytes": 7902,
+      "sha256": "0737c9dd5f12e48896b46232e4e7b09438354c4c8f874332bf4ea27f690545b5"
     },
     {
       "file": "tables/table3_post2017_fdaaa_decomposition.csv",
@@ -169,69 +213,79 @@
       "sha256": "c791f1cb2223a07c236c9149442fdb6460a30ed811683bbd2d111e8574beea04"
     },
     {
+      "file": "tables/table4b_all_registered_war_2017_2025.csv",
+      "bytes": 2481,
+      "sha256": "db71e115bf5de07bf57586220e5761431c081e8032d43cb2de716d08dcd12bda"
+    },
+    {
       "file": "tables/table5_gate2_openfda_faers.csv",
-      "bytes": 2258,
-      "sha256": "9b407d43c5073baac47e8962438b5635e735a54d492ad4d07f532b004d096bd7"
+      "bytes": 2967,
+      "sha256": "e6c62c8a603a1a069e459d480561e7e4a93b934166eb724de9c11dacc59a53e4"
     },
     {
       "file": "figures/fig1_twin_trial_identification.png",
-      "bytes": 470368,
-      "sha256": "eaaa634ece96cb4a46185227f60caaa104a6711e8ef8ad37efc1f7666bed901f"
+      "bytes": 498719,
+      "sha256": "2a521b484f1b9bef2f2281244c5f32d342b7e65f69fbe23b287944180a554d22"
     },
     {
       "file": "figures/fig2_binscatter_and_disease_breadth.png",
-      "bytes": 326173,
-      "sha256": "6417c473c51db1192f6a6d541edf11df7d2e64efc911b7c284d3e3a8ce6708c1"
+      "bytes": 325684,
+      "sha256": "c030d19a9bfd9bf658677dd32670610dcb483d4eb874d6f0e65eda9909a61418"
     },
     {
       "file": "figures/fig3_post2017_regulatory_convergence.png",
-      "bytes": 511152,
-      "sha256": "4bf9e60c6935cd7dbcb422bd5f6baf903275d6896817b4d8253dfa4a37d1c18e"
+      "bytes": 514358,
+      "sha256": "df1e0d8f7d70e1a47d2dd12b864fbe82a355730aa1c7137b0ed97f28bd82ca78"
     },
     {
       "file": "figures/fig4_war2022_and_accrual_bounds.png",
-      "bytes": 471732,
-      "sha256": "4a346595c87ae301ba11991e3825cc5190145299f6403265aa867c04c460bd0a"
+      "bytes": 531652,
+      "sha256": "052f9164af7b41b18a4fdeee9895c4c6b3e3d18efbb58490186b6025fb9a2683"
     },
     {
       "file": "figures/fig5_gate2_openfda_faers.png",
-      "bytes": 420254,
-      "sha256": "f6be7841e1e9f76788f1d95b5bc35b91483276c67ef19a613ec1f87ff18f9b2a"
+      "bytes": 416028,
+      "sha256": "a66ad94ca2dae87c2de69a9bdc95bd1632827c6138c2dc97d242a851f886181c"
     },
     {
       "file": "figures/fig1_twin_trial_identification.pdf",
-      "bytes": 53517,
-      "sha256": "2f7c25b6bbd5b401b356ae9032b7ea184211622bb67f38833b8cfb14af9c8405"
+      "bytes": 54907,
+      "sha256": "ee3c9f49ff3cd169d417d4ee3874eaaaff293f904676c6f7e6a4aab53bb85bc2"
     },
     {
       "file": "figures/fig2_binscatter_and_disease_breadth.pdf",
-      "bytes": 51366,
-      "sha256": "a205e081a84c2fe6946037d2f963c0786dcd8a9576e1659ad47959679698f680"
+      "bytes": 51355,
+      "sha256": "c39649f1655005f7d25c7745f3c6ed59c6298ce80d09ca38f4ad47229a67c696"
     },
     {
       "file": "figures/fig3_post2017_regulatory_convergence.pdf",
-      "bytes": 53101,
-      "sha256": "e792ac6527a94ff30d0ff464db6ffc17498211c76e8c5d0beef7697401c46e80"
+      "bytes": 52843,
+      "sha256": "ff989dcd1c7f129ca80323f899cd2ef59e9d5e48fbc15d079bf7001a6c4a4a0f"
     },
     {
       "file": "figures/fig4_war2022_and_accrual_bounds.pdf",
-      "bytes": 49114,
-      "sha256": "1dd638aa541fe33781b571c51bc6de43d371110aa282ed52284b9882451baa7d"
+      "bytes": 50428,
+      "sha256": "601bd7efc0c238065d257c2682296c6b6b1bd6cbfc304d836d66a0b1f83d8f5a"
     },
     {
       "file": "figures/fig5_gate2_openfda_faers.pdf",
-      "bytes": 48535,
-      "sha256": "013cb5ad89da4d8870f5920ee93e67e661af4d82e1bfbff563c59be73bb127af"
+      "bytes": 48270,
+      "sha256": "8dbbaeacc5d3ab87511b43ada96df58e533057720720c435e4e4d09fae2a45d2"
     },
     {
       "file": "manuscript_d30_boost.md",
-      "bytes": 74123,
-      "sha256": "e9feb028a51ca21461126d59679666bad4a773233bc0c4b24c268ad7ca9bb816"
+      "bytes": 85034,
+      "sha256": "1ecfbf0737f2c5eb050c57fb6329e74d0854518b7dda93ac5a75618ae06974c5"
     },
     {
       "file": "manuscript_d30_boost.pdf",
-      "bytes": 3497904,
-      "sha256": "22afed733131a18982c15fbb7ca34ed9d471aaadc803ca5eccc6426fad0bf5e5"
+      "bytes": 3903311,
+      "sha256": "ff2fddbf42a1c1000391a0380f1238c3ea0d8660e9526158e8c07c1c6be67f9d"
+    },
+    {
+      "file": "REFEREE_RESPONSE_v2.md",
+      "bytes": 14159,
+      "sha256": "731c06bb41c3f4f423809d24d0696cbefeca3377ccf84f4b1bdb64c21d86b248"
     }
   ]
 }

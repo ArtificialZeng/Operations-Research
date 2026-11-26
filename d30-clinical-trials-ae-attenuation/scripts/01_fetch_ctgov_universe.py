@@ -12,7 +12,7 @@ import hashlib
 import json
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import requests
@@ -32,7 +32,7 @@ QUERY_TERM = (
 # Concise field selection omitting bulky per-term stats arrays while retaining full
 # eventGroups, frequencyThreshold, assessmentType, organSystem, terms, conditions,
 # interventions, locations, and standardized MeSH browse modules.
-FIELDS = ",".join([
+FIELD_LIST = [
     "protocolSection.identificationModule.nctId",
     "protocolSection.identificationModule.briefTitle",
     "protocolSection.identificationModule.officialTitle",
@@ -58,7 +58,8 @@ FIELDS = ",".join([
     "derivedSection.conditionBrowseModule.meshes",
     "derivedSection.conditionBrowseModule.ancestors",
     "derivedSection.interventionBrowseModule.meshes",
-])
+]
+FIELDS = ",".join(FIELD_LIST)
 
 
 def fetch_page(
@@ -201,7 +202,7 @@ def main() -> int:
         time.sleep(0.15)
 
     manifest = {
-        "fetched_utc": datetime.now(timezone.utc).isoformat(),
+        "fetched_utc": datetime.now(UTC).isoformat(),
         "endpoint": CTGOV_URL,
         "query_term": QUERY_TERM,
         "fields": FIELDS,

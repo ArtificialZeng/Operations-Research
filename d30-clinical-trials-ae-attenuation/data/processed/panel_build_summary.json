@@ -45,8 +45,8 @@
     "Burkina Faso": 35
   },
   "artifacts_sha256": {
-    "d30_all_trials.parquet": "0ba6b491f73962fac92139db24dd77c6a6747146c84c9f3aefb5749a3c799eb7",
-    "d30_mrct_placebo_panel.parquet": "4ac9671c2d2242ddf9172383aa506de50e0874566d8a2d8403a39eb9358ffa4c",
-    "d30_mrct_placebo_allstatus.parquet": "7606cdf4b5aee47bd11271ca2118bfc6974bc6a3d8dcf24cd0ef5437086bae27"
+    "d30_all_trials.parquet": "eff7fab79c914fadab449951be2938aba483491f2f1582336f24cf4a25c422a9",
+    "d30_mrct_placebo_panel.parquet": "63bf1393eb9fe98da5185d97c114f92cc0ebc2c8615d31313dfb978bb1d70742",
+    "d30_mrct_placebo_allstatus.parquet": "0f76c73a097d57329ea52018e1e924c01f2502b89b062363af7200a745a283cd"
   }
 }

@@ -105,7 +105,7 @@ def probe_openfda() -> None:
     print(f"  label status={r2.status_code}", flush=True)
     if r2.status_code == 200:
         rec2 = r2.json()["results"][0]
-        print("  label keys (safety):", [k for k in rec2.keys() if any(w in k for w in ["box", "warn", "adverse", "effective"])], flush=True)
+        print("  label keys (safety):", [k for k in rec2 if any(w in k for w in ["box", "warn", "adverse", "effective"])], flush=True)
 
     # 3. event (FAERS)
     r3 = requests.get(

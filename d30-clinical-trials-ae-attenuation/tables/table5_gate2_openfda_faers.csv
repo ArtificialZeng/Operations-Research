@@ -1,21 +1,21 @@
-category,outcome,n,y_mean,coef_pre_ee_sh,se,t,p
-First-Stage (Molecule-Level Pivotal AE),pre_act_oth_on_pre_ee_sh,229,0.6024,-0.36022,0.09971,-3.613,0.0004565187093496892
-First-Stage (Molecule-Level Pivotal AE),pre_ctrl_oth_on_pre_ee_sh,229,0.5553,-0.32306,0.09744,-3.316,0.0012359264543560567
-Drugs@FDA Labeling Supplements,log_labeling_per_yr_ee,229,0.4046,-0.02051,0.08718,-0.235,0.8144309747389991
-Drugs@FDA Labeling Supplements,labeling_per_yr_ee,229,0.541,-0.02534,0.13769,-0.184,0.854294775278354
-Drugs@FDA Labeling Supplements,log_labeling_5yr_ee,190,1.3833,0.21621,0.23933,0.903,0.36870319706407256
-Drugs@FDA Labeling Supplements,n_labeling_5yr_ee,190,3.7421,1.16383,1.12053,1.039,0.3017238686825546
-Drugs@FDA Labeling Supplements,n_labeling_3yr_ee,216,2.0139,-0.04637,0.71123,-0.065,0.9481415602076401
-Drugs@FDA Labeling Supplements,labeling_share_ee,219,0.686,-0.06297,0.12094,-0.521,0.6036816189661812
-Drugs@FDA Labeling Supplements,any_safety_rems_ee,229,0.476,0.19647,0.21937,0.896,0.37240431305677385
-Drugs@FDA Labeling Supplements,log_efficacy_5yr_ee,190,0.7571,-0.22289,0.30489,-0.731,0.466624237140782
-FDA Drug Label Warnings,has_boxed_warning_ee,205,0.3122,0.06136,0.24523,0.25,0.80293983762877
-FDA Drug Label Warnings,log_adverse_reactions_chars_ee,205,9.0758,0.17283,0.31531,0.548,0.5848527630926205
-FDA Drug Label Warnings,log_warnings_chars_ee,203,8.6824,0.592,0.34449,1.718,0.088902431048861
-FAERS Post-Marketing Pharmacovigilance,us_serious_share_ee,210,0.4136,0.18143,0.08988,2.019,0.046215905172463614
-FAERS Post-Marketing Pharmacovigilance,us_nonserious_share_ee,210,0.5864,-0.18143,0.08988,-2.019,0.04621590517246457
-FAERS Post-Marketing Pharmacovigilance,us_vs_nonus_nonser_lor_ee,203,2.7231,0.03163,0.63018,0.05,0.9600693790976315
-FAERS Post-Marketing Pharmacovigilance,log_us_total_per_yr_ee,215,6.1046,-1.12452,0.82325,-1.366,0.17495735632799775
-FAERS Post-Marketing Pharmacovigilance,log_us_serious_per_yr_ee,215,5.0911,-0.57776,0.78339,-0.738,0.46250194632859465
-FAERS Post-Marketing Pharmacovigilance,log_us_nonserious_per_yr_ee,215,5.4897,-1.56831,0.8395,-1.868,0.0646114002513974
-FAERS Post-Marketing Pharmacovigilance,us_share_of_global_faers_ee,203,0.6545,-0.0587,0.12839,-0.457,0.6485417414807576
+category,outcome,n,y_mean,coef_pre_ee_sh,se,t,p,ci95_lo,ci95_hi,tost_90_margin,per_10pp_coef
+First-Stage (Molecule-Level Pivotal AE),pre_act_oth_on_pre_ee_sh,229,0.6024,-0.36022,0.09971,-3.613,0.0004565187093496892,-0.5578,-0.16265,0.52561,-0.03602
+First-Stage (Molecule-Level Pivotal AE),pre_ctrl_oth_on_pre_ee_sh,229,0.5553,-0.32306,0.09744,-3.316,0.0012359264543560567,-0.51614,-0.12999,0.48468,-0.03231
+Drugs@FDA Labeling Supplements,log_labeling_per_yr_ee,229,0.4046,-0.02051,0.08718,-0.235,0.8144309747389991,-0.19326,0.15224,0.16511,-0.00205
+Drugs@FDA Labeling Supplements,labeling_per_yr_ee,229,0.541,-0.02534,0.13769,-0.184,0.854294775278354,-0.29819,0.2475,0.25373,-0.00253
+Drugs@FDA Labeling Supplements,log_labeling_5yr_ee,190,1.3833,0.21621,0.23933,0.903,0.36870319706407256,-0.2592,0.69162,0.61393,0.02162
+Drugs@FDA Labeling Supplements,n_labeling_5yr_ee,190,3.7421,1.16383,1.12053,1.039,0.3017238686825546,-1.06197,3.38963,3.0259,0.11638
+Drugs@FDA Labeling Supplements,n_labeling_3yr_ee,216,2.0139,-0.04637,0.71123,-0.065,0.9481415602076401,-1.45694,1.36419,1.22686,-0.00464
+Drugs@FDA Labeling Supplements,labeling_share_ee,219,0.686,-0.06297,0.12094,-0.521,0.6036816189661812,-0.30283,0.17688,0.2637,-0.0063
+Drugs@FDA Labeling Supplements,any_safety_rems_ee,229,0.476,0.19647,0.21937,0.896,0.37240431305677385,-0.23823,0.63116,0.56033,0.01965
+Drugs@FDA Labeling Supplements,log_efficacy_5yr_ee,190,0.7571,-0.22289,0.30489,-0.731,0.466624237140782,-0.82851,0.38273,0.72954,-0.02229
+FDA Drug Label Warnings,has_boxed_warning_ee,205,0.3122,0.06136,0.24523,0.25,0.80293983762877,-0.42529,0.54801,0.46858,0.00614
+FDA Drug Label Warnings,log_adverse_reactions_chars_ee,205,9.0758,0.17283,0.31531,0.548,0.5848527630926205,-0.45289,0.79854,0.69641,0.01728
+FDA Drug Label Warnings,log_warnings_chars_ee,203,8.6824,0.592,0.34449,1.718,0.088902431048861,-0.09172,1.27572,1.1641,0.0592
+FAERS Post-Marketing Pharmacovigilance,us_serious_share_ee,210,0.4136,0.18143,0.08988,2.019,0.046215905172463614,0.0031,0.35975,0.33066,0.01814
+FAERS Post-Marketing Pharmacovigilance,us_nonserious_share_ee,210,0.5864,-0.18143,0.08988,-2.019,0.04621590517246457,-0.35975,-0.0031,0.33066,-0.01814
+FAERS Post-Marketing Pharmacovigilance,us_vs_nonus_nonser_lor_ee,203,2.7231,0.03163,0.63018,0.05,0.9600693790976315,-1.21942,1.28269,1.07839,0.00316
+FAERS Post-Marketing Pharmacovigilance,log_us_total_per_yr_ee,215,6.1046,-1.12452,0.82325,-1.366,0.17495735632799775,-2.75742,0.50839,2.49105,-0.11245
+FAERS Post-Marketing Pharmacovigilance,log_us_serious_per_yr_ee,215,5.0911,-0.57776,0.78339,-0.738,0.46250194632859465,-2.13161,0.97609,1.87813,-0.05778
+FAERS Post-Marketing Pharmacovigilance,log_us_nonserious_per_yr_ee,215,5.4897,-1.56831,0.8395,-1.868,0.0646114002513974,-3.23346,0.09683,2.96182,-0.15683
+FAERS Post-Marketing Pharmacovigilance,us_share_of_global_faers_ee,203,0.6545,-0.0587,0.12839,-0.457,0.6485417414807576,-0.31359,0.19618,0.27197,-0.00587

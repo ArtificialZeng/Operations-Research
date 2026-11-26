@@ -1,0 +1,104 @@
+{
+  "fetched_utc": "2026-11-26T21:37:56.231043+00:00",
+  "endpoint": "https://clinicaltrials.gov/api/v2/studies",
+  "query_term": "(AREA[Phase]PHASE2 OR AREA[Phase]PHASE3) AND AREA[StudyType]INTERVENTIONAL AND AREA[LeadSponsorClass]INDUSTRY AND AREA[StartDate]RANGE[2017-01-01,2025-12-31]",
+  "fields": "NCTId,StartDate,LeadSponsorName,Phase,LocationCountry,HasResults,OverallStatus,EnrollmentCount,DesignAllocation,Condition",
+  "total_expected": 20649,
+  "total_raw_fetched": 20649,
+  "parsed_unique_studies": 20649,
+  "parsed_mrct_ge5sites_ge3countries": 7157,
+  "elapsed_seconds": 31.02,
+  "annual_mrct_overview_2017_2025": [
+    {
+      "year": 2017,
+      "n_all_registered_trials": 1949,
+      "n_mrct": 758,
+      "n_with_ru_ua": 262,
+      "pct_with_ru_ua": 34.56,
+      "pct_has_results": 85.36,
+      "mean_ru_ua_strict_pct": 4.19,
+      "mean_us_pct": 28.791
+    },
+    {
+      "year": 2018,
+      "n_all_registered_trials": 2118,
+      "n_mrct": 799,
+      "n_with_ru_ua": 281,
+      "pct_with_ru_ua": 35.17,
+      "pct_has_results": 80.6,
+      "mean_ru_ua_strict_pct": 4.27,
+      "mean_us_pct": 29.878
+    },
+    {
+      "year": 2019,
+      "n_all_registered_trials": 2097,
+      "n_mrct": 791,
+      "n_with_ru_ua": 287,
+      "pct_with_ru_ua": 36.28,
+      "pct_has_results": 75.85,
+      "mean_ru_ua_strict_pct": 4.604,
+      "mean_us_pct": 28.177
+    },
+    {
+      "year": 2020,
+      "n_all_registered_trials": 2203,
+      "n_mrct": 772,
+      "n_with_ru_ua": 269,
+      "pct_with_ru_ua": 34.84,
+      "pct_has_results": 73.06,
+      "mean_ru_ua_strict_pct": 4.286,
+      "mean_us_pct": 28.241
+    },
+    {
+      "year": 2021,
+      "n_all_registered_trials": 2714,
+      "n_mrct": 978,
+      "n_with_ru_ua": 257,
+      "pct_with_ru_ua": 26.28,
+      "pct_has_results": 61.45,
+      "mean_ru_ua_strict_pct": 2.914,
+      "mean_us_pct": 27.734
+    },
+    {
+      "year": 2022,
+      "n_all_registered_trials": 2456,
+      "n_mrct": 790,
+      "n_with_ru_ua": 40,
+      "pct_with_ru_ua": 5.06,
+      "pct_has_results": 43.67,
+      "mean_ru_ua_strict_pct": 0.488,
+      "mean_us_pct": 29.047
+    },
+    {
+      "year": 2023,
+      "n_all_registered_trials": 2335,
+      "n_mrct": 747,
+      "n_with_ru_ua": 23,
+      "pct_with_ru_ua": 3.08,
+      "pct_has_results": 26.24,
+      "mean_ru_ua_strict_pct": 0.162,
+      "mean_us_pct": 28.695
+    },
+    {
+      "year": 2024,
+      "n_all_registered_trials": 2251,
+      "n_mrct": 734,
+      "n_with_ru_ua": 29,
+      "pct_with_ru_ua": 3.95,
+      "pct_has_results": 9.4,
+      "mean_ru_ua_strict_pct": 0.433,
+      "mean_us_pct": 29.47
+    },
+    {
+      "year": 2025,
+      "n_all_registered_trials": 2526,
+      "n_mrct": 788,
+      "n_with_ru_ua": 47,
+      "pct_with_ru_ua": 5.96,
+      "pct_has_results": 0.25,
+      "mean_ru_ua_strict_pct": 0.49,
+      "mean_us_pct": 30.57
+    }
+  ],
+  "sha256": "fb2dca4f688986ed3b19b1ecc7df95c025c2e364fc564f8b7421dd0f4063c0bc"
+}

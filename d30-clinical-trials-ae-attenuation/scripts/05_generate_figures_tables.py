@@ -111,20 +111,22 @@ def make_fig1_twin_trial(econ: dict) -> None:
     ax.set_yticks(y_pos)
     ax.set_yticklabels([r[0] for r in regions])
     ax.set_ylim(-0.7, len(regions) - 0.35)
-    ax.set_xlabel("Effect per +100% Site Share vs. U.S. (pp)")
+    ax.set_xlabel("Effect per 0→100% Site Share vs. U.S. (pp; ÷10 per +10 pp)")
     ax.set_title(f"A. Regional Specificity\n(Phase 3 Mol × Sponsor FE, N={p3_sp['ctrl_oth']['n']:,})", pad=10)
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.14), ncol=1, frameon=True, framealpha=0.95)
     ax.set_xlim(-42, 24)
 
-    # Panel B: 3-Tier Objectivity Gradient & MedDRA SOC Mechanism (P2+P3 Mol x Sp FE)
+    # Panel B: Objectivity Gradient & Non-Compositional Absolute MedDRA SOC Peak Rates (P2+P3 Mol x Sp FE)
     ax = axes[1]
     p23_sp = econ["block_a_core_twin_trial"]["p23_mol_sponsor_split"]
-    soc_blk = econ["block_b_sensitivity_robustness"]["meddra_soc_composition_p23_mol_sp"]
+    soc_abs = econ["block_b_sensitivity_robustness"]["meddra_soc_absolute_p23_mol_sp"]
     tier_items = [
         ("Placebo Non-Serious AE", p23_sp["ctrl_oth"]["terms"]["eu_east_sh"], C_BLUE),
         ("Active Non-Serious AE", p23_sp["act_oth"]["terms"]["eu_east_sh"], C_VERM),
-        ("Subjective MedDRA SOC Share", soc_blk["subj_soc_share"]["terms"]["eu_east_sh"], C_AMBER),
-        ("Objective MedDRA SOC Share", soc_blk["obj_soc_share"]["terms"]["eu_east_sh"], C_GREEN),
+        ("Subj. SOC Max-Term Rate (Ctrl)", soc_abs["ctrl_subj_max_pct"]["terms"]["eu_east_sh"], C_AMBER),
+        ("Subj. SOC Max-Term Rate (Act)", soc_abs["act_subj_max_pct"]["terms"]["eu_east_sh"], C_AMBER),
+        ("Obj. SOC Max-Term Rate (Ctrl)", soc_abs["ctrl_obj_max_pct"]["terms"]["eu_east_sh"], C_GREEN),
+        ("Obj. SOC Max-Term Rate (Act)", soc_abs["act_obj_max_pct"]["terms"]["eu_east_sh"], C_GREEN),
         ("Within-Trial Risk Diff (RD)", p23_sp["oth_rd"]["terms"]["eu_east_sh"], C_SLATE),
         ("Placebo Serious AE (SAE)", p23_sp["ctrl_sae"]["terms"]["eu_east_sh"], C_SLATE),
         ("Active Serious AE (SAE)", p23_sp["act_sae"]["terms"]["eu_east_sh"], C_SLATE),
@@ -135,15 +137,18 @@ def make_fig1_twin_trial(econ: dict) -> None:
         y = yp2[i]
         val = 100 * t["coef"]
         err = 100 * _ci_half(t)
-        ax.errorbar(val, y, xerr=err, fmt="o", color=col, markersize=6.5, capsize=3, lw=1.7)
-        x_txt = max(val + err + 1.8, 1.8) if val < 0 else (val + err + 1.8)
-        ax.text(x_txt, y, f"{val:+.1f} pp ({fmt_p(t['p'])})", va="center", ha="left", fontsize=7.6, color="#222222")
+        ax.errorbar(val, y, xerr=err, fmt="o", color=col, markersize=6.0, capsize=3, lw=1.6)
+        x_txt = max(val + err + 1.8, 2.2) if val < 0 else (val + err + 1.8)
+        ax.text(x_txt, y, f"{val:+.1f} pp ({fmt_p(t['p'])})", va="center", ha="left", fontsize=7.4, color="#222222")
     ax.axvline(0, color="black", lw=1.0)
     ax.set_yticks(yp2)
-    ax.set_yticklabels([x[0] for x in tier_items])
-    ax.set_xlabel("EU-East Site-Share Effect (pp, 95% CI)")
-    ax.set_title(f"B. Objectivity Gradient & MedDRA Mechanism\n(Pooled P2+P3 Mol × Sponsor FE, N={p23_sp['ctrl_oth']['n']:,})", pad=10)
-    ax.set_xlim(-40, 84)
+    ax.set_yticklabels([x[0] for x in tier_items], fontsize=8.0)
+    ax.set_xlabel("EU-East 0→100% Site-Share Effect (pp, 95% CI)")
+    ax.set_title(
+        f"B. Objectivity Gradient & Absolute MedDRA Rates\n(Pooled P2+P3 Mol × Sponsor FE, N={p23_sp['ctrl_oth']['n']:,})",
+        pad=10,
+    )
+    ax.set_xlim(-40, 48)
 
     # Panel C: Cross-Specification & Out-of-Sample Replication
     ax = axes[2]
@@ -224,7 +229,7 @@ def make_fig2_binscatter_and_diseases(econ: dict) -> None:
     ax.plot(x_line, ys.mean() + t_s["coef"] * (x_line - x_bar), color=C_SLATE, lw=1.6, ls="--", alpha=0.85)
 
     ax.set_xlabel("Residualized Eastern European Site Share (%, within Mol × Sponsor FE)")
-    ax.set_ylabel("Residualized Arm Adverse-Event Incidence (%)")
+    ax.set_ylabel("Residualized Registered Arm AE Proportion (%)")
     ax.set_title(f"A. Within-Twin-Trial Dose–Response Gradient\n(Pooled P2+P3 Mol × Sponsor FE, N={bs['n_total']:,}, {bs['n_fe_groups']} Programs)", pad=8)
     ax.legend(loc="center right", frameon=True, framealpha=0.95, fontsize=8.0)
 
@@ -285,8 +290,8 @@ def make_fig3_post2017_convergence(econ: dict) -> None:
     ax.text(3.42, 16, "ICH E6(R2) &\nFDAAA 2017", color=C_GREEN, fontsize=7.8, fontweight="bold", ha="right")
     ax.set_xticks(x_idx)
     ax.set_xticklabels([f"{e['era']}\n(n={e['n']})" for e in es], fontsize=7.6)
-    ax.set_ylabel("Site-Share Attenuation Slope (pp, 95% CI)")
-    ax.set_title("A. Dynamic Event Study (2005–2024)\nEU-East Convergence vs. Non-EU Persistence", pad=10)
+    ax.set_ylabel("Cross-Sectional Site-Share Slope (pp, 95% CI)")
+    ax.set_title("A. Era Cross-Sectional Slopes (2005–2024)\nEU-East Convergence vs. Non-EU Persistence", pad=10)
     ax.set_ylim(-90, 28)
     ax.legend(loc="lower left", frameon=True, framealpha=0.95, fontsize=7.8)
 
@@ -348,59 +353,72 @@ def make_fig3_post2017_convergence(econ: dict) -> None:
 
 
 def make_fig4_war_and_accrual(econ: dict) -> None:
-    """Figure 4: Feb 24, 2022 Russia-Ukraine War Shock (Unbiased OOS DiD) & Simplex-Valid Accrual Bounds."""
-    fig, axes = plt.subplots(1, 3, figsize=(18.4, 5.5))
+    """Figure 4: Uncensored All-Registered War Cohort (2017-2025) Reallocation & Simplex-Valid Accrual Bounds."""
+    fig, axes = plt.subplots(1, 3, figsize=(18.6, 5.6))
     fig.subplots_adjust(wspace=0.55)
     blk_d = econ["block_d_war2022_shock"]
     blk_e = econ["block_e_site_vs_patient_bounds"]
+    reg = blk_d["all_registered_war_2017_2025"]
 
-    # Panel A: Annual Regional Site Shares & RU/UA Collapse
+    # Panel A: Uncensored All-Registered MRCT Participation (2017-2025) vs Results-Posted Subsample
     ax = axes[0]
-    ann = blk_d["annual_regional_shares_2015_2024"]
-    yrs = [r["year"] for r in ann]
-    ru_any = [r["all_any_ru_ua_trial_pct"] for r in ann]
-    ru_sh = [r["all_ru_ua_strict_pct"] for r in ann]
-    eu_sh = [r["all_eu_east_pct"] for r in ann]
+    ann_reg = reg["annual_participation_2017_2025"]
+    yrs_r = [r["year"] for r in ann_reg]
+    ru_ua_all = [r["pct_mrct_with_ru_ua"] for r in ann_reg]
+    ru_only = [r["pct_mrct_with_ru"] for r in ann_reg]
+    ua_only = [r["pct_mrct_with_ua"] for r in ann_reg]
+    ann_res = [r for r in blk_d["annual_regional_shares_2015_2024"] if r["year"] >= 2017]
+    yrs_res = [r["year"] for r in ann_res]
+    ru_ua_res = [r["all_any_ru_ua_trial_pct"] for r in ann_res]
 
-    ax.plot(yrs, ru_any, "-s", color=C_VERM, lw=2.0, markersize=6, label="Trials with ≥1 RU/UA Site (%)")
-    ax.plot(yrs, eu_sh, "-o", color=C_BLUE, lw=1.8, markersize=5.5, label="EU Eastern Europe Site Share (%)")
-    ax.plot(yrs, ru_sh, "--^", color=C_AMBER, lw=1.8, markersize=5.5, label="Russia/Ukraine Site Share (%)")
-    ax.axvline(2022.15, color="black", lw=1.4, ls=":")
-    ax.text(2022.30, 42, "Feb 24, 2022\nInvasion", ha="left", fontsize=8.0, fontweight="bold", color="#222222")
+    ax.plot(yrs_r, ru_ua_all, "-s", color=C_VERM, lw=2.0, markersize=6, label="All-Registered: ≥1 RU/UA Site (%)")
+    ax.plot(yrs_r, ru_only, "-o", color=C_BLUE, lw=1.7, markersize=5, label="All-Registered: ≥1 Russia Site (%)")
+    ax.plot(yrs_r, ua_only, "-^", color=C_AMBER, lw=1.7, markersize=5, label="All-Registered: ≥1 Ukraine Site (%)")
+    ax.plot(yrs_res, ru_ua_res, ":d", color=C_SLATE, lw=1.5, markersize=4.5, label="Results-Posted Subsample RU/UA (%)")
+    ax.axvline(2022.15, color="black", lw=1.4, ls="--")
+    ax.text(2022.28, 25, "Feb 24, 2022\nInvasion", ha="left", fontsize=7.9, fontweight="bold", color="#222222")
     ax.set_xlabel("Trial Start Year")
-    ax.set_ylabel("Percentage (%)")
-    ax.set_title("A. Russia–Ukraine War Exogenous Site\nCollapse Across All Industry MRCTs", pad=10)
-    ax.set_xlim(2014.6, 2024.8)
-    ax.set_ylim(-2, 55)
-    ax.legend(loc="center left", bbox_to_anchor=(0.02, 0.48), frameon=True, framealpha=0.95, fontsize=7.8)
+    ax.set_ylabel("MRCTs with ≥1 Country Site (%)")
+    ax.set_title(
+        f"A. Uncensored All-Registered War Collapse\n(2017–2025, N={reg['sample_counts']['mrct_ge5sites_ge3countries_ge50enroll']:,} MRCTs)",
+        pad=10,
+    )
+    ax.set_xlim(2016.6, 2025.4)
+    ax.set_ylim(-2, 62)
+    ax.legend(loc="upper right", frameon=True, framealpha=0.96, fontsize=7.3)
 
-    # Panel B: Unbiased Out-of-Sample Pre-War Exposure DiD (2015-19 exp -> 2020-24 DiD)
+    # Panel B: Uncensored All-Registered Within-Sponsor Post-War Reallocation (2017-2025)
     ax = axes[1]
-    did = blk_d["within_sponsor_reallocation_did"]
+    shift = reg["within_sponsor_postwar_shift_2017_2025"]
+    oos_reg = reg["oos_did_2017_19_to_2020_25"]
     dests = [
-        ("Russia / Ukraine (First Stage)", "ru_ua_strict_sh", C_VERM),
+        ("Russia / Ukraine (Exit)", "ru_ua_strict_sh", C_VERM),
+        ("Latin America", "latam_sh", C_GREEN),
+        ("Asia Emerging", "asia_sh", C_GREEN),
+        ("Other Regions", "other_sh", C_AMBER),
         ("United States", "us_sh", C_BLUE),
-        ("Asia Emerging", "asia_sh", C_SLATE),
-        ("Latin America", "latam_sh", C_SLATE),
-        ("EU Eastern Europe", "eu_east_sh", C_SLATE),
-        ("Other Regions", "other_sh", C_SLATE),
         ("Western Europe / Dev", "we_sh", C_SLATE),
+        ("EU Eastern Europe", "eu_east_sh", C_SLATE),
     ]
     yp = np.arange(len(dests))[::-1]
-    n_oos_did = did["ru_ua_strict_sh"]["n"]
+    n_shift = shift["ru_ua_strict_sh"]["n"]
     for i, (_lbl, k, col) in enumerate(dests):
-        t = did[k]["terms"]["exp_x_postwar"]
-        v, ci = t["coef"], _ci_half(t)
-        ax.barh(yp[i], v, color=col, alpha=0.80, height=0.55)
+        t = shift[k]["terms"]["post_war_2022"]
+        v, ci = 100 * t["coef"], 100 * _ci_half(t)
+        ax.barh(yp[i], v, color=col, alpha=0.82, height=0.56)
         ax.errorbar(v, yp[i], xerr=ci, fmt="none", ecolor="black", capsize=3, lw=1.4)
-        x_txt = max(v + ci + 0.08, 0.12) if v >= -0.2 else max(v + ci + 0.08, 0.12)
-        ax.text(x_txt, yp[i], f"{v:+.2f} ({fmt_p(t['p'])})", va="center", ha="left", fontsize=7.5, color="#222222")
+        x_txt = max(v + ci + 0.16, 0.25)
+        ax.text(x_txt, yp[i], f"{v:+.2f} pp ({fmt_p(t['p'])})", va="center", ha="left", fontsize=7.5, color="#222222")
     ax.axvline(0, color="black", lw=1.0)
     ax.set_yticks(yp)
     ax.set_yticklabels([d[0] for d in dests], fontsize=8.0)
-    ax.set_xlabel("OOS DiD Share Shift per Unit Pre-War RU/UA Exposure")
-    ax.set_title(f"B. Unbiased Out-of-Sample War Reallocation\n(2015–19 Exp → 2020–24 DiD, N={n_oos_did:,})", pad=10)
-    ax.set_xlim(-2.05, 3.35)
+    ax.set_xlabel("Within-Sponsor Post-War Site-Share Shift (pp, 95% CI)")
+    us_oos = oos_reg["us_sh"]["terms"]["exp_x_postwar"]
+    ax.set_title(
+        f"B. Uncensored Within-Sponsor Reallocation\n(2017–2025, N={n_shift:,}; OOS US DiD={us_oos['coef']:+.2f}, {fmt_p(us_oos['p'])})",
+        pad=10,
+    )
+    ax.set_xlim(-4.8, 5.4)
 
     # Panel C: Simplex-Preserving Site-Share vs Patient-Accrual Calibration Curve
     ax = axes[2]
@@ -500,8 +518,8 @@ def make_fig5_gate2_openfda(g2: dict) -> None:
     ax.set_yticklabels([x[0] for x in items], fontsize=8.0)
     ax.set_xlabel("Adjusted t-Statistic for Pivotal EE Site Share (±t_0.975(G−1) band)")
     ax.set_title(
-        f"B. Gate-2 Adjusted Effects on Post-Approval FDA & FAERS Outcomes\n"
-        f"(BLA/NDA, Enroll, Pivotal SAE, TA FE & Approval-Year FE; N={g2['linkage_audit']['with_pre_approval_p3_2005_2024']} Drugs)",
+        f"B. Gate-2 Adjusted Effects on FDA Labels & Exploratory FAERS\n"
+        f"(BLA/NDA, Enroll, Pivotal SAE, TA & Appr.-Year FE; N={g2['linkage_audit']['with_pre_approval_p3_2005_2024']} Drugs)",
         pad=10,
     )
     ax.set_xlim(-7.2, 9.8)

@@ -355,11 +355,64 @@ class TestGate2OpenFDA:
         g2_issues = _walk_regressions(g2)
         assert len(g2_issues) == 0, f"Found Gate-2 audit issues: {g2_issues[:10]}"
 
-        # Verify first stage, Poisson GLM, and 10-step forensic audit all persisted
+        # Verify first stage, Poisson GLM, 10-step forensic audit, and TOST equivalence bounds all persisted
         fs = g2["first_stage_molecule_level_check"]["pre_act_oth_on_pre_ee_sh"]
         assert fs["n"] >= 220 and fs["terms"]["pre_ee_sh"]["coef"] < -0.20 and fs["terms"]["pre_ee_sh"]["p"] < 0.01
         assert "n_labeling_5yr_poisson_glm" in g2["drugsfda_labeling_supplements"]
+        p5 = g2["drugsfda_labeling_supplements"]["n_labeling_5yr_poisson_glm"]["terms"]["pre_ee_sh"]
+        assert "irr_ci95_lo" in p5 and "irr_ci95_hi" in p5 and p5["irr_ci95_lo"] < 1.0 < p5["irr_ci95_hi"]
         assert len(g2["faers_us_serious_forensic_audit"]) == 10
+        assert "null_endpoint_equivalence_bounds" in g2
+        for k in ["n_labeling_5yr", "n_labeling_3yr", "log_labeling_per_yr", "has_boxed_warning", "us_vs_nonus_nonser_lor"]:
+            b = g2["null_endpoint_equivalence_bounds"][k]
+            assert len(b["ci95"]) == 2 and b["tost_90_margin"] > 0
+
+    def test_v2_absolute_meddra_soc_rates_and_uncensored_war_cohort(self):
+        econ = json.loads((RES_DIR / "d30_econometrics_results.json").read_text(encoding="utf-8"))
+
+        # (a) Absolute MedDRA SOC regressions exist, full rank, subjective plunges & objective flat
+        soc_abs = econ["block_b_sensitivity_robustness"]["meddra_soc_absolute_p23_mol_sp"]
+        for col in [
+            "ctrl_subj_sum_aff_rate", "act_subj_sum_aff_rate",
+            "ctrl_obj_sum_aff_rate", "act_obj_sum_aff_rate",
+            "ctrl_subj_max_pct", "act_subj_max_pct",
+            "ctrl_obj_max_pct", "act_obj_max_pct",
+            "n_subj_terms", "n_obj_terms",
+        ]:
+            assert col in soc_abs and soc_abs[col]["is_full_rank"] is True
+            assert "per_10pp_coef" in soc_abs[col]["terms"]["eu_east_sh"]
+        assert soc_abs["ctrl_subj_sum_aff_rate"]["terms"]["eu_east_sh"]["coef"] < -0.50
+        assert soc_abs["ctrl_subj_sum_aff_rate"]["terms"]["eu_east_sh"]["p"] < 0.005
+        assert soc_abs["act_subj_sum_aff_rate"]["terms"]["eu_east_sh"]["coef"] < -0.50
+        assert soc_abs["act_subj_sum_aff_rate"]["terms"]["eu_east_sh"]["p"] < 0.005
+        assert soc_abs["ctrl_obj_sum_aff_rate"]["terms"]["eu_east_sh"]["p"] > 0.10
+        assert soc_abs["act_obj_sum_aff_rate"]["terms"]["eu_east_sh"]["p"] > 0.10
+        assert soc_abs["ctrl_subj_max_pct"]["terms"]["eu_east_sh"]["p"] < 0.01
+        assert soc_abs["ctrl_obj_max_pct"]["terms"]["eu_east_sh"]["p"] > 0.20
+
+        # (b) Uncensored all-registered 2017-2025 war cohort parquet & DiD exist, zero right-censoring
+        war_pq = PROC_DIR / "ctgov_all_registered_war_2017_2025.parquet"
+        assert war_pq.exists() and war_pq.stat().st_size > 100_000
+        wdf = pd.read_parquet(war_pq)
+        assert len(wdf) >= 15_000 and wdf["nct_id"].is_unique
+        assert (wdf["has_results"] == 0).sum() > 5_000
+
+        reg_war = econ["block_d_war2022_shock"]["all_registered_war_2017_2025"]
+        assert reg_war["sample_counts"]["mrct_ge5sites_ge3countries_ge50enroll"] >= 5_000
+        # Uncensored within-sponsor RU/UA exit strongly negative
+        sh_ru = reg_war["within_sponsor_postwar_shift_2017_2025"]["ru_ua_strict_sh"]["terms"]["post_war_2022"]
+        assert sh_ru["coef"] < -0.025 and sh_ru["p"] < 1e-10
+        # Uncensored OOS DiD first stage negative & fake-2020 placebo null
+        oos_ru = reg_war["oos_did_2017_19_to_2020_25"]["ru_ua_strict_sh"]["terms"]["exp_x_postwar"]
+        assert oos_ru["coef"] < -0.15 and oos_ru["p"] < 0.05
+        assert reg_war["oos_placebo_fake2020_2017_18_to_2019_21"]["oos_placebo_ru_ua"]["terms"]["exp_x_fakepost"]["p"] > 0.05
+        assert reg_war["oos_placebo_fake2020_2017_18_to_2019_21"]["oos_placebo_us"]["terms"]["exp_x_fakepost"]["p"] > 0.05
+
+        # (c) Block A equivalence bounds persisted with 95% CI & TOST 90% margin
+        eq_a = econ["block_a_core_twin_trial"]["null_endpoint_equivalence_bounds"]
+        for spec in ["p3_mol_sponsor_split", "p23_mol_sponsor_split"]:
+            for ep in ["oth_rd", "ctrl_sae", "act_sae", "ctrl_mort", "act_mort"]:
+                assert ep in eq_a[spec] and eq_a[spec][ep]["tost_90_excludable_pp"] > 0
 
 
 # =============================================================================
@@ -383,8 +436,10 @@ class TestDeliverablesAndManifest:
         for tab in [
             "table1_core_twin_trial.csv",
             "table2_sensitivity_subsamples.csv",
+            "table2b_meddra_absolute_soc_rates.csv",
             "table3_post2017_fdaaa_decomposition.csv",
             "table4_accrual_calibration_bounds.csv",
+            "table4b_all_registered_war_2017_2025.csv",
             "table5_gate2_openfda_faers.csv",
         ]:
             p = TAB_DIR / tab
@@ -471,3 +526,47 @@ class TestDeliverablesAndManifest:
             g2["faers_us_serious_forensic_audit"]["10_plus_sponsor_fe"]["terms"]["pre_ee_sh"]["coef"],
         ]:
             assert f"{abs(val):.4f}" in ms_txt or f"{abs(100 * val):.2f}" in ms_txt
+
+    def test_v2_referee_revisions_and_zero_pdf_leaks(self):
+        ms_txt = (BASE_DIR / "manuscript_d30_boost.md").read_text(encoding="utf-8")
+        resp_path = BASE_DIR / "REFEREE_RESPONSE_v2.md"
+        assert resp_path.exists() and resp_path.stat().st_size > 4_000
+
+        # (a) Per-+10 pp scaling & absolute MedDRA SOC numbers present in manuscript
+        for token in ["-2.48", "-2.67", "0.7263", "0.7891", "0.0739", "0.0558", "0.0958", "0.1080"]:
+            assert token in ms_txt or token.replace("-", "−") in ms_txt, f"Missing v2 token {token}"
+
+        # (b) Uncensored all-registered war cohort & transparent primary-window CI [-0.019, +2.185] & 187/398
+        for token in ["20,649", "6,011", "187/398", "0/43", "-0.019, +2.185", "41.86%", "0.328"]:
+            assert token in ms_txt or token.replace("-", "−") in ms_txt, f"Missing war-v2 token {token}"
+
+        # (c) Active-arm p_WCB = 0.051 & -49.37 pp explicitly labeled as cross-sectional slope
+        assert "0.051" in ms_txt
+        assert "49.37" in ms_txt and "cross-sectional" in ms_txt.lower()
+        assert "cannot cleanly distinguish" in ms_txt.lower()
+
+        # (d) 95% CIs / TOST equivalence bounds, FDA FAERS official warning, Drug Trials Snapshots, & Keebler 2020
+        for token in [
+            "TOST",
+            "136729",
+            "drug-trials-snapshots",
+            "10.1093/rheumatology/keaa043",
+            "results-definitions",
+            "EMA/CHMP/ICH/453276/2016",
+            "[-4.64, +5.91",
+            "[-42.53, +54.80",
+        ]:
+            assert (
+                token in ms_txt or token.replace("-", "−") in ms_txt
+            ), f"Missing v2 citation/CI token: {token}"
+
+        # (e) Compiled PDF exists, is non-trivial, and HTML text (outside base64 images) is spotless
+        import re
+
+        pdf_path = BASE_DIR / "manuscript_d30_boost.pdf"
+        assert pdf_path.exists() and pdf_path.stat().st_size > 200_000
+        comp_mod = load_module("compile_pdf_check", SCRIPTS_DIR / "07_compile_manuscript_pdf.py")
+        rendered_html = comp_mod.convert_md_to_html(ms_txt)
+        rendered_text_only = re.sub(r'data:image/png;base64,[A-Za-z0-9+/=]+', "", rendered_html)
+        for leak in ["TBD", "TODO", "XXX", r"\underbrace", r"\frac{", r"\text{", "$$"]:
+            assert leak not in rendered_text_only, f"Found rendered leak in PDF HTML: {leak}"

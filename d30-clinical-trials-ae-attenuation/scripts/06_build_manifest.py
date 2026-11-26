@@ -4,7 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 BASE_DIR = Path(r"D:\AI_Science\antigravity\d30_boost_clinical_trials_20261125")
@@ -33,6 +33,7 @@ def main() -> int:
         "figures/*.pdf",
         "manuscript_d30_boost.md",
         "manuscript_d30_boost.pdf",
+        "REFEREE_RESPONSE_v2.md",
     ]
     files_map: dict[str, str] = {}
     meta_rows: list[dict] = []
@@ -49,7 +50,7 @@ def main() -> int:
                 })
 
     manifest = {
-        "generated_utc": datetime.now(timezone.utc).isoformat(),
+        "generated_utc": datetime.now(UTC).isoformat(),
         "project_dir": str(BASE_DIR),
         "n_files": len(files_map),
         "files": files_map,
