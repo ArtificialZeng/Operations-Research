@@ -938,14 +938,14 @@ def main() -> int:
     alpha_emp_mef_sys = float(max(0.0, 1.0 - emp_chg_mef_sys / max(mef0_sys, 1.0)))
 
     # ------------------------------------------------------------------
-    # JOINT DATE-CLUSTERED BLOCK BOOTSTRAP (B = 1,000) FOR CAISO CURTAILMENT-STRATIFIED NET CO2
-    # Jointly resamples full calendar days across:
+    # JOINT CONTIGUOUS BLOCK BOOTSTRAPS (B = 1,000; L = 1d, 7d, 14d) FOR CAISO NET CO2
+    # Jointly resamples contiguous calendar-day blocks across:
     #   (1) all CISO bilateral neighbor BAs' 24-hour CEMS MEF curves (import uncertainty),
-    #   (2) all 4 CAISO strictly interior curtailment-regime regressions (main & pure dLoad,
-    #       domestic & system, capturing cross-regime & diurnal correlation), and
+    #   (2) all 4 CAISO strictly interior curtailment-regime regressions (main & observed dLoad,
+    #       domestic & system, capturing cross-regime, diurnal & multi-day synoptic correlation), and
     #   (3) all 13,170 CAISO hourly battery charging/discharging weights & RTE!
     # ------------------------------------------------------------------
-    print("\n[03.4] Running Joint Date-Clustered Block Bootstrap (B=1,000) for CAISO Curtailment Net CO2...", flush=True)
+    print("\n[03.4] Running Joint Contiguous Block Bootstraps (B=1,000; L=1d, 7d, 14d) for CAISO Net CO2...", flush=True)
     B_BOOT = 1000
     BOOT_SEED = 20261127
 
@@ -1072,31 +1072,18 @@ def main() -> int:
     assert abs(u_aunsp - alpha_emp_unspill) < 1e-10, "Unit check alpha_emp_unspill mismatch"
     assert abs(u_amef - alpha_emp_mef_sys) < 1e-10, "Unit check alpha_emp_mef_sys mismatch"
 
-    rng_boot = np.random.default_rng(BOOT_SEED)
-    p_ov = np.full(n_ov_days, 1.0 / n_ov_days, dtype=np.float64)
-    p_ex = np.full(n_ex_days, 1.0 / max(n_ex_days, 1), dtype=np.float64)
-    b_net_sys = np.empty(B_BOOT, dtype=np.float64)
-    b_net_dom = np.empty(B_BOOT, dtype=np.float64)
-    b_net_ld_sys = np.empty(B_BOOT, dtype=np.float64)
-    b_net_ld_dom = np.empty(B_BOOT, dtype=np.float64)
-    b_a_unsp = np.empty(B_BOOT, dtype=np.float64)
-    b_a_mef = np.empty(B_BOOT, dtype=np.float64)
-
-    for bi in range(B_BOOT):
-        m_ov_i = rng_boot.multinomial(n_ov_days, p_ov).astype(np.float64)
-        m_ex_i = (
-            rng_boot.multinomial(n_ex_days, p_ex).astype(np.float64)
-            if n_ex_days > 0
-            else np.empty(0, dtype=np.float64)
-        )
-        m_all_i = np.concatenate([m_ov_i, m_ex_i])
-        ns_b, nd_b, nls_b, nld_b, au_b, am_b, _ = _eval_caiso_curtailment_stat(m_all_i)
-        b_net_sys[bi] = ns_b
-        b_net_dom[bi] = nd_b
-        b_net_ld_sys[bi] = nls_b
-        b_net_ld_dom[bi] = nld_b
-        b_a_unsp[bi] = au_b
-        b_a_mef[bi] = am_b
+    def _draw_mbb_mult(rng: np.random.Generator, n_days: int, block_len: int) -> np.ndarray:
+        """Moving-block bootstrap day multiplicities of exact total length n_days."""
+        if n_days <= 0:
+            return np.empty(0, dtype=np.float64)
+        if block_len <= 1:
+            return rng.multinomial(n_days, np.full(n_days, 1.0 / n_days, dtype=np.float64)).astype(np.float64)
+        L = min(block_len, n_days)
+        n_starts = n_days - L + 1
+        n_blocks = (n_days + L - 1) // L
+        starts = rng.integers(0, n_starts, size=n_blocks)
+        idx = (starts[:, None] + np.arange(L, dtype=np.int64)[None, :]).ravel()[:n_days]
+        return np.bincount(idx, minlength=n_days).astype(np.float64)
 
     def _summarize_boot(pt: float, arr: np.ndarray) -> dict[str, float | bool]:
         lo = float(np.percentile(arr, 2.5))
@@ -1115,21 +1102,63 @@ def main() -> int:
             "covers_zero": bool(lo <= 0.0 <= hi),
         }
 
+    def _run_block_boot(block_len: int, seed_val: int) -> dict[str, object]:
+        rng_b = np.random.default_rng(seed_val)
+        b_ns = np.empty(B_BOOT, dtype=np.float64)
+        b_nd = np.empty(B_BOOT, dtype=np.float64)
+        b_nls = np.empty(B_BOOT, dtype=np.float64)
+        b_nld = np.empty(B_BOOT, dtype=np.float64)
+        b_au = np.empty(B_BOOT, dtype=np.float64)
+        b_am = np.empty(B_BOOT, dtype=np.float64)
+        for bi in range(B_BOOT):
+            m_ov_i = _draw_mbb_mult(rng_b, n_ov_days, block_len)
+            m_ex_i = _draw_mbb_mult(rng_b, n_ex_days, block_len)
+            m_all_i = np.concatenate([m_ov_i, m_ex_i])
+            ns_b, nd_b, nls_b, nld_b, au_b, am_b, _ = _eval_caiso_curtailment_stat(m_all_i)
+            b_ns[bi] = ns_b
+            b_nd[bi] = nd_b
+            b_nls[bi] = nls_b
+            b_nld[bi] = nld_b
+            b_au[bi] = au_b
+            b_am[bi] = am_b
+        return {
+            "block_days": int(block_len),
+            "B": int(B_BOOT),
+            "seed": int(seed_val),
+            "net_sys_main": _summarize_boot(emp_net_ciso_sys, b_ns),
+            "net_dom_main": _summarize_boot(emp_net_ciso_dom, b_nd),
+            "net_sys_pure_load": _summarize_boot(emp_net_ciso_pure_load_sys, b_nls),
+            "net_dom_pure_load": _summarize_boot(emp_net_ciso_pure_load_dom, b_nld),
+            "diff_pure_load_minus_main_sys": _summarize_boot(
+                emp_net_ciso_pure_load_sys - emp_net_ciso_sys, b_nls - b_ns
+            ),
+            "alpha_emp_unspill": _summarize_boot(alpha_emp_unspill, b_au),
+            "alpha_emp_mef_collapse": _summarize_boot(alpha_emp_mef_sys, b_am),
+        }
+
+    boot_1d = _run_block_boot(1, BOOT_SEED)
+    boot_7d = _run_block_boot(7, BOOT_SEED + 7)
+    boot_14d = _run_block_boot(14, BOOT_SEED + 14)
+
     joint_boot_summary = {
         "B": int(B_BOOT),
         "seed": int(BOOT_SEED),
         "n_overlap_days": int(n_ov_days),
         "n_extra_cems_days": int(n_ex_days),
         "n_neighbor_bas": len(nbr_boot_structs),
-        "net_sys_main": _summarize_boot(emp_net_ciso_sys, b_net_sys),
-        "net_dom_main": _summarize_boot(emp_net_ciso_dom, b_net_dom),
-        "net_sys_pure_load": _summarize_boot(emp_net_ciso_pure_load_sys, b_net_ld_sys),
-        "net_dom_pure_load": _summarize_boot(emp_net_ciso_pure_load_dom, b_net_ld_dom),
-        "diff_pure_load_minus_main_sys": _summarize_boot(
-            emp_net_ciso_pure_load_sys - emp_net_ciso_sys, b_net_ld_sys - b_net_sys
-        ),
-        "alpha_emp_unspill": _summarize_boot(alpha_emp_unspill, b_a_unsp),
-        "alpha_emp_mef_collapse": _summarize_boot(alpha_emp_mef_sys, b_a_mef),
+        "primary_block_days": 14,
+        "net_sys_main": boot_1d["net_sys_main"],
+        "net_dom_main": boot_1d["net_dom_main"],
+        "net_sys_pure_load": boot_1d["net_sys_pure_load"],
+        "net_dom_pure_load": boot_1d["net_dom_pure_load"],
+        "diff_pure_load_minus_main_sys": boot_1d["diff_pure_load_minus_main_sys"],
+        "alpha_emp_unspill": boot_1d["alpha_emp_unspill"],
+        "alpha_emp_mef_collapse": boot_1d["alpha_emp_mef_collapse"],
+        "block_length_sensitivity": {
+            "1d": boot_1d,
+            "7d": boot_7d,
+            "14d": boot_14d,
+        },
     }
 
     ciso_row = next(r for r in ba_carbon_rows if r["ba"] == "CISO")
@@ -1160,26 +1189,37 @@ def main() -> int:
         col_names=["system_curt_mw", "local_curt_mw", "fs_load", "solar_mw", "wind_mw"],
         nw_lags=24,
     )
-    jb_ms = joint_boot_summary["net_sys_main"]
-    jb_md = joint_boot_summary["net_dom_main"]
-    jb_ls = joint_boot_summary["net_sys_pure_load"]
-    jb_ld = joint_boot_summary["net_dom_pure_load"]
+    jb_ms = boot_1d["net_sys_main"]
+    jb_md = boot_1d["net_dom_main"]
+    jb_ls = boot_1d["net_sys_pure_load"]
+    jb_ld = boot_1d["net_dom_pure_load"]
+    jb7_ms = boot_7d["net_sys_main"]
+    jb7_ls = boot_7d["net_sys_pure_load"]
+    jb7_md = boot_7d["net_dom_main"]
+    jb14_ms = boot_14d["net_sys_main"]
+    jb14_ls = boot_14d["net_sys_pure_load"]
+    jb14_md = boot_14d["net_dom_main"]
+    jb14_ld = boot_14d["net_dom_pure_load"]
     print(
-        f"\n  CAISO Non-Circular Summary (2024-07..2025-12, {len(cc):,} hrs, B={B_BOOT} Joint Day-Clustered Bootstrap):\n"
+        f"\n  CAISO Non-Circular Summary (2024-07..2025-12, {len(cc):,} hrs, B={B_BOOT} Joint Contiguous Block Bootstraps):\n"
         f"    Observed Curt>0 Chg Share (alpha_any)            = {100*alpha_any_curt:.1f}%\n"
         f"    Empirical Marginal Un-Curtailment (alpha_unspill)= {100*alpha_emp_unspill:.1f}% "
         f"(Empirical MEF-Collapse alpha_mef = {100*alpha_emp_mef_sys:.1f}%)\n"
         f"    Incremental Residual Headroom (rho_res, Cor 2.1) = {100*rho_residual_headroom_tot:.1f}% "
         f"(System-only = {100*rho_residual_headroom_sys:.1f}%)\n"
         f"    Thermodynamic Break-Even (alpha*_CISO)           = {100*ciso_alpha_star:.1f}%\n"
-        f"    Main System Net CO2 (dNetLoad_pot)               = {emp_net_ciso_sys:+.2f} kg/MWh "
-        f"(boot SE={jb_ms['boot_se']:.2f}, 95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}], p={jb_ms['p_boot_vs_zero_2sided']:.3f})\n"
-        f"    Pure Exog. dLoad System Net CO2                  = {emp_net_ciso_pure_load_sys:+.2f} kg/MWh "
-        f"(boot SE={jb_ls['boot_se']:.2f}, 95% CI [{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}], p={jb_ls['p_boot_vs_zero_2sided']:.3f})\n"
+        f"    Main System Net CO2 (dNetLoad_pot)               = {emp_net_ciso_sys:+.2f} kg/MWh\n"
+        f"      1d-block  95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}] (SE={jb_ms['boot_se']:.2f}, p={jb_ms['p_boot_vs_zero_2sided']:.3f})\n"
+        f"      7d-block  95% CI [{jb7_ms['ci95_lo']:+.2f}, {jb7_ms['ci95_hi']:+.2f}] (SE={jb7_ms['boot_se']:.2f}, p={jb7_ms['p_boot_vs_zero_2sided']:.3f})\n"
+        f"      14d-block 95% CI [{jb14_ms['ci95_lo']:+.2f}, {jb14_ms['ci95_hi']:+.2f}] (SE={jb14_ms['boot_se']:.2f}, p={jb14_ms['p_boot_vs_zero_2sided']:.3f})\n"
+        f"    Observed-Load dLoad System Net CO2               = {emp_net_ciso_pure_load_sys:+.2f} kg/MWh\n"
+        f"      1d-block  95% CI [{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}] (SE={jb_ls['boot_se']:.2f}, p={jb_ls['p_boot_vs_zero_2sided']:.3f})\n"
+        f"      7d-block  95% CI [{jb7_ls['ci95_lo']:+.2f}, {jb7_ls['ci95_hi']:+.2f}] (SE={jb7_ls['boot_se']:.2f}, p={jb7_ls['p_boot_vs_zero_2sided']:.3f})\n"
+        f"      14d-block 95% CI [{jb14_ls['ci95_lo']:+.2f}, {jb14_ls['ci95_hi']:+.2f}] (SE={jb14_ls['boot_se']:.2f}, p={jb14_ls['p_boot_vs_zero_2sided']:.3f})\n"
         f"    Main Domestic Net CO2 (dNetLoad_pot)             = {emp_net_ciso_dom:+.2f} kg/MWh "
-        f"(boot SE={jb_md['boot_se']:.2f}, 95% CI [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}], p={jb_md['p_boot_vs_zero_2sided']:.3f})\n"
-        f"    Pure Exog. dLoad Domestic Net CO2                = {emp_net_ciso_pure_load_dom:+.2f} kg/MWh "
-        f"(boot SE={jb_ld['boot_se']:.2f}, 95% CI [{jb_ld['ci95_lo']:+.2f}, {jb_ld['ci95_hi']:+.2f}], p={jb_ld['p_boot_vs_zero_2sided']:.3f})\n"
+        f"(1d [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}] | 7d [{jb7_md['ci95_lo']:+.2f}, {jb7_md['ci95_hi']:+.2f}] | 14d [{jb14_md['ci95_lo']:+.2f}, {jb14_md['ci95_hi']:+.2f}])\n"
+        f"    Observed-Load dLoad Domestic Net CO2             = {emp_net_ciso_pure_load_dom:+.2f} kg/MWh "
+        f"(1d [{jb_ld['ci95_lo']:+.2f}, {jb_ld['ci95_hi']:+.2f}] | 14d [{jb14_ld['ci95_lo']:+.2f}, {jb14_ld['ci95_hi']:+.2f}])\n"
         f"    Prop-2 Net CO2 at alpha_unspill / rho_res        = {prop2_net_at_emp_unspill:+.1f} / {prop2_net_at_residual_headroom:+.1f} kg/MWh\n"
         f"    Dispatch Elasticity dChg/dCurt (Total)           = {r_disp_tot['coefs']['total_curt_mw']['beta']:+.4f} "
         f"(t={r_disp_tot['coefs']['total_curt_mw']['t_day']:+.2f})",

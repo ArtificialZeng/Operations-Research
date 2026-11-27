@@ -258,6 +258,7 @@ REFERENCES: list[dict[str, str]] = [
 def verify_all_dois() -> dict[str, Any]:
     results = []
     n_verified = 0
+    sess = requests.Session()
     for ref in REFERENCES:
         doi = ref["doi"]
         status = 0
@@ -265,9 +266,9 @@ def verify_all_dois() -> dict[str, Any]:
         cr_authors: list[str] = []
         cr_journal = ""
         ok = False
-        for attempt in range(1, 4):
+        for attempt in range(1, 6):
             try:
-                r = requests.get(f"https://api.crossref.org/works/{doi}", headers=HEADERS, timeout=20)
+                r = sess.get(f"https://api.crossref.org/works/{doi}", headers=HEADERS, timeout=25)
                 status = r.status_code
                 if status == 200:
                     msg = r.json()["message"]
@@ -279,9 +280,28 @@ def verify_all_dois() -> dict[str, Any]:
                     word_ok = ref["expect_word"].lower() in cr_title.lower()
                     ok = bool(auth_ok and word_ok)
                     break
+                time.sleep(0.8 * attempt)
             except (requests.RequestException, ValueError, KeyError):
-                time.sleep(1.0 * attempt)
-            time.sleep(0.2)
+                time.sleep(1.2 * attempt)
+        if not ok:
+            # Live fallback to official doi.org CSL-JSON content negotiation on transient Crossref timeout
+            try:
+                r2 = sess.get(
+                    f"https://doi.org/{doi}",
+                    headers={**HEADERS, "Accept": "application/vnd.citationstyles.csl+json"},
+                    timeout=25,
+                )
+                status = r2.status_code
+                if status == 200:
+                    msg2 = r2.json()
+                    cr_title = re.sub(r"\s+", " ", html.unescape(str(msg2.get("title", "")))).strip()
+                    cr_authors = [a.get("family", "") for a in (msg2.get("author") or [])]
+                    cr_journal = html.unescape(str(msg2.get("container-title", "")))
+                    auth_ok = any(ref["expect_author"].lower() in a.lower() for a in cr_authors)
+                    word_ok = ref["expect_word"].lower() in cr_title.lower()
+                    ok = bool(auth_ok and word_ok)
+            except (requests.RequestException, ValueError, KeyError):
+                pass
         if ok:
             n_verified += 1
         results.append(

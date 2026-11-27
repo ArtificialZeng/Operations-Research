@@ -1,20 +1,25 @@
 {
   "workspace": "D:\\AI_Science\\antigravity\\k1_boost_grid_battery_carbon_20261127",
-  "n_files": 31,
+  "n_files": 32,
   "files": {
     "manuscript_k1_boost.md": {
-      "sha256": "5baa7added192ced30ac8584c2e094bd77e5cee819684dbea9b8afbd03bacc33",
-      "bytes": 66779,
+      "sha256": "009f9843fb8f3b5a10f8464fde32a48aeffb5a13f71c71d84e66a5263efb540b",
+      "bytes": 68966,
       "mode": "lf_text"
     },
-    "manuscript_k1_boost.pdf": {
-      "sha256": "3263d8318cff4d7344352ee28ec1e3e1e21fe7a49675301ad5f3459372f1e4cc",
-      "bytes": 2968083,
+    "manuscript_k1_boost_v3.pdf": {
+      "sha256": "ec8ce8b12fa560b0ec45edd2d7dc54da86e684a03a81bb63546abf8b70142f2c",
+      "bytes": 2994428,
       "mode": "raw_binary"
     },
     "REFEREE_RESPONSE_v2.md": {
       "sha256": "4cb92f48648510bb6d363e92b4f7b5f3f8f842777684ddd68b1d1ef7757acb69",
       "bytes": 16728,
+      "mode": "lf_text"
+    },
+    "REFEREE_RESPONSE_v3.md": {
+      "sha256": "0cf83873daa0e96327ffa9cf4cc27b4a50caf218857685f4ae78fa3dc8907929",
+      "bytes": 5283,
       "mode": "lf_text"
     },
     "scripts/00_download_external_data.py": {
@@ -33,38 +38,38 @@
       "mode": "lf_text"
     },
     "scripts/03_cems_carbon_and_caiso_curtailment.py": {
-      "sha256": "0f293c4945321fd417755c153c3060ea3bb5b36b30861c147da99cc7e4a1f4a5",
-      "bytes": 61005,
+      "sha256": "4a1b58dd7b5718aaea0b3bef88d7297084d8ff2f2888acd2eef9e299d52696ee",
+      "bytes": 63367,
       "mode": "lf_text"
     },
     "scripts/04_formal_carbon_model.py": {
-      "sha256": "41511a44c7276e9cf1292c726ec119396f1c9aebfec086f244672828c3bc850a",
-      "bytes": 10510,
+      "sha256": "ec0217a5e9a4cb93d29b73995fb3dcf0dcb506a5a7e9d5288d9f0bb835af46dd",
+      "bytes": 17686,
       "mode": "lf_text"
     },
     "scripts/06_generate_figures.py": {
-      "sha256": "102a4f768c056b05b143cd850088cb64378ae6ab001ff50c04d11fdccd7df8bc",
-      "bytes": 31648,
+      "sha256": "49970d12e195f3ec1bfc8fe9e699547ea1e1f37c1f52b3a59c6371ef635d689e",
+      "bytes": 31719,
       "mode": "lf_text"
     },
     "scripts/07_verify_citations.py": {
-      "sha256": "011a6b1853b0cffef1c420c96affdbb347d84ae135b219280a1224102970a31e",
-      "bytes": 14117,
+      "sha256": "f61ea9b1932f584e23ea2f01c3929c265bda9148ee8b3e1a42c5d3ccedeb4f96",
+      "bytes": 15226,
       "mode": "lf_text"
     },
     "scripts/07a_generate_manuscript_md.py": {
-      "sha256": "6b28844b30c2b529215ac57b3638ba3cef8240121c0a5269ed571849e943c1c3",
-      "bytes": 91926,
+      "sha256": "d3ebb5ae84e661681c6a2bca83c9e2e7e04d4b5f9c2b6f9665028f283a394eb8",
+      "bytes": 97828,
       "mode": "lf_text"
     },
     "scripts/08_compile_manuscript_pdf.py": {
-      "sha256": "acc72244a6a251acafa3e29d56a730e6f3301f9708688837b0ccd4446ee00cb7",
-      "bytes": 32826,
+      "sha256": "b6442e2912b63336fa3771ddbd4d19f1ebb939ea10f7f7af3ba01c9fa603c54e",
+      "bytes": 33968,
       "mode": "lf_text"
     },
     "scripts/09_generate_checksums.py": {
-      "sha256": "1e81282f300f50fd018d418087f0d5093483a84051224a6e0d0f33aed3b23fcf",
-      "bytes": 1959,
+      "sha256": "9f62c2c9dde71de3f1bf5b859e10f09bc5a59d9f591293505dec55383397b302",
+      "bytes": 2005,
       "mode": "lf_text"
     },
     "scripts/econ_utils.py": {
@@ -73,8 +78,8 @@
       "mode": "lf_text"
     },
     "tests/test_k1_boost.py": {
-      "sha256": "951c07c09bea18d198432cf294ed2cac40b12e56e4e8050ab426575e1c650aa9",
-      "bytes": 29179,
+      "sha256": "01bbd832b7faf12e4e83bb1d4c6b9648720a3182646ea3d3cd5b5d7d74aff65c",
+      "bytes": 31224,
       "mode": "lf_text"
     },
     "results/00_external_downloads_audit.json": {
@@ -93,13 +98,13 @@
       "mode": "lf_text"
     },
     "results/03_cems_carbon_curtailment_results.json": {
-      "sha256": "a55a28e32d7f6084aaebf140577ec2d243a6014d2963d25c2a0e1e92111e2ce8",
-      "bytes": 103828,
+      "sha256": "a4184d0423a76c8aa0d5af840c17ad533d2ea83e811a5be44b54ee1da5751087",
+      "bytes": 111522,
       "mode": "lf_text"
     },
     "results/04_formal_model_verification.json": {
-      "sha256": "1d1caad5936082809bbcc8e7020550ec48ba61495eee02e16f5e999afea35f3e",
-      "bytes": 14569,
+      "sha256": "130bfc4014357f807a74c7a32d78d52799a5e09c0fd3c18b41e56948aea56175",
+      "bytes": 21222,
       "mode": "lf_text"
     },
     "results/07_citation_verification.json": {
@@ -113,8 +118,8 @@
       "mode": "raw_binary"
     },
     "figures/fig2_telemetry_forensics_and_diurnal_charging.png": {
-      "sha256": "b77a3e1a38adeb307bc34239be257e68e699906ea0744fe57f3936464db44e68",
-      "bytes": 341827,
+      "sha256": "77ace85aa80435d73e5ff0ff271bbb7a1d2ec6f7738817ae3e2260492020e6c5",
+      "bytes": 341594,
       "mode": "raw_binary"
     },
     "figures/fig3_cems_mef_vs_aef_sign_reversal.png": {
@@ -123,38 +128,38 @@
       "mode": "raw_binary"
     },
     "figures/fig4_caiso_noncircular_curtailment_tipping.png": {
-      "sha256": "9c761ce0cfe0597c20213a84ab10ce0c36c5f752049bac5c3ea36198de92d1bc",
-      "bytes": 421124,
+      "sha256": "98ac2d5dd184c656c2f38ed1bcbe6b256cd01c831f5f77ad25680905fdc0f60e",
+      "bytes": 424382,
       "mode": "raw_binary"
     },
     "figures/fig5_hourly_dispatch_and_master_audit.png": {
-      "sha256": "ec2063116ae3e5cd1b9432d8c466d34578b6e8a94b22309c576b6c11118f265d",
-      "bytes": 392426,
+      "sha256": "2e0a61d482f62ebffc562c5188e1abe08871fffc54c2052d004629aa6731906c",
+      "bytes": 389049,
       "mode": "raw_binary"
     },
     "figures/fig1_diurnal_gas_displacement_and_leads.pdf": {
-      "sha256": "435135b78a48faef77b443d25580da3b396722bc0c3e1cb3d3217bebf6e61865",
+      "sha256": "2200c54930dcb1985d37ce55273e6b337538bcf0c93105ae9c5c73592becec96",
       "bytes": 57341,
       "mode": "raw_binary"
     },
     "figures/fig2_telemetry_forensics_and_diurnal_charging.pdf": {
-      "sha256": "39ae441339a10ef3e53dd926619f3160c9fcbed81e3ee2004fdb55d9d38048b2",
-      "bytes": 50215,
+      "sha256": "de4b8a1155f8e38f9a750568844a5c01b862c0d2467776f6f1e5633288452913",
+      "bytes": 50193,
       "mode": "raw_binary"
     },
     "figures/fig3_cems_mef_vs_aef_sign_reversal.pdf": {
-      "sha256": "76474749bfde4b076ea4c38b96fd20615208c241a30ec95f1180acb496c9b91b",
+      "sha256": "7d8551dea66742dacbc2e0b74977fddd6d5a278e54345252998e0032c10f86fd",
       "bytes": 53875,
       "mode": "raw_binary"
     },
     "figures/fig4_caiso_noncircular_curtailment_tipping.pdf": {
-      "sha256": "8f93af2d0d29714b835c154147ba5566094d75c16d9a0970228f98301dcf7a62",
-      "bytes": 56051,
+      "sha256": "5e87c454e779a44ce90f1b80398f5e0f4ef7bd26a8b78e350338da25a53cdac9",
+      "bytes": 55909,
       "mode": "raw_binary"
     },
     "figures/fig5_hourly_dispatch_and_master_audit.pdf": {
-      "sha256": "f57d557689f80c3890f3ca9ded1235136f5256f8fc5edacea91f723b9ea48b8f",
-      "bytes": 54632,
+      "sha256": "6af4104e9e68c6830c9123779ca82ccfec540e469caf2036bb939f4fc8c129d8",
+      "bytes": 53982,
       "mode": "raw_binary"
     }
   }

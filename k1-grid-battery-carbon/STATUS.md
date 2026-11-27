@@ -1,24 +1,17 @@
-# Status & Freeze Record — Flagship `#8 K1` (U.S. Utility-Scale Battery Storage Diurnal Gas Displacement & Carbon-Arbitrage Paradox)
+# Status & Freeze Record — Flagship `#8 K1` (Counterfactual Carbon Accounting & Diurnal Gas-Peaker Displacement of U.S. Utility-Scale Battery Storage)
 
-- **State:** `FROZEN_SUBMISSION_READY_V2` (Post-External-Referee Major Revision)
+- **State:** `FROZEN_SUBMISSION_READY_V3` (*Nature Energy* Analysis Submission Polish)
 - **Revision Timestamp:** `2026-11-27`
 - **Workspace:** `D:\AI_Science\antigravity\k1_boost_grid_battery_carbon_20261127`
-- **Manuscript PDF:** `manuscript_k1_boost.pdf` (`15` pages, `2,968,083` bytes, `SHA-256: 3263d8318cff4d7344352ee28ec1e3e1e21fe7a49675301ad5f3459372f1e4cc`)
-- **Referee Response Record:** `REFEREE_RESPONSE_v2.md`
-- **Independent Verification (`v2`):**
+- **Manuscript PDF (`v3`):** `manuscript_k1_boost_v3.pdf` (`15` pages, `2,994,428` bytes, `SHA-256: ec8ce8b12fa560b0ec45edd2d7dc54da86e684a03a81bb63546abf8b70142f2c`) *(Note: local `manuscript_k1_boost.pdf` was open/locked in an external viewer during compilation; Draft PR #29 contains the fresh `v3` PDF bytes synced to both `manuscript_k1_boost.pdf` and `manuscript_k1_boost_v3.pdf`.)*
+- **Referee Response Records:** `REFEREE_RESPONSE_v2.md`, `REFEREE_RESPONSE_v3.md`
+- **Independent Verification (`v3`):**
   - `ruff check scripts/ tests/`: `0` errors (`All checks passed!`)
   - `pytest -v tests/test_k1_boost.py`: `23/23` passed (`100%`)
-  - `SHA256SUMS.json`: `31/31` disk-verified (`0` missing, `0` mismatches)
-  - Crossref Live Citations: `18/18` academic DOIs HTTP-200 verified (`100%` two-way sync; zero institutional guesswork)
-  - PDF Zero-Leak Audit: `0` HTML entities, `0` raw LaTeX commands, `0` escaped dollars, `0` raw markdown bolds, `0` NaN/Inf
-  - Visual Audit: Updated 300-DPI PNG figures (`fig2`, `fig3`, `fig4`) and rendered PDF pages (`1, 2, 4, 5, 7, 9, 10, 11, 12, 13, 14, 15`) visually inspected via `read_file` with zero overlaps or layout defects; temporary preview PNGs deleted prior to `SHA256SUMS.json` freeze
-- **Major Revision (`v2`) Scientific & Statistical Enhancements:**
-  - `+7.44 Mt CO2` rigorously scoped as the model-based counterfactual accounting discrepancy (`CEMS-MEF counterfactual +3.69 Mt` minus `AEF counterfactual -3.75 Mt` across `49.77 TWh` discharged)
-  - Added CAISO alternative pure exogenous `ΔLoad` curtailment-stratified net CO2 (`+1.34 kg/MWh` system, `-30.67 kg/MWh` domestic) and `B = 1,000` joint date-clustered block-bootstrap 95% CIs (`Main System: -0.80 [-10.39, +8.15], p = 0.810`; `Pure ΔLoad System: +1.34 [-14.14, +18.62], p = 0.826`) plus explicit `83%` in-state domestic vs. `60%` system-wide collapse separation
-  - Replaced all federal-corruption wording with objective `+5,553 MW` EIA-930 vs. CAISO/CEMS midday natural-gas reporting discrepancy framing
-  - Framed Panel A WLS (`-0.3352`) as conditional diurnal displacement with prominent `No Controls = -0.0579, p_Rad = 0.576` disclosure in Abstract & Section 4.2, plus **Box 1** explicit 3-sample architecture summary
-- **Known Scope / Future Extension Criteria:**
-  - Non-CAISO interval curtailment logs (ERCOT/SWPP/AZPS) are not yet published uniformly across 2024–2026; CAISO 2026 curtailment workbook not yet released
-  - Short-run operational dispatch holds long-run induced solar entry fixed (structural long-run counterfactuals per Butters et al. 2025 are a natural extension)
-  - `FPL` DC-coupled behind-the-meter hybrid metering (`RTE = 0.949`) flagged separately from the 13 clean AC-coupled grids
-- **No Unauthorized Edits:** Do not modify any verified artifact in this directory after freeze.
+  - `SHA256SUMS.json`: `32/32` disk-verified (`0` missing, `0` mismatches)
+  - Crossref Live Citations: `18/18` academic DOIs HTTP-200 verified (`100%` two-way sync)
+  - PDF Zero-Leak & Tone Guardrail Audit: `0` formatting leaks, `0` occurrences of `"carbon neutral"`, `"carbon neutrality"`, `"pure exogenous"`, `"spotless"`, `"proving rigorously"`, `"extraordinary"`, `"master forensic audit"`, or `"definitively"`
+- **Submission Polish (`v3`) Scientific & Statistical Enhancements:**
+  - Added `B = 1,000` joint contiguous moving-block bootstraps at `1d`, `7d`, and `14d` block lengths (`scripts/03_cems_carbon_and_caiso_curtailment.py`): CAISO Main System `-0.80 kg/MWh` (`14d 95% CI [-14.20, +12.58], SE = 6.85, p = 0.920`; `7d [-13.24, +9.83]`; `1d [-10.39, +8.15]`) vs. Observed-Load `ΔLoad` System `+1.34 kg/MWh` (`14d 95% CI [-21.86, +30.51], SE = 13.78, p = 0.764`), while domestic-only remains strictly negative across all block lengths (`-30.64`, `14d [-42.78, -17.48]`)
+  - Unified all prose, captions, and Figure 4B to state **"accounting for cross-region imports, California's net emissions direction remains undetermined"** (removing neutrality-confirmation and `ΔLoad`-exogeneity assertions) and strictly keeping `+7.44 Mt CO2` as the counterfactual accounting discrepancy between two models
+  - Centered Title, Abstract, and Section 1 squarely on the 14-BA counterfactual accounting comparison for *Nature Energy* (Analysis), added **Table 4b** (14-BA curtailment-absorption sensitivity: uniform break-even `18.9%`; hybrid empirical-CAISO + `0–15%` non-CAISO leaves `+5.59` to `+4.04 Mt CO2` discrepancy vs. AEF), added the **CAISO Congestion-Constrained Incremental Storage Saturation Frontier** (`κ = 0.25×/1.0×/2.0×`: `40.3%/18.2%/10.1%` total vs. `5.3%/2.8%/1.6%` system-only), and transparently disclosed marginal Table 3 WCB `p`-values (`0.075–0.130`) in Section 4.2 prose

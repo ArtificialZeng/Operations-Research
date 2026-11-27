@@ -12,8 +12,10 @@ import html
 import json
 import math
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 from econ_utils import FIG_DIR, RES_DIR, WS_DIR
@@ -22,6 +24,7 @@ from pypdf import PdfReader
 MD_PATH = WS_DIR / "manuscript_k1_boost.md"
 HTML_PATH = WS_DIR / "manuscript_k1_boost.html"
 PDF_PATH = WS_DIR / "manuscript_k1_boost.pdf"
+PDF_V3_PATH = WS_DIR / "manuscript_k1_boost_v3.pdf"
 EDGE_EXE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 
 
@@ -67,9 +70,12 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
     dom_drop_pct = 100.0 * (1.0 - bins[3]["mef_cems_dom_kg_mwh"] / bins[0]["mef_cems_dom_kg_mwh"])
     sys_drop_pct = 100.0 * (1.0 - bins[3]["mef_cems_sys_kg_mwh"] / bins[0]["mef_cems_sys_kg_mwh"])
     jb = cc["joint_block_bootstrap_1000"]
-    jb_ms = jb["net_sys_main"]
-    jb_ls = jb["net_sys_pure_load"]
-    jb_md = jb["net_dom_main"]
+    jb1 = jb["block_length_sensitivity"]["1d"]
+    jb7 = jb["block_length_sensitivity"]["7d"]
+    jb14 = jb["block_length_sensitivity"]["14d"]
+    jb_ms = jb14["net_sys_main"]
+    jb_ls = jb14["net_sys_pure_load"]
+    jb_md = jb14["net_dom_main"]
     m_noctrl = sp["WLS_ALL49_NO_CONTROLS_NG"]
     cems_r_min = min(cems_al[b]["r_at_lag0"] for b in ["CISO", "ERCO", "MISO", "SOCO", "DUK"])
     cems_r_max = max(cems_al[b]["r_at_lag0"] for b in ["CISO", "ERCO", "MISO", "SOCO", "DUK"])
@@ -102,7 +108,7 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
                 f"({pk_all['beta']:+.3f}, <em>t</em> = {pk_all['t_cr1']:+.2f} across all 49 BAs; {pk_dce['beta']:+.3f}, <em>t</em> = {pk_dce['t_cr1']:+.2f} "
                 f"dropping CISO and ERCO), mirroring midday charging increases while baseload nuclear remains identically zero. "
                 f"Panel B contrasts the calendar-aligned distributed 6-month timing specification (top: installed <code>Stock(t-12)</code> = {ll['terms']['stock_tm12']['beta']:+.3f}, "
-                f"recent additions {ll['terms']['add_tm12_tm6']['beta']:+.3f} and {ll['terms']['add_tm6_t0']['beta']:+.3f} vs. spotless unbuilt future leads "
+                f"recent additions {ll['terms']['add_tm12_tm6']['beta']:+.3f} and {ll['terms']['add_tm6_t0']['beta']:+.3f} vs. null unbuilt future leads "
                 f"{ll['terms']['fut_t0_tp6']['beta']:+.3f} and {ll['terms']['fut_tp6_tp12']['beta']:+.3f}, Joint Future <em>F</em> = {ll['joint_future_leads_F']['F']:.2f}, "
                 f"<em>p</em> = {ll['joint_future_leads_F']['p']:.3f}) against eight controlled WLS robustness checks (bottom: Main All 49 = {sp['WLS_ALL49_MAIN_NG']['coefs']['bess_share']['beta']:+.3f} "
                 f"vs. uncontrolled solar-confounded No Controls = {m_noctrl['coefs']['bess_share']['beta']:+.4f}, <em>p</em><sub>Rad</sub> = {_fmt_p_html(m_noctrl['wcb']['p_wcb'])}; "
@@ -141,22 +147,23 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
             ),
         ),
         "fig4_caiso_noncircular_curtailment_tipping.png": (
-            f"Figure 4. Non-Circular Empirical CAISO Interior CEMS Collapse (&minus;{dom_drop_pct:.0f}% Domestic, &minus;{sys_drop_pct:.0f}% System) Under Official Curtailment Regimes and Joint Block-Bootstrap Carbon Neutrality (Sample 3: 2024-07 to 2025-12).",
+            f"Figure 4. CAISO Interior CEMS MEF Collapse (&minus;{dom_drop_pct:.0f}% Domestic, &minus;{sys_drop_pct:.0f}% System) Under Official Curtailment Regimes and Multi-Day Block-Bootstrap Uncertainty (Sample 3: 2024-07 to 2025-12).",
             (
                 f"Panel A merges official CAISO hourly curtailments (2024-07 to 2025-12, {cc['window']['n_hours']:,} hours) directly onto standalone CAISO battery telemetry "
                 f"and EPA CEMS generator-stack CO<sub>2</sub> across strictly interior regime hours (requiring both <em>t</em> and <em>t</em>&minus;1 in bin; absorbing Year-Month &times; Hour FE, &plusmn;95% date-clustered CI): "
-                f"in consecutive interior &gt;2,000 MW curtailment hours, in-state domestic CAISO CEMS MEF collapses by {dom_drop_pct:.0f}% ({bins[0]['mef_cems_dom_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_dom_kg_mwh']:.0f} kg/MWh), "
-                f"import-adjusted system-wide CEMS MEF drops {sys_drop_pct:.0f}% ({bins[0]['mef_cems_sys_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_sys_kg_mwh']:.0f} kg/MWh), and marginal un-curtailment (&minus;&part;Curt/&part;NL, crimson diamonds) climbs from exact "
-                f"{abs(-100*bins[0]['d_curt_per_d_netload']):.1f}% to {abs(-100*bins[3]['d_curt_per_d_netload']):.1f}%. Panel B plots Proposition 2&rsquo;s exact thermodynamic break-even threshold "
+                f"in consecutive interior &gt;2,000 MW curtailment hours, in-state domestic CAISO CEMS MEF falls by {dom_drop_pct:.0f}% ({bins[0]['mef_cems_dom_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_dom_kg_mwh']:.0f} kg/MWh), "
+                f"import-adjusted system-wide CEMS MEF drops {sys_drop_pct:.0f}% ({bins[0]['mef_cems_sys_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_sys_kg_mwh']:.0f} kg/MWh), and marginal un-curtailment (&minus;&part;Curt/&part;NL, crimson diamonds) climbs from "
+                f"{abs(-100*bins[0]['d_curt_per_d_netload']):.1f}% to {abs(-100*bins[3]['d_curt_per_d_netload']):.1f}%. Panel B plots Proposition 2&rsquo;s break-even threshold "
                 f"&alpha;<sub>b</sub><sup>*</sup> = 1 &minus; &eta;<sub>b</sub> MEF<sub>dis</sub>/MEF<sub>chg</sub> across all 14 grids alongside CAISO&rsquo;s empirical marginal curtailment absorption "
                 f"(&alpha;&#770;<sup>emp</sup> = {100*cc['alpha_emp_unspill_share']:.1f}%) and Corollary 2.1 incremental residual headroom (&rho;<sup>res</sup> = {100*cc['rho_residual_headroom_total']:.1f}%, system-only {100*cc['rho_residual_headroom_system']:.1f}% vs. &alpha;<sub>CISO</sub><sup>*</sup> = "
-                f"{100*cc['alpha_star_ciso_cems']:.1f}%). Propagating diurnal, cross-BA import, curtailment-regime, and cycling-weight uncertainty jointly via a <em>B</em> = {jb['B']:,} date-clustered block bootstrap places CAISO system-wide net CO<sub>2</sub> at "
-                f"{jb_ms['point_estimate']:+.2f} kg/MWh (95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}]) under the main specification and {jb_ls['point_estimate']:+.2f} kg/MWh (95% CI [{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}]) under the pure exogenous &Delta;Load alternative "
-                f"(vs. {jb_md['point_estimate']:+.2f} kg/MWh, 95% CI [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}], domestic-only and {c3_map['CISO']['net_aef_kg_mwh']:+.1f} naive AEF)&mdash;confirming statistical carbon neutrality across both system-wide specifications."
+                f"{100*cc['alpha_star_ciso_cems']:.1f}%). Propagating diurnal, cross-BA import, curtailment-regime, and cycling-weight uncertainty jointly via a <em>B</em> = {jb['B']:,} 14-day contiguous block bootstrap places CAISO system-wide net CO<sub>2</sub> at "
+                f"{jb_ms['point_estimate']:+.2f} kg/MWh (14d 95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}]; 7d [{jb7['net_sys_main']['ci95_lo']:+.2f}, {jb7['net_sys_main']['ci95_hi']:+.2f}]; 1d [{jb1['net_sys_main']['ci95_lo']:+.2f}, {jb1['net_sys_main']['ci95_hi']:+.2f}]) under the main specification and "
+                f"{jb_ls['point_estimate']:+.2f} kg/MWh (14d 95% CI [{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}]) under the alternative observed-load &Delta;Load specification "
+                f"(vs. {jb_md['point_estimate']:+.2f} kg/MWh, 14d 95% CI [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}], domestic-only and {c3_map['CISO']['net_aef_kg_mwh']:+.1f} naive AEF)&mdash;showing that once cross-region imports are included, the net emissions direction remains undetermined while still ruling out naive AEF&rsquo;s large abatement claim."
             ),
         ),
         "fig5_hourly_dispatch_and_master_audit.png": (
-            "Figure 5. High-Frequency Within-BA-Month Daily Dispatch (BA &times; Year-Month FE), Storage Duration Horse-Race, and Master Forensic Audit Forest.",
+            "Figure 5. High-Frequency Within-BA-Month Daily Dispatch (BA &times; Year-Month FE), Storage Duration Horse-Race, and Summary of Empirical Estimates.",
             (
                 f"Panel A (top) displays high-frequency daily WLS regressions absorbing BA &times; Year-Month FE and Date FE ({dy['DAILY_ALL49_NG_MWH']['n']:,} BA-days): "
                 f"interacting daily midday solar swings with installed BESS energy capacity (MWh) confirms strong evening displacement on Natural Gas "
@@ -244,6 +251,7 @@ def _tex_to_html(expr: str) -> str:
         (r"\times", "&times;"),
         (r"\cdot", "&middot;"),
         (r"\pm", "&plusmn;"),
+        (r"\kappa", "&kappa;"),
         (r"\le", "&le;"),
         (r"\ge", "&ge;"),
         (r"\neq", "&ne;"),
@@ -472,7 +480,7 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
       size: letter;
       margin: 0.62in 0.62in 0.68in 0.62in;
       @top-right {
-        content: "Diurnal Gas Displacement and the Carbon-Arbitrage Paradox of U.S. Battery Storage (2019-2026)";
+        content: "Counterfactual Carbon Accounting of U.S. Utility-Scale Battery Storage (2019-2026)";
         font-family: Georgia, "Times New Roman", serif;
         font-size: 7.1pt;
         color: #555;
@@ -597,7 +605,7 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
     """
     return (
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8' />"
-        "<title>Real-World Diurnal Gas-Peaker Displacement and the Carbon-Arbitrage Paradox of U.S. Utility-Scale Battery Storage (2019-2026)</title>"
+        "<title>Counterfactual Carbon Accounting and Diurnal Gas-Peaker Displacement of U.S. Utility-Scale Battery Storage (2019-2026)</title>"
         f"<style>{css}</style></head><body>{''.join(body)}</body></html>"
     )
 
@@ -644,28 +652,45 @@ def main() -> int:
         print(f"[ERROR] Microsoft Edge not found at {EDGE_EXE}", file=sys.stderr)
         return 1
 
+    PDF_V3_PATH.unlink(missing_ok=True)
+    edge_profile_dir = Path(tempfile.mkdtemp(prefix="k1_edge_pdf_"))
     cmd = [
         str(EDGE_EXE),
         "--headless=new",
         "--disable-gpu",
+        "--no-first-run",
+        f"--user-data-dir={edge_profile_dir}",
         "--no-pdf-header-footer",
-        f"--print-to-pdf={PDF_PATH}",
+        f"--print-to-pdf={PDF_V3_PATH}",
         HTML_PATH.as_uri(),
     ]
-    res = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
-    if res.returncode != 0 or not PDF_PATH.exists() or PDF_PATH.stat().st_size < 50_000:
+    try:
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
+    finally:
+        shutil.rmtree(edge_profile_dir, ignore_errors=True)
+    if res.returncode != 0 or not PDF_V3_PATH.exists() or PDF_V3_PATH.stat().st_size < 50_000:
         print(f"[ERROR] Edge PDF compile failed rc={res.returncode}: {res.stderr}", file=sys.stderr)
         return 1
 
-    n_pages, leaks = verify_pdf_zero_leaks(PDF_PATH)
+    n_pages, leaks = verify_pdf_zero_leaks(PDF_V3_PATH)
     HTML_PATH.unlink(missing_ok=True)
     if leaks:
         print(f"[ERROR] Leaked LaTeX/Markdown/HTML tokens found in PDF: {leaks}", file=sys.stderr)
         return 2
-    sha = hashlib.sha256(PDF_PATH.read_bytes()).hexdigest()
+    sha = hashlib.sha256(PDF_V3_PATH.read_bytes()).hexdigest()
+    synced_main = False
+    try:
+        shutil.copy2(PDF_V3_PATH, PDF_PATH)
+        synced_main = True
+    except PermissionError:
+        print(
+            f"[WARN] {PDF_PATH.name} is currently open/locked by another application; "
+            f"fresh v3 PDF saved cleanly to {PDF_V3_PATH.name}.",
+            flush=True,
+        )
     print(
-        f"[DONE STEP 08] Compiled {PDF_PATH} ({PDF_PATH.stat().st_size:,} bytes, "
-        f"{n_pages} pages, 0 leaked tokens, SHA-256: {sha})",
+        f"[DONE STEP 08] Compiled {PDF_V3_PATH} ({PDF_V3_PATH.stat().st_size:,} bytes, "
+        f"{n_pages} pages, 0 leaked tokens, synced_main={synced_main}, SHA-256: {sha})",
         flush=True,
     )
     return 0

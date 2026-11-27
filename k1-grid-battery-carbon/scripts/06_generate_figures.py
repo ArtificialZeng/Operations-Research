@@ -251,7 +251,7 @@ def make_fig2(r1: dict) -> None:
     ax1.set_xticklabels(labels_a, fontsize=7.2)
     ax1.set_ylim(0.0, 2.02)
     ax1.set_ylabel("Metered Round-Trip Efficiency (Dis / Chg)")
-    ax1.set_title("A. Physical Telemetry Forensics & Reconciliation")
+    ax1.set_title("A. Storage Telemetry Audit & Reconciliation")
     ax1.legend(loc="upper center", bbox_to_anchor=(0.50, -0.17), ncol=2, fontsize=6.9, frameon=True)
     ax1.grid(True, axis="y", ls=":", alpha=0.4)
     ax1.spines["top"].set_visible(False)
@@ -524,20 +524,21 @@ def make_fig4(r3: dict) -> None:
     ax2.legend(loc="lower right", fontsize=6.3, frameon=True, framealpha=0.95)
 
     jb = cc["joint_block_bootstrap_1000"]
-    jb_ms = jb["net_sys_main"]
-    jb_ls = jb["net_sys_pure_load"]
-    jb_md = jb["net_dom_main"]
+    jb14 = jb["block_length_sensitivity"]["14d"]
+    jb_ms = jb14["net_sys_main"]
+    jb_ls = jb14["net_sys_pure_load"]
+    jb_md = jb14["net_dom_main"]
     ax2.text(
         19.6,
         3.0,
-        f"CAISO Curt.-Adj. (95% Joint Boot CI):\n"
+        f"CAISO Curt.-Adj. (14d Block Boot 95% CI):\n"
         f"Main Sys: {jb_ms['point_estimate']:+.2f} [{jb_ms['ci95_lo']:+.1f}, {jb_ms['ci95_hi']:+.1f}]\n"
-        f"ΔLoad Sys: {jb_ls['point_estimate']:+.2f} [{jb_ls['ci95_lo']:+.1f}, {jb_ls['ci95_hi']:+.1f}]\n"
+        f"Obs. ΔLoad Sys: {jb_ls['point_estimate']:+.2f} [{jb_ls['ci95_lo']:+.1f}, {jb_ls['ci95_hi']:+.1f}]\n"
         f"Dom. Only: {jb_md['point_estimate']:+.1f} [{jb_md['ci95_lo']:+.1f}, {jb_md['ci95_hi']:+.1f}]\n"
-        f"(kg/MWh; vs. AEF: {ciso_r['net_aef_kg_mwh']:+.1f})",
+        f"(kg/MWh; sys. dir. undetermined; AEF: {ciso_r['net_aef_kg_mwh']:+.1f})",
         va="bottom",
         ha="left",
-        fontsize=5.9,
+        fontsize=5.6,
         bbox={"boxstyle": "round,pad=0.28", "fc": "#f0fdfa", "ec": TEAL, "alpha": 0.96},
     )
 
@@ -638,7 +639,7 @@ def make_fig5(r2: dict, r3: dict) -> None:
     ax2.set_yticklabels([it[0] for it in audit_items], fontsize=7.3)
     ax2.set_xlim(0, 21.8)
     ax2.set_xlabel("Cluster-Robust $|t|$-Statistic (capped at 18 for display)")
-    ax2.set_title("B. Master Forensic Audit: Verified Effects vs. Honest Nulls")
+    ax2.set_title("B. Summary of Empirical Estimates and Placebo Tests")
     ax2.grid(True, axis="x", ls=":", alpha=0.35)
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)

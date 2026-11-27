@@ -12,7 +12,9 @@ from __future__ import annotations
 
 import json
 
-from econ_utils import RES_DIR, save_json_lf
+import numpy as np
+import pandas as pd
+from econ_utils import PROC_DIR, RES_DIR, save_json_lf
 
 
 def prop1_displacement_rate(
@@ -167,6 +169,138 @@ def main() -> int:
     ciso_rho_res_tot = float(ciso_curt_info["rho_residual_headroom_total"])
     ciso_rho_res_sys = float(ciso_curt_info["rho_residual_headroom_system"])
 
+    # 3. Fleet-Wide Counterfactual Sensitivity Across Curtailment Absorption Ratios alpha in [0%, 30%]
+    #    Addresses sensitivity of the +7.44 Mt AEF-vs-CEMS-MEF discrepancy when alpha > 0!
+    tot_aef_kt = sum(float(r["net_aef_kt"]) for r in ba_rows)
+    fleet_alpha_sensitivity = []
+    for a_val in [0.0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30]:
+        net_kt = sum(
+            prop2_net_co2(float(r["mef_cems_chg_kg_mwh"]), float(r["mef_cems_dis_kg_mwh"]), float(r["rte"]), a_val)
+            * float(r["dis_gwh_cems_window"])
+            / 1000.0
+            for r in ba_rows
+        )
+        n_pos = sum(
+            1
+            for r in ba_rows
+            if prop2_net_co2(float(r["mef_cems_chg_kg_mwh"]), float(r["mef_cems_dis_kg_mwh"]), float(r["rte"]), a_val)
+            > 0.0
+        )
+        n_rev = sum(
+            1
+            for r in ba_rows
+            if float(r["net_aef_kg_mwh"]) < 0.0
+            and prop2_net_co2(float(r["mef_cems_chg_kg_mwh"]), float(r["mef_cems_dis_kg_mwh"]), float(r["rte"]), a_val)
+            > 0.0
+        )
+        fleet_alpha_sensitivity.append(
+            {
+                "alpha_uniform": float(a_val),
+                "fleet_net_cems_kg_mwh": float(1000.0 * net_kt / max(tot_dis, 1.0)),
+                "fleet_net_cems_mt": float(net_kt / 1000.0),
+                "fleet_net_aef_mt": float(tot_aef_kt / 1000.0),
+                "discrepancy_cems_minus_aef_mt": float((net_kt - tot_aef_kt) / 1000.0),
+                "n_grids_net_positive": int(n_pos),
+                "n_grids_sign_reversed_vs_aef": int(n_rev),
+            }
+        )
+
+    # Hybrid Empirical-CAISO Sensitivity: apply CAISO's empirical curtailment-stratified balance
+    # (-0.80 main or +1.34 observed dLoad) to CISO (29.16 TWh) and sweep non-CAISO alpha_other in [0%, 20%]
+    ciso_dis_gwh = float(next(r["dis_gwh_cems_window"] for r in ba_rows if r["ba"] == "CISO"))
+    ciso_emp_main_kt = float(ciso_curt_info["empirical_curt_adjusted_ciso_net_sys_kg_mwh"]) * ciso_dis_gwh / 1000.0
+    ciso_emp_dload_kt = (
+        float(ciso_curt_info["empirical_curt_adjusted_ciso_pure_load_net_sys_kg_mwh"]) * ciso_dis_gwh / 1000.0
+    )
+    hybrid_caiso_sensitivity = []
+    for a_other in [0.0, 0.05, 0.10, 0.15, 0.20]:
+        non_ciso_kt = sum(
+            prop2_net_co2(float(r["mef_cems_chg_kg_mwh"]), float(r["mef_cems_dis_kg_mwh"]), float(r["rte"]), a_other)
+            * float(r["dis_gwh_cems_window"])
+            / 1000.0
+            for r in ba_rows
+            if r["ba"] != "CISO"
+        )
+        tot_main_kt = ciso_emp_main_kt + non_ciso_kt
+        tot_dload_kt = ciso_emp_dload_kt + non_ciso_kt
+        hybrid_caiso_sensitivity.append(
+            {
+                "alpha_non_ciso": float(a_other),
+                "fleet_net_main_kg_mwh": float(1000.0 * tot_main_kt / max(tot_dis, 1.0)),
+                "fleet_net_main_mt": float(tot_main_kt / 1000.0),
+                "discrepancy_main_minus_aef_mt": float((tot_main_kt - tot_aef_kt) / 1000.0),
+                "fleet_net_dload_kg_mwh": float(1000.0 * tot_dload_kt / max(tot_dis, 1.0)),
+                "fleet_net_dload_mt": float(tot_dload_kt / 1000.0),
+                "discrepancy_dload_minus_aef_mt": float((tot_dload_kt - tot_aef_kt) / 1000.0),
+            }
+        )
+
+    # Exact uniform fleet-wide break-even alpha* where 14-BA CEMS-MEF net total equals zero
+    tot_chg_term_kt = sum(
+        (float(r["mef_cems_chg_kg_mwh"]) / float(r["rte"])) * float(r["dis_gwh_cems_window"]) / 1000.0 for r in ba_rows
+    )
+    tot_dis_term_kt = sum(float(r["mef_cems_dis_kg_mwh"]) * float(r["dis_gwh_cems_window"]) / 1000.0 for r in ba_rows)
+    fleet_alpha_star_uniform = float(1.0 - tot_dis_term_kt / max(tot_chg_term_kt, 1e-9))
+
+    # 4. CAISO Congestion-Constrained Incremental Storage Saturation Frontier
+    #    Sweeps incremental scale kappa in [0.25x .. 3.0x] of current CAISO charging profile against
+    #    observed hourly residual curtailment (Total vs. System-Only / Congestion-Constrained)
+    cc_df = pd.read_parquet(PROC_DIR / "caiso_curtailment_cems_hourly.parquet").dropna(
+        subset=["batteries_mw", "fs_load", "solar_mw", "wind_mw", "ng_mw", "imports_mw", "large_hydro_mw", "co2_kg"]
+    )
+    ciso_row = next(r for r in ba_rows if r["ba"] == "CISO")
+    c_chg = np.maximum(-cc_df["batteries_mw"].to_numpy(dtype=np.float64), 0.0)
+    c_tot = cc_df["total_curt_mw"].fillna(0.0).to_numpy(dtype=np.float64)
+    c_sys = cc_df["system_curt_mw"].fillna(0.0).to_numpy(dtype=np.float64)
+    ciso_saturation_frontier = []
+    for kappa in [0.25, 0.5, 1.0, 1.5, 2.0, 3.0]:
+        dc = kappa * c_chg
+        denom = float(np.sum(dc))
+        rho_tot_k = float(np.sum(np.minimum(dc, c_tot)) / max(denom, 1.0))
+        rho_sys_k = float(np.sum(np.minimum(dc, c_sys)) / max(denom, 1.0))
+        net_tot_k = prop2_net_co2(
+            float(ciso_row["mef_cems_chg_kg_mwh"]),
+            float(ciso_row["mef_cems_dis_kg_mwh"]),
+            float(ciso_row["rte"]),
+            rho_tot_k,
+        )
+        net_sys_k = prop2_net_co2(
+            float(ciso_row["mef_cems_chg_kg_mwh"]),
+            float(ciso_row["mef_cems_dis_kg_mwh"]),
+            float(ciso_row["rte"]),
+            rho_sys_k,
+        )
+        ciso_saturation_frontier.append(
+            {
+                "incremental_scale_kappa": float(kappa),
+                "rho_res_total": rho_tot_k,
+                "rho_res_system_only": rho_sys_k,
+                "implied_net_co2_total_curt_kg_mwh": float(net_tot_k),
+                "implied_net_co2_system_only_kg_mwh": float(net_sys_k),
+                "exceeds_breakeven_total": bool(rho_tot_k > ciso_alpha_star),
+                "exceeds_breakeven_system_only": bool(rho_sys_k > ciso_alpha_star),
+            }
+        )
+
+    print(
+        f"[Prop 2 Sensitivity] Fleet uniform break-even alpha* = {100*fleet_alpha_star_uniform:.1f}% | "
+        f"Hybrid (CAISO empirical + non-CAISO alpha=0%/15%): "
+        f"Net={hybrid_caiso_sensitivity[0]['fleet_net_main_mt']:+.2f}/{hybrid_caiso_sensitivity[3]['fleet_net_main_mt']:+.2f} Mt "
+        f"(Discrepancy vs AEF = +{hybrid_caiso_sensitivity[0]['discrepancy_main_minus_aef_mt']:.2f}/"
+        f"+{hybrid_caiso_sensitivity[3]['discrepancy_main_minus_aef_mt']:.2f} Mt CO2)",
+        flush=True,
+    )
+    print(
+        "[Prop 2 Saturation Frontier] CAISO incremental kappa=0.25x/1.0x/2.0x rho_res(Total) = "
+        f"{100*ciso_saturation_frontier[0]['rho_res_total']:.1f}% / "
+        f"{100*ciso_saturation_frontier[2]['rho_res_total']:.1f}% / "
+        f"{100*ciso_saturation_frontier[4]['rho_res_total']:.1f}% "
+        f"(System-only: {100*ciso_saturation_frontier[0]['rho_res_system_only']:.1f}% / "
+        f"{100*ciso_saturation_frontier[2]['rho_res_system_only']:.1f}% / "
+        f"{100*ciso_saturation_frontier[4]['rho_res_system_only']:.1f}%)",
+        flush=True,
+    )
+
     print(
         f"[Prop 2] Verified across 14 BAs: max |DeltaCO2(alpha*)| = {max_p2_zero_err:.2e}, "
         f"max |dDeltaCO2/dalpha err| = {max_p2_deriv_err:.2e}; "
@@ -204,6 +338,7 @@ def main() -> int:
                 "gap_rho_res_minus_star": float(ciso_rho_res_tot - ciso_alpha_star),
                 "incremental_saturation_binding": bool(ciso_rho_res_tot < ciso_alpha_star),
             },
+            "caiso_saturation_frontier": ciso_saturation_frontier,
             "by_ba": p2_checks,
         },
         "proposition_3_aef_mef_bias": {
@@ -216,6 +351,9 @@ def main() -> int:
             "fleet_dis_wedge_kt": float(fleet_dis_wedge_kt),
             "fleet_net_bias_kt": float(fleet_bias_kt),
             "fleet_net_bias_mt": float(fleet_bias_kt / 1000.0),
+            "fleet_alpha_star_uniform": fleet_alpha_star_uniform,
+            "fleet_alpha_sensitivity": fleet_alpha_sensitivity,
+            "hybrid_empirical_caiso_sensitivity": hybrid_caiso_sensitivity,
             "by_ba": p3_checks,
         },
     }

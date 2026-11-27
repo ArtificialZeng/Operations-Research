@@ -418,7 +418,7 @@ def test_caiso_empirical_absorption_and_incremental_headroom_rigor() -> None:
 
 
 def test_caiso_pure_load_and_joint_block_bootstrap_invariants() -> None:
-    """Verify v2 CAISO pure exogenous dLoad re-weighting (~+1.34 kg/MWh) & B=1,000 joint block-bootstrap CIs."""
+    """Verify v3 CAISO observed-load dLoad re-weighting (~+1.34 kg/MWh) & B=1,000 1d/7d/14d contiguous block-bootstrap CIs."""
     r3 = _load_json("03_cems_carbon_curtailment_results.json")
     cc = r3["caiso_noncircular_curtailment"]
 
@@ -427,7 +427,7 @@ def test_caiso_pure_load_and_joint_block_bootstrap_invariants() -> None:
     net_dom_main = cc["empirical_curt_adjusted_ciso_net_dom_kg_mwh"]
     net_dom_load = cc["empirical_curt_adjusted_ciso_pure_load_net_dom_kg_mwh"]
 
-    # Point estimates straddle zero across main (-0.80) vs pure dLoad (+1.34) system specs!
+    # Point estimates straddle zero across main (-0.80) vs observed dLoad (+1.34) system specs!
     assert -2.5 < net_sys_main < 0.0
     assert 0.5 < net_sys_load < 2.5
     assert -35.0 < net_dom_main < -25.0
@@ -437,43 +437,52 @@ def test_caiso_pure_load_and_joint_block_bootstrap_invariants() -> None:
     assert jb["B"] == 1000
     assert jb["n_overlap_days"] == 549
     assert jb["n_neighbor_bas"] >= 5
+    bls = jb["block_length_sensitivity"]
+    assert set(bls.keys()) == {"1d", "7d", "14d"}
 
-    for key in ("net_sys_main", "net_sys_pure_load"):
-        b_stat = jb[key]
-        assert b_stat["covers_zero"] is True, f"{key} joint 95% CI must cover zero"
-        assert b_stat["ci95_lo"] < 0.0 < b_stat["ci95_hi"]
-        assert b_stat["boot_se"] > 2.0
-        assert b_stat["p_boot_vs_zero_2sided"] > 0.20
+    for btag in ("1d", "7d", "14d"):
+        sub = bls[btag]
+        for key in ("net_sys_main", "net_sys_pure_load"):
+            b_stat = sub[key]
+            assert b_stat["covers_zero"] is True, f"{btag}.{key} joint 95% CI must cover zero"
+            assert b_stat["ci95_lo"] < 0.0 < b_stat["ci95_hi"]
+            assert b_stat["boot_se"] > 2.0
+            assert b_stat["p_boot_vs_zero_2sided"] > 0.20
+        assert sub["net_dom_main"]["covers_zero"] is False
+        assert sub["net_dom_pure_load"]["covers_zero"] is False
 
-    assert jb["net_dom_main"]["covers_zero"] is False
-    assert jb["net_dom_pure_load"]["covers_zero"] is False
+    # Multi-day contiguous blocks capture synoptic autocorrelation -> wider SE at 14d than 1d!
+    assert bls["14d"]["net_sys_main"]["boot_se"] > bls["1d"]["net_sys_main"]["boot_se"]
+    assert bls["14d"]["net_sys_pure_load"]["boot_se"] > bls["1d"]["net_sys_pure_load"]["boot_se"]
 
-    # Verify both specs & joint CIs are synced into manuscript MD & compiled PDF
+    # Verify both specs & 14d + 7d + 1d CIs are synced into manuscript MD & compiled v3 PDF
+    jb14 = bls["14d"]
     md_txt = (WS_DIR / "manuscript_k1_boost.md").read_text(encoding="utf-8")
-    pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(WS_DIR / "manuscript_k1_boost.pdf")).pages)
+    pdf_target = WS_DIR / "manuscript_k1_boost_v3.pdf" if (WS_DIR / "manuscript_k1_boost_v3.pdf").exists() else WS_DIR / "manuscript_k1_boost.pdf"
+    pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(pdf_target)).pages)
     for token in (
         f"{net_sys_main:+.2f}",
         f"{net_sys_load:+.2f}",
-        f"{jb['net_sys_main']['ci95_lo']:+.2f}",
-        f"{jb['net_sys_main']['ci95_hi']:+.2f}",
-        f"{jb['net_sys_pure_load']['ci95_lo']:+.2f}",
-        f"{jb['net_sys_pure_load']['ci95_hi']:+.2f}",
+        f"{jb14['net_sys_main']['ci95_lo']:+.2f}",
+        f"{jb14['net_sys_main']['ci95_hi']:+.2f}",
+        f"{jb14['net_sys_pure_load']['ci95_lo']:+.2f}",
+        f"{jb14['net_sys_pure_load']['ci95_hi']:+.2f}",
     ):
-        assert token in md_txt, f"CAISO bootstrap token {token!r} missing from manuscript_k1_boost.md"
-        # Edge PDF uses Unicode minus (U+2212) in math spans and ASCII hyphen in plain text
+        assert token in md_txt, f"CAISO 14d bootstrap token {token!r} missing from manuscript_k1_boost.md"
         assert (token in pdf_txt) or (token.replace("-", "\u2212") in pdf_txt), (
-            f"CAISO bootstrap token {token!r} missing from manuscript_k1_boost.pdf"
+            f"CAISO 14d bootstrap token {token!r} missing from {pdf_target.name}"
         )
 
 
-def test_referee_v2_scientific_precision_invariants() -> None:
-    """Verify all 4 external referee v2 scientific precision & framing requirements in MD & PDF."""
+def test_referee_v3_nature_energy_precision_invariants() -> None:
+    """Verify all v2 + v3 Nature Energy (Analysis) scientific precision & tone requirements in MD & PDF."""
     md_txt = (WS_DIR / "manuscript_k1_boost.md").read_text(encoding="utf-8")
-    pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(WS_DIR / "manuscript_k1_boost.pdf")).pages)
+    pdf_target = WS_DIR / "manuscript_k1_boost_v3.pdf" if (WS_DIR / "manuscript_k1_boost_v3.pdf").exists() else WS_DIR / "manuscript_k1_boost.pdf"
+    pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(pdf_target)).pages)
     md_lo = md_txt.lower()
     pdf_lo = pdf_txt.lower()
 
-    # 1. Objective framing of +5,553 MW EIA-930 vs CAISO midday NG discrepancy (ZERO 'corruption' phrasing!)
+    # 1. Zero overclaiming, hype, neutrality-confirmation, or exogenous-dLoad phrasing in BOTH MD & PDF
     forbidden_phrases = [
         "federal data corruption",
         "federal reporting corruption",
@@ -483,15 +492,25 @@ def test_referee_v2_scientific_precision_invariants() -> None:
         "phantom natural gas",
         "direct epa cems measures",
         "direct epa cems smokestack mefs measure",
+        "carbon neutrality",
+        "carbon neutral",
+        "pure exogenous",
+        "spotless",
+        "proving rigorously",
+        "extraordinary",
+        "master forensic audit",
+        "definitively",
     ]
     for bad in forbidden_phrases:
         assert bad not in md_lo, f"Forbidden phrasing {bad!r} found in manuscript_k1_boost.md"
         assert bad not in pdf_lo, f"Forbidden phrasing {bad!r} found in manuscript_k1_boost.pdf"
     assert "reporting discrepancy" in md_lo
 
-    # 2. Exact scientific meaning of +7.44 Mt CO2 as counterfactual accounting discrepancy
+    # 2. Exact scientific meaning of +7.44 Mt CO2 as counterfactual accounting discrepancy & undetermined CAISO sign
     assert "counterfactual accounting discrepancy" in md_lo
     assert "counterfactual accounting discrepancy" in pdf_lo
+    assert "direction remains undetermined" in md_lo
+    assert "direction remains undetermined" in pdf_lo
 
     # 3. Prominent No Controls (-0.0579, p = 0.576) disclosure in BOTH Abstract AND Section 4
     abs_sec = md_txt.split("## Abstract", 1)[1].split("## 1. Introduction", 1)[0]
@@ -501,10 +520,20 @@ def test_referee_v2_scientific_precision_invariants() -> None:
         assert "-0.0579" in sec_txt, f"-0.0579 missing from {sec_name}"
         assert "0.576" in sec_txt, f"p_Rad = 0.576 missing from {sec_name}"
 
-    # 4. Explicit 3-Sample Architecture Summary (Box 1) & 83% domestic vs 60% system drop clarity
+    # 4. Explicit 3-Sample Architecture (Box 1), 83% vs 60% drop, Table 4b sensitivity & saturation frontier
     assert "Box 1." in md_txt and "Box 1." in pdf_txt
+    assert "Table 4b." in md_txt and "Table 4b." in pdf_txt
     assert "Sample 1:" in md_txt and "Sample 2:" in md_txt and "Sample 3:" in md_txt
     assert "83%" in abs_sec and "60%" in abs_sec
+    r4 = _load_json("04_formal_model_verification.json")
+    assert len(r4["proposition_3_aef_mef_bias"]["fleet_alpha_sensitivity"]) == 7
+    assert len(r4["proposition_3_aef_mef_bias"]["hybrid_empirical_caiso_sensitivity"]) == 5
+    assert len(r4["proposition_2_breakeven_curtailment"]["caiso_saturation_frontier"]) == 6
+    # Verify kappa=1.0 saturation frontier matches Step 03 rho_res to 1e-12!
+    r3 = _load_json("03_cems_carbon_curtailment_results.json")
+    sat1 = next(x for x in r4["proposition_2_breakeven_curtailment"]["caiso_saturation_frontier"] if x["incremental_scale_kappa"] == 1.0)
+    assert abs(sat1["rho_res_total"] - r3["caiso_noncircular_curtailment"]["rho_residual_headroom_total"]) < 1e-12
+    assert abs(sat1["rho_res_system_only"] - r3["caiso_noncircular_curtailment"]["rho_residual_headroom_system"]) < 1e-12
 
 
 # ------------------------------------------------------------------
@@ -565,7 +594,7 @@ def test_crossref_citations_and_two_way_sync() -> None:
 
 
 def test_manuscript_zero_leaks_pdf_and_receipt_sync() -> None:
-    pdf_path = WS_DIR / "manuscript_k1_boost.pdf"
+    pdf_path = WS_DIR / "manuscript_k1_boost_v3.pdf" if (WS_DIR / "manuscript_k1_boost_v3.pdf").exists() else WS_DIR / "manuscript_k1_boost.pdf"
     md_path = WS_DIR / "manuscript_k1_boost.md"
     assert pdf_path.exists() and pdf_path.stat().st_size > 200_000
     assert md_path.exists()

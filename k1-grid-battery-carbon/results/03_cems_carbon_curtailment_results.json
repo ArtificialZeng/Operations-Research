@@ -2737,6 +2737,7 @@
       "n_overlap_days": 549,
       "n_extra_cems_days": 273,
       "n_neighbor_bas": 10,
+      "primary_block_days": 14,
       "net_sys_main": {
         "point_estimate": -0.8010735852872699,
         "boot_mean": -1.2331270030437171,
@@ -2799,6 +2800,212 @@
         "ci95_hi": 0.2015183940101712,
         "p_boot_vs_zero_2sided": 0.0,
         "covers_zero": false
+      },
+      "block_length_sensitivity": {
+        "1d": {
+          "block_days": 1,
+          "B": 1000,
+          "seed": 20261127,
+          "net_sys_main": {
+            "point_estimate": -0.8010735852872699,
+            "boot_mean": -1.2331270030437171,
+            "boot_se": 4.7585873014422635,
+            "ci95_lo": -10.391116577301057,
+            "ci95_hi": 8.15234108440495,
+            "p_boot_vs_zero_2sided": 0.81,
+            "covers_zero": true
+          },
+          "net_dom_main": {
+            "point_estimate": -30.643093559929213,
+            "boot_mean": -30.81894424280961,
+            "boot_se": 4.2669151481868735,
+            "ci95_lo": -39.295766759345874,
+            "ci95_hi": -22.465011842248956,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          },
+          "net_sys_pure_load": {
+            "point_estimate": 1.3392368438100846,
+            "boot_mean": 1.7627735622046403,
+            "boot_se": 8.258237756526675,
+            "ci95_lo": -14.143295113386241,
+            "ci95_hi": 18.620323987280024,
+            "p_boot_vs_zero_2sided": 0.826,
+            "covers_zero": true
+          },
+          "net_dom_pure_load": {
+            "point_estimate": -30.668935639258606,
+            "boot_mean": -30.29654879281744,
+            "boot_se": 6.9162398213742255,
+            "ci95_lo": -44.07487948627706,
+            "ci95_hi": -17.039535520801763,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          },
+          "diff_pure_load_minus_main_sys": {
+            "point_estimate": 2.1403104290973545,
+            "boot_mean": 2.9959005652483572,
+            "boot_se": 7.401311187913222,
+            "ci95_lo": -10.878231167601458,
+            "ci95_hi": 17.926362959445473,
+            "p_boot_vs_zero_2sided": 0.716,
+            "covers_zero": true
+          },
+          "alpha_emp_unspill": {
+            "point_estimate": 0.14146476657241722,
+            "boot_mean": 0.1424636426485294,
+            "boot_se": 0.012601990893812667,
+            "ci95_lo": 0.11762802274039715,
+            "ci95_hi": 0.16721824178653485,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          },
+          "alpha_emp_mef_collapse": {
+            "point_estimate": 0.16716523949807027,
+            "boot_mean": 0.16837006198594048,
+            "boot_se": 0.016730708215275364,
+            "ci95_lo": 0.13461250159501975,
+            "ci95_hi": 0.2015183940101712,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          }
+        },
+        "7d": {
+          "block_days": 7,
+          "B": 1000,
+          "seed": 20261134,
+          "net_sys_main": {
+            "point_estimate": -0.8010735852872699,
+            "boot_mean": -1.5051305822425043,
+            "boot_se": 5.902391617443825,
+            "ci95_lo": -13.240132330494019,
+            "ci95_hi": 9.829918404052842,
+            "p_boot_vs_zero_2sided": 0.782,
+            "covers_zero": true
+          },
+          "net_dom_main": {
+            "point_estimate": -30.643093559929213,
+            "boot_mean": -31.107737883041445,
+            "boot_se": 5.51286792940036,
+            "ci95_lo": -41.789238696368635,
+            "ci95_hi": -20.80808434768761,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          },
+          "net_sys_pure_load": {
+            "point_estimate": 1.3392368438100846,
+            "boot_mean": 3.837308943942843,
+            "boot_se": 11.197986735796338,
+            "ci95_lo": -17.899567414169947,
+            "ci95_hi": 26.27018463245191,
+            "p_boot_vs_zero_2sided": 0.738,
+            "covers_zero": true
+          },
+          "net_dom_pure_load": {
+            "point_estimate": -30.668935639258606,
+            "boot_mean": -29.30707621337953,
+            "boot_se": 8.653794713415689,
+            "ci95_lo": -46.047930978150006,
+            "ci95_hi": -12.087011837579594,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          },
+          "diff_pure_load_minus_main_sys": {
+            "point_estimate": 2.1403104290973545,
+            "boot_mean": 5.3424395261853475,
+            "boot_se": 9.400279128775592,
+            "ci95_lo": -11.994447946577363,
+            "ci95_hi": 25.49406815549448,
+            "p_boot_vs_zero_2sided": 0.582,
+            "covers_zero": true
+          },
+          "alpha_emp_unspill": {
+            "point_estimate": 0.14146476657241722,
+            "boot_mean": 0.14385770500208722,
+            "boot_se": 0.018687599227128062,
+            "ci95_lo": 0.10788527501396139,
+            "ci95_hi": 0.18256152767571807,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          },
+          "alpha_emp_mef_collapse": {
+            "point_estimate": 0.16716523949807027,
+            "boot_mean": 0.1674013784924327,
+            "boot_se": 0.020276768212241503,
+            "ci95_lo": 0.1294728042294824,
+            "ci95_hi": 0.20769691927891534,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          }
+        },
+        "14d": {
+          "block_days": 14,
+          "B": 1000,
+          "seed": 20261141,
+          "net_sys_main": {
+            "point_estimate": -0.8010735852872699,
+            "boot_mean": -0.726638868329211,
+            "boot_se": 6.848646005674765,
+            "ci95_lo": -14.2038690447979,
+            "ci95_hi": 12.58092908840233,
+            "p_boot_vs_zero_2sided": 0.92,
+            "covers_zero": true
+          },
+          "net_dom_main": {
+            "point_estimate": -30.643093559929213,
+            "boot_mean": -30.552541750934108,
+            "boot_se": 6.454740982581628,
+            "ci95_lo": -42.77619788785678,
+            "ci95_hi": -17.480715885084397,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          },
+          "net_sys_pure_load": {
+            "point_estimate": 1.3392368438100846,
+            "boot_mean": 4.517799067610531,
+            "boot_se": 13.778788109874888,
+            "ci95_lo": -21.86159031998428,
+            "ci95_hi": 30.51273583886939,
+            "p_boot_vs_zero_2sided": 0.764,
+            "covers_zero": true
+          },
+          "net_dom_pure_load": {
+            "point_estimate": -30.668935639258606,
+            "boot_mean": -28.860565058864868,
+            "boot_se": 10.476597710760707,
+            "ci95_lo": -49.02475901964492,
+            "ci95_hi": -8.544710581918455,
+            "p_boot_vs_zero_2sided": 0.01,
+            "covers_zero": false
+          },
+          "diff_pure_load_minus_main_sys": {
+            "point_estimate": 2.1403104290973545,
+            "boot_mean": 5.244437935939742,
+            "boot_se": 11.01498107389318,
+            "ci95_lo": -15.092063885591868,
+            "ci95_hi": 27.46200038214811,
+            "p_boot_vs_zero_2sided": 0.652,
+            "covers_zero": true
+          },
+          "alpha_emp_unspill": {
+            "point_estimate": 0.14146476657241722,
+            "boot_mean": 0.14347574854512626,
+            "boot_se": 0.02396626662415241,
+            "ci95_lo": 0.09725192709804281,
+            "ci95_hi": 0.19039611937285877,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          },
+          "alpha_emp_mef_collapse": {
+            "point_estimate": 0.16716523949807027,
+            "boot_mean": 0.16398944866338092,
+            "boot_se": 0.02334028197169606,
+            "ci95_lo": 0.11865839115320555,
+            "ci95_hi": 0.20817800557525348,
+            "p_boot_vs_zero_2sided": 0.0,
+            "covers_zero": false
+          }
+        }
       }
     },
     "prop2_net_at_emp_unspill_kg_mwh": 18.11324718043784,
@@ -2899,5 +3106,5 @@
       }
     }
   },
-  "elapsed_sec": 14.035226821899414
+  "elapsed_sec": 23.348530769348145
 }

@@ -54,6 +54,62 @@
       "gap_rho_res_minus_star": -0.01719734321408864,
       "incremental_saturation_binding": true
     },
+    "caiso_saturation_frontier": [
+      {
+        "incremental_scale_kappa": 0.25,
+        "rho_res_total": 0.4030907632919109,
+        "rho_res_system_only": 0.05344430888189162,
+        "implied_net_co2_total_curt_kg_mwh": -64.23462395927513,
+        "implied_net_co2_system_only_kg_mwh": 45.81805250729275,
+        "exceeds_breakeven_total": true,
+        "exceeds_breakeven_system_only": false
+      },
+      {
+        "incremental_scale_kappa": 0.5,
+        "rho_res_total": 0.28301875925921455,
+        "rho_res_system_only": 0.04048018600072555,
+        "implied_net_co2_total_curt_kg_mwh": -26.441461049043426,
+        "implied_net_co2_system_only_kg_mwh": 49.898564130158206,
+        "exceeds_breakeven_total": true,
+        "exceeds_breakeven_system_only": false
+      },
+      {
+        "incremental_scale_kappa": 1.0,
+        "rho_res_total": 0.18181470760285387,
+        "rho_res_system_only": 0.027530779465890075,
+        "implied_net_co2_total_curt_kg_mwh": 5.412935337834767,
+        "implied_net_co2_system_only_kg_mwh": 53.97444372177881,
+        "exceeds_breakeven_total": false,
+        "exceeds_breakeven_system_only": false
+      },
+      {
+        "incremental_scale_kappa": 1.5,
+        "rho_res_total": 0.13151583316498336,
+        "rho_res_system_only": 0.020253581123848015,
+        "implied_net_co2_total_curt_kg_mwh": 21.244715369707023,
+        "implied_net_co2_system_only_kg_mwh": 56.264972181651785,
+        "exceeds_breakeven_total": false,
+        "exceeds_breakeven_system_only": false
+      },
+      {
+        "incremental_scale_kappa": 2.0,
+        "rho_res_total": 0.1014615361706388,
+        "rho_res_system_only": 0.01575569866109083,
+        "implied_net_co2_total_curt_kg_mwh": 30.704430409946212,
+        "implied_net_co2_system_only_kg_mwh": 57.680699403292635,
+        "exceeds_breakeven_total": false,
+        "exceeds_breakeven_system_only": false
+      },
+      {
+        "incremental_scale_kappa": 3.0,
+        "rho_res_total": 0.06901545681041847,
+        "rho_res_system_only": 0.010725189839533345,
+        "implied_net_co2_total_curt_kg_mwh": 40.91696890247607,
+        "implied_net_co2_system_only_kg_mwh": 59.26407298771875,
+        "exceeds_breakeven_total": false,
+        "exceeds_breakeven_system_only": false
+      }
+    ],
     "by_ba": [
       {
         "ba": "CISO",
@@ -235,6 +291,119 @@
     "fleet_dis_wedge_kt": 3365.889742842457,
     "fleet_net_bias_kt": 7441.683804165366,
     "fleet_net_bias_mt": 7.441683804165367,
+    "fleet_alpha_star_uniform": 0.18925778569964802,
+    "fleet_alpha_sensitivity": [
+      {
+        "alpha_uniform": 0.0,
+        "fleet_net_cems_kg_mwh": 74.23037041406769,
+        "fleet_net_cems_mt": 3.694544626866788,
+        "fleet_net_aef_mt": -3.7471391772985765,
+        "discrepancy_cems_minus_aef_mt": 7.441683804165365,
+        "n_grids_net_positive": 14,
+        "n_grids_sign_reversed_vs_aef": 9
+      },
+      {
+        "alpha_uniform": 0.05,
+        "fleet_net_cems_kg_mwh": 54.61945450388389,
+        "fleet_net_cems_mt": 2.7184831630784427,
+        "fleet_net_aef_mt": -3.7471391772985765,
+        "discrepancy_cems_minus_aef_mt": 6.46562234037702,
+        "n_grids_net_positive": 12,
+        "n_grids_sign_reversed_vs_aef": 7
+      },
+      {
+        "alpha_uniform": 0.1,
+        "fleet_net_cems_kg_mwh": 35.00853859370011,
+        "fleet_net_cems_mt": 1.7424216992900987,
+        "fleet_net_aef_mt": -3.7471391772985765,
+        "discrepancy_cems_minus_aef_mt": 5.489560876588675,
+        "n_grids_net_positive": 11,
+        "n_grids_sign_reversed_vs_aef": 6
+      },
+      {
+        "alpha_uniform": 0.15,
+        "fleet_net_cems_kg_mwh": 15.397622683516307,
+        "fleet_net_cems_mt": 0.7663602355017539,
+        "fleet_net_aef_mt": -3.7471391772985765,
+        "discrepancy_cems_minus_aef_mt": 4.513499412800331,
+        "n_grids_net_positive": 6,
+        "n_grids_sign_reversed_vs_aef": 4
+      },
+      {
+        "alpha_uniform": 0.2,
+        "fleet_net_cems_kg_mwh": -4.213293226667448,
+        "fleet_net_cems_mt": -0.20970122828658871,
+        "fleet_net_aef_mt": -3.7471391772985765,
+        "discrepancy_cems_minus_aef_mt": 3.5374379490119883,
+        "n_grids_net_positive": 3,
+        "n_grids_sign_reversed_vs_aef": 2
+      },
+      {
+        "alpha_uniform": 0.25,
+        "fleet_net_cems_kg_mwh": -23.824209136851277,
+        "fleet_net_cems_mt": -1.185762692074935,
+        "fleet_net_aef_mt": -3.7471391772985765,
+        "discrepancy_cems_minus_aef_mt": 2.561376485223642,
+        "n_grids_net_positive": 0,
+        "n_grids_sign_reversed_vs_aef": 0
+      },
+      {
+        "alpha_uniform": 0.3,
+        "fleet_net_cems_kg_mwh": -43.43512504703506,
+        "fleet_net_cems_mt": -2.161824155863279,
+        "fleet_net_aef_mt": -3.7471391772985765,
+        "discrepancy_cems_minus_aef_mt": 1.5853150214352978,
+        "n_grids_net_positive": 0,
+        "n_grids_sign_reversed_vs_aef": 0
+      }
+    ],
+    "hybrid_empirical_caiso_sensitivity": [
+      {
+        "alpha_non_ciso": 0.0,
+        "fleet_net_main_kg_mwh": 37.066670203618244,
+        "fleet_net_main_mt": 1.8448576569499127,
+        "discrepancy_main_minus_aef_mt": 5.591996834248489,
+        "fleet_net_dload_kg_mwh": 38.32046387763854,
+        "fleet_net_dload_mt": 1.9072606418159748,
+        "discrepancy_dload_minus_aef_mt": 5.654399819114551
+      },
+      {
+        "alpha_non_ciso": 0.05,
+        "fleet_net_main_kg_mwh": 26.674902385016296,
+        "fleet_net_main_mt": 1.3276455004740364,
+        "discrepancy_main_minus_aef_mt": 5.074784677772613,
+        "fleet_net_dload_kg_mwh": 27.928696059036596,
+        "fleet_net_dload_mt": 1.3900484853400987,
+        "discrepancy_dload_minus_aef_mt": 5.137187662638675
+      },
+      {
+        "alpha_non_ciso": 0.1,
+        "fleet_net_main_kg_mwh": 16.283134566414365,
+        "fleet_net_main_mt": 0.8104333439981612,
+        "discrepancy_main_minus_aef_mt": 4.557572521296738,
+        "fleet_net_dload_kg_mwh": 17.53692824043466,
+        "fleet_net_dload_mt": 0.8728363288642234,
+        "discrepancy_dload_minus_aef_mt": 4.6199755061628
+      },
+      {
+        "alpha_non_ciso": 0.15,
+        "fleet_net_main_kg_mwh": 5.891366747812417,
+        "fleet_net_main_mt": 0.2932211875222851,
+        "discrepancy_main_minus_aef_mt": 4.040360364820862,
+        "fleet_net_dload_kg_mwh": 7.145160421832713,
+        "fleet_net_dload_mt": 0.3556241723883473,
+        "discrepancy_dload_minus_aef_mt": 4.102763349686924
+      },
+      {
+        "alpha_non_ciso": 0.2,
+        "fleet_net_main_kg_mwh": -4.500401070789499,
+        "fleet_net_main_mt": -0.22399096895358944,
+        "discrepancy_main_minus_aef_mt": 3.5231482083449874,
+        "fleet_net_dload_kg_mwh": -3.2466073967692024,
+        "fleet_net_dload_mt": -0.16158798408752728,
+        "discrepancy_dload_minus_aef_mt": 3.5855511932110495
+      }
+    ],
     "by_ba": [
       {
         "ba": "CISO",
