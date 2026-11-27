@@ -22,9 +22,12 @@ def main() -> int:
     print("=== STEP 09: GENERATING LF-NORMALIZED SHA256SUMS.json ===", flush=True)
     targets: list[Path] = [
         WS_DIR / "manuscript_k1_boost.md",
-        WS_DIR / "manuscript_k1_boost_v3.pdf",
+        WS_DIR / "manuscript_k1_nature_energy.pdf",
+        WS_DIR / "supplementary_k1_nature_energy.md",
+        WS_DIR / "supplementary_k1_nature_energy.pdf",
         WS_DIR / "REFEREE_RESPONSE_v2.md",
         WS_DIR / "REFEREE_RESPONSE_v3.md",
+        WS_DIR / "REFEREE_RESPONSE_v4.md",
     ]
     targets.extend(sorted((WS_DIR / "scripts").glob("*.py")))
     targets.extend(sorted((WS_DIR / "tests").glob("*.py")))

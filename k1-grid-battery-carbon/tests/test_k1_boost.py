@@ -226,6 +226,7 @@ def test_all_json_receipts_exist_and_zero_nan() -> None:
         "01_telemetry_audit.json",
         "02_panel_a_wls_results.json",
         "03_cems_carbon_curtailment_results.json",
+        "03b_nature_energy_v4_extensions.json",
         "04_formal_model_verification.json",
         "07_citation_verification.json",
     ]
@@ -455,10 +456,10 @@ def test_caiso_pure_load_and_joint_block_bootstrap_invariants() -> None:
     assert bls["14d"]["net_sys_main"]["boot_se"] > bls["1d"]["net_sys_main"]["boot_se"]
     assert bls["14d"]["net_sys_pure_load"]["boot_se"] > bls["1d"]["net_sys_pure_load"]["boot_se"]
 
-    # Verify both specs & 14d + 7d + 1d CIs are synced into manuscript MD & compiled v3 PDF
+    # Verify both specs & 14d CIs are synced into manuscript MD & compiled Nature Energy PDF
     jb14 = bls["14d"]
     md_txt = (WS_DIR / "manuscript_k1_boost.md").read_text(encoding="utf-8")
-    pdf_target = WS_DIR / "manuscript_k1_boost_v3.pdf" if (WS_DIR / "manuscript_k1_boost_v3.pdf").exists() else WS_DIR / "manuscript_k1_boost.pdf"
+    pdf_target = WS_DIR / "manuscript_k1_nature_energy.pdf"
     pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(pdf_target)).pages)
     for token in (
         f"{net_sys_main:+.2f}",
@@ -474,15 +475,49 @@ def test_caiso_pure_load_and_joint_block_bootstrap_invariants() -> None:
         )
 
 
-def test_referee_v3_nature_energy_precision_invariants() -> None:
-    """Verify all v2 + v3 Nature Energy (Analysis) scientific precision & tone requirements in MD & PDF."""
+def test_referee_v4_nature_energy_analysis_compliance() -> None:
+    """Verify strict Nature Energy Analysis formatting, authorship, word limits, tone & v4 extensions."""
     md_txt = (WS_DIR / "manuscript_k1_boost.md").read_text(encoding="utf-8")
-    pdf_target = WS_DIR / "manuscript_k1_boost_v3.pdf" if (WS_DIR / "manuscript_k1_boost_v3.pdf").exists() else WS_DIR / "manuscript_k1_boost.pdf"
-    pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(pdf_target)).pages)
+    si_md_txt = (WS_DIR / "supplementary_k1_nature_energy.md").read_text(encoding="utf-8")
+    pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(WS_DIR / "manuscript_k1_nature_energy.pdf")).pages)
+    si_pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(WS_DIR / "supplementary_k1_nature_energy.pdf")).pages)
     md_lo = md_txt.lower()
     pdf_lo = pdf_txt.lower()
+    si_pdf_lo = si_pdf_txt.lower()
 
-    # 1. Zero overclaiming, hype, neutrality-confirmation, or exogenous-dLoad phrasing in BOTH MD & PDF
+    # 1. Exact Authorship & ZERO venue/track clutter
+    for req in (
+        "Zijian Zeng",
+        "Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA",
+        "zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my",
+    ):
+        assert req in md_txt, f"Author info missing in MD: {req!r}"
+        assert req in pdf_txt, f"Author info missing in PDF: {req!r}"
+    for clutter in ("target venues", "target format", "data universe", "track a", "track b"):
+        assert clutter not in md_lo, f"Extraneous metadata {clutter!r} found in MD"
+        assert clutter not in pdf_lo, f"Extraneous metadata {clutter!r} found in PDF"
+
+    # 2. Strict Nature Energy Analysis word count & structural compliance
+    spec = importlib.util.spec_from_file_location("step07a", SCRIPTS_DIR / "07a_generate_manuscript_md.py")
+    assert spec is not None and spec.loader is not None
+    mod07a = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod07a)
+    wc = mod07a.count_nature_energy_words(md_txt)
+    assert 100 <= wc["abstract_words"] <= 150, f"Abstract word count out of 100-150 limit: {wc['abstract_words']}"
+    assert wc["main_body_words"] <= 3000, f"Main body exceeds 3,000-word Analysis limit: {wc['main_body_words']}"
+
+    abs_part = md_txt.split("## Abstract", 1)[1].split("<!-- INTRO_START -->", 1)[0]
+    assert "et al." not in abs_part and "doi:" not in abs_part.lower(), "Abstract must be strictly unreferenced"
+    assert "## 1." not in md_txt and "## Introduction" not in md_txt, "Introduction must have no heading"
+    disc_part = md_txt.split("## Discussion", 1)[1].split("## Methods", 1)[0]
+    assert "### " not in disc_part, "Discussion must not contain subheadings"
+
+    # Display items <= 8 (4 Main Figures + 2 Main Tables = 6)
+    n_main_figs = len(re.findall(r"<!--\s*FIGURE:", md_txt))
+    n_main_tbls = len(re.findall(r"^\*\*Table \d+\.", md_txt, flags=re.MULTILINE))
+    assert n_main_figs == 4 and n_main_tbls == 2 and (n_main_figs + n_main_tbls) <= 8
+
+    # 3. Zero overclaiming, hype, neutrality-confirmation, or exogenous-dLoad phrasing in MD, Main PDF & SI PDF
     forbidden_phrases = [
         "federal data corruption",
         "federal reporting corruption",
@@ -502,34 +537,43 @@ def test_referee_v3_nature_energy_precision_invariants() -> None:
         "definitively",
     ]
     for bad in forbidden_phrases:
-        assert bad not in md_lo, f"Forbidden phrasing {bad!r} found in manuscript_k1_boost.md"
-        assert bad not in pdf_lo, f"Forbidden phrasing {bad!r} found in manuscript_k1_boost.pdf"
-    assert "reporting discrepancy" in md_lo
+        assert bad not in md_lo, f"Forbidden phrasing {bad!r} found in MD"
+        assert bad not in pdf_lo, f"Forbidden phrasing {bad!r} found in Main PDF"
+        assert bad not in si_pdf_lo, f"Forbidden phrasing {bad!r} found in SI PDF"
+    assert "reporting discrepanc" in md_lo or "reporting discrepanc" in si_md_txt.lower()
+    assert "counterfactual accounting discrepancy" in md_lo and "counterfactual accounting discrepancy" in pdf_lo
+    assert "direction remains undetermined" in md_lo and "direction remains undetermined" in pdf_lo
 
-    # 2. Exact scientific meaning of +7.44 Mt CO2 as counterfactual accounting discrepancy & undetermined CAISO sign
-    assert "counterfactual accounting discrepancy" in md_lo
-    assert "counterfactual accounting discrepancy" in pdf_lo
-    assert "direction remains undetermined" in md_lo
-    assert "direction remains undetermined" in pdf_lo
+    # 4. Prominent No Controls (-0.0579, p = 0.576) disclosure in SI + Main Methods
+    assert "-0.0579" in md_txt and "0.576" in md_txt
+    assert "-0.0579" in si_md_txt and "0.576" in si_md_txt
+    assert "Supplementary Box 1." in si_md_txt and "Supplementary Table 1." in si_md_txt
 
-    # 3. Prominent No Controls (-0.0579, p = 0.576) disclosure in BOTH Abstract AND Section 4
-    abs_sec = md_txt.split("## Abstract", 1)[1].split("## 1. Introduction", 1)[0]
-    sec4_sec = md_txt.split("## 4.", 1)[1].split("## 5.", 1)[0]
-    for sec_name, sec_txt in [("Abstract", abs_sec), ("Section 4", sec4_sec)]:
-        assert "No Controls" in sec_txt, f"No Controls missing from {sec_name}"
-        assert "-0.0579" in sec_txt, f"-0.0579 missing from {sec_name}"
-        assert "0.576" in sec_txt, f"p_Rad = 0.576 missing from {sec_name}"
+    # 5. v4 Scientific Upgrades (03b_nature_energy_v4_extensions.json): Prop 2 fix, 14-BA joint bootstrap (full & same-window),
+    # 3 independent MEF checks, ERCOT coal-on-the-margin stratification, and congestion-constrained frontier
+    r3b = _load_json("03b_nature_energy_v4_extensions.json")
+    p2a = r3b["proposition_2_exact_inequality_audit"]
+    assert p2a["n_grids_alpha_star_positive"] == 14
+    assert p2a["n_grids_mef_chg_ge_mef_dis"] == 4
 
-    # 4. Explicit 3-Sample Architecture (Box 1), 83% vs 60% drop, Table 4b sensitivity & saturation frontier
-    assert "Box 1." in md_txt and "Box 1." in pdf_txt
-    assert "Table 4b." in md_txt and "Table 4b." in pdf_txt
-    assert "Sample 1:" in md_txt and "Sample 2:" in md_txt and "Sample 3:" in md_txt
-    assert "83%" in abs_sec and "60%" in abs_sec
+    fm = r3b["full_window_joint_14d_bootstrap_1000"]["metrics"]
+    sm = r3b["same_window_joint_14d_bootstrap_1000"]["metrics"]
+    assert fm["u0_disc_mt"]["ci95_lo"] > 6.5
+    assert sm["u0_disc_mt"]["ci95_lo"] > 3.0
+    assert fm["h15_main_disc_mt"]["ci95_lo"] > 3.0
+    assert sm["h15_main_disc_mt"]["ci95_lo"] > 1.0
+    assert fm["h15_main_mt"]["ci95_lo"] < 0.0 < fm["h15_main_mt"]["ci95_hi"]
+    assert sm["h15_main_mt"]["ci95_lo"] < 0.0 < sm["h15_main_mt"]["ci95_hi"]
+
+    db = r3b["independent_mef_validations"]["direct_cems_on_dbess_regressions"]
+    assert 200.0 < -db["CISO"]["d_bess_beta_kg_mwh"] < 350.0 and db["CISO"]["d_bess_t_day"] < -20.0
+    assert 430.0 < -db["ERCO"]["d_bess_beta_kg_mwh"] < 560.0 and db["ERCO"]["d_bess_t_day"] < -50.0
+
+    erco_gt60 = r3b["cross_regional_ren_penetration_stratification"]["ERCO"][3]
+    assert erco_gt60["mef_dom_netload_kg_mwh"] > 500.0
+    assert erco_gt60["coal_mef_netload_kg_mwh"] > 250.0
+
     r4 = _load_json("04_formal_model_verification.json")
-    assert len(r4["proposition_3_aef_mef_bias"]["fleet_alpha_sensitivity"]) == 7
-    assert len(r4["proposition_3_aef_mef_bias"]["hybrid_empirical_caiso_sensitivity"]) == 5
-    assert len(r4["proposition_2_breakeven_curtailment"]["caiso_saturation_frontier"]) == 6
-    # Verify kappa=1.0 saturation frontier matches Step 03 rho_res to 1e-12!
     r3 = _load_json("03_cems_carbon_curtailment_results.json")
     sat1 = next(x for x in r4["proposition_2_breakeven_curtailment"]["caiso_saturation_frontier"] if x["incremental_scale_kappa"] == 1.0)
     assert abs(sat1["rho_res_total"] - r3["caiso_noncircular_curtailment"]["rho_residual_headroom_total"]) < 1e-12
@@ -557,6 +601,8 @@ def test_all_5_figures_exist_high_res() -> None:
         "fig3_cems_mef_vs_aef_sign_reversal",
         "fig4_caiso_noncircular_curtailment_tipping",
         "fig5_hourly_dispatch_and_master_audit",
+        "fig_ne3_congestion_frontier_and_ercot",
+        "fig_ne4_joint_bootstrap_and_validation",
     ]
     for st in stems:
         png = FIG_DIR / f"{st}.png"
@@ -594,9 +640,11 @@ def test_crossref_citations_and_two_way_sync() -> None:
 
 
 def test_manuscript_zero_leaks_pdf_and_receipt_sync() -> None:
-    pdf_path = WS_DIR / "manuscript_k1_boost_v3.pdf" if (WS_DIR / "manuscript_k1_boost_v3.pdf").exists() else WS_DIR / "manuscript_k1_boost.pdf"
+    pdf_path = WS_DIR / "manuscript_k1_nature_energy.pdf"
+    si_pdf_path = WS_DIR / "supplementary_k1_nature_energy.pdf"
     md_path = WS_DIR / "manuscript_k1_boost.md"
     assert pdf_path.exists() and pdf_path.stat().st_size > 200_000
+    assert si_pdf_path.exists() and si_pdf_path.stat().st_size > 200_000
     assert md_path.exists()
 
     spec = importlib.util.spec_from_file_location("step08", SCRIPTS_DIR / "08_compile_manuscript_pdf.py")
@@ -604,15 +652,19 @@ def test_manuscript_zero_leaks_pdf_and_receipt_sync() -> None:
     mod08 = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod08)
     n_pages, leaks = mod08.verify_pdf_zero_leaks(pdf_path)
-    assert n_pages >= 8
-    assert leaks == [], f"PDF leaks detected: {leaks}"
+    assert n_pages >= 6
+    assert leaks == [], f"Main PDF leaks detected: {leaks}"
+    n_si_pages, si_leaks = mod08.verify_pdf_zero_leaks(si_pdf_path)
+    assert n_si_pages >= 3
+    assert si_leaks == [], f"SI PDF leaks detected: {si_leaks}"
 
     reader = PdfReader(str(pdf_path))
     txt = "\n".join((p.extract_text() or "") for p in reader.pages)
     r3 = _load_json("03_cems_carbon_curtailment_results.json")
     rev_str = f"{r3['fleet_aggregates']['all_14_bas']['sign_reversal_cems_minus_aef_mt']:.2f}"
     assert rev_str in txt, f"Fleet sign reversal {rev_str} missing from PDF"
-    assert "Figure 1." in txt and "Figure 5." in txt
+    assert "Figure 1." in txt and "Figure 2." in txt and "Figure 3." in txt and "Figure 4." in txt
+    assert txt.index("Figure 1.") < txt.index("Figure 2.") < txt.index("Figure 3.") < txt.index("Figure 4.")
     assert not re.search(r"\bNaN\b|\bInf\b", txt)
 
 

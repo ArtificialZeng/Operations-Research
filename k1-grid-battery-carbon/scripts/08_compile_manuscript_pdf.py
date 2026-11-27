@@ -24,7 +24,10 @@ from pypdf import PdfReader
 MD_PATH = WS_DIR / "manuscript_k1_boost.md"
 HTML_PATH = WS_DIR / "manuscript_k1_boost.html"
 PDF_PATH = WS_DIR / "manuscript_k1_boost.pdf"
-PDF_V3_PATH = WS_DIR / "manuscript_k1_boost_v3.pdf"
+PDF_NE_PATH = WS_DIR / "manuscript_k1_nature_energy.pdf"
+SI_MD_PATH = WS_DIR / "supplementary_k1_nature_energy.md"
+SI_HTML_PATH = WS_DIR / "supplementary_k1_nature_energy.html"
+SI_PDF_PATH = WS_DIR / "supplementary_k1_nature_energy.pdf"
 EDGE_EXE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 
 
@@ -38,11 +41,12 @@ def _fmt_p_html(p: float | None) -> str:
     return f"{p:.3f}"
 
 
-def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
-    """Build all 5 figure titles and captions 100% dynamically from saved JSON receipts."""
+def build_dynamic_figure_blocks() -> tuple[dict[str, tuple[str, str]], dict[str, tuple[str, str]]]:
+    """Build 4 Main Nature Energy figure legends + 3 Supplementary figure legends 100% dynamically."""
     r1 = json.loads((RES_DIR / "01_telemetry_audit.json").read_text(encoding="utf-8"))
     r2 = json.loads((RES_DIR / "02_panel_a_wls_results.json").read_text(encoding="utf-8"))
     r3 = json.loads((RES_DIR / "03_cems_carbon_curtailment_results.json").read_text(encoding="utf-8"))
+    r3b = json.loads((RES_DIR / "03b_nature_energy_v4_extensions.json").read_text(encoding="utf-8"))
     r4 = json.loads((RES_DIR / "04_formal_model_verification.json").read_text(encoding="utf-8"))
 
     sp = r2["main_and_robustness_specs"]
@@ -80,6 +84,11 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
     cems_r_min = min(cems_al[b]["r_at_lag0"] for b in ["CISO", "ERCO", "MISO", "SOCO", "DUK"])
     cems_r_max = max(cems_al[b]["r_at_lag0"] for b in ["CISO", "ERCO", "MISO", "SOCO", "DUK"])
 
+    fm = r3b["full_window_joint_14d_bootstrap_1000"]["metrics"]
+    sm = r3b["same_window_joint_14d_bootstrap_1000"]["metrics"]
+    db = r3b["independent_mef_validations"]["direct_cems_on_dbess_regressions"]
+    strat = r3b["cross_regional_ren_penetration_stratification"]
+
     eff_tvals = [
         c3_map["ERCO"]["net_cems_kg_mwh"] / c3_map["ERCO"]["se_net_cems_kg_mwh"],
         c3_map["CISO"]["net_cems_kg_mwh"] / c3_map["CISO"]["se_net_cems_kg_mwh"],
@@ -99,87 +108,69 @@ def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
         abs(ll["terms"]["fut_tp6_tp12"]["t_cr1"]),
     ]
 
-    return {
-        "fig1_diurnal_gas_displacement_and_leads.png": (
-            "Figure 1. 24-Hour Demand-Weighted WLS Conditional Natural-Gas Displacement Profile, Distributed 6-Month Lead-Lag Timing, and Robustness Forest (Sample 1: G = 49 U.S. BAs, 2019&ndash;2026).",
-            (
-                f"Panel A plots local Hour-Ending conditional WLS (<em>d</em><sub>19</sub> demand-weighted, aligned CISO) natural-gas responses relative to the overnight idle baseline "
-                f"(HE 2&ndash;5, &plusmn;95% BA-clustered CR1 CIs): gas displacement peaks sharply at Hour Ending 20 "
-                f"({pk_all['beta']:+.3f}, <em>t</em> = {pk_all['t_cr1']:+.2f} across all 49 BAs; {pk_dce['beta']:+.3f}, <em>t</em> = {pk_dce['t_cr1']:+.2f} "
-                f"dropping CISO and ERCO), mirroring midday charging increases while baseload nuclear remains identically zero. "
-                f"Panel B contrasts the calendar-aligned distributed 6-month timing specification (top: installed <code>Stock(t-12)</code> = {ll['terms']['stock_tm12']['beta']:+.3f}, "
-                f"recent additions {ll['terms']['add_tm12_tm6']['beta']:+.3f} and {ll['terms']['add_tm6_t0']['beta']:+.3f} vs. null unbuilt future leads "
-                f"{ll['terms']['fut_t0_tp6']['beta']:+.3f} and {ll['terms']['fut_tp6_tp12']['beta']:+.3f}, Joint Future <em>F</em> = {ll['joint_future_leads_F']['F']:.2f}, "
-                f"<em>p</em> = {ll['joint_future_leads_F']['p']:.3f}) against eight controlled WLS robustness checks (bottom: Main All 49 = {sp['WLS_ALL49_MAIN_NG']['coefs']['bess_share']['beta']:+.3f} "
-                f"vs. uncontrolled solar-confounded No Controls = {m_noctrl['coefs']['bess_share']['beta']:+.4f}, <em>p</em><sub>Rad</sub> = {_fmt_p_html(m_noctrl['wcb']['p_wcb'])}; "
-                f"Collider-Free = {sp['WLS_ALL49_NO_EM_SOLAR_NG']['coefs']['bess_share']['beta']:+.3f}, Drop CISO &amp; ERCO = {sp['WLS_DROP_CE_47_NG']['coefs']['bess_share']['beta']:+.3f}, "
-                f"Drop Top-7 BESS = {sp['WLS_DROP_TOP7_42_NG']['coefs']['bess_share']['beta']:+.3f}, BA &times; Post2024H2 FE = {sp['WLS_ALL49_BA_POST24H2_NG']['coefs']['bess_share']['beta']:+.3f}, "
-                f"Pre/Post-Schema splits, and BA linear trends; 49-BA LOBAO max <em>p</em><sub>CR1</sub> = {lob['p_cr1_max']:.4f})."
-            ),
-        ),
-        "fig2_telemetry_forensics_and_diurnal_charging.png": (
-            "Figure 2. Physical Storage Telemetry Forensics, Official Standalone CAISO Reconciliation, and Exact 4-Window Disjoint Diurnal Charging Mix (14 Metered Grids, 2024-07 to 2026-10).",
-            (
-                f"Panel A compares raw unaligned EIA-930 Round-Trip Efficiency (crimson) against aligned physical RTE (navy): replacing unphysical EIA-930 CISO "
-                f"<code>Other+Geothermal</code> (RTE = {c_rep['eia930_broken_other_geo_rte']:.2f}) and resolving the +{ng_corr['mean_midday_phantom_ng_mw_2024_2025']:,.0f} MW 2024&ndash;2025 EIA-930 vs. CAISO/CEMS midday natural-gas reporting discrepancy "
-                f"with official standalone CAISO 5-minute <code>fuelsource.csv</code> recovers true physical RTE = {c_rep['caiso_fuelsource_rte']:.3f}; combining <code>Battery</code> + <code>Unknown Energy Storage</code> reconciles "
-                f"ERCO ({ues['ERCO']['raw_broken_rte']:.2f} &rarr; {ues['ERCO']['repaired_rte']:.3f}) and AZPS (zero raw charging &rarr; {ues['AZPS']['repaired_rte']:.3f}); "
-                f"filtering FPL&rsquo;s single {fpl_a['raw_bess_mw']:,.0f} MW outlier ({fpl_a['date']} HE {fpl_a['hour']}) yields DC-coupled RTE = {t14['FPL']['rte']:.3f}; "
-                f"and the 13 clean AC-coupled grids average RTE = {m14['fleet_13_ac_rte']:.3f} with 0/4 pumped-hydro leakage and lag-0 EPA CEMS sync "
-                f"<em>r</em> = {cems_r_min:.3f}&ndash;{cems_r_max:.3f}. "
-                f"Panel B decomposes charging energy across four disjoint windows (Overnight 23&ndash;06, Morning 07&ndash;09, Midday Solar 10&ndash;16, Evening 17&ndash;22), "
-                f"contrasting fossil-heavy overnight chargers (MISO {t14['MISO']['chg_share_pct']['Overnight']:.0f}%, SOCO {t14['SOCO']['chg_share_pct']['Overnight']:.0f}%, "
-                f"DUK {t14['DUK']['chg_share_pct']['Overnight']:.0f}%) against Southwest midday-solar fleets (CISO {t14['CISO']['chg_share_pct']['Midday Solar']:.0f}%, "
-                f"AZPS {t14['AZPS']['chg_share_pct']['Midday Solar']:.0f}%, PNM {t14['PNM']['chg_share_pct']['Midday Solar']:.0f}%)."
-            ),
-        ),
+    main_figs = {
         "fig3_cems_mef_vs_aef_sign_reversal.png": (
-            "Figure 3. Fleet-Wide Counterfactual Accounting Discrepancy (Naive AEF vs. CEMS-MEF Marginal Model) and EPA CEMS 24-Hour Generator-Stack MEF Profiles (Sample 2: 2024-07 to 2026-09).",
+            "Figure 1. Fleet-wide counterfactual carbon accounting discrepancy across 14 U.S. balancing authorities (2024-07 to 2026-09).",
             (
-                f"Panel A compares model-based counterfactual net CO<sub>2</sub> per discharged MWh under Naive AEF accounting (teal, incoming-import weighted) against our CEMS-MEF marginal displacement counterfactual model "
-                f"(crimson, &plusmn;95% exact 24&times;24 date-clustered CI, &alpha; = 0) across all 14 metered grids ({fl14['dis_gwh_cems_window']/1000:.2f} TWh / {fl14['dis_gwh_cems_window']:,.1f} GWh discharged), "
-                f"with white diamonds overlaying independent 24-hour EPA eGRID 2023 rev2 Peaker MEF counterfactuals (cross-grid <em>r</em> = {cv['r_net_kg_mwh']:.3f}, MAD = {cv['mad_net_kg_mwh']:.1f} kg/MWh). "
-                f"EPA CEMS directly measures hourly fossil generator smokestack emissions, whereas battery-induced net CO<sub>2</sub> relative to a no-storage baseline is estimated by our marginal displacement model: "
-                f"the AEF counterfactual implies {fl14['aef_kg_mwh']:+.1f} kg CO<sub>2</sub>/MWh ({fl14['aef_total_kt']/1000:+.2f} Mt CO<sub>2</sub>) versus "
-                f"{fl14['cems_mef_kg_mwh']:+.1f} kg CO<sub>2</sub>/MWh ({fl14['cems_mef_total_kt']/1000:+.2f} Mt CO<sub>2</sub>) under the CEMS-MEF counterfactual&mdash;a +{fl14['sign_reversal_cems_minus_aef_mt']:.2f} Mt CO<sub>2</sub> counterfactual accounting discrepancy (sign reversal in {r4['proposition_3_aef_mef_bias']['n_grids_sign_reversed']}/14 grids). "
-                f"Panel B traces bilateral-trade-adjusted EPA CEMS 24-hour generator-stack MEF curves (&plusmn;95% CI) for four grid archetypes (MISO coal-heavy overnight, "
-                f"ERCO solar/wind+gas/coal, AZPS desert solar+coal/gas, and CISO high-solar+imports)."
+                f"<b>a</b>, Counterfactual net CO<sub>2</sub> per discharged MWh under Naive AEF accounting (teal, incoming-import weighted) versus our CEMS-MEF marginal displacement model "
+                f"(crimson, &plusmn;95% exact 24&times;24 date-clustered CI, &alpha; = 0) across all 14 metered grids ({fl14['dis_gwh_cems_window']/1000:.2f} TWh discharged), "
+                f"with white diamonds showing independent 24-hour EPA eGRID 2023 rev2 peaker MEF counterfactuals (<em>r</em> = {cv['r_net_kg_mwh']:.3f}, MAD = {cv['mad_net_kg_mwh']:.1f} kg/MWh). "
+                f"On identical metered dispatch, AEF implies {fl14['aef_kg_mwh']:+.1f} kg/MWh ({fl14['aef_total_kt']/1000:+.2f} Mt CO<sub>2</sub>) versus "
+                f"{fl14['cems_mef_kg_mwh']:+.1f} kg/MWh ({fl14['cems_mef_total_kt']/1000:+.2f} Mt CO<sub>2</sub>) under CEMS-MEF&mdash;a +{fl14['sign_reversal_cems_minus_aef_mt']:.2f} Mt CO<sub>2</sub> counterfactual accounting discrepancy reversing sign in {r4['proposition_3_aef_mef_bias']['n_grids_sign_reversed']}/14 grids. "
+                f"<b>b</b>, Bilateral-trade-adjusted 24-hour EPA CEMS marginal emission profiles (&plusmn;95% CI) for four grid archetypes (MISO, ERCO, AZPS, CISO)."
+            ),
+        ),
+        "fig_ne4_joint_bootstrap_and_validation.png": (
+            "Figure 2. Multi-grid 14-day block-bootstrap curtailment sensitivity and independent MEF validations.",
+            (
+                f"<b>a</b>, Joint 14-day contiguous moving-block bootstrap estimates (<em>B</em> = 1,000, &plusmn;95% CI) of fleet CEMS-MEF net CO<sub>2</sub> (navy) and the counterfactual discrepancy relative to naive AEF (crimson, full 49.77 TWh; teal dashed, exact 18-month same-window 26.05 TWh overlap) across uniform curtailment rates (&alpha; = 0%&ndash;20%) and hybrid scenarios applying California&rsquo;s curtailment-adjusted estimate to CISO while sweeping non-California absorption (0%&ndash;15%). "
+                f"At 15% non-California absorption, fleet net CO<sub>2</sub> spans zero ({fm['h15_main_mt']['point']:+.2f} Mt, [{fm['h15_main_mt']['ci95_lo']:+.2f}, {fm['h15_main_mt']['ci95_hi']:+.2f}]), while the AEF discrepancy remains strictly positive (+{fm['h15_main_disc_mt']['point']:.2f} Mt full; +{sm['h15_main_disc_mt']['point']:.2f} Mt same-window). "
+                f"<b>b</b>, Independent validation across four major storage grids comparing main 24-hour CEMS MEFs (navy), direct hourly metered &minus;&part;CO<sub>2</sub>/&part;BESS slopes (teal, &plusmn;95% CI: CISO {-db['CISO']['d_bess_beta_kg_mwh']:.0f}, AZPS {-db['AZPS']['d_bess_beta_kg_mwh']:.0f}, ERCO {-db['ERCO']['d_bess_beta_kg_mwh']:.0f}, MISO {-db['MISO']['d_bess_beta_kg_mwh']:.0f} kg/MWh), direct &part;CO<sub>2</sub>/&part;Load (sky), and pure CEMS internal stack slopes without EIA-930 inputs (amber)."
             ),
         ),
         "fig4_caiso_noncircular_curtailment_tipping.png": (
-            f"Figure 4. CAISO Interior CEMS MEF Collapse (&minus;{dom_drop_pct:.0f}% Domestic, &minus;{sys_drop_pct:.0f}% System) Under Official Curtailment Regimes and Multi-Day Block-Bootstrap Uncertainty (Sample 3: 2024-07 to 2025-12).",
+            f"Figure 3. California interior curtailment CEMS MEF collapse (&minus;{dom_drop_pct:.0f}% domestic, &minus;{sys_drop_pct:.0f}% system) and multi-day block-bootstrap uncertainty.",
             (
-                f"Panel A merges official CAISO hourly curtailments (2024-07 to 2025-12, {cc['window']['n_hours']:,} hours) directly onto standalone CAISO battery telemetry "
-                f"and EPA CEMS generator-stack CO<sub>2</sub> across strictly interior regime hours (requiring both <em>t</em> and <em>t</em>&minus;1 in bin; absorbing Year-Month &times; Hour FE, &plusmn;95% date-clustered CI): "
-                f"in consecutive interior &gt;2,000 MW curtailment hours, in-state domestic CAISO CEMS MEF falls by {dom_drop_pct:.0f}% ({bins[0]['mef_cems_dom_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_dom_kg_mwh']:.0f} kg/MWh), "
-                f"import-adjusted system-wide CEMS MEF drops {sys_drop_pct:.0f}% ({bins[0]['mef_cems_sys_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_sys_kg_mwh']:.0f} kg/MWh), and marginal un-curtailment (&minus;&part;Curt/&part;NL, crimson diamonds) climbs from "
-                f"{abs(-100*bins[0]['d_curt_per_d_netload']):.1f}% to {abs(-100*bins[3]['d_curt_per_d_netload']):.1f}%. Panel B plots Proposition 2&rsquo;s break-even threshold "
-                f"&alpha;<sub>b</sub><sup>*</sup> = 1 &minus; &eta;<sub>b</sub> MEF<sub>dis</sub>/MEF<sub>chg</sub> across all 14 grids alongside CAISO&rsquo;s empirical marginal curtailment absorption "
-                f"(&alpha;&#770;<sup>emp</sup> = {100*cc['alpha_emp_unspill_share']:.1f}%) and Corollary 2.1 incremental residual headroom (&rho;<sup>res</sup> = {100*cc['rho_residual_headroom_total']:.1f}%, system-only {100*cc['rho_residual_headroom_system']:.1f}% vs. &alpha;<sub>CISO</sub><sup>*</sup> = "
-                f"{100*cc['alpha_star_ciso_cems']:.1f}%). Propagating diurnal, cross-BA import, curtailment-regime, and cycling-weight uncertainty jointly via a <em>B</em> = {jb['B']:,} 14-day contiguous block bootstrap places CAISO system-wide net CO<sub>2</sub> at "
-                f"{jb_ms['point_estimate']:+.2f} kg/MWh (14d 95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}]; 7d [{jb7['net_sys_main']['ci95_lo']:+.2f}, {jb7['net_sys_main']['ci95_hi']:+.2f}]; 1d [{jb1['net_sys_main']['ci95_lo']:+.2f}, {jb1['net_sys_main']['ci95_hi']:+.2f}]) under the main specification and "
-                f"{jb_ls['point_estimate']:+.2f} kg/MWh (14d 95% CI [{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}]) under the alternative observed-load &Delta;Load specification "
-                f"(vs. {jb_md['point_estimate']:+.2f} kg/MWh, 14d 95% CI [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}], domestic-only and {c3_map['CISO']['net_aef_kg_mwh']:+.1f} naive AEF)&mdash;showing that once cross-region imports are included, the net emissions direction remains undetermined while still ruling out naive AEF&rsquo;s large abatement claim."
+                f"<b>a</b>, Official CAISO hourly curtailments (2024-07 to 2025-12, {cc['window']['n_hours']:,} hours) linked to standalone CAISO battery telemetry and EPA CEMS CO<sub>2</sub> across consecutive interior regime hours (both <em>t</em> and <em>t</em>&minus;1 in bin; YM &times; Hour FE, &plusmn;95% date-clustered CI). "
+                f"Above 2,000 MW curtailment, in-state domestic MEF falls {dom_drop_pct:.0f}% ({bins[0]['mef_cems_dom_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_dom_kg_mwh']:.0f} kg/MWh), system-wide import-adjusted MEF falls {sys_drop_pct:.0f}% ({bins[0]['mef_cems_sys_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_sys_kg_mwh']:.0f} kg/MWh), and marginal un-curtailment climbs from 0.0% to {abs(-100*bins[3]['d_curt_per_d_netload']):.1f}%. "
+                f"<b>b</b>, Break-even thresholds &alpha;<sub>b</sub><sup>*</sup> across all 14 grids alongside CAISO&rsquo;s empirical absorption ({100*cc['alpha_emp_unspill_share']:.1f}%) and incremental residual headroom ({100*cc['rho_residual_headroom_total']:.1f}%; system-only {100*cc['rho_residual_headroom_system']:.1f}%). "
+                f"Joint 14-day block bootstraps (<em>B</em> = 1,000) yield {jb_ms['point_estimate']:+.2f} kg/MWh (14d 95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}]; 7d [{jb7['net_sys_main']['ci95_lo']:+.2f}, {jb7['net_sys_main']['ci95_hi']:+.2f}]; 1d [{jb1['net_sys_main']['ci95_lo']:+.2f}, {jb1['net_sys_main']['ci95_hi']:+.2f}]) under the main specification and {jb_ls['point_estimate']:+.2f} kg/MWh ([{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}]) under observed &Delta;Load (domestic-only: {jb_md['point_estimate']:+.2f} [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}]), leaving import-adjusted net direction undetermined."
             ),
         ),
-        "fig5_hourly_dispatch_and_master_audit.png": (
-            "Figure 5. High-Frequency Within-BA-Month Daily Dispatch (BA &times; Year-Month FE), Storage Duration Horse-Race, and Summary of Empirical Estimates.",
+        "fig_ne3_congestion_frontier_and_ercot.png": (
+            "Figure 4. Congestion-constrained carbon break-even frontier and cross-regional renewable-penetration validation.",
             (
-                f"Panel A (top) displays high-frequency daily WLS regressions absorbing BA &times; Year-Month FE and Date FE ({dy['DAILY_ALL49_NG_MWH']['n']:,} BA-days): "
-                f"interacting daily midday solar swings with installed BESS energy capacity (MWh) confirms strong evening displacement on Natural Gas "
-                f"({dy['DAILY_ALL49_NG_MWH']['coefs']['sol_x_bess_mwh']['beta']:+.3f}, <em>t</em> = {dy['DAILY_ALL49_NG_MWH']['coefs']['sol_x_bess_mwh']['t_cr1']:+.2f}; "
-                f"+Quad &amp; SolCap: {dy['DAILY_ALL49_NG_MWH_QUAD_SOLCAP']['coefs']['sol_x_bess_mwh']['beta']:+.3f}, <em>t</em> = {dy['DAILY_ALL49_NG_MWH_QUAD_SOLCAP']['coefs']['sol_x_bess_mwh']['t_cr1']:+.2f}), "
-                f"Fossil+Imports ({dy['DAILY_ALL49_FOSS_IMP_MWH']['coefs']['sol_x_bess_mwh']['beta']:+.3f}, <em>p</em><sub>WCB</sub> = {_fmt_p_html(dy['DAILY_ALL49_FOSS_IMP_MWH']['wcb']['p_wcb'])}), "
-                f"and Drop CISO/ERCO ({dy['DAILY_DROP_CE_47_NG_MWH']['coefs']['sol_x_bess_mwh']['beta']:+.3f}, <em>t</em> = {dy['DAILY_DROP_CE_47_NG_MWH']['coefs']['sol_x_bess_mwh']['t_cr1']:+.2f}), "
-                f"against a clean Nuclear placebo ({dy['DAILY_ALL49_NUCLEAR_PLACEBO']['coefs']['sol_x_bess_mwh']['beta']:+.4f}, <em>p</em><sub>WCB</sub> = {_fmt_p_html(dy['DAILY_ALL49_NUCLEAR_PLACEBO']['wcb']['p_wcb'])}). "
-                f"Panel A (bottom) confirms Proposition 1 via the joint MWh-vs-MW horse-race (All 49 MWh = {dur['ALL49_EM_NG']['horserace_mwh']['beta']:+.3f}, "
-                f"<em>p</em><sub>WCB</sub> = {_fmt_p_html(dur['ALL49_EM_NG']['horserace_mwh']['p_wcb'])}; Drop CE Peak MWh = {dur['DROP_CE_47_PKMD_NG']['horserace_mwh']['beta']:+.3f}, "
-                f"<em>p</em><sub>WCB</sub> = {_fmt_p_html(dur['DROP_CE_47_PKMD_NG']['horserace_mwh']['p_wcb'])} vs. conditional MW = {dur['DROP_CE_47_PKMD_NG']['horserace_mw']['beta']:+.3f}, "
-                f"<em>p</em><sub>WCB</sub> = {_fmt_p_html(dur['DROP_CE_47_PKMD_NG']['horserace_mw']['p_wcb'])}). "
-                f"Panel B summarizes cluster-robust |<em>t</em>|-statistics across all nine verified effects (|<em>t</em>| = {min(eff_tvals):.2f}&ndash;{max(eff_tvals):.1f}) versus all five clean empirical nulls (|<em>t</em>| &le; {max(null_tvals):.2f})."
+                f"<b>a</b>, Implied incremental net CO<sub>2</sub> (kg/MWh) as storage capacity expands by scale &kappa; (0.1&times;&ndash;3.0&times;, or 1.7&ndash;52.0 GW added atop California&rsquo;s 17.3 GW fleet) against CAISO&rsquo;s observed 13,170-hour residual curtailment curve across four local-congestion access shares &tau;<sub>local</sub> (0% system-only, 25%, 50%, and 100% zero-congestion ceiling). "
+                f"<b>b</b>, Cross-regional interior stratification of domestic EPA CEMS net-load MEFs (&plusmn;95% date-clustered CI; bar labels report MEF and share of BA charging) across hourly renewable penetration ((Solar + Wind)/Load). "
+                f"Unlike zero-coal CAISO (falling to {strat['CISO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh above 60% renewables), ERCOT&rsquo;s MEF remains {strat['ERCO'][1]['mef_dom_netload_kg_mwh']:.0f}&ndash;{strat['ERCO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh as high renewables push coal units onto the margin (hatched bars rising from {strat['ERCO'][0]['coal_mef_netload_kg_mwh']:.0f} to {strat['ERCO'][3]['coal_mef_netload_kg_mwh']:.0f} kg/MWh above 60% renewables)."
             ),
         ),
     }
+
+    si_figs = {
+        "fig2_telemetry_forensics_and_diurnal_charging.png": (
+            "Supplementary Figure 1. Storage telemetry reconciliation and exact 4-window diurnal charging mix across 14 metered U.S. grids (2024-07 to 2026-10).",
+            (
+                f"<b>a</b>, Raw unaligned EIA-930 RTE (crimson) versus reconciled physical RTE (navy): splicing standalone CAISO <code>fuelsource.csv</code> resolves CAISO&rsquo;s RTE ({c_rep['eia930_broken_other_geo_rte']:.2f} &rarr; {c_rep['caiso_fuelsource_rte']:.3f}) and the +{ng_corr['mean_midday_phantom_ng_mw_2024_2025']:,.0f} MW 2024&ndash;2025 midday natural-gas discrepancy; summing <code>Battery</code> + <code>Unknown Energy Storage</code> reconciles ERCO ({ues['ERCO']['raw_broken_rte']:.2f} &rarr; {ues['ERCO']['repaired_rte']:.3f}) and AZPS (&infin; &rarr; {ues['AZPS']['repaired_rte']:.3f}); filtering FPL&rsquo;s {fpl_a['raw_bess_mw']:,.0f} MW outlier yields DC-coupled RTE = {t14['FPL']['rte']:.3f}; 13 clean AC grids average RTE = {m14['fleet_13_ac_rte']:.3f} with 0/4 pumped-hydro leakage and lag-0 CEMS sync <em>r</em> = {cems_r_min:.3f}&ndash;{cems_r_max:.3f}. "
+                f"<b>b</b>, Disjoint 4-window charging mix contrasting overnight fossil-heavy chargers (MISO {t14['MISO']['chg_share_pct']['Overnight']:.0f}%, SOCO {t14['SOCO']['chg_share_pct']['Overnight']:.0f}%, DUK {t14['DUK']['chg_share_pct']['Overnight']:.0f}%) against Southwest midday-solar fleets (CISO {t14['CISO']['chg_share_pct']['Midday Solar']:.0f}%, AZPS {t14['AZPS']['chg_share_pct']['Midday Solar']:.0f}%, PNM {t14['PNM']['chg_share_pct']['Midday Solar']:.0f}%)."
+            ),
+        ),
+        "fig1_diurnal_gas_displacement_and_leads.png": (
+            "Supplementary Figure 2. Supporting 49-BA conditional diurnal natural-gas displacement profile, 6-month timing tests, and robustness forest (Sample 1, 2019–2026).",
+            (
+                f"<b>a</b>, Local Hour-Ending conditional WLS natural-gas responses relative to overnight baseline (HE 2&ndash;5, &plusmn;95% CR1 CI) peaking at Hour Ending 20 ({pk_all['beta']:+.3f}, <em>t</em> = {pk_all['t_cr1']:+.2f}; Drop CISO/ERCO {pk_dce['beta']:+.3f}) alongside null Nuclear placebo. "
+                f"<b>b</b>, Calendar-aligned distributed 6-month timing tests (Joint Future <em>F</em> = {ll['joint_future_leads_F']['F']:.2f}, <em>p</em> = {ll['joint_future_leads_F']['p']:.3f}) and controlled WLS robustness checks (Main {sp['WLS_ALL49_MAIN_NG']['coefs']['bess_share']['beta']:+.3f} vs. uncontrolled No Controls {m_noctrl['coefs']['bess_share']['beta']:+.4f}, <em>p</em><sub>Rad</sub> = {_fmt_p_html(m_noctrl['wcb']['p_wcb'])}; 49-BA LOBAO max <em>p</em><sub>CR1</sub> = {lob['p_cr1_max']:.4f})."
+            ),
+        ),
+        "fig5_hourly_dispatch_and_master_audit.png": (
+            "Supplementary Figure 3. High-frequency within-BA-month daily dispatch, storage duration horse-race, and summary of empirical estimates.",
+            (
+                f"<b>a</b>, Daily WLS regressions absorbing BA &times; Year-Month FE and Date FE ({dy['DAILY_ALL49_NG_MWH']['n']:,} BA-days; top) and Proposition 1 energy (MWh) versus power (MW) duration horse-race (bottom). "
+                f"<b>b</b>, Cluster-robust |<em>t</em>|-statistics across nine empirical estimates (|<em>t</em>| = {min(eff_tvals):.2f}&ndash;{max(eff_tvals):.1f}) versus five placebo and lead tests (|<em>t</em>| &le; {max(null_tvals):.2f})."
+            ),
+        ),
+    }
+    return main_figs, si_figs
 
 
 def _extract_braced(s: str, start: int) -> tuple[str, int]:
@@ -252,6 +243,7 @@ def _tex_to_html(expr: str) -> str:
         (r"\cdot", "&middot;"),
         (r"\pm", "&plusmn;"),
         (r"\kappa", "&kappa;"),
+        (r"\tau", "&tau;"),
         (r"\le", "&le;"),
         (r"\ge", "&ge;"),
         (r"\neq", "&ne;"),
@@ -344,7 +336,11 @@ def _embed_figure_html(fname: str, figure_blocks: dict[str, tuple[str, str]]) ->
     )
 
 
-def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) -> str:
+def convert_md_to_html(
+    md_text: str,
+    figure_blocks: dict[str, tuple[str, str]],
+    running_header: str = "Counterfactual Carbon Accounting of U.S. Utility-Scale Battery Storage (2019-2026)",
+) -> str:
     lines = md_text.splitlines()
     body: list[str] = []
     inserted_figs: set[str] = set()
@@ -363,6 +359,9 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
             if fname in figure_blocks and fname not in inserted_figs:
                 body.append(_embed_figure_html(fname, figure_blocks))
                 inserted_figs.add(fname)
+            i += 1
+            continue
+        if stripped.startswith("<!--") and stripped.endswith("-->"):
             i += 1
             continue
         if stripped == "---":
@@ -457,7 +456,7 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
         para_first = para_raw_lines[0].strip()
         p_cls = (
             ' class="table-caption"'
-            if para_first.startswith(("**Table ", "**Box "))
+            if para_first.startswith(("**Table ", "**Box ", "**Supplementary Table ", "**Supplementary Box "))
             else (' class="table-notes"' if para_first.startswith(("*Notes:*", "*Source:*")) else "")
         )
         segs: list[str] = []
@@ -475,24 +474,24 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
         if fname not in inserted_figs and (FIG_DIR / fname).exists():
             body.append(_embed_figure_html(fname, figure_blocks))
 
-    css = """
-    @page {
+    css = f"""
+    @page {{
       size: letter;
       margin: 0.62in 0.62in 0.68in 0.62in;
-      @top-right {
-        content: "Counterfactual Carbon Accounting of U.S. Utility-Scale Battery Storage (2019-2026)";
+      @top-right {{
+        content: "{running_header}";
         font-family: Georgia, "Times New Roman", serif;
         font-size: 7.1pt;
         color: #555;
-      }
-      @bottom-center {
+      }}
+      @bottom-center {{
         content: "Page " counter(page) " of " counter(pages);
         font-family: Georgia, "Times New Roman", serif;
         font-size: 7.8pt;
         color: #555;
-      }
-    }
-    @page :first { @top-right { content: normal; } }
+      }}
+    }}
+    @page :first {{ @top-right {{ content: normal; }} }}""" + """
     body {
       font-family: Georgia, "Times New Roman", serif;
       font-size: 9.1pt;
@@ -642,17 +641,18 @@ def verify_pdf_zero_leaks(pdf_path: Path) -> tuple[int, list[str]]:
     return len(reader.pages), leaks
 
 
-def main() -> int:
-    figure_blocks = build_dynamic_figure_blocks()
-    md_text = MD_PATH.read_text(encoding="utf-8")
-    html_doc = convert_md_to_html(md_text, figure_blocks)
-    HTML_PATH.write_bytes(html_doc.encode("utf-8"))
+def _compile_single_pdf(
+    md_path: Path,
+    html_path: Path,
+    pdf_path: Path,
+    fig_blocks: dict[str, tuple[str, str]],
+    running_header: str = "Counterfactual Carbon Accounting of U.S. Utility-Scale Battery Storage (2019-2026)",
+) -> tuple[int, str]:
+    md_text = md_path.read_text(encoding="utf-8")
+    html_doc = convert_md_to_html(md_text, fig_blocks, running_header=running_header)
+    html_path.write_bytes(html_doc.encode("utf-8"))
 
-    if not EDGE_EXE.exists():
-        print(f"[ERROR] Microsoft Edge not found at {EDGE_EXE}", file=sys.stderr)
-        return 1
-
-    PDF_V3_PATH.unlink(missing_ok=True)
+    pdf_path.unlink(missing_ok=True)
     edge_profile_dir = Path(tempfile.mkdtemp(prefix="k1_edge_pdf_"))
     cmd = [
         str(EDGE_EXE),
@@ -661,38 +661,59 @@ def main() -> int:
         "--no-first-run",
         f"--user-data-dir={edge_profile_dir}",
         "--no-pdf-header-footer",
-        f"--print-to-pdf={PDF_V3_PATH}",
-        HTML_PATH.as_uri(),
+        f"--print-to-pdf={pdf_path}",
+        html_path.as_uri(),
     ]
     try:
         res = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
     finally:
         shutil.rmtree(edge_profile_dir, ignore_errors=True)
-    if res.returncode != 0 or not PDF_V3_PATH.exists() or PDF_V3_PATH.stat().st_size < 50_000:
-        print(f"[ERROR] Edge PDF compile failed rc={res.returncode}: {res.stderr}", file=sys.stderr)
+    if res.returncode != 0 or not pdf_path.exists() or pdf_path.stat().st_size < 50_000:
+        raise RuntimeError(f"Edge PDF compile failed for {pdf_path.name} rc={res.returncode}: {res.stderr}")
+
+    n_pages, leaks = verify_pdf_zero_leaks(pdf_path)
+    html_path.unlink(missing_ok=True)
+    if leaks:
+        raise RuntimeError(f"Leaked tokens found in {pdf_path.name}: {leaks}")
+    sha = hashlib.sha256(pdf_path.read_bytes()).hexdigest()
+    return n_pages, sha
+
+
+def main() -> int:
+    if not EDGE_EXE.exists():
+        print(f"[ERROR] Microsoft Edge not found at {EDGE_EXE}", file=sys.stderr)
         return 1
 
-    n_pages, leaks = verify_pdf_zero_leaks(PDF_V3_PATH)
-    HTML_PATH.unlink(missing_ok=True)
-    if leaks:
-        print(f"[ERROR] Leaked LaTeX/Markdown/HTML tokens found in PDF: {leaks}", file=sys.stderr)
-        return 2
-    sha = hashlib.sha256(PDF_V3_PATH.read_bytes()).hexdigest()
+    main_figs, si_figs = build_dynamic_figure_blocks()
+    n_main, sha_main = _compile_single_pdf(MD_PATH, HTML_PATH, PDF_NE_PATH, main_figs)
     synced_main = False
     try:
-        shutil.copy2(PDF_V3_PATH, PDF_PATH)
+        shutil.copy2(PDF_NE_PATH, PDF_PATH)
         synced_main = True
     except PermissionError:
         print(
-            f"[WARN] {PDF_PATH.name} is currently open/locked by another application; "
-            f"fresh v3 PDF saved cleanly to {PDF_V3_PATH.name}.",
+            f"[WARN] {PDF_PATH.name} is open/locked; fresh Nature Energy PDF saved to {PDF_NE_PATH.name}.",
             flush=True,
         )
     print(
-        f"[DONE STEP 08] Compiled {PDF_V3_PATH} ({PDF_V3_PATH.stat().st_size:,} bytes, "
-        f"{n_pages} pages, 0 leaked tokens, synced_main={synced_main}, SHA-256: {sha})",
+        f"[DONE STEP 08 MAIN] {PDF_NE_PATH.name} ({PDF_NE_PATH.stat().st_size:,} bytes, "
+        f"{n_main} pages, 0 leaked tokens, synced_main={synced_main}, SHA-256: {sha_main})",
         flush=True,
     )
+
+    if SI_MD_PATH.exists():
+        n_si, sha_si = _compile_single_pdf(
+            SI_MD_PATH,
+            SI_HTML_PATH,
+            SI_PDF_PATH,
+            si_figs,
+            running_header="Supplementary Information — Counterfactual Carbon Accounting of U.S. Battery Storage",
+        )
+        print(
+            f"[DONE STEP 08 SI]   {SI_PDF_PATH.name} ({SI_PDF_PATH.stat().st_size:,} bytes, "
+            f"{n_si} pages, 0 leaked tokens, SHA-256: {sha_si})",
+            flush=True,
+        )
     return 0
 
 

@@ -1,15 +1,25 @@
 {
   "workspace": "D:\\AI_Science\\antigravity\\k1_boost_grid_battery_carbon_20261127",
-  "n_files": 32,
+  "n_files": 41,
   "files": {
     "manuscript_k1_boost.md": {
-      "sha256": "009f9843fb8f3b5a10f8464fde32a48aeffb5a13f71c71d84e66a5263efb540b",
-      "bytes": 68966,
+      "sha256": "2fbd92b7aa9f1d12a5a01ff9ae195e6f157112664d19f3b03ed4432757aab02f",
+      "bytes": 40047,
       "mode": "lf_text"
     },
-    "manuscript_k1_boost_v3.pdf": {
-      "sha256": "ec8ce8b12fa560b0ec45edd2d7dc54da86e684a03a81bb63546abf8b70142f2c",
-      "bytes": 2994428,
+    "manuscript_k1_nature_energy.pdf": {
+      "sha256": "942b2df3905e5cb17b63a6c677341a0350a2ea2060dc53885eacb036fbdfd3a9",
+      "bytes": 2040120,
+      "mode": "raw_binary"
+    },
+    "supplementary_k1_nature_energy.md": {
+      "sha256": "ac9754a302322aa9fb6bec6c4708b9ded796b3ac6fae5e2c94017b12f3986665",
+      "bytes": 11307,
+      "mode": "lf_text"
+    },
+    "supplementary_k1_nature_energy.pdf": {
+      "sha256": "4af4687df82fb48789e2cee08fc8f763222ed4255cab30093d8e3d0ebde0843b",
+      "bytes": 1516439,
       "mode": "raw_binary"
     },
     "REFEREE_RESPONSE_v2.md": {
@@ -20,6 +30,11 @@
     "REFEREE_RESPONSE_v3.md": {
       "sha256": "0cf83873daa0e96327ffa9cf4cc27b4a50caf218857685f4ae78fa3dc8907929",
       "bytes": 5283,
+      "mode": "lf_text"
+    },
+    "REFEREE_RESPONSE_v4.md": {
+      "sha256": "dae6cd1d0886c317e9844aaade7a2650cb8ad24beed649f9d25ed85ca5a3a265",
+      "bytes": 5385,
       "mode": "lf_text"
     },
     "scripts/00_download_external_data.py": {
@@ -42,14 +57,19 @@
       "bytes": 63367,
       "mode": "lf_text"
     },
+    "scripts/03b_nature_energy_v4_extensions.py": {
+      "sha256": "2b37185ea4ca1166413af8a5d45a2b706c39717a92b375eed9cea7b0db87ee14",
+      "bytes": 45573,
+      "mode": "lf_text"
+    },
     "scripts/04_formal_carbon_model.py": {
       "sha256": "ec0217a5e9a4cb93d29b73995fb3dcf0dcb506a5a7e9d5288d9f0bb835af46dd",
       "bytes": 17686,
       "mode": "lf_text"
     },
     "scripts/06_generate_figures.py": {
-      "sha256": "49970d12e195f3ec1bfc8fe9e699547ea1e1f37c1f52b3a59c6371ef635d689e",
-      "bytes": 31719,
+      "sha256": "9ab0ff5296c142ba33b1028e06ffb9633bbed02ae9dd1b0d23ec026cf47ed1d0",
+      "bytes": 42273,
       "mode": "lf_text"
     },
     "scripts/07_verify_citations.py": {
@@ -58,18 +78,18 @@
       "mode": "lf_text"
     },
     "scripts/07a_generate_manuscript_md.py": {
-      "sha256": "d3ebb5ae84e661681c6a2bca83c9e2e7e04d4b5f9c2b6f9665028f283a394eb8",
-      "bytes": 97828,
+      "sha256": "7a698897b9d9bcdcf5db7f05bda04bf04e90d9b654ee87dfc102f94b52de1a10",
+      "bytes": 71582,
       "mode": "lf_text"
     },
     "scripts/08_compile_manuscript_pdf.py": {
-      "sha256": "b6442e2912b63336fa3771ddbd4d19f1ebb939ea10f7f7af3ba01c9fa603c54e",
-      "bytes": 33968,
+      "sha256": "20c1a51f6168509e7266fb0b616d918e68d57b251e76676e4fb6813993abffb9",
+      "bytes": 33575,
       "mode": "lf_text"
     },
     "scripts/09_generate_checksums.py": {
-      "sha256": "9f62c2c9dde71de3f1bf5b859e10f09bc5a59d9f591293505dec55383397b302",
-      "bytes": 2005,
+      "sha256": "3cfbae7e2421a949e95d08856a8ee268bc0241be305687e279a913e4d04916e8",
+      "bytes": 2162,
       "mode": "lf_text"
     },
     "scripts/econ_utils.py": {
@@ -78,8 +98,8 @@
       "mode": "lf_text"
     },
     "tests/test_k1_boost.py": {
-      "sha256": "01bbd832b7faf12e4e83bb1d4c6b9648720a3182646ea3d3cd5b5d7d74aff65c",
-      "bytes": 31224,
+      "sha256": "1dac117a369c3adf3d657d07526f5a1ffeab50b82f3b383cbb3f4d616ffd6b66",
+      "bytes": 34246,
       "mode": "lf_text"
     },
     "results/00_external_downloads_audit.json": {
@@ -100,6 +120,11 @@
     "results/03_cems_carbon_curtailment_results.json": {
       "sha256": "a4184d0423a76c8aa0d5af840c17ad533d2ea83e811a5be44b54ee1da5751087",
       "bytes": 111522,
+      "mode": "lf_text"
+    },
+    "results/03b_nature_energy_v4_extensions.json": {
+      "sha256": "274762786ccc982e396fca7fa75e464799151dcf2c5b21abf77b78b41e87bd2c",
+      "bytes": 33295,
       "mode": "lf_text"
     },
     "results/04_formal_model_verification.json": {
@@ -137,29 +162,49 @@
       "bytes": 389049,
       "mode": "raw_binary"
     },
+    "figures/fig_ne3_congestion_frontier_and_ercot.png": {
+      "sha256": "2b03070941669b109da30a7828172e87baf8da77b44077720a130e312ae2d832",
+      "bytes": 409257,
+      "mode": "raw_binary"
+    },
+    "figures/fig_ne4_joint_bootstrap_and_validation.png": {
+      "sha256": "469a3448a5795fb3df120f1a3a16e40009530ecb6f9594a56e20d0570d0f86e5",
+      "bytes": 295497,
+      "mode": "raw_binary"
+    },
     "figures/fig1_diurnal_gas_displacement_and_leads.pdf": {
-      "sha256": "2200c54930dcb1985d37ce55273e6b337538bcf0c93105ae9c5c73592becec96",
+      "sha256": "b98d70e1e2c815bd6fa285895eae2ca5ce83bfddd635cb4ba29818d4fdaa79d4",
       "bytes": 57341,
       "mode": "raw_binary"
     },
     "figures/fig2_telemetry_forensics_and_diurnal_charging.pdf": {
-      "sha256": "de4b8a1155f8e38f9a750568844a5c01b862c0d2467776f6f1e5633288452913",
+      "sha256": "58031aed86cfb00af4ed2bf561308e6239257c64588ae388423e6f83cdde74a2",
       "bytes": 50193,
       "mode": "raw_binary"
     },
     "figures/fig3_cems_mef_vs_aef_sign_reversal.pdf": {
-      "sha256": "7d8551dea66742dacbc2e0b74977fddd6d5a278e54345252998e0032c10f86fd",
+      "sha256": "1c3da761c8435e6c043c12ffeb316dc5e03a3d0545aad91176bde1a381148fde",
       "bytes": 53875,
       "mode": "raw_binary"
     },
     "figures/fig4_caiso_noncircular_curtailment_tipping.pdf": {
-      "sha256": "5e87c454e779a44ce90f1b80398f5e0f4ef7bd26a8b78e350338da25a53cdac9",
+      "sha256": "6522016d2574c3ff92b7b2e18cef587059956f34ae5e1b8e9ef2c8e3c99c9d37",
       "bytes": 55909,
       "mode": "raw_binary"
     },
     "figures/fig5_hourly_dispatch_and_master_audit.pdf": {
-      "sha256": "6af4104e9e68c6830c9123779ca82ccfec540e469caf2036bb939f4fc8c129d8",
+      "sha256": "4e284118f65143a3ba9ee0e1922c817f2ead6c994b4bc7a2590f3085898339ca",
       "bytes": 53982,
+      "mode": "raw_binary"
+    },
+    "figures/fig_ne3_congestion_frontier_and_ercot.pdf": {
+      "sha256": "b9ff2107f010a3fc3b66ed0565a395320f51c99169174000f9a17eba24108e58",
+      "bytes": 51615,
+      "mode": "raw_binary"
+    },
+    "figures/fig_ne4_joint_bootstrap_and_validation.pdf": {
+      "sha256": "a8ecb98c8c990338da4963fa33ae221b7174620fd317b6d16685de706b31c5c9",
+      "bytes": 46482,
       "mode": "raw_binary"
     }
   }

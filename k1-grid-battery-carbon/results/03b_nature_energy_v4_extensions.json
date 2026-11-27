@@ -1,0 +1,1023 @@
+{
+  "full_window_joint_14d_bootstrap_1000": {
+    "window": "2024-07-01..2026-09-30",
+    "tot_dis_twh": 49.77133491666667,
+    "tot_aef_mt": -3.7471391772985765,
+    "B": 1000,
+    "block_days": 14,
+    "metrics": {
+      "u0_net_mt": {
+        "point": 3.670766379406127,
+        "boot_se": 0.16977361317993772,
+        "ci95_lo": 3.3648079841127507,
+        "ci95_hi": 4.028541051904913,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u0_kg_mwh": {
+        "point": 73.75262057069956,
+        "boot_se": 3.4110721254351266,
+        "ci95_lo": 67.6053392931198,
+        "ci95_hi": 80.94098859614668,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u0_disc_mt": {
+        "point": 7.417905556704703,
+        "boot_se": 0.1697736131799377,
+        "ci95_lo": 7.111947161411327,
+        "ci95_hi": 7.7756802292034894,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u10_net_mt": {
+        "point": 1.716416932260781,
+        "boot_se": 0.1620377436501655,
+        "ci95_lo": 1.4267674799063106,
+        "ci95_hi": 2.060788661506997,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u10_disc_mt": {
+        "point": 5.463556109559358,
+        "boot_se": 0.1620377436501655,
+        "ci95_lo": 5.173906657204887,
+        "ci95_hi": 5.807927838805573,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u15_net_mt": {
+        "point": 0.739242208688107,
+        "boot_se": 0.15899584439801648,
+        "ci95_lo": 0.44969532755360714,
+        "ci95_hi": 1.0751073873207433,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u15_disc_mt": {
+        "point": 4.486381385986683,
+        "boot_se": 0.15899584439801648,
+        "ci95_lo": 4.196834504852183,
+        "ci95_hi": 4.82224656461932,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u20_net_mt": {
+        "point": -0.2379325148845653,
+        "boot_se": 0.15654938072426938,
+        "ci95_lo": -0.526947803721793,
+        "ci95_hi": 0.08863960739004789,
+        "p_2sided_vs_zero": 0.174,
+        "covers_zero": true
+      },
+      "u20_disc_mt": {
+        "point": 3.509206662414011,
+        "boot_se": 0.15654938072426938,
+        "ci95_lo": 3.2201913735767835,
+        "ci95_hi": 3.8357787846886247,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u30_net_mt": {
+        "point": -2.192281962029914,
+        "boot_se": 0.15354971327201383,
+        "ci95_lo": -2.471865107835464,
+        "ci95_hi": -1.8622527204303199,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u30_disc_mt": {
+        "point": 1.5548572152686626,
+        "boot_se": 0.15354971327201383,
+        "ci95_lo": 1.2752740694631128,
+        "ci95_hi": 1.8848864568682566,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h0_main_mt": {
+        "point": 1.8144249282798286,
+        "boot_se": 0.20021307646875774,
+        "ci95_lo": 1.4084794513743992,
+        "ci95_hi": 2.205470292956687,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h0_main_disc_mt": {
+        "point": 5.561564105578405,
+        "boot_se": 0.20021307646875772,
+        "ci95_lo": 5.1556186286729755,
+        "ci95_hi": 5.952609470255264,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h10_main_mt": {
+        "point": 0.7777013708620872,
+        "boot_se": 0.1995242068693933,
+        "ci95_lo": 0.3735735567923348,
+        "ci95_hi": 1.1639728974756025,
+        "p_2sided_vs_zero": 0.002,
+        "covers_zero": false
+      },
+      "h10_main_disc_mt": {
+        "point": 4.524840548160664,
+        "boot_se": 0.19952420686939332,
+        "ci95_lo": 4.120712734090911,
+        "ci95_hi": 4.911112074774179,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h15_main_mt": {
+        "point": 0.2593395921532158,
+        "boot_se": 0.19925676728840447,
+        "ci95_lo": -0.14227557364341717,
+        "ci95_hi": 0.6449322721828212,
+        "p_2sided_vs_zero": 0.17,
+        "covers_zero": true
+      },
+      "h15_main_disc_mt": {
+        "point": 4.0064787694517925,
+        "boot_se": 0.19925676728840447,
+        "ci95_lo": 3.604863603655159,
+        "ci95_hi": 4.3920714494813975,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h0_dload_mt": {
+        "point": 1.876827913145895,
+        "boot_se": 0.4055222511357116,
+        "ci95_lo": 1.2164035091940781,
+        "ci95_hi": 2.8045187847182276,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h0_dload_disc_mt": {
+        "point": 5.623967090444472,
+        "boot_se": 0.40552225113571155,
+        "ci95_lo": 4.963542686492655,
+        "ci95_hi": 6.551657962016804,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h15_dload_mt": {
+        "point": 0.32174257701928205,
+        "boot_se": 0.4055118195739124,
+        "ci95_lo": -0.34215148178897875,
+        "ci95_hi": 1.2444604622993158,
+        "p_2sided_vs_zero": 0.28,
+        "covers_zero": true
+      },
+      "h15_dload_disc_mt": {
+        "point": 4.068881754317858,
+        "boot_se": 0.40551181957391247,
+        "ci95_lo": 3.4049876955095977,
+        "ci95_hi": 4.991599639597892,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      }
+    }
+  },
+  "same_window_joint_14d_bootstrap_1000": {
+    "window": "2024-07-01..2025-12-31",
+    "tot_dis_twh": 26.04615166666666,
+    "tot_aef_mt": -1.5829059016851057,
+    "B": 1000,
+    "block_days": 14,
+    "metrics": {
+      "u0_net_mt": {
+        "point": 1.8892324710016979,
+        "boot_se": 0.10600112881035416,
+        "ci95_lo": 1.7045098455050114,
+        "ci95_hi": 2.1087869411292326,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u0_kg_mwh": {
+        "point": 72.53403478485843,
+        "boot_se": 4.069742438995787,
+        "ci95_lo": 65.44190740033234,
+        "ci95_hi": 80.96347468589825,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u0_disc_mt": {
+        "point": 3.4721383726868034,
+        "boot_se": 0.10600112881035416,
+        "ci95_lo": 3.2874157471901175,
+        "ci95_hi": 3.6916928428143385,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u10_net_mt": {
+        "point": 0.8824640067644657,
+        "boot_se": 0.10112105588569056,
+        "ci95_lo": 0.7040207407095802,
+        "ci95_hi": 1.0954924538570776,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u10_disc_mt": {
+        "point": 2.4653699084495715,
+        "boot_se": 0.10112105588569055,
+        "ci95_lo": 2.2869266423946857,
+        "ci95_hi": 2.6783983555421833,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u15_net_mt": {
+        "point": 0.3790797746458487,
+        "boot_se": 0.09936096028702388,
+        "ci95_lo": 0.19926832436082212,
+        "ci95_hi": 0.5869393444819249,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u15_disc_mt": {
+        "point": 1.9619856763309544,
+        "boot_se": 0.09936096028702388,
+        "ci95_lo": 1.782174226045928,
+        "ci95_hi": 2.1698452461670303,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u20_net_mt": {
+        "point": -0.12430445747276636,
+        "boot_se": 0.09808879494574259,
+        "ci95_lo": -0.3005897277420683,
+        "ci95_hi": 0.08446549836967596,
+        "p_2sided_vs_zero": 0.24,
+        "covers_zero": true
+      },
+      "u20_disc_mt": {
+        "point": 1.4586014442123394,
+        "boot_se": 0.09808879494574259,
+        "ci95_lo": 1.2823161739430375,
+        "ci95_hi": 1.6673714000547817,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u30_net_mt": {
+        "point": -1.1310729217100002,
+        "boot_se": 0.09707765221966509,
+        "ci95_lo": -1.3031374153201545,
+        "ci95_hi": -0.9209185989492262,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "u30_disc_mt": {
+        "point": 0.4518329799751055,
+        "boot_se": 0.09707765221966509,
+        "ci95_lo": 0.27976848636495116,
+        "ci95_hi": 0.6619873027358795,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h0_main_mt": {
+        "point": 0.8152311748027546,
+        "boot_se": 0.11163599988492104,
+        "ci95_lo": 0.5938319818465712,
+        "ci95_hi": 1.0315570153025848,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h0_main_disc_mt": {
+        "point": 2.3981370764878602,
+        "boot_se": 0.11163599988492102,
+        "ci95_lo": 2.176737883531677,
+        "ci95_hi": 2.6144629169876903,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h10_main_mt": {
+        "point": 0.36037656412811786,
+        "boot_se": 0.1113970575522082,
+        "ci95_lo": 0.1344246884075915,
+        "ci95_hi": 0.5768466619456561,
+        "p_2sided_vs_zero": 0.006,
+        "covers_zero": false
+      },
+      "h10_main_disc_mt": {
+        "point": 1.9432824658132235,
+        "boot_se": 0.1113970575522082,
+        "ci95_lo": 1.7173305900926972,
+        "ci95_hi": 2.1597525636307617,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h15_main_mt": {
+        "point": 0.13294925879079936,
+        "boot_se": 0.11132421327142099,
+        "ci95_lo": -0.0926999788923233,
+        "ci95_hi": 0.3495962365875416,
+        "p_2sided_vs_zero": 0.184,
+        "covers_zero": true
+      },
+      "h15_main_disc_mt": {
+        "point": 1.7158551604759051,
+        "boot_se": 0.11132421327142099,
+        "ci95_lo": 1.4902059227927824,
+        "ci95_hi": 1.9325021382726473,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h0_dload_mt": {
+        "point": 0.8542927722589571,
+        "boot_se": 0.23515902500150251,
+        "ci95_lo": 0.5006172286424809,
+        "ci95_hi": 1.4003675242879245,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h0_dload_disc_mt": {
+        "point": 2.4371986739440628,
+        "boot_se": 0.23515902500150251,
+        "ci95_lo": 2.0835231303275865,
+        "ci95_hi": 2.9832734259730307,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "h15_dload_mt": {
+        "point": 0.1720108562470018,
+        "boot_se": 0.23539194827304347,
+        "ci95_lo": -0.1907842147761498,
+        "ci95_hi": 0.7176445210891605,
+        "p_2sided_vs_zero": 0.308,
+        "covers_zero": true
+      },
+      "h15_dload_disc_mt": {
+        "point": 1.7549167579321074,
+        "boot_se": 0.23539194827304347,
+        "ci95_lo": 1.3921216869089559,
+        "ci95_hi": 2.300550422774266,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      }
+    }
+  },
+  "independent_mef_validations": {
+    "r_cems_vs_egrid_nonbaseload_thermal": 0.3270604061534856,
+    "r_cems_vs_egrid_nonbaseload_all": 0.31359719138730857,
+    "egrid_nonbaseload_rte_loss_floor_kg_mwh": 89.57458562859144,
+    "egrid_nonbaseload_rte_loss_floor_mt": 4.458246701342261,
+    "by_ba": [
+      {
+        "ba": "CISO",
+        "dis_gwh": 29156.04391666667,
+        "cems_mef_avg_kg_mwh": 261.947892882539,
+        "cems_net_kg_mwh": 62.63987111913218,
+        "egrid_nonbaseload_dom_kg_mwh": 398.53941046073004,
+        "egrid_nonbaseload_nbr_kg_mwh": 531.5125131836461,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 63.01496250970765,
+        "cems_internal_stack_slope_kg_mwh": 376.18036312103476,
+        "cems_internal_stack_se": 1.4466911816083963
+      },
+      {
+        "ba": "ERCO",
+        "dis_gwh": 9923.863,
+        "cems_mef_avg_kg_mwh": 502.84289692395237,
+        "cems_net_kg_mwh": 142.48426282804138,
+        "egrid_nonbaseload_dom_kg_mwh": 565.36025152222,
+        "egrid_nonbaseload_nbr_kg_mwh": 753.49176931105,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 163.8731047195687,
+        "cems_internal_stack_slope_kg_mwh": 515.9484426040666,
+        "cems_internal_stack_se": 1.8853170470110836
+      },
+      {
+        "ba": "AZPS",
+        "dis_gwh": 4391.829,
+        "cems_mef_avg_kg_mwh": 342.06071191966424,
+        "cems_net_kg_mwh": 43.86415263773904,
+        "egrid_nonbaseload_dom_kg_mwh": 692.4432258251201,
+        "egrid_nonbaseload_nbr_kg_mwh": 517.7667204849032,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 96.51366294392687,
+        "cems_internal_stack_slope_kg_mwh": 596.9580470885066,
+        "cems_internal_stack_se": 7.868531738856819
+      },
+      {
+        "ba": "PNM",
+        "dis_gwh": 1734.67,
+        "cems_mef_avg_kg_mwh": 301.345957002208,
+        "cems_net_kg_mwh": 1.961275888917271,
+        "egrid_nonbaseload_dom_kg_mwh": 491.7349523933,
+        "egrid_nonbaseload_nbr_kg_mwh": 666.5922865345733,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 63.5266666463008,
+        "cems_internal_stack_slope_kg_mwh": 491.84213408825815,
+        "cems_internal_stack_se": 6.565961569845517
+      },
+      {
+        "ba": "SRP",
+        "dis_gwh": 996.54,
+        "cems_mef_avg_kg_mwh": 294.022326354371,
+        "cems_net_kg_mwh": 28.02385190028633,
+        "egrid_nonbaseload_dom_kg_mwh": 502.78673048835,
+        "egrid_nonbaseload_nbr_kg_mwh": 603.9811759323383,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 67.14519160325887,
+        "cems_internal_stack_slope_kg_mwh": 390.4152344168312,
+        "cems_internal_stack_se": 2.1388351848000284
+      },
+      {
+        "ba": "PGE",
+        "dis_gwh": 906.56,
+        "cems_mef_avg_kg_mwh": 5.245484898021301,
+        "cems_net_kg_mwh": 0.6887689558999712,
+        "egrid_nonbaseload_dom_kg_mwh": 502.21520410215,
+        "egrid_nonbaseload_nbr_kg_mwh": 510.3667655392297,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 81.73793981607393,
+        "cems_internal_stack_slope_kg_mwh": 325.2675973282701,
+        "cems_internal_stack_se": 2.7811229895287193
+      },
+      {
+        "ba": "MISO",
+        "dis_gwh": 722.922,
+        "cems_mef_avg_kg_mwh": 547.6452820044115,
+        "cems_net_kg_mwh": 175.14876348394534,
+        "egrid_nonbaseload_dom_kg_mwh": 699.09606511591,
+        "egrid_nonbaseload_nbr_kg_mwh": 696.8431755436042,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 177.54120747018376,
+        "cems_internal_stack_slope_kg_mwh": 635.8611736273537,
+        "cems_internal_stack_se": 2.206621783261319
+      },
+      {
+        "ba": "IPCO",
+        "dis_gwh": 640.237,
+        "cems_mef_avg_kg_mwh": 425.91635560104555,
+        "cems_net_kg_mwh": 60.321776317022795,
+        "egrid_nonbaseload_dom_kg_mwh": 471.65260380392004,
+        "egrid_nonbaseload_nbr_kg_mwh": 703.5674135912603,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 71.68160120070046,
+        "cems_internal_stack_slope_kg_mwh": 480.6008859454777,
+        "cems_internal_stack_se": 4.809605455831098
+      },
+      {
+        "ba": "TEPC",
+        "dis_gwh": 554.385,
+        "cems_mef_avg_kg_mwh": 337.8441804959665,
+        "cems_net_kg_mwh": 42.14249054396208,
+        "egrid_nonbaseload_dom_kg_mwh": 876.5436682217601,
+        "egrid_nonbaseload_nbr_kg_mwh": 523.9883385094528,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 150.32403339950366,
+        "cems_internal_stack_slope_kg_mwh": 648.8227224130901,
+        "cems_internal_stack_se": 4.927842149191148
+      },
+      {
+        "ba": "IID",
+        "dis_gwh": 333.112,
+        "cems_mef_avg_kg_mwh": 255.11734654319355,
+        "cems_net_kg_mwh": 55.28134395255208,
+        "egrid_nonbaseload_dom_kg_mwh": 421.27754237646,
+        "egrid_nonbaseload_nbr_kg_mwh": 421.4067438281987,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 67.20721906436822,
+        "cems_internal_stack_slope_kg_mwh": 394.43981543320467,
+        "cems_internal_stack_se": 3.6078429971624915
+      },
+      {
+        "ba": "SOCO",
+        "dis_gwh": 204.021,
+        "cems_mef_avg_kg_mwh": 514.8674281615457,
+        "cems_net_kg_mwh": 74.81736284504586,
+        "egrid_nonbaseload_dom_kg_mwh": 636.07575559759,
+        "egrid_nonbaseload_nbr_kg_mwh": 638.6743831316347,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 119.96899865893838,
+        "cems_internal_stack_slope_kg_mwh": 584.6112805742749,
+        "cems_internal_stack_se": 3.0741278398560143
+      },
+      {
+        "ba": "DUK",
+        "dis_gwh": 73.264,
+        "cems_mef_avg_kg_mwh": 234.1528996544241,
+        "cems_net_kg_mwh": 44.32943879528369,
+        "egrid_nonbaseload_dom_kg_mwh": 598.3872191666601,
+        "egrid_nonbaseload_nbr_kg_mwh": 665.3163777488421,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 142.98925865296346,
+        "cems_internal_stack_slope_kg_mwh": 538.6960660637419,
+        "cems_internal_stack_se": 2.5492757777310047
+      },
+      {
+        "ba": "CPLE",
+        "dis_gwh": 26.124,
+        "cems_mef_avg_kg_mwh": 452.38276537646254,
+        "cems_net_kg_mwh": 118.85119811805743,
+        "egrid_nonbaseload_dom_kg_mwh": 548.75060611756,
+        "egrid_nonbaseload_nbr_kg_mwh": 649.2346662134718,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 120.25712831201314,
+        "cems_internal_stack_slope_kg_mwh": 553.7180471105195,
+        "cems_internal_stack_se": 6.383371684385141
+      },
+      {
+        "ba": "FPL",
+        "dis_gwh": 107.764,
+        "cems_mef_avg_kg_mwh": 341.7863570385499,
+        "cems_net_kg_mwh": 9.168746041381382,
+        "egrid_nonbaseload_dom_kg_mwh": 378.42848555204006,
+        "egrid_nonbaseload_nbr_kg_mwh": 557.7459489844765,
+        "egrid_nonbaseload_rte_loss_net_kg_mwh": 14.68568284936183,
+        "cems_internal_stack_slope_kg_mwh": 355.26047152581066,
+        "cems_internal_stack_se": 1.4971723237355719
+      }
+    ],
+    "direct_cems_on_dbess_regressions": {
+      "CISO": {
+        "n_hours": 19713,
+        "d_bess_beta_kg_mwh": -271.29001342423595,
+        "d_bess_se_day": 4.196732776265701,
+        "d_bess_t_day": -64.64314691621438,
+        "d_load_beta_kg_mwh": 275.3160583869783,
+        "d_load_se_day": 5.31312594036555
+      },
+      "ERCO": {
+        "n_hours": 16962,
+        "d_bess_beta_kg_mwh": -499.29847207494726,
+        "d_bess_se_day": 3.413256511732264,
+        "d_bess_t_day": -146.2821415146288,
+        "d_load_beta_kg_mwh": 494.28597711295447,
+        "d_load_se_day": 3.515983317204695
+      },
+      "AZPS": {
+        "n_hours": 13463,
+        "d_bess_beta_kg_mwh": -222.32641455507053,
+        "d_bess_se_day": 22.515304236595295,
+        "d_bess_t_day": -9.874457489839815,
+        "d_load_beta_kg_mwh": 214.51138157228067,
+        "d_load_se_day": 27.245978821613225
+      },
+      "MISO": {
+        "n_hours": 14975,
+        "d_bess_beta_kg_mwh": -618.6196412109491,
+        "d_bess_se_day": 84.4074470323487,
+        "d_bess_t_day": -7.3289699305070375,
+        "d_load_beta_kg_mwh": 557.3907526342099,
+        "d_load_se_day": 5.6318271423628214
+      }
+    }
+  },
+  "cross_regional_ren_penetration_stratification": {
+    "CISO": [
+      {
+        "bin": "<20%",
+        "n_hours": 9605,
+        "n_interior_hours": 8695,
+        "pct_chg": 3.2988021035599573,
+        "pct_dis": 81.40117975134264,
+        "mef_dom_netload_kg_mwh": 138.82148661793155,
+        "se_netload": 4.67578359341967,
+        "mef_dom_disp_kg_mwh": 284.1149394102466,
+        "se_disp": 3.7389907630802077,
+        "coal_mef_netload_kg_mwh": 0.0
+      },
+      {
+        "bin": "20-40%",
+        "n_hours": 2340,
+        "n_interior_hours": 1082,
+        "pct_chg": 1.8079108806097737,
+        "pct_dis": 16.4719142677733,
+        "mef_dom_netload_kg_mwh": 104.04462598119173,
+        "se_netload": 13.868042282165405,
+        "mef_dom_disp_kg_mwh": 254.25679849566293,
+        "se_disp": 13.53998831743592,
+        "coal_mef_netload_kg_mwh": 0.0
+      },
+      {
+        "bin": "40-60%",
+        "n_hours": 1738,
+        "n_interior_hours": 628,
+        "pct_chg": 9.670507037643159,
+        "pct_dis": 1.950338251894995,
+        "mef_dom_netload_kg_mwh": 130.890879943702,
+        "se_netload": 14.13466509883764,
+        "mef_dom_disp_kg_mwh": 263.8106381806249,
+        "se_disp": 14.005677246061692,
+        "coal_mef_netload_kg_mwh": 0.0
+      },
+      {
+        "bin": ">60%",
+        "n_hours": 6043,
+        "n_interior_hours": 5286,
+        "pct_chg": 85.22277997818712,
+        "pct_dis": 0.1765677289890549,
+        "mef_dom_netload_kg_mwh": 69.86451540846716,
+        "se_netload": 3.351668929573679,
+        "mef_dom_disp_kg_mwh": 250.03187868578922,
+        "se_disp": 4.496137882086902,
+        "coal_mef_netload_kg_mwh": 0.0
+      }
+    ],
+    "ERCO": [
+      {
+        "bin": "<20%",
+        "n_hours": 3430,
+        "n_interior_hours": 2830,
+        "pct_chg": 4.518476245385382,
+        "pct_dis": 40.35997877036392,
+        "mef_dom_netload_kg_mwh": 453.41440752501956,
+        "se_netload": 6.8198689451038605,
+        "mef_dom_disp_kg_mwh": 489.84753750550306,
+        "se_disp": 6.715887773098831,
+        "coal_mef_netload_kg_mwh": 150.73744591281658
+      },
+      {
+        "bin": "20-40%",
+        "n_hours": 7748,
+        "n_interior_hours": 6381,
+        "pct_chg": 21.895025567650272,
+        "pct_dis": 47.90501440819971,
+        "mef_dom_netload_kg_mwh": 501.8063839898906,
+        "se_netload": 3.89162615359563,
+        "mef_dom_disp_kg_mwh": 516.8889792663653,
+        "se_disp": 4.005987599131655,
+        "coal_mef_netload_kg_mwh": 213.61731736088595
+      },
+      {
+        "bin": "40-60%",
+        "n_hours": 6642,
+        "n_interior_hours": 5517,
+        "pct_chg": 45.13762313623333,
+        "pct_dis": 11.576006238699588,
+        "mef_dom_netload_kg_mwh": 495.43780086463266,
+        "se_netload": 3.58200079373019,
+        "mef_dom_disp_kg_mwh": 502.25081697335213,
+        "se_disp": 3.304373154593123,
+        "coal_mef_netload_kg_mwh": 226.28955099200724
+      },
+      {
+        "bin": ">60%",
+        "n_hours": 1906,
+        "n_interior_hours": 1556,
+        "pct_chg": 28.448875050731015,
+        "pct_dis": 0.15900058273678305,
+        "mef_dom_netload_kg_mwh": 532.3912320022131,
+        "se_netload": 7.9442558580274465,
+        "mef_dom_disp_kg_mwh": 545.3925452603239,
+        "se_disp": 7.71468372350617,
+        "coal_mef_netload_kg_mwh": 279.34352527914007
+      }
+    ],
+    "AZPS": [
+      {
+        "bin": "<20%",
+        "n_hours": 12528,
+        "n_interior_hours": 11729,
+        "pct_chg": 6.095802371238185,
+        "pct_dis": 89.86861738013934,
+        "mef_dom_netload_kg_mwh": 30.871712781983394,
+        "se_netload": 2.45056701471701,
+        "mef_dom_disp_kg_mwh": 264.9941410481369,
+        "se_disp": 10.393845047796882,
+        "coal_mef_netload_kg_mwh": 16.19406032904889
+      },
+      {
+        "bin": "20-40%",
+        "n_hours": 4134,
+        "n_interior_hours": 2893,
+        "pct_chg": 36.11298073848594,
+        "pct_dis": 9.527101351168271,
+        "mef_dom_netload_kg_mwh": 23.86355863144992,
+        "se_netload": 3.8070005715251285,
+        "mef_dom_disp_kg_mwh": 224.93566051348242,
+        "se_disp": 12.88431908535987,
+        "coal_mef_netload_kg_mwh": 11.494387875757456
+      },
+      {
+        "bin": "40-60%",
+        "n_hours": 2422,
+        "n_interior_hours": 1776,
+        "pct_chg": 42.197691911698875,
+        "pct_dis": 0.5812384771811471,
+        "mef_dom_netload_kg_mwh": 29.288831078333274,
+        "se_netload": 5.039655268441369,
+        "mef_dom_disp_kg_mwh": 296.3172450481888,
+        "se_disp": 18.427947998591662,
+        "coal_mef_netload_kg_mwh": 21.7097207811835
+      },
+      {
+        "bin": ">60%",
+        "n_hours": 644,
+        "n_interior_hours": 492,
+        "pct_chg": 15.593524978577001,
+        "pct_dis": 0.02304279151123598,
+        "mef_dom_netload_kg_mwh": 17.42633242482391,
+        "se_netload": 7.466137410863938,
+        "mef_dom_disp_kg_mwh": 246.78100362899886,
+        "se_disp": 32.895640393308256,
+        "coal_mef_netload_kg_mwh": 10.067194030092654
+      }
+    ],
+    "MISO": [
+      {
+        "bin": "<20%",
+        "n_hours": 10970,
+        "n_interior_hours": 10427,
+        "pct_chg": 49.923001740734286,
+        "pct_dis": 66.19040505061403,
+        "mef_dom_netload_kg_mwh": 495.53814315655256,
+        "se_netload": 8.2907976590591,
+        "mef_dom_disp_kg_mwh": 558.071297484412,
+        "se_disp": 10.523359117439806,
+        "coal_mef_netload_kg_mwh": 277.7052117807454
+      },
+      {
+        "bin": "20-40%",
+        "n_hours": 8209,
+        "n_interior_hours": 7576,
+        "pct_chg": 43.44621263433328,
+        "pct_dis": 33.119755658286785,
+        "mef_dom_netload_kg_mwh": 507.7930389601254,
+        "se_netload": 4.711047778153702,
+        "mef_dom_disp_kg_mwh": 568.617703369737,
+        "se_disp": 3.6664438134595883,
+        "coal_mef_netload_kg_mwh": 308.3730080915375
+      },
+      {
+        "bin": "40-60%",
+        "n_hours": 549,
+        "n_interior_hours": 458,
+        "pct_chg": 6.630785624932433,
+        "pct_dis": 0.6898392910991781,
+        "mef_dom_netload_kg_mwh": 453.9525846729515,
+        "se_netload": 17.72423521249054,
+        "mef_dom_disp_kg_mwh": 522.7362737894856,
+        "se_disp": 13.35298732241664,
+        "coal_mef_netload_kg_mwh": 271.4744918292997
+      },
+      {
+        "bin": ">60%",
+        "n_hours": 0,
+        "n_interior_hours": 0,
+        "pct_chg": 0.0,
+        "pct_dis": 0.0,
+        "mef_dom_netload_kg_mwh": null,
+        "se_netload": null,
+        "mef_dom_disp_kg_mwh": null,
+        "se_disp": null,
+        "coal_mef_netload_kg_mwh": null
+      }
+    ]
+  },
+  "congestion_constrained_carbon_frontier": [
+    {
+      "tau_local_access": 0.0,
+      "curve": [
+        {
+          "kappa": 0.1,
+          "incremental_gw_equiv": 1.734,
+          "rho_res": 0.074570866141793,
+          "implied_net_co2_kg_mwh": 39.1683806983807,
+          "net_abating": false
+        },
+        {
+          "kappa": 0.25,
+          "incremental_gw_equiv": 4.335,
+          "rho_res": 0.05344430888189162,
+          "implied_net_co2_kg_mwh": 45.81805250729275,
+          "net_abating": false
+        },
+        {
+          "kappa": 0.5,
+          "incremental_gw_equiv": 8.67,
+          "rho_res": 0.04048018600072555,
+          "implied_net_co2_kg_mwh": 49.898564130158206,
+          "net_abating": false
+        },
+        {
+          "kappa": 0.75,
+          "incremental_gw_equiv": 13.004999999999999,
+          "rho_res": 0.03292859184688655,
+          "implied_net_co2_kg_mwh": 52.27545981360396,
+          "net_abating": false
+        },
+        {
+          "kappa": 1.0,
+          "incremental_gw_equiv": 17.34,
+          "rho_res": 0.027530779465890075,
+          "implied_net_co2_kg_mwh": 53.97444372177881,
+          "net_abating": false
+        },
+        {
+          "kappa": 1.5,
+          "incremental_gw_equiv": 26.009999999999998,
+          "rho_res": 0.020253581123848015,
+          "implied_net_co2_kg_mwh": 56.264972181651785,
+          "net_abating": false
+        },
+        {
+          "kappa": 2.0,
+          "incremental_gw_equiv": 34.68,
+          "rho_res": 0.01575569866109083,
+          "implied_net_co2_kg_mwh": 57.680699403292635,
+          "net_abating": false
+        },
+        {
+          "kappa": 3.0,
+          "incremental_gw_equiv": 52.019999999999996,
+          "rho_res": 0.010725189839533345,
+          "implied_net_co2_kg_mwh": 59.26407298771875,
+          "net_abating": false
+        }
+      ]
+    },
+    {
+      "tau_local_access": 0.25,
+      "curve": [
+        {
+          "kappa": 0.1,
+          "incremental_gw_equiv": 1.734,
+          "rho_res": 0.3371183228502428,
+          "implied_net_co2_kg_mwh": -43.46952380721487,
+          "net_abating": true
+        },
+        {
+          "kappa": 0.25,
+          "incremental_gw_equiv": 4.335,
+          "rho_res": 0.19767137285158773,
+          "implied_net_co2_kg_mwh": 0.4219839683946134,
+          "net_abating": false
+        },
+        {
+          "kappa": 0.5,
+          "incremental_gw_equiv": 8.67,
+          "rho_res": 0.1217307481197377,
+          "implied_net_co2_kg_mwh": 24.32461160517539,
+          "net_abating": false
+        },
+        {
+          "kappa": 0.75,
+          "incremental_gw_equiv": 13.004999999999999,
+          "rho_res": 0.08930158108018024,
+          "implied_net_co2_kg_mwh": 34.53182687440142,
+          "net_abating": false
+        },
+        {
+          "kappa": 1.0,
+          "incremental_gw_equiv": 17.34,
+          "rho_res": 0.070698861785211,
+          "implied_net_co2_kg_mwh": 40.387110181712956,
+          "net_abating": false
+        },
+        {
+          "kappa": 1.5,
+          "incremental_gw_equiv": 26.009999999999998,
+          "rho_res": 0.049489067756721426,
+          "implied_net_co2_kg_mwh": 47.062981109901045,
+          "net_abating": false
+        },
+        {
+          "kappa": 2.0,
+          "incremental_gw_equiv": 34.68,
+          "rho_res": 0.03785423982590723,
+          "implied_net_co2_kg_mwh": 50.72509161571088,
+          "net_abating": false
+        },
+        {
+          "kappa": 3.0,
+          "incremental_gw_equiv": 52.019999999999996,
+          "rho_res": 0.025547073030218723,
+          "implied_net_co2_kg_mwh": 54.59882357696131,
+          "net_abating": false
+        }
+      ]
+    },
+    {
+      "tau_local_access": 0.5,
+      "curve": [
+        {
+          "kappa": 0.1,
+          "incremental_gw_equiv": 1.734,
+          "rho_res": 0.45228648732779025,
+          "implied_net_co2_kg_mwh": -79.71918281171591,
+          "net_abating": true
+        },
+        {
+          "kappa": 0.25,
+          "incremental_gw_equiv": 4.335,
+          "rho_res": 0.28959374765814894,
+          "implied_net_co2_kg_mwh": -28.510966007302812,
+          "net_abating": true
+        },
+        {
+          "kappa": 0.5,
+          "incremental_gw_equiv": 8.67,
+          "rho_res": 0.18935449189309167,
+          "implied_net_co2_kg_mwh": 3.0397568581005032,
+          "net_abating": false
+        },
+        {
+          "kappa": 0.75,
+          "incremental_gw_equiv": 13.004999999999999,
+          "rho_res": 0.14105908664369513,
+          "implied_net_co2_kg_mwh": 18.240936626109374,
+          "net_abating": false
+        },
+        {
+          "kappa": 1.0,
+          "incremental_gw_equiv": 17.34,
+          "rho_res": 0.11181759119366756,
+          "implied_net_co2_kg_mwh": 27.444818998063113,
+          "net_abating": false
+        },
+        {
+          "kappa": 1.5,
+          "incremental_gw_equiv": 26.009999999999998,
+          "rho_res": 0.07802353762233649,
+          "implied_net_co2_kg_mwh": 38.081637982700215,
+          "net_abating": false
+        },
+        {
+          "kappa": 2.0,
+          "incremental_gw_equiv": 34.68,
+          "rho_res": 0.05953167283019648,
+          "implied_net_co2_kg_mwh": 43.90202937396094,
+          "net_abating": false
+        },
+        {
+          "kappa": 3.0,
+          "incremental_gw_equiv": 52.019999999999996,
+          "rho_res": 0.040233486074275376,
+          "implied_net_co2_kg_mwh": 49.97621395857067,
+          "net_abating": false
+        }
+      ]
+    },
+    {
+      "tau_local_access": 1.0,
+      "curve": [
+        {
+          "kappa": 0.1,
+          "incremental_gw_equiv": 1.734,
+          "rho_res": 0.5749933213894383,
+          "implied_net_co2_kg_mwh": -118.34166943755596,
+          "net_abating": true
+        },
+        {
+          "kappa": 0.25,
+          "incremental_gw_equiv": 4.335,
+          "rho_res": 0.40309076329191085,
+          "implied_net_co2_kg_mwh": -64.2346239592751,
+          "net_abating": true
+        },
+        {
+          "kappa": 0.5,
+          "incremental_gw_equiv": 8.67,
+          "rho_res": 0.28301875925921455,
+          "implied_net_co2_kg_mwh": -26.441461049043426,
+          "net_abating": true
+        },
+        {
+          "kappa": 0.75,
+          "incremental_gw_equiv": 13.004999999999999,
+          "rho_res": 0.2216767467691277,
+          "implied_net_co2_kg_mwh": -7.133807362776707,
+          "net_abating": true
+        },
+        {
+          "kappa": 1.0,
+          "incremental_gw_equiv": 17.34,
+          "rho_res": 0.18181470760285387,
+          "implied_net_co2_kg_mwh": 5.412935337834767,
+          "net_abating": false
+        },
+        {
+          "kappa": 1.5,
+          "incremental_gw_equiv": 26.009999999999998,
+          "rho_res": 0.13151583316498336,
+          "implied_net_co2_kg_mwh": 21.244715369707023,
+          "net_abating": false
+        },
+        {
+          "kappa": 2.0,
+          "incremental_gw_equiv": 34.68,
+          "rho_res": 0.10146153617063879,
+          "implied_net_co2_kg_mwh": 30.704430409946212,
+          "net_abating": false
+        },
+        {
+          "kappa": 3.0,
+          "incremental_gw_equiv": 52.019999999999996,
+          "rho_res": 0.06901545681041847,
+          "implied_net_co2_kg_mwh": 40.91696890247607,
+          "net_abating": false
+        }
+      ]
+    }
+  ],
+  "proposition_2_exact_inequality_audit": {
+    "n_grids_alpha_star_positive": 14,
+    "n_grids_mef_chg_ge_mef_dis": 4,
+    "grids_mef_chg_ge_mef_dis": [
+      "CISO",
+      "MISO",
+      "IID",
+      "CPLE"
+    ],
+    "grids_mef_dis_gt_chg_yet_below_inv_eta": [
+      "ERCO",
+      "AZPS",
+      "PNM",
+      "SRP",
+      "PGE",
+      "IPCO",
+      "TEPC",
+      "SOCO",
+      "DUK",
+      "FPL"
+    ]
+  },
+  "elapsed_sec": 66.94365453720093
+}

@@ -1,17 +1,26 @@
-# Status & Freeze Record — Flagship `#8 K1` (Counterfactual Carbon Accounting & Diurnal Gas-Peaker Displacement of U.S. Utility-Scale Battery Storage)
+# Status & Freeze Record — Flagship `#8 K1` (Strict *Nature Energy* `Analysis` Submission Package)
 
-- **State:** `FROZEN_SUBMISSION_READY_V3` (*Nature Energy* Analysis Submission Polish)
-- **Revision Timestamp:** `2026-11-27`
+- **State:** `FROZEN_SUBMISSION_READY_V4` (Strict *Nature Energy* `Analysis` Format + Separate Supplementary Information)
+- **Author:** Zijian Zeng, Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA (`zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my`)
+- **Revision Timestamp:** `2026-11-28`
 - **Workspace:** `D:\AI_Science\antigravity\k1_boost_grid_battery_carbon_20261127`
-- **Manuscript PDF (`v3`):** `manuscript_k1_boost_v3.pdf` (`15` pages, `2,994,428` bytes, `SHA-256: ec8ce8b12fa560b0ec45edd2d7dc54da86e684a03a81bb63546abf8b70142f2c`) *(Note: local `manuscript_k1_boost.pdf` was open/locked in an external viewer during compilation; Draft PR #29 contains the fresh `v3` PDF bytes synced to both `manuscript_k1_boost.pdf` and `manuscript_k1_boost_v3.pdf`.)*
-- **Referee Response Records:** `REFEREE_RESPONSE_v2.md`, `REFEREE_RESPONSE_v3.md`
-- **Independent Verification (`v3`):**
+- **Main Manuscript PDF (`v4`):** `manuscript_k1_nature_energy.pdf` (`10` pages, `2,040,120` bytes, `SHA-256: 942b2df3905e5cb17b63a6c677341a0350a2ea2060dc53885eacb036fbdfd3a9`) *(Note: local `manuscript_k1_boost.pdf` remained open/locked in an external viewer during compilation; Draft PR #29 syncs these exact `v4` PDF bytes to both `manuscript_k1_nature_energy.pdf` and `manuscript_k1_boost.pdf`.)*
+- **Supplementary Information PDF (`v4`):** `supplementary_k1_nature_energy.pdf` (`4` pages, `1,516,439` bytes, `SHA-256: 4af4687df82fb48789e2cee08fc8f763222ed4255cab30093d8e3d0ebde0843b`)
+- **Referee Response Records:** `REFEREE_RESPONSE_v2.md`, `REFEREE_RESPONSE_v3.md`, `REFEREE_RESPONSE_v4.md`
+- **Official *Nature Energy* `Analysis` Compliance Audit (`v4`):**
+  - **Abstract:** `140` words (strictly `100–150` limit), strictly unreferenced
+  - **Main Body Length:** `2,438` words (strictly `<= 3,000` limit, excluding Abstract, Methods, References, Tables, Figure legends)
+  - **Section Architecture:** Introduction (without heading) → 4 topical Main Text subheadings (no numbers) → Discussion (without subheadings) → Methods (topical subheadings) → Data/Code availability → References (`18` live Crossref-verified DOIs `<= 50` guideline)
+  - **Display Items:** `4` strictly sequential Main Figures (`Figure 1 → Figure 2 → Figure 3 → Figure 4`) + `2` Main Tables = `6` items (`<= 8` limit), plus separate 4-page Supplementary Information PDF (`Supplementary Box 1`, `Supplementary Tables 1–4`, `Supplementary Figures 1–3`)
+  - **Authorship & Cleanliness:** Exact `Zijian Zeng` UCSI University block; zero `Target Venues`/`Target Format`/`Data Universe`/`Track A`/`Track B` metadata
+- **Independent Verification (`v4`):**
   - `ruff check scripts/ tests/`: `0` errors (`All checks passed!`)
-  - `pytest -v tests/test_k1_boost.py`: `23/23` passed (`100%`)
-  - `SHA256SUMS.json`: `32/32` disk-verified (`0` missing, `0` mismatches)
+  - `pytest -v tests/test_k1_boost.py`: `23/23` passed (`100%`, including automated *Nature Energy* word-count, structure, authorship, sequential-figure, and v4 extension tests)
+  - `SHA256SUMS.json`: `41/41` disk-verified (`0` missing, `0` mismatches)
   - Crossref Live Citations: `18/18` academic DOIs HTTP-200 verified (`100%` two-way sync)
-  - PDF Zero-Leak & Tone Guardrail Audit: `0` formatting leaks, `0` occurrences of `"carbon neutral"`, `"carbon neutrality"`, `"pure exogenous"`, `"spotless"`, `"proving rigorously"`, `"extraordinary"`, `"master forensic audit"`, or `"definitively"`
-- **Submission Polish (`v3`) Scientific & Statistical Enhancements:**
-  - Added `B = 1,000` joint contiguous moving-block bootstraps at `1d`, `7d`, and `14d` block lengths (`scripts/03_cems_carbon_and_caiso_curtailment.py`): CAISO Main System `-0.80 kg/MWh` (`14d 95% CI [-14.20, +12.58], SE = 6.85, p = 0.920`; `7d [-13.24, +9.83]`; `1d [-10.39, +8.15]`) vs. Observed-Load `ΔLoad` System `+1.34 kg/MWh` (`14d 95% CI [-21.86, +30.51], SE = 13.78, p = 0.764`), while domestic-only remains strictly negative across all block lengths (`-30.64`, `14d [-42.78, -17.48]`)
-  - Unified all prose, captions, and Figure 4B to state **"accounting for cross-region imports, California's net emissions direction remains undetermined"** (removing neutrality-confirmation and `ΔLoad`-exogeneity assertions) and strictly keeping `+7.44 Mt CO2` as the counterfactual accounting discrepancy between two models
-  - Centered Title, Abstract, and Section 1 squarely on the 14-BA counterfactual accounting comparison for *Nature Energy* (Analysis), added **Table 4b** (14-BA curtailment-absorption sensitivity: uniform break-even `18.9%`; hybrid empirical-CAISO + `0–15%` non-CAISO leaves `+5.59` to `+4.04 Mt CO2` discrepancy vs. AEF), added the **CAISO Congestion-Constrained Incremental Storage Saturation Frontier** (`κ = 0.25×/1.0×/2.0×`: `40.3%/18.2%/10.1%` total vs. `5.3%/2.8%/1.6%` system-only), and transparently disclosed marginal Table 3 WCB `p`-values (`0.075–0.130`) in Section 4.2 prose
+  - PDF Zero-Leak & Tone Guardrail Audit: `0` formatting leaks across both Main PDF (`10` pages) and SI PDF (`4` pages)
+- **Major Scientific Upgrades (`v4`, `scripts/03b_nature_energy_v4_extensions.py`):**
+  - Fixed Proposition 2 inequality logic: `α_b* > 0` (`MEF_dis / MEF_chg < 1 / η_b`) holds in `14/14` grids; `MEF_chg >= MEF_dis` holds strictly in `4/14` grids (`CISO`, `MISO`, `IID`, `CPLE`)
+  - Full `14`-BA + neighbor + CAISO joint `14`-day contiguous block bootstrap (`B = 1,000`) on BOTH full `49.77 TWh` window (`2024H2–2026Q3`) and exact `26.05 TWh` same-window overlap (`2024H2–2025`, zero 2026 extrapolation)
+  - Three independent MEF validations without shared EIA-930 fuel slopes (direct `-∂CO2_CEMS/∂BESS`: `CISO 271`, `ERCO 499`, `AZPS 222`, `MISO 619 kg/MWh`; pure CEMS internal stack slopes; EPA eGRID 2023 rev2 Non-Baseload RTE loss floor `+89.6 kg/MWh = +4.46 Mt`)
+  - Congestion-Constrained Carbon Break-Even Frontier (`τ_local ∈ {0%, 25%, 50%, 100%}`) & ERCOT (`9.92 TWh`) cross-regional stratification showing coal entering the margin (`279 kg/MWh` coal share = `52%` of `532 kg/MWh` MEF above `60%` renewables)
