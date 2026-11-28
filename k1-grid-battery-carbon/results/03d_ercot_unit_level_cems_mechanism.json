@@ -1,0 +1,222 @@
+{
+  "window": {
+    "utc_start": "2024-07-01",
+    "utc_end": "2026-09-30",
+    "n_hours_matched": 19721
+  },
+  "ercot_unit_inventory": {
+    "COAL": {
+      "n_units": 25,
+      "total_hsl_mw": 15353.82,
+      "mean_lsl_pct_hsl": 36.60684685502285
+    },
+    "NGCC": {
+      "n_units": 140,
+      "total_hsl_mw": 36397.82,
+      "mean_lsl_pct_hsl": 50.96279655104241
+    },
+    "NGCT": {
+      "n_units": 186,
+      "total_hsl_mw": 18768.899999999998,
+      "mean_lsl_pct_hsl": 44.036361391988535
+    }
+  },
+  "ercot_sced_public_access_note": "Direct unauthenticated HTTP requests to ercot.com 60-day SCED MIS JSON endpoints (reportTypeId 13052/12301/13060) return HTTP 403 anti-bot/WAF responses; unit-level physical verification is therefore conducted directly on public EPA CEMS smokestack unit telemetry (Catalyst PUDL v2026.11.0), reserving nodal SCED offer-curve replay for future work.",
+  "by_renewable_penetration_bin": [
+    {
+      "ren_bin": "<20%",
+      "n_hours": 3430,
+      "n_days": 498,
+      "n_online_coal": 18.908163265306122,
+      "n_online_coal_se": 0.1433921131552538,
+      "n_online_ngcc": 112.71836734693878,
+      "n_online_ngcc_se": 0.6502366513986441,
+      "n_online_ngct": 58.70029154518951,
+      "n_online_ngct_se": 1.4742119958188784,
+      "util_pct_coal": 85.39351096166162,
+      "util_pct_coal_se": 0.26504879576838675,
+      "part_load_share_coal": 51.372952779131815,
+      "part_load_share_coal_se": 0.539093012953393,
+      "active_ramp_share_coal": 24.079519895419363,
+      "active_ramp_share_coal_se": 0.5488367413003528,
+      "ceiling_share_coal": 46.6545515724365,
+      "ceiling_share_coal_se": 0.5626739267304616,
+      "active_ramp_share_ngct": 18.42853084911447,
+      "active_ramp_share_ngct_se": 0.5130995316468729,
+      "coal_share_of_abs_ramp_mw": 22.7131940666115,
+      "coal_share_of_abs_ramp_mw_se": 0.500784278495665,
+      "ngct_share_of_abs_ramp_mw": 33.35625306908309,
+      "ngct_share_of_abs_ramp_mw_se": 0.6197165845637587,
+      "sum_abs_dmw_coal": 402.04344023323614,
+      "sum_abs_dmw_coal_se": 21.374910542106853,
+      "sum_abs_dmw_ngct": 605.831195335277,
+      "sum_abs_dmw_ngct_se": 19.112958317176965
+    },
+    {
+      "ren_bin": "20-40%",
+      "n_hours": 7743,
+      "n_days": 787,
+      "n_online_coal": 18.766240475267985,
+      "n_online_coal_se": 0.11844831136465363,
+      "n_online_ngcc": 105.99328425674803,
+      "n_online_ngcc_se": 0.6285964033433578,
+      "n_online_ngct": 41.241121012527444,
+      "n_online_ngct_se": 0.6914928764283489,
+      "util_pct_coal": 78.35364386421332,
+      "util_pct_coal_se": 0.2736574152064981,
+      "part_load_share_coal": 60.28579841117743,
+      "part_load_share_coal_se": 0.41277153249016174,
+      "active_ramp_share_coal": 33.41247479774747,
+      "active_ramp_share_coal_se": 0.4257187571791331,
+      "ceiling_share_coal": 36.04605702007412,
+      "ceiling_share_coal_se": 0.4553501206329231,
+      "active_ramp_share_ngct": 22.03172122585803,
+      "active_ramp_share_ngct_se": 0.3801340400872854,
+      "coal_share_of_abs_ramp_mw": 25.90700619517263,
+      "coal_share_of_abs_ramp_mw_se": 0.3405990940885037,
+      "ngct_share_of_abs_ramp_mw": 26.105310152815317,
+      "ngct_share_of_abs_ramp_mw_se": 0.44610545004086405,
+      "sum_abs_dmw_coal": 576.1496835851738,
+      "sum_abs_dmw_coal_se": 12.179446945350074,
+      "sum_abs_dmw_ngct": 651.1366395453958,
+      "sum_abs_dmw_ngct_se": 15.129931990988226
+    },
+    {
+      "ren_bin": "40-60%",
+      "n_hours": 6642,
+      "n_days": 712,
+      "n_online_coal": 16.91011743450768,
+      "n_online_coal_se": 0.12492113836481189,
+      "n_online_ngcc": 85.80698584763626,
+      "n_online_ngcc_se": 0.8059767271092478,
+      "n_online_ngct": 23.960855164107198,
+      "n_online_ngct_se": 0.3805081878605906,
+      "util_pct_coal": 68.99843737266384,
+      "util_pct_coal_se": 0.37038175863443484,
+      "part_load_share_coal": 67.79604156939796,
+      "part_load_share_coal_se": 0.3743893719001034,
+      "active_ramp_share_coal": 39.61600415753084,
+      "active_ramp_share_coal_se": 0.43954333267575324,
+      "ceiling_share_coal": 25.154439568258123,
+      "ceiling_share_coal_se": 0.45856515755801036,
+      "active_ramp_share_ngct": 17.98707095035241,
+      "active_ramp_share_ngct_se": 0.34225513179677286,
+      "coal_share_of_abs_ramp_mw": 27.314197122634013,
+      "coal_share_of_abs_ramp_mw_se": 0.32470735316983623,
+      "ngct_share_of_abs_ramp_mw": 14.408993689452531,
+      "ngct_share_of_abs_ramp_mw_se": 0.3313290867146265,
+      "sum_abs_dmw_coal": 592.421258657031,
+      "sum_abs_dmw_coal_se": 10.094914070537849,
+      "sum_abs_dmw_ngct": 348.87865100873233,
+      "sum_abs_dmw_ngct_se": 10.50689305172878
+    },
+    {
+      "ren_bin": ">60%",
+      "n_hours": 1906,
+      "n_days": 326,
+      "n_online_coal": 15.17208814270724,
+      "n_online_coal_se": 0.16732620025435724,
+      "n_online_ngcc": 60.15267576075551,
+      "n_online_ngcc_se": 1.0788162548693296,
+      "n_online_ngct": 15.465897166841552,
+      "n_online_ngct_se": 0.23283765145304117,
+      "util_pct_coal": 54.05635608263265,
+      "util_pct_coal_se": 0.49834221086475533,
+      "part_load_share_coal": 67.02951884460407,
+      "part_load_share_coal_se": 0.6374075885181893,
+      "active_ramp_share_coal": 35.13554555538114,
+      "active_ramp_share_coal_se": 0.7621447728085395,
+      "ceiling_share_coal": 9.4096553139196,
+      "ceiling_share_coal_se": 0.5473941155798553,
+      "active_ramp_share_ngct": 10.273445378179137,
+      "active_ramp_share_ngct_se": 0.4641310317730477,
+      "coal_share_of_abs_ramp_mw": 29.101274005455586,
+      "coal_share_of_abs_ramp_mw_se": 0.5467725297312201,
+      "ngct_share_of_abs_ramp_mw": 7.7853800594203735,
+      "ngct_share_of_abs_ramp_mw_se": 0.3155731166941182,
+      "sum_abs_dmw_coal": 508.71038824763906,
+      "sum_abs_dmw_coal_se": 14.373192182492406,
+      "sum_abs_dmw_ngct": 134.90293809024135,
+      "sum_abs_dmw_ngct_se": 7.593717800507938
+    }
+  ],
+  "matched_season_hour_loadq_lt40_vs_gt60": {
+    "n_common_cells": 61,
+    "n_hours_low": 1846,
+    "n_hours_high": 1167,
+    "metrics": {
+      "n_online_coal": {
+        "low_lt40_reweighted": 16.77654108660436,
+        "low_se": 0.2615557892909368,
+        "high_gt60": 15.869751499571542,
+        "high_se": 0.17715458576695836,
+        "diff_gt60_minus_lt40": -0.9067895870328186,
+        "diff_se": 0.3159037482681514,
+        "t_stat": -2.8704616263783627
+      },
+      "n_online_ngct": {
+        "low_lt40_reweighted": 33.26702139780531,
+        "low_se": 1.9609388485489057,
+        "high_gt60": 15.34361610968294,
+        "high_se": 0.2536214643552679,
+        "diff_gt60_minus_lt40": -17.923405288122368,
+        "diff_se": 1.9772721145381125,
+        "t_stat": -9.064713529482635
+      },
+      "util_pct_coal": {
+        "low_lt40_reweighted": 80.66135957260718,
+        "low_se": 0.8331242847315127,
+        "high_gt60": 54.981550383589315,
+        "high_se": 0.6354929906348443,
+        "diff_gt60_minus_lt40": -25.679809189017867,
+        "diff_se": 1.0478298597365,
+        "t_stat": -24.507613474076436
+      },
+      "part_load_share_coal": {
+        "low_lt40_reweighted": 56.061084530812195,
+        "low_se": 1.9016986174844652,
+        "high_gt60": 68.28906901315416,
+        "high_se": 0.8597079175487039,
+        "diff_gt60_minus_lt40": 12.227984482341967,
+        "diff_se": 2.086996726216468,
+        "t_stat": 5.859129690399741
+      },
+      "active_ramp_share_coal": {
+        "low_lt40_reweighted": 30.820411410074946,
+        "low_se": 1.4278832097269933,
+        "high_gt60": 36.50333293593732,
+        "high_se": 1.0986169153597867,
+        "diff_gt60_minus_lt40": 5.682921525862376,
+        "diff_se": 1.8016130514999367,
+        "t_stat": 3.1543518854567845
+      },
+      "ceiling_share_coal": {
+        "low_lt40_reweighted": 41.16578687396651,
+        "low_se": 1.9752704047766774,
+        "high_gt60": 9.846963626482138,
+        "high_se": 0.6550365423367555,
+        "diff_gt60_minus_lt40": -31.318823247484374,
+        "diff_se": 2.081049265102369,
+        "t_stat": -15.049534757623226
+      },
+      "coal_share_of_abs_ramp_mw": {
+        "low_lt40_reweighted": 22.098352725219787,
+        "low_se": 0.9852477935560138,
+        "high_gt60": 30.024870351141082,
+        "high_se": 0.5723308342557742,
+        "diff_gt60_minus_lt40": 7.926517625921296,
+        "diff_se": 1.1394190618674518,
+        "t_stat": 6.956630699972777
+      },
+      "ngct_share_of_abs_ramp_mw": {
+        "low_lt40_reweighted": 25.128526558366463,
+        "low_se": 1.7159759257390517,
+        "high_gt60": 7.315278862419457,
+        "high_se": 0.31427959990164583,
+        "diff_gt60_minus_lt40": -17.813247695947005,
+        "diff_se": 1.7445185710190458,
+        "t_stat": -10.210981982004093
+      }
+    }
+  }
+}

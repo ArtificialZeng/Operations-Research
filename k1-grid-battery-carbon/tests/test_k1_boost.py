@@ -721,13 +721,73 @@ def test_zero_hardcoded_numbers_in_figures_manuscript_and_pdf_scripts() -> None:
 def test_crossref_citations_and_two_way_sync() -> None:
     r7 = _load_json("07_citation_verification.json")
     assert r7["crossref"]["all_verified"] is True
-    assert r7["crossref"]["n_verified"] == 18
+    assert r7["crossref"]["n_verified"] == 22
     assert r7["two_way_sync"]["checked"] is True
+    assert r7["two_way_sync"]["nature_numbered_order_ok"] is True
     assert r7["two_way_sync"]["two_way_sync_ok"] is True
 
     # Verify exact Crossref page numbers for Dupont et al. (2026) appear in manuscript
     md_txt = (WS_DIR / "manuscript_k1_boost.md").read_text(encoding="utf-8")
-    assert "28(2), 663-685" in md_txt
+    assert "28(2), 663–685" in md_txt or "28(2), 663-685" in md_txt
+
+
+def test_referee_v6_dapr_blinded_nature_citations_and_ercot_units() -> None:
+    """Verify v6 double-anonymized PDFs, metadata erasure, Cover Letter, Nature numbered citations,
+    policy/precision fixes, required declarations, and ERCOT unit-level EPA CEMS mechanism.
+    """
+    spec = importlib.util.spec_from_file_location("step08", SCRIPTS_DIR / "08_compile_manuscript_pdf.py")
+    assert spec is not None and spec.loader is not None
+    mod08 = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod08)
+
+    # 1. Strict double-anonymized (DAPR) Main & SI PDFs: ZERO author/affiliation/email/username in text OR metadata
+    for bp in (
+        WS_DIR / "manuscript_k1_nature_energy_blinded.pdf",
+        WS_DIR / "supplementary_k1_nature_energy_blinded.pdf",
+    ):
+        assert bp.exists() and bp.stat().st_size > 200_000, f"Missing blinded PDF: {bp.name}"
+        n_pg, leaks = mod08.verify_pdf_zero_leaks(bp)
+        assert n_pg >= 4 and leaks == [], f"Leaks in {bp.name}: {leaks}"
+        anon_errs = mod08.verify_blinded_anonymity(bp)
+        assert anon_errs == [], f"Anonymity violation in {bp.name}: {anon_errs}"
+
+    # 2. Editor-only Cover Letter PDF contains full author identity, DAPR request, and disclosures
+    cov_pdf = WS_DIR / "COVER_LETTER_NATURE_ENERGY.pdf"
+    assert cov_pdf.exists() and cov_pdf.stat().st_size > 20_000
+    cov_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(cov_pdf)).pages)
+    for req in (
+        "Zijian Zeng",
+        "UCSI University",
+        "zijianzeng@foxmail.com",
+        "Double-anonymized peer review",
+        "Competing Interests",
+        "Author Contributions",
+        "AI-Assisted Tools",
+    ):
+        assert req in cov_txt, f"Cover letter missing {req!r}"
+
+    # 3. Scientific & compliance fixes in BOTH Blinded and Named Main PDFs
+    for p_name in ("manuscript_k1_nature_energy_blinded.pdf", "manuscript_k1_nature_energy.pdf"):
+        txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(WS_DIR / p_name)).pages)
+        tlo = re.sub(r"\s+", " ", txt.lower())
+        assert "coal enters the margin" not in tlo, f"Stale ERCOT phrase in {p_name}"
+        assert "mt actual" not in tlo, f"Stale OOS 'actual' phrase in {p_name}"
+        assert "held-out model-based estimate" in tlo, f"Missing OOS precision phrasing in {p_name}"
+        assert "estimated marginal contribution increases" in tlo, f"Missing ERCOT precision phrasing in {p_name}"
+        assert "author contributions" in tlo and "competing interests" in tlo and "funding" in tlo
+        assert "use of ai-assisted tools" in tlo
+        assert "(carson & novan, 2013)" not in tlo, f"Author-year citation leak in {p_name}"
+
+    # 4. Direct unit-level ERCOT EPA CEMS operating-envelope verification receipt
+    r3d = _load_json("03d_ercot_unit_level_cems_mechanism.json")
+    inv = r3d["ercot_unit_inventory"]
+    assert inv["COAL"]["n_units"] >= 20 and inv["NGCT"]["n_units"] >= 150
+    mm = r3d["matched_season_hour_loadq_lt40_vs_gt60"]["metrics"]
+    assert mm["n_online_ngct"]["t_stat"] < -5.0
+    assert mm["ceiling_share_coal"]["t_stat"] < -10.0
+    assert mm["part_load_share_coal"]["t_stat"] > 4.0
+    assert mm["coal_share_of_abs_ramp_mw"]["t_stat"] > 5.0
+    assert (WS_DIR / "tables" / "table_ercot_unit_cems_mechanism.csv").exists()
 
 
 def test_manuscript_zero_leaks_pdf_and_receipt_sync() -> None:

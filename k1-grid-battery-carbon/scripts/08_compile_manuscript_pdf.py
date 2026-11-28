@@ -18,17 +18,38 @@ import sys
 import tempfile
 from pathlib import Path
 
+import pymupdf
 from econ_utils import FIG_DIR, RES_DIR, WS_DIR
 from pypdf import PdfReader
 
 MD_PATH = WS_DIR / "manuscript_k1_boost.md"
+MD_BLIND_PATH = WS_DIR / "manuscript_k1_nature_energy_blinded.md"
 HTML_PATH = WS_DIR / "manuscript_k1_boost.html"
+HTML_BLIND_PATH = WS_DIR / "manuscript_k1_nature_energy_blinded.html"
 PDF_PATH = WS_DIR / "manuscript_k1_boost.pdf"
 PDF_NE_PATH = WS_DIR / "manuscript_k1_nature_energy.pdf"
+PDF_NE_BLIND_PATH = WS_DIR / "manuscript_k1_nature_energy_blinded.pdf"
 SI_MD_PATH = WS_DIR / "supplementary_k1_nature_energy.md"
+SI_MD_BLIND_PATH = WS_DIR / "supplementary_k1_nature_energy_blinded.md"
 SI_HTML_PATH = WS_DIR / "supplementary_k1_nature_energy.html"
+SI_HTML_BLIND_PATH = WS_DIR / "supplementary_k1_nature_energy_blinded.html"
 SI_PDF_PATH = WS_DIR / "supplementary_k1_nature_energy.pdf"
+SI_PDF_BLIND_PATH = WS_DIR / "supplementary_k1_nature_energy_blinded.pdf"
+COVER_MD_PATH = WS_DIR / "COVER_LETTER_NATURE_ENERGY.md"
+COVER_HTML_PATH = WS_DIR / "COVER_LETTER_NATURE_ENERGY.html"
+COVER_PDF_PATH = WS_DIR / "COVER_LETTER_NATURE_ENERGY.pdf"
 EDGE_EXE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
+
+BLINDED_FORBIDDEN_TOKENS = (
+    "zijian",
+    "zeng",
+    "ucsi",
+    "kuala lumpur",
+    "malaysia",
+    "foxmail",
+    "ucsiuniversity",
+    "artificialzeng",
+)
 
 
 def _fmt_p_html(p: float | None) -> str:
@@ -48,6 +69,7 @@ def build_dynamic_figure_blocks() -> tuple[dict[str, tuple[str, str]], dict[str,
     r3 = json.loads((RES_DIR / "03_cems_carbon_curtailment_results.json").read_text(encoding="utf-8"))
     r3b = json.loads((RES_DIR / "03b_nature_energy_v4_extensions.json").read_text(encoding="utf-8"))
     r3c = json.loads((RES_DIR / "03c_k1_v5_unconditional_audit.json").read_text(encoding="utf-8"))
+    r3d = json.loads((RES_DIR / "03d_ercot_unit_level_cems_mechanism.json").read_text(encoding="utf-8"))
     r4 = json.loads((RES_DIR / "04_formal_model_verification.json").read_text(encoding="utf-8"))
 
     sp = r2["main_and_robustness_specs"]
@@ -98,7 +120,6 @@ def build_dynamic_figure_blocks() -> tuple[dict[str, tuple[str, str]], dict[str,
     roots = {round(r["tau_local_access"], 2): r for r in r3c["caiso_upper_bound_frontier_roots"]["roots"]}
     ciso_gw = float(r3c["caiso_upper_bound_frontier_roots"]["ciso_2026_nameplate_gw"])
     cs_e = r3c["ercot_and_ciso_matched_stress_test"]["ERCO"]["common_support_exact_matched_seas_hr_lq"]
-    cs_c = r3c["ercot_and_ciso_matched_stress_test"]["CISO"]["common_support_exact_matched_seas_hr_lq"]
     erco_ld_gt60 = r3c["ercot_and_ciso_matched_stress_test"]["ERCO"]["fine_cell_fe_stratification"]["seas_hr_ld"][3]
 
     eff_tvals = [
@@ -154,7 +175,7 @@ def build_dynamic_figure_blocks() -> tuple[dict[str, tuple[str, str]], dict[str,
             (
                 f"<b>a</b>, Fixed-profile BA-level upper-bound accounting scenarios (non-nodal; omitting nodal LMPs, SOC re-optimization, and binding constraint shadow prices) sweeping incremental storage scale &kappa; (0.1&times;&ndash;3.0&times;, or {0.1*ciso_gw:.1f}&ndash;{3.0*ciso_gw:.1f} GW atop CAISO&rsquo;s {ciso_gw:.1f} GW fleet) against CAISO&rsquo;s observed 13,170-hour residual curtailment curve across four local-congestion access shares &tau;<sub>local</sub> (0% never abates; 25% upper bound &le;{roots[0.25]['gw_breakeven_upper_bound']:.1f} GW; 50% &le;{roots[0.50]['gw_breakeven_upper_bound']:.1f} GW; 100% frictionless ceiling &le;{roots[1.00]['gw_breakeven_upper_bound']:.1f} GW). "
                 f"<b>b</b>, Cross-regime renewable-penetration stress test (domestic EPA CEMS net-load MEFs, YM &times; Hour FE bars &plusmn;95% CI; yellow diamonds overlay matched Season &times; Hour &times; Load-Decile FE) across hourly (Solar + Wind)/Load bins (public interval-level ERCOT curtailment is absent from EIA-930). "
-                f"Unlike zero-coal CAISO (falling to {strat['CISO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh above 60% renewables), ERCOT&rsquo;s MEF remains {strat['ERCO'][1]['mef_dom_netload_kg_mwh']:.0f}&ndash;{strat['ERCO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh (Load-Decile FE: {erco_ld_gt60['total_mef']:.0f}, coal {erco_ld_gt60['coal_mef']:.0f}; exact-matched Season &times; Hour &times; Load-Quartile difference across {cs_e['n_common_cells_total']} common-support cells: {cs_e['diff_gt60_minus_lt40_total_mef']:+.1f} &plusmn; {cs_e['diff_gt60_minus_lt40_total_se']:.1f} kg/MWh total, {cs_e['diff_gt60_minus_lt40_coal_mef']:+.1f} &plusmn; {cs_e['diff_gt60_minus_lt40_coal_se']:.1f} coal vs. CAISO {cs_c['diff_gt60_minus_lt40_total_mef']:+.1f} &plusmn; {cs_c['diff_gt60_minus_lt40_total_se']:.1f})."
+                f"Unlike zero-coal CAISO (falling to {strat['CISO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh above 60% renewables), ERCOT&rsquo;s MEF remains {strat['ERCO'][1]['mef_dom_netload_kg_mwh']:.0f}&ndash;{strat['ERCO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh as coal&rsquo;s estimated marginal contribution rises under high renewables (Load-Decile FE: {erco_ld_gt60['total_mef']:.0f}, coal {erco_ld_gt60['coal_mef']:.0f}; exact-matched Season &times; Hour &times; Load-Quartile diff across {cs_e['n_common_cells_total']} cells: {cs_e['diff_gt60_minus_lt40_total_mef']:+.1f} &plusmn; {cs_e['diff_gt60_minus_lt40_total_se']:.1f} total, {cs_e['diff_gt60_minus_lt40_coal_mef']:+.1f} &plusmn; {cs_e['diff_gt60_minus_lt40_coal_se']:.1f} coal; direct unit-level CEMS audit across 351 ERCOT units confirms online gas peakers drop {r3d['matched_season_hour_loadq_lt40_vs_gt60']['metrics']['n_online_ngct']['low_lt40_reweighted']:.1f}&rarr;{r3d['matched_season_hour_loadq_lt40_vs_gt60']['metrics']['n_online_ngct']['high_gt60']:.1f} while coal&rsquo;s share of fossil ramping rises {r3d['matched_season_hour_loadq_lt40_vs_gt60']['metrics']['coal_share_of_abs_ramp_mw']['low_lt40_reweighted']:.1f}%&rarr;{r3d['matched_season_hour_loadq_lt40_vs_gt60']['metrics']['coal_share_of_abs_ramp_mw']['high_gt60']:.1f}%)."
             ),
         ),
     }
@@ -315,6 +336,11 @@ def _inline_md(text: str) -> str:
         tokens.append(html_frag)
         return f"\x00TOK{idx}\x00"
 
+    text = re.sub(
+        r"\{\{cite:([0-9,\-–]+)\}\}",
+        lambda m: stash(f'<sup class="ref-cite">{html.escape(m.group(1).replace("-", "–"))}</sup>'),
+        text,
+    )
     text = re.sub(r"`([^`]+)`", lambda m: stash(f"<code>{html.escape(m.group(1))}</code>"), text)
     text = text.replace(r"\$", "\x00DOLLAR\x00")
     text = re.sub(
@@ -564,6 +590,7 @@ def convert_md_to_html(
     .math { font-family: "Cambria Math", Georgia, serif; font-style: italic; }
     .math .rm, .eq-block .rm { font-style: normal; }
     sup, sub { white-space: nowrap; }
+    sup.ref-cite { font-size: 6.4pt; line-height: 0; font-style: normal; color: #1e3a5f; margin-left: 0.4pt; }
     .eq-block {
       font-family: "Cambria Math", Georgia, serif;
       font-size: 9.2pt;
@@ -644,6 +671,7 @@ def verify_pdf_zero_leaks(pdf_path: Path) -> tuple[int, list[str]]:
         r"</?(?:sub|sup|em|strong|span|div|i|b)>",
         r"\bNaN\b",
         r"\bInf\b",
+        r"\{\{cite:",
     ]
     leaks = []
     for pat in bad_patterns:
@@ -653,12 +681,48 @@ def verify_pdf_zero_leaks(pdf_path: Path) -> tuple[int, list[str]]:
     return len(reader.pages), leaks
 
 
+def strip_pdf_metadata(pdf_path: Path, clean_title: str) -> None:
+    """Erase all identifying PDF metadata and XMP packets for double-anonymized peer review."""
+    tmp_path = pdf_path.with_suffix(".clean.pdf")
+    doc = pymupdf.open(str(pdf_path))
+    doc.set_metadata(
+        {
+            "title": clean_title,
+            "author": "",
+            "subject": "",
+            "keywords": "",
+            "creator": "",
+            "producer": "",
+        }
+    )
+    doc.del_xml_metadata()
+    doc.save(str(tmp_path), garbage=4, deflate=True)
+    doc.close()
+    tmp_path.replace(pdf_path)
+
+
+def verify_blinded_anonymity(pdf_path: Path) -> list[str]:
+    """Assert ZERO author-identifying tokens in both extracted PDF text and PDF metadata."""
+    reader = PdfReader(str(pdf_path))
+    full_txt = "\n".join((p.extract_text() or "") for p in reader.pages).lower()
+    meta_str = " ".join(f"{k}:{v}" for k, v in (reader.metadata or {}).items()).lower()
+    violations = []
+    for tok in BLINDED_FORBIDDEN_TOKENS:
+        if tok in full_txt:
+            violations.append(f"text:{tok}")
+        if tok in meta_str:
+            violations.append(f"meta:{tok}")
+    return violations
+
+
 def _compile_single_pdf(
     md_path: Path,
     html_path: Path,
     pdf_path: Path,
     fig_blocks: dict[str, tuple[str, str]],
     running_header: str = "Counterfactual Carbon Accounting of U.S. Utility-Scale Battery Storage (2019-2026)",
+    blinded: bool = False,
+    clean_title: str = "Counterfactual carbon accounting and congestion-constrained abatement limits of U.S. utility-scale battery storage",
 ) -> tuple[int, str]:
     md_text = md_path.read_text(encoding="utf-8")
     html_doc = convert_md_to_html(md_text, fig_blocks, running_header=running_header)
@@ -680,8 +744,14 @@ def _compile_single_pdf(
         res = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
     finally:
         shutil.rmtree(edge_profile_dir, ignore_errors=True)
-    if res.returncode != 0 or not pdf_path.exists() or pdf_path.stat().st_size < 50_000:
+    if res.returncode != 0 or not pdf_path.exists() or pdf_path.stat().st_size < 15_000:
         raise RuntimeError(f"Edge PDF compile failed for {pdf_path.name} rc={res.returncode}: {res.stderr}")
+
+    if blinded:
+        strip_pdf_metadata(pdf_path, clean_title=clean_title)
+        anon_errs = verify_blinded_anonymity(pdf_path)
+        if anon_errs:
+            raise RuntimeError(f"Blinded anonymity violation in {pdf_path.name}: {anon_errs}")
 
     n_pages, leaks = verify_pdf_zero_leaks(pdf_path)
     html_path.unlink(missing_ok=True)
@@ -697,7 +767,58 @@ def main() -> int:
         return 1
 
     main_figs, si_figs = build_dynamic_figure_blocks()
-    n_main, sha_main = _compile_single_pdf(MD_PATH, HTML_PATH, PDF_NE_PATH, main_figs)
+
+    # 1. Double-Anonymized (DAPR) Main & SI PDFs (Primary Nature Energy submission files!)
+    if MD_BLIND_PATH.exists():
+        n_bm, sha_bm = _compile_single_pdf(
+            MD_BLIND_PATH,
+            HTML_BLIND_PATH,
+            PDF_NE_BLIND_PATH,
+            main_figs,
+            running_header="Counterfactual Carbon Accounting of U.S. Utility-Scale Battery Storage (Blinded Review Copy)",
+            blinded=True,
+            clean_title="Counterfactual carbon accounting and congestion-constrained abatement limits of U.S. utility-scale battery storage",
+        )
+        print(
+            f"[DONE STEP 08 BLIND MAIN] {PDF_NE_BLIND_PATH.name} ({PDF_NE_BLIND_PATH.stat().st_size:,} bytes, "
+            f"{n_bm} pages, 0 leaks, 0 author/metadata traces, SHA-256: {sha_bm})",
+            flush=True,
+        )
+
+    if SI_MD_BLIND_PATH.exists():
+        n_bsi, sha_bsi = _compile_single_pdf(
+            SI_MD_BLIND_PATH,
+            SI_HTML_BLIND_PATH,
+            SI_PDF_BLIND_PATH,
+            si_figs,
+            running_header="Supplementary Information — Counterfactual Carbon Accounting of U.S. Battery Storage (Blinded)",
+            blinded=True,
+            clean_title="Supplementary Information — Counterfactual carbon accounting of U.S. battery storage",
+        )
+        print(
+            f"[DONE STEP 08 BLIND SI]   {SI_PDF_BLIND_PATH.name} ({SI_PDF_BLIND_PATH.stat().st_size:,} bytes, "
+            f"{n_bsi} pages, 0 leaks, 0 author/metadata traces, SHA-256: {sha_bsi})",
+            flush=True,
+        )
+
+    # 2. Editor-Only Cover Letter PDF (full author identity + DAPR request + disclosures)
+    if COVER_MD_PATH.exists():
+        n_cov, sha_cov = _compile_single_pdf(
+            COVER_MD_PATH,
+            COVER_HTML_PATH,
+            COVER_PDF_PATH,
+            {},
+            running_header="Cover Letter — Nature Energy (Analysis)",
+            blinded=False,
+        )
+        print(
+            f"[DONE STEP 08 COVER]      {COVER_PDF_PATH.name} ({COVER_PDF_PATH.stat().st_size:,} bytes, "
+            f"{n_cov} pages, 0 leaks, SHA-256: {sha_cov})",
+            flush=True,
+        )
+
+    # 3. Synchronized Named Archival Main & SI PDFs
+    n_main, sha_main = _compile_single_pdf(MD_PATH, HTML_PATH, PDF_NE_PATH, main_figs, blinded=False)
     synced_main = False
     try:
         shutil.copy2(PDF_NE_PATH, PDF_PATH)
@@ -708,7 +829,7 @@ def main() -> int:
             flush=True,
         )
     print(
-        f"[DONE STEP 08 MAIN] {PDF_NE_PATH.name} ({PDF_NE_PATH.stat().st_size:,} bytes, "
+        f"[DONE STEP 08 NAMED MAIN] {PDF_NE_PATH.name} ({PDF_NE_PATH.stat().st_size:,} bytes, "
         f"{n_main} pages, 0 leaked tokens, synced_main={synced_main}, SHA-256: {sha_main})",
         flush=True,
     )
@@ -720,9 +841,10 @@ def main() -> int:
             SI_PDF_PATH,
             si_figs,
             running_header="Supplementary Information — Counterfactual Carbon Accounting of U.S. Battery Storage",
+            blinded=False,
         )
         print(
-            f"[DONE STEP 08 SI]   {SI_PDF_PATH.name} ({SI_PDF_PATH.stat().st_size:,} bytes, "
+            f"[DONE STEP 08 NAMED SI]   {SI_PDF_PATH.name} ({SI_PDF_PATH.stat().st_size:,} bytes, "
             f"{n_si} pages, 0 leaked tokens, SHA-256: {sha_si})",
             flush=True,
         )

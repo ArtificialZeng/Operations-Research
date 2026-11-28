@@ -144,12 +144,13 @@ Email: zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my
 
 | Diagnostic Panel / Grid | Sample / Cells | Primary Metric | Calibration / Contemp. Share | Future Leads ($k = -3,-2,-1$) or Matched Diff. | Criterion / Implication |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| OOS Holdout: Fleet Pooled & Disch.-Wt | `25Q4–26Q3` | $R^2 = 0.938$ / $0.761$ | Cal. slope = 0.872 | Disc. +4.23 vs +4.38 Mt (3.5% err) | Pass (all 4 criteria) |
+| OOS Holdout: Fleet Pooled & Disch.-Wt | `25Q4–26Q3` | $R^2 = 0.938$ / $0.761$ | Cal. slope = 0.872 | Pred. +4.23 vs +4.38 Mt held-out est. (3.5% diff) | Pass (all 4 criteria) |
 | OOS Holdout: `CISO` / `ERCO` / `MISO` / `AZPS` | Held-out yr | 0.759 / 0.967 / 0.945 / 0.385 | Slopes 0.81 / 0.97 / 0.96 / 0.93 | 9Q LQO CV: mean $R^2 = 0.952$, sign 9/9 | High transferability; `AZPS` noisier |
 | Lead-Lag `CISO` ($\Delta\text{BESS} \to \Delta\text{CO}_2$, $\Delta\text{Imp}$) | 19,673 h | $k=0$: -270.6 (4.4) | 94.6% at $k=0$; $\Delta\text{Imp}$=-0.675 | -2.9, +2.6, -6.5 ($F=10.3$) | Contemp. + strong import offset |
 | Lead-Lag `ERCO` ($\Delta\text{BESS} \to \Delta\text{CO}_2$, $\Delta\text{Imp}$) | 16,940 h | $k=0$: -495.6 (3.7) | 94.9% at $k=0$; $\Delta\text{Imp}$=-0.022 | -1.3, -1.5, -11.9 ($F=5.8$) | Contemp. + islanded grid |
 | Lead-Lag `AZPS` & `MISO` ($\Delta\text{BESS} \to \Delta\text{CO}_2$) | 13,457 / 14,969 h | -221.7 / -588.8 | 96.1% / 47.3% at $k=0$ | `AZPS` $F=1.00$ ($p=0.393$); `MISO` $F=4.06$ | `MISO` shows dispatch simultaneity |
 | Matched Stress Test `ERCO` (`SeasxHrxLoadQ`) | 120 cells | `<40%` 486.3 vs `>60%` 533.8 | Coal 206.9 → 290.2 | Diff +47.5±12.9 (coal +83.3±16.2) | Load-Decile FE: 528.8 (coal 286.3) |
+| Unit-Level CEMS `ERCO` (351 Units, Matched) | 61 cells | Online NGCT 33.3 → 15.3 ($t=-9.1$) | Coal ceiling 41.2% → 9.8% ($t=-15.0$) | Coal part-load +12.2 pp ($t=+5.9$); Coal ramp share 22.1%→30.0% ($t=+7.0$) | Direct unit-level physical ramping |
 | Matched Stress Test `CISO` (`SeasxHrxLoadQ`) | 72 cells | `<40%` 148.3 vs `>60%` 85.7 | Coal 0.0 → 0.0 | Diff -62.6±20.0 kg/MWh | Load-Decile FE: 65.6 kg/MWh |
 
-*Notes:* ERCOT midday solar hours (`10:00–16:00`, 1,313 interior obs across 89 `SeasxHrxLoadQ` cells) above 60% renewables retain total MEF = 535.5±8.4 kg/MWh and coal MEF = 291.2±10.4 kg/MWh. Machine-readable CSVs: `tables/table_oos_and_leadlag.csv` and `tables/fig4_frontier_and_ercot.csv`.
+*Notes:* ERCOT midday solar hours (`10:00–16:00`, 1,313 interior obs across 89 `SeasxHrxLoadQ` cells) above 60% renewables retain total MEF = 535.5±8.4 kg/MWh and coal MEF = 291.2±10.4 kg/MWh. Unit-level ERCOT CEMS operating-envelope verification covers 6,965,982 hourly unit records across 25 coal, 140 NGCC, and 186 NGCT units (`tables/table_ercot_unit_cems_mechanism.csv`); NGCT share of fossil $|\Delta\text{MW}|$ falls from 25.1% to 7.3% ($t = -10.2$). Machine-readable CSVs: `tables/table_oos_and_leadlag.csv`, `tables/fig4_frontier_and_ercot.csv`, and `tables/table_ercot_unit_cems_mechanism.csv`.

@@ -23,13 +23,20 @@ def main() -> int:
     targets: list[Path] = [
         WS_DIR / "manuscript_k1_boost.md",
         WS_DIR / "manuscript_k1_nature_energy.pdf",
+        WS_DIR / "manuscript_k1_nature_energy_blinded.md",
+        WS_DIR / "manuscript_k1_nature_energy_blinded.pdf",
         WS_DIR / "supplementary_k1_nature_energy.md",
         WS_DIR / "supplementary_k1_nature_energy.pdf",
+        WS_DIR / "supplementary_k1_nature_energy_blinded.md",
+        WS_DIR / "supplementary_k1_nature_energy_blinded.pdf",
+        WS_DIR / "COVER_LETTER_NATURE_ENERGY.md",
+        WS_DIR / "COVER_LETTER_NATURE_ENERGY.pdf",
         WS_DIR / "REPRODUCIBILITY.md",
         WS_DIR / "REFEREE_RESPONSE_v2.md",
         WS_DIR / "REFEREE_RESPONSE_v3.md",
         WS_DIR / "REFEREE_RESPONSE_v4.md",
         WS_DIR / "REFEREE_RESPONSE_v5.md",
+        WS_DIR / "REFEREE_RESPONSE_v6.md",
     ]
     targets.extend(sorted((WS_DIR / "scripts").glob("*.py")))
     targets.extend(sorted((WS_DIR / "tests").glob("*.py")))

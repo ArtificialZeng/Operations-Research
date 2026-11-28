@@ -1,7 +1,7 @@
 {
   "crossref": {
-    "n_total": 18,
-    "n_verified": 18,
+    "n_total": 22,
+    "n_verified": 22,
     "all_verified": true,
     "entries": [
       {
@@ -17,19 +17,6 @@
         "crossref_journal": "Journal of Environmental Economics and Management"
       },
       {
-        "key": "graffzivin2014",
-        "doi": "10.1016/j.jebo.2014.03.010",
-        "http_status": 200,
-        "verified": true,
-        "crossref_title": "Spatial and temporal heterogeneity of marginal emissions: Implications for electric cars and other electricity-shifting policies",
-        "crossref_authors": [
-          "Graff Zivin",
-          "Kotchen",
-          "Mansur"
-        ],
-        "crossref_journal": "Journal of Economic Behavior & Organization"
-      },
-      {
         "key": "hittinger2015",
         "doi": "10.1021/es505027p",
         "http_status": 200,
@@ -40,32 +27,6 @@
           "Azevedo"
         ],
         "crossref_journal": "Environmental Science & Technology"
-      },
-      {
-        "key": "holland2016",
-        "doi": "10.1257/aer.20150897",
-        "http_status": 200,
-        "verified": true,
-        "crossref_title": "Are There Environmental Benefits from Driving Electric Vehicles? The Importance of Local Factors",
-        "crossref_authors": [
-          "Holland",
-          "Mansur",
-          "Muller",
-          "Yates"
-        ],
-        "crossref_journal": "American Economic Review"
-      },
-      {
-        "key": "fares2017",
-        "doi": "10.1038/nenergy.2017.1",
-        "http_status": 200,
-        "verified": true,
-        "crossref_title": "The impacts of storing solar energy in the home to reduce reliance on the utility",
-        "crossref_authors": [
-          "Fares",
-          "Webber"
-        ],
-        "crossref_journal": "Nature Energy"
       },
       {
         "key": "fisher2017",
@@ -80,17 +41,16 @@
         "crossref_journal": "Environmental Science & Technology"
       },
       {
-        "key": "callaway2018",
-        "doi": "10.1086/694179",
+        "key": "fares2017",
+        "doi": "10.1038/nenergy.2017.1",
         "http_status": 200,
         "verified": true,
-        "crossref_title": "Location, Location, Location: The Variable Value of Renewable Energy and Demand-Side Efficiency Resources",
+        "crossref_title": "The impacts of storing solar energy in the home to reduce reliance on the utility",
         "crossref_authors": [
-          "Callaway",
-          "Fowlie",
-          "McCormick"
+          "Fares",
+          "Webber"
         ],
-        "crossref_journal": "Journal of the Association of Environmental and Resource Economists"
+        "crossref_journal": "Nature Energy"
       },
       {
         "key": "arbabzadeh2019",
@@ -107,31 +67,19 @@
         "crossref_journal": "Nature Communications"
       },
       {
-        "key": "dechalendar2019",
-        "doi": "10.1073/pnas.1912950116",
+        "key": "staadecker2024",
+        "doi": "10.1038/s41467-024-53274-6",
         "http_status": 200,
         "verified": true,
-        "crossref_title": "Tracking emissions in the US electricity system",
+        "crossref_title": "The value of long-duration energy storage under various grid conditions in a zero-emissions future",
         "crossref_authors": [
-          "de Chalendar",
-          "Taggart",
-          "Benson"
+          "Staadecker",
+          "Szinai",
+          "S\u00e1nchez-P\u00e9rez",
+          "Kurtz",
+          "Hidalgo-Gonzalez"
         ],
-        "crossref_journal": "Proceedings of the National Academy of Sciences"
-      },
-      {
-        "key": "holland2022",
-        "doi": "10.1073/pnas.2116632119",
-        "http_status": 200,
-        "verified": true,
-        "crossref_title": "Why marginal CO 2 emissions are not decreasing for US electricity: Estimates and implications for climate policy",
-        "crossref_authors": [
-          "Holland",
-          "Kotchen",
-          "Mansur",
-          "Yates"
-        ],
-        "crossref_journal": "Proceedings of the National Academy of Sciences"
+        "crossref_journal": "Nature Communications"
       },
       {
         "key": "butters2025",
@@ -161,17 +109,112 @@
         "crossref_journal": "Manufacturing & Service Operations Management"
       },
       {
-        "key": "cgm2008",
-        "doi": "10.1162/rest.90.3.414",
+        "key": "peplinski2026",
+        "doi": "10.1016/j.est.2026.124812",
         "http_status": 200,
         "verified": true,
-        "crossref_title": "Bootstrap-Based Improvements for Inference with Clustered Errors",
+        "crossref_title": "Correlating grid scale battery operation with prices, emissions, and renewables in California and Texas",
         "crossref_authors": [
-          "Cameron",
-          "Gelbach",
-          "Miller"
+          "Peplinski",
+          "Calderon",
+          "Mayes",
+          "Sanders"
         ],
-        "crossref_journal": "Review of Economics and Statistics"
+        "crossref_journal": "Journal of Energy Storage"
+      },
+      {
+        "key": "graffzivin2014",
+        "doi": "10.1016/j.jebo.2014.03.010",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Spatial and temporal heterogeneity of marginal emissions: Implications for electric cars and other electricity-shifting policies",
+        "crossref_authors": [
+          "Graff Zivin",
+          "Kotchen",
+          "Mansur"
+        ],
+        "crossref_journal": "Journal of Economic Behavior & Organization"
+      },
+      {
+        "key": "holland2016",
+        "doi": "10.1257/aer.20150897",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Are There Environmental Benefits from Driving Electric Vehicles? The Importance of Local Factors",
+        "crossref_authors": [
+          "Holland",
+          "Mansur",
+          "Muller",
+          "Yates"
+        ],
+        "crossref_journal": "American Economic Review"
+      },
+      {
+        "key": "callaway2018",
+        "doi": "10.1086/694179",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Location, Location, Location: The Variable Value of Renewable Energy and Demand-Side Efficiency Resources",
+        "crossref_authors": [
+          "Callaway",
+          "Fowlie",
+          "McCormick"
+        ],
+        "crossref_journal": "Journal of the Association of Environmental and Resource Economists"
+      },
+      {
+        "key": "dechalendar2019",
+        "doi": "10.1073/pnas.1912950116",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Tracking emissions in the US electricity system",
+        "crossref_authors": [
+          "de Chalendar",
+          "Taggart",
+          "Benson"
+        ],
+        "crossref_journal": "Proceedings of the National Academy of Sciences"
+      },
+      {
+        "key": "holland2022",
+        "doi": "10.1073/pnas.2116632119",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Why marginal CO 2 emissions are not decreasing for US electricity: Estimates and implications for climate policy",
+        "crossref_authors": [
+          "Holland",
+          "Kotchen",
+          "Mansur",
+          "Yates"
+        ],
+        "crossref_journal": "Proceedings of the National Academy of Sciences"
+      },
+      {
+        "key": "brander2018",
+        "doi": "10.1016/j.enpol.2017.09.051",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Creative accounting: A critical perspective on the market-based method for reporting purchased electricity (scope 2) emissions",
+        "crossref_authors": [
+          "Brander",
+          "Gillenwater",
+          "Ascui"
+        ],
+        "crossref_journal": "Energy Policy"
+      },
+      {
+        "key": "bjorn2022",
+        "doi": "10.1038/s41558-022-01379-5",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Renewable energy certificates threaten the integrity of corporate science-based targets",
+        "crossref_authors": [
+          "Bj\u00f8rn",
+          "Lloyd",
+          "Brander",
+          "Matthews"
+        ],
+        "crossref_journal": "Nature Climate Change"
       },
       {
         "key": "cgm2011",
@@ -185,6 +228,33 @@
           "Miller"
         ],
         "crossref_journal": "Journal of Business & Economic Statistics"
+      },
+      {
+        "key": "abadie2023",
+        "doi": "10.1093/qje/qjac038",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "When Should You Adjust Standard Errors for Clustering?",
+        "crossref_authors": [
+          "Abadie",
+          "Athey",
+          "Imbens",
+          "Wooldridge"
+        ],
+        "crossref_journal": "The Quarterly Journal of Economics"
+      },
+      {
+        "key": "cgm2008",
+        "doi": "10.1162/rest.90.3.414",
+        "http_status": 200,
+        "verified": true,
+        "crossref_title": "Bootstrap-Based Improvements for Inference with Clustered Errors",
+        "crossref_authors": [
+          "Cameron",
+          "Gelbach",
+          "Miller"
+        ],
+        "crossref_journal": "Review of Economics and Statistics"
       },
       {
         "key": "mw2018",
@@ -213,20 +283,6 @@
         "crossref_journal": "The Stata Journal: Promoting communications on statistics and Stata"
       },
       {
-        "key": "abadie2023",
-        "doi": "10.1093/qje/qjac038",
-        "http_status": 200,
-        "verified": true,
-        "crossref_title": "When Should You Adjust Standard Errors for Clustering?",
-        "crossref_authors": [
-          "Abadie",
-          "Athey",
-          "Imbens",
-          "Wooldridge"
-        ],
-        "crossref_journal": "The Quarterly Journal of Economics"
-      },
-      {
         "key": "webb2023",
         "doi": "10.1111/caje.12661",
         "http_status": 200,
@@ -241,7 +297,33 @@
   },
   "two_way_sync": {
     "checked": true,
-    "n_refs": 18,
+    "n_refs": 22,
+    "nature_numbered_order_ok": true,
+    "first_appearance_order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "out_of_range": [],
     "missing_in_body": [],
     "missing_in_refs": [],
     "unverified_extra_dois": [],

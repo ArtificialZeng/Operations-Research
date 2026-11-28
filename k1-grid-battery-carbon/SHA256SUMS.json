@@ -1,30 +1,60 @@
 {
   "workspace": "D:\\AI_Science\\antigravity\\k1_boost_grid_battery_carbon_20261127",
-  "n_files": 49,
+  "n_files": 59,
   "files": {
     "manuscript_k1_boost.md": {
-      "sha256": "38fb784ac7890a593a88fb36a063567df1650e3a34f5b536753c793ceb115a05",
-      "bytes": 44393,
+      "sha256": "8bfc0264caaab5aac6a0e1a7450adaf28d1f6712ba0bfcf55a0841080703e0d0",
+      "bytes": 47890,
       "mode": "lf_text"
     },
     "manuscript_k1_nature_energy.pdf": {
-      "sha256": "6801d18420723a74acc4c46d7adcf29856be4ec5ddfce5b44104144f81ce990f",
-      "bytes": 2201192,
+      "sha256": "f685b25f3296e2f18ee443a3548ec054b127106f84e1f0100731241d48b95237",
+      "bytes": 2232436,
+      "mode": "raw_binary"
+    },
+    "manuscript_k1_nature_energy_blinded.md": {
+      "sha256": "fe088a95cf28a5098f30f84f4d58c54badc247d6d5950de6f98be39823f1247c",
+      "bytes": 47436,
+      "mode": "lf_text"
+    },
+    "manuscript_k1_nature_energy_blinded.pdf": {
+      "sha256": "db7347a03307c7aabd57511c93f0c048c27198f70b161b2b50a54cebeaecc619",
+      "bytes": 2213228,
       "mode": "raw_binary"
     },
     "supplementary_k1_nature_energy.md": {
-      "sha256": "19619264602f0cc370341f2c44e17f412904cf76607cc481deabdc7ee14b54ed",
-      "bytes": 15601,
+      "sha256": "cc359c3250a88061af399c9ec98a4f7af1c079ee9360182d8a814795989fff88",
+      "bytes": 16184,
       "mode": "lf_text"
     },
     "supplementary_k1_nature_energy.pdf": {
-      "sha256": "b0ec9171c352fe6a2ffe58be2b95a1657b122c9824fd4aed2f5ef9a8a6d005b1",
-      "bytes": 1629064,
+      "sha256": "204dac73f637de74a7abad19469203270620337d326d8642ce309828314a3732",
+      "bytes": 1637038,
+      "mode": "raw_binary"
+    },
+    "supplementary_k1_nature_energy_blinded.md": {
+      "sha256": "51aa205c1826ac30cd5a4ef473560414c8ed8c703fcd7415201ed8e0ecc7756e",
+      "bytes": 15998,
+      "mode": "lf_text"
+    },
+    "supplementary_k1_nature_energy_blinded.pdf": {
+      "sha256": "93c6b0811fd42bb45f3c3874960cf609d218e4608094c5bdfbbd39ccd333b556",
+      "bytes": 1613811,
+      "mode": "raw_binary"
+    },
+    "COVER_LETTER_NATURE_ENERGY.md": {
+      "sha256": "7a17bd4d284adbfb2a0208799d2095f02f8b39a686a66fe1baa057531d81ce0c",
+      "bytes": 6195,
+      "mode": "lf_text"
+    },
+    "COVER_LETTER_NATURE_ENERGY.pdf": {
+      "sha256": "d45e6bf6a51edcb6e09124a528f0261c693dcd07a1fb1f85f776fe109559a982",
+      "bytes": 141988,
       "mode": "raw_binary"
     },
     "REPRODUCIBILITY.md": {
-      "sha256": "0e1396240037cc1d3cd50b1217ccaaec58933c72208304cd201e9452aac32e60",
-      "bytes": 8249,
+      "sha256": "7f36c3e91ec4462b422aca9db684c80bb2bd7ccff65c2618a16ffb1c7080fe6c",
+      "bytes": 9650,
       "mode": "lf_text"
     },
     "REFEREE_RESPONSE_v2.md": {
@@ -45,6 +75,11 @@
     "REFEREE_RESPONSE_v5.md": {
       "sha256": "ca3db5ba0a9b6756b109e3857471b1d542a1c0e73cf68e1365209b02c87fa7ef",
       "bytes": 9614,
+      "mode": "lf_text"
+    },
+    "REFEREE_RESPONSE_v6.md": {
+      "sha256": "6ebc00f763d91bc5b9979bd1981b75e5dad242910c8c30223127003b0b3ac56d",
+      "bytes": 5989,
       "mode": "lf_text"
     },
     "scripts/00_download_external_data.py": {
@@ -77,6 +112,11 @@
       "bytes": 103977,
       "mode": "lf_text"
     },
+    "scripts/03d_ercot_unit_level_cems_mechanism.py": {
+      "sha256": "ee440ece1216f65922e44702cf8f7e342e57cf0335b7e7a696e96ca6b90faea2",
+      "bytes": 14140,
+      "mode": "lf_text"
+    },
     "scripts/04_formal_carbon_model.py": {
       "sha256": "ec0217a5e9a4cb93d29b73995fb3dcf0dcb506a5a7e9d5288d9f0bb835af46dd",
       "bytes": 17686,
@@ -88,23 +128,23 @@
       "mode": "lf_text"
     },
     "scripts/07_verify_citations.py": {
-      "sha256": "f58f7e2453cb8281ab00c3db769b619639fae6913ca2722e20e3823c835c922c",
-      "bytes": 15463,
+      "sha256": "f62121a6ceb23da7dc1202d624802152c67862df314c66afc67454ef45bc044c",
+      "bytes": 16135,
       "mode": "lf_text"
     },
     "scripts/07a_generate_manuscript_md.py": {
-      "sha256": "5f1afef242c7027b14a3562840b39364c80b80ef5514133b38e7fc6dce4f370f",
-      "bytes": 90285,
+      "sha256": "38f29deb6f637b9af239d22f1d318733392bcd9cc07f0941f1e823759ba7d1b8",
+      "bytes": 107323,
       "mode": "lf_text"
     },
     "scripts/08_compile_manuscript_pdf.py": {
-      "sha256": "2f372f40cfacff31ae97402638ccfa41d6127e094e5b05ba404c8b8cd79165b1",
-      "bytes": 36447,
+      "sha256": "a42cfb067cf5510d7430152659a55426b4a032bc86fbb59b0c030ad46e93959d",
+      "bytes": 41898,
       "mode": "lf_text"
     },
     "scripts/09_generate_checksums.py": {
-      "sha256": "c9043c72f86cd83779ca2f49fd6d1526ab64863ed83cc11dbf81e69bd477c521",
-      "bytes": 2306,
+      "sha256": "0e736cb7564813e234d7d070e6cb1581d9031604c4283ef9a01abcc37f5967a9",
+      "bytes": 2694,
       "mode": "lf_text"
     },
     "scripts/econ_utils.py": {
@@ -113,8 +153,8 @@
       "mode": "lf_text"
     },
     "tests/test_k1_boost.py": {
-      "sha256": "235b601b49c02dd8d1a9b00aa748f14b0d7f839db0d1f1869bc0ebcc64ef13cb",
-      "bytes": 39377,
+      "sha256": "8753b6aab2086159e9d1539bd4cbce9dea794b7244614a1698e2fa49ebe270d5",
+      "bytes": 42796,
       "mode": "lf_text"
     },
     "tables/fig4_frontier_and_ercot.csv": {
@@ -130,6 +170,11 @@
     "tables/table2_joint_bootstrap_curtailment.csv": {
       "sha256": "a86c8d655f4f414fa72d0953c22ad22ddb85d56807665de540ac59e73a114eac",
       "bytes": 10486,
+      "mode": "lf_text"
+    },
+    "tables/table_ercot_unit_cems_mechanism.csv": {
+      "sha256": "a883e6f37a85993a0e1927002fd27e8de651ccc7723239c4a24d2e87ccd05542",
+      "bytes": 2374,
       "mode": "lf_text"
     },
     "tables/table_oos_and_leadlag.csv": {
@@ -167,14 +212,19 @@
       "bytes": 150184,
       "mode": "lf_text"
     },
+    "results/03d_ercot_unit_level_cems_mechanism.json": {
+      "sha256": "6420c3dda4052764e5f5836f61b8bbf5beacb2651f9cdd175303591821373607",
+      "bytes": 8828,
+      "mode": "lf_text"
+    },
     "results/04_formal_model_verification.json": {
       "sha256": "130bfc4014357f807a74c7a32d78d52799a5e09c0fd3c18b41e56948aea56175",
       "bytes": 21222,
       "mode": "lf_text"
     },
     "results/07_citation_verification.json": {
-      "sha256": "046759fc89bbc0ccbfeab9e99208473e4260f03e9aa36385c2e8525de8ec74dc",
-      "bytes": 7785,
+      "sha256": "561714c11313742fff81949d978e8cf24e327e98a9f374b69337d00b88f35390",
+      "bytes": 9947,
       "mode": "lf_text"
     },
     "figures/fig1_diurnal_gas_displacement_and_leads.png": {
