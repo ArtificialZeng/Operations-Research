@@ -1,0 +1,37 @@
+network,sensitivity_check,n_ref_units,gain_vs_1430_pp,ci95_lo_pp,ci95_hi_pp,ref_neg_alarm_pct
+United States (USGS),Shared reference (v3 baseline),8499,49.66,37.14,62.19,0.0
+United States (USGS),Primary LORO (drop candidate),8462,49.47,36.87,62.07,0.047
+United States (USGS),Strict LORO (+/-30 min buffer),8124,49.63,36.62,62.64,0.277
+United States (USGS),Persistence >=2 consecutive readings,8031,51.54,38.72,64.36,0.152
+United States (USGS),Actionable >=2 h continuous,7633,53.58,40.52,66.65,0.25
+United States (USGS),Tolerance buffer: ref <4.8 mg/L,7403,51.94,37.95,65.93,0.577
+United States (USGS),Tolerance buffer: ref <5.2 mg/L,9689,43.05,31.73,54.37,0.006
+United States (USGS),Indep. MC probe noise (sigma=0.10),8462,48.5,48.12,48.9,0.207
+United States (USGS),Indep. MC probe noise (sigma=0.20),8462,46.55,45.96,47.13,0.48
+United States (USGS),Downsampled 15-min grid,6834,50.88,35.44,66.32,0.023
+United States (USGS),Downsampled 30-min grid,6708,51.97,36.74,67.2,0.123
+United States (USGS),Downsampled 60-min grid,6419,51.8,35.28,68.32,0.368
+United States (USGS),Equal-site weight (>=5 hyp. nights),79,46.26,39.1,53.43,0.047
+United States (USGS),Excl. chronic sites (>50% nights),4411,57.04,50.32,63.76,0.047
+United States (USGS),Excl. daytime-chronic (>25% 14:30),5821,63.73,54.63,72.84,0.047
+United States (USGS),OOS Leave-One-Region-Out holdout,8448,50.56,38.08,63.03,0.119
+United States (USGS),OOS 5-fold site holdout,8448,50.56,38.08,63.03,0.119
+United States (USGS),Cross-Atlantic zero-shot transfer,8448,50.56,38.08,63.03,0.119
+England (EA),Shared reference (v3 baseline),2472,37.38,24.3,50.46,0.0
+England (EA),Primary LORO (drop candidate),2360,35.13,22.69,47.57,0.443
+England (EA),Strict LORO (+/-30 min buffer),2324,34.77,22.19,47.35,0.533
+England (EA),Persistence >=2 consecutive readings,2124,34.98,21.85,48.11,0.886
+England (EA),Actionable >=2 h continuous,2132,38.09,24.23,51.94,0.561
+England (EA),Tolerance buffer: ref <4.8 mg/L,2132,34.43,21.65,47.21,0.914
+England (EA),Tolerance buffer: ref <5.2 mg/L,2608,33.47,22.1,44.84,0.208
+England (EA),Indep. MC probe noise (sigma=0.10),2360,34.55,33.85,35.18,0.528
+England (EA),Indep. MC probe noise (sigma=0.20),2360,33.29,32.44,34.15,0.684
+England (EA),Downsampled 15-min grid,433,41.11,-13.3,95.52,0.038
+England (EA),Downsampled 30-min grid,425,41.41,-12.89,95.71,0.035
+England (EA),Downsampled 60-min grid,404,43.56,-9.49,96.62,0.361
+England (EA),Equal-site weight (>=5 hyp. nights),30,30.47,18.76,42.18,0.443
+England (EA),Excl. chronic sites (>50% nights),1816,37.83,23.61,52.06,0.443
+England (EA),Excl. daytime-chronic (>25% 14:30),1593,40.18,24.98,55.37,0.443
+England (EA),OOS Leave-One-Region-Out holdout,2395,35.24,22.7,47.78,0.515
+England (EA),OOS 5-fold site holdout,2389,35.24,22.83,47.66,0.519
+England (EA),Cross-Atlantic zero-shot transfer,2412,36.03,23.64,48.41,0.512

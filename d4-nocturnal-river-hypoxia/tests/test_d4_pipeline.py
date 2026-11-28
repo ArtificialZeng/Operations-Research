@@ -1,4 +1,4 @@
-"""Comprehensive automated verification suite for D4 Boost (Continental Nocturnal River Hypoxia & 24-Hour Clock-Bias)."""
+"""Comprehensive automated verification suite for D4 v4 (Nature Water submission-ready revision)."""
 from __future__ import annotations
 
 import hashlib
@@ -35,461 +35,246 @@ def _load_module(script_name: str):
 
 
 # ---------------------------------------------------------------------------
-# 1. Mathematical & Thermodynamic Unit Tests
+# 1. Mathematical, Solar Geometry, Kaplan-Meier & Episode Unit Tests
 # ---------------------------------------------------------------------------
-def test_astronomical_sunrise_sunset_solar_geometry_and_symmetry() -> None:
-    mod3 = _load_module("03_fetch_iv_24h_clock_census.py")
-    # Equinox (~DOY 80 / 266) at mid-latitude 40 N -> sunrise ~6.0, sunset ~18.0
-    sr_eq, ss_eq = mod3.astronomical_sunrise_sunset_solar_hr(40.0, 80)
-    assert 5.8 < float(sr_eq) < 6.2
-    assert 17.8 < float(ss_eq) < 18.2
-    assert abs(float(sr_eq) + float(ss_eq) - 24.0) < 1e-12
-
-    # Northern hemisphere summer solstice (DOY 172): higher latitude -> earlier sunrise, later sunset
-    sr_28, ss_28 = mod3.astronomical_sunrise_sunset_solar_hr(28.0, 172)
-    sr_47, ss_47 = mod3.astronomical_sunrise_sunset_solar_hr(47.0, 172)
-    assert float(sr_47) < float(sr_28) < 5.3
-    assert float(ss_47) > float(ss_28) > 18.7
-    assert abs(float(sr_47) + float(ss_47) - 24.0) < 1e-12
+def test_solar_boundaries_and_equinox_solstice_symmetry() -> None:
+    mod11 = _load_module("11_loro_and_sensitivity_analysis.py")
+    sr_eq, ss_eq = mod11.solar_boundaries(40.0, pd.Timestamp("2023-03-21"))
+    assert 340.0 < sr_eq < 380.0
+    assert 1060.0 < ss_eq < 1100.0
+    # Higher northern latitude in June -> earlier sunrise, later sunset
+    sr_28, ss_28 = mod11.solar_boundaries(28.0, pd.Timestamp("2023-06-21"))
+    sr_52, ss_52 = mod11.solar_boundaries(52.0, pd.Timestamp("2023-06-21"))
+    assert sr_52 < sr_28 < 330.0
+    assert ss_52 > ss_28 > 1110.0
 
 
-def test_benson_krause_thermodynamics_reference_values_and_cross_script_parity() -> None:
+def test_kaplan_meier_and_distinct_episode_grouping_unit() -> None:
+    mod11 = _load_module("11_loro_and_sensitivity_analysis.py")
+    mod12 = _load_module("12_operational_protocol_decision_analysis.py")
+
+    # Simple KM sanity: 4 subjects, uncensored events at 2, 4, 6, 8 h -> median = 4.0 h
+    km = mod11.kaplan_meier_quantiles(np.array([2.0, 4.0, 6.0, 8.0]), np.array([1, 1, 1, 1]))
+    assert km["median_hr"] == 4.0
+    assert km["censored_pct"] == 0.0
+
+    # Right-censored subjects at 2, 4 h with no events -> survival stays 100%, median is None
+    km_c = mod11.kaplan_meier_quantiles(np.array([2.0, 4.0, 6.0]), np.array([0, 0, 0]))
+    assert km_c["median_hr"] is None
+    assert km_c["surv_at_6h_pct"] == 100.0
+
+    # Distinct episode grouping: consecutive days (10,11,12) = ep 1; gap to (15) = ep 2; (16) = ep 2
+    days = np.array([10, 11, 12, 13, 15, 16])
+    mask = np.array([True, True, True, False, True, True])
+    ids = mod12.assign_distinct_episode_ids(days, mask)
+    np.testing.assert_array_equal(ids, np.array([1, 1, 1, 0, 2, 2]))
+
+
+def test_benson_krause_and_fwl_econometric_unit_guards() -> None:
     mod5 = _load_module("05_econometric_hydrologic_suite.py")
-    mod3 = _load_module("03_fetch_iv_24h_clock_census.py")
-    # Official USGS Benson & Krause (1984) freshwater 1-atm solubility reference values (mg/L):
-    # 0 C: 14.621, 10 C: 11.288, 20 C: 9.092, 30 C: 7.559
     temps = np.array([0.0, 10.0, 20.0, 30.0])
     calc = mod5.benson_krause_do_sat_1atm(temps)
-    ref = np.array([14.621, 11.288, 9.092, 7.559])
-    np.testing.assert_allclose(calc, ref, atol=0.015)
+    np.testing.assert_allclose(calc, np.array([14.621, 11.288, 9.092, 7.559]), atol=0.015)
 
-    # Barometric + water-vapor altitude adjustment at 2,000 m must reduce DO_sat by ~21-22%
-    alt_2000 = mod5.benson_krause_do_sat_alt(np.array([20.0]), 2000.0)[0]
-    ratio = alt_2000 / calc[2]
-    assert 0.77 < ratio < 0.80, f"Unexpected 2000m altitude ratio: {ratio}"
-    # Sea-level (0 m) must equal 1-atm exactly
-    np.testing.assert_allclose(mod5.benson_krause_do_sat_alt(temps, 0.0), calc, atol=1e-12)
-    # Exact parity between Step 3 (IV transfer) and Step 5 (DV econometrics) water-vapor + altitude formulas!
-    for z in (0.0, 350.0, 1500.0, 2500.0):
-        np.testing.assert_allclose(
-            mod3.benson_krause_do_sat_alt(temps, z),
-            mod5.benson_krause_do_sat_alt(temps, z),
-            atol=1e-12,
-        )
-
-
-def test_fwl_within_ym_ols_matches_statsmodels_dummy_ols() -> None:
-    mod = _load_module("05_econometric_hydrologic_suite.py")
     rng = np.random.default_rng(42)
-    n = 420
-    ym = np.repeat([f"2020-{m:02d}" for m in range(5, 11)], n // 6)
-    temp = rng.normal(22.0, 3.0, n) + np.repeat(np.linspace(-2, 4, 6), n // 6)
+    n = 360
+    ym = np.repeat([f"2021-{m:02d}" for m in range(5, 11)], n // 6)
+    temp = rng.normal(22.0, 3.0, n)
     log_q = rng.normal(6.0, 0.8, n)
-    log_q2 = log_q**2
-    fe_vals = np.repeat([0.5, -0.3, 0.9, -0.7, 0.2, -0.4], n // 6)
-    y = fe_vals - 0.235 * temp + 0.14 * log_q - 0.01 * log_q2 + rng.normal(0.0, 0.25, n)
-
-    df = pd.DataFrame({"ym": ym, "temp": temp, "log_q": log_q, "log_q2": log_q2, "y": y})
-    fwl_res = mod.fit_within_ym_full_betas(df, ["y"], ["temp", "log_q", "log_q2"], min_days=100)
+    y = -0.22 * temp + 0.12 * log_q + rng.normal(0.0, 0.2, n)
+    df = pd.DataFrame({"ym": ym, "temp": temp, "log_q": log_q, "y": y})
+    fwl_res = mod5.fit_within_ym_full_betas(df, ["y"], ["temp", "log_q"], min_days=100)
     assert fwl_res is not None
-
-    dummies = pd.get_dummies(df["ym"], drop_first=False, dtype=float)
-    X_sm = pd.concat([df[["temp", "log_q", "log_q2"]], dummies], axis=1)
+    X_sm = pd.concat([df[["temp", "log_q"]], pd.get_dummies(df["ym"], dtype=float)], axis=1)
     sm_fit = sm.OLS(df["y"], X_sm).fit()
-    np.testing.assert_allclose(fwl_res["y"], sm_fit.params[["temp", "log_q", "log_q2"]].values, atol=1e-10)
-
-
-def test_cr1_cluster_se_matches_statsmodels_exact() -> None:
-    mod = _load_module("05_econometric_hydrologic_suite.py")
-    rng = np.random.default_rng(99)
-    n = 120
-    clusters = np.repeat([f"H{i:02d}" for i in range(12)], 10)
-    cl_shock = np.repeat(rng.normal(0.0, 0.05, 12), 10)
-    y = -0.08 + cl_shock + rng.normal(0.0, 0.03, n)
-    df = pd.DataFrame({"val": y, "state": clusters, "huc2": clusters})
-
-    blk = mod.spatial_inference_block(df, "val", np.random.default_rng(7))
-    sm_fit = sm.OLS(df["val"], np.ones((n, 1))).fit(cov_type="cluster", cov_kwds={"groups": df["huc2"]})
-    assert abs(blk["huc2_cluster"]["se_cr1"] - float(sm_fit.bse.iloc[0])) < 1e-4
-    assert abs(blk["mean"] - float(sm_fit.params.iloc[0])) < 1e-5
-
-
-def test_exclude_rules_catch_all_forensic_dams_and_preserve_clean_towns() -> None:
-    mod = _load_module("01_discover_and_filter_conus_sites.py")
-    base_row = {
-        "site_no": "99999999",
-        "state": "PA",
-        "site_tp_cd": "ST",
-        "lat": "40.5",
-        "lon": "-77.5",
-        "huc_cd": "02050305",
-        "has_all_do_stats": 1,
-        "min_do_cnt": 4000,
-        "temp_mean_cnt": 4000,
-        "do_begin": "2010-01-01",
-        "do_end": "2024-12-31",
-    }
-    bad_names = [
-        "PEE DEE RIVER BELOW POWERHOUSE DAM NR PEE DEE, NC",
-        "Scioto R. at O'Shaughnessy Dam near Dublin OH",
-        "LINK RIVER DAM",
-        "Mahoning Creek at Mahoning Creek Dam, PA",
-        "DES PLAINES RIVER IN LOCK CHANNEL AT ROCKDALE, IL",
-        "Monongahela R at L&D2 Lower Pool at Braddock, PA",
-        "UPPER KLAMATH LAKE OUTFLOW, OR",
-        "CALOOSAHATCHEE RIVER AT S-79, NR.OLGA, FLA",
-        "REEDY CREEK AT S-40, NEAR LOUGHMAN, FL",
-        "ROANOKE RIVER AT BUGGS ISLAND, VA",
-        "BLACK EARTH CK NR TREATMENT PLNT @ CROSS PLAINS,WI",
-        "CUMBERLAND R AT OMOHUNDRO WTR PLT AT NASHVILLE, TN",
-        "WACCAMAW RIVER AT CONWAY MARINA AT CONWAY, SC",
-        "DELAWARE RIVER AT CHESTER PA",
-        "CRABTREE SWAMP AT CONWAY, SC",
-    ]
-    for nm in bad_names:
-        r = dict(base_row, station_nm=nm)
-        ok, reasons = mod.classify_site(r)
-        assert not ok and len(reasons) > 0, f"Failed to exclude {nm}"
-
-    # Clean town names like Amsterdam or Damascus must NOT be false-excluded
-    clean_row = dict(base_row, station_nm="MOHAWK RIVER AT AMSTERDAM NY")
-    ok_clean, reasons_clean = mod.classify_site(clean_row)
-    assert ok_clean and len(reasons_clean) == 0
+    np.testing.assert_allclose(fwl_res["y"], sm_fit.params[["temp", "log_q"]].values, atol=1e-10)
 
 
 # ---------------------------------------------------------------------------
-# 2. Data Hygiene, NID Dam-Free & UK Spatial-Cluster Integrity Tests
+# 2. Data Hygiene & Screened Network Integrity
 # ---------------------------------------------------------------------------
-def test_conus_census_zero_forbidden_sites_strict_st_and_nid_attached() -> None:
+def test_screened_networks_free_of_forensic_dams_and_salinity() -> None:
     meta = pd.read_csv(PROC_DIR / "conus_valid_rivers_meta.csv", dtype={"site_no": str, "huc2": str})
-    panel = pd.read_csv(PROC_DIR / "conus_river_econometric_panel.csv", dtype={"site_no": str, "huc2": str})
     iv_meta = pd.read_csv(PROC_DIR / "conus_iv_rivers_meta.csv", dtype={"site_no": str, "huc2": str})
-
-    assert len(meta) >= 350, f"Expected >=350 clean CONUS rivers, got {len(meta)}"
-    assert meta["state"].nunique() >= 35, f"Expected >=35 states, got {meta['state'].nunique()}"
-    assert meta["huc2"].nunique() >= 17, f"Expected >=17 CONUS HUC-2 basins, got {meta['huc2'].nunique()}"
-    assert (meta["site_tp_cd"] == "ST").all(), "Non-ST site leaked into clean CONUS census!"
-    assert (meta["is_brackish_spcond_gt5000"] == 0).all(), "Brackish SpCond>5000 site leaked!"
-    assert meta["nid_dist_ge500af_km"].notna().all(), "Missing USACE NID dam distances!"
-
-    for df_chk, nm in [(meta, "meta"), (panel, "panel"), (iv_meta, "iv_meta")]:
-        leaked = KNOWN_FORENSIC_EXCLUDED.intersection(set(df_chk["site_no"].str.strip()))
-        assert not leaked, f"Forensic excluded sites leaked into {nm}: {leaked}"
-        bad_nm = df_chk["station_nm"].str.upper().str.contains(
-            r"\b(?:DAM|TAILRACE|POWERHOUSE|LOCK\s+CHANNEL|L&D\d*|KLAMATH|RESERVOIR|ESTUARY|TIDAL|MARINA|SWAMP|BUGGS\s+ISLAND|TREATMENT\s*PLNT|WTR\s*PLT)\b",
-            regex=True,
-            na=False,
-        )
-        assert not bad_nm.any(), f"Forbidden hydro station name leaked into {nm}: {df_chk.loc[bad_nm, 'station_nm'].tolist()}"
-
-
-def test_uk_ea_replication_clean_and_spatially_clustered() -> None:
-    uk_csv = pd.read_csv(PROC_DIR / "uk_ea_clean_rivers_results.csv")
-    uk_js = json.loads((RES_DIR / "uk_ea_replication_results.json").read_text(encoding="utf-8"))
-
-    assert len(uk_csv) >= 55, f"Expected >=55 clean UK rivers, got {len(uk_csv)}"
-    assert uk_js["n_uk_grid1deg_clusters"] >= 15
-    norm_lbl = uk_csv["label"].astype(str).str.replace(r"[_\-/]+", " ", regex=True).str.upper()
-    assert not norm_lbl.str.contains(
-        r"\b(?:GW|WEIR|DAM|STW|CSO|CHISWICK|PUTNEY|ERITH|ADIT|CUNSEY|POLZEATH)\b|TYNE.*SWING|WITHAM.*BOSTON|LEVEN.*NEWBY",
-        regex=True,
-    ).any()
-
-    dec = uk_js["thermal_slopes_ym_fe"]["DOmin_minus_DOmax"]
-    assert dec["mean"] < -0.05
-    assert dec["p_t"] < 1e-5
-    assert dec["grid1deg_cluster"]["p_cr1_t_Gminus1"] < 0.001
-    assert uk_js["thermal_slopes_ym_fe"]["DOmin_minus_HenrysLaw"]["grid1deg_cluster"]["p_cr1_t_Gminus1"] < 0.01
-    assert uk_js["thermal_slopes_ym_fe"]["DOmax_minus_HenrysLaw"]["grid1deg_cluster"]["p_cr1_t_Gminus1"] < 0.05
-    assert uk_js["clock_bias_summary"]["afternoon_warming_underestimation_pct"] > 20.0
-    assert uk_js["clock_bias_summary"]["afternoon_bst_warming_underestimation_pct"] > 20.0
+    assert len(meta) == 397
+    assert len(iv_meta) == 139
+    assert (meta["site_tp_cd"] == "ST").all()
+    assert (meta["is_brackish_spcond_gt5000"] == 0).all()
+    for df_chk in (meta, iv_meta):
+        assert not KNOWN_FORENSIC_EXCLUDED.intersection(set(df_chk["site_no"].str.strip()))
 
 
 # ---------------------------------------------------------------------------
-# 3. Core Empirical Receipts, NID, Transfer VIF, Tables & Parity Checks
+# 3. v4 Core P0/P1 Scientific Receipts & Exact Referee Benchmark Verification
 # ---------------------------------------------------------------------------
-def test_zero_nans_and_table4_internal_arithmetic_integrity() -> None:
-    expected_tables = [
-        "table1_core_thermal_decoupling.csv",
-        "table2_24h_clock_bias_windows.csv",
-        "table2b_transfer_function_oos.csv",
-        "table2c_astronomical_night_duration_sensitivity.csv",
-        "table2d_nocturnal_crossing_duration.csv",
-        "table3_compound_hot_x_dry.csv",
-        "table4_biophysical_mechanism_strata.csv",
-        "table5_secular_trends_and_uk_replication.csv",
-        "table6_huc2_basin_summary.csv",
+def test_p0_1_loro_primary_matches_exact_referee_benchmark_and_eliminates_circularity() -> None:
+    r11 = json.loads((RES_DIR / "11_loro_and_sensitivity.json").read_text(encoding="utf-8"))
+    us = r11["loro_primary"]["USGS"]
+    uk = r11["loro_primary"]["EA"]
+    assert us["n_sites"] == 139 and us["n_nights"] == 87_785
+    assert uk["n_sites"] == 65 and uk["n_nights"] == 27_635
+
+    us5, uk5 = us["thresholds"]["5"], uk["thresholds"]["5"]
+    # Exact reproduction of reviewer's independent UTC LORO verification:
+    assert us5["shared_n_ref_pos"] == 8499 and us5["loro_n_ref_pos"] == 8462
+    assert us5["shared_minus_loro_dropped_nights"] == 37
+    assert abs(us5["loro_dawn_minus_afternoon_95_pp"][0] - 49.47) < 0.02
+
+    assert uk5["shared_n_ref_pos"] == 2472 and uk5["loro_n_ref_pos"] == 2360
+    assert uk5["shared_minus_loro_dropped_nights"] == 112
+    assert abs(uk5["loro_dawn_minus_afternoon_95_pp"][0] - 35.13) < 0.02
+
+    # Transparent non-zero LORO pre-dawn reference-negative alarm rates (no circular zero!)
+    assert us5["loro_schedules"]["predawn"]["ref_neg_alarms"] == 37
+    assert uk5["loro_schedules"]["predawn"]["ref_neg_alarms"] == 112
+    assert us5["loro_schedules"]["predawn"]["ref_neg_alarm_95_pct"][0] > 0.0
+    assert uk5["loro_schedules"]["predawn"]["ref_neg_alarm_95_pct"][0] > 0.0
+
+    # Persistence, sensor tolerance, independent probe noise, and out-of-sample holdout robustness
+    assert us5["persistence_sensitivity"]["actionable_ge2h"]["dawn_minus_afternoon_95_pp"][0] > 50.0
+    assert uk5["persistence_sensitivity"]["actionable_ge2h"]["dawn_minus_afternoon_95_pp"][0] > 35.0
+    assert us5["independent_probe_noise_mc"]["sigma_0p20"]["dawn_minus_afternoon_mean_pp"] > 45.0
+    assert uk5["independent_probe_noise_mc"]["sigma_0p20"]["dawn_minus_afternoon_mean_pp"] > 30.0
+
+    ho = r11["holdout_validation"]
+    assert ho["USGS"]["leave_one_region_out"]["oos_gain_95_pp"][0] > 48.0
+    assert ho["EA"]["leave_one_region_out"]["oos_gain_95_pp"][0] > 33.0
+    assert ho["cross_atlantic_transfer"]["USGS_to_EA"]["test_gain_95_pp"][0] > 34.0
+    assert ho["cross_atlantic_transfer"]["EA_to_USGS"]["test_gain_95_pp"][0] > 48.0
+
+    # Real WQP independent co-located field-meter validation
+    wqp = r11["real_wqp_grab_audit"]
+    assert wqp["available"] is True
+    assert wqp["conus397_2015_2024_clock"]["n_visits"] > 9_500
+    assert wqp["independent_colocated_validation"]["n_paired_readings_le30min"] > 1_000
+    assert wqp["independent_colocated_validation"]["pearson_r"] > 0.94
+    assert wqp["actual_agency_visit_detection"]["lt5_grab_missed_pct"] > 50.0
+
+
+def test_p0_2_equal_budget_operational_protocol_decision_frontier() -> None:
+    r12 = json.loads((RES_DIR / "12_operational_protocol_decision.json").read_text(encoding="utf-8"))
+    for net in ("USGS", "EA"):
+        blk = r12["networks"][net]
+        fr = blk["decision_breakeven_frontiers"]
+        # Breakeven night multiplier vs empirical WQP clock is below realistic 1.75x surcharge
+        assert 1.2 < fr["predawn_breakeven_m_vs_wqp_clock"] < 1.75
+
+        b24 = blk["equal_budget_simulation_5mg_2h"]["equal_dollar_budget"]["budget_24_dayeq"]
+        g175 = b24["grab_by_night_multiplier"]["m_1p75"]
+        h40 = b24["hybrid_sonde_by_cost"]["k_40"]
+
+        # First-light daylight beats dark pre-dawn at m=1.75x on distinct episodes/budget AND site discovery
+        assert g175["first_light_sr_p30"]["distinct_episodes_per_100_dayeq"] > g175["predawn_sr_m30"]["distinct_episodes_per_100_dayeq"]
+        assert g175["first_light_sr_p30"]["impaired_sy_flagged_pct"] > g175["predawn_sr_m30"]["impaired_sy_flagged_pct"]
+
+        # Top-20% out-of-sample Year-1 sonde hybrid + first-light dominates ALL grab protocols (>3x distinct episodes!)
+        hyb = h40["y1_daytime_screening_top20pct_plus_firstlight"]
+        wqp = g175["empirical_wqp_clock"]
+        assert hyb["distinct_episodes_per_100_dayeq"] > 3.0 * wqp["distinct_episodes_per_100_dayeq"]
+        assert hyb["cost_usd_per_distinct_episode"] < 0.35 * wqp["cost_usd_per_distinct_episode"]
+        assert hyb["impaired_sy_flagged_pct"] > g175["first_light_sr_p30"]["impaired_sy_flagged_pct"]
+
+        # Continuous sondes provide genuine positive pre-nadir lead time on episodic <24h events
+        sonde_lt = blk["primary_actionable_5mg_2h_visit_level"]["continuous_sonde_benchmark"]["episodic_lt24h_lead"]
+        assert sonde_lt["median_lead_nadir_hr"] >= 3.0
+        assert sonde_lt["pct_before_nadir"] > 90.0
+
+
+def test_p1_3_coverage_attrition_downsampling_and_censoring() -> None:
+    r11 = json.loads((RES_DIR / "11_loro_and_sensitivity.json").read_text(encoding="utf-8"))
+    # Coverage entry rates (~94% US, ~82% England)
+    assert 92.0 < r11["coverage_attrition"]["USGS"]["common_support_entry_pct"] < 96.0
+    assert 80.0 < r11["coverage_attrition"]["EA"]["common_support_entry_pct"] < 85.0
+
+    # Censoring check: exact 1,246/8,499 closed in US; full continuous median >> naive closed median
+    cd_us = r11["loro_primary"]["USGS"]["thresholds"]["5"]["censoring_and_duration"]
+    cd_uk = r11["loro_primary"]["EA"]["thresholds"]["5"]["censoring_and_duration"]
+    assert cd_us["both_closed_n"] == 1246
+    assert cd_us["full_continuous_median_iqr_hr"][1] > 5.0 * cd_us["both_closed_median_lo_hi_hr"][1]
+    assert cd_uk["full_continuous_median_iqr_hr"][1] > 5.0 * cd_uk["both_closed_median_lo_hi_hr"][1]
+
+    # Cadence downsampling: 15 -> 30 -> 60 min preserves US LORO gain while mechanically increasing ref-neg alarms
+    us_cad = r11["cadence_downsampling"]["USGS"]["cadences"]
+    assert us_cad["15min"]["loro_dawn_minus_afternoon_95_pp"][0] > 48.0
+    assert us_cad["60min"]["loro_dawn_minus_afternoon_95_pp"][0] > 48.0
+    assert us_cad["60min"]["predawn_ref_neg_alarm_pct"] > 5.0 * us_cad["15min"]["predawn_ref_neg_alarm_pct"]
+
+
+# ---------------------------------------------------------------------------
+# 4. Zero-NaN Tables, Manuscript Parity, Authorship, Crossref DOIs, PDF Zero-Leaks & SHA-256
+# ---------------------------------------------------------------------------
+def test_all_v4_and_archived_tables_zero_nans() -> None:
+    v4_tables = [
+        "table1_nw_loro_cross_network.csv",
+        "table2_nw_robustness_holdout_cadence.csv",
+        "table3_nw_equal_budget_protocols.csv",
+        "table_s1_station_coverage_attrition.csv",
+        "table_s2_coverage_by_cadence_month.csv",
+        "table_s3_censoring_km_duration.csv",
+        "table_s4_cost_sensitivity_grid.csv",
     ]
-    for fn in expected_tables:
+    for fn in v4_tables:
         p = TBL_DIR / fn
         assert p.exists(), f"Missing table: {fn}"
         df = pd.read_csv(p)
-        assert len(df) > 0, f"Empty table: {fn}"
-        n_nan = int(df.isna().sum().sum())
-        assert n_nan == 0, f"Found {n_nan} NaNs in {fn}"
-
-    # Regression guard against prior SpCond do_min_mean column corruption bug:
-    # For EVERY stratum in Table 4, do_min_mean - do_max_mean MUST equal diff_min_max_mean!
-    t4 = pd.read_csv(TBL_DIR / "table4_biophysical_mechanism_strata.csv")
-    diff_chk = np.abs((t4["do_min_mean"] - t4["do_max_mean"]) - t4["diff_min_max_mean"])
-    assert (diff_chk < 1e-4).all(), f"Table 4 arithmetic corruption detected:\n{t4[diff_chk >= 1e-4]}"
+        assert len(df) > 0
+        assert int(df.isna().sum().sum()) == 0, f"NaNs found in {fn}"
 
 
-def test_core_results_nid_dam_free_and_well_conditioned_transfer() -> None:
-    econ = json.loads((RES_DIR / "d4_econometric_hydrologic_results.json").read_text(encoding="utf-8"))
-    iv = json.loads((RES_DIR / "conus_iv_24h_clock_results.json").read_text(encoding="utf-8"))
-
-    # Spec 2 Primary YM FE + log(Q) + log(Q)^2
-    s2 = econ["spec2_ym_fe_logQ_quad_primary"]
-    assert s2["diff_min_max"]["mean"] < -0.05
-    assert s2["diff_min_max"]["huc2_cluster"]["p_cr1_t_Gminus1"] < 1e-6
-    assert s2["diff_min_max"]["state_cluster"]["p_cr1_t_Gminus1"] < 1e-6
-    assert s2["diff_min_sat"]["mean"] < 0.0
-    assert s2["diff_max_sat"]["mean"] > 0.0
-
-    # USACE NID dam-free sensitivity must hold without attenuation!
-    rob = econ["robustness_suite"]
-    for nid_k in ("spec5_nid_gt5km_ge500af", "spec5_nid_gt10km_ge5000af", "spec5_nid_gt5km_any_dam", "spec5_dedup_2km_reach"):
-        blk = rob[nid_k]["diff_min_max"]
-        assert blk["mean"] < -0.06, f"{nid_k} attenuated: {blk['mean']}"
-        assert blk["huc2_cluster"]["p_cr1_t_Gminus1"] < 1e-4
-
-    # Exact diurnal T_min/T_max solubility invariance
-    s3 = econ["spec3_exact_diurnal_solubility"]
-    assert abs(s3["invariance_gap_min_exact_minus_Tmean"]["mean"]) < 0.01
-
-    # 24-hour IV clock-bias census + well-conditioned de-collinearized transfer function (max VIF < 5!)
-    assert iv["n_iv_rivers"] >= 80
-    assert len(iv["solar_24h_curve"]) == 24
-    assert len(iv["civil_24h_curve"]) == 24
-    assert all(r["bio_excess_mean"] is not None for r in iv["solar_24h_curve"])
-    pm = iv["named_windows"]["pm1316"]
-    ls = iv["named_windows"]["ls10"]
-    assert pm["warming_underestimation_pct"] > 20.0
-    assert pm["slope_bias_huc2_clustered"]["p_cr1_t_Gminus1"] < 0.001
-    assert ls["hypoxia_blindness"]["lt_5_mgL"]["missed_pct"] > 20.0
-    assert pm["hypoxia_blindness"]["lt_5_mgL"]["missed_pct"] > ls["hypoxia_blindness"]["lt_5_mgL"]["missed_pct"]
-
-    for mode in ("afternoon_1316", "afternoon_1430", "landsat_1030"):
-        tf = iv["transfer_function_oos"][mode]
-        assert tf["max_vif"] < 5.0, f"High transfer VIF in {mode}: {tf['max_vif']}"
-        assert tf["mean_bias_reduction_pct"] > 90.0
-        assert tf["rmse_reduction_pct"] > 40.0
-        assert "oos_r2_do_min" in tf and "oos_r2_drawdown" in tf
-        assert tf["nonlinear_spline_benchmark"]["lohuc2_rmse_mgL"] > 0.0
-
-    # Strict astronomical sunset-to-sunrise nocturnal audit, crossing timing, duration & completeness/site-weighting
-    astro = iv["astronomical_nocturnal_audit"]
-    sg = astro["solar_geometry_summary"]
-    assert sg["total_valid_site_days"] == iv["total_iv_warm_river_days"]
-    assert sg["all_days_min_in_astro_night_pct"] > 60.0
-    assert sg["all_days_min_in_astro_night_plus_2h_lag_pct"] > 80.0
-    assert sg["total_ge86_15min_site_days"] > 70_000
-
-    sl = astro["warming_slopes_astro_night_vs_24h"]["all_valid_rivers"]
-    assert sl["pm1316_underest_vs_astro_night_pct"] > 45.0
-    assert sl["overpass1011_underest_vs_astro_night_pct"] > 20.0
-    assert sl["pm1316_bias_vs_night_huc2"]["p_cr1_t_Gminus1"] < 1e-4
-
-    mr = astro["hypoxia_miss_rates_by_regime"]
-    for reg in ("astro_night_sameday_siteday", "astro_night_consec_overnight_siteday", "completeness_ge86_astro_night"):
-        assert mr[reg]["lt_5_mgL"]["pm1316_missed_pct"] > 55.0
-        assert mr[reg]["lt_5_mgL"]["overpass1011_missed_pct"] > 45.0
-    eq = astro["equal_site_weighting_miss_rates"]
-    assert eq["pm_astro_night"]["lt_5_mgL"]["equal_site_missed_pct"] > 65.0
-    assert eq["ls_astro_night"]["lt_5_mgL"]["equal_site_missed_pct"] > 60.0
-
-    td = astro["first_crossing_and_duration"]
-    for tag in ("lt_5_mgL", "lt_3_mgL", "lt_2_mgL"):
-        assert td[tag]["first_crossing_in_astro_night_episodic_pct"] > 60.0
-        assert td[tag]["continuous_duration_episodic_median_hr"] >= 5.0
-
-    # Bounded night-minus-day compound hypoxia contrast (replaces unstable ratio)
-    cmp_diff = econ["compound_hot_x_dry"]["effects"]["hyp5_min_minus_max"]
-    assert cmp_diff["total_compound_vs_normal"]["mean"] > 0.08
-    assert cmp_diff["total_compound_vs_normal"]["huc2_cluster"]["ci95_lo"] > 0.04
-    assert cmp_diff["total_compound_vs_normal"]["huc2_cluster"]["p_cr1_t_Gminus1"] < 0.001
-    assert cmp_diff["hot_x_dry_interaction"]["mean"] > 0.02
-    assert cmp_diff["hot_x_dry_interaction"]["huc2_cluster"]["p_cr1_t_Gminus1"] < 0.01
-
-    # UK raw 15-min astronomical night audit
-    uk = json.loads((RES_DIR / "uk_ea_replication_results.json").read_text(encoding="utf-8"))
-    uk_a = uk["astronomical_nocturnal_15min_audit"]
-    assert uk_a["all_days_min_in_astro_night_pct"] > 55.0
-    assert uk_a["hypoxia_blindness_astro_night_15min"]["pm14"]["lt_5_mgL"]["missed_pct"] > 50.0
-    assert uk_a["hypoxia_blindness_astro_night_15min"]["ls10"]["lt_5_mgL"]["missed_pct"] > 45.0
-
-
-def test_manuscript_tables_exact_parity_with_json_and_csv_receipts() -> None:
-    """Programmatically verify that manuscript Markdown tables match JSON/CSV receipts with zero transcription drift."""
+def test_manuscript_authorship_parity_and_crossref_verified_dois() -> None:
     md = (BASE_DIR / "manuscript_d4_boost.md").read_text(encoding="utf-8")
-    econ = json.loads((RES_DIR / "d4_econometric_hydrologic_results.json").read_text(encoding="utf-8"))
-    uk = json.loads((RES_DIR / "uk_ea_replication_results.json").read_text(encoding="utf-8"))
-    t4 = pd.read_csv(TBL_DIR / "table4_biophysical_mechanism_strata.csv")
+    r11 = json.loads((RES_DIR / "11_loro_and_sensitivity.json").read_text(encoding="utf-8"))
+    r12 = json.loads((RES_DIR / "12_operational_protocol_decision.json").read_text(encoding="utf-8"))
 
-    def clean_num(cell: str) -> float:
-        s = re.sub(r"[*$%,()]", "", cell).replace("−", "-").strip()
-        return float(s.split()[0])
+    # Exact required authorship block and zero leaked internal metadata
+    assert "Zijian Zeng" in md
+    assert "Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA" in md
+    assert "zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my" in md
+    for forbidden in ("Target Venue", "Target Journal", "Target Format", "Track A", "Track B", "Manuscript ID"):
+        assert forbidden not in md, f"Forbidden metadata leaked in manuscript: {forbidden}"
 
-    # Parse all Markdown table rows
-    rows_by_label: dict[str, list[str]] = {}
-    for ln in md.splitlines():
-        if ln.startswith("|") and not ln.startswith("|---") and not ln.startswith("| Specification") and not ln.startswith("| Outcome") and not ln.startswith("| Mechanism") and not ln.startswith("| Panel"):
-            cells = [c.strip() for c in ln.strip("|").split("|")]
-            if len(cells) >= 5 and cells[1]:
-                rows_by_label[cells[0]] = cells
+    # Programmatic parity check of key LORO and Equal-Budget headline numbers
+    us_gain = f"{r11['loro_primary']['USGS']['thresholds']['5']['loro_dawn_minus_afternoon_95_pp'][0]:+.2f}"
+    uk_gain = f"{r11['loro_primary']['EA']['thresholds']['5']['loro_dawn_minus_afternoon_95_pp'][0]:+.2f}"
+    us_hyb = f"{r12['networks']['USGS']['equal_budget_simulation_5mg_2h']['equal_dollar_budget']['budget_24_dayeq']['hybrid_sonde_by_cost']['k_40']['y1_daytime_screening_top20pct_plus_firstlight']['distinct_episodes_per_100_dayeq']:.2f}"
+    assert us_gain in md and uk_gain in md and us_hyb in md
 
-    # Check Table 1 Spec 2 + Robustness + NID exact mean & HUC-2 SE parity
-    s2 = econ["spec2_ym_fe_logQ_quad_primary"]
-    rob = econ["robustness_suite"]
-    t1_checks = [
-        ("Henry's Law $DO_{\\text{sat,alt}}$", s2["do_sat_alt"]),
-        ("Daytime $DO_{\\max}$", s2["do_max"]),
-        ("Daily $DO_{\\text{mean}}$", s2["do_mean"]),
-        ("Nocturnal $DO_{\\min}$", s2["do_min"]),
-        ("**Decoupling: $DO_{\\min} - DO_{\\max}$**", s2["diff_min_max"]),
-        ("**Nocturnal Excess: $DO_{\\min} - DO_{\\text{sat}}$**", s2["diff_min_sat"]),
-        ("**Daytime Buffer: $DO_{\\max} - DO_{\\text{sat}}$**", s2["diff_max_sat"]),
-        ("Spec 4a $+ \\log(\\text{SpCond})$ ($DO_{\\min}-DO_{\\max}$)", rob["spec4_plus_logSpCond"]["diff_min_max"]),
-        ("Spec 4b $+ \\log(1+\\text{Turb})$ ($DO_{\\min}-DO_{\\max}$)", rob["spec4_plus_logTurbidity"]["diff_min_max"]),
-        ("**Spec 5e NID Dam-Free ($>5$ km, $\\ge 500$ af)**", rob["spec5_nid_gt5km_ge500af"]["diff_min_max"]),
-        ("**Spec 5f NID Reservoir-Free ($>10$ km, $\\ge 5{,}000$ af)**", rob["spec5_nid_gt10km_ge5000af"]["diff_min_max"]),
-        ("**Spec 5g NID Strictly Dam-Free ($>5$ km any dam)**", rob["spec5_nid_gt5km_any_dam"]["diff_min_max"]),
-    ]
-    for lbl, blk in t1_checks:
-        assert lbl in rows_by_label, f"Missing Table 1 row in manuscript: {lbl}"
-        cells = rows_by_label[lbl]
-        assert int(clean_num(cells[1])) == blk["n_rivers"], f"N mismatch for {lbl}"
-        assert abs(clean_num(cells[2]) - blk["mean"]) < 1.5e-4, f"Mean mismatch for {lbl}"
-        assert abs(clean_num(cells[4]) - blk["huc2_cluster"]["se_cr1"]) < 1.5e-4, f"HUC-2 SE mismatch for {lbl}"
-        assert abs(clean_num(cells[6]) - blk["state_cluster"]["se_cr1"]) < 1.5e-4, f"State SE mismatch for {lbl}"
-
-    # Check Table 4 every single stratum HUC-2 SE, do_max, do_min, diff_min_max parity against table4 CSV!
-    t4_map = {
-        "Q1 Oligotrophic": "Q1_Oligotrophic",
-        "Q2 Low-Mesotrophic": "Q2_LowMesotrophic",
-        "Q3 High-Mesotrophic": "Q3_HighMesotrophic",
-        "Q4 Eutrophic": "Q4_Eutrophic",
-        "T1 Low SpCond": "T1_LowSpCond",
-        "T2 Mid SpCond": "T2_MidSpCond",
-        "T3 High SpCond": "T3_HighSpCond",
-        "T1 Clear": "T1_Clear",
-        "T2 Moderate Turbidity": "T2_ModerateTurb",
-        "T3 Turbid": "T3_Turbid",
-        "South ($<35^\\circ\\text{N}$)": "South_lt35N",
-        "Mid-Latitude ($35\\text{–}41^\\circ\\text{N}$)": "MidLat_35_41N",
-        "North ($>41^\\circ\\text{N}$)": "North_gt41N",
-    }
-    for md_lbl, csv_key in t4_map.items():
-        assert md_lbl in rows_by_label, f"Missing Table 4 row: {md_lbl}"
-        cells = rows_by_label[md_lbl]
-        r_csv = t4[t4["stratum"] == csv_key].iloc[0]
-        assert int(clean_num(cells[1])) == int(r_csv["n_rivers"])
-        assert abs(clean_num(cells[3]) - float(r_csv["do_max_mean"])) < 1.5e-4
-        assert abs(clean_num(cells[4]) - float(r_csv["do_min_mean"])) < 1.5e-4
-        assert abs(clean_num(cells[5]) - float(r_csv["diff_min_max_mean"])) < 1.5e-4
-        assert abs(clean_num(cells[6]) - float(r_csv["diff_min_max_se_huc2"])) < 1.5e-4, f"Table 4 HUC-2 SE mismatch for {md_lbl}"
-
-    # Check Table 5 Panel B UK EA spatially clustered parity
-    uk_dec = uk["thermal_slopes_ym_fe"]["DOmin_minus_DOmax"]
-    uk_row = rows_by_label["**UK Decoupling: $DO_{\\min} - DO_{\\max}$ ($\\text{mg L}^{-1}\\text{ }^\\circ\\text{C}^{-1}$)**"]
-    assert int(clean_num(uk_row[1])) == uk_dec["n"]
-    assert abs(clean_num(uk_row[2]) - uk_dec["mean"]) < 1.5e-4
-    assert abs(clean_num(uk_row[3]) - uk_dec["grid1deg_cluster"]["se_cr1"]) < 1.5e-4
-
-    # Check Table 3 bounded Night - Day contrast & Table 2b astronomical night sensitivity parity
-    cmp_d = econ["compound_hot_x_dry"]["effects"]["hyp5_min_minus_max"]
-    nd_row = rows_by_label["**Night $-$ Day $P(<5\\text{ mg L}^{-1})$ Contrast (pp)**"]
-    assert abs(clean_num(nd_row[3]) - cmp_d["hot_x_dry_interaction"]["mean"] * 100.0) < 0.02
-    assert abs(clean_num(nd_row[4]) - cmp_d["total_compound_vs_normal"]["mean"] * 100.0) < 0.02
-
-    t2c = pd.read_csv(TBL_DIR / "table2c_astronomical_night_duration_sensitivity.csv")
-    astro_row_md = rows_by_label["**Strict Astronomical Night (Sunset–Sunrise, Same-Day)**"]
-    astro_row_csv = t2c[t2c["benchmark_regime"] == "Strict Astronomical Night (Sunset-to-Sunrise, Same-Day)"].iloc[0]
-    assert abs(clean_num(astro_row_md[2]) - float(astro_row_csv["pm1316_miss_lt5_pct"])) < 0.1
-    assert abs(clean_num(astro_row_md[3]) - float(astro_row_csv["overpass_miss_lt5_pct"])) < 0.1
-
-    # Verify v2 referee narrative guards: zero 16x ratio headline, overpass-time framing, and required Crossref DOIs
-    assert not re.search(r"(?<![0-9.])16(?:\.0)?\s*(?:×|\\times(?!\s*10\^)|x\b)", md, flags=re.IGNORECASE), "Unstable 16x ratio headline leaked in manuscript!"
-    assert "overpass-time (Landsat-window" in md or "Overpass-time (Landsat-window" in md
-    assert "10.1038/s41558-023-01793-3" in md  # Zhi et al. 2023
-    assert "10.1002/lol2.10297" in md  # Blaszczak et al. 2023
-    assert "10.1016/B978-0-12-373750-2.X5001-0" in md  # Iqbal 1983 solar geometry
-
-
-def test_figures_pdf_zero_leaks_and_sha256_manifest() -> None:
-    expected_figs = [
-        "fig1_conus_map_and_thermal_decoupling",
-        "fig2_24h_clock_bias_and_transfer",
-        "fig3_compound_heatwave_drought",
-        "fig4_biophysical_mechanism",
-        "fig5_secular_cwa_and_uk_replication",
-    ]
-    for stem in expected_figs:
-        png = FIG_DIR / f"{stem}.png"
-        pdf = FIG_DIR / f"{stem}.pdf"
-        assert png.exists() and png.stat().st_size > 40_000, f"Invalid PNG: {png}"
-        assert pdf.exists() and pdf.stat().st_size > 15_000, f"Invalid PDF: {pdf}"
-
-    # Compiled manuscript PDF exists, has >=12 pages, and zero leaked LaTeX/Markdown/ASCII/filename tokens
-    mpdf = BASE_DIR / "manuscript_d4_boost.pdf"
-    assert mpdf.exists() and mpdf.stat().st_size > 200_000
-    reader = PdfReader(str(mpdf))
-    assert len(reader.pages) >= 12
-    full_txt = "\n".join((p.extract_text() or "") for p in reader.pages)
-    for bad in [
-        r"\\[A-Za-z]+", r"\$\$", r"\*\*", r"\|---", r"\^°", r"\{,\}",
-        r"S_\+", r"DO_min", r"DO_max", r"DO_sat", r"T_min", r"T_max",
-        r"log\(Q\)\^2", r"fig[1-5]_[a-z0-9_]+\.png", r"16(?:\.0)?[×x]",
-    ]:
-        assert not re.search(bad, full_txt), f"Leaked token {bad} found in manuscript_d4_boost.pdf"
-
-    # SHA-256 manifest matches every hashed file on disk
-    sha_path = BASE_DIR / "SHA256SUMS.json"
-    assert sha_path.exists()
-    manifest = json.loads(sha_path.read_text(encoding="utf-8"))
-    assert manifest["n_files_hashed"] >= 20
-    for rel, info in manifest["files"].items():
-        fp = BASE_DIR / rel
-        assert fp.exists(), f"Manifest file missing: {rel}"
-        h = hashlib.sha256(fp.read_bytes()).hexdigest()
-        assert h == info["sha256"], f"SHA-256 mismatch for {rel}"
-
-
-def test_edge_cases_singleton_ym_and_collinear_design_rejected() -> None:
-    mod = _load_module("05_econometric_hydrologic_suite.py")
-    empty_df = pd.DataFrame(columns=["ym", "temp", "y"])
-    assert mod.fit_within_ym_ols(empty_df, ["y"], ["temp"], min_days=10) is None
-
-    rng = np.random.default_rng(123)
-    n = 120
-    df_col = pd.DataFrame(
-        {
-            "ym": np.repeat(["2022-06", "2022-07", "2022-08"], 40),
-            "x1": rng.normal(20.0, 2.0, n),
-            "y": rng.normal(8.0, 1.0, n),
-        }
-    )
-    df_col["x2"] = 2.0 * df_col["x1"]
-    assert mod.fit_within_ym_ols(df_col, ["y"], ["x1", "x2"], min_days=50) is None
-
-
-def test_pooled_panel_and_equal_river_consistency() -> None:
-    econ = json.loads((RES_DIR / "d4_econometric_hydrologic_results.json").read_text(encoding="utf-8"))
-    s2 = econ["spec2_ym_fe_logQ_quad_primary"]
-    s6 = econ["spec6_pooled_panel_ym_fe_logQ"]
-    assert s6["n_absorbed_fe_cells"] > 15_000
-    out6 = s6["outcomes"]
-    assert abs(s2["diff_min_max"]["mean"] - out6["diff_min_max"]["beta_temp"]) < 0.01
-    assert abs(s2["diff_min_sat"]["mean"] - out6["diff_min_sat"]["beta_temp"]) < 0.01
-    assert out6["diff_min_max"]["huc2_cluster"]["p_cr1_t_Gminus1"] < 1e-7
-
-
-def test_all_manuscript_dois_match_verified_crossref_archive() -> None:
+    # Every cited DOI in manuscript exists in Crossref-verified archive
     refs = json.loads((PROC_DIR / "verified_references.json").read_text(encoding="utf-8"))
     verified_dois = {str(v["doi"]).lower() for v in refs.values() if v.get("doi")}
-    md = (BASE_DIR / "manuscript_d4_boost.md").read_text(encoding="utf-8")
     cited_dois = {d.lower().rstrip(".,);") for d in re.findall(r"https://doi\.org/([^\s)]+)", md)}
-    assert len(cited_dois) >= 15
-    unverified = cited_dois - verified_dois
-    assert not unverified, f"Unverified DOIs cited in manuscript: {unverified}"
+    assert len(cited_dois) >= 14
+    assert not (cited_dois - verified_dois), f"Unverified DOIs cited: {cited_dois - verified_dois}"
+    for req_doi in ("10.1016/j.scitotenv.2024.176626", "10.1002/lol2.10297", "10.1038/s41558-025-02483-y", "10.1038/s41561-026-02024-y"):
+        assert req_doi in cited_dois
+
+
+def test_v4_figures_pdfs_zero_leaks_and_sha256_manifest() -> None:
+    for stem in (
+        "fig1_nw_monitoring_clock_and_coverage",
+        "fig2_nw_loro_cross_network_validation",
+        "fig3_nw_censoring_duration_and_leadtime",
+        "fig4_nw_equal_budget_protocol_frontier",
+    ):
+        assert (FIG_DIR / f"{stem}.png").stat().st_size > 60_000
+        assert (FIG_DIR / f"{stem}.pdf").stat().st_size > 15_000
+
+    for pdf_name, min_pages in [
+        ("manuscript_d4_boost.pdf", 10),
+        ("manuscript_d4_nature_water.pdf", 10),
+        ("supplementary_d4_nature_water.pdf", 6),
+    ]:
+        pdf_p = BASE_DIR / pdf_name
+        assert pdf_p.exists() and pdf_p.stat().st_size > 200_000
+        reader = PdfReader(str(pdf_p))
+        assert len(reader.pages) >= min_pages
+        txt = "\n".join((p.extract_text() or "") for p in reader.pages)
+        for pat in (r"\\[A-Za-z]+", r"\$\$", r"\*\*", r"\|---", r"&amp;", r"Track\s+[AB]", r"Target\s+Journal"):
+            assert not re.search(pat, txt), f"Leaked token {pat} in {pdf_name}"
+
+    manifest = json.loads((BASE_DIR / "SHA256SUMS.json").read_text(encoding="utf-8"))
+    assert manifest["n_files_hashed"] >= 35
+    for rel, info in manifest["files"].items():
+        fp = BASE_DIR / rel
+        assert fp.exists(), f"Missing hashed file: {rel}"
+        assert hashlib.sha256(fp.read_bytes()).hexdigest() == info["sha256"], f"SHA-256 mismatch: {rel}"

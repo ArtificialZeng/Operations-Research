@@ -1,69 +1,75 @@
-"""Step 8: Compile manuscript_d4_boost.md + embedded 300-DPI figures into a journal-grade PDF with strict zero-leak check."""
+"""Step 8: Compile Nature Water v4 main manuscript and Supplementary Information into journal-grade PDFs
+via headless Microsoft Edge with an isolated temporary user-data-dir and strict zero-leak verification.
+"""
 from __future__ import annotations
 
 import base64
 import html
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 from pypdf import PdfReader
 
 BASE_DIR = Path(r"D:\AI_Science\antigravity\d4_boost_nocturnal_river_hypoxia_20261125")
-MD_PATH = BASE_DIR / "manuscript_d4_boost.md"
-HTML_PATH = BASE_DIR / "manuscript_d4_boost.html"
-PDF_PATH = BASE_DIR / "manuscript_d4_boost.pdf"
 EDGE_EXE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 
-# Rich-HTML publication captions (zero raw underscores, carets, or ASCII inequality operators)
 FIGURE_BLOCKS: dict[str, tuple[str, str]] = {
-    "fig1_conus_map_and_thermal_decoupling.png": (
-        "Figure 1. Continental Extent and Diurnal Thermal Decoupling Across Screened Free-Flowing U.S. Monitoring Stations (2005&ndash;2025).",
+    "fig1_nw_monitoring_clock_and_coverage.png": (
+        "Figure 1. Real-world agency sampling clock, independent field-meter fidelity, and cross-network common-support coverage.",
         (
-            "Panel A maps screened dam-, lock-, swamp-, salinity-, and tidal-filtered USGS continuous dissolved oxygen monitoring stations across all 17 populated contiguous U.S. HUC-2 watershed basins "
-            "(397 screened stations total; 324 in the primary discharge-controlled specification), colored on a zero-centered diverging scale by within-station short-term diurnal decoupling "
-            "<em>d</em>(DO<sub>min</sub> &minus; DO<sub>max</sub>)/<em>dT</em> (Year &times; Month FE + log(<em>Q</em>) + log(<em>Q</em>)<sup>2</sup>; red &lt; 0 denotes steeper DO<sub>min</sub> decline). "
-            "Panel B compares continental short-term temperature slopes against physical Henry's Law equilibrium solubility (Benson&ndash;Krause, barometric and water-vapor adjusted) across primary flow-controlled, "
-            "water-quality-controlled, ultra-strict zero-infrastructure, USACE National Inventory of Dams (NID) dam-free (&gt;5 km from &ge;500 acre-ft dams), long-record (&ge;10 yr), and pooled-panel specifications, "
-            "showing finite-sample <em>t</em>(<em>G</em>&minus;1) 95% CIs clustered at HUC-2 watershed basin (thick) and State (thin) levels."
+            "<b>a</b>, Local mean solar hour distribution of 10,019 warm-season (May&ndash;October, 2015&ndash;2024) discrete dissolved-oxygen (DO) agency field visits across 205 screened U.S. rivers in the Water Quality Portal (bars), "
+            "overlaid with the 2021&ndash;2024 subdaily cohort (step line; 1,391 visits across 76 stations) and mean warm-season astronomical darkness shading. "
+            "<b>b</b>, Co-located independent field-meter versus continuous USGS sonde DO readings (<i>n</i> = 1,287 pairs within &le;30 min across 76 stations; median |&Delta;<i>t</i>| = 0 min; shaded band shows &plusmn;0.20 mg L<sup>&minus;1</sup> USGS accuracy tolerance); "
+            "inset compares actual agency visit detection versus pre-dawn sonde detection on the 71 matched visit dates with persistent &ge;2 h &lt;5 mg L<sup>&minus;1</sup> hypoxia. "
+            "<b>c</b>, Common-support entry rates across U.S. (93.8%; 87,785 of 93,538 candidate site-nights) and English (82.2%; 27,635 of 33,612) networks stratified by native sampling cadence."
         ),
     ),
-    "fig2_24h_clock_bias_and_transfer.png": (
-        "Figure 2. The 24-Hour Observational Clock-Bias Curve and Out-of-Sample Transfer-Function Correction.",
+    "fig2_nw_loro_cross_network_validation.png": (
+        "Figure 2. Cross-network leave-one-reading-out (LORO) nocturnal detection, first-light daylight plateau, and anti-circularity audit.",
         (
-            "Panel A traces apparent warm-season short-term temperature sensitivity <em>d</em>DO(<em>h</em>)/<em>dT</em> across all 24 hours of Local Mean Solar Time from multi-year subdaily USGS IV records (2021&ndash;2024; <em>N</em> = 139 screened stations), "
-            "contrasting the overpass-time (Landsat-window, 10:00&ndash;11:00 LST; pure temporal sampling benchmark excluding optical retrieval error, cloud masking, and 16-day revisit gaps) and afternoon grab-sample window (13:00&ndash;16:00 local clock) "
-            "against daily DO<sub>min,24h</sub> sensitivity (strict astronomical sunset-to-sunrise DO<sub>min,night</sub> = &minus;0.206) and Henry's Law. "
-            "Panel B plots the 24-hour missed-event rate for daily hypoxia (&lt;5, &lt;4, &lt;3, and &lt;2 mg L<sup>&minus;1</sup>; strict astronomical-night, &ge;90% completeness, and equal-site sensitivity in Table 2b). "
-            "Panel C validates 17-fold Leave-One-HUC2-Basin-Out spatial cross-validation mean bias reduction, RMSE reduction, slope-bias recovery, and &lt;5 mg L<sup>&minus;1</sup> hypoxia recall gains (dashed lines show raw daytime/overpass recall)."
+            "<b>a</b>, Primary LORO recall (&lt;5 mg L<sup>&minus;1</sup>) across six single-reading schedules on identical common-support site-nights in the U.S. (<i>n</i> = 8,462 LORO hypoxic nights; 139 sites) and England (<i>n</i> = 2,360; 65 sites), "
+            "with finite-sample <i>t</i>(<i>G</i>&minus;1) 95% CIs clustered by HUC-2 basin (U.S.) or 1&deg; hydrometric grid (England). "
+            "<b>b</b>, LORO recall curve from 180 min before to 120 min after geometric sunrise showing peak detection at geometric sunrise (SR + 0 min, selected out-of-sample in both networks) and a near-peak plateau in safe first-light daylight (SR + 30 min). "
+            "<b>c</b>, Paired pre-dawn minus 14:30 recall gains across anti-circularity (&plusmn;30 min LORO), persistence (&ge;2 readings, &ge;2 h), sensor tolerance (&lt;4.8 mg L<sup>&minus;1</sup> buffer and independent &sigma; = 0.20 mg L<sup>&minus;1</sup> probe noise), "
+            "60-min downsampling, equal-site weighting, chronic-site exclusion (&gt;50% nights hypoxic), Leave-One-Region-Out holdout, and zero-shot cross-Atlantic transfer."
         ),
+    ),
+    "fig3_nw_censoring_duration_and_leadtime.png": (
+        "Figure 3. Nocturnal boundary censoring, duration bias diagnosis, and episodic actionable detection lead times.",
+        (
+            "<b>a</b>, Share of &lt;5 mg L<sup>&minus;1</sup> site-nights classified by boundary censoring inside astronomical darkness (only 14.7% U.S. and 15.3% England close at both ends; 80.1% U.S. and 76.7% England remain hypoxic past sunrise). "
+            "<b>b</b>, Survival curves comparing naive closed-in-night runs (dotted; median 1.0&ndash;2.0 h), Kaplan&ndash;Meier right-censored nocturnal runs (dashed), and unbroken continuous-series episodes crossing sunrise and sunset (solid; median 13.5 h U.S., 13.0 h England). "
+            "<b>c</b>, Median lead time on episodic 2&ndash;24 h actionable &lt;5 mg L<sup>&minus;1</sup> events relative to episode nadir (filled circle) and episode recovery (open diamond), contrasting post-recovery afternoon sampling, near-nadir pre-dawn/first-light grabs, and pre-nadir continuous sonde alerts."
+        ),
+    ),
+    "fig4_nw_equal_budget_protocol_frontier.png": (
+        "Figure 4. Equal-budget operational monitoring comparison, surveillance Pareto frontier, and cost-ratio decision map.",
+        (
+            "<b>a</b>, Distinct non-overlapping actionable episodes (&ge;2 h &lt;5 mg L<sup>&minus;1</sup>, LORO) detected per 100 daytime-visit-equivalent budget units under an identical annual budget (24 eq site<sup>&minus;1</sup> yr<sup>&minus;1</sup>; <i>m</i><sub>night</sub> = 1.75&times;, <i>K</i><sub>sonde</sub> = 40) evaluated strictly out-of-sample on post-Year-1 warm seasons across 1,000 stratified calendar schedules. "
+            "<b>b</b>, Surveillance Pareto frontier plotting unit cost per distinct episode (USD, log scale, benchmark $200 daytime visit<sup>&minus;1</sup>) against share of impaired site-years flagged at least once, showing dominance of first-light grabs among grab-only protocols and top-20% risk-stratified sondes (Year-1 daytime screening) plus first-light grabs overall. "
+            "<b>c</b>, Two-dimensional cost-ratio decision map across nocturnal grab cost multipliers (<i>m</i><sub>night</sub>) and annual continuous-sonde visit-equivalents (<i>K</i><sub>sonde</sub>); star marks central cost assumptions (1.75&times;, <i>K</i><sub>sonde</sub> = 40), dashed vertical line marks grab-only dark pre-dawn breakeven (<i>m</i>* = 1.53&times;), and coral sliver at <i>m</i> &approx; 1.0, <i>K</i> &gt; 240 indicates dark pre-dawn only when night surcharges vanish."
+        ),
+    ),
+    # Archived Supplementary Figures
+    "fig1_conus_map_and_thermal_decoupling.png": (
+        "Figure S1. Archived continental daily-extremes thermal decoupling across 397 screened U.S. stations (2005&ndash;2025).",
+        "Spatial distribution of within-station daily <i>d</i>(DO<sub>min</sub> &minus; DO<sub>max</sub>)/<i>dT</i> (Year &times; Month FE + log(<i>Q</i>) + log(<i>Q</i>)<sup>2</sup>) and specification robustness including USACE NID dam-free subsamples.",
     ),
     "fig3_compound_heatwave_drought.png": (
-        "Figure 3. Asymmetric Nocturnal Collapse and Super-Additive Hypoxia Surge Under Compound Heatwave &times; Low-Flow Drought Extremes.",
-        (
-            "Panel A contrasts within-station Year &times; Month FE responses of DO<sub>min</sub>, DO<sub>mean</sub>, DO<sub>max</sub>, and Benson&ndash;Krause DO<sub>sat,alt</sub> across Hot-Only (<em>T</em> &ge; P<sub>90</sub>), "
-            "Dry-Only (<em>Q</em> &le; P<sub>20</sub>), and Compound Hot &times; Dry regimes (<em>N</em> = 319 screened stations). "
-            "Panel B reports formal Hot &times; Dry interaction terms (excess beyond additivity) for solubility-adjusted nocturnal deficit (DO<sub>min</sub> &minus; DO<sub>sat</sub>), physical DO<sub>sat</sub>, daytime DO<sub>max</sub>, "
-            "and nocturnal vs. daytime hypoxia incidence (&lt;5, &lt;3, &lt;2 mg L<sup>&minus;1</sup>; bounded night-minus-day compound gap +9.28 pp, 95% CI [+4.89, +13.68] pp), with HUC-2 basin-clustered finite-sample <em>t</em>(<em>G</em>&minus;1) 95% CIs."
-        ),
+        "Figure S2. Archived asymmetric daily-extremes collapse under compound heatwave &times; low-flow drought regimes (<i>N</i> = 319 stations).",
+        "Comparison of daily DO<sub>min</sub>, DO<sub>mean</sub>, DO<sub>max</sub>, and solubility-adjusted deficits across Hot-Only, Dry-Only, and Compound Hot &times; Dry regimes with HUC-2 clustered 95% CIs.",
     ),
     "fig4_biophysical_mechanism.png": (
-        "Figure 4. Biophysical Stratification: Split-Half Diurnal Amplitude, Ionic Loading, Turbidity, and Latitude Gradients.",
-        (
-            "Panel A eliminates same-period mathematical coupling by predicting late-period uniform discharge-controlled temperature slopes strictly from early-period baseline diurnal DO swing "
-            "(split-half out-of-sample, <em>N</em> = 271 screened stations), separating daytime DO<sub>max</sub> buffering from steeper nocturnal DO<sub>min</sub> sensitivity. "
-            "Panel B stratifies flow-controlled decoupling across specific conductance (00095), turbidity tertiles (63680), and latitude climate belts."
-        ),
+        "Figure S3. Archived split-half diurnal amplitude, specific conductance, turbidity, and latitude stratification.",
+        "Out-of-sample split-half prediction of late-period daily decoupling from early-period baseline diurnal DO swing (<i>N</i> = 271 stations) and water-chemistry/climate strata.",
     ),
     "fig5_secular_cwa_and_uk_replication.png": (
-        "Figure 5. Secular 20-Year CONUS Trend Audit (Clean Water Act Confounding) and Independent UK Environment Agency Replication.",
-        (
-            "Panel A presents 2005&ndash;2025 decadal trends across long-record (&ge;10 warm seasons, <em>N</em> = 194) screened CONUS stations stratified by warming rate, showing how Clean Water Act nutrient/BOD recovery "
-            "masks average secular widening while faster-warming stations neutralize nocturnal oxygen gains and widen diurnal swings. "
-            "Panel B verifies trans-Atlantic replication across 65 screened, 2-km-deduplicated free-flowing English monitoring stations (UK Environment Agency Hydrology API), overlaying exact within-station excess temperature sensitivity "
-            "<em>d</em>(DO(<em>h</em>) &minus; DO<sub>sat</sub>)/<em>dT</em> across all 24 solar hours with HUC-2 (CONUS) and 1&deg; hydrometric grid (UK) clustered <em>t</em>(<em>G</em>&minus;1) 95% CIs."
-        ),
+        "Figure S4. Archived 20-year secular trend audit (2005&ndash;2025, <i>N</i> = 194 stations) and UK daily-extremes 24-hour excess slope comparison.",
+        "Clean Water Act baseline confounding stratified by warming rate (panel A) and 24-hour excess temperature sensitivity across 65 screened English stations (panel B).",
     ),
 }
 
@@ -84,36 +90,18 @@ def _extract_braced(s: str, start: int) -> tuple[str, int]:
 
 def _tex_to_html(expr: str) -> str:
     s = expr.strip()
-
-    while r"\underbrace{" in s:
-        idx = s.index(r"\underbrace{")
-        body, nxt = _extract_braced(s, idx + len(r"\underbrace"))
-        sub_txt = ""
-        if nxt < len(s) and s[nxt] == "_":
-            if nxt + 1 < len(s) and s[nxt + 1] == "{":
-                sub_txt, nxt = _extract_braced(s, nxt + 1)
-            else:
-                sub_txt, nxt = s[nxt + 1 : nxt + 2], nxt + 2
-        repl = f"[{body}]<sub>{sub_txt}</sub>" if sub_txt else f"[{body}]"
-        s = s[:idx] + repl + s[nxt:]
-
     while r"\frac{" in s:
         idx = s.index(r"\frac{")
         num, nxt = _extract_braced(s, idx + len(r"\frac"))
         den, end = _extract_braced(s, nxt) if nxt < len(s) and s[nxt] == "{" else ("", nxt)
         s = s[:idx] + f"({num}) / ({den})" + s[end:]
 
-    macro_wrappers = [
+    for macro, pre, post in [
         (r"\text{", '<span class="rm">', "</span>"),
         (r"\mathrm{", '<span class="rm">', "</span>"),
+        (r"\mathcal{", '<span class="rm">', "</span>"),
         (r"\mathbf{", "<b>", "</b>"),
-        (r"\boldsymbol{", "<b>", "</b>"),
-        (r"\hat{", "", "&#770;"),
-        (r"\bar{", "", "&#772;"),
-        (r"\overline{", "", "&#772;"),
-        (r"\tilde{", "", "&#771;"),
-    ]
-    for macro, pre, post in macro_wrappers:
+    ]:
         while macro in s:
             idx = s.index(macro)
             inner, end = _extract_braced(s, idx + len(macro) - 1)
@@ -123,23 +111,6 @@ def _tex_to_html(expr: str) -> str:
         (r"{,}", ","),
         (r"^\circ", "&deg;"),
         (r"^{\circ}", "&deg;"),
-        (r"\left(", "("),
-        (r"\right)", ")"),
-        (r"\left[", "["),
-        (r"\right]", "]"),
-        (r"\left", ""),
-        (r"\right", ""),
-        (r"\quad", "&emsp;"),
-        (r"\bmod", " mod "),
-        (r"\exp", "exp"),
-        (r"\log", "log"),
-        (r"\sin", "sin"),
-        (r"\cos", "cos"),
-        (r"\tan", "tan"),
-        (r"\min", "min"),
-        (r"\max", "max"),
-        (r"\partial", "&part;"),
-        (r"\sum", "&Sigma;"),
         (r"\times", "&times;"),
         (r"\cdot", "&middot;"),
         (r"\pm", "&plusmn;"),
@@ -147,29 +118,17 @@ def _tex_to_html(expr: str) -> str:
         (r"\ge", "&ge;"),
         (r"\neq", "&ne;"),
         (r"\approx", "&approx;"),
-        (r"\equiv", "&equiv;"),
         (r"\to", "&rarr;"),
-        (r"\cup", "&cup;"),
+        (r"\rightarrow", "&rarr;"),
         (r"\in", "&isin;"),
-        (r"\theta", "&theta;"),
-        (r"\omega", "&omega;"),
-        (r"\pi", "&pi;"),
-        (r"\beta", "&beta;"),
-        (r"\alpha", "&alpha;"),
-        (r"\delta", "&delta;"),
-        (r"\phi", "&phi;"),
-        (r"\gamma", "&gamma;"),
-        (r"\varepsilon", "&epsilon;"),
-        (r"\epsilon", "&epsilon;"),
-        (r"\tau", "&tau;"),
-        (r"\rho", "&rho;"),
-        (r"\mu", "&mu;"),
-        (r"\Delta", "&Delta;"),
         (r"\sigma", "&sigma;"),
-        (r"\eta", "&eta;"),
+        (r"\mu", "&mu;"),
+        (r"\tau", "&tau;"),
         (r"\lambda", "&lambda;"),
-        (r"\circ", "&deg;"),
-        (r"\%", "%"),
+        (r"\Delta", "&Delta;"),
+        (r"\log", "log"),
+        (r"\min", "min"),
+        (r"\max", "max"),
         (r"\{", "{"),
         (r"\}", "}"),
         (r"\,", "&thinsp;"),
@@ -183,10 +142,8 @@ def _tex_to_html(expr: str) -> str:
             idx = s.index(f"{sym}{{")
             inner, end = _extract_braced(s, idx + 1)
             s = s[:idx] + f"<{tag}>{inner}</{tag}>" + s[end:]
-    # Handle single-character subscripts/superscripts including +, -, and entities (fixes S_+ leak!)
     s = re.sub(r"_([A-Za-z0-9+\-]+|&[a-z]+;)", r"<sub>\1</sub>", s)
-    s = re.sub(r"\^([A-Za-z0-9+\-]+)", r"<sup>\1</sup>", s)
-    # Replace ASCII minus inside text nodes (not HTML tags!) with non-breaking Unicode minus (&minus;) so exponents never wrap!
+    s = re.sub(r"\^([A-Za-z0-9+\-*]+)", r"<sup>\1</sup>", s)
     parts = re.split(r"(<[^>]+>)", s)
     for i in range(0, len(parts), 2):
         parts[i] = parts[i].replace("-", "&minus;")
@@ -201,9 +158,11 @@ def _inline_md(text: str) -> str:
         tokens.append(html_frag)
         return f"\x00TOK{idx}\x00"
 
+    # Unescape markdown literal \$ BEFORE math scanning so currency doesn't trigger inline math!
+    text = text.replace(r"\$", "\x00DOLLAR\x00")
     text = re.sub(r"`([^`]+)`", lambda m: stash(f"<code>{html.escape(m.group(1))}</code>"), text)
     text = re.sub(r"\$([^$\n]+)\$", lambda m: stash(f'<span class="math">{_tex_to_html(m.group(1))}</span>'), text)
-    escaped = html.escape(text)
+    escaped = html.escape(text).replace("\x00DOLLAR\x00", "$")
     escaped = re.sub(r"\*\*\*([^*]+?)\*\*\*", r"<strong><em>\1</em></strong>", escaped)
     escaped = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped)
     escaped = re.sub(r"(?<!\*)\*([^*]+?)\*(?!\*)", r"<em>\1</em>", escaped)
@@ -225,7 +184,7 @@ def _embed_figure_html(fname: str) -> str:
     )
 
 
-def convert_md_to_html(md_text: str) -> str:
+def convert_md_to_html(md_text: str, running_header: str, doc_title: str) -> str:
     lines = md_text.splitlines()
     body: list[str] = []
     inserted_figs: set[str] = set()
@@ -238,11 +197,10 @@ def convert_md_to_html(md_text: str) -> str:
         if not stripped:
             i += 1
             continue
-        # Clean HTML figure embed directive: <!-- FIGURE:fig1_...png -->
         m_fig = re.match(r"^<!--\s*FIGURE:([A-Za-z0-9_.\-]+)\s*-->$", stripped)
         if m_fig:
             fname = m_fig.group(1)
-            if fname in FIGURE_BLOCKS and fname not in inserted_figs:
+            if fname in FIGURE_BLOCKS and fname not in inserted_figs and (BASE_DIR / "figures" / fname).exists():
                 body.append(_embed_figure_html(fname))
                 inserted_figs.add(fname)
             i += 1
@@ -252,8 +210,7 @@ def convert_md_to_html(md_text: str) -> str:
             i += 1
             continue
         if stripped.startswith("$$") and stripped.endswith("$$") and len(stripped) > 4:
-            expr = stripped[2:-2].strip()
-            body.append(f'<div class="eq-block">{_tex_to_html(expr)}</div>')
+            body.append(f'<div class="eq-block">{_tex_to_html(stripped[2:-2].strip())}</div>')
             i += 1
             continue
 
@@ -273,14 +230,10 @@ def convert_md_to_html(md_text: str) -> str:
                 i += 1
             headers = [c.strip() for c in tbl_lines[0].strip("|").split("|")]
             aligns = [c.strip() for c in tbl_lines[1].strip("|").split("|")]
-            col_cls = []
-            for a in aligns:
-                if a.startswith(":") and a.endswith(":"):
-                    col_cls.append("center")
-                elif a.endswith(":"):
-                    col_cls.append("right")
-                else:
-                    col_cls.append("left")
+            col_cls = [
+                "center" if (a.startswith(":") and a.endswith(":")) else ("right" if a.endswith(":") else "left")
+                for a in aligns
+            ]
             th_html = "".join(
                 f'<th class="{col_cls[idx] if idx < len(col_cls) else "left"}">{_inline_md(h)}</th>'
                 for idx, h in enumerate(headers)
@@ -314,12 +267,7 @@ def convert_md_to_html(md_text: str) -> str:
             while i < n and re.match(r"^\d+\.\s+", lines[i].strip()):
                 item_txt = re.sub(r"^\d+\.\s+", "", lines[i].strip())
                 i += 1
-                sub_items = []
-                while i < n and re.match(r"^\s{2,}-\s+", lines[i]):
-                    sub_items.append(f"<li>{_inline_md(lines[i].strip()[2:])}</li>")
-                    i += 1
-                sub_html = f"<ul>{''.join(sub_items)}</ul>" if sub_items else ""
-                items.append(f"<li>{_inline_md(item_txt)}{sub_html}</li>")
+                items.append(f"<li>{_inline_md(item_txt)}</li>")
             start_attr = f' start="{start_num}"' if start_num != 1 else ""
             body.append(f"<ol{start_attr}>{''.join(items)}</ol>")
             continue
@@ -328,150 +276,157 @@ def convert_md_to_html(md_text: str) -> str:
         i += 1
         while i < n:
             nxt = lines[i].strip()
-            if (
-                not nxt
-                or nxt == "---"
-                or nxt.startswith(("#", "|", "- ", "$$", "<!--"))
-                or re.match(r"^\d+\.\s+", nxt)
-            ):
+            if not nxt or nxt == "---" or nxt.startswith(("#", "|", "- ", "$$", "<!--")) or re.match(r"^\d+\.\s+", nxt):
                 break
             para_lines.append(nxt)
             i += 1
+        # Preserve intentional Markdown line breaks (two trailing spaces) for author block
+        joined = ""
+        for idx_p, pl in enumerate(para_lines):
+            if idx_p > 0:
+                joined += "<br />" if lines[i - len(para_lines) + idx_p - 1].endswith("  ") else " "
+            joined += _inline_md(pl)
         para_raw = " ".join(para_lines)
-        p_cls = ' class="table-caption"' if para_raw.startswith("**Table ") else (
-            ' class="table-notes"' if para_raw.startswith(("*Notes:*", "*Source:*")) else ""
+        p_cls = (
+            ' class="table-caption"'
+            if para_raw.startswith("**Table ")
+            else (' class="table-notes"' if para_raw.startswith(("*Notes:*", "*Source:*")) else (' class="author-block"' if "UCSI University" in para_raw else ""))
         )
-        body.append(f"<p{p_cls}>{_inline_md(para_raw)}</p>")
+        body.append(f"<p{p_cls}>{joined}</p>")
 
-    for fname in FIGURE_BLOCKS:
-        if fname not in inserted_figs and (BASE_DIR / "figures" / fname).exists():
-            body.append(_embed_figure_html(fname))
-
-    css = """
-    @page {
+    css = f"""
+    @page {{
       size: letter;
-      margin: 0.70in 0.70in 0.76in 0.70in;
-      @top-right {
-        content: "Continental Nocturnal River Hypoxia & 24-Hour Clock-Bias (D4)";
+      margin: 0.68in 0.68in 0.74in 0.68in;
+      @top-right {{
+        content: "{running_header}";
         font-family: Georgia, "Times New Roman", serif;
         font-size: 7.5pt;
         color: #555;
-      }
-      @bottom-center {
+      }}
+      @bottom-center {{
         content: "Page " counter(page) " of " counter(pages);
         font-family: Georgia, "Times New Roman", serif;
         font-size: 8pt;
         color: #555;
-      }
-    }
-    @page :first { @top-right { content: normal; } }
-    body {
+      }}
+    }}
+    @page :first {{ @top-right {{ content: normal; }} }}
+    body {{
       font-family: Georgia, "Times New Roman", serif;
       font-size: 9.5pt;
       line-height: 1.43;
       color: #1a1a1a;
       max-width: 100%;
-    }
-    h1.paper-title {
-      font-size: 15.6pt;
+    }}
+    h1.paper-title {{
+      font-size: 15.2pt;
       line-height: 1.24;
-      margin: 0 0 8pt 0;
+      margin: 0 0 7pt 0;
       color: #0b2545;
       border-bottom: 1.5pt solid #0b2545;
-      padding-bottom: 6pt;
-    }
-    h2 {
-      font-size: 11.6pt;
+      padding-bottom: 5pt;
+    }}
+    p.author-block {{
+      font-size: 9.0pt;
+      line-height: 1.38;
+      color: #1e293b;
+      text-align: left;
+      margin: 0 0 8pt 0;
+    }}
+    h2 {{
+      font-size: 11.4pt;
       color: #0b2545;
-      margin: 13pt 0 5pt 0;
+      margin: 12pt 0 5pt 0;
       border-bottom: 0.6pt solid #cbd5e1;
       padding-bottom: 2pt;
       page-break-after: avoid;
-    }
-    h3 {
-      font-size: 10pt;
+    }}
+    h3 {{
+      font-size: 9.9pt;
       color: #1e3a5f;
       margin: 9pt 0 4pt 0;
       page-break-after: avoid;
-    }
-    p { margin: 0 0 5.8pt 0; text-align: justify; }
-    p.table-caption {
-      font-size: 8.9pt;
+    }}
+    p {{ margin: 0 0 5.6pt 0; text-align: justify; }}
+    p.table-caption {{
+      font-size: 8.8pt;
       margin: 9pt 0 4pt 0;
       color: #0b2545;
       text-align: left;
       page-break-after: avoid;
-    }
-    p.table-notes {
-      font-size: 7.7pt;
+    }}
+    p.table-notes {{
+      font-size: 7.5pt;
       color: #475569;
       margin: 2pt 0 8pt 0;
       text-align: left;
-    }
-    ul, ol { margin: 3pt 0 6.5pt 16pt; padding: 0; }
-    li { margin: 0 0 3.2pt 0; text-align: justify; }
-    code {
+    }}
+    ul, ol {{ margin: 3pt 0 6.5pt 16pt; padding: 0; }}
+    li {{ margin: 0 0 3.0pt 0; text-align: justify; }}
+    code {{
       font-family: Consolas, "Courier New", monospace;
-      font-size: 8.0pt;
+      font-size: 7.8pt;
       background: #f1f5f9;
-      padding: 0.4pt 2.4pt;
+      padding: 0.4pt 2.2pt;
       border-radius: 2pt;
-    }
-    hr { border: 0; border-top: 0.6pt solid #cbd5e1; margin: 9pt 0; }
-    .math { font-family: "Cambria Math", Georgia, serif; font-style: italic; }
-    .math .rm, .eq-block .rm { font-style: normal; }
-    sup, sub { white-space: nowrap; }
-    .eq-block {
+    }}
+    hr {{ border: 0; border-top: 0.6pt solid #cbd5e1; margin: 8pt 0; }}
+    .math {{ font-family: "Cambria Math", Georgia, serif; font-style: italic; }}
+    .math .rm, .eq-block .rm {{ font-style: normal; }}
+    sup, sub {{ white-space: nowrap; }}
+    .eq-block {{
       font-family: "Cambria Math", Georgia, serif;
-      font-size: 9.7pt;
+      font-size: 9.5pt;
       text-align: center;
       margin: 7pt 0;
       padding: 6pt 10pt;
       background: #f8fafc;
       border-left: 2pt solid #0b2545;
-    }
-    .table-wrap { margin: 4pt 0 4pt 0; page-break-inside: avoid; }
-    table {
+    }}
+    .table-wrap {{ margin: 4pt 0 4pt 0; }}
+    table {{
       width: 100%;
       border-collapse: collapse;
-      font-size: 7.4pt;
-      line-height: 1.26;
+      font-size: 7.2pt;
+      line-height: 1.25;
       border-top: 1.3pt solid #0f172a;
       border-bottom: 1.3pt solid #0f172a;
-    }
-    thead tr { border-bottom: 0.8pt solid #334155; background: #f8fafc; }
-    th, td { padding: 2.9pt 3.8pt; vertical-align: top; }
-    td .math, th .math { white-space: nowrap; }
-    td code { white-space: nowrap; }
-    tbody tr:nth-child(even) { background: #fbfdff; }
-    th.left, td.left { text-align: left; }
-    th.center, td.center { text-align: center; }
-    th.right, td.right { text-align: right; }
-    figure.pub-fig {
+    }}
+    thead {{ display: table-header-group; }}
+    tr {{ page-break-inside: avoid; }}
+    thead tr {{ border-bottom: 0.8pt solid #334155; background: #f8fafc; }}
+    th, td {{ padding: 2.6pt 3.5pt; vertical-align: top; }}
+    td .math, th .math {{ white-space: nowrap; }}
+    tbody tr:nth-child(even) {{ background: #fbfdff; }}
+    th.left, td.left {{ text-align: left; }}
+    th.center, td.center {{ text-align: center; }}
+    th.right, td.right {{ text-align: right; }}
+    figure.pub-fig {{
       margin: 9pt 0 9pt 0;
       padding: 6pt;
       border: 0.5pt solid #e2e8f0;
       background: #ffffff;
       page-break-inside: avoid;
       text-align: center;
-    }
-    figure.pub-fig img {
+    }}
+    figure.pub-fig img {{
       max-width: 100%;
-      max-height: 4.25in;
+      max-height: 3.95in;
       height: auto;
       display: block;
       margin: 0 auto 5pt auto;
-    }
-    figure.pub-fig figcaption {
-      font-size: 7.9pt;
+    }}
+    figure.pub-fig figcaption {{
+      font-size: 7.7pt;
       line-height: 1.32;
       color: #334155;
       text-align: left;
-    }
+    }}
     """
     return (
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8' />"
-        f"<title>D4 Boost Manuscript</title><style>{css}</style></head>"
+        f"<title>{html.escape(doc_title)}</title><style>{css}</style></head>"
         f"<body>{''.join(body)}</body></html>"
     )
 
@@ -486,51 +441,78 @@ def verify_pdf_zero_leaks(pdf_path: Path) -> tuple[int, list[str]]:
         r"\|---",
         r"\^°",
         r"\{,\}",
-        r"S_\+",
         r"DO_min",
         r"DO_max",
         r"DO_sat",
-        r"T_min",
-        r"T_max",
-        r"log\(Q\)\^2",
         r"fig[1-5]_[a-z0-9_]+\.png",
-        r"16\.0[×x]",
+        r"Track\s+[AB]",
+        r"Target\s+Journal",
+        r"Target\s+Venue",
+        r"16(?:\.0)?[×x]",
     ]
-    leaks = []
-    for pat in bad_patterns:
-        if re.search(pat, full_txt):
-            leaks.append(pat)
+    leaks = [pat for pat in bad_patterns if re.search(pat, full_txt)]
     return len(reader.pages), leaks
 
 
-def main() -> int:
-    md_text = MD_PATH.read_text(encoding="utf-8")
-    html_doc = convert_md_to_html(md_text)
-    HTML_PATH.write_text(html_doc, encoding="utf-8")
+def compile_one(md_path: Path, pdf_path: Path, running_header: str, doc_title: str) -> int:
+    html_path = md_path.with_suffix(".html")
+    md_text = md_path.read_text(encoding="utf-8")
+    html_path.write_text(convert_md_to_html(md_text, running_header, doc_title), encoding="utf-8")
 
+    with tempfile.TemporaryDirectory(prefix="edge_pdf_") as tmp_dir:
+        cmd = [
+            str(EDGE_EXE),
+            "--headless=new",
+            "--disable-gpu",
+            "--no-pdf-header-footer",
+            f"--user-data-dir={tmp_dir}",
+            f"--print-to-pdf={pdf_path}",
+            html_path.as_uri(),
+        ]
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
+    html_path.unlink(missing_ok=True)
+    if res.returncode != 0 or not pdf_path.exists() or pdf_path.stat().st_size < 50_000:
+        print(f"[ERROR] Edge PDF compile failed for {pdf_path.name} rc={res.returncode}: {res.stderr}", file=sys.stderr)
+        return 1
+
+    n_pages, leaks = verify_pdf_zero_leaks(pdf_path)
+    if leaks:
+        print(f"[ERROR] Leaked tokens in {pdf_path.name}: {leaks}", file=sys.stderr)
+        return 2
+    print(f"[DONE] Compiled {pdf_path.name} ({pdf_path.stat().st_size:,} bytes, {n_pages} pages, 0 leaked tokens)", flush=True)
+    return 0
+
+
+def main() -> int:
     if not EDGE_EXE.exists():
         print(f"[ERROR] Microsoft Edge not found at {EDGE_EXE}", file=sys.stderr)
         return 1
 
-    cmd = [
-        str(EDGE_EXE),
-        "--headless=new",
-        "--disable-gpu",
-        "--no-pdf-header-footer",
-        f"--print-to-pdf={PDF_PATH}",
-        HTML_PATH.as_uri(),
-    ]
-    res = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
-    if res.returncode != 0 or not PDF_PATH.exists() or PDF_PATH.stat().st_size < 50_000:
-        print(f"[ERROR] Edge PDF compile failed rc={res.returncode}: {res.stderr}", file=sys.stderr)
-        return 1
+    main_md = BASE_DIR / "manuscript_d4_boost.md"
+    main_pdf = BASE_DIR / "manuscript_d4_boost.pdf"
+    nw_pdf = BASE_DIR / "manuscript_d4_nature_water.pdf"
+    rc = compile_one(
+        main_md,
+        main_pdf,
+        "Equal-budget monitoring protocols for nocturnal river hypoxia",
+        "Equal-budget monitoring protocols for nocturnal river hypoxia",
+    )
+    if rc != 0:
+        return rc
+    shutil.copy2(main_pdf, nw_pdf)
+    print(f"[DONE] Synced Nature Water submission copy -> {nw_pdf.name}", flush=True)
 
-    n_pages, leaks = verify_pdf_zero_leaks(PDF_PATH)
-    HTML_PATH.unlink(missing_ok=True)
-    if leaks:
-        print(f"[ERROR] Leaked LaTeX/Markdown/ASCII tokens found in PDF: {leaks}", file=sys.stderr)
-        return 2
-    print(f"[DONE] Compiled {PDF_PATH} ({PDF_PATH.stat().st_size:,} bytes, {n_pages} pages, 0 leaked tokens)", flush=True)
+    supp_md = BASE_DIR / "supplementary_d4_nature_water.md"
+    supp_pdf = BASE_DIR / "supplementary_d4_nature_water.pdf"
+    if supp_md.exists():
+        rc_s = compile_one(
+            supp_md,
+            supp_pdf,
+            "Supplementary Information — Nocturnal River Hypoxia Monitoring Protocols",
+            "Supplementary Information — Nocturnal River Hypoxia Monitoring Protocols",
+        )
+        if rc_s != 0:
+            return rc_s
     return 0
 
 

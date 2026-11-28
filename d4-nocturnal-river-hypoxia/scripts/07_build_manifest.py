@@ -28,7 +28,17 @@ def main() -> None:
     if proc_dir.exists():
         targets.extend(sorted(p for p in proc_dir.glob("*") if p.is_file()))
 
-    for root_f in ("manuscript_d4_boost.md", "manuscript_d4_boost.pdf", "REFEREE_RESPONSE_v2.md", "README.md", "STATUS.md"):
+    for root_f in (
+        "manuscript_d4_boost.md",
+        "manuscript_d4_boost.pdf",
+        "manuscript_d4_nature_water.pdf",
+        "supplementary_d4_nature_water.md",
+        "supplementary_d4_nature_water.pdf",
+        "REFEREE_RESPONSE_v4.md",
+        "REFEREE_RESPONSE_v2.md",
+        "README.md",
+        "STATUS.md",
+    ):
         p = BASE_DIR / root_f
         if p.exists():
             targets.append(p)

@@ -1,7 +1,7 @@
 {
-  "generated_utc": "2026-11-26T21:48:08Z",
+  "generated_utc": "2026-11-28T00:02:29Z",
   "project": "d4_boost_nocturnal_river_hypoxia_20261125",
-  "n_files_hashed": 50,
+  "n_files_hashed": 79,
   "files": {
     "data/processed/conus_all_discovered_do_sites.csv": {
       "bytes": 351490,
@@ -51,9 +51,17 @@
       "bytes": 140556,
       "sha256": "3a5d023247770587724aa10fdf6e2b9bbc425d8aee2679be0c06c48a0dcfe7db"
     },
+    "data/processed/v4_nocturnal_site_nights.parquet": {
+      "bytes": 14832991,
+      "sha256": "93ccd3d2bc601ee86f334b4986a3ffbbe910ab4cb52ad6edfc63b13b4a89dd10"
+    },
+    "data/processed/v4_wqp_paired_visits.parquet": {
+      "bytes": 50831,
+      "sha256": "9e8bd6967c5ab44ab7ef1fe7531e4be4d8dccf437c1143b43607ff67c13196a3"
+    },
     "data/processed/verified_references.json": {
-      "bytes": 6762,
-      "sha256": "1e46b03237fb230a56ed5399ba56b085b6abf6c24c9db192eb98a214ab169a5c"
+      "bytes": 8873,
+      "sha256": "e37d9a23adb84f77e1297910237f50bbbde51d7c822c56bf12f9d3e5a30b0f5b"
     },
     "figures/fig1_conus_map_and_thermal_decoupling.pdf": {
       "bytes": 57355,
@@ -63,6 +71,14 @@
       "bytes": 548208,
       "sha256": "df705a1adbbd9d5ef335d537126d6cb5d1d5706c5dd89bedd63ba59b71c2dfb3"
     },
+    "figures/fig1_nw_monitoring_clock_and_coverage.pdf": {
+      "bytes": 54276,
+      "sha256": "dad43ae634d474a6a3144e14f522a661f7f87a30a6136927d45bd1f8a4f5447e"
+    },
+    "figures/fig1_nw_monitoring_clock_and_coverage.png": {
+      "bytes": 464818,
+      "sha256": "77324595e921ad63d241bec5153811a8a61caff8eadbeee9670de354684f6988"
+    },
     "figures/fig2_24h_clock_bias_and_transfer.pdf": {
       "bytes": 44737,
       "sha256": "251c25d067da0bec03f40077affc35ccac535bf10a351c2137198c787a0cfb3f"
@@ -70,6 +86,14 @@
     "figures/fig2_24h_clock_bias_and_transfer.png": {
       "bytes": 625057,
       "sha256": "ac050ffec4473c955fd070d23e1c67662640976af8269535a2db1fd41608b487"
+    },
+    "figures/fig2_nw_loro_cross_network_validation.pdf": {
+      "bytes": 53894,
+      "sha256": "9d361d2e2419d488fba010d4e300b88680a610c7d4dd590ee33f5953712442d6"
+    },
+    "figures/fig2_nw_loro_cross_network_validation.png": {
+      "bytes": 488032,
+      "sha256": "88a0d550ae082c313a5fb2808cb766994bd1e0b33a4ab344aba8a29c0a0fb5b6"
     },
     "figures/fig3_compound_heatwave_drought.pdf": {
       "bytes": 48091,
@@ -79,6 +103,14 @@
       "bytes": 286436,
       "sha256": "6eb7a09e0914965d851b1d50c308b6f377048834af736b25a0bf942c850b6eb5"
     },
+    "figures/fig3_nw_censoring_duration_and_leadtime.pdf": {
+      "bytes": 49252,
+      "sha256": "68ee6271fe3932f6bb79ef66bd855255ef27f58d68682dd103c38e5c16184ad8"
+    },
+    "figures/fig3_nw_censoring_duration_and_leadtime.png": {
+      "bytes": 356942,
+      "sha256": "119a11fd3ae7301ced69d1c126839641f379cad6ccda36805fc079eb73921131"
+    },
     "figures/fig4_biophysical_mechanism.pdf": {
       "bytes": 44528,
       "sha256": "429423637292a41432b99267250171e09d323112ebc94089cb5fce5cd0534910"
@@ -86,6 +118,14 @@
     "figures/fig4_biophysical_mechanism.png": {
       "bytes": 395215,
       "sha256": "aa7e50ac68134f4e935b9f37ce666f3b8fcecaeb09daf77503abb713e6e37aa8"
+    },
+    "figures/fig4_nw_equal_budget_protocol_frontier.pdf": {
+      "bytes": 57694,
+      "sha256": "594ea7594a19ea09ac3223c93349b44df0d29086fcab70c778ca19eb594300f5"
+    },
+    "figures/fig4_nw_equal_budget_protocol_frontier.png": {
+      "bytes": 472181,
+      "sha256": "f68a87d8951d55bd5cd0c06990ccbda3967e6806af24d8397c08d52fdf0d0e3e"
     },
     "figures/fig5_secular_cwa_and_uk_replication.pdf": {
       "bytes": 54113,
@@ -96,20 +136,36 @@
       "sha256": "73b138efbf6fcf1404b8e8f8ef28b24684fcc816b6b9c29bbca61567c05621ee"
     },
     "manuscript_d4_boost.md": {
-      "bytes": 91295,
-      "sha256": "e4d359e0bb138c57d80ce91e6058ed1a8ff05f01145e64659d489566480352c1"
+      "bytes": 45656,
+      "sha256": "a7098938fef511fbd1517e4788db882e5a2bbeeb7fe3552b2c09c9ae4ee790ef"
     },
     "manuscript_d4_boost.pdf": {
-      "bytes": 3536179,
-      "sha256": "fa6c019f955128a7f82771dcb47e44e4de32f572d85d947d196f609cfba3745f"
+      "bytes": 2199004,
+      "sha256": "c48971dfc282748544219a875eb4b49e04e7e200a69bea662a8a07590bc4f5e1"
+    },
+    "manuscript_d4_nature_water.pdf": {
+      "bytes": 2199004,
+      "sha256": "c48971dfc282748544219a875eb4b49e04e7e200a69bea662a8a07590bc4f5e1"
     },
     "README.md": {
-      "bytes": 9082,
-      "sha256": "477084cd42b7e9a23cd8099391ba723eaf251531391344336f91ae3aff8d26c5"
+      "bytes": 6024,
+      "sha256": "8d8aebf1287124dba2c558a868d50535c3992fe11a64d45ef189e34db4f2d4d9"
     },
     "REFEREE_RESPONSE_v2.md": {
       "bytes": 14968,
       "sha256": "d726ae7c44c9f244e9dc499ff16969cd08d9a587177b0a54749afc1c96be7d43"
+    },
+    "REFEREE_RESPONSE_v4.md": {
+      "bytes": 13495,
+      "sha256": "0b35b73deb3a7681cd8f90eccaa742257bfdc882f1327b5088becceaae239e73"
+    },
+    "results/11_loro_and_sensitivity.json": {
+      "bytes": 171214,
+      "sha256": "f00b02b7378ff43b747349aac9ac10c060ef78cc71be49e8489695b55a93bddd"
+    },
+    "results/12_operational_protocol_decision.json": {
+      "bytes": 798943,
+      "sha256": "d495057748d8ccf2ddc6b1752edd1872c8f1f1d5d2e5147e922f8f7ea819d199"
     },
     "results/conus_iv_24h_clock_results.json": {
       "bytes": 101800,
@@ -152,24 +208,64 @@
       "sha256": "ddffa1c119378bf5407ff30d62f19f21f10feba206f368aee49ea8b87a1c1378"
     },
     "scripts/07_build_manifest.py": {
-      "bytes": 2617,
-      "sha256": "d30eaf026f4bc55809ab8f26ebc6b7074b440a455f91f83954f7a5b337c34ff4"
+      "bytes": 2829,
+      "sha256": "855ef380e4c76032092829f57a70d137bcc6368c0b87be5d8b06ded638a709e4"
     },
     "scripts/08_compile_manuscript_pdf.py": {
-      "bytes": 22131,
-      "sha256": "96cb6716fbafc767863246cfefd1cd5b59d1e58d1c69022102626fc4017561ab"
+      "bytes": 22869,
+      "sha256": "3fa99840a316d8d60fa245aaf9a5fca81dbd35f0fb7b6791f1f862dc619f1ef5"
+    },
+    "scripts/09_fetch_usgs_stac.py": {
+      "bytes": 3601,
+      "sha256": "676e6dcf45c1a1b2718f59c7ba8ede40261c38291834dcd3e0e6e6a275ee4a33"
+    },
+    "scripts/10_fetch_wqp_grab_logs.py": {
+      "bytes": 8510,
+      "sha256": "792ea050b6314fb02d05faecb2b11809ab18b423b6c3b24edfb872c0b7d2cea4"
+    },
+    "scripts/11_loro_and_sensitivity_analysis.py": {
+      "bytes": 68565,
+      "sha256": "0a73e93c22a23688c16b521639f88d2abca656f917a7e90c57fb1ba495912491"
+    },
+    "scripts/12_operational_protocol_decision_analysis.py": {
+      "bytes": 35643,
+      "sha256": "71799bc1ec85990aa18402e63936268c3dc867f91f709569a6e8d357bb75291f"
+    },
+    "scripts/13_generate_v4_figures_tables.py": {
+      "bytes": 49633,
+      "sha256": "f6d554d7a04cac17e1065d70195d174b82569c14ba8cfe81ec2665c582c621e8"
+    },
+    "scripts/14_generate_v4_manuscript_and_supplement.py": {
+      "bytes": 67383,
+      "sha256": "fed9a546ce620f07e2f4f90a0f9f386805f5c3ca85601584ad7b2089216f4926"
     },
     "STATUS.md": {
-      "bytes": 3399,
-      "sha256": "eefde53db3c20a78d250c3e90dfa0b4f1d40e37138c77a6d3076011d746712a5"
+      "bytes": 3581,
+      "sha256": "7851db7b7e4373132bbb67062fddcdd016a180b0390db83a2d3f9394b3cc9abf"
+    },
+    "supplementary_d4_nature_water.md": {
+      "bytes": 25154,
+      "sha256": "1d0518571cad18d3dc6cacf5e1a551b81df044f108030906f2fbee176aebb4d2"
+    },
+    "supplementary_d4_nature_water.pdf": {
+      "bytes": 2371018,
+      "sha256": "08078ca161fb3acfd6e4417b0e9317990dbc26da5b170faf5d6f494703f78893"
     },
     "tables/table1_core_thermal_decoupling.csv": {
       "bytes": 6584,
       "sha256": "6f4b591a7a4f637a0fe32c128da3ca222aa02d5141645e13a0eabb888feeb253"
     },
+    "tables/table1_nw_loro_cross_network.csv": {
+      "bytes": 4200,
+      "sha256": "327c4cdb4ff332e6031edbc4114f2e726a223278066ee869be606a05d31b2153"
+    },
     "tables/table2_24h_clock_bias_windows.csv": {
       "bytes": 1172,
       "sha256": "232ee55b1e984691cb896f1ac5053dac7f2ec86e86693efa4128f83fcd1957e7"
+    },
+    "tables/table2_nw_robustness_holdout_cadence.csv": {
+      "bytes": 2885,
+      "sha256": "53d7d0a117de006aa5b4f5f26536f21bff1905f0be7ed54c78a749738a63a108"
     },
     "tables/table2b_transfer_function_oos.csv": {
       "bytes": 927,
@@ -187,6 +283,10 @@
       "bytes": 2617,
       "sha256": "aadc17e0db1b01a93f6b14cfef8e9404a36ecfd06b4380638813b556885fb06e"
     },
+    "tables/table3_nw_equal_budget_protocols.csv": {
+      "bytes": 3010,
+      "sha256": "b75f24de1ac969041e69e73ba23f49b39e72436dab3afc3be6fff5abccb09b10"
+    },
     "tables/table4_biophysical_mechanism_strata.csv": {
       "bytes": 1527,
       "sha256": "023deb4ec8ce7688da62a038842f0636980b447180d20b4cf703a5473391ce97"
@@ -199,9 +299,25 @@
       "bytes": 1286,
       "sha256": "882502a4b7d0339be14e9a718f7240784d7cf871cc6f99a96b2870f8a2fbd421"
     },
+    "tables/table_s1_station_coverage_attrition.csv": {
+      "bytes": 10619,
+      "sha256": "77130e39d9a1312c64fe846e9ef13ce78f6b3d7c9213a5286e02ff0eea620903"
+    },
+    "tables/table_s2_coverage_by_cadence_month.csv": {
+      "bytes": 1389,
+      "sha256": "408c72a428c6deea347bdd61edd51d4abd2c2159d2184e4e3f1980f12c1ef31f"
+    },
+    "tables/table_s3_censoring_km_duration.csv": {
+      "bytes": 1031,
+      "sha256": "2285d06c13bad090af354fbd981c393f15a1a5846c27745e5c89b05db29063ae"
+    },
+    "tables/table_s4_cost_sensitivity_grid.csv": {
+      "bytes": 12572,
+      "sha256": "d8bc4845a6448e25c450b1ff1c62e00f2af44c96860a9a89b49f36e16ce362df"
+    },
     "tests/test_d4_pipeline.py": {
-      "bytes": 26243,
-      "sha256": "0155afa882c24aa167551bfa8e6be80a5ecd8d5b025a73eedd52bfa7b1c2b417"
+      "bytes": 15153,
+      "sha256": "54622643d3e1c8bf79c63e9f4e631fb23dd89c24c09f3f18b08f1fc89ec196a5"
     }
   }
 }
