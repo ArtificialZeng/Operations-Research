@@ -1,0 +1,11 @@
+section,metric,value_primary,value_secondary
+HazWaste_Coverage,China-direct hazardous-product notices (2022-2026),74,0.0% firm direct return
+HazWaste_Coverage,Screened consumer self-disposal notices & affected inventory,67,"3,947,390 affected units (notice coverage)"
+HazWaste_Coverage,Notices with explicit disposal word,65,"3,944,590 affected units"
+HazWaste_Coverage,HHW/local-regulation warnings (Remedy field only),52,"2,697,571 affected units (68.34%)"
+HazWaste_Coverage,HHW/local-regulation warnings (Full notice: Remedy+Desc+Hazards),54,"3,910,951 affected units (99.08%)"
+HazWaste_Coverage,Top-2 batch concentration (OCOOPA 1.50M + Anker 1.158M),"2,658,000",67.34% of screened total (both multi-channel)
+In_re_Amazon,Explicit 'Fulfilled by Amazon' phrasing in 601 Amazon-mentioning notices,0,0.00% (1/601 standalone 'FBA' model suffix in TADAKAZU 10317)
+In_re_Amazon,"Jul 2024 HAC ITS (L=4, T=23): log(Broad_Amazon / B&M) slope change",0.1831,"t=+8.00, p=1.30e-15"
+In_re_Amazon,"Jul 2024 HAC ITS (L=4, T=23): log(Strict_Amazon_Excl / B&M) slope change",0.1734,"t=+4.99, p=5.98e-07"
+In_re_Amazon,"Jul 2024 HAC ITS (L=4, T=23): log(Strict_Amazon_Excl / NonAmz_3P) slope change",0.1302,"t=+1.95, p=0.0507"

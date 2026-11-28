@@ -1,0 +1,103 @@
+{
+  "api_url": "https://www.saferproducts.gov/RestWebServices/Recall",
+  "year_range_requested": [
+    2000,
+    2026
+  ],
+  "total_unique_recalls": 8386,
+  "min_recall_date": "2000-01-04",
+  "max_recall_date": "2026-11-19",
+  "raw_json_path": "D:\\AI_Science\\antigravity\\f7_boost_cpsc_ecommerce_recalls_20261126\\data\\cpsc_recalls_2000_2026.json",
+  "raw_json_bytes": 23405152,
+  "raw_json_sha256": "db445bb9199cd84ef52d83ef2715dccb96cd8b1667f47c06fdebf95c420efffc",
+  "counts_by_year": {
+    "2000": 191,
+    "2001": 245,
+    "2002": 256,
+    "2003": 215,
+    "2004": 278,
+    "2005": 323,
+    "2006": 319,
+    "2007": 452,
+    "2008": 392,
+    "2009": 383,
+    "2010": 362,
+    "2011": 313,
+    "2012": 310,
+    "2013": 290,
+    "2014": 296,
+    "2015": 305,
+    "2016": 330,
+    "2017": 280,
+    "2018": 258,
+    "2019": 241,
+    "2020": 257,
+    "2021": 219,
+    "2022": 292,
+    "2023": 324,
+    "2024": 305,
+    "2025": 420,
+    "2026": 530
+  },
+  "field_nonempty_counts": {
+    "Products": 8386,
+    "Remedies": 8380,
+    "Retailers": 8361,
+    "Distributors": 2090,
+    "Hazards": 8384,
+    "Injuries": 8379,
+    "ConsumerContact": 8358,
+    "Description": 8384,
+    "Importers": 4191,
+    "ManufacturerCountries": 7921,
+    "Manufacturers": 3739,
+    "ProductUPCs": 438,
+    "Inconjunctions": 1312,
+    "RemedyOptions": 5041
+  },
+  "year_2026_schema_audit": {
+    "total_2026_recalls": 530,
+    "zero_imp_mfr_dist_but_has_retailers": 24,
+    "share_retailer_only_2026": 0.0453
+  },
+  "spot_check_ids": {
+    "11067": {
+      "RecallDate": "2026-11-19T00:00:00",
+      "Title": "Kidsview Recalls Infant Bouncers Due to Risk of Collapse and Impact Injury to Infants",
+      "Importers": [],
+      "Manufacturers": [],
+      "Distributors": [],
+      "Retailers": [
+        {
+          "Name": "Sold Online At:\nAmazon.com from August 2022 through November 2023 for between $60 and $170.",
+          "CompanyID": ""
+        },
+        {
+          "Name": "Zhongshan Haimao Cross-border Information Technology Co., Ltd., dba Kidsview, of China",
+          "CompanyID": ""
+        }
+      ],
+      "ProductUPCs": [],
+      "Inconjunctions": []
+    },
+    "11068": {
+      "RecallDate": "2026-11-19T00:00:00",
+      "Title": "CHE-US Recalls Magnetic Robot Toys Due to Risk of Serious Injury or Death from Magnet Ingestion; Violate Mandatory Standard for Toys",
+      "Importers": [],
+      "Manufacturers": [],
+      "Distributors": [],
+      "Retailers": [
+        {
+          "Name": "Sold Online At:\nAmazon.com from April 2025 through August 2026 for between t $9 and $18.",
+          "CompanyID": ""
+        },
+        {
+          "Name": "Guangzhou Shian Trading Co., Ltd., dba CHE-US/CHESLICR, of China.",
+          "CompanyID": ""
+        }
+      ],
+      "ProductUPCs": [],
+      "Inconjunctions": []
+    }
+  }
+}

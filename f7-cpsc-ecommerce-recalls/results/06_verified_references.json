@@ -1,0 +1,415 @@
+{
+  "n_crossref_verified": 22,
+  "n_official_records": 10,
+  "journal_references": [
+    {
+      "key": "hora2011",
+      "doi": "10.1016/j.jom.2011.06.006",
+      "http_status": 200,
+      "authors": [
+        "Hora, M.",
+        "Bapuji, H.",
+        "Roth, A. V."
+      ],
+      "year": 2011,
+      "title": "Safety hazard and time to recall: The role of recall strategy, product defect type, and supply chain player in the U.S. toy industry",
+      "journal": "Journal of Operations Management",
+      "volume": "29",
+      "issue": "7-8",
+      "page": "766-777"
+    },
+    {
+      "key": "thirumalai2011",
+      "doi": "10.1287/mnsc.1100.1267",
+      "http_status": 200,
+      "authors": [
+        "Thirumalai, S.",
+        "Sinha, K. K."
+      ],
+      "year": 2011,
+      "title": "Product Recalls in the Medical Device Industry: An Empirical Exploration of the Sources and Financial Consequences",
+      "journal": "Management Science",
+      "volume": "57",
+      "issue": "2",
+      "page": "376-392"
+    },
+    {
+      "key": "kalaignanam2013",
+      "doi": "10.1509/jm.11.0356",
+      "http_status": 200,
+      "authors": [
+        "Kalaignanam, K.",
+        "Kushwaha, T.",
+        "Eilert, M."
+      ],
+      "year": 2013,
+      "title": "The Impact of Product Recalls on Future Product Reliability and Future Accidents: Evidence from the Automobile Industry",
+      "journal": "Journal of Marketing",
+      "volume": "77",
+      "issue": "2",
+      "page": "41-57"
+    },
+    {
+      "key": "shah2017",
+      "doi": "10.1287/mnsc.2016.2456",
+      "http_status": 200,
+      "authors": [
+        "Shah, R.",
+        "Ball, G. P.",
+        "Netessine, S."
+      ],
+      "year": 2017,
+      "title": "Plant Operations and Product Recalls in the Automotive Industry: An Empirical Investigation",
+      "journal": "Management Science",
+      "volume": "63",
+      "issue": "8",
+      "page": "2439-2459"
+    },
+    {
+      "key": "ball2018",
+      "doi": "10.1016/j.jom.2018.04.003",
+      "http_status": 200,
+      "authors": [
+        "Ball, G. P.",
+        "Shah, R.",
+        "Wowak, K. D."
+      ],
+      "year": 2018,
+      "title": "Product competition, managerial discretion, and manufacturing recalls in the U.S. pharmaceutical industry",
+      "journal": "Journal of Operations Management",
+      "volume": "58-59",
+      "issue": "1",
+      "page": "59-72"
+    },
+    {
+      "key": "mukherjee2018",
+      "doi": "10.1111/poms.12696",
+      "http_status": 200,
+      "authors": [
+        "Mukherjee, U. K.",
+        "Sinha, K. K."
+      ],
+      "year": 2018,
+      "title": "Product Recall Decisions in Medical Device Supply Chains: A Big Data Analytic Approach to Evaluating Judgment Bias",
+      "journal": "Production and Operations Management",
+      "volume": "27",
+      "issue": "10",
+      "page": "1816-1833"
+    },
+    {
+      "key": "ni2014",
+      "doi": "10.1016/j.ijpe.2014.03.014",
+      "http_status": 200,
+      "authors": [
+        "Ni, J. Z.",
+        "Flynn, B. B.",
+        "Jacobs, F. R."
+      ],
+      "year": 2014,
+      "title": "Impact of product recall announcements on retailers' financial value",
+      "journal": "International Journal of Production Economics",
+      "volume": "153",
+      "issue": "",
+      "page": "309-322"
+    },
+    {
+      "key": "liu2017",
+      "doi": "10.1509/jm.15.0535",
+      "http_status": 200,
+      "authors": [
+        "Liu, Y.",
+        "Shankar, V.",
+        "Yun, W."
+      ],
+      "year": 2017,
+      "title": "Crisis Management Strategies and the Long-Term Effects of Product Recalls on Firm Value",
+      "journal": "Journal of Marketing",
+      "volume": "81",
+      "issue": "5",
+      "page": "30-48"
+    },
+    {
+      "key": "astvansh2022",
+      "doi": "10.1287/msom.2022.1085",
+      "http_status": 200,
+      "authors": [
+        "Astvansh, V.",
+        "Ball, G. P.",
+        "Josefy, M."
+      ],
+      "year": 2022,
+      "title": "The Recall Decision Exposed: Automobile Recall Timing and Process Data Set",
+      "journal": "Manufacturing & Service Operations Management",
+      "volume": "24",
+      "issue": "3",
+      "page": "1457-1473"
+    },
+    {
+      "key": "mao2022",
+      "doi": "10.1287/msom.2021.1042",
+      "http_status": 200,
+      "authors": [
+        "Mao, W.",
+        "Dong, Z.",
+        "Lee, H. H."
+      ],
+      "year": 2022,
+      "title": "Before It’s Too Late: Product Recall Delays and Policy Design",
+      "journal": "Manufacturing & Service Operations Management",
+      "volume": "24",
+      "issue": "4",
+      "page": "1926-1938"
+    },
+    {
+      "key": "chen2009",
+      "doi": "10.1509/jmkg.73.6.214",
+      "http_status": 200,
+      "authors": [
+        "Chen, Y.",
+        "Ganesan, S.",
+        "Liu, Y."
+      ],
+      "year": 2009,
+      "title": "Does a Firm's Product-Recall Strategy Affect Its Financial Value? An Examination of Strategic Alternatives during Product-Harm Crises",
+      "journal": "Journal of Marketing",
+      "volume": "73",
+      "issue": "6",
+      "page": "214-226"
+    },
+    {
+      "key": "freedman2012",
+      "doi": "10.1162/rest_a_00162",
+      "http_status": 200,
+      "authors": [
+        "Freedman, S.",
+        "Kearney, M.",
+        "Lederman, M."
+      ],
+      "year": 2012,
+      "title": "Product Recalls, Imperfect Information, and Spillover Effects: Lessons from the Consumer Response to the 2007 Toy Recalls",
+      "journal": "Review of Economics and Statistics",
+      "volume": "94",
+      "issue": "2",
+      "page": "499-516"
+    },
+    {
+      "key": "eilert2017",
+      "doi": "10.1509/jm.15.0074",
+      "http_status": 200,
+      "authors": [
+        "Eilert, M.",
+        "Jayachandran, S.",
+        "Kalaignanam, K.",
+        "Swartz, T. A."
+      ],
+      "year": 2017,
+      "title": "Does it Pay to Recall your Product Early? An Empirical Investigation in the Automobile Industry",
+      "journal": "Journal of Marketing",
+      "volume": "81",
+      "issue": "3",
+      "page": "111-129"
+    },
+    {
+      "key": "wowak2015",
+      "doi": "10.1111/jscm.12079",
+      "http_status": 200,
+      "authors": [
+        "Wowak, K. D.",
+        "Boone, C. A."
+      ],
+      "year": 2015,
+      "title": "So Many Recalls, So Little Research: A Review of the Literature and Road map for Future Research",
+      "journal": "Journal of Supply Chain Management",
+      "volume": "51",
+      "issue": "4",
+      "page": "54-72"
+    },
+    {
+      "key": "jarrell1985",
+      "doi": "10.1086/261313",
+      "http_status": 200,
+      "authors": [
+        "Jarrell, G.",
+        "Peltzman, S."
+      ],
+      "year": 1985,
+      "title": "The Impact of Product Recalls on the Wealth of Sellers",
+      "journal": "Journal of Political Economy",
+      "volume": "93",
+      "issue": "3",
+      "page": "512-536"
+    },
+    {
+      "key": "shavell1986",
+      "doi": "10.1016/0144-8188(86)90038-4",
+      "http_status": 200,
+      "authors": [
+        "Shavell, S."
+      ],
+      "year": 1986,
+      "title": "The judgment proof problem",
+      "journal": "International Review of Law and Economics",
+      "volume": "6",
+      "issue": "1",
+      "page": "45-58"
+    },
+    {
+      "key": "hagiu2015",
+      "doi": "10.1287/mnsc.2014.2042",
+      "http_status": 200,
+      "authors": [
+        "Hagiu, A.",
+        "Wright, J."
+      ],
+      "year": 2015,
+      "title": "Marketplace or Reseller?",
+      "journal": "Management Science",
+      "volume": "61",
+      "issue": "1",
+      "page": "184-203"
+    },
+    {
+      "key": "tian2018",
+      "doi": "10.1111/poms.12885",
+      "http_status": 200,
+      "authors": [
+        "Tian, L.",
+        "Vakharia, A. J.",
+        "Tan, Y.",
+        "Xu, Y."
+      ],
+      "year": 2018,
+      "title": "Marketplace, Reseller, or Hybrid: Strategic Analysis of an Emerging E‐Commerce Model",
+      "journal": "Production and Operations Management",
+      "volume": "27",
+      "issue": "8",
+      "page": "1595-1610"
+    },
+    {
+      "key": "cameron2008",
+      "doi": "10.1162/rest.90.3.414",
+      "http_status": 200,
+      "authors": [
+        "Cameron, A. C.",
+        "Gelbach, J. B.",
+        "Miller, D. L."
+      ],
+      "year": 2008,
+      "title": "Bootstrap-Based Improvements for Inference with Clustered Errors",
+      "journal": "Review of Economics and Statistics",
+      "volume": "90",
+      "issue": "3",
+      "page": "414-427"
+    },
+    {
+      "key": "newey1987",
+      "doi": "10.2307/1913610",
+      "http_status": 200,
+      "authors": [
+        "Newey, W. K.",
+        "West, K. D."
+      ],
+      "year": 1987,
+      "title": "A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix",
+      "journal": "Econometrica",
+      "volume": "55",
+      "issue": "3",
+      "page": "703"
+    },
+    {
+      "key": "raithel2024",
+      "doi": "10.1007/s11747-023-00967-x",
+      "http_status": 200,
+      "authors": [
+        "Raithel, S.",
+        "Hock, S. J.",
+        "Mafael, A."
+      ],
+      "year": 2024,
+      "title": "Product recall effectiveness and consumers’ participation in corrective actions",
+      "journal": "Journal of the Academy of Marketing Science",
+      "volume": "52",
+      "issue": "3",
+      "page": "716-735"
+    },
+    {
+      "key": "fang2026",
+      "doi": "10.1287/mksc.2025.0618",
+      "http_status": 200,
+      "authors": [
+        "Fang, L.",
+        "Wu, C.",
+        "Yuan, Z.",
+        "Zhang, K."
+      ],
+      "year": 2026,
+      "title": "Returnless Partial Refunds: A Large-Scale Field Experiment in E-Commerce",
+      "journal": "Marketing Science",
+      "volume": "",
+      "issue": "",
+      "page": ""
+    }
+  ],
+  "official_and_policy_references": [
+    {
+      "key": "cpsc_amazon_2024",
+      "type": "administrative_order",
+      "citation": "U.S. Consumer Product Safety Commission (2024). In the Matter of Amazon.com, Inc., CPSC Docket No. 21-2, Decision and Order (July 30, 2024).",
+      "verified_source": "Official CPSC Docket No. 21-2 public record"
+    },
+    {
+      "key": "cpsc_amazon_2025",
+      "type": "administrative_order",
+      "citation": "U.S. Consumer Product Safety Commission (2025). In the Matter of Amazon.com, Inc., CPSC Docket No. 21-2, Decision and Order Approving Notification and Action Plan (January 16, 2025). https://www.cpsc.gov/s3fs-public/pdfs/recall/lawsuits/abc/154-Decision-and-Order-Approving-Notification-and-Action-Plan.pdf",
+      "verified_source": "Official CPSC Docket No. 21-2 public record"
+    },
+    {
+      "key": "cpsc_jugader_2024",
+      "type": "cpsc_recall_notice",
+      "citation": "U.S. Consumer Product Safety Commission (2024). Zipline Kits Recalled Due to Fall Hazard; Sold Exclusively on Amazon.com by Jugader (Recall No. 24-199, RecallID 9924, April 11, 2024). https://www.cpsc.gov/Recalls/2024/Zipline-Kits-Recalled-Due-to-Fall-Hazard-Sold-Exclusively-on-Amazon-com-by-Jugader",
+      "verified_source": "Frozen CPSC Open API Census (RecallID 9924)"
+    },
+    {
+      "key": "cpsc_uvipc_2025",
+      "type": "cpsc_recall_notice",
+      "citation": "U.S. Consumer Product Safety Commission (2025). UVIPC Baby Gates Recalled Due to Entrapment Hazard; Sold Exclusively on Amazon.com by Xianshengyouli (Recall No. 25-122, RecallID 10148, February 6, 2025). https://www.cpsc.gov/Recalls/2025/UVIPC-Baby-Gates-Recalled-Due-to-Entrapment-Hazard-Violation-of-Federal-Regulations-for-Gates-and-Enclosures-Sold-Exclusively-on-Amazon-com-by-Xianshengyouli",
+      "verified_source": "Frozen CPSC Open API Census (RecallID 10148)"
+    },
+    {
+      "key": "cpsc_anker_2025",
+      "type": "cpsc_recall_notice",
+      "citation": "U.S. Consumer Product Safety Commission (2025). More than One Million Anker Power Banks Recalled Due to Fire and Burn Hazards; Manufactured by Anker Innovations (Recall No. 25-338, RecallID 10311, June 12, 2025). https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+      "verified_source": "Frozen CPSC Open API Census (RecallID 10311)"
+    },
+    {
+      "key": "cpsc_tadakazu_2025",
+      "type": "cpsc_recall_notice",
+      "citation": "U.S. Consumer Product Safety Commission (2025). TADAKAZU Baby Loungers Recalled Due to Risk of Serious Injury or Death from Suffocation, Fall and Entrapment Hazards; Sold on Amazon (Recall No. 25-345, RecallID 10317, June 18, 2025). https://www.cpsc.gov/Recalls/2025/TADAKAZU-Baby-Loungers-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Suffocation-Fall-and-Entrapment-Hazards-Violations-of-Federal-Standard-for-Infant-Sleep-Products-Sold-on-Amazon",
+      "verified_source": "Frozen CPSC Open API Census (RecallID 10317)"
+    },
+    {
+      "key": "cpsc_ocoopa_2026",
+      "type": "cpsc_recall_notice",
+      "citation": "U.S. Consumer Product Safety Commission (2026). OCOOPA Direct Recalls 1.5 Million Rechargeable Hand Warmers Due to Risk of Serious Injury or Death from Fire and Burn Hazards; Imported by Shenzhen Street Cat Technology (Recall No. 26-659, RecallID 10895, July 30, 2026). https://www.cpsc.gov/Recalls/2026/OCOOPA-Direct-Recalls-1-5-Million-Rechargeable-Hand-Warmers-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-and-Burn-Hazards-One-Death-Reported-Imported-by-Shenzhen-Street-Cat-Technology",
+      "verified_source": "Frozen CPSC Open API Census (RecallID 10895)"
+    },
+    {
+      "key": "amazon_v_cpsc_2026",
+      "type": "federal_court",
+      "citation": "Amazon.com, Inc. v. Consumer Product Safety Commission, No. 8:25-cv-00853 (D. Md., filed March 14, 2025; summary judgment upholding CPSC distributor authority, November 24, 2026).",
+      "verified_source": "U.S. District Court for the District of Maryland public docket"
+    },
+    {
+      "key": "bolanos2025",
+      "type": "preprint_arxiv",
+      "citation": "Bolanos, D., Ataei, M., Grandi, D., & Goucher-Lambert, K. (2025). RECALL-MM: A Multimodal Dataset of Consumer Product Recalls for Risk Analysis using Computational Methods and Large Language Models. arXiv preprint arXiv:2503.23213.",
+      "verified_source": "arXiv:2503.23213"
+    },
+    {
+      "key": "cfa2025",
+      "type": "policy_report",
+      "citation": "Consumer Federation of America (2025). The Growing Challenge of E-Commerce and Product Safety: CFA Analysis of 2024 CPSC Safety Warnings (February 12, 2025).",
+      "verified_source": "Consumer Federation of America public policy report"
+    }
+  ]
+}

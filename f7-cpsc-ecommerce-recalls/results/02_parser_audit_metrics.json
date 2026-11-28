@@ -1,0 +1,324 @@
+{
+  "n_audited": 150,
+  "strata_counts": {
+    "2022_26_Mkt_FD_China": 28,
+    "2022_26_Brick_and_Mortar": 18,
+    "2022_26_Omnichannel": 18,
+    "2022_26_DTC_Online_Only": 16,
+    "2022_26_Mkt_True_US_Verified": 16,
+    "Historical_2000_2021": 14,
+    "2022_26_Mkt_FD_NonChina": 12,
+    "2022_26_Mkt_US_ShellSuspected": 10,
+    "Edge_MultiInjury_2022_26": 10,
+    "Edge_2026_RetailerNestedEntity": 8
+  },
+  "binary_fields": {
+    "photo_verify": {
+      "n": 150,
+      "tp": 68,
+      "fp": 0,
+      "tn": 82,
+      "fn": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "physical_mutilate": {
+      "n": 150,
+      "tp": 56,
+      "fp": 0,
+      "tn": 94,
+      "fn": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "direct_return": {
+      "n": 150,
+      "tp": 24,
+      "fp": 0,
+      "tn": 126,
+      "fn": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "free_webmail": {
+      "n": 150,
+      "tp": 43,
+      "fp": 0,
+      "tn": 107,
+      "fn": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "no_phone": {
+      "n": 150,
+      "tp": 51,
+      "fp": 0,
+      "tn": 99,
+      "fn": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "mandatory_rule": {
+      "n": 150,
+      "tp": 74,
+      "fp": 0,
+      "tn": 76,
+      "fn": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "has_injury": {
+      "n": 150,
+      "tp": 36,
+      "fp": 0,
+      "tn": 112,
+      "fn": 2,
+      "accuracy": 0.9867,
+      "precision": 1.0,
+      "recall": 0.9474,
+      "f1": 0.973
+    }
+  },
+  "archetype_6": {
+    "n": 150,
+    "exact_accuracy": 0.9933,
+    "macro_f1": 0.9933,
+    "n_disagreements": 1,
+    "confusion_matrix": {
+      "1_Mkt_FD_China": {
+        "1_Mkt_FD_China": 36,
+        "2_Mkt_FD_NonChina": 0,
+        "3_Mkt_True_US": 0,
+        "4_DTC_Online_Only": 0,
+        "5_Omnichannel": 0,
+        "6_Brick_and_Mortar": 0,
+        "7_Other_Unclear": 0
+      },
+      "2_Mkt_FD_NonChina": {
+        "1_Mkt_FD_China": 0,
+        "2_Mkt_FD_NonChina": 12,
+        "3_Mkt_True_US": 0,
+        "4_DTC_Online_Only": 0,
+        "5_Omnichannel": 0,
+        "6_Brick_and_Mortar": 0,
+        "7_Other_Unclear": 0
+      },
+      "3_Mkt_True_US": {
+        "1_Mkt_FD_China": 0,
+        "2_Mkt_FD_NonChina": 0,
+        "3_Mkt_True_US": 27,
+        "4_DTC_Online_Only": 0,
+        "5_Omnichannel": 0,
+        "6_Brick_and_Mortar": 0,
+        "7_Other_Unclear": 0
+      },
+      "4_DTC_Online_Only": {
+        "1_Mkt_FD_China": 0,
+        "2_Mkt_FD_NonChina": 0,
+        "3_Mkt_True_US": 0,
+        "4_DTC_Online_Only": 16,
+        "5_Omnichannel": 0,
+        "6_Brick_and_Mortar": 0,
+        "7_Other_Unclear": 0
+      },
+      "5_Omnichannel": {
+        "1_Mkt_FD_China": 0,
+        "2_Mkt_FD_NonChina": 0,
+        "3_Mkt_True_US": 0,
+        "4_DTC_Online_Only": 0,
+        "5_Omnichannel": 27,
+        "6_Brick_and_Mortar": 0,
+        "7_Other_Unclear": 0
+      },
+      "6_Brick_and_Mortar": {
+        "1_Mkt_FD_China": 0,
+        "2_Mkt_FD_NonChina": 0,
+        "3_Mkt_True_US": 0,
+        "4_DTC_Online_Only": 1,
+        "5_Omnichannel": 0,
+        "6_Brick_and_Mortar": 30,
+        "7_Other_Unclear": 0
+      },
+      "7_Other_Unclear": {
+        "1_Mkt_FD_China": 0,
+        "2_Mkt_FD_NonChina": 0,
+        "3_Mkt_True_US": 0,
+        "4_DTC_Online_Only": 0,
+        "5_Omnichannel": 0,
+        "6_Brick_and_Mortar": 0,
+        "7_Other_Unclear": 1
+      }
+    }
+  },
+  "numeric_fields": {
+    "clean_injuries_exact_acc": 0.9733,
+    "clean_injuries_n_disagreements": 4,
+    "price_exact_acc": 1.0,
+    "units_exact_acc": 1.0
+  },
+  "audit_methodology": {
+    "audit_type": "author_reviewed_parser_consistency_audit",
+    "independent_blind_annotation": false,
+    "initialization_procedure": "Reference columns (gt_*) are initialized from frozen parser_lib.py outputs and subsequently edited by the author following line-by-line review of raw CPSC JSON text.",
+    "journal_submission_requirement": "Independent double-blind human annotation of remedy categories and seller legal entities is required prior to formal journal submission."
+  },
+  "oos_50_2025_2026": {
+    "n_audited": 50,
+    "strata_counts": {
+      "Fresh_OOS_2025_2026": 50
+    },
+    "binary_fields": {
+      "photo_verify": {
+        "n": 50,
+        "tp": 32,
+        "fp": 0,
+        "tn": 18,
+        "fn": 0,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "physical_mutilate": {
+        "n": 50,
+        "tp": 22,
+        "fp": 0,
+        "tn": 25,
+        "fn": 3,
+        "accuracy": 0.94,
+        "precision": 1.0,
+        "recall": 0.88,
+        "f1": 0.9362
+      },
+      "direct_return": {
+        "n": 50,
+        "tp": 6,
+        "fp": 0,
+        "tn": 44,
+        "fn": 0,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "free_webmail": {
+        "n": 50,
+        "tp": 15,
+        "fp": 0,
+        "tn": 35,
+        "fn": 0,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "no_phone": {
+        "n": 50,
+        "tp": 21,
+        "fp": 0,
+        "tn": 29,
+        "fn": 0,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "mandatory_rule": {
+        "n": 50,
+        "tp": 23,
+        "fp": 0,
+        "tn": 27,
+        "fn": 0,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "has_injury": {
+        "n": 50,
+        "tp": 9,
+        "fp": 0,
+        "tn": 40,
+        "fn": 1,
+        "accuracy": 0.98,
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9474
+      }
+    },
+    "archetype_6": {
+      "n": 50,
+      "exact_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "n_disagreements": 0,
+      "confusion_matrix": {
+        "1_Mkt_FD_China": {
+          "1_Mkt_FD_China": 18,
+          "2_Mkt_FD_NonChina": 0,
+          "3_Mkt_True_US": 0,
+          "4_DTC_Online_Only": 0,
+          "5_Omnichannel": 0,
+          "6_Brick_and_Mortar": 0
+        },
+        "2_Mkt_FD_NonChina": {
+          "1_Mkt_FD_China": 0,
+          "2_Mkt_FD_NonChina": 1,
+          "3_Mkt_True_US": 0,
+          "4_DTC_Online_Only": 0,
+          "5_Omnichannel": 0,
+          "6_Brick_and_Mortar": 0
+        },
+        "3_Mkt_True_US": {
+          "1_Mkt_FD_China": 0,
+          "2_Mkt_FD_NonChina": 0,
+          "3_Mkt_True_US": 8,
+          "4_DTC_Online_Only": 0,
+          "5_Omnichannel": 0,
+          "6_Brick_and_Mortar": 0
+        },
+        "4_DTC_Online_Only": {
+          "1_Mkt_FD_China": 0,
+          "2_Mkt_FD_NonChina": 0,
+          "3_Mkt_True_US": 0,
+          "4_DTC_Online_Only": 1,
+          "5_Omnichannel": 0,
+          "6_Brick_and_Mortar": 0
+        },
+        "5_Omnichannel": {
+          "1_Mkt_FD_China": 0,
+          "2_Mkt_FD_NonChina": 0,
+          "3_Mkt_True_US": 0,
+          "4_DTC_Online_Only": 0,
+          "5_Omnichannel": 10,
+          "6_Brick_and_Mortar": 0
+        },
+        "6_Brick_and_Mortar": {
+          "1_Mkt_FD_China": 0,
+          "2_Mkt_FD_NonChina": 0,
+          "3_Mkt_True_US": 0,
+          "4_DTC_Online_Only": 0,
+          "5_Omnichannel": 0,
+          "6_Brick_and_Mortar": 12
+        }
+      }
+    },
+    "numeric_fields": {
+      "clean_injuries_exact_acc": 0.98,
+      "clean_injuries_n_disagreements": 1,
+      "price_exact_acc": 1.0,
+      "units_exact_acc": 1.0
+    }
+  }
+}

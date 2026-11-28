@@ -1,0 +1,7 @@
+archetype_code,archetype_label,n_all_2022_2026,n_reg_sample,median_price_usd,median_units,china_mfr_pct,photo_verify_pct,physical_mutilate_pct,direct_return_pct,email_only_pct,free_webmail_pct,no_phone_pct,mandatory_rule_pct,has_upc_pct,has_inconjunction_pct,has_injury_pct
+1_Mkt_FD_China,1. Mkt Foreign-Direct (China),448,447,34.0,2160.0,99.3,82.8,59.6,3.6,77.9,75.7,78.1,79.9,0.2,2.0,8.0
+2_Mkt_FD_NonChina,2. Mkt Foreign-Direct (Non-China),26,26,57.5,1350.0,42.3,46.2,42.3,7.7,30.8,23.1,30.8,65.4,0.0,11.5,7.7
+3_Mkt_True_US,3. Mkt Verified U.S. Entity,233,233,44.0,5000.0,75.5,42.1,29.6,13.7,24.5,19.7,24.9,50.6,3.4,10.3,19.7
+4_DTC_Online_Only,4. DTC Online-Only,102,102,86.25,1387.5,63.7,28.4,30.4,21.6,22.6,2.9,24.5,43.1,2.0,15.7,9.8
+5_Omnichannel,5. Omnichannel (Mkt + Stores),397,396,80.0,48700.0,68.0,24.7,17.6,21.7,3.3,2.5,3.5,15.1,7.3,36.5,38.8
+6_Brick_and_Mortar,6. Brick-and-Mortar (Base),627,618,440.0,5380.0,38.9,17.7,11.2,24.2,5.4,3.7,5.6,18.3,5.4,34.8,19.1

@@ -1,0 +1,13 @@
+stage,n_notices,fd_china,us_entity,note
+1. Complete CPSC SaferProducts Census (2000-01-04 to 2026-11-19),8386,NA,NA,Deduplicated by RecallID; frozen SHA-256 JSON archive
+2. Post-Emergence Contract Era (2022-01-01 to 2026-11-19),1871,448,233,Photo verification <=2.74% prior to 2022
+3. Classified 6-Archetype Universe (excl. 38 Other_Unclear),1833,448,233,Excludes 38 unlocated or giveaway alerts (2.03%)
+4. All-Channel Saturated Regression Sample (non-missing price & units),1822,447,233,1414 independent firm clusters
+5a. Verbatim Channel (2022-2026 All): Strict Amazon-Exclusive,441,348,73,Explicitly exclusive or sole retailer Amazon.com
+5b. Verbatim Channel (2022-2026 All): Multi-Channel With Amazon,440,41,112,164 online multi-channel (162 classified) + 276 Omnichannel (Amazon + stores)
+5c. Verbatim Channel (2022-2026 All): Ambiguous / Conflicted Amazon,5,0,2,1 Amazon Fire TV (9234) + 4 CPSC Title/Remedy vs Retailers conflicts
+5d. Verbatim Channel (2022-2026 All): No Amazon Mention,985,59,46,"Non-Amazon marketplaces, pure DTC, or brick-and-mortar"
+"6a. Def 1 (Legacy Broad amazon_only_mkt, Calendar-Aligned CS)",391,264,127,38 fine-noun x year cells; contains 51/391 other-plat & 100/391 multi-channel
+"6b. Def 2a (Excl. Other Flagged 3P Platforms, Rebuilt CS)",313,224,89,34 fine-noun x year cells (exact reviewer N=313 benchmark)
+"6c. Def 2b (Verbatim Strict Amazon-Exclusive, Rebuilt CS)",236,184,52,25 cells; full strict-exclusive calendar-aligned N=386
+"6d. Def 3 (Multi-Channel Online With Amazon, Full / CS Appendix)",138,39,99,Fine-cell CS N=55 (11 cells) underpowered -> Appendix B

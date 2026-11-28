@@ -1,0 +1,17 @@
+field,n_audited,tp,fp,tn,fn,accuracy,precision,recall,f1_or_macro_f1
+archetype_6 (6-class),150,NA,NA,NA,NA,0.9933,NA,NA,0.9933
+photo_verify,150,68,0,82,0,1.0,1.0,1.0,1.0
+physical_mutilate,150,56,0,94,0,1.0,1.0,1.0,1.0
+direct_return,150,24,0,126,0,1.0,1.0,1.0,1.0
+free_webmail,150,43,0,107,0,1.0,1.0,1.0,1.0
+no_phone,150,51,0,99,0,1.0,1.0,1.0,1.0
+mandatory_rule,150,74,0,76,0,1.0,1.0,1.0,1.0
+has_injury,150,36,0,112,2,0.9867,1.0,0.9474,0.973
+clean_injuries (exact count),150,NA,NA,NA,NA,0.9733,NA,NA,NA
+price (exact USD),150,NA,NA,NA,NA,1.0,NA,NA,NA
+units (exact count),150,NA,NA,NA,NA,1.0,NA,NA,NA
+OOS-50 (2025-2026): archetype_6,50,NA,NA,NA,NA,1.0,NA,NA,1.0
+OOS-50 (2025-2026): photo_verify,50,32,0,18,0,1.0,1.0,1.0,1.0
+OOS-50 (2025-2026): physical_mutilate,50,22,0,25,3,0.94,1.0,0.88,0.9362
+OOS-50 (2025-2026): direct_return,50,6,0,44,0,1.0,1.0,1.0,1.0
+OOS-50 (2025-2026): has_injury,50,9,0,40,1,0.98,1.0,0.9,0.9474

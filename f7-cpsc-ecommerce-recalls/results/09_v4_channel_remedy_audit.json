@@ -1,0 +1,4867 @@
+{
+  "notice_universe": 8386,
+  "channel_contamination_and_sample_flow": {
+    "n_2022_2026_all": 1871,
+    "n_2022_2026_classified": 1833,
+    "n_2022_2026_other_unclear": 38,
+    "n_2022_2026_reg_sample": 1822,
+    "g_2022_2026_reg_clusters": 1414,
+    "amazon_channel_3way_all_2022_2026": {
+      "no_amazon_mention": 985,
+      "strict_amazon_exclusive": 441,
+      "multi_channel_with_amazon": 440,
+      "amazon_channel_ambiguous": 5
+    },
+    "amazon_channel_3way_classified_2022_2026": {
+      "no_amazon_mention": 952,
+      "strict_amazon_exclusive": 438,
+      "multi_channel_with_amazon": 438,
+      "amazon_channel_ambiguous": 5
+    },
+    "amazon_channel_3way_by_archetype_2022_2026": {
+      "amazon_channel_ambiguous": {
+        "3_Mkt_True_US": 2,
+        "6_Brick_and_Mortar": 2,
+        "4_DTC_Online_Only": 1
+      },
+      "multi_channel_with_amazon": {
+        "5_Omnichannel": 276,
+        "3_Mkt_True_US": 112,
+        "1_Mkt_FD_China": 41,
+        "2_Mkt_FD_NonChina": 9,
+        "7_Other_Unclear": 2
+      },
+      "no_amazon_mention": {
+        "6_Brick_and_Mortar": 625,
+        "5_Omnichannel": 121,
+        "4_DTC_Online_Only": 101,
+        "1_Mkt_FD_China": 59,
+        "3_Mkt_True_US": 46,
+        "7_Other_Unclear": 33
+      },
+      "strict_amazon_exclusive": {
+        "1_Mkt_FD_China": 348,
+        "3_Mkt_True_US": 73,
+        "2_Mkt_FD_NonChina": 17,
+        "7_Other_Unclear": 3
+      }
+    },
+    "legacy_amazon_only_mkt_601_breakdown": {
+      "total": 601,
+      "by_3way": {
+        "strict_amazon_exclusive": 438,
+        "multi_channel_with_amazon": 162,
+        "amazon_channel_ambiguous": 1
+      },
+      "has_other_flagged_plat": 86,
+      "multi_channel_online_total": 162,
+      "multi_channel_online_by_arch": {
+        "3_Mkt_True_US": 112,
+        "1_Mkt_FD_China": 41,
+        "2_Mkt_FD_NonChina": 9
+      },
+      "strict_exclusive_by_arch": {
+        "1_Mkt_FD_China": 348,
+        "3_Mkt_True_US": 73,
+        "2_Mkt_FD_NonChina": 17
+      }
+    },
+    "legacy_cs_391_contamination": {
+      "total": 391,
+      "groups": {
+        "1_Mkt_FD_China": 264,
+        "3_Mkt_True_US": 127
+      },
+      "other_flagged_plat_total": 51,
+      "other_flagged_plat_by_group": {
+        "1_Mkt_FD_China": 13,
+        "3_Mkt_True_US": 38
+      },
+      "verbatim_multi_channel_total": 100,
+      "verbatim_multi_channel_by_group": {
+        "1_Mkt_FD_China": 26,
+        "3_Mkt_True_US": 74
+      },
+      "verbatim_ambiguous_total": 0,
+      "verbatim_strict_exclusive_in_391": 291
+    }
+  },
+  "remedy_duty_coding_audit_150": {
+    "audit_methodology": {
+      "audit_type": "automated_rule_plus_author_structured_audit",
+      "independent_blind_multi_coder": false,
+      "n_stratified": 150,
+      "seed": 20261128,
+      "strata_counts": {
+        "FD_China_Strict_AmazonExcl": 28,
+        "US_Entity_Strict_AmazonExcl": 22,
+        "US_Entity_MultiChannel_Online": 16,
+        "Other_Channels_DTC_Omni_BM": 13,
+        "Duty_PhotoOnly_Mandatory": 12,
+        "Duty_Photo_Plus_MarkingOnly": 12,
+        "FD_China_MultiChannel_Online": 12,
+        "Duty_HazWaste_SelfDisposal": 10,
+        "Rare_Optional_Alternative_Proof": 10,
+        "Benchmark_EdgeCase": 5,
+        "Rare_Ambiguous_Amazon_Channel": 5,
+        "Rare_DestructionProof_NoPhoto": 5
+      },
+      "year_counts": {
+        "2022": 29,
+        "2023": 28,
+        "2024": 32,
+        "2025": 34,
+        "2026": 27
+      },
+      "archetype_counts": {
+        "1_Mkt_FD_China": 55,
+        "3_Mkt_True_US": 49,
+        "5_Omnichannel": 21,
+        "6_Brick_and_Mortar": 20,
+        "4_DTC_Online_Only": 4,
+        "2_Mkt_FD_NonChina": 1
+      },
+      "audit_csv_path": "tables/table_remedy_duty_coding_audit.csv",
+      "audit_csv_sha256": "1d4335bf412f672ca1dd0b4eaeaccf9cb21c066144eff44f9fb93fb0f4ae3f98",
+      "scope_caveat": "Labels reflect automated rule-plus-author structured verification against verbatim CPSC JSON text. Independent double-blind multi-coder human adjudication and matched CPSC compliance progress reports remain required to extend from notice-level written duties to realized operational fulfillment rates."
+    },
+    "overall": {
+      "n": 150,
+      "n_any_discrepancy": 24,
+      "binary_fields": {
+        "photo_language": {
+          "n": 150,
+          "tp": 92,
+          "fp": 0,
+          "tn": 57,
+          "fn": 1,
+          "accuracy": 0.9933,
+          "precision": 1.0,
+          "recall": 0.9892,
+          "f1": 0.9946,
+          "fpr": 0.0,
+          "fpr_ci95": [
+            0.0,
+            0.0627
+          ],
+          "fnr": 0.0108,
+          "fnr_ci95": [
+            0.0003,
+            0.0585
+          ]
+        },
+        "photo_mandatory": {
+          "n": 150,
+          "tp": 76,
+          "fp": 2,
+          "tn": 69,
+          "fn": 3,
+          "accuracy": 0.9667,
+          "precision": 0.9744,
+          "recall": 0.962,
+          "f1": 0.9682,
+          "fpr": 0.0282,
+          "fpr_ci95": [
+            0.0034,
+            0.0981
+          ],
+          "fnr": 0.038,
+          "fnr_ci95": [
+            0.0079,
+            0.107
+          ]
+        },
+        "has_alternative_path": {
+          "n": 150,
+          "tp": 12,
+          "fp": 2,
+          "tn": 134,
+          "fn": 2,
+          "accuracy": 0.9733,
+          "precision": 0.8571,
+          "recall": 0.8571,
+          "f1": 0.8571,
+          "fpr": 0.0147,
+          "fpr_ci95": [
+            0.0018,
+            0.0521
+          ],
+          "fnr": 0.1429,
+          "fnr_ci95": [
+            0.0178,
+            0.4281
+          ]
+        },
+        "physically_disabled": {
+          "n": 150,
+          "tp": 38,
+          "fp": 1,
+          "tn": 104,
+          "fn": 7,
+          "accuracy": 0.9467,
+          "precision": 0.9744,
+          "recall": 0.8444,
+          "f1": 0.9048,
+          "fpr": 0.0095,
+          "fpr_ci95": [
+            0.0002,
+            0.0519
+          ],
+          "fnr": 0.1556,
+          "fnr_ci95": [
+            0.0649,
+            0.2946
+          ]
+        },
+        "permanent_marking": {
+          "n": 150,
+          "tp": 26,
+          "fp": 0,
+          "tn": 117,
+          "fn": 7,
+          "accuracy": 0.9533,
+          "precision": 1.0,
+          "recall": 0.7879,
+          "f1": 0.8814,
+          "fpr": 0.0,
+          "fpr_ci95": [
+            0.0,
+            0.031
+          ],
+          "fnr": 0.2121,
+          "fnr_ci95": [
+            0.0898,
+            0.3891
+          ]
+        },
+        "direct_return": {
+          "n": 150,
+          "tp": 13,
+          "fp": 0,
+          "tn": 132,
+          "fn": 5,
+          "accuracy": 0.9667,
+          "precision": 1.0,
+          "recall": 0.7222,
+          "f1": 0.8387,
+          "fpr": 0.0,
+          "fpr_ci95": [
+            0.0,
+            0.0276
+          ],
+          "fnr": 0.2778,
+          "fnr_ci95": [
+            0.0969,
+            0.5348
+          ]
+        },
+        "destruction_proof_no_photo": {
+          "n": 150,
+          "tp": 7,
+          "fp": 0,
+          "tn": 143,
+          "fn": 0,
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "fpr": 0.0,
+          "fpr_ci95": [
+            0.0,
+            0.0255
+          ],
+          "fnr": 0.0,
+          "fnr_ci95": [
+            0.0,
+            0.4096
+          ]
+        }
+      },
+      "categorical_fields": {
+        "amazon_channel": {
+          "n": 150,
+          "n_match": 149,
+          "n_disagreements": 1,
+          "exact_accuracy": 0.9933
+        },
+        "proof_status": {
+          "n": 150,
+          "n_match": 145,
+          "n_disagreements": 5,
+          "exact_accuracy": 0.9667
+        },
+        "duty_bearer": {
+          "n": 150,
+          "n_match": 147,
+          "n_disagreements": 3,
+          "exact_accuracy": 0.98
+        }
+      }
+    },
+    "by_entity_group": {
+      "1_Mkt_FD_China": {
+        "n": 55,
+        "n_any_discrepancy": 5,
+        "binary_fields": {
+          "photo_language": {
+            "n": 55,
+            "tp": 37,
+            "fp": 0,
+            "tn": 17,
+            "fn": 1,
+            "accuracy": 0.9818,
+            "precision": 1.0,
+            "recall": 0.9737,
+            "f1": 0.9867,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.1951
+            ],
+            "fnr": 0.0263,
+            "fnr_ci95": [
+              0.0007,
+              0.1381
+            ]
+          },
+          "photo_mandatory": {
+            "n": 55,
+            "tp": 33,
+            "fp": 0,
+            "tn": 19,
+            "fn": 3,
+            "accuracy": 0.9455,
+            "precision": 1.0,
+            "recall": 0.9167,
+            "f1": 0.9565,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.1765
+            ],
+            "fnr": 0.0833,
+            "fnr_ci95": [
+              0.0175,
+              0.2247
+            ]
+          },
+          "has_alternative_path": {
+            "n": 55,
+            "tp": 2,
+            "fp": 2,
+            "tn": 51,
+            "fn": 0,
+            "accuracy": 0.9636,
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6667,
+            "fpr": 0.0377,
+            "fpr_ci95": [
+              0.0046,
+              0.1298
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.8419
+            ]
+          },
+          "physically_disabled": {
+            "n": 55,
+            "tp": 22,
+            "fp": 1,
+            "tn": 31,
+            "fn": 1,
+            "accuracy": 0.9636,
+            "precision": 0.9565,
+            "recall": 0.9565,
+            "f1": 0.9565,
+            "fpr": 0.0312,
+            "fpr_ci95": [
+              0.0008,
+              0.1622
+            ],
+            "fnr": 0.0435,
+            "fnr_ci95": [
+              0.0011,
+              0.2195
+            ]
+          },
+          "permanent_marking": {
+            "n": 55,
+            "tp": 12,
+            "fp": 0,
+            "tn": 43,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0822
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.2646
+            ]
+          },
+          "direct_return": {
+            "n": 55,
+            "tp": 4,
+            "fp": 0,
+            "tn": 51,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0698
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.6024
+            ]
+          },
+          "destruction_proof_no_photo": {
+            "n": 55,
+            "tp": 2,
+            "fp": 0,
+            "tn": 53,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0672
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.8419
+            ]
+          }
+        },
+        "categorical_fields": {
+          "amazon_channel": {
+            "n": 55,
+            "n_match": 54,
+            "n_disagreements": 1,
+            "exact_accuracy": 0.9818
+          },
+          "proof_status": {
+            "n": 55,
+            "n_match": 52,
+            "n_disagreements": 3,
+            "exact_accuracy": 0.9455
+          },
+          "duty_bearer": {
+            "n": 55,
+            "n_match": 55,
+            "n_disagreements": 0,
+            "exact_accuracy": 1.0
+          }
+        }
+      },
+      "3_Mkt_True_US": {
+        "n": 49,
+        "n_any_discrepancy": 11,
+        "binary_fields": {
+          "photo_language": {
+            "n": 49,
+            "tp": 30,
+            "fp": 0,
+            "tn": 19,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.1765
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.1157
+            ]
+          },
+          "photo_mandatory": {
+            "n": 49,
+            "tp": 25,
+            "fp": 0,
+            "tn": 24,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.1425
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.1372
+            ]
+          },
+          "has_alternative_path": {
+            "n": 49,
+            "tp": 5,
+            "fp": 0,
+            "tn": 44,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0804
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.5218
+            ]
+          },
+          "physically_disabled": {
+            "n": 49,
+            "tp": 9,
+            "fp": 0,
+            "tn": 35,
+            "fn": 5,
+            "accuracy": 0.898,
+            "precision": 1.0,
+            "recall": 0.6429,
+            "f1": 0.7826,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.1
+            ],
+            "fnr": 0.3571,
+            "fnr_ci95": [
+              0.1276,
+              0.6486
+            ]
+          },
+          "permanent_marking": {
+            "n": 49,
+            "tp": 5,
+            "fp": 0,
+            "tn": 40,
+            "fn": 4,
+            "accuracy": 0.9184,
+            "precision": 1.0,
+            "recall": 0.5556,
+            "f1": 0.7143,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0881
+            ],
+            "fnr": 0.4444,
+            "fnr_ci95": [
+              0.137,
+              0.788
+            ]
+          },
+          "direct_return": {
+            "n": 49,
+            "tp": 4,
+            "fp": 0,
+            "tn": 42,
+            "fn": 3,
+            "accuracy": 0.9388,
+            "precision": 1.0,
+            "recall": 0.5714,
+            "f1": 0.7273,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0841
+            ],
+            "fnr": 0.4286,
+            "fnr_ci95": [
+              0.099,
+              0.8159
+            ]
+          },
+          "destruction_proof_no_photo": {
+            "n": 49,
+            "tp": 0,
+            "fp": 0,
+            "tn": 49,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0725
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              1.0
+            ]
+          }
+        },
+        "categorical_fields": {
+          "amazon_channel": {
+            "n": 49,
+            "n_match": 49,
+            "n_disagreements": 0,
+            "exact_accuracy": 1.0
+          },
+          "proof_status": {
+            "n": 49,
+            "n_match": 49,
+            "n_disagreements": 0,
+            "exact_accuracy": 1.0
+          },
+          "duty_bearer": {
+            "n": 49,
+            "n_match": 47,
+            "n_disagreements": 2,
+            "exact_accuracy": 0.9592
+          }
+        }
+      },
+      "Other_Channels": {
+        "n": 46,
+        "n_any_discrepancy": 8,
+        "binary_fields": {
+          "photo_language": {
+            "n": 46,
+            "tp": 25,
+            "fp": 0,
+            "tn": 21,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.1611
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.1372
+            ]
+          },
+          "photo_mandatory": {
+            "n": 46,
+            "tp": 18,
+            "fp": 2,
+            "tn": 26,
+            "fn": 0,
+            "accuracy": 0.9565,
+            "precision": 0.9,
+            "recall": 1.0,
+            "f1": 0.9474,
+            "fpr": 0.0714,
+            "fpr_ci95": [
+              0.0088,
+              0.235
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.1853
+            ]
+          },
+          "has_alternative_path": {
+            "n": 46,
+            "tp": 5,
+            "fp": 0,
+            "tn": 39,
+            "fn": 2,
+            "accuracy": 0.9565,
+            "precision": 1.0,
+            "recall": 0.7143,
+            "f1": 0.8333,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0903
+            ],
+            "fnr": 0.2857,
+            "fnr_ci95": [
+              0.0367,
+              0.7096
+            ]
+          },
+          "physically_disabled": {
+            "n": 46,
+            "tp": 7,
+            "fp": 0,
+            "tn": 38,
+            "fn": 1,
+            "accuracy": 0.9783,
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1": 0.9333,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0925
+            ],
+            "fnr": 0.125,
+            "fnr_ci95": [
+              0.0032,
+              0.5265
+            ]
+          },
+          "permanent_marking": {
+            "n": 46,
+            "tp": 9,
+            "fp": 0,
+            "tn": 34,
+            "fn": 3,
+            "accuracy": 0.9348,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.1028
+            ],
+            "fnr": 0.25,
+            "fnr_ci95": [
+              0.0549,
+              0.5719
+            ]
+          },
+          "direct_return": {
+            "n": 46,
+            "tp": 5,
+            "fp": 0,
+            "tn": 39,
+            "fn": 2,
+            "accuracy": 0.9565,
+            "precision": 1.0,
+            "recall": 0.7143,
+            "f1": 0.8333,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.0903
+            ],
+            "fnr": 0.2857,
+            "fnr_ci95": [
+              0.0367,
+              0.7096
+            ]
+          },
+          "destruction_proof_no_photo": {
+            "n": 46,
+            "tp": 5,
+            "fp": 0,
+            "tn": 41,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "fpr_ci95": [
+              0.0,
+              0.086
+            ],
+            "fnr": 0.0,
+            "fnr_ci95": [
+              0.0,
+              0.5218
+            ]
+          }
+        },
+        "categorical_fields": {
+          "amazon_channel": {
+            "n": 46,
+            "n_match": 46,
+            "n_disagreements": 0,
+            "exact_accuracy": 1.0
+          },
+          "proof_status": {
+            "n": 46,
+            "n_match": 44,
+            "n_disagreements": 2,
+            "exact_accuracy": 0.9565
+          },
+          "duty_bearer": {
+            "n": 46,
+            "n_match": 45,
+            "n_disagreements": 1,
+            "exact_accuracy": 0.9783
+          }
+        }
+      }
+    },
+    "benchmark_edge_cases": {
+      "9924": {
+        "recall_id": 9924,
+        "recall_number": "24199",
+        "recall_date": "2024-04-11",
+        "year": 2024,
+        "audit_stratum": "Benchmark_EdgeCase",
+        "archetype_6": "1_Mkt_FD_China",
+        "source_url": "https://www.cpsc.gov/Recalls/2024/Zipline-Kits-Recalled-Due-to-Fall-Hazard-Sold-Exclusively-on-Amazon-com-by-Jugader",
+        "parser_amazon_channel": "strict_amazon_exclusive",
+        "audit_amazon_channel": "strict_amazon_exclusive",
+        "parser_photo_language": 1,
+        "audit_photo_language": 1,
+        "parser_proof_status": "optional_or_alternative_proof",
+        "audit_proof_status": "optional_or_alternative_proof",
+        "parser_has_alternative_path": 1,
+        "audit_has_alternative_path": 1,
+        "parser_photo_mandatory": 0,
+        "audit_photo_mandatory": 0,
+        "parser_duty_bearer": "shared_consumer_and_firm",
+        "audit_duty_bearer": "shared_consumer_and_firm",
+        "parser_physically_disabled": 0,
+        "audit_physically_disabled": 0,
+        "parser_permanent_marking": 0,
+        "audit_permanent_marking": 0,
+        "parser_direct_return": 0,
+        "audit_direct_return": 0,
+        "parser_destruction_proof_no_photo": 0,
+        "audit_destruction_proof_no_photo": 0,
+        "audit_discrepancy_fields": "no_discrepancy",
+        "audit_adjudication_note": "Benchmark edge case (Jugader 24-199): optional alternative 'photo of the cable and the trolley OR their online purchase order number' for free repair kit; correctly excluded from mandatory photo destruction."
+      },
+      "10148": {
+        "recall_id": 10148,
+        "recall_number": "25122",
+        "recall_date": "2025-02-06",
+        "year": 2025,
+        "audit_stratum": "Benchmark_EdgeCase",
+        "archetype_6": "1_Mkt_FD_China",
+        "source_url": "https://www.cpsc.gov/Recalls/2025/UVIPC-Baby-Gates-Recalled-Due-to-Entrapment-Hazard-Violation-of-Federal-Regulations-for-Gates-and-Enclosures-Sold-Exclusively-on-Amazon-com-by-Xianshengyouli",
+        "parser_amazon_channel": "strict_amazon_exclusive",
+        "audit_amazon_channel": "strict_amazon_exclusive",
+        "parser_photo_language": 0,
+        "audit_photo_language": 0,
+        "parser_proof_status": "mandatory_proof",
+        "audit_proof_status": "mandatory_proof",
+        "parser_has_alternative_path": 0,
+        "audit_has_alternative_path": 0,
+        "parser_photo_mandatory": 0,
+        "audit_photo_mandatory": 0,
+        "parser_duty_bearer": "consumer_action_required",
+        "audit_duty_bearer": "consumer_action_required",
+        "parser_physically_disabled": 1,
+        "audit_physically_disabled": 1,
+        "parser_permanent_marking": 0,
+        "audit_permanent_marking": 0,
+        "parser_direct_return": 0,
+        "audit_direct_return": 0,
+        "parser_destruction_proof_no_photo": 1,
+        "audit_destruction_proof_no_photo": 1,
+        "audit_discrepancy_fields": "no_discrepancy",
+        "audit_adjudication_note": "Benchmark edge case (UVIPC 25-122): 'submit proof of destruction to obtain a full refund' with ZERO literal photo wording; correctly captured by destruction_proof_without_photo=1 and physically_disabled=1."
+      },
+      "10311": {
+        "recall_id": 10311,
+        "recall_number": "25338",
+        "recall_date": "2025-06-12",
+        "year": 2025,
+        "audit_stratum": "Benchmark_EdgeCase",
+        "archetype_6": "1_Mkt_FD_China",
+        "source_url": "https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+        "parser_amazon_channel": "multi_channel_with_amazon",
+        "audit_amazon_channel": "multi_channel_with_amazon",
+        "parser_photo_language": 1,
+        "audit_photo_language": 1,
+        "parser_proof_status": "mandatory_proof",
+        "audit_proof_status": "mandatory_proof",
+        "parser_has_alternative_path": 0,
+        "audit_has_alternative_path": 0,
+        "parser_photo_mandatory": 1,
+        "audit_photo_mandatory": 1,
+        "parser_duty_bearer": "consumer_action_required",
+        "audit_duty_bearer": "consumer_action_required",
+        "parser_physically_disabled": 0,
+        "audit_physically_disabled": 0,
+        "parser_permanent_marking": 1,
+        "audit_permanent_marking": 1,
+        "parser_direct_return": 0,
+        "audit_direct_return": 0,
+        "parser_destruction_proof_no_photo": 0,
+        "audit_destruction_proof_no_photo": 0,
+        "audit_discrepancy_fields": "no_discrepancy",
+        "audit_adjudication_note": "Benchmark edge case (Anker 25-338, 1.158M units): multi-channel online ('Anker, Amazon, Newegg and Ebay'), permanent marking + photo + disposal confirmation (not physically disabled); full-notice HHW warning=1."
+      },
+      "10895": {
+        "recall_id": 10895,
+        "recall_number": "26659",
+        "recall_date": "2026-07-30",
+        "year": 2026,
+        "audit_stratum": "Benchmark_EdgeCase",
+        "archetype_6": "1_Mkt_FD_China",
+        "source_url": "https://www.cpsc.gov/Recalls/2026/OCOOPA-Direct-Recalls-1-5-Million-Rechargeable-Hand-Warmers-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-and-Burn-Hazards-One-Death-Reported-Imported-by-Shenzhen-Street-Cat-Technology",
+        "parser_amazon_channel": "multi_channel_with_amazon",
+        "audit_amazon_channel": "multi_channel_with_amazon",
+        "parser_photo_language": 1,
+        "audit_photo_language": 1,
+        "parser_proof_status": "mandatory_proof",
+        "audit_proof_status": "mandatory_proof",
+        "parser_has_alternative_path": 0,
+        "audit_has_alternative_path": 0,
+        "parser_photo_mandatory": 1,
+        "audit_photo_mandatory": 1,
+        "parser_duty_bearer": "consumer_action_required",
+        "audit_duty_bearer": "consumer_action_required",
+        "parser_physically_disabled": 0,
+        "audit_physically_disabled": 0,
+        "parser_permanent_marking": 1,
+        "audit_permanent_marking": 1,
+        "parser_direct_return": 0,
+        "audit_direct_return": 0,
+        "parser_destruction_proof_no_photo": 0,
+        "audit_destruction_proof_no_photo": 0,
+        "audit_discrepancy_fields": "no_discrepancy",
+        "audit_adjudication_note": "Benchmark edge case (OCOOPA 26-659, 1.500M units): multi-channel online ('Amazon.com, Ocoopa.com, Ocoopa.net and Walmart.com'), permanent marking + photo + explicit HHW prohibition of trash/curbside bins."
+      },
+      "10317": {
+        "recall_id": 10317,
+        "recall_number": "25345",
+        "recall_date": "2025-06-18",
+        "year": 2025,
+        "audit_stratum": "Benchmark_EdgeCase",
+        "archetype_6": "1_Mkt_FD_China",
+        "source_url": "https://www.cpsc.gov/Recalls/2025/TADAKAZU-Baby-Loungers-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Suffocation-Fall-and-Entrapment-Hazards-Violations-of-Federal-Standard-for-Infant-Sleep-Products-Sold-on-Amazon",
+        "parser_amazon_channel": "strict_amazon_exclusive",
+        "audit_amazon_channel": "strict_amazon_exclusive",
+        "parser_photo_language": 1,
+        "audit_photo_language": 1,
+        "parser_proof_status": "mandatory_proof",
+        "audit_proof_status": "mandatory_proof",
+        "parser_has_alternative_path": 0,
+        "audit_has_alternative_path": 0,
+        "parser_photo_mandatory": 1,
+        "audit_photo_mandatory": 1,
+        "parser_duty_bearer": "consumer_action_required",
+        "audit_duty_bearer": "consumer_action_required",
+        "parser_physically_disabled": 1,
+        "audit_physically_disabled": 1,
+        "parser_permanent_marking": 0,
+        "audit_permanent_marking": 0,
+        "parser_direct_return": 0,
+        "audit_direct_return": 0,
+        "parser_destruction_proof_no_photo": 0,
+        "audit_destruction_proof_no_photo": 0,
+        "audit_discrepancy_fields": "no_discrepancy",
+        "audit_adjudication_note": "Benchmark edge case (TADAKAZU 25-345): strict Amazon-exclusive ('Exclusively on Amazon'), physical cutting + photo; sole standalone 'FBA' token appears inside product model-name suffix, explicit_fba=0."
+      }
+    }
+  },
+  "three_definition_channel_comparisons": {
+    "Def1_Broad_Mkt_Mentions_Amazon": {
+      "label": "Broad Online-Marketplace Mentioning Amazon (Legacy amazon_only_mkt)",
+      "is_underpowered_common_support": false,
+      "raw_n": 525,
+      "raw_groups": {
+        "1_Mkt_FD_China": 359,
+        "3_Mkt_True_US": 166
+      },
+      "raw_clusters": 495,
+      "cs_n": 391,
+      "cs_groups": {
+        "1_Mkt_FD_China": 264,
+        "3_Mkt_True_US": 127
+      },
+      "cs_cells": 38,
+      "cs_clusters": 368,
+      "common_support_models": {
+        "photo_language": {
+          "label": "Photo evidence mentioned or offered (literal wording)",
+          "n": 391,
+          "n_clusters": 368,
+          "r2": 0.4415,
+          "raw_mean_fd": 0.8258,
+          "raw_mean_us": 0.4961,
+          "beta": 0.13718168432128247,
+          "se": 0.061425142106313606,
+          "t": 2.233314887311953,
+          "p": 0.026130396453532292,
+          "ci_lo": 0.01639227834924896,
+          "ci_hi": 0.257971090293316,
+          "p_wcb": 0.027
+        },
+        "photo_mandatory": {
+          "label": "Mandatory photo evidence (no non-photo alternative)",
+          "n": 391,
+          "n_clusters": 368,
+          "r2": 0.4251,
+          "raw_mean_fd": 0.8068,
+          "raw_mean_us": 0.4724,
+          "beta": 0.13855587525461582,
+          "se": 0.06170052504995254,
+          "t": 2.2456190630864397,
+          "p": 0.025322985365275354,
+          "ci_lo": 0.017224942783231195,
+          "ci_hi": 0.2598868077260005,
+          "p_wcb": 0.03
+        },
+        "direct_return": {
+          "label": "Direct physical return option",
+          "n": 391,
+          "n_clusters": 368,
+          "r2": 0.3814,
+          "raw_mean_fd": 0.0265,
+          "raw_mean_us": 0.1181,
+          "beta": -0.08202891187665524,
+          "se": 0.033386588175748855,
+          "t": -2.4569420344735584,
+          "p": 0.014474619985343874,
+          "ci_lo": -0.14768193301581373,
+          "ci_hi": -0.01637589073749675,
+          "p_wcb": 0.021
+        },
+        "physical_destruction": {
+          "label": "Explicit physical destruction / cutting / disassembly",
+          "n": 391,
+          "n_clusters": 368,
+          "r2": 0.5275,
+          "raw_mean_fd": 0.4318,
+          "raw_mean_us": 0.2205,
+          "beta": 0.09891439223392304,
+          "se": 0.057463715097715806,
+          "t": 1.7213365349894494,
+          "p": 0.08603248591012072,
+          "ci_lo": -0.014085069771160905,
+          "ci_hi": 0.211913854239007,
+          "p_wcb": 0.097
+        },
+        "physically_disabled": {
+          "label": "Product physically disabled (action or destruction proof)",
+          "n": 391,
+          "n_clusters": 368,
+          "r2": 0.5065,
+          "raw_mean_fd": 0.4432,
+          "raw_mean_us": 0.2283,
+          "beta": 0.11037817122405988,
+          "se": 0.058155748764596366,
+          "t": 1.8979752400893357,
+          "p": 0.05848376413646297,
+          "ci_lo": -0.0039821396560738576,
+          "ci_hi": 0.22473848210419362,
+          "p_wcb": 0.068
+        },
+        "permanent_marking": {
+          "label": "Permanent marking / defacing instruction",
+          "n": 391,
+          "n_clusters": 368,
+          "r2": 0.456,
+          "raw_mean_fd": 0.3636,
+          "raw_mean_us": 0.1417,
+          "beta": 0.13447084364483636,
+          "se": 0.05479782920064276,
+          "t": 2.453944720190833,
+          "p": 0.014593813368524541,
+          "ci_lo": 0.026713710153040096,
+          "ci_hi": 0.24222797713663263,
+          "p_wcb": 0.015
+        },
+        "photo_only_no_action": {
+          "label": "Photo-only (no physical destruction or marking)",
+          "n": 391,
+          "n_clusters": 368,
+          "r2": 0.4353,
+          "raw_mean_fd": 0.2652,
+          "raw_mean_us": 0.1732,
+          "beta": 0.04917477522341895,
+          "se": 0.05453192129903293,
+          "t": 0.9017612813192961,
+          "p": 0.3677751064394242,
+          "ci_lo": -0.058059463955440586,
+          "ci_hi": 0.15640901440227847,
+          "p_wcb": 0.39
+        },
+        "destruction_proof": {
+          "label": "Explicit phrase: proof/evidence of destruction",
+          "n": 391,
+          "n_clusters": 368,
+          "r2": 0.2954,
+          "raw_mean_fd": 0.0341,
+          "raw_mean_us": 0.0315,
+          "beta": -0.00017772752090028376,
+          "se": 0.024481063414969754,
+          "t": -0.007259795781240712,
+          "p": 0.9942115164986453,
+          "ci_lo": -0.0483184888778681,
+          "ci_hi": 0.04796303383606753,
+          "p_wcb": 0.995
+        },
+        "photo_and_physical_action": {
+          "label": "Photo and physical-action text co-occur",
+          "n": 391,
+          "n_clusters": 368,
+          "r2": 0.5024,
+          "raw_mean_fd": 0.4129,
+          "raw_mean_us": 0.2126,
+          "beta": 0.07338043094101707,
+          "se": 0.057760106515128265,
+          "t": 1.2704344809647745,
+          "p": 0.2047346943777412,
+          "ci_lo": -0.040201869654533554,
+          "ci_hi": 0.18696273153656767,
+          "p_wcb": 0.208
+        }
+      },
+      "full_subsample_prodcat_yq_models": {
+        "photo_language": {
+          "label": "Photo evidence mentioned or offered (literal wording)",
+          "n": 525,
+          "n_clusters": 495,
+          "r2": 0.3811,
+          "beta": 0.22596312160052662,
+          "se": 0.05378984947458955,
+          "t": 4.200850602998473,
+          "p": 3.1555219433695896e-05,
+          "ci_lo": 0.12027802270624785,
+          "ci_hi": 0.33164822049480536,
+          "p_wcb": 0.001
+        },
+        "photo_mandatory": {
+          "label": "Mandatory photo evidence (no non-photo alternative)",
+          "n": 525,
+          "n_clusters": 495,
+          "r2": 0.3738,
+          "beta": 0.22954396276809713,
+          "se": 0.05440441902580184,
+          "t": 4.219215403425843,
+          "p": 2.9174075439217656e-05,
+          "ci_lo": 0.12265137129981578,
+          "ci_hi": 0.33643655423637847,
+          "p_wcb": 0.001
+        },
+        "direct_return": {
+          "label": "Direct physical return option",
+          "n": 525,
+          "n_clusters": 495,
+          "r2": 0.2989,
+          "beta": -0.09212802637478165,
+          "se": 0.03518135843943059,
+          "t": -2.6186602923077107,
+          "p": 0.009098743973795148,
+          "ci_lo": -0.16125157630519654,
+          "ci_hi": -0.023004476444366775,
+          "p_wcb": 0.011
+        },
+        "physical_destruction": {
+          "label": "Explicit physical destruction / cutting / disassembly",
+          "n": 525,
+          "n_clusters": 495,
+          "r2": 0.3805,
+          "beta": 0.16070313537350045,
+          "se": 0.050277874618261796,
+          "t": 3.196299298521467,
+          "p": 0.0014811572416472088,
+          "ci_lo": 0.06191828650093921,
+          "ci_hi": 0.2594879842460617,
+          "p_wcb": 0.003
+        },
+        "physically_disabled": {
+          "label": "Product physically disabled (action or destruction proof)",
+          "n": 525,
+          "n_clusters": 495,
+          "r2": 0.3561,
+          "beta": 0.16970604342887552,
+          "se": 0.05028925299537006,
+          "t": 3.3745986134353543,
+          "p": 0.0007974016517525591,
+          "ci_lo": 0.0708988385742528,
+          "ci_hi": 0.2685132482834982,
+          "p_wcb": 0.003
+        },
+        "permanent_marking": {
+          "label": "Permanent marking / defacing instruction",
+          "n": 525,
+          "n_clusters": 495,
+          "r2": 0.3533,
+          "beta": 0.1090075502397469,
+          "se": 0.04644867426037427,
+          "t": 2.346838784433124,
+          "p": 0.019327478928105924,
+          "ci_lo": 0.017746228992979188,
+          "ci_hi": 0.20026887148651462,
+          "p_wcb": 0.021
+        },
+        "photo_only_no_action": {
+          "label": "Photo-only (no physical destruction or marking)",
+          "n": 525,
+          "n_clusters": 495,
+          "r2": 0.2965,
+          "beta": 0.06081900693032752,
+          "se": 0.04806251391335739,
+          "t": 1.2654146023232646,
+          "p": 0.20631926394236355,
+          "ci_lo": -0.0336131505428104,
+          "ci_hi": 0.15525116440346542,
+          "p_wcb": 0.242
+        },
+        "destruction_proof": {
+          "label": "Explicit phrase: proof/evidence of destruction",
+          "n": 525,
+          "n_clusters": 495,
+          "r2": 0.1478,
+          "beta": -0.003292760901033247,
+          "se": 0.02042836880909755,
+          "t": -0.16118569876058103,
+          "p": 0.8720130414746572,
+          "ci_lo": -0.043429965204945256,
+          "ci_hi": 0.03684444340287876,
+          "p_wcb": 0.875
+        },
+        "photo_and_physical_action": {
+          "label": "Photo and physical-action text co-occur",
+          "n": 525,
+          "n_clusters": 495,
+          "r2": 0.3707,
+          "beta": 0.13905059556128307,
+          "se": 0.05051844378160008,
+          "t": 2.752471872697083,
+          "p": 0.006132339156858455,
+          "ci_lo": 0.039793081751625645,
+          "ci_hi": 0.2383081093709405,
+          "p_wcb": 0.009
+        }
+      },
+      "misclassification_bounds_common_support": {
+        "photo_language": {
+          "beta_fe": 0.1372,
+          "se_fe": 0.0614,
+          "empirical_diff_bias": -0.0223,
+          "beta_empirical_adjusted": 0.1595,
+          "point_misclass_bound_lo": 0.0307,
+          "point_misclass_bound_hi": 0.3775,
+          "joint_sampling_and_misclass_lo": -0.0901,
+          "joint_sampling_and_misclass_hi": 0.4983,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0263
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.0
+          ]
+        },
+        "photo_mandatory": {
+          "beta_fe": 0.1386,
+          "se_fe": 0.0617,
+          "empirical_diff_bias": -0.0733,
+          "beta_empirical_adjusted": 0.2119,
+          "point_misclass_bound_lo": 0.0386,
+          "point_misclass_bound_hi": 0.4509,
+          "joint_sampling_and_misclass_lo": -0.0827,
+          "joint_sampling_and_misclass_hi": 0.5723,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0833
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.0
+          ]
+        },
+        "direct_return": {
+          "beta_fe": -0.082,
+          "se_fe": 0.0334,
+          "empirical_diff_bias": 0.0886,
+          "beta_empirical_adjusted": -0.1706,
+          "point_misclass_bound_lo": -0.6753,
+          "point_misclass_bound_hi": 0.0346,
+          "joint_sampling_and_misclass_lo": -0.7409,
+          "joint_sampling_and_misclass_hi": 0.1003,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.4286
+          ]
+        },
+        "physically_disabled": {
+          "beta_fe": 0.1104,
+          "se_fe": 0.0582,
+          "empirical_diff_bias": 0.1248,
+          "beta_empirical_adjusted": -0.0144,
+          "point_misclass_bound_lo": -0.4185,
+          "point_misclass_bound_hi": 0.2968,
+          "joint_sampling_and_misclass_lo": -0.5328,
+          "joint_sampling_and_misclass_hi": 0.4111,
+          "fd_fpr_fnr": [
+            0.0312,
+            0.0435
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.3571
+          ]
+        },
+        "permanent_marking": {
+          "beta_fe": 0.1345,
+          "se_fe": 0.0548,
+          "empirical_diff_bias": 0.1134,
+          "beta_empirical_adjusted": 0.0211,
+          "point_misclass_bound_lo": -0.4493,
+          "point_misclass_bound_hi": 0.3378,
+          "joint_sampling_and_misclass_lo": -0.5571,
+          "joint_sampling_and_misclass_hi": 0.4456,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.4444
+          ]
+        }
+      }
+    },
+    "Def2a_NoOtherFlaggedPlat_Benchmark": {
+      "label": "Excl. Other Flagged 3P Platforms (Reviewer N=313 Benchmark)",
+      "is_underpowered_common_support": false,
+      "raw_n": 455,
+      "raw_groups": {
+        "1_Mkt_FD_China": 338,
+        "3_Mkt_True_US": 117
+      },
+      "raw_clusters": 432,
+      "cs_n": 313,
+      "cs_groups": {
+        "1_Mkt_FD_China": 224,
+        "3_Mkt_True_US": 89
+      },
+      "cs_cells": 34,
+      "cs_clusters": 298,
+      "common_support_models": {
+        "photo_language": {
+          "label": "Photo evidence mentioned or offered (literal wording)",
+          "n": 313,
+          "n_clusters": 298,
+          "r2": 0.403,
+          "raw_mean_fd": 0.8438,
+          "raw_mean_us": 0.5506,
+          "beta": 0.10887892485651762,
+          "se": 0.0707080173130217,
+          "t": 1.5398384651985753,
+          "p": 0.12466445026156854,
+          "ci_lo": -0.03027328832752535,
+          "ci_hi": 0.2480311380405606,
+          "p_wcb": 0.121
+        },
+        "photo_mandatory": {
+          "label": "Mandatory photo evidence (no non-photo alternative)",
+          "n": 313,
+          "n_clusters": 298,
+          "r2": 0.3902,
+          "raw_mean_fd": 0.8259,
+          "raw_mean_us": 0.5281,
+          "beta": 0.10614441466505764,
+          "se": 0.07115113932637732,
+          "t": 1.4918160927566135,
+          "p": 0.13680875508304008,
+          "ci_lo": -0.033879855341000714,
+          "ci_hi": 0.246168684671116,
+          "p_wcb": 0.137
+        },
+        "direct_return": {
+          "label": "Direct physical return option",
+          "n": 313,
+          "n_clusters": 298,
+          "r2": 0.4263,
+          "raw_mean_fd": 0.0268,
+          "raw_mean_us": 0.0899,
+          "beta": -0.06998196398994654,
+          "se": 0.03930118962409155,
+          "t": -1.7806576508067768,
+          "p": 0.0759904858217339,
+          "ci_lo": -0.1473260576978454,
+          "ci_hi": 0.007362129717952318,
+          "p_wcb": 0.097
+        },
+        "physical_destruction": {
+          "label": "Explicit physical destruction / cutting / disassembly",
+          "n": 313,
+          "n_clusters": 298,
+          "r2": 0.543,
+          "raw_mean_fd": 0.4688,
+          "raw_mean_us": 0.236,
+          "beta": 0.07685135470533162,
+          "se": 0.0656257534495582,
+          "t": 1.1710548171367166,
+          "p": 0.24251542464889533,
+          "ci_lo": -0.052299046923800316,
+          "ci_hi": 0.20600175633446355,
+          "p_wcb": 0.27
+        },
+        "physically_disabled": {
+          "label": "Product physically disabled (action or destruction proof)",
+          "n": 313,
+          "n_clusters": 298,
+          "r2": 0.5387,
+          "raw_mean_fd": 0.4732,
+          "raw_mean_us": 0.236,
+          "beta": 0.0889121888798406,
+          "se": 0.06592650332531824,
+          "t": 1.3486562216275622,
+          "p": 0.1784748731021673,
+          "ci_lo": -0.04083008355004601,
+          "ci_hi": 0.2186544613097272,
+          "p_wcb": 0.185
+        },
+        "permanent_marking": {
+          "label": "Permanent marking / defacing instruction",
+          "n": 313,
+          "n_clusters": 298,
+          "r2": 0.4708,
+          "raw_mean_fd": 0.3795,
+          "raw_mean_us": 0.1573,
+          "beta": 0.10388258093160033,
+          "se": 0.06359436967596928,
+          "t": 1.6335185246887503,
+          "p": 0.10341957311435575,
+          "ci_lo": -0.02127009089739204,
+          "ci_hi": 0.2290352527605927,
+          "p_wcb": 0.108
+        },
+        "photo_only_no_action": {
+          "label": "Photo-only (no physical destruction or marking)",
+          "n": 313,
+          "n_clusters": 298,
+          "r2": 0.4497,
+          "raw_mean_fd": 0.2455,
+          "raw_mean_us": 0.191,
+          "beta": 0.07680821926252387,
+          "se": 0.06398025130811308,
+          "t": 1.200498867887131,
+          "p": 0.23090227866295251,
+          "ci_lo": -0.04910386126127275,
+          "ci_hi": 0.2027202997863205,
+          "p_wcb": 0.227
+        },
+        "destruction_proof": {
+          "label": "Explicit phrase: proof/evidence of destruction",
+          "n": 313,
+          "n_clusters": 298,
+          "r2": 0.4034,
+          "raw_mean_fd": 0.0268,
+          "raw_mean_us": 0.0337,
+          "beta": -0.01962755902498184,
+          "se": 0.030539490475143465,
+          "t": -0.6426943842090946,
+          "p": 0.5209182549328809,
+          "ci_lo": -0.07972877315344805,
+          "ci_hi": 0.04047365510348437,
+          "p_wcb": 0.58
+        },
+        "photo_and_physical_action": {
+          "label": "Photo and physical-action text co-occur",
+          "n": 313,
+          "n_clusters": 298,
+          "r2": 0.5131,
+          "raw_mean_fd": 0.4464,
+          "raw_mean_us": 0.2247,
+          "beta": 0.04669641647764318,
+          "se": 0.06677898413053576,
+          "t": 0.6992681467924651,
+          "p": 0.48493173469789935,
+          "ci_lo": -0.08472352413261099,
+          "ci_hi": 0.17811635708789736,
+          "p_wcb": 0.501
+        }
+      },
+      "full_subsample_prodcat_yq_models": {
+        "photo_language": {
+          "label": "Photo evidence mentioned or offered (literal wording)",
+          "n": 455,
+          "n_clusters": 432,
+          "r2": 0.3549,
+          "beta": 0.21989377495091644,
+          "se": 0.0629818139353481,
+          "t": 3.491385230292686,
+          "p": 0.0005301047898567688,
+          "ci_lo": 0.09610407017624852,
+          "ci_hi": 0.3436834797255844,
+          "p_wcb": 0.003
+        },
+        "photo_mandatory": {
+          "label": "Mandatory photo evidence (no non-photo alternative)",
+          "n": 455,
+          "n_clusters": 432,
+          "r2": 0.3521,
+          "beta": 0.20954303074329306,
+          "se": 0.06233869609832917,
+          "t": 3.3613637091923283,
+          "p": 0.00084472173299908,
+          "ci_lo": 0.08701736335029882,
+          "ci_hi": 0.3320686981362873,
+          "p_wcb": 0.004
+        },
+        "direct_return": {
+          "label": "Direct physical return option",
+          "n": 455,
+          "n_clusters": 432,
+          "r2": 0.3838,
+          "beta": -0.06965257639458386,
+          "se": 0.042036592707379875,
+          "t": -1.6569510492784485,
+          "p": 0.09825708796967489,
+          "ci_lo": -0.15227479820485432,
+          "ci_hi": 0.012969645415686598,
+          "p_wcb": 0.113
+        },
+        "physical_destruction": {
+          "label": "Explicit physical destruction / cutting / disassembly",
+          "n": 455,
+          "n_clusters": 432,
+          "r2": 0.391,
+          "beta": 0.1370901144868955,
+          "se": 0.058696976421189644,
+          "t": 2.3355566648473207,
+          "p": 0.01997226993718453,
+          "ci_lo": 0.021722186376672045,
+          "ci_hi": 0.25245804259711896,
+          "p_wcb": 0.031
+        },
+        "physically_disabled": {
+          "label": "Product physically disabled (action or destruction proof)",
+          "n": 455,
+          "n_clusters": 432,
+          "r2": 0.377,
+          "beta": 0.14709290505223632,
+          "se": 0.0586418284094266,
+          "t": 2.508327401138661,
+          "p": 0.012496756369452083,
+          "ci_lo": 0.03183336943928303,
+          "ci_hi": 0.2623524406651896,
+          "p_wcb": 0.019
+        },
+        "permanent_marking": {
+          "label": "Permanent marking / defacing instruction",
+          "n": 455,
+          "n_clusters": 432,
+          "r2": 0.3422,
+          "beta": 0.06536443669644676,
+          "se": 0.0533173843184077,
+          "t": 1.2259498010272767,
+          "p": 0.22088698080903657,
+          "ci_lo": -0.03942999286552738,
+          "ci_hi": 0.17015886625842092,
+          "p_wcb": 0.234
+        },
+        "photo_only_no_action": {
+          "label": "Photo-only (no physical destruction or marking)",
+          "n": 455,
+          "n_clusters": 432,
+          "r2": 0.2945,
+          "beta": 0.11061519764071052,
+          "se": 0.05813041256574413,
+          "t": 1.9028799686499271,
+          "p": 0.05772229691282311,
+          "ci_lo": -0.0036391586617274124,
+          "ci_hi": 0.22486955394314845,
+          "p_wcb": 0.07
+        },
+        "destruction_proof": {
+          "label": "Explicit phrase: proof/evidence of destruction",
+          "n": 455,
+          "n_clusters": 432,
+          "r2": 0.1952,
+          "beta": -0.019192975971869572,
+          "se": 0.026758184188015215,
+          "t": -0.717274977891286,
+          "p": 0.4735929868982161,
+          "ci_lo": -0.07178574067599214,
+          "ci_hi": 0.033399788732253,
+          "p_wcb": 0.533
+        },
+        "photo_and_physical_action": {
+          "label": "Photo and physical-action text co-occur",
+          "n": 455,
+          "n_clusters": 432,
+          "r2": 0.3769,
+          "beta": 0.1102172346984423,
+          "se": 0.05946281272142027,
+          "t": 1.8535489603359914,
+          "p": 0.06448683854217024,
+          "ci_lo": -0.006655931885995156,
+          "ci_hi": 0.22709040128287977,
+          "p_wcb": 0.087
+        }
+      },
+      "misclassification_bounds_common_support": {
+        "photo_language": {
+          "beta_fe": 0.1089,
+          "se_fe": 0.0707,
+          "empirical_diff_bias": -0.0228,
+          "beta_empirical_adjusted": 0.1317,
+          "point_misclass_bound_lo": -0.0003,
+          "point_misclass_bound_hi": 0.3404,
+          "joint_sampling_and_misclass_lo": -0.1395,
+          "joint_sampling_and_misclass_hi": 0.4796,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0263
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.0
+          ]
+        },
+        "photo_mandatory": {
+          "beta_fe": 0.1061,
+          "se_fe": 0.0712,
+          "empirical_diff_bias": -0.075,
+          "beta_empirical_adjusted": 0.1812,
+          "point_misclass_bound_lo": 0.002,
+          "point_misclass_bound_hi": 0.4093,
+          "joint_sampling_and_misclass_lo": -0.138,
+          "joint_sampling_and_misclass_hi": 0.5493,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0833
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.0
+          ]
+        },
+        "direct_return": {
+          "beta_fe": -0.07,
+          "se_fe": 0.0393,
+          "empirical_diff_bias": 0.0674,
+          "beta_empirical_adjusted": -0.1374,
+          "point_misclass_bound_lo": -0.5381,
+          "point_misclass_bound_hi": 0.0534,
+          "joint_sampling_and_misclass_lo": -0.6155,
+          "joint_sampling_and_misclass_hi": 0.1307,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.4286
+          ]
+        },
+        "physically_disabled": {
+          "beta_fe": 0.0889,
+          "se_fe": 0.0659,
+          "empirical_diff_bias": 0.1266,
+          "beta_empirical_adjusted": -0.0377,
+          "point_misclass_bound_lo": -0.4481,
+          "point_misclass_bound_hi": 0.2815,
+          "joint_sampling_and_misclass_lo": -0.5778,
+          "joint_sampling_and_misclass_hi": 0.4113,
+          "fd_fpr_fnr": [
+            0.0312,
+            0.0435
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.3571
+          ]
+        },
+        "permanent_marking": {
+          "beta_fe": 0.1039,
+          "se_fe": 0.0636,
+          "empirical_diff_bias": 0.1258,
+          "beta_empirical_adjusted": -0.0219,
+          "point_misclass_bound_lo": -0.5364,
+          "point_misclass_bound_hi": 0.3084,
+          "joint_sampling_and_misclass_lo": -0.6615,
+          "joint_sampling_and_misclass_hi": 0.4336,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.4444
+          ]
+        }
+      }
+    },
+    "Def2b_Strict_Amazon_Exclusive_Verbatim": {
+      "label": "Verbatim Strict Amazon-Exclusive (Zero Other Platforms/DTC/Stores)",
+      "is_underpowered_common_support": false,
+      "raw_n": 386,
+      "raw_groups": {
+        "1_Mkt_FD_China": 320,
+        "3_Mkt_True_US": 66
+      },
+      "raw_clusters": 368,
+      "cs_n": 236,
+      "cs_groups": {
+        "1_Mkt_FD_China": 184,
+        "3_Mkt_True_US": 52
+      },
+      "cs_cells": 25,
+      "cs_clusters": 226,
+      "common_support_models": {
+        "photo_language": {
+          "label": "Photo evidence mentioned or offered (literal wording)",
+          "n": 236,
+          "n_clusters": 226,
+          "r2": 0.3825,
+          "raw_mean_fd": 0.8696,
+          "raw_mean_us": 0.6154,
+          "beta": 0.10700125676516326,
+          "se": 0.0825353141066144,
+          "t": 1.2964299939168482,
+          "p": 0.1961554666414472,
+          "ci_lo": -0.055639811619639545,
+          "ci_hi": 0.26964232514996606,
+          "p_wcb": 0.226
+        },
+        "photo_mandatory": {
+          "label": "Mandatory photo evidence (no non-photo alternative)",
+          "n": 236,
+          "n_clusters": 226,
+          "r2": 0.3836,
+          "raw_mean_fd": 0.8587,
+          "raw_mean_us": 0.5769,
+          "beta": 0.1045657555307109,
+          "se": 0.08199726839857271,
+          "t": 1.2752346215051602,
+          "p": 0.20354136291512126,
+          "ci_lo": -0.05701505967952086,
+          "ci_hi": 0.26614657074094267,
+          "p_wcb": 0.243
+        },
+        "direct_return": {
+          "label": "Direct physical return option",
+          "n": 236,
+          "n_clusters": 226,
+          "r2": 0.3423,
+          "raw_mean_fd": 0.0054,
+          "raw_mean_us": 0.1154,
+          "beta": -0.10758739266458811,
+          "se": 0.04781479807598909,
+          "t": -2.2500856846369226,
+          "p": 0.02541079933256033,
+          "ci_lo": -0.20180948326736994,
+          "ci_hi": -0.013365302061806278,
+          "p_wcb": 0.044
+        },
+        "physical_destruction": {
+          "label": "Explicit physical destruction / cutting / disassembly",
+          "n": 236,
+          "n_clusters": 226,
+          "r2": 0.5863,
+          "raw_mean_fd": 0.4728,
+          "raw_mean_us": 0.2692,
+          "beta": 0.15237702069787495,
+          "se": 0.07295907613641388,
+          "t": 2.08852727812741,
+          "p": 0.037874951775369536,
+          "ci_lo": 0.008606536273880139,
+          "ci_hi": 0.29614750512186977,
+          "p_wcb": 0.035
+        },
+        "physically_disabled": {
+          "label": "Product physically disabled (action or destruction proof)",
+          "n": 236,
+          "n_clusters": 226,
+          "r2": 0.5787,
+          "raw_mean_fd": 0.4783,
+          "raw_mean_us": 0.2692,
+          "beta": 0.17232940491513293,
+          "se": 0.07311746142942586,
+          "t": 2.3568844096354193,
+          "p": 0.01928721262485633,
+          "ci_lo": 0.028246812231167928,
+          "ci_hi": 0.31641199759909794,
+          "p_wcb": 0.015
+        },
+        "permanent_marking": {
+          "label": "Permanent marking / defacing instruction",
+          "n": 236,
+          "n_clusters": 226,
+          "r2": 0.5345,
+          "raw_mean_fd": 0.3804,
+          "raw_mean_us": 0.1731,
+          "beta": 0.04391614949525735,
+          "se": 0.08192086833988012,
+          "t": 0.5360801268982449,
+          "p": 0.5924327406527484,
+          "ci_lo": -0.11751411455629857,
+          "ci_hi": 0.20534641354681327,
+          "p_wcb": 0.57
+        },
+        "photo_only_no_action": {
+          "label": "Photo-only (no physical destruction or marking)",
+          "n": 236,
+          "n_clusters": 226,
+          "r2": 0.5249,
+          "raw_mean_fd": 0.2772,
+          "raw_mean_us": 0.2308,
+          "beta": 0.040662751907116323,
+          "se": 0.09166600931850968,
+          "t": 0.4435968382328769,
+          "p": 0.6577603614982551,
+          "ci_lo": -0.13997093019016815,
+          "ci_hi": 0.2212964340044008,
+          "p_wcb": 0.679
+        },
+        "destruction_proof": {
+          "label": "Explicit phrase: proof/evidence of destruction",
+          "n": 236,
+          "n_clusters": 226,
+          "r2": 0.5642,
+          "raw_mean_fd": 0.0272,
+          "raw_mean_us": 0.0192,
+          "beta": 0.015697197660592827,
+          "se": 0.02749193393574727,
+          "t": 0.570974661050747,
+          "p": 0.5685866534271649,
+          "ci_lo": -0.03847740088153619,
+          "ci_hi": 0.06987179620272185,
+          "p_wcb": 0.647
+        },
+        "photo_and_physical_action": {
+          "label": "Photo and physical-action text co-occur",
+          "n": 236,
+          "n_clusters": 226,
+          "r2": 0.5499,
+          "raw_mean_fd": 0.4511,
+          "raw_mean_us": 0.25,
+          "beta": 0.14605185347814276,
+          "se": 0.07542422969177859,
+          "t": 1.9364049732424744,
+          "p": 0.05407056505365085,
+          "ci_lo": -0.0025763722935036315,
+          "ci_hi": 0.2946800792497891,
+          "p_wcb": 0.062
+        }
+      },
+      "full_subsample_prodcat_yq_models": {
+        "photo_language": {
+          "label": "Photo evidence mentioned or offered (literal wording)",
+          "n": 386,
+          "n_clusters": 368,
+          "r2": 0.3447,
+          "beta": 0.22460737660093796,
+          "se": 0.07637014943663857,
+          "t": 2.9410362328449575,
+          "p": 0.0034786108566563904,
+          "ci_lo": 0.0744293767115598,
+          "ci_hi": 0.3747853764903161,
+          "p_wcb": 0.015
+        },
+        "photo_mandatory": {
+          "label": "Mandatory photo evidence (no non-photo alternative)",
+          "n": 386,
+          "n_clusters": 368,
+          "r2": 0.3578,
+          "beta": 0.19769563325889497,
+          "se": 0.07348305418392129,
+          "t": 2.6903567829949075,
+          "p": 0.007463755072741296,
+          "ci_lo": 0.05319495878712546,
+          "ci_hi": 0.34219630773066445,
+          "p_wcb": 0.02
+        },
+        "direct_return": {
+          "label": "Direct physical return option",
+          "n": 386,
+          "n_clusters": 368,
+          "r2": 0.4021,
+          "beta": -0.12257151034840114,
+          "se": 0.054123516184609484,
+          "t": -2.264662737918263,
+          "p": 0.024116068417494984,
+          "ci_lo": -0.2290026417203342,
+          "ci_hi": -0.01614037897646807,
+          "p_wcb": 0.047
+        },
+        "physical_destruction": {
+          "label": "Explicit physical destruction / cutting / disassembly",
+          "n": 386,
+          "n_clusters": 368,
+          "r2": 0.4255,
+          "beta": 0.1390856693074042,
+          "se": 0.06785188500975488,
+          "t": 2.049842377811733,
+          "p": 0.04109000572622957,
+          "ci_lo": 0.005658401524679613,
+          "ci_hi": 0.2725129370901288,
+          "p_wcb": 0.042
+        },
+        "physically_disabled": {
+          "label": "Product physically disabled (action or destruction proof)",
+          "n": 386,
+          "n_clusters": 368,
+          "r2": 0.412,
+          "beta": 0.14901015211168503,
+          "se": 0.06824097543401797,
+          "t": 2.1835876636283222,
+          "p": 0.029625297863842836,
+          "ci_lo": 0.014817757874148157,
+          "ci_hi": 0.28320254634922193,
+          "p_wcb": 0.032
+        },
+        "permanent_marking": {
+          "label": "Permanent marking / defacing instruction",
+          "n": 386,
+          "n_clusters": 368,
+          "r2": 0.3878,
+          "beta": 0.04787865194130656,
+          "se": 0.06591650620366173,
+          "t": 0.7263529986461397,
+          "p": 0.4680853881128462,
+          "ci_lo": -0.08174279222746131,
+          "ci_hi": 0.17750009611007442,
+          "p_wcb": 0.488
+        },
+        "photo_only_no_action": {
+          "label": "Photo-only (no physical destruction or marking)",
+          "n": 386,
+          "n_clusters": 368,
+          "r2": 0.3456,
+          "beta": 0.12086598248486491,
+          "se": 0.07612623470085417,
+          "t": 1.5877047243938986,
+          "p": 0.11321425729755633,
+          "ci_lo": -0.028832371529340012,
+          "ci_hi": 0.27056433649906986,
+          "p_wcb": 0.141
+        },
+        "destruction_proof": {
+          "label": "Explicit phrase: proof/evidence of destruction",
+          "n": 386,
+          "n_clusters": 368,
+          "r2": 0.2337,
+          "beta": 0.0024524115876294332,
+          "se": 0.028215935875974034,
+          "t": 0.0869158336058479,
+          "p": 0.9307858152184376,
+          "ci_lo": -0.05303278578489046,
+          "ci_hi": 0.05793760896014932,
+          "p_wcb": 0.94
+        },
+        "photo_and_physical_action": {
+          "label": "Photo and physical-action text co-occur",
+          "n": 386,
+          "n_clusters": 368,
+          "r2": 0.4136,
+          "beta": 0.12347777205737867,
+          "se": 0.06775043843282351,
+          "t": 1.822538346815429,
+          "p": 0.06918692055793584,
+          "ci_lo": -0.009750006211032253,
+          "ci_hi": 0.25670555032578957,
+          "p_wcb": 0.07
+        }
+      },
+      "misclassification_bounds_common_support": {
+        "photo_language": {
+          "beta_fe": 0.107,
+          "se_fe": 0.0825,
+          "empirical_diff_bias": -0.0235,
+          "beta_empirical_adjusted": 0.1305,
+          "point_misclass_bound_lo": -0.0044,
+          "point_misclass_bound_hi": 0.3275,
+          "joint_sampling_and_misclass_lo": -0.167,
+          "joint_sampling_and_misclass_hi": 0.4902,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0263
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.0
+          ]
+        },
+        "photo_mandatory": {
+          "beta_fe": 0.1046,
+          "se_fe": 0.082,
+          "empirical_diff_bias": -0.078,
+          "beta_empirical_adjusted": 0.1826,
+          "point_misclass_bound_lo": 0.0005,
+          "point_misclass_bound_hi": 0.3996,
+          "joint_sampling_and_misclass_lo": -0.1611,
+          "joint_sampling_and_misclass_hi": 0.5612,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0833
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.0
+          ]
+        },
+        "direct_return": {
+          "beta_fe": -0.1076,
+          "se_fe": 0.0478,
+          "empirical_diff_bias": 0.0865,
+          "beta_empirical_adjusted": -0.1941,
+          "point_misclass_bound_lo": -0.6888,
+          "point_misclass_bound_hi": -0.0223,
+          "joint_sampling_and_misclass_lo": -0.783,
+          "joint_sampling_and_misclass_hi": 0.072,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.4286
+          ]
+        },
+        "physically_disabled": {
+          "beta_fe": 0.1723,
+          "se_fe": 0.0731,
+          "empirical_diff_bias": 0.1447,
+          "beta_empirical_adjusted": 0.0277,
+          "point_misclass_bound_lo": -0.4251,
+          "point_misclass_bound_hi": 0.3566,
+          "joint_sampling_and_misclass_lo": -0.5692,
+          "joint_sampling_and_misclass_hi": 0.5006,
+          "fd_fpr_fnr": [
+            0.0312,
+            0.0435
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.3571
+          ]
+        },
+        "permanent_marking": {
+          "beta_fe": 0.0439,
+          "se_fe": 0.0819,
+          "empirical_diff_bias": 0.1384,
+          "beta_empirical_adjusted": -0.0945,
+          "point_misclass_bound_lo": -0.6549,
+          "point_misclass_bound_hi": 0.2442,
+          "joint_sampling_and_misclass_lo": -0.8163,
+          "joint_sampling_and_misclass_hi": 0.4056,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.4444
+          ]
+        }
+      }
+    },
+    "Def3_MultiChannel_Online_With_Amazon": {
+      "label": "Multi-Channel Online Including Amazon (Other Platforms or DTC)",
+      "is_underpowered_common_support": true,
+      "raw_n": 138,
+      "raw_groups": {
+        "3_Mkt_True_US": 99,
+        "1_Mkt_FD_China": 39
+      },
+      "raw_clusters": 128,
+      "cs_n": 55,
+      "cs_groups": {
+        "3_Mkt_True_US": 32,
+        "1_Mkt_FD_China": 23
+      },
+      "cs_cells": 11,
+      "cs_clusters": 52,
+      "common_support_models": {
+        "photo_language": {
+          "label": "Photo evidence mentioned or offered (literal wording)",
+          "n": 55,
+          "n_clusters": 52,
+          "r2": 0.8705,
+          "raw_mean_fd": 0.7391,
+          "raw_mean_us": 0.5,
+          "beta": -0.15607731391371127,
+          "se": 0.17169849533467668,
+          "t": -0.909019695306494,
+          "p": 0.36761562792062413,
+          "ci_lo": -0.5007764265352574,
+          "ci_hi": 0.1886217987078349,
+          "p_wcb": 0.446
+        },
+        "photo_mandatory": {
+          "label": "Mandatory photo evidence (no non-photo alternative)",
+          "n": 55,
+          "n_clusters": 52,
+          "r2": 0.8029,
+          "raw_mean_fd": 0.6957,
+          "raw_mean_us": 0.4688,
+          "beta": 0.05630570499312082,
+          "se": 0.26977466968415414,
+          "t": 0.20871383165455162,
+          "p": 0.8355030128872301,
+          "ci_lo": -0.4852895435071026,
+          "ci_hi": 0.5979009534933443,
+          "p_wcb": 0.796
+        },
+        "direct_return": {
+          "label": "Direct physical return option",
+          "n": 55,
+          "n_clusters": 52,
+          "r2": 0.769,
+          "raw_mean_fd": 0.087,
+          "raw_mean_us": 0.125,
+          "beta": -0.19900015448609487,
+          "se": 0.1319698555986296,
+          "t": -1.507921286898501,
+          "p": 0.13774485261496583,
+          "ci_lo": -0.4639406947568281,
+          "ci_hi": 0.06594038578463834,
+          "p_wcb": 0.207
+        },
+        "physical_destruction": {
+          "label": "Explicit physical destruction / cutting / disassembly",
+          "n": 55,
+          "n_clusters": 52,
+          "r2": 0.6674,
+          "raw_mean_fd": 0.3043,
+          "raw_mean_us": 0.2812,
+          "beta": -0.12005933131105717,
+          "se": 0.34150381155379056,
+          "t": -0.3515607359250411,
+          "p": 0.7266160944882412,
+          "ci_lo": -0.8056568408874447,
+          "ci_hi": 0.5655381782653304,
+          "p_wcb": 0.754
+        },
+        "physically_disabled": {
+          "label": "Product physically disabled (action or destruction proof)",
+          "n": 55,
+          "n_clusters": 52,
+          "r2": 0.6787,
+          "raw_mean_fd": 0.3478,
+          "raw_mean_us": 0.2812,
+          "beta": -0.12005933131105695,
+          "se": 0.34150381155379045,
+          "t": -0.3515607359250406,
+          "p": 0.7266160944882415,
+          "ci_lo": -0.8056568408874443,
+          "ci_hi": 0.5655381782653304,
+          "p_wcb": 0.754
+        },
+        "permanent_marking": {
+          "label": "Permanent marking / defacing instruction",
+          "n": 55,
+          "n_clusters": 52,
+          "r2": 0.8295,
+          "raw_mean_fd": 0.5652,
+          "raw_mean_us": 0.0938,
+          "beta": 0.12194623148246997,
+          "se": 0.1891655353358924,
+          "t": 0.6446535372626718,
+          "p": 0.5220409893982986,
+          "ci_lo": -0.2578194271609744,
+          "ci_hi": 0.5017118901259143,
+          "p_wcb": 0.528
+        },
+        "photo_only_no_action": {
+          "label": "Photo-only (no physical destruction or marking)",
+          "n": 55,
+          "n_clusters": 52,
+          "r2": 0.747,
+          "raw_mean_fd": 0.087,
+          "raw_mean_us": 0.1562,
+          "beta": -0.1365199192629556,
+          "se": 0.21784906465645554,
+          "t": -0.6266720468974485,
+          "p": 0.5336694871718024,
+          "ci_lo": -0.5738701658457409,
+          "ci_hi": 0.3008303273198297,
+          "p_wcb": 0.641
+        },
+        "destruction_proof": {
+          "label": "Explicit phrase: proof/evidence of destruction",
+          "n": 55,
+          "n_clusters": 52,
+          "r2": 0.8714,
+          "raw_mean_fd": 0.0435,
+          "raw_mean_us": 0.0625,
+          "beta": -0.06920781077876309,
+          "se": 0.06361793980701423,
+          "t": -1.087866268362443,
+          "p": 0.281768621160654,
+          "ci_lo": -0.19692615423625462,
+          "ci_hi": 0.05851053267872844,
+          "p_wcb": 0.319
+        },
+        "photo_and_physical_action": {
+          "label": "Photo and physical-action text co-occur",
+          "n": 55,
+          "n_clusters": 52,
+          "r2": 0.6674,
+          "raw_mean_fd": 0.3043,
+          "raw_mean_us": 0.2812,
+          "beta": -0.12005933131105717,
+          "se": 0.34150381155379056,
+          "t": -0.3515607359250411,
+          "p": 0.7266160944882412,
+          "ci_lo": -0.8056568408874447,
+          "ci_hi": 0.5655381782653304,
+          "p_wcb": 0.754
+        }
+      },
+      "full_subsample_prodcat_yq_models": {
+        "photo_language": {
+          "label": "Photo evidence mentioned or offered (literal wording)",
+          "n": 138,
+          "n_clusters": 128,
+          "r2": 0.7046,
+          "beta": 0.15993383794826163,
+          "se": 0.09139380862088606,
+          "t": 1.7499417122629053,
+          "p": 0.08254361843081921,
+          "ci_lo": -0.0209180159016418,
+          "ci_hi": 0.3407856917981651,
+          "p_wcb": 0.088
+        },
+        "photo_mandatory": {
+          "label": "Mandatory photo evidence (no non-photo alternative)",
+          "n": 138,
+          "n_clusters": 128,
+          "r2": 0.6602,
+          "beta": 0.15120426443286303,
+          "se": 0.10023787659960519,
+          "t": 1.5084543843325846,
+          "p": 0.1339219951217037,
+          "ci_lo": -0.047148403899569785,
+          "ci_hi": 0.34955693276529587,
+          "p_wcb": 0.144
+        },
+        "direct_return": {
+          "label": "Direct physical return option",
+          "n": 138,
+          "n_clusters": 128,
+          "r2": 0.4756,
+          "beta": -0.05389221731606404,
+          "se": 0.09786089598789997,
+          "t": -0.5507022674585725,
+          "p": 0.5828052101305826,
+          "ci_lo": -0.24754126998044462,
+          "ci_hi": 0.13975683534831657,
+          "p_wcb": 0.608
+        },
+        "physical_destruction": {
+          "label": "Explicit physical destruction / cutting / disassembly",
+          "n": 138,
+          "n_clusters": 128,
+          "r2": 0.6901,
+          "beta": 0.004612177331947673,
+          "se": 0.09724087676085523,
+          "t": 0.047430437544186424,
+          "p": 0.9622446761677098,
+          "ci_lo": -0.18780996917406545,
+          "ci_hi": 0.19703432383796077,
+          "p_wcb": 0.96
+        },
+        "physically_disabled": {
+          "label": "Product physically disabled (action or destruction proof)",
+          "n": 138,
+          "n_clusters": 128,
+          "r2": 0.6722,
+          "beta": 0.033485162684210576,
+          "se": 0.09749082220207986,
+          "t": 0.3434698972463503,
+          "p": 0.7318129270406306,
+          "ci_lo": -0.15943158074350772,
+          "ci_hi": 0.2264019061119289,
+          "p_wcb": 0.749
+        },
+        "permanent_marking": {
+          "label": "Permanent marking / defacing instruction",
+          "n": 138,
+          "n_clusters": 128,
+          "r2": 0.5936,
+          "beta": 0.3405635235677446,
+          "se": 0.09948702130076699,
+          "t": 3.423195499422587,
+          "p": 0.0008335313923149511,
+          "ci_lo": 0.14369666236838796,
+          "ci_hi": 0.5374303847671013,
+          "p_wcb": 0.003
+        },
+        "photo_only_no_action": {
+          "label": "Photo-only (no physical destruction or marking)",
+          "n": 138,
+          "n_clusters": 128,
+          "r2": 0.4407,
+          "beta": -0.05445757648241928,
+          "se": 0.08351020743811059,
+          "t": -0.6521068280518616,
+          "p": 0.5155107456366481,
+          "ci_lo": -0.21970920630804008,
+          "ci_hi": 0.11079405334320153,
+          "p_wcb": 0.475
+        },
+        "destruction_proof": {
+          "label": "Explicit phrase: proof/evidence of destruction",
+          "n": 138,
+          "n_clusters": 128,
+          "r2": 0.6602,
+          "beta": 0.02330250552458086,
+          "se": 0.02907849219483081,
+          "t": 0.8013656749617599,
+          "p": 0.4244167584912403,
+          "ci_lo": -0.03423858287025481,
+          "ci_hi": 0.08084359391941653,
+          "p_wcb": 0.349
+        },
+        "photo_and_physical_action": {
+          "label": "Photo and physical-action text co-occur",
+          "n": 138,
+          "n_clusters": 128,
+          "r2": 0.6965,
+          "beta": 0.02668237140652445,
+          "se": 0.09395731601040985,
+          "t": 0.28398396782181623,
+          "p": 0.7768851363290742,
+          "ci_lo": -0.1592422009431238,
+          "ci_hi": 0.21260694375617267,
+          "p_wcb": 0.767
+        }
+      },
+      "misclassification_bounds_common_support": {
+        "photo_language": {
+          "beta_fe": -0.1561,
+          "se_fe": 0.1717,
+          "empirical_diff_bias": -0.02,
+          "beta_empirical_adjusted": -0.1361,
+          "point_misclass_bound_lo": -0.2841,
+          "point_misclass_bound_hi": 0.0695,
+          "joint_sampling_and_misclass_lo": -0.6288,
+          "joint_sampling_and_misclass_hi": 0.4142,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0263
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.0
+          ]
+        },
+        "photo_mandatory": {
+          "beta_fe": 0.0563,
+          "se_fe": 0.2698,
+          "empirical_diff_bias": -0.0632,
+          "beta_empirical_adjusted": 0.1195,
+          "point_misclass_bound_lo": -0.0698,
+          "point_misclass_bound_hi": 0.3462,
+          "joint_sampling_and_misclass_lo": -0.6114,
+          "joint_sampling_and_misclass_hi": 0.8878,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0833
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.0
+          ]
+        },
+        "direct_return": {
+          "beta_fe": -0.199,
+          "se_fe": 0.132,
+          "empirical_diff_bias": 0.0938,
+          "beta_empirical_adjusted": -0.2928,
+          "point_misclass_bound_lo": -0.8215,
+          "point_misclass_bound_hi": 0.0077,
+          "joint_sampling_and_misclass_lo": -1.0864,
+          "joint_sampling_and_misclass_hi": 0.2726,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.4286
+          ]
+        },
+        "physically_disabled": {
+          "beta_fe": -0.1201,
+          "se_fe": 0.3415,
+          "empirical_diff_bias": 0.1619,
+          "beta_empirical_adjusted": -0.2819,
+          "point_misclass_bound_lo": -0.7652,
+          "point_misclass_bound_hi": 0.0238,
+          "joint_sampling_and_misclass_lo": -1.4507,
+          "joint_sampling_and_misclass_hi": 0.7094,
+          "fd_fpr_fnr": [
+            0.0312,
+            0.0435
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.3571
+          ]
+        },
+        "permanent_marking": {
+          "beta_fe": 0.1219,
+          "se_fe": 0.1892,
+          "empirical_diff_bias": 0.075,
+          "beta_empirical_adjusted": 0.047,
+          "point_misclass_bound_lo": -0.2655,
+          "point_misclass_bound_hi": 0.4118,
+          "joint_sampling_and_misclass_lo": -0.6452,
+          "joint_sampling_and_misclass_hi": 0.7915,
+          "fd_fpr_fnr": [
+            0.0,
+            0.0
+          ],
+          "us_fpr_fnr": [
+            0.0,
+            0.4444
+          ]
+        }
+      }
+    }
+  },
+  "all_channel_disaggregated_2022_2026": {
+    "photo_language": {
+      "label": "Photo evidence mentioned or offered (literal wording)",
+      "ycol": "photo_language",
+      "n": 1822,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 1414,
+      "r2": 0.4217,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.35327799617174027,
+          "se": 0.039886675957844626,
+          "t": 8.857042801588987,
+          "p": 2.4121870948784665e-18,
+          "ci_lo": 0.2750345260766085,
+          "ci_hi": 0.43152146626687204,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.13582846106098445,
+          "se": 0.09806388357494256,
+          "t": 1.3851017939462023,
+          "p": 0.16623997179706498,
+          "ci_lo": -0.05653799609924065,
+          "ci_hi": 0.32819491822120955,
+          "p_wcb": 0.182
+        },
+        "a_mkt_true_us": {
+          "beta": 0.06652659232460381,
+          "se": 0.04027838214935497,
+          "t": 1.6516699225385643,
+          "p": 0.09882405068342871,
+          "ci_lo": -0.012485265984023317,
+          "ci_hi": 0.14553845063323095,
+          "p_wcb": 0.118
+        },
+        "a_dtc_online": {
+          "beta": 0.02286775202763186,
+          "se": 0.05040490116684433,
+          "t": 0.4536811202533209,
+          "p": 0.6501280255212041,
+          "ci_lo": -0.07600873447789272,
+          "ci_hi": 0.12174423853315644,
+          "p_wcb": 0.648
+        },
+        "a_omnichannel": {
+          "beta": -0.014565602475140195,
+          "se": 0.03269704518189189,
+          "t": -0.44547152178774985,
+          "p": 0.6560472756254714,
+          "ci_lo": -0.07870557441946502,
+          "ci_hi": 0.04957436946918462,
+          "p_wcb": 0.67
+        }
+      },
+      "contrast": {
+        "diff": 0.2867514038471365,
+        "se": 0.040171364713786184,
+        "t": 7.138204188236799,
+        "p": 1.5071371820318048e-12,
+        "ci_lo": 0.20794947567980349,
+        "ci_hi": 0.3655533320144695,
+        "p_wcb": 0.001
+      }
+    },
+    "photo_mandatory": {
+      "label": "Mandatory photo evidence (no non-photo alternative)",
+      "ycol": "photo_mandatory",
+      "n": 1822,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 1414,
+      "r2": 0.4182,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.3599949990951484,
+          "se": 0.03940033027747439,
+          "t": 9.136852319762447,
+          "p": 2.1671704216876355e-19,
+          "ci_lo": 0.28270556622633664,
+          "ci_hi": 0.4372844319639602,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.14904667087590798,
+          "se": 0.09880112739718165,
+          "t": 1.508552329334651,
+          "p": 0.13163677605681953,
+          "ci_lo": -0.04476599641772486,
+          "ci_hi": 0.34285933816954084,
+          "p_wcb": 0.163
+        },
+        "a_mkt_true_us": {
+          "beta": 0.05898422177868712,
+          "se": 0.039637040995952194,
+          "t": 1.4881086048958774,
+          "p": 0.13694538200739814,
+          "ci_lo": -0.018769553319143442,
+          "ci_hi": 0.13673799687651766,
+          "p_wcb": 0.132
+        },
+        "a_dtc_online": {
+          "beta": 0.02198707901939899,
+          "se": 0.049765828614603796,
+          "t": 0.44181076918604495,
+          "p": 0.6586937504649312,
+          "ci_lo": -0.07563577446384268,
+          "ci_hi": 0.11960993250264065,
+          "p_wcb": 0.658
+        },
+        "a_omnichannel": {
+          "beta": -0.004326119569093942,
+          "se": 0.03226562184897549,
+          "t": -0.13407829513849295,
+          "p": 0.893359756400748,
+          "ci_lo": -0.06761979239631352,
+          "ci_hi": 0.05896755325812564,
+          "p_wcb": 0.889
+        }
+      },
+      "contrast": {
+        "diff": 0.3010107773164613,
+        "se": 0.040852129034955616,
+        "t": 7.368300855480453,
+        "p": 2.9279060688515774e-13,
+        "ci_lo": 0.2208734317064327,
+        "ci_hi": 0.3811481229264899,
+        "p_wcb": 0.001
+      }
+    },
+    "direct_return": {
+      "label": "Direct physical return option",
+      "ycol": "direct_return",
+      "n": 1822,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 1414,
+      "r2": 0.1809,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": -0.35067790427772755,
+          "se": 0.03815343230283452,
+          "t": -9.191254445846402,
+          "p": 1.3463223445056285e-19,
+          "ci_lo": -0.4255213668557704,
+          "ci_hi": -0.2758344416996847,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": -0.23789931155411684,
+          "se": 0.06096155372689242,
+          "t": -3.9024482974942707,
+          "p": 9.970596416416468e-05,
+          "ci_lo": -0.3574841952637551,
+          "ci_hi": -0.11831442784447857,
+          "p_wcb": 0.002
+        },
+        "a_mkt_true_us": {
+          "beta": -0.2129051159959756,
+          "se": 0.03891403927551545,
+          "t": -5.4711646480229215,
+          "p": 5.2817364661791156e-08,
+          "ci_lo": -0.2892406188980607,
+          "ci_hi": -0.13656961309389054,
+          "p_wcb": 0.001
+        },
+        "a_dtc_online": {
+          "beta": -0.13060487644394014,
+          "se": 0.05198169049806547,
+          "t": -2.512516911099701,
+          "p": 0.012097973767835389,
+          "ci_lo": -0.23257446273582233,
+          "ci_hi": -0.02863529015205797,
+          "p_wcb": 0.016
+        },
+        "a_omnichannel": {
+          "beta": -0.09451487149481205,
+          "se": 0.040277674390414187,
+          "t": -2.3465821432159437,
+          "p": 0.019083993150744768,
+          "ci_lo": -0.1735253414321551,
+          "ci_hi": -0.015504401557469016,
+          "p_wcb": 0.031
+        }
+      },
+      "contrast": {
+        "diff": -0.13777278828175193,
+        "se": 0.030589230228706358,
+        "t": -4.503963887017318,
+        "p": 7.218899238769587e-06,
+        "ci_lo": -0.1977779770611435,
+        "ci_hi": -0.07776759950236037,
+        "p_wcb": 0.001
+      }
+    },
+    "physical_destruction": {
+      "label": "Explicit physical destruction / cutting / disassembly",
+      "ycol": "physical_destruction",
+      "n": 1822,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 1414,
+      "r2": 0.3167,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.1894222689031703,
+          "se": 0.034153090214908685,
+          "t": 5.546270270456601,
+          "p": 3.4786641426778325e-08,
+          "ci_lo": 0.12242605453547531,
+          "ci_hi": 0.25641848327086525,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.11191508140985626,
+          "se": 0.08437733207023435,
+          "t": 1.3263643050090743,
+          "p": 0.1849333928751053,
+          "ci_lo": -0.05360323015668961,
+          "ci_hi": 0.2774333929764021,
+          "p_wcb": 0.198
+        },
+        "a_mkt_true_us": {
+          "beta": -0.0008237745261882312,
+          "se": 0.030386024432728722,
+          "t": -0.027110309478358262,
+          "p": 0.9783755801984342,
+          "ci_lo": -0.06043034581643286,
+          "ci_hi": 0.0587827967640564,
+          "p_wcb": 0.973
+        },
+        "a_dtc_online": {
+          "beta": 0.010351745780487052,
+          "se": 0.04305837357937541,
+          "t": 0.24041190876390764,
+          "p": 0.810045821359307,
+          "ci_lo": -0.07411346683997633,
+          "ci_hi": 0.09481695840095042,
+          "p_wcb": 0.811
+        },
+        "a_omnichannel": {
+          "beta": 0.01634377915315067,
+          "se": 0.02509550643364158,
+          "t": 0.6512631732046318,
+          "p": 0.5149825155010715,
+          "ci_lo": -0.032884677718965354,
+          "ci_hi": 0.06557223602526668,
+          "p_wcb": 0.485
+        }
+      },
+      "contrast": {
+        "diff": 0.19024604342935852,
+        "se": 0.03600237106734548,
+        "t": 5.2842642800799755,
+        "p": 1.4602321405108317e-07,
+        "ci_lo": 0.1196221978389449,
+        "ci_hi": 0.26086988901977215,
+        "p_wcb": 0.001
+      }
+    },
+    "physically_disabled": {
+      "label": "Product physically disabled (action or destruction proof)",
+      "ycol": "physically_disabled",
+      "n": 1822,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 1414,
+      "r2": 0.3121,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.19325348182643445,
+          "se": 0.03461195597413456,
+          "t": 5.583431400723275,
+          "p": 2.823922043416822e-08,
+          "ci_lo": 0.12535713606279125,
+          "ci_hi": 0.26114982759007765,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.11210588432808763,
+          "se": 0.0840053865150565,
+          "t": 1.334508285465654,
+          "p": 0.18225233764216972,
+          "ci_lo": -0.05268280236436915,
+          "ci_hi": 0.2768945710205444,
+          "p_wcb": 0.227
+        },
+        "a_mkt_true_us": {
+          "beta": -0.0021684411894768163,
+          "se": 0.03105405756416828,
+          "t": -0.06982795034098449,
+          "p": 0.944340480891777,
+          "ci_lo": -0.06308545585679279,
+          "ci_hi": 0.05874857347783916,
+          "p_wcb": 0.939
+        },
+        "a_dtc_online": {
+          "beta": 0.01966683523234549,
+          "se": 0.044277424127305655,
+          "t": 0.44417297573137404,
+          "p": 0.6569855436607042,
+          "ci_lo": -0.06718972093332184,
+          "ci_hi": 0.10652339139801284,
+          "p_wcb": 0.721
+        },
+        "a_omnichannel": {
+          "beta": 0.016874164053680703,
+          "se": 0.025386340821853485,
+          "t": 0.664694615584567,
+          "p": 0.506354299751512,
+          "ci_lo": -0.03292480643508125,
+          "ci_hi": 0.06667313454244266,
+          "p_wcb": 0.506
+        }
+      },
+      "contrast": {
+        "diff": 0.19542192301591127,
+        "se": 0.03629108545275839,
+        "t": 5.384846459616098,
+        "p": 8.4813286932758e-08,
+        "ci_lo": 0.12423172250023479,
+        "ci_hi": 0.26661212353158775,
+        "p_wcb": 0.001
+      }
+    },
+    "permanent_marking": {
+      "label": "Permanent marking / defacing instruction",
+      "ycol": "permanent_marking",
+      "n": 1822,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 1414,
+      "r2": 0.2365,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.1499052224860602,
+          "se": 0.02697659105902793,
+          "t": 5.55686306539066,
+          "p": 3.2783394784948704e-08,
+          "ci_lo": 0.09698674670165419,
+          "ci_hi": 0.2028236982704662,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.03868084966989354,
+          "se": 0.06009123039058344,
+          "t": 0.6437020746367509,
+          "p": 0.5198731043675399,
+          "ci_lo": -0.07919676923759483,
+          "ci_hi": 0.1565584685773819,
+          "p_wcb": 0.537
+        },
+        "a_mkt_true_us": {
+          "beta": 0.025860303846799534,
+          "se": 0.023167927988470206,
+          "t": 1.1162113357599015,
+          "p": 0.2645214626655931,
+          "ci_lo": -0.019586929776976972,
+          "ci_hi": 0.07130753747057604,
+          "p_wcb": 0.271
+        },
+        "a_dtc_online": {
+          "beta": 0.08314030834020032,
+          "se": 0.03085057115434342,
+          "t": 2.6949357898190835,
+          "p": 0.007123680299538624,
+          "ci_lo": 0.022622461626582074,
+          "ci_hi": 0.14365815505381857,
+          "p_wcb": 0.011
+        },
+        "a_omnichannel": {
+          "beta": 0.015537000233589128,
+          "se": 0.01803477883437502,
+          "t": 0.8615021218876816,
+          "p": 0.38910772240911373,
+          "ci_lo": -0.01984082066808495,
+          "ci_hi": 0.05091482113526321,
+          "p_wcb": 0.38
+        }
+      },
+      "contrast": {
+        "diff": 0.12404491863926066,
+        "se": 0.030112191442584767,
+        "t": 4.119425146315851,
+        "p": 4.01854466009057e-05,
+        "ci_lo": 0.06497551027023898,
+        "ci_hi": 0.18311432700828234,
+        "p_wcb": 0.001
+      }
+    },
+    "photo_only_no_action": {
+      "label": "Photo-only (no physical destruction or marking)",
+      "ycol": "photo_only_no_action",
+      "n": 1822,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 1414,
+      "r2": 0.1669,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.09284918615960652,
+          "se": 0.03439419009274485,
+          "t": 2.6995601847066673,
+          "p": 0.007025938493136808,
+          "ci_lo": 0.025380019593504444,
+          "ci_hi": 0.1603183527257086,
+          "p_wcb": 0.011
+        },
+        "a_mkt_fd_noncn": {
+          "beta": -0.07021263020933409,
+          "se": 0.05164850423426561,
+          "t": -1.359432015511348,
+          "p": 0.17422663513853018,
+          "ci_lo": -0.17152862356969983,
+          "ci_hi": 0.03110336315103167,
+          "p_wcb": 0.222
+        },
+        "a_mkt_true_us": {
+          "beta": 0.014244751878391054,
+          "se": 0.031091309882693288,
+          "t": 0.45815862799400014,
+          "p": 0.6469089305007549,
+          "ci_lo": -0.04674533858680706,
+          "ci_hi": 0.07523484234358917,
+          "p_wcb": 0.642
+        },
+        "a_dtc_online": {
+          "beta": -0.04813492670496475,
+          "se": 0.0255490383273483,
+          "t": -1.8840210769671113,
+          "p": 0.05976728310491493,
+          "ci_lo": -0.0982530518261957,
+          "ci_hi": 0.0019831984162662075,
+          "p_wcb": 0.07
+        },
+        "a_omnichannel": {
+          "beta": -0.027728065176315507,
+          "se": 0.02562648666054038,
+          "t": -1.0820080623463353,
+          "p": 0.27943356295918925,
+          "ci_lo": -0.07799811637803601,
+          "ci_hi": 0.022541986025404998,
+          "p_wcb": 0.274
+        }
+      },
+      "contrast": {
+        "diff": 0.07860443428121547,
+        "se": 0.03371845067288521,
+        "t": 2.3311994683203356,
+        "p": 0.019882877852181173,
+        "ci_lo": 0.01246082808885246,
+        "ci_hi": 0.14474804047357848,
+        "p_wcb": 0.024
+      }
+    },
+    "destruction_proof": {
+      "label": "Explicit phrase: proof/evidence of destruction",
+      "ycol": "destruction_proof",
+      "n": 1822,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 1414,
+      "r2": 0.0508,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.010148257691925526,
+          "se": 0.014461263964922874,
+          "t": 0.7017545434853453,
+          "p": 0.48294781766410705,
+          "ci_lo": -0.018219598174858326,
+          "ci_hi": 0.03851611355870938,
+          "p_wcb": 0.488
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.06797591714592822,
+          "se": 0.054766199982006984,
+          "t": 1.2412020035763152,
+          "p": 0.2147371494850716,
+          "ci_lo": -0.03945588627246131,
+          "ci_hi": 0.17540772056431775,
+          "p_wcb": 0.428
+        },
+        "a_mkt_true_us": {
+          "beta": 0.009967002875623973,
+          "se": 0.012411294398973618,
+          "t": 0.8030590972403506,
+          "p": 0.4220756361743725,
+          "ci_lo": -0.014379541899736751,
+          "ci_hi": 0.034313547650984697,
+          "p_wcb": 0.44
+        },
+        "a_dtc_online": {
+          "beta": -0.012641530100651577,
+          "se": 0.014987267276046282,
+          "t": -0.8434846638690544,
+          "p": 0.39910020470271207,
+          "ci_lo": -0.04204121735863288,
+          "ci_hi": 0.01675815715732973,
+          "p_wcb": 0.46
+        },
+        "a_omnichannel": {
+          "beta": -0.00047343528565638697,
+          "se": 0.008415771606052376,
+          "t": -0.056255719358627346,
+          "p": 0.955146047139188,
+          "ci_lo": -0.016982185593191427,
+          "ci_hi": 0.01603531502187865,
+          "p_wcb": 0.96
+        }
+      },
+      "contrast": {
+        "diff": 0.00018125481630155288,
+        "se": 0.015545560836916822,
+        "t": 0.011659586823726423,
+        "p": 0.9906988524009277,
+        "ci_lo": -0.030313605816880185,
+        "ci_hi": 0.03067611544948329,
+        "p_wcb": 0.994
+      }
+    },
+    "photo_and_physical_action": {
+      "label": "Photo and physical-action text co-occur",
+      "ycol": "photo_and_physical_action",
+      "n": 1822,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 1414,
+      "r2": 0.312,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.19305687569066787,
+          "se": 0.03370337061122055,
+          "t": 5.72811775764633,
+          "p": 1.2390034772038751e-08,
+          "ci_lo": 0.1269428512151453,
+          "ci_hi": 0.25917090016619043,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.13266588265221957,
+          "se": 0.08529238473885571,
+          "t": 1.5554247082950001,
+          "p": 0.12006888971728533,
+          "ci_lo": -0.03464743675575224,
+          "ci_hi": 0.29997920206019135,
+          "p_wcb": 0.16
+        },
+        "a_mkt_true_us": {
+          "beta": 0.00853383590930474,
+          "se": 0.029935467117040374,
+          "t": 0.28507441944832607,
+          "p": 0.7756289049794446,
+          "ci_lo": -0.05018890219580653,
+          "ci_hi": 0.06725657401441601,
+          "p_wcb": 0.767
+        },
+        "a_dtc_online": {
+          "beta": -0.011692728966955106,
+          "se": 0.03949576506401383,
+          "t": -0.29605019545776107,
+          "p": 0.7672352509779211,
+          "ci_lo": -0.0891693709397425,
+          "ci_hi": 0.0657839130058323,
+          "p_wcb": 0.762
+        },
+        "a_omnichannel": {
+          "beta": 0.008129795018847861,
+          "se": 0.02303583038999424,
+          "t": 0.3529195553714048,
+          "p": 0.7242013885392906,
+          "ci_lo": -0.03705831010530344,
+          "ci_hi": 0.05331790014299916,
+          "p_wcb": 0.71
+        }
+      },
+      "contrast": {
+        "diff": 0.18452303978136314,
+        "se": 0.03592109003255469,
+        "t": 5.136899788233959,
+        "p": 3.1833853200557776e-07,
+        "ci_lo": 0.11405863866864116,
+        "ci_hi": 0.2549874408940851,
+        "p_wcb": 0.001
+      }
+    }
+  },
+  "all_channel_within_mkt_misclassification_bounds": {
+    "photo_language": {
+      "beta_fe": 0.2868,
+      "se_fe": 0.0402,
+      "empirical_diff_bias": -0.0223,
+      "beta_empirical_adjusted": 0.309,
+      "point_misclass_bound_lo": 0.1901,
+      "point_misclass_bound_hi": 0.5432,
+      "joint_sampling_and_misclass_lo": 0.1113,
+      "joint_sampling_and_misclass_hi": 0.622,
+      "fd_fpr_fnr": [
+        0.0,
+        0.0263
+      ],
+      "us_fpr_fnr": [
+        0.0,
+        0.0
+      ]
+    },
+    "photo_mandatory": {
+      "beta_fe": 0.301,
+      "se_fe": 0.0409,
+      "empirical_diff_bias": -0.0738,
+      "beta_empirical_adjusted": 0.3748,
+      "point_misclass_bound_lo": 0.2147,
+      "point_misclass_bound_hi": 0.6263,
+      "joint_sampling_and_misclass_lo": 0.1346,
+      "joint_sampling_and_misclass_hi": 0.7064,
+      "fd_fpr_fnr": [
+        0.0,
+        0.0833
+      ],
+      "us_fpr_fnr": [
+        0.0,
+        0.0
+      ]
+    },
+    "direct_return": {
+      "beta_fe": -0.1378,
+      "se_fe": 0.0306,
+      "empirical_diff_bias": 0.103,
+      "beta_empirical_adjusted": -0.2408,
+      "point_misclass_bound_lo": -0.8162,
+      "point_misclass_bound_hi": -0.0114,
+      "joint_sampling_and_misclass_lo": -0.8762,
+      "joint_sampling_and_misclass_hi": 0.0486,
+      "fd_fpr_fnr": [
+        0.0,
+        0.0
+      ],
+      "us_fpr_fnr": [
+        0.0,
+        0.4286
+      ]
+    },
+    "physically_disabled": {
+      "beta_fe": 0.1954,
+      "se_fe": 0.0363,
+      "empirical_diff_bias": 0.1141,
+      "beta_empirical_adjusted": 0.0813,
+      "point_misclass_bound_lo": -0.3006,
+      "point_misclass_bound_hi": 0.3965,
+      "joint_sampling_and_misclass_lo": -0.3718,
+      "joint_sampling_and_misclass_hi": 0.4677,
+      "fd_fpr_fnr": [
+        0.0312,
+        0.0435
+      ],
+      "us_fpr_fnr": [
+        0.0,
+        0.3571
+      ]
+    },
+    "permanent_marking": {
+      "beta_fe": 0.124,
+      "se_fe": 0.0301,
+      "empirical_diff_bias": 0.0858,
+      "beta_empirical_adjusted": 0.0382,
+      "point_misclass_bound_lo": -0.3405,
+      "point_misclass_bound_hi": 0.3024,
+      "joint_sampling_and_misclass_lo": -0.3996,
+      "joint_sampling_and_misclass_hi": 0.3614,
+      "fd_fpr_fnr": [
+        0.0,
+        0.0
+      ],
+      "us_fpr_fnr": [
+        0.0,
+        0.4444
+      ]
+    }
+  },
+  "all_price_ge_100_disaggregated": {
+    "photo_language": {
+      "label": "Photo evidence mentioned or offered (literal wording)",
+      "ycol": "photo_language",
+      "n": 794,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 571,
+      "r2": 0.4598,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.41371097419811687,
+          "se": 0.0695661843310305,
+          "t": 5.9470125920587265,
+          "p": 4.764808035617214e-09,
+          "ci_lo": 0.27707362699895816,
+          "ci_hi": 0.5503483213972755,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.15729349758986952,
+          "se": 0.1260333226094844,
+          "t": 1.248031031263415,
+          "p": 0.21253211977422284,
+          "ci_lo": -0.09025290768816455,
+          "ci_hi": 0.4048399028679036,
+          "p_wcb": 0.253
+        },
+        "a_mkt_true_us": {
+          "beta": 0.04708341229181451,
+          "se": 0.05230063581474963,
+          "t": 0.90024550482685,
+          "p": 0.3683697945983646,
+          "ci_lo": -0.055642074282976337,
+          "ci_hi": 0.14980889886660537,
+          "p_wcb": 0.386
+        },
+        "a_dtc_online": {
+          "beta": -0.05437943739345395,
+          "se": 0.04157235174917686,
+          "t": -1.3080673838600116,
+          "p": 0.1913777142561872,
+          "ci_lo": -0.136033130412004,
+          "ci_hi": 0.027274255625096097,
+          "p_wcb": 0.217
+        },
+        "a_omnichannel": {
+          "beta": -0.027060224864578798,
+          "se": 0.037543992077505646,
+          "t": -0.7207604563924846,
+          "p": 0.4713523974893193,
+          "ci_lo": -0.10080167741178095,
+          "ci_hi": 0.046681227682623345,
+          "p_wcb": 0.479
+        }
+      },
+      "contrast": {
+        "diff": 0.36662756190630236,
+        "se": 0.07052165064900194,
+        "t": 5.198794391967215,
+        "p": 2.7996707660730787e-07,
+        "ci_lo": 0.22811355028633062,
+        "ci_hi": 0.5051415735262741,
+        "p_wcb": 0.001
+      }
+    },
+    "photo_mandatory": {
+      "label": "Mandatory photo evidence (no non-photo alternative)",
+      "ycol": "photo_mandatory",
+      "n": 794,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 571,
+      "r2": 0.4577,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.39435448070837853,
+          "se": 0.07068335721580174,
+          "t": 5.579170206989233,
+          "p": 3.738655541339834e-08,
+          "ci_lo": 0.25552285563116917,
+          "ci_hi": 0.5331861057855879,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.16703196839955847,
+          "se": 0.12647880096045003,
+          "t": 1.3206321306903395,
+          "p": 0.1871540399755264,
+          "ci_lo": -0.08138941630556265,
+          "ci_hi": 0.41545335310467957,
+          "p_wcb": 0.239
+        },
+        "a_mkt_true_us": {
+          "beta": 0.034176329174932074,
+          "se": 0.051269943656945614,
+          "t": 0.6665958013063304,
+          "p": 0.5053000706262956,
+          "ci_lo": -0.06652473930685007,
+          "ci_hi": 0.13487739765671422,
+          "p_wcb": 0.537
+        },
+        "a_dtc_online": {
+          "beta": -0.07192440972875794,
+          "se": 0.03601070676224927,
+          "t": -1.997306251266296,
+          "p": 0.046266808572820124,
+          "ci_lo": -0.14265428359027088,
+          "ci_hi": -0.0011945358672449946,
+          "p_wcb": 0.058
+        },
+        "a_omnichannel": {
+          "beta": -0.020892995964184473,
+          "se": 0.03730055970926531,
+          "t": -0.5601255350330504,
+          "p": 0.5756138774625419,
+          "ci_lo": -0.094156314582688,
+          "ci_hi": 0.05237032265431905,
+          "p_wcb": 0.576
+        }
+      },
+      "contrast": {
+        "diff": 0.36017815153344646,
+        "se": 0.07146958870567521,
+        "t": 5.0396001719937935,
+        "p": 6.273545072473474e-07,
+        "ci_lo": 0.21980226201089173,
+        "ci_hi": 0.5005540410560012,
+        "p_wcb": 0.001
+      }
+    },
+    "direct_return": {
+      "label": "Direct physical return option",
+      "ycol": "direct_return",
+      "n": 794,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 571,
+      "r2": 0.1813,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": -0.23173270717807254,
+          "se": 0.0681955043650555,
+          "t": -3.398064276166805,
+          "p": 0.0007260161589003673,
+          "ci_lo": -0.36567785447851814,
+          "ci_hi": -0.09778755987762694,
+          "p_wcb": 0.002
+        },
+        "a_mkt_fd_noncn": {
+          "beta": -0.24581429297678786,
+          "se": 0.05725011021330668,
+          "t": -4.293691174757828,
+          "p": 2.0653587527707733e-05,
+          "ci_lo": -0.358261213296326,
+          "ci_hi": -0.13336737265724977,
+          "p_wcb": 0.001
+        },
+        "a_mkt_true_us": {
+          "beta": -0.1440170581580011,
+          "se": 0.06041001053179183,
+          "t": -2.383993263537168,
+          "p": 0.017452168614799826,
+          "ci_lo": -0.26267044791500405,
+          "ci_hi": -0.02536366840099813,
+          "p_wcb": 0.03
+        },
+        "a_dtc_online": {
+          "beta": -0.07526275571594834,
+          "se": 0.06980546904877939,
+          "t": -1.078178497208513,
+          "p": 0.28141016362167415,
+          "ci_lo": -0.21237009030011192,
+          "ci_hi": 0.06184457886821523,
+          "p_wcb": 0.314
+        },
+        "a_omnichannel": {
+          "beta": -0.06927983456091256,
+          "se": 0.05019317630944557,
+          "t": -1.3802640050869859,
+          "p": 0.1680464407360814,
+          "ci_lo": -0.1678659870770155,
+          "ci_hi": 0.029306317955190356,
+          "p_wcb": 0.203
+        }
+      },
+      "contrast": {
+        "diff": -0.08771564902007145,
+        "se": 0.06071223830252212,
+        "t": -1.4447770576830725,
+        "p": 0.14907000226478223,
+        "ci_lo": -0.20696265478806614,
+        "ci_hi": 0.03153135674792325,
+        "p_wcb": 0.147
+      }
+    },
+    "physical_destruction": {
+      "label": "Explicit physical destruction / cutting / disassembly",
+      "ycol": "physical_destruction",
+      "n": 794,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 571,
+      "r2": 0.2714,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.16022520670611315,
+          "se": 0.058835854896303476,
+          "t": 2.7232579009603164,
+          "p": 0.006662222334064792,
+          "ci_lo": 0.044663670443449294,
+          "ci_hi": 0.27578674296877703,
+          "p_wcb": 0.009
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.12656345332081387,
+          "se": 0.11684114542660794,
+          "t": 1.0832096249887662,
+          "p": 0.2791733808409591,
+          "ci_lo": -0.10292827902480481,
+          "ci_hi": 0.35605518566643257,
+          "p_wcb": 0.323
+        },
+        "a_mkt_true_us": {
+          "beta": 0.0030800902805556904,
+          "se": 0.03915603251965255,
+          "t": 0.07866196042742028,
+          "p": 0.9373291092485974,
+          "ci_lo": -0.07382762661923165,
+          "ci_hi": 0.07998780718034301,
+          "p_wcb": 0.94
+        },
+        "a_dtc_online": {
+          "beta": -0.04072008285403465,
+          "se": 0.040088311809904055,
+          "t": -1.0157594823929332,
+          "p": 0.31017488998886605,
+          "ci_lo": -0.11945892173203085,
+          "ci_hi": 0.03801875602396154,
+          "p_wcb": 0.339
+        },
+        "a_omnichannel": {
+          "beta": 0.007490371270310853,
+          "se": 0.027422198560269097,
+          "t": 0.2731499173506586,
+          "p": 0.7848369127699432,
+          "ci_lo": -0.0463705167699784,
+          "ci_hi": 0.061351259310600106,
+          "p_wcb": 0.769
+        }
+      },
+      "contrast": {
+        "diff": 0.15714511642555745,
+        "se": 0.06183281065820823,
+        "t": 2.5414519371309967,
+        "p": 0.01130309877469717,
+        "ci_lo": 0.035697155761185526,
+        "ci_hi": 0.27859307708992936,
+        "p_wcb": 0.015
+      }
+    },
+    "permanent_marking": {
+      "label": "Permanent marking / defacing instruction",
+      "ycol": "permanent_marking",
+      "n": 794,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 571,
+      "r2": 0.3256,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.2736863990395547,
+          "se": 0.05865273764294246,
+          "t": 4.666216958288676,
+          "p": 3.8275402640092764e-06,
+          "ci_lo": 0.15848452970366356,
+          "ci_hi": 0.3888882683754459,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": -0.036540346088853266,
+          "se": 0.027983184286039513,
+          "t": -1.3057965710886885,
+          "p": 0.19214849865234274,
+          "ci_lo": -0.09150308558359513,
+          "ci_hi": 0.018422393405888596,
+          "p_wcb": 0.179
+        },
+        "a_mkt_true_us": {
+          "beta": 0.03925866937951624,
+          "se": 0.02807046996837503,
+          "t": 1.3985754219201227,
+          "p": 0.1624841803562154,
+          "ci_lo": -0.015875510940929698,
+          "ci_hi": 0.09439284969996217,
+          "p_wcb": 0.181
+        },
+        "a_dtc_online": {
+          "beta": -1.6260650528669707e-06,
+          "se": 0.015973727088035402,
+          "t": -0.00010179622100122905,
+          "p": 0.9999188139827495,
+          "ci_lo": -0.03137617557040688,
+          "ci_hi": 0.031372923440301154,
+          "p_wcb": 1.0
+        },
+        "a_omnichannel": {
+          "beta": 0.017712924566118917,
+          "se": 0.015735845657540375,
+          "t": 1.1256417323609904,
+          "p": 0.2607909218461655,
+          "ci_lo": -0.013194393799230156,
+          "ci_hi": 0.048620242931467994,
+          "p_wcb": 0.258
+        }
+      },
+      "contrast": {
+        "diff": 0.23442772966003847,
+        "se": 0.06549619890550587,
+        "t": 3.5792570191478936,
+        "p": 0.00037393281540005607,
+        "ci_lo": 0.105784381514165,
+        "ci_hi": 0.36307107780591197,
+        "p_wcb": 0.001
+      }
+    },
+    "photo_only_no_action": {
+      "label": "Photo-only (no physical destruction or marking)",
+      "ycol": "photo_only_no_action",
+      "n": 794,
+      "k": 66,
+      "rank": 66,
+      "n_clusters": 571,
+      "r2": 0.1921,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.08640645862617083,
+          "se": 0.06046321077230231,
+          "t": 1.4290749287458102,
+          "p": 0.15353048307443987,
+          "ci_lo": -0.03235142356208463,
+          "ci_hi": 0.2051643408144263,
+          "p_wcb": 0.167
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.012556388029903172,
+          "se": 0.07879469653315256,
+          "t": 0.15935575086097478,
+          "p": 0.8734450475412541,
+          "ci_lo": -0.14220699896889083,
+          "ci_hi": 0.16731977502869716,
+          "p_wcb": 0.942
+        },
+        "a_mkt_true_us": {
+          "beta": -0.015138778181272041,
+          "se": 0.03783093315223014,
+          "t": -0.40016930379047777,
+          "p": 0.6891817475908297,
+          "ci_lo": -0.08944382161145642,
+          "ci_hi": 0.05916626524891233,
+          "p_wcb": 0.701
+        },
+        "a_dtc_online": {
+          "beta": -0.02053682465692476,
+          "se": 0.03438291128201906,
+          "t": -0.5972974332649,
+          "p": 0.5505460098866016,
+          "ci_lo": -0.08806948915098034,
+          "ci_hi": 0.04699583983713082,
+          "p_wcb": 0.568
+        },
+        "a_omnichannel": {
+          "beta": -0.02116864155941102,
+          "se": 0.029192371004644127,
+          "t": -0.7251429339550174,
+          "p": 0.4686619277885976,
+          "ci_lo": -0.07850638648369307,
+          "ci_hi": 0.03616910336487102,
+          "p_wcb": 0.496
+        }
+      },
+      "contrast": {
+        "diff": 0.10154523680744287,
+        "se": 0.05986668977690104,
+        "t": 1.6961892696232403,
+        "p": 0.09039605633649143,
+        "ci_lo": -0.01604099787500171,
+        "ci_hi": 0.21913147148988746,
+        "p_wcb": 0.095
+      }
+    }
+  },
+  "strict_durables_ge_100_disaggregated": {
+    "photo_language": {
+      "label": "Photo evidence mentioned or offered (literal wording)",
+      "ycol": "photo_language",
+      "n": 685,
+      "k": 63,
+      "rank": 63,
+      "n_clusters": 481,
+      "r2": 0.4919,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.4142382888845384,
+          "se": 0.07629716965892387,
+          "t": 5.429274647229175,
+          "p": 9.00121008231124e-08,
+          "ci_lo": 0.2643205694993773,
+          "ci_hi": 0.5641560082696995,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.36641001414560703,
+          "se": 0.1504494874410722,
+          "t": 2.4354354433352383,
+          "p": 0.015236899975842154,
+          "ci_lo": 0.07078903448592588,
+          "ci_hi": 0.6620309938052882,
+          "p_wcb": 0.072
+        },
+        "a_mkt_true_us": {
+          "beta": 0.051528746188350794,
+          "se": 0.060452298966373656,
+          "t": 0.8523868747657297,
+          "p": 0.39442449785274636,
+          "ci_lo": -0.06725509380391892,
+          "ci_hi": 0.1703125861806205,
+          "p_wcb": 0.382
+        },
+        "a_dtc_online": {
+          "beta": -0.04415156909052939,
+          "se": 0.04854682287777071,
+          "t": -0.9094636162224763,
+          "p": 0.3635618838854747,
+          "ci_lo": -0.13954211898597357,
+          "ci_hi": 0.05123898080491478,
+          "p_wcb": 0.397
+        },
+        "a_omnichannel": {
+          "beta": -0.016399182295691116,
+          "se": 0.040992165967582386,
+          "t": -0.4000564963720139,
+          "p": 0.6892928777286608,
+          "ci_lo": -0.0969454471439204,
+          "ci_hi": 0.06414708255253818,
+          "p_wcb": 0.697
+        }
+      },
+      "contrast": {
+        "diff": 0.3627095426961876,
+        "se": 0.07894380334128713,
+        "t": 4.59452835237915,
+        "p": 5.550561617406836e-06,
+        "ci_lo": 0.20759140385272173,
+        "ci_hi": 0.5178276815396534,
+        "p_wcb": 0.002
+      }
+    },
+    "photo_mandatory": {
+      "label": "Mandatory photo evidence (no non-photo alternative)",
+      "ycol": "photo_mandatory",
+      "n": 685,
+      "k": 63,
+      "rank": 63,
+      "n_clusters": 481,
+      "r2": 0.4922,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.39090717570633016,
+          "se": 0.07702875486540926,
+          "t": 5.074821427262509,
+          "p": 5.555441550187633e-07,
+          "ci_lo": 0.23955195102205365,
+          "ci_hi": 0.5422624003906067,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.37574298014644236,
+          "se": 0.15189945839058938,
+          "t": 2.4736294923466344,
+          "p": 0.013719779462595212,
+          "ci_lo": 0.07727292575832628,
+          "ci_hi": 0.6742130345345585,
+          "p_wcb": 0.061
+        },
+        "a_mkt_true_us": {
+          "beta": 0.033502093873373565,
+          "se": 0.059105416594454105,
+          "t": 0.5668193509783516,
+          "p": 0.5711018722289851,
+          "ci_lo": -0.08263523204267395,
+          "ci_hi": 0.14963941978942108,
+          "p_wcb": 0.568
+        },
+        "a_dtc_online": {
+          "beta": -0.06375117009166242,
+          "se": 0.040215244695080796,
+          "t": -1.585248842199898,
+          "p": 0.1135683607441205,
+          "ci_lo": -0.14277084796640452,
+          "ci_hi": 0.015268507783079671,
+          "p_wcb": 0.123
+        },
+        "a_omnichannel": {
+          "beta": -0.011065056675280294,
+          "se": 0.04058348421981007,
+          "t": -0.272649253458605,
+          "p": 0.7852400993947496,
+          "ci_lo": -0.09080829520085226,
+          "ci_hi": 0.06867818185029168,
+          "p_wcb": 0.781
+        }
+      },
+      "contrast": {
+        "diff": 0.3574050818329566,
+        "se": 0.07941077024325446,
+        "t": 4.500712947855034,
+        "p": 8.508461503922335e-06,
+        "ci_lo": 0.20136939108967253,
+        "ci_hi": 0.5134407725762407,
+        "p_wcb": 0.001
+      }
+    },
+    "direct_return": {
+      "label": "Direct physical return option",
+      "ycol": "direct_return",
+      "n": 685,
+      "k": 63,
+      "rank": 63,
+      "n_clusters": 481,
+      "r2": 0.1949,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": -0.2341716617127844,
+          "se": 0.07992042052061783,
+          "t": -2.9300604299544806,
+          "p": 0.0035504234638075254,
+          "ci_lo": -0.39120877370941104,
+          "ci_hi": -0.07713454971615774,
+          "p_wcb": 0.004
+        },
+        "a_mkt_fd_noncn": {
+          "beta": -0.2833052397847341,
+          "se": 0.06704442038651032,
+          "t": -4.225634857479305,
+          "p": 2.8524712204123445e-05,
+          "ci_lo": -0.4150420610426905,
+          "ci_hi": -0.15156841852677774,
+          "p_wcb": 0.003
+        },
+        "a_mkt_true_us": {
+          "beta": -0.1519013357194663,
+          "se": 0.07061547975177872,
+          "t": -2.151105341964912,
+          "p": 0.03196632021740478,
+          "ci_lo": -0.2906549975525493,
+          "ci_hi": -0.013147673886383271,
+          "p_wcb": 0.034
+        },
+        "a_dtc_online": {
+          "beta": -0.09144749395791124,
+          "se": 0.07541692066429422,
+          "t": -1.2125593719872816,
+          "p": 0.22589478334125224,
+          "ci_lo": -0.23963559581786278,
+          "ci_hi": 0.0567406079020403,
+          "p_wcb": 0.264
+        },
+        "a_omnichannel": {
+          "beta": -0.060685858562880966,
+          "se": 0.053655220849849646,
+          "t": -1.131033618009067,
+          "p": 0.2586057228434504,
+          "ci_lo": -0.1661139940871163,
+          "ci_hi": 0.044742276961354376,
+          "p_wcb": 0.265
+        }
+      },
+      "contrast": {
+        "diff": -0.0822703259933181,
+        "se": 0.07102404099457224,
+        "t": -1.1583447638470095,
+        "p": 0.24729936318238685,
+        "ci_lo": -0.2218267773665975,
+        "ci_hi": 0.057286125379961306,
+        "p_wcb": 0.272
+      }
+    },
+    "physical_destruction": {
+      "label": "Explicit physical destruction / cutting / disassembly",
+      "ycol": "physical_destruction",
+      "n": 685,
+      "k": 63,
+      "rank": 63,
+      "n_clusters": 481,
+      "r2": 0.3033,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.12401918267505536,
+          "se": 0.05946449663246706,
+          "t": 2.085600479250371,
+          "p": 0.03754241909635858,
+          "ci_lo": 0.0071762937529843,
+          "ci_hi": 0.24086207159712641,
+          "p_wcb": 0.039
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.2599890090720432,
+          "se": 0.1486614332701554,
+          "t": 1.7488665577411557,
+          "p": 0.08095327900259319,
+          "ci_lo": -0.032118589886370785,
+          "ci_hi": 0.5520966080304572,
+          "p_wcb": 0.173
+        },
+        "a_mkt_true_us": {
+          "beta": 0.02559284511828222,
+          "se": 0.04317883445068822,
+          "t": 0.5927173682168324,
+          "p": 0.5536494433704553,
+          "ci_lo": -0.05925004506354872,
+          "ci_hi": 0.11043573530011316,
+          "p_wcb": 0.599
+        },
+        "a_dtc_online": {
+          "beta": -0.041623821108293255,
+          "se": 0.04744313250711564,
+          "t": -0.8773413328483403,
+          "p": 0.38074016707915087,
+          "ci_lo": -0.1348457093873806,
+          "ci_hi": 0.05159806717079411,
+          "p_wcb": 0.406
+        },
+        "a_omnichannel": {
+          "beta": 0.013014953678135044,
+          "se": 0.028945193043517163,
+          "t": 0.4496412809742858,
+          "p": 0.6531720896360466,
+          "ci_lo": -0.04385999132501525,
+          "ci_hi": 0.06988989868128534,
+          "p_wcb": 0.664
+        }
+      },
+      "contrast": {
+        "diff": 0.09842633755677314,
+        "se": 0.06477465847890612,
+        "t": 1.5195192050117208,
+        "p": 0.1292902480943481,
+        "ci_lo": -0.02885058656140073,
+        "ci_hi": 0.22570326167494703,
+        "p_wcb": 0.14
+      }
+    },
+    "permanent_marking": {
+      "label": "Permanent marking / defacing instruction",
+      "ycol": "permanent_marking",
+      "n": 685,
+      "k": 63,
+      "rank": 63,
+      "n_clusters": 481,
+      "r2": 0.3317,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.24208869662579652,
+          "se": 0.060886535387269014,
+          "t": 3.976062935524095,
+          "p": 8.0856264504438e-05,
+          "ci_lo": 0.12245161746114824,
+          "ci_hi": 0.3617257757904448,
+          "p_wcb": 0.001
+        },
+        "a_mkt_fd_noncn": {
+          "beta": -0.03272988990230949,
+          "se": 0.026790650066409096,
+          "t": -1.221690769771473,
+          "p": 0.22242423898157931,
+          "ci_lo": -0.08537133357258855,
+          "ci_hi": 0.019911553767969575,
+          "p_wcb": 0.171
+        },
+        "a_mkt_true_us": {
+          "beta": 0.009505412543522808,
+          "se": 0.027922609513689113,
+          "t": 0.340419921671818,
+          "p": 0.7336892492541435,
+          "ci_lo": -0.04536023917446408,
+          "ci_hi": 0.0643710642615097,
+          "p_wcb": 0.75
+        },
+        "a_dtc_online": {
+          "beta": 0.009406209506971748,
+          "se": 0.018118703129513393,
+          "t": 0.519143640675367,
+          "p": 0.6038998520754311,
+          "ci_lo": -0.026195565284102995,
+          "ci_hi": 0.04500798429804649,
+          "p_wcb": 0.604
+        },
+        "a_omnichannel": {
+          "beta": 0.019287558271347156,
+          "se": 0.01646856288078401,
+          "t": 1.1711743405280632,
+          "p": 0.24210976288896005,
+          "ci_lo": -0.013071825434172596,
+          "ci_hi": 0.05164694197686691,
+          "p_wcb": 0.229
+        }
+      },
+      "contrast": {
+        "diff": 0.23258328408227372,
+        "se": 0.06769325867560141,
+        "t": 3.435841155126772,
+        "p": 0.0006420047819920074,
+        "ci_lo": 0.0995715484731671,
+        "ci_hi": 0.3655950196913803,
+        "p_wcb": 0.003
+      }
+    },
+    "photo_only_no_action": {
+      "label": "Photo-only (no physical destruction or marking)",
+      "ycol": "photo_only_no_action",
+      "n": 685,
+      "k": 63,
+      "rank": 63,
+      "n_clusters": 481,
+      "r2": 0.2147,
+      "terms": {
+        "a_mkt_fd_cn": {
+          "beta": 0.11695018889638904,
+          "se": 0.06814961326081176,
+          "t": 1.7160800083899992,
+          "p": 0.0867926285341821,
+          "ci_lo": -0.016958246275119923,
+          "ci_hi": 0.250858624067898,
+          "p_wcb": 0.103
+        },
+        "a_mkt_fd_noncn": {
+          "beta": 0.09074096135300525,
+          "se": 0.10739760036476319,
+          "t": 0.8449067860437697,
+          "p": 0.39858381675331345,
+          "ci_lo": -0.12028656936799911,
+          "ci_hi": 0.3017684920740096,
+          "p_wcb": 0.653
+        },
+        "a_mkt_true_us": {
+          "beta": -0.007430084740747651,
+          "se": 0.048621616414054554,
+          "t": -0.15281443293604513,
+          "p": 0.8786088314309777,
+          "ci_lo": -0.10296759783855634,
+          "ci_hi": 0.08810742835706105,
+          "p_wcb": 0.893
+        },
+        "a_dtc_online": {
+          "beta": -0.015374750733837162,
+          "se": 0.041155682443425365,
+          "t": -0.37357540492669644,
+          "p": 0.7088851737585722,
+          "ci_lo": -0.09624231212884354,
+          "ci_hi": 0.06549281066116922,
+          "p_wcb": 0.727
+        },
+        "a_omnichannel": {
+          "beta": -0.020899592669183436,
+          "se": 0.03140812831753896,
+          "t": -0.6654198702287096,
+          "p": 0.5061015898056571,
+          "ci_lo": -0.0826140047315345,
+          "ci_hi": 0.040814819393167626,
+          "p_wcb": 0.515
+        }
+      },
+      "contrast": {
+        "diff": 0.12438027363713669,
+        "se": 0.071733525895561,
+        "t": 1.7339210931611764,
+        "p": 0.08357415554307433,
+        "ci_lo": -0.01657025773635673,
+        "ci_hi": 0.2653308050106301,
+        "p_wcb": 0.107
+      }
+    }
+  },
+  "strict_durables_ge_100_amazon_subsamples": {
+    "Def1_Broad_Mkt_Mentions_Amazon": {
+      "n": 91,
+      "groups": {
+        "1_Mkt_FD_China": 52,
+        "3_Mkt_True_US": 39
+      },
+      "underpowered_note": "Small cell counts inside narrow Amazon strict-durable subsamples; reported in Supplementary Appendix B.",
+      "models_prodcat_year_fe": {
+        "photo_language": {
+          "n": 91,
+          "n_clusters": 85,
+          "beta": 0.21548071350307074,
+          "se": 0.1382244432497011,
+          "t": 1.558919019220117,
+          "p": 0.12277539253845102,
+          "ci_lo": -0.05939375055562007,
+          "ci_hi": 0.49035517756176156,
+          "p_wcb": 0.124
+        },
+        "direct_return": {
+          "n": 91,
+          "n_clusters": 85,
+          "beta": -0.025043163637131077,
+          "se": 0.11199357185186258,
+          "t": -0.22361250938809646,
+          "p": 0.8236017658456187,
+          "ci_lo": -0.2477546632608836,
+          "ci_hi": 0.19766833598662145,
+          "p_wcb": 0.838
+        },
+        "physical_destruction": {
+          "n": 91,
+          "n_clusters": 85,
+          "beta": -0.012737374373162913,
+          "se": 0.12703386167239325,
+          "t": -0.10026755233192265,
+          "p": 0.9203708422335614,
+          "ci_lo": -0.2653581397281391,
+          "ci_hi": 0.23988339098181327,
+          "p_wcb": 0.905
+        }
+      }
+    },
+    "Def2a_NoOtherFlaggedPlat_Benchmark": {
+      "n": 73,
+      "groups": {
+        "1_Mkt_FD_China": 42,
+        "3_Mkt_True_US": 31
+      },
+      "underpowered_note": "Small cell counts inside narrow Amazon strict-durable subsamples; reported in Supplementary Appendix B.",
+      "models_prodcat_year_fe": {
+        "photo_language": {
+          "n": 73,
+          "n_clusters": 68,
+          "beta": 0.22244990021323385,
+          "se": 0.15672776560633406,
+          "t": 1.4193394473062255,
+          "p": 0.1604359370703349,
+          "ci_lo": -0.09038002924472738,
+          "ci_hi": 0.5352798296711951,
+          "p_wcb": 0.203
+        },
+        "direct_return": {
+          "n": 73,
+          "n_clusters": 68,
+          "beta": -0.1156982223917967,
+          "se": 0.12838686327998952,
+          "t": -0.9011686977621605,
+          "p": 0.3707266724678708,
+          "ci_lo": -0.37195947404575924,
+          "ci_hi": 0.14056302926216588,
+          "p_wcb": 0.488
+        },
+        "physical_destruction": {
+          "n": 73,
+          "n_clusters": 68,
+          "beta": -0.0934838673215187,
+          "se": 0.15506813239933895,
+          "t": -0.6028567306193804,
+          "p": 0.5486392345539134,
+          "ci_lo": -0.4030011550336999,
+          "ci_hi": 0.21603342039066248,
+          "p_wcb": 0.6
+        }
+      }
+    },
+    "Def2b_Strict_Amazon_Exclusive_Verbatim": {
+      "n": 49,
+      "groups": {
+        "1_Mkt_FD_China": 38,
+        "3_Mkt_True_US": 11
+      },
+      "underpowered_note": "Small cell counts inside narrow Amazon strict-durable subsamples; reported in Supplementary Appendix B.",
+      "models_prodcat_year_fe": {
+        "photo_language": {
+          "n": 49,
+          "n_clusters": 44,
+          "beta": 0.2275557378271692,
+          "se": 0.1672416649949245,
+          "t": 1.3606402318111048,
+          "p": 0.18071709567862096,
+          "ci_lo": -0.10971922335396805,
+          "ci_hi": 0.5648306990083065,
+          "p_wcb": 0.364
+        },
+        "direct_return": {
+          "n": 49,
+          "n_clusters": 44,
+          "beta": -0.2547349190962641,
+          "se": 0.22511389404597665,
+          "t": -1.1315823937736946,
+          "p": 0.26408146879537453,
+          "ci_lo": -0.7087203531565841,
+          "ci_hi": 0.19925051496405588,
+          "p_wcb": 0.773
+        },
+        "physical_destruction": {
+          "n": 49,
+          "n_clusters": 44,
+          "beta": -0.02007680262470779,
+          "se": 0.19816273652164,
+          "t": -0.10131472231922545,
+          "p": 0.9197715862539801,
+          "ci_lo": -0.41971004754553776,
+          "ci_hi": 0.3795564422961222,
+          "p_wcb": 0.932
+        }
+      }
+    }
+  },
+  "remedy_duty_4cat_distribution_2022_2026": {
+    "All_2022_2026_Classified": {
+      "n": 1833,
+      "counts": {
+        "other_remedy_no_proof": 843,
+        "photo_plus_physical_destruction": 360,
+        "direct_return_no_photo": 271,
+        "photo_only_mandatory": 221,
+        "photo_plus_permanent_marking_only": 108,
+        "photo_optional_or_alternative": 23,
+        "non_photo_destruction_or_disposal_proof": 7
+      },
+      "shares": {
+        "other_remedy_no_proof": 0.4599,
+        "photo_plus_physical_destruction": 0.1964,
+        "direct_return_no_photo": 0.1478,
+        "photo_only_mandatory": 0.1206,
+        "photo_plus_permanent_marking_only": 0.0589,
+        "photo_optional_or_alternative": 0.0125,
+        "non_photo_destruction_or_disposal_proof": 0.0038
+      },
+      "proof_status_counts": {
+        "no_proof_required": 1114,
+        "mandatory_proof": 696,
+        "optional_or_alternative_proof": 23
+      },
+      "duty_bearer_counts": {
+        "firm_or_retailer_led": 913,
+        "consumer_action_required": 864,
+        "shared_consumer_and_firm": 56
+      }
+    },
+    "1_Mkt_FD_China": {
+      "n": 448,
+      "counts": {
+        "photo_plus_physical_destruction": 201,
+        "photo_only_mandatory": 111,
+        "other_remedy_no_proof": 61,
+        "photo_plus_permanent_marking_only": 51,
+        "direct_return_no_photo": 16,
+        "photo_optional_or_alternative": 6,
+        "non_photo_destruction_or_disposal_proof": 2
+      },
+      "shares": {
+        "photo_plus_physical_destruction": 0.4487,
+        "photo_only_mandatory": 0.2478,
+        "other_remedy_no_proof": 0.1362,
+        "photo_plus_permanent_marking_only": 0.1138,
+        "direct_return_no_photo": 0.0357,
+        "photo_optional_or_alternative": 0.0134,
+        "non_photo_destruction_or_disposal_proof": 0.0045
+      },
+      "proof_status_counts": {
+        "mandatory_proof": 365,
+        "no_proof_required": 77,
+        "optional_or_alternative_proof": 6
+      },
+      "duty_bearer_counts": {
+        "consumer_action_required": 406,
+        "firm_or_retailer_led": 41,
+        "shared_consumer_and_firm": 1
+      }
+    },
+    "3_Mkt_True_US": {
+      "n": 233,
+      "counts": {
+        "other_remedy_no_proof": 110,
+        "photo_plus_physical_destruction": 45,
+        "photo_only_mandatory": 28,
+        "direct_return_no_photo": 25,
+        "photo_plus_permanent_marking_only": 19,
+        "photo_optional_or_alternative": 6
+      },
+      "shares": {
+        "other_remedy_no_proof": 0.4721,
+        "photo_plus_physical_destruction": 0.1931,
+        "photo_only_mandatory": 0.1202,
+        "direct_return_no_photo": 0.1073,
+        "photo_plus_permanent_marking_only": 0.0815,
+        "photo_optional_or_alternative": 0.0258
+      },
+      "proof_status_counts": {
+        "no_proof_required": 135,
+        "mandatory_proof": 92,
+        "optional_or_alternative_proof": 6
+      },
+      "duty_bearer_counts": {
+        "consumer_action_required": 134,
+        "firm_or_retailer_led": 89,
+        "shared_consumer_and_firm": 10
+      }
+    },
+    "4_DTC_Online_Only": {
+      "n": 102,
+      "counts": {
+        "other_remedy_no_proof": 53,
+        "direct_return_no_photo": 20,
+        "photo_plus_physical_destruction": 17,
+        "photo_plus_permanent_marking_only": 9,
+        "photo_only_mandatory": 1,
+        "non_photo_destruction_or_disposal_proof": 1,
+        "photo_optional_or_alternative": 1
+      },
+      "shares": {
+        "other_remedy_no_proof": 0.5196,
+        "direct_return_no_photo": 0.1961,
+        "photo_plus_physical_destruction": 0.1667,
+        "photo_plus_permanent_marking_only": 0.0882,
+        "photo_only_mandatory": 0.0098,
+        "non_photo_destruction_or_disposal_proof": 0.0098,
+        "photo_optional_or_alternative": 0.0098
+      },
+      "proof_status_counts": {
+        "no_proof_required": 73,
+        "mandatory_proof": 28,
+        "optional_or_alternative_proof": 1
+      },
+      "duty_bearer_counts": {
+        "firm_or_retailer_led": 57,
+        "consumer_action_required": 41,
+        "shared_consumer_and_firm": 4
+      }
+    },
+    "5_Omnichannel": {
+      "n": 397,
+      "counts": {
+        "other_remedy_no_proof": 221,
+        "direct_return_no_photo": 78,
+        "photo_plus_physical_destruction": 41,
+        "photo_only_mandatory": 37,
+        "photo_plus_permanent_marking_only": 14,
+        "photo_optional_or_alternative": 3,
+        "non_photo_destruction_or_disposal_proof": 3
+      },
+      "shares": {
+        "other_remedy_no_proof": 0.5567,
+        "direct_return_no_photo": 0.1965,
+        "photo_plus_physical_destruction": 0.1033,
+        "photo_only_mandatory": 0.0932,
+        "photo_plus_permanent_marking_only": 0.0353,
+        "photo_optional_or_alternative": 0.0076,
+        "non_photo_destruction_or_disposal_proof": 0.0076
+      },
+      "proof_status_counts": {
+        "no_proof_required": 299,
+        "mandatory_proof": 95,
+        "optional_or_alternative_proof": 3
+      },
+      "duty_bearer_counts": {
+        "firm_or_retailer_led": 245,
+        "consumer_action_required": 138,
+        "shared_consumer_and_firm": 14
+      }
+    },
+    "6_Brick_and_Mortar": {
+      "n": 627,
+      "counts": {
+        "other_remedy_no_proof": 386,
+        "direct_return_no_photo": 130,
+        "photo_plus_physical_destruction": 48,
+        "photo_only_mandatory": 43,
+        "photo_plus_permanent_marking_only": 12,
+        "photo_optional_or_alternative": 7,
+        "non_photo_destruction_or_disposal_proof": 1
+      },
+      "shares": {
+        "other_remedy_no_proof": 0.6156,
+        "direct_return_no_photo": 0.2073,
+        "photo_plus_physical_destruction": 0.0766,
+        "photo_only_mandatory": 0.0686,
+        "photo_plus_permanent_marking_only": 0.0191,
+        "photo_optional_or_alternative": 0.0112,
+        "non_photo_destruction_or_disposal_proof": 0.0016
+      },
+      "proof_status_counts": {
+        "no_proof_required": 516,
+        "mandatory_proof": 104,
+        "optional_or_alternative_proof": 7
+      },
+      "duty_bearer_counts": {
+        "firm_or_retailer_led": 470,
+        "consumer_action_required": 130,
+        "shared_consumer_and_firm": 27
+      }
+    }
+  },
+  "hazardous_notice_coverage_v4": {
+    "hazard_group_notices": 74,
+    "screened_notices": 67,
+    "screened_direct_return_share": 0.0,
+    "screened_affected_units": 3947390,
+    "disposal_word_notices": 65,
+    "disposal_word_affected_units": 3944590,
+    "warning_remedy_notices": 52,
+    "warning_remedy_affected_units": 2697571,
+    "warning_full_notice_count": 54,
+    "warning_full_notice_share_notices": 0.806,
+    "warning_full_notice_affected_units": 3910951,
+    "warning_full_notice_share_units": 0.9908,
+    "top2_ocoopa_anker_units": 2658000,
+    "top2_ocoopa_anker_share": 0.6734,
+    "top4_units": 3278000,
+    "top4_share": 0.8304,
+    "largest_cases": [
+      {
+        "recall_id": 10895,
+        "recall_number": "26659",
+        "units": 1500000,
+        "share_of_total": 0.38,
+        "amazon_channel_3way": "multi_channel_with_amazon",
+        "warning_remedy": 1,
+        "warning_full_notice": 1,
+        "title_snip": "OCOOPA Direct Recalls 1.5 Million Rechargeable Hand Warmers Due to Risk of Serious Injury or Death from Fire and Burn Hazards; One Death Rep",
+        "source_url": "https://www.cpsc.gov/Recalls/2026/OCOOPA-Direct-Recalls-1-5-Million-Rechargeable-Hand-Warmers-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-and-Burn-Hazards-One-Death-Reported-Imported-by-Shenzhen-Street-Cat-Technology"
+      },
+      {
+        "recall_id": 10311,
+        "recall_number": "25338",
+        "units": 1158000,
+        "share_of_total": 0.2934,
+        "amazon_channel_3way": "multi_channel_with_amazon",
+        "warning_remedy": 0,
+        "warning_full_notice": 1,
+        "title_snip": "More than One Million Anker Power Banks Recalled Due to Fire and Burn Hazards; Manufactured by Anker Innovations",
+        "source_url": "https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations"
+      },
+      {
+        "recall_id": 10115,
+        "recall_number": "25072",
+        "units": 488000,
+        "share_of_total": 0.1236,
+        "amazon_channel_3way": "strict_amazon_exclusive",
+        "warning_remedy": 1,
+        "warning_full_notice": 1,
+        "title_snip": "Charmast Power Banks Recalled Due to Fire and Burn Hazards; Sold by Charmast Exclusively on Amazon.com",
+        "source_url": "https://www.cpsc.gov/Recalls/2025/Charmast-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Sold-by-Charmast-Exclusively-on-Amazon-com"
+      },
+      {
+        "recall_id": 9991,
+        "recall_number": "24287",
+        "units": 132000,
+        "share_of_total": 0.0334,
+        "amazon_channel_3way": "multi_channel_with_amazon",
+        "warning_remedy": 1,
+        "warning_full_notice": 1,
+        "title_snip": "Baseus Magnetic Wireless Charging Power Banks Recalled Due to Fire Hazard; Imported by Shenzhen Baseus Technology",
+        "source_url": "https://www.cpsc.gov/Recalls/2024/Baseus-Magnetic-Wireless-Charging-Power-Banks-Recalled-Due-to-Fire-Hazard-Imported-by-Shenzhen-Baseus-Technology"
+      },
+      {
+        "recall_id": 10771,
+        "recall_number": "26484",
+        "units": 94000,
+        "share_of_total": 0.0238,
+        "amazon_channel_3way": "strict_amazon_exclusive",
+        "warning_remedy": 1,
+        "warning_full_notice": 1,
+        "title_snip": "Lithium Coin Batteries Recalled Due?to Risk of Serious Injury or Death from Battery Ingestion; Violates Federal Statute for Child-Resistant ",
+        "source_url": "https://www.cpsc.gov/Recalls/2026/Lithium-Coin-Batteries-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Battery-Ingestion-Violates-Federal-Statute-for-Child-Resistant-Packaging-of-Coin-Batteries-Imported-and-Sold-on-Amazon-by-LiCB"
+      },
+      {
+        "recall_id": 10099,
+        "recall_number": "25056",
+        "units": 69000,
+        "share_of_total": 0.0175,
+        "amazon_channel_3way": "strict_amazon_exclusive",
+        "warning_remedy": 1,
+        "warning_full_notice": 1,
+        "title_snip": "Anker Soundcore Lithium-Ion Battery Powered Bluetooth Speakers Recalled Due to Fire Hazard; Sold Exclusively on Amazon.com by Anker Innovati",
+        "source_url": "https://www.cpsc.gov/Recalls/2025/Anker-Soundcore-Lithium-Ion-Battery-Powered-Bluetooth-Speakers-Recalled-Due-to-Fire-Hazard-Sold-Exclusively-on-Amazon-com-by-Anker-Innovations"
+      }
+    ]
+  },
+  "in_re_amazon_case_study_v4": {
+    "fba_terminology_audit": {
+      "broad_amazon_only_mkt_2022_2026": 601,
+      "strict_amazon_exclusive_2022_2026": 438,
+      "explicit_fulfilled_by_amazon_mentions": 0,
+      "standalone_fba_tokens": 1,
+      "fba_token_notices": [
+        {
+          "recall_id": 10317,
+          "recall_number": "25345",
+          "title_snip": "TADAKAZU Baby Loungers Recalled Due to Risk of Serious Injury or Death from Suffocation, Fall and Entrapment Hazards; Violations of Federal ",
+          "source_url": "https://www.cpsc.gov/Recalls/2025/TADAKAZU-Baby-Loungers-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Suffocation-Fall-and-Entrapment-Hazards-Violations-of-Federal-Standard-for-Infant-Sleep-Products-Sold-on-Amazon"
+        }
+      ]
+    },
+    "quarterly_series_2021Q1_2026Q4": [
+      {
+        "t_idx": 0,
+        "yq": "2021Q1",
+        "is_complete_qtr": 1,
+        "amz_broad": 8,
+        "amz_strict_exclusive": 1,
+        "nonamz_mkt": 2,
+        "brick_mortar": 24,
+        "log_broad_over_bm": -1.0586069540544105,
+        "log_strict_over_bm": -2.793208009442517,
+        "log_strict_over_nonamz": -0.5108256237659907
+      },
+      {
+        "t_idx": 1,
+        "yq": "2021Q2",
+        "is_complete_qtr": 1,
+        "amz_broad": 17,
+        "amz_strict_exclusive": 5,
+        "nonamz_mkt": 1,
+        "brick_mortar": 26,
+        "log_broad_over_bm": -0.41494385206270823,
+        "log_strict_over_bm": -1.5723966407537513,
+        "log_strict_over_nonamz": 1.2992829841302609
+      },
+      {
+        "t_idx": 2,
+        "yq": "2021Q3",
+        "is_complete_qtr": 1,
+        "amz_broad": 9,
+        "amz_strict_exclusive": 5,
+        "nonamz_mkt": 1,
+        "brick_mortar": 30,
+        "log_broad_over_bm": -1.1664348850068706,
+        "log_strict_over_bm": -1.7129785913749407,
+        "log_strict_over_nonamz": 1.2992829841302609
+      },
+      {
+        "t_idx": 3,
+        "yq": "2021Q4",
+        "is_complete_qtr": 1,
+        "amz_broad": 6,
+        "amz_strict_exclusive": 1,
+        "nonamz_mkt": 1,
+        "brick_mortar": 15,
+        "log_broad_over_bm": -0.8690378470236094,
+        "log_strict_over_bm": -2.3353749158170367,
+        "log_strict_over_nonamz": 0.0
+      },
+      {
+        "t_idx": 4,
+        "yq": "2022Q1",
+        "is_complete_qtr": 1,
+        "amz_broad": 11,
+        "amz_strict_exclusive": 6,
+        "nonamz_mkt": 2,
+        "brick_mortar": 38,
+        "log_broad_over_bm": -1.2083112059245342,
+        "log_strict_over_bm": -1.7788560643921472,
+        "log_strict_over_nonamz": 0.9555114450274363
+      },
+      {
+        "t_idx": 5,
+        "yq": "2022Q2",
+        "is_complete_qtr": 1,
+        "amz_broad": 11,
+        "amz_strict_exclusive": 4,
+        "nonamz_mkt": 1,
+        "brick_mortar": 30,
+        "log_broad_over_bm": -0.9753796482441617,
+        "log_strict_over_bm": -1.9136492868370918,
+        "log_strict_over_nonamz": 1.0986122886681098
+      },
+      {
+        "t_idx": 6,
+        "yq": "2022Q3",
+        "is_complete_qtr": 1,
+        "amz_broad": 10,
+        "amz_strict_exclusive": 8,
+        "nonamz_mkt": 0,
+        "brick_mortar": 34,
+        "log_broad_over_bm": -1.1895840668738362,
+        "log_strict_over_bm": -1.4008931605410433,
+        "log_strict_over_nonamz": 2.833213344056216
+      },
+      {
+        "t_idx": 7,
+        "yq": "2022Q4",
+        "is_complete_qtr": 1,
+        "amz_broad": 15,
+        "amz_strict_exclusive": 6,
+        "nonamz_mkt": 0,
+        "brick_mortar": 33,
+        "log_broad_over_bm": -0.7707054149058198,
+        "log_strict_over_bm": -1.6397432619294292,
+        "log_strict_over_nonamz": 2.5649493574615367
+      },
+      {
+        "t_idx": 8,
+        "yq": "2023Q1",
+        "is_complete_qtr": 1,
+        "amz_broad": 19,
+        "amz_strict_exclusive": 13,
+        "nonamz_mkt": 1,
+        "brick_mortar": 44,
+        "log_broad_over_bm": -0.8250747236024933,
+        "log_strict_over_bm": -1.1927995037278107,
+        "log_strict_over_nonamz": 2.1972245773362196
+      },
+      {
+        "t_idx": 9,
+        "yq": "2023Q2",
+        "is_complete_qtr": 1,
+        "amz_broad": 17,
+        "amz_strict_exclusive": 10,
+        "nonamz_mkt": 1,
+        "brick_mortar": 32,
+        "log_broad_over_bm": -0.6190392084062235,
+        "log_strict_over_bm": -1.129864832172214,
+        "log_strict_over_nonamz": 1.9459101490553132
+      },
+      {
+        "t_idx": 10,
+        "yq": "2023Q3",
+        "is_complete_qtr": 1,
+        "amz_broad": 10,
+        "amz_strict_exclusive": 3,
+        "nonamz_mkt": 1,
+        "brick_mortar": 34,
+        "log_broad_over_bm": -1.1895840668738362,
+        "log_strict_over_bm": -2.2881963555419462,
+        "log_strict_over_nonamz": 0.8472978603872037
+      },
+      {
+        "t_idx": 11,
+        "yq": "2023Q4",
+        "is_complete_qtr": 1,
+        "amz_broad": 18,
+        "amz_strict_exclusive": 16,
+        "nonamz_mkt": 4,
+        "brick_mortar": 40,
+        "log_broad_over_bm": -0.7835312420282143,
+        "log_strict_over_bm": -0.8979415932059586,
+        "log_strict_over_nonamz": 1.2992829841302609
+      },
+      {
+        "t_idx": 12,
+        "yq": "2024Q1",
+        "is_complete_qtr": 1,
+        "amz_broad": 22,
+        "amz_strict_exclusive": 16,
+        "nonamz_mkt": 3,
+        "brick_mortar": 37,
+        "log_broad_over_bm": -0.5108256237659907,
+        "log_strict_over_bm": -0.8209805520698302,
+        "log_strict_over_nonamz": 1.550597412411167
+      },
+      {
+        "t_idx": 13,
+        "yq": "2024Q2",
+        "is_complete_qtr": 1,
+        "amz_broad": 14,
+        "amz_strict_exclusive": 12,
+        "nonamz_mkt": 5,
+        "brick_mortar": 32,
+        "log_broad_over_bm": -0.807091439909163,
+        "log_strict_over_bm": -0.9555114450274363,
+        "log_strict_over_nonamz": 0.8209805520698303
+      },
+      {
+        "t_idx": 14,
+        "yq": "2024Q3",
+        "is_complete_qtr": 1,
+        "amz_broad": 17,
+        "amz_strict_exclusive": 11,
+        "nonamz_mkt": 6,
+        "brick_mortar": 25,
+        "log_broad_over_bm": -0.3764775712349121,
+        "log_strict_over_bm": -0.796331416795176,
+        "log_strict_over_nonamz": 0.5705448584676129
+      },
+      {
+        "t_idx": 15,
+        "yq": "2024Q4",
+        "is_complete_qtr": 1,
+        "amz_broad": 13,
+        "amz_strict_exclusive": 3,
+        "nonamz_mkt": 4,
+        "brick_mortar": 19,
+        "log_broad_over_bm": -0.3677247801253174,
+        "log_strict_over_bm": -1.717651497074333,
+        "log_strict_over_nonamz": -0.25131442828090605
+      },
+      {
+        "t_idx": 16,
+        "yq": "2025Q1",
+        "is_complete_qtr": 1,
+        "amz_broad": 23,
+        "amz_strict_exclusive": 18,
+        "nonamz_mkt": 12,
+        "brick_mortar": 34,
+        "log_broad_over_bm": -0.38395890288720075,
+        "log_strict_over_bm": -0.6231885919530349,
+        "log_strict_over_nonamz": 0.3920420877760237
+      },
+      {
+        "t_idx": 17,
+        "yq": "2025Q2",
+        "is_complete_qtr": 1,
+        "amz_broad": 42,
+        "amz_strict_exclusive": 27,
+        "nonamz_mkt": 9,
+        "brick_mortar": 30,
+        "log_broad_over_bm": 0.3317773923170052,
+        "log_strict_over_bm": -0.10354067894084033,
+        "log_strict_over_nonamz": 1.0628942060660305
+      },
+      {
+        "t_idx": 18,
+        "yq": "2025Q3",
+        "is_complete_qtr": 1,
+        "amz_broad": 31,
+        "amz_strict_exclusive": 21,
+        "nonamz_mkt": 7,
+        "brick_mortar": 23,
+        "log_broad_over_bm": 0.29298712468147414,
+        "log_strict_over_bm": -0.08894748601649617,
+        "log_strict_over_nonamz": 1.0531499145913523
+      },
+      {
+        "t_idx": 19,
+        "yq": "2025Q4",
+        "is_complete_qtr": 1,
+        "amz_broad": 62,
+        "amz_strict_exclusive": 49,
+        "nonamz_mkt": 12,
+        "brick_mortar": 30,
+        "log_broad_over_bm": 0.7174398731289898,
+        "log_strict_over_bm": 0.4842459859612787,
+        "log_strict_over_nonamz": 1.3762440252663892
+      },
+      {
+        "t_idx": 20,
+        "yq": "2026Q1",
+        "is_complete_qtr": 1,
+        "amz_broad": 82,
+        "amz_strict_exclusive": 66,
+        "nonamz_mkt": 7,
+        "brick_mortar": 26,
+        "log_broad_over_bm": 1.1356535603484588,
+        "log_strict_over_bm": 0.920057214669632,
+        "log_strict_over_nonamz": 2.1822989271195437
+      },
+      {
+        "t_idx": 21,
+        "yq": "2026Q2",
+        "is_complete_qtr": 1,
+        "amz_broad": 78,
+        "amz_strict_exclusive": 65,
+        "nonamz_mkt": 12,
+        "brick_mortar": 35,
+        "log_broad_over_bm": 0.7935659283069927,
+        "log_strict_over_bm": 0.6125174461598362,
+        "log_strict_over_nonamz": 1.6563214983329508
+      },
+      {
+        "t_idx": 22,
+        "yq": "2026Q3",
+        "is_complete_qtr": 1,
+        "amz_broad": 78,
+        "amz_strict_exclusive": 60,
+        "nonamz_mkt": 17,
+        "brick_mortar": 32,
+        "log_broad_over_bm": 0.8818585354526709,
+        "log_strict_over_bm": 0.621403275701104,
+        "log_strict_over_nonamz": 1.2404424841073274
+      },
+      {
+        "t_idx": 23,
+        "yq": "2026Q4",
+        "is_complete_qtr": 0,
+        "amz_broad": 33,
+        "amz_strict_exclusive": 27,
+        "nonamz_mkt": 2,
+        "brick_mortar": 19,
+        "log_broad_over_bm": 0.5411309732613195,
+        "log_strict_over_bm": 0.34377153910282454,
+        "log_strict_over_nonamz": 2.3978952727983707
+      }
+    ],
+    "annual_counts_2021_2026": [
+      {
+        "year": 2021,
+        "amz_broad": 40,
+        "amz_strict_exclusive": 12,
+        "amz_multi_channel_online": 28,
+        "brick_mortar": 95
+      },
+      {
+        "year": 2022,
+        "amz_broad": 47,
+        "amz_strict_exclusive": 24,
+        "amz_multi_channel_online": 22,
+        "brick_mortar": 135
+      },
+      {
+        "year": 2023,
+        "amz_broad": 64,
+        "amz_strict_exclusive": 42,
+        "amz_multi_channel_online": 22,
+        "brick_mortar": 150
+      },
+      {
+        "year": 2024,
+        "amz_broad": 66,
+        "amz_strict_exclusive": 42,
+        "amz_multi_channel_online": 24,
+        "brick_mortar": 113
+      },
+      {
+        "year": 2025,
+        "amz_broad": 158,
+        "amz_strict_exclusive": 115,
+        "amz_multi_channel_online": 43,
+        "brick_mortar": 117
+      },
+      {
+        "year": 2026,
+        "amz_broad": 271,
+        "amz_strict_exclusive": 218,
+        "amz_multi_channel_online": 53,
+        "brick_mortar": 112
+      }
+    ],
+    "hac_its_jul2024_L4": {
+      "log_broad_over_bm": {
+        "series": "log_broad_over_bm",
+        "cut_yq": "2024Q3",
+        "t_quarters": 23,
+        "maxlags": 4,
+        "r2": 0.8943,
+        "params": {
+          "const": {
+            "beta": -0.7656349327109084,
+            "se": 0.07039456913241873,
+            "t": -10.876335236468,
+            "p": 1.494513707544726e-27,
+            "ci_lo": -0.9036057540059603,
+            "ci_hi": -0.6276641114158565
+          },
+          "pre_slope": {
+            "beta": 0.01589772495932536,
+            "se": 0.01065046684683793,
+            "t": 1.4926786954926126,
+            "p": 0.13552131270040044,
+            "ci_lo": -0.004976806643670496,
+            "ci_hi": 0.03677225656232122
+          },
+          "level_jump": {
+            "beta": 0.3056192420875549,
+            "se": 0.11568388272498323,
+            "t": 2.6418480681021697,
+            "p": 0.008245503467226824,
+            "ci_lo": 0.07888299656636588,
+            "ci_hi": 0.532355487608744
+          },
+          "slope_change": {
+            "beta": 0.18313734102951762,
+            "se": 0.022906343360378965,
+            "t": 7.995049150720832,
+            "p": 1.2952218655040636e-15,
+            "ci_lo": 0.13824173267153583,
+            "ci_hi": 0.2280329493874994
+          }
+        }
+      },
+      "log_strict_over_bm": {
+        "series": "log_strict_over_bm",
+        "cut_yq": "2024Q3",
+        "t_quarters": 23,
+        "maxlags": 4,
+        "r2": 0.8424,
+        "params": {
+          "const": {
+            "beta": -0.8607225982671248,
+            "se": 0.11310494980496631,
+            "t": -7.609946335251647,
+            "p": 2.742097548521043e-14,
+            "ci_lo": -1.082404228106666,
+            "ci_hi": -0.6390409684275838
+          },
+          "pre_slope": {
+            "beta": 0.09887883654374681,
+            "se": 0.013521714068230595,
+            "t": 7.31259632061468,
+            "p": 2.6202931852407787e-13,
+            "ci_lo": 0.07237676375172129,
+            "ci_hi": 0.1253809093357723
+          },
+          "level_jump": {
+            "beta": -0.3051518545094399,
+            "se": 0.2255713193340964,
+            "t": -1.3527954502827364,
+            "p": 0.17612098666250575,
+            "ci_lo": -0.7472635198367727,
+            "ci_hi": 0.13695981081789305
+          },
+          "slope_change": {
+            "beta": 0.1733832280868382,
+            "se": 0.03473401777551287,
+            "t": 4.991741214834975,
+            "p": 5.983739289993003e-07,
+            "ci_lo": 0.1053058036714729,
+            "ci_hi": 0.2414606525022035
+          }
+        }
+      },
+      "log_strict_over_nonamz": {
+        "series": "log_strict_over_nonamz",
+        "cut_yq": "2024Q3",
+        "t_quarters": 23,
+        "maxlags": 4,
+        "r2": 0.2728,
+        "params": {
+          "const": {
+            "beta": 1.8603457986478948,
+            "se": 0.5051399538653183,
+            "t": 3.6828324198325144,
+            "p": 0.000230656796567515,
+            "ci_lo": 0.8702896741102101,
+            "ci_hi": 2.8504019231855797
+          },
+          "pre_slope": {
+            "beta": 0.07470019872354929,
+            "se": 0.05256066146908307,
+            "t": 1.421218771523433,
+            "p": 0.1552531691653213,
+            "ci_lo": -0.02831680557204065,
+            "ci_hi": 0.17771720301913924
+          },
+          "level_jump": {
+            "beta": -1.6487006313952706,
+            "se": 0.5239771199282582,
+            "t": -3.1465126408973867,
+            "p": 0.001652301189919702,
+            "ci_lo": -2.6756769232783393,
+            "ci_hi": -0.6217243395122019
+          },
+          "slope_change": {
+            "beta": 0.13023916428124732,
+            "se": 0.06664806523723453,
+            "t": 1.9541327091440623,
+            "p": 0.05068552472081576,
+            "ci_lo": -0.0003886442533838075,
+            "ci_hi": 0.26086697281587845
+          }
+        }
+      }
+    },
+    "hac_its_jan2025_L4": {
+      "log_broad_over_bm": {
+        "series": "log_broad_over_bm",
+        "cut_yq": "2025Q1",
+        "t_quarters": 23,
+        "maxlags": 4,
+        "r2": 0.8811,
+        "params": {
+          "const": {
+            "beta": -0.5507759695535921,
+            "se": 0.1108415092746121,
+            "t": -4.969040688439503,
+            "p": 6.728495136845679e-07,
+            "ci_lo": -0.7680213374374979,
+            "ci_hi": -0.3335306016696863
+          },
+          "pre_slope": {
+            "beta": 0.031764242773416364,
+            "se": 0.012885733863396668,
+            "t": 2.4650705276201736,
+            "p": 0.013698628495255763,
+            "ci_lo": 0.006508668287577974,
+            "ci_hi": 0.05701981725925476
+          },
+          "level_jump": {
+            "beta": 0.4931404901748009,
+            "se": 0.20855201848750013,
+            "t": 2.364592266961722,
+            "p": 0.018049930599026164,
+            "ci_lo": 0.08438604181196618,
+            "ci_hi": 0.9018949385376356
+          },
+          "slope_change": {
+            "beta": 0.1669391794646755,
+            "se": 0.037680127261719217,
+            "t": 4.430430351393103,
+            "p": 9.404521866149031e-06,
+            "ci_lo": 0.09308748651628727,
+            "ci_hi": 0.24079087241306374
+          }
+        }
+      },
+      "log_strict_over_bm": {
+        "series": "log_strict_over_bm",
+        "cut_yq": "2025Q1",
+        "t_quarters": 23,
+        "maxlags": 4,
+        "r2": 0.8504,
+        "params": {
+          "const": {
+            "beta": -0.8874288431861815,
+            "se": 0.14363320134199584,
+            "t": -6.1784380971442765,
+            "p": 6.473886261291844e-10,
+            "ci_lo": -1.168944747021245,
+            "ci_hi": -0.605912939351118
+          },
+          "pre_slope": {
+            "beta": 0.07902585026267467,
+            "se": 0.01463553836070123,
+            "t": 5.399586152216427,
+            "p": 6.679480189061229e-08,
+            "ci_lo": 0.05034072195508124,
+            "ci_hi": 0.1077109785702681
+          },
+          "level_jump": {
+            "beta": 0.48619666464247535,
+            "se": 0.13737997511846287,
+            "t": 3.5390650218361706,
+            "p": 0.000401546932863126,
+            "ci_lo": 0.21693685908939242,
+            "ci_hi": 0.7554564701955583
+          },
+          "slope_change": {
+            "beta": 0.1415061695176787,
+            "se": 0.04538039850949908,
+            "t": 3.1182222758149307,
+            "p": 0.0018194552814175683,
+            "ci_lo": 0.05256222213340685,
+            "ci_hi": 0.23045011690195055
+          }
+        }
+      }
+    }
+  }
+}
