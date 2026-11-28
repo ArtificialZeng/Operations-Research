@@ -32,7 +32,7 @@ import pandas as pd
 from scipy import stats
 
 READ_DATA_DIR = Path(r"D:\AI_Science\antigravity\frontier_discovery_20261126_wave5\data_i4")
-WORK_DIR = Path(r"D:\AI_Science\antigravity\i4_boost_sec_names_rule_20261126")
+WORK_DIR = Path(__file__).resolve().parents[1]
 DATA_OUT = WORK_DIR / "data"
 TABLES_OUT = WORK_DIR / "tables"
 RESULTS_OUT = WORK_DIR / "results"

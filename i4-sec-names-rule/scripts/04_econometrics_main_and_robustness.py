@@ -29,7 +29,7 @@ from econometrics import (
     run_absorbed_twfe,
 )
 
-WORK_DIR = Path(r"D:\AI_Science\antigravity\i4_boost_sec_names_rule_20261126")
+WORK_DIR = Path(__file__).resolve().parents[1]
 TABLES_OUT = WORK_DIR / "tables"
 RESULTS_OUT = WORK_DIR / "results"
 

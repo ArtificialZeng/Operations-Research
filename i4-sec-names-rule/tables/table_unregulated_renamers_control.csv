@@ -1,0 +1,165 @@
+SERIES_ID,CIK10,COMPLEX_ID,REP_YQ,REPORT_DATE,PRE_NAME,POST_NAME,IS_VA_INSURANCE,IS_FOF,IS_ETF,AUM_M
+S000000044,0000742212,NORTHWESTERN MUTUAL,20253,30-SEP-2025,Asset Allocation Portfolio,Active/Passive Moderate Portfolio,0,1,0,282.31
+S000000045,0000742212,NORTHWESTERN MUTUAL,20253,30-SEP-2025,Balanced Portfolio,Active/Passive Balanced Portfolio,0,1,0,1935.61
+S000002811,0000914036,LINCOLN FINANCIAL,20262,30-JUN-2026,LVIP SSGA Global Tactical Allocation Managed Volatility Fund,LVIP State Street Global Tactical Allocation Managed Volatility Fund,1,1,0,567.92
+S000003100,0001039803,PROSHARES,20251,31-JAN-2025,Communication Services,COMMUNICATION SERVICES ULTRASECTOR PROFUND,0,1,0,17.87
+S000003482,0001257927,WEITZFUNDS,20262,30-JUN-2026,Conservative Allocation Fund,Weitz Conservative Allocation Fund,0,0,0,170.41
+S000003776,0000927972,MASSMUTUAL,20252,30-JUN-2025,MassMutual Balanced Fund,MassMutual Premier Balanced Fund,0,0,0,90.68
+S000003830,0001317146,MASSMUTUAL,20262,30-JUN-2026,MML Blend Fund,MML VIP BlackRock(R) Balanced Fund,1,1,0,644.16
+S000003995,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus 2050 Fund,Franklin Retirement Advantage Plus 2050 Fund,0,0,0,281.39
+S000003996,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus Maturity Fund,Franklin Retirement Advantage Plus Maturity Fund,0,1,0,632.7
+S000003997,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus 2045 Fund,Franklin Retirement Advantage Plus 2045 Fund,0,0,0,359.86
+S000003998,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus 2040 Fund,Franklin Retirement Advantage Plus 2040 Fund,0,0,0,417.23
+S000003999,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus 2035 Fund,Franklin Retirement Advantage Plus 2035 Fund,0,0,0,406.66
+S000004000,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus 2030 Fund,Franklin Retirement Advantage Plus 2030 Fund,0,0,0,535.92
+S000005080,0000777535,TIAA / NUVEEN,20254,31-DEC-2025,College Retirement Equities Fund - Stock Account,College Retirement Equities Fund - Total Global Stock Account,0,0,0,135518.7
+S000005086,0000777535,TIAA / NUVEEN,20254,31-DEC-2025,College Retirement Equities Fund - Social Choice Account,College Retirement Equities Fund - Responsible Balanced Account,0,0,0,21653.51
+S000005454,0000275309,FIDELITY,20251,31-MAR-2025,Fidelity Stock Selector All Cap Fund,Fidelity Stock Selector Fund,0,1,0,7161.05
+S000006235,0000810016,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie VIP Balanced Series,Nomura VIP Balanced Series,1,0,0,227.27
+S000006283,0000883622,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie Asset Strategy Fund,Nomura Asset Strategy Fund,0,0,0,1834.69
+S000006792,0000814679,PRUDENTIAL / PGIM,20252,30-JUN-2025,AST Academic Strategies Asset Allocation Portfolio,AST Multi-Asset Diversified Plus Portfolio,1,0,0,2280.49
+S000008749,0000916488,FRANKLIN TEMPLETON,20254,31-DEC-2025,Templeton Global Balanced Fund,Templeton Global Dynamic Income Fund,0,0,0,312.88
+S000009314,0000822977,GOLDMAN SACHS,20261,31-MAR-2026,Goldman Sachs Balanced Strategy Portfolio,Goldman Sachs Conservative Allocation Fund,0,1,0,609.3
+S000009336,0000822977,GOLDMAN SACHS,20261,31-MAR-2026,Goldman Sachs Growth Strategy Portfolio,Goldman Sachs Growth Allocation Fund,0,1,0,1114.46
+S000009437,0000887340,NEW YORK LIFE / NYLI,20261,31-MAR-2026,NYLI VP Balanced Portfolio,NYLIM VP Balanced Portfolio,1,0,0,350.15
+S000009439,0000887340,NEW YORK LIFE / NYLI,20261,31-MAR-2026,NYLI VP Conservative Allocation Portfolio,NYLIM VP Conservative Allocation Portfolio,1,1,0,351.41
+S000009440,0000887340,NEW YORK LIFE / NYLI,20261,31-MAR-2026,NYLI VP Equity Allocation Portfolio,NYLIM VP Equity Allocation Portfolio,1,1,0,712.16
+S000009441,0000887340,NEW YORK LIFE / NYLI,20261,31-MAR-2026,NYLI VP Moderate Allocation Portfolio,NYLIM VP Moderate Allocation Portfolio,1,1,0,663.54
+S000009442,0000887340,NEW YORK LIFE / NYLI,20261,31-MAR-2026,NYLI VP Growth Allocation Portfolio,NYLIM VP Growth Allocation Portfolio,1,1,0,992.73
+S000010394,0000906185,JANUS HENDERSON,20262,30-JUN-2026,Janus Henderson Balanced Portfolio,Janus Henderson VIT Balanced Portfolio,1,0,0,8684.86
+S000010422,0001291446,CREDIT SUISSE,20262,30-APR-2026,Credit Suisse Commodity Return Strategy Fund,Cantor Fitzgerald Commodity Return Strategy Fund,0,0,0,1329.32
+S000011252,0000941568,CREDIT SUISSE,20262,30-JUN-2026,Commodity Return Strategy Portfolio,Cantor Fitzgerald Commodity Return Strategy Portfolio,1,0,0,811.31
+S000011985,0001221845,BLACKROCK / ISHARES,20254,31-DEC-2025,BATS: Series P Portfolio,BATS: Interest Rate Hedge Series,0,1,0,3.16
+S000014094,0000899148,GUGGENHEIM,20261,31-MAR-2026,Managed Futures Strategy Fund,Guggenheim Managed Futures Strategy Fund,0,0,0,22.71
+S000015555,0001380175,CAPITAL GROUP / AMERICAN FUNDS,20261,31-JAN-2026,American Funds 2010 Target Date Retirement Fund,American Funds 2010 Target Date Retirement Income Fund,0,0,0,3877.76
+S000015556,0001380175,CAPITAL GROUP / AMERICAN FUNDS,20261,31-JAN-2026,American Funds 2015 Target Date Retirement Fund,American Funds 2015 Target Date Retirement Income Fund,0,0,0,4720.6
+S000015557,0001380175,CAPITAL GROUP / AMERICAN FUNDS,20261,31-JAN-2026,American Funds 2020 Target Date Retirement Fund,American Funds 2020 Target Date Retirement Income Fund,0,0,0,14917.66
+S000015558,0001380175,CAPITAL GROUP / AMERICAN FUNDS,20261,31-JAN-2026,American Funds 2025 Target Date Retirement Fund,American Funds 2025 Target Date Retirement Income Fund,0,0,0,32545.43
+S000017659,0000823535,FIDELITY,20252,30-JUN-2025,VIP Asset Manager Portfolio,VIP Asset Manager 50% Portfolio,1,1,0,878.65
+S000018539,0000067160,MASSMUTUAL,20262,30-JUN-2026,MML Conservative Allocation Fund,MML VIP Conservative Allocation Fund,1,1,0,195.61
+S000018540,0000067160,MASSMUTUAL,20262,30-JUN-2026,MML Balanced Allocation Fund,MML VIP Balanced Allocation Fund,1,1,0,257.08
+S000018541,0000067160,MASSMUTUAL,20262,30-JUN-2026,MML Moderate Allocation Fund,MML VIP Moderate Allocation Fund,1,1,0,837.21
+S000018542,0000067160,MASSMUTUAL,20262,30-JUN-2026,MML Growth Allocation Fund,MML VIP Growth Allocation Fund,1,1,0,834.48
+S000018543,0000067160,MASSMUTUAL,20262,30-JUN-2026,MML Aggressive Allocation Fund,MML VIP Aggressive Allocation Fund,1,1,0,111.4
+S000020588,0000810016,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie VIP Pathfinder Aggressive Series,Nomura VIP Pathfinder Aggressive Series,1,1,0,50.59
+S000020589,0000810016,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie VIP Pathfinder Moderately Aggressive Series,Nomura VIP Pathfinder Moderately Aggressive Series,1,1,0,444.82
+S000020590,0000810016,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie VIP Pathfinder Moderate Series,Nomura VIP Pathfinder Moderate Series,1,1,0,366.6
+S000020591,0000810016,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie VIP Pathfinder Moderately Conservative Series,Nomura VIP Pathfinder Moderately Conservative Series,1,1,0,115.26
+S000020592,0000810016,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie VIP Pathfinder Conservative Series,Nomura VIP Pathfinder Conservative Series,1,1,0,64.31
+S000020867,0000811869,THRIVENT,20251,31-JAN-2025,THRIVENT INTERNATIONAL ALLOCATION FUND,THRIVENT INTERNATIONAL EQUITY FUND,0,0,0,774.96
+S000021859,0000790166,THRIVENT,20251,31-MAR-2025,THRIVENT INTERNATIONAL ALLOCATION PORTFOLIO,THRIVENT INTERNATIONAL EQUITY PORTFOLIO,1,0,0,1387.19
+S000023210,0000067160,MASSMUTUAL,20262,30-JUN-2026,MML American Funds Core Allocation Fund,MML VIP American Funds 65/35 Allocation Fund,1,1,0,512.99
+S000023585,0001100663,BLACKROCK / ISHARES,20252,30-APR-2025,iShares Core Conservative Allocation ETF,iShares Core 30/70 Conservative Allocation ETF,0,1,1,615.59
+S000023586,0001100663,BLACKROCK / ISHARES,20252,30-APR-2025,iShares Core Moderate Allocation ETF,iShares Core 40/60 Moderate Allocation ETF,0,1,1,1450.05
+S000023588,0001100663,BLACKROCK / ISHARES,20252,30-APR-2025,iShares Core Aggressive Allocation ETF,iShares Core 80/20 Aggressive Allocation ETF,0,1,1,2178.29
+S000023661,0001415995,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Hedge Multi-Strategy Tracker ETF,NYLIM Hedge Multi-Strategy Tracker ETF,0,1,1,968.49
+S000024504,0000355437,DIMENSIONAL,20251,31-JAN-2025,VA Global Moderate Allocation Portfolio,Dimensional VA Global Moderate Allocation Portfolio,0,1,0,228.82
+S000024823,0000883622,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie Balanced Fund,Nomura Balanced Fund,0,0,0,2054.45
+S000027932,0001314414,TOEWS,20262,30-APR-2026,Toews Hedged U.S. Opportunity Fund,Toews Hedged Opportunity Fund,0,1,0,28.29
+S000028532,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Conservative Allocation Fund,NYLIM Conservative Allocation Fund,0,1,0,363.96
+S000028533,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Moderate Allocation Fund,NYLIM Moderate Allocation Fund,0,1,0,803.82
+S000028534,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Growth Allocation Fund,NYLIM Growth Allocation Fund,0,1,0,882.31
+S000028535,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Equity Allocation Fund,NYLIM Equity Allocation Fund,0,1,0,495.24
+S000029482,0000914036,LINCOLN FINANCIAL,20262,30-JUN-2026,LVIP SSGA Conservative Index Allocation Fund,LVIP State Street Conservative Index Allocation Fund,1,1,0,147.27
+S000029483,0000914036,LINCOLN FINANCIAL,20262,30-JUN-2026,LVIP SSGA Moderate Index Allocation Fund,LVIP State Street Moderate Index Allocation Fund,1,1,0,677.14
+S000029484,0000914036,LINCOLN FINANCIAL,20262,30-JUN-2026,LVIP SSGA Moderately Aggressive Index Allocation Fund,LVIP State Street Moderately Aggressive Index Allocation Fund,1,1,0,685.82
+S000029518,0000915802,ALPS ADVISED,20252,30-APR-2025,RiverFront Asset Allocation Growth & Income,ALPS Asset Allocation Growth & Income,0,1,0,76.83
+S000029686,0001314414,DONOGHUE FORLINES,20254,31-DEC-2025,Donoghue Forlines Tactical Income Fund,DF Tactical Income Fund,0,1,0,91.89
+S000030159,0000102816,MORGAN STANLEY,20251,28-FEB-2025,Eaton Vance Richard Bernstein Equity Strategy Fund,Eaton Vance RBA Equity Strategy Fund,0,0,0,726.32
+S000030470,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus 2055 Fund,Franklin Retirement Advantage Plus 2055 Fund,0,0,0,177.1
+S000033059,0001516212,STATE STREET / SSGA,20254,31-DEC-2025,SPDR SSGA Multi-Asset Real Return ETF,State Street(R) Multi-Asset Real Return ETF,0,1,1,586.78
+S000033060,0001516212,STATE STREET / SSGA,20254,31-DEC-2025,SPDR SSGA Income Allocation ETF,State Street(R)Income Allocation ETF,0,1,1,71.89
+S000033062,0001516212,STATE STREET / SSGA,20254,31-DEC-2025,SPDR SSGA Global Allocation ETF,State Street(R) Global Allocation ETF,0,1,1,270.08
+S000033706,0001314414,TOEWS,20262,30-APR-2026,Toews Tactical Defensive Alpha Fund,Toews Managed Risk Equity Fund,0,1,0,71.25
+S000033928,0000887340,NEW YORK LIFE / NYLI,20261,31-MAR-2026,NYLI VP Janus Henderson Balanced Portfolio,NYLIM VP Janus Henderson Balanced Portfolio,1,0,0,2015.33
+S000033974,0000102816,MORGAN STANLEY,20251,28-FEB-2025,Eaton Vance Richard Bernstein All Asset Strategy Fund,Eaton Vance RBA All Asset Strategy Fund,0,0,0,414.5
+S000034148,0001314414,ALTEGRIS,20253,30-SEP-2025,Altegris Futures Evolution Strategy Fund,Winton Managed Futures Trend Fund,0,1,0,28.64
+S000036714,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Balanced Fund,NYLIM Balanced Fund,0,0,0,448.45
+S000040170,0000914036,LINCOLN FINANCIAL,20262,30-JUN-2026,LVIP SSGA Large Cap Managed Volatility Fund,LVIP State Street Large Cap Managed Volatility Fund,1,1,0,816.63
+S000040171,0000914036,LINCOLN FINANCIAL,20262,30-JUN-2026,LVIP SSGA SMID Cap Managed Volatility Fund,LVIP State Street SMID Cap Managed Volatility Fund,1,1,0,550.55
+S000040754,0001556505,ADVISORS PREFERRED / QUANTIFIED,20261,31-MAR-2026,The Gold Bullion Strategy Fund,Quantified Gold Futures Tracking Fund,0,0,0,188.83
+S000041687,0001556505,ADVISORS PREFERRED / QUANTIFIED,20262,30-JUN-2026,The Gold Bullion Strategy Portfolio,Quantified Gold Futures Tracking Portfolio,0,1,0,56.7
+S000041732,0000810016,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie VIP Pathfinder Moderate - Managed Volatility Series,Nomura VIP Pathfinder Moderate - Managed Volatility Series,1,1,0,350.28
+S000041733,0000810016,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie VIP Pathfinder Moderately Aggressive - Managed Volatility Series,Nomura VIP Pathfinder Moderately Aggressive - Managed Volatility Series,1,1,0,49.53
+S000041734,0000810016,MACQUARIE / DELAWARE,20254,31-DEC-2025,Macquarie VIP Pathfinder Moderately Conservative - Managed Volatility Series,Nomura VIP Pathfinder Moderately Conservative - Managed Volatility Series,1,1,0,21.83
+S000042342,0000914036,LINCOLN FINANCIAL,20262,30-JUN-2026,LVIP SSGA International Managed Volatility Fund,LVIP State Street International Managed Volatility Fund,1,1,0,259.26
+S000048315,0001350487,WISDOMTREE,20252,31-MAY-2025,WisdomTree PutWrite Strategy Fund,WisdomTree Equity Premium Income Fund,0,0,1,233.66
+S000048332,0001537140,HOWARD CAPITAL (HCM),20253,30-SEP-2025,HCM Dividend Sector Plus Fund,HCM Sector Plus Fund,0,1,0,1721.67
+S000051718,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus 2060 Fund,Franklin Retirement Advantage Plus 2060 Fund,0,0,0,83.39
+S000052083,0001027263,EQUITABLE,20254,31-DEC-2025,EQ/Franklin Moderate Allocation,EQ/JPMorgan Hedged Equity and Premium Income Portfolio,1,0,0,319.83
+S000054091,0001516212,STATE STREET / SSGA,20254,31-DEC-2025,SPDR(R) SSGA U.S. Sector Rotation ETF,State Street(R) US Sector Rotation ETF,0,1,1,834.08
+S000055185,0001516212,STATE STREET / SSGA,20254,31-DEC-2025,SPDR SSGA Fixed Income Sector Rotation ETF,State Street(R) Fixed Income Sector Rotation ETF,0,1,1,249.73
+S000057540,0000355437,DIMENSIONAL,20251,31-JAN-2025,VA Equity Allocation Portfolio,Dimensional VA Equity Allocation Portfolio,0,1,0,187.9
+S000058596,0001314414,PACIFIC FINANCIAL GROUP,20262,30-APR-2026,PFG Active Core Bond Strategy Fund,PFG PIMCO Active Core Bond Strategy Fund,0,1,0,166.5
+S000060136,0001314414,TOEWS,20263,31-JUL-2026,Agility Shares Dynamic Tactical Income ETF,Toews Agility Shares Dynamic Tactical Income ETF,0,1,1,86.75
+S000060147,0001314414,TOEWS,20263,31-JUL-2026,Agility Shares Managed Risk ETF,Toews Agility Shares Managed Risk ETF,0,1,1,292.42
+S000061654,0001314414,DONOGHUE FORLINES,20254,31-DEC-2025,Donoghue Forlines Tactical Allocation Fund,DF Tactical Allocation Fund,0,1,0,26.04
+S000061869,0001552740,FIRST TRUST,20251,31-MAR-2025,First Trust Dorsey Wright DALI 1 ETF,First Trust Dorsey Wright DALI Equity ETF,0,1,1,108.54
+S000063068,0000887340,NEW YORK LIFE / NYLI,20261,31-MAR-2026,NYLI VP Hedge Multi-Strategy Portfolio,NYLIM VP Hedge Multi-Strategy Portfolio,1,0,0,203.36
+S000065408,0001633061,AMPLIFY INVESTMENTS,20254,31-DEC-2025,Amplify High Income ETF,Amplify CEF High Income ETF,0,1,1,619.08
+S000065655,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI MacKay Strategic Muni Allocation Fund,NYLIM MacKay Strategic Muni Allocation Fund,0,0,0,2641.69
+S000066772,0001506213,STRATEGY SHARES,20252,30-APR-2025,Day Hagan/Ned Davis Research Smart Sector ETF,Day Hagan Smart Sector ETF,0,1,1,623.95
+S000067189,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2010 Target Date Fund,American Funds IS 2010 Target Date Retirement Income Fund,1,0,0,542.47
+S000067190,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2015 Target Date Fund,American Funds IS 2015 Target Date Retirement Income Fund,1,0,0,141.07
+S000067191,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2020 Target Date Fund,American Funds IS 2020 Target Date Retirement Income Fund,1,0,0,35.88
+S000067192,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2025 Target Date Fund,American Funds IS 2025 Target Date Retirement Income Fund,1,0,0,23.88
+S000067193,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2030 Target Date Fund,American Funds IS 2030 Target Date Retirement Fund,1,0,0,40.81
+S000067194,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2035 Target Date Fund,American Funds IS 2035 Target Date Retirement Fund,1,0,0,34.24
+S000068362,0001314414,PACIFIC FINANCIAL GROUP,20252,30-APR-2025,PFG Tactical Income Strategy Fund,PFG Janus Henderson Tactical Income Strategy Fund,0,1,0,104.73
+S000068387,0001547950,EXCHANGE TRADED CONCEPTS,20253,31-JUL-2025,Cabana Target Beta ETF ,ETC Cabana Target Beta ETF ,0,1,1,73.13
+S000068388,0001547950,EXCHANGE TRADED CONCEPTS,20253,31-JUL-2025,Cabana Target Drawdown 10 ETF ,ETC Cabana Target Drawdown 10 ETF ,0,1,1,154.28
+S000068729,0001100663,BLACKROCK / ISHARES,20252,30-APR-2025,iShares ESG Aware Conservative Allocation ETF,iShares ESG Aware 30/70 Conservative Allocation ETF,0,1,1,8.4
+S000068730,0001100663,BLACKROCK / ISHARES,20252,30-APR-2025,iShares ESG Aware Moderate Allocation ETF,iShares ESG Aware 40/60 Moderate Allocation ETF,0,1,1,6.96
+S000068732,0001100663,BLACKROCK / ISHARES,20252,30-APR-2025,iShares ESG Aware Aggressive Allocation ETF,iShares ESG Aware 80/20 Aggressive Allocation ETF,0,1,1,29.33
+S000068835,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Conservative ETF Allocation Fund,NYLIM Conservative ETF Allocation Fund,0,1,0,61.63
+S000068837,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Equity ETF Allocation Fund,NYLIM Equity ETF Allocation Fund,0,1,0,154.99
+S000068838,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Moderate ETF Allocation Fund,NYLIM Moderate ETF Allocation Fund,0,1,0,207.06
+S000068839,0001469192,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI Growth ETF Allocation Fund,NYLIM Growth ETF Allocation Fund,0,1,0,188.42
+S000068946,0001644419,CWM,20254,30-NOV-2025,Inspire Tactical Balanced ETF,Inspire Capital Appreciation ETF,0,0,1,88.96
+S000069940,0001604813,FCF,20251,31-JAN-2025,Donoghue Forlines Tactical High Yield ETF ,Abacus Tactical High Yield ETF,0,1,1,29.34
+S000070577,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus 2065 Fund,Franklin Retirement Advantage Plus 2065 Fund,0,0,0,2.01
+S000071096,0001293210,AMERICAN CENTURY,20252,30-APR-2025,One Choice Blend+ 2020 Portfolio,One Choice Blend+ In Retirement Portfolio,0,1,0,15.34
+S000071174,0001350487,WISDOMTREE,20253,31-AUG-2025,WisdomTree Alternative Income Fund,WisdomTree Private Credit and Alternative Income Fund,0,1,1,59.96
+S000071477,0001843263,TACTICAL INVESTMENT,20262,30-JUN-2026,TFA AlphaGen Growth Fund,"TFA AlphaGen Fund (formerly, the TFA AlphaGen Growth Fund)",0,1,0,45.63
+S000071481,0001843263,TACTICAL INVESTMENT,20262,30-JUN-2026,Tactical Growth Allocation Fund,"Tactical Allocation Fund (formerly, the Tactical Growth Allocation Fund)",0,1,0,36.43
+S000071681,0001317146,MASSMUTUAL,20254,31-DEC-2025,MML iShares 60/40 Allocation Fund,MML VIP BlackRock iShares 60/40 Allocation Fund,1,1,0,67.05
+S000071682,0001317146,MASSMUTUAL,20254,31-DEC-2025,MML iShares 80/20 Allocation Fund,MML VIP BlackRock iShares 80/20 Allocation Fund,1,1,0,133.13
+S000072148,0001547950,EXCHANGE TRADED CONCEPTS,20253,31-JUL-2025,Cabana Target Leading Sector Moderate ETF ,ETC Cabana Target Leading Sector Moderate ETF ,0,1,1,119.2
+S000072739,0001592900,EMPOWERED D/B/A EA,20254,31-OCT-2025,Discipline Fund ETF,Defined Duration 10 ETF,0,1,1,53.28
+S000073631,0001506213,STRATEGY SHARES,20252,30-APR-2025,Day Hagen/Ned Davis Research Smart Sector Fixed Income ETF,Day Hagan Smart Sector Fixed Income ETF,0,1,1,39.78
+S000076645,0001506213,STRATEGY SHARES,20252,30-APR-2025,Day Hagan/Ned Davis Research Smart Sector International ETF,Day Hagan Smart Sector International ETF,0,1,1,33.46
+S000079434,0001547576,KRANE,20251,31-MAR-2025,KraneShares China Internet and Covered Call Strategy ETF,KraneShares KWEB Covered Call Strategy ETF,0,1,1,121.5
+S000080056,0001959372,ARISTOTLE / PACIFIC,20262,30-JUN-2026,Aristotle Portfolio Optimization Conservative Fund,Aristotle Multi-Asset Income Fund,0,1,0,117.9
+S000080067,0001959372,ARISTOTLE / PACIFIC,20262,30-JUN-2026,Aristotle Portfolio Optimization Moderate Conservative Fund,Aristotle Multi-Asset Balanced Income Fund,0,1,0,179.13
+S000080069,0001959372,ARISTOTLE / PACIFIC,20262,30-JUN-2026,Aristotle Portfolio Optimization Moderate Fund,Aristotle Multi-Asset Balanced Fund,0,1,0,641.38
+S000080070,0001959372,ARISTOTLE / PACIFIC,20262,30-JUN-2026,Aristotle Portfolio Optimization Growth Fund,Aristotle Multi-Asset Growth and Income Fund,0,1,0,616.02
+S000080323,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2040 Target Date Fund,American Funds IS 2040 Target Date Retirement Fund,1,1,0,19.57
+S000080324,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2045 Target Date Fund,American Funds IS 2045 Target Date Retirement Fund,1,1,0,18.82
+S000080325,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2050 Target Date Fund,American Funds IS 2050 Target Date Retirement Fund,1,1,0,13.0
+S000080326,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2055 Target Date Fund,American Funds IS 2055 Target Date Retirement Fund,1,1,0,8.11
+S000080327,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2060 Target Date Fund,American Funds IS 2060 Target Date Retirement Fund,1,1,0,1.03
+S000080328,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2065 Target Date Fund,American Funds IS 2065 Target Date Retirement Fund,1,1,0,0.52
+S000080645,0001804196,BLACKROCK / ISHARES,20254,31-OCT-2025,iShares Large Cap Moderate Buffer ETF,iShares Large Cap Moderate Quarterly Laddered ETF,0,1,1,106.78
+S000080646,0001804196,BLACKROCK / ISHARES,20254,31-OCT-2025,iShares Large Cap Deep Buffer ETF,iShares Large Cap Deep Quarterly Laddered ETF,0,1,1,235.66
+S000080903,0001415726,INNOVATOR CAPITAL,20253,31-JUL-2025,Innovator Equity Defined Protection ETF - 2 Yr to July 2025,Innovator Equity Defined Protection ETF - 2 Yr to July 2027,0,0,1,159.84
+S000083196,0001898391,FIDELITY,20261,31-JAN-2026,Fidelity SAI Alternative Risk Premia Strategy Fund,Fidelity SAI Alternative Risk Premia Currency Strategy Fund,0,0,0,44.54
+S000083696,0001924868,TIDAL INVESTMENTS,20262,30-APR-2026,Yieldmax Universe Fund Of Option Income ETF,Yieldmax Universe Fund Of Option Income Etfs,0,1,1,551.83
+S000084041,0001221845,BLACKROCK / ISHARES,20254,31-DEC-2025,BlackRock Allocation Target Shares: Series I Portfolio,BATS: High Income Taxable Series,0,0,0,74.99
+S000084732,0000729528,CAPITAL GROUP / AMERICAN FUNDS,20262,30-JUN-2026,American Funds IS 2070 Target Date Fund,American Funds IS 2070 Target Date Retirement Fund,1,1,0,1.56
+S000087596,0001559992,STONE RIDGE,20251,31-MAR-2025,Stone Ridge 2060 Longevity Income ETF,LifeX 2060 Longevity Income ETF,0,0,1,3.06
+S000087602,0001559992,STONE RIDGE,20251,31-MAR-2025,Stone Ridge 2050 Inflation-Protected Longevity Income ETF,LifeX 2050 Inflation-Protected Longevity Income ETF,0,0,1,3.06
+S000087608,0001559992,STONE RIDGE,20251,31-MAR-2025,Stone Ridge 2055 Inflation-Protected Longevity Income ETF,LifeX 2055 Inflation-Protected Longevity Income ETF,0,0,1,3.11
+S000087613,0001559992,STONE RIDGE,20251,31-MAR-2025,Stone Ridge 2060 Inflation-Protected Longevity Income ETF,LifeX 2060 Inflation-Protected Longevity Income ETF,0,0,1,3.14
+S000087614,0001559992,STONE RIDGE,20251,31-MAR-2025,Stone Ridge 2050 Longevity Income ETF,LifeX 2050 Longevity Income ETF,0,0,1,3.54
+S000087622,0001559992,STONE RIDGE,20251,31-MAR-2025,Stone Ridge 2055 Longevity Income ETF,LifeX 2055 Longevity Income ETF,0,0,1,3.05
+S000088666,0000924727,INVESTMENT MANAGERS III,20261,31-JAN-2026,Manteio Managed Futures Strategy Fund,Mast Managed Futures Strategy Fund,0,0,0,33.46
+S000088667,0000924727,INVESTMENT MANAGERS III,20261,31-JAN-2026,Manteio Multialternative Strategy Fund,Mast Multialternative Strategy Fund,0,0,0,210.43
+S000089552,0001100663,BLACKROCK / ISHARES,20252,30-APR-2025,iShares Large Cap Accelerated ETF,iShares Large Cap Accelerated Outcome ETF,0,1,1,12.16
+S000089571,0001559992,STONE RIDGE,20252,30-JUN-2025,Stone Ridge 2065 Longevity Income ETF,LifeX 2065 Longevity Income ETF,0,0,1,0.73
+S000089573,0001559992,STONE RIDGE,20252,30-JUN-2025,Stone Ridge 2065 Inflation-Protected Longevity Income ETF,LifeX 2065 Inflation-Protected Longevity Income ETF,0,0,1,1.05
+S000089575,0001559992,STONE RIDGE,20252,30-JUN-2025,Stone Ridge 2035 Term Income ETF,LifeX 2035 Term Income ETF,0,0,1,252.06
+S000089576,0001559992,STONE RIDGE,20252,30-JUN-2025,Stone Ridge 2040 Term Income ETF,LifeX 2040 Term Income ETF,0,0,0,0.78
+S000089577,0001559992,STONE RIDGE,20252,30-JUN-2025,Stone Ridge 2045 Term Income ETF,LifeX 2045 Term Income ETF,0,0,0,0.65
+S000091819,0001592900,EMPOWERED D/B/A EA,20253,29-AUG-2025,Astoria Dynamic Core US Fixed Income ETF,EA Astoria Dynamic Core US Fixed Income ETF,0,1,1,37.29
+S000093658,0001295293,PUTNAM,20263,31-JUL-2026,Putnam Retirement Advantage Plus 2070 Fund,Franklin Retirement Advantage Plus 2070 Fund,0,0,0,1.11
+S000097580,0001426439,NEW YORK LIFE / NYLI,20263,31-JUL-2026,NYLI MacKay Muni Allocation ETF,NYLIM MacKay Muni Allocation ETF,0,0,1,27.76

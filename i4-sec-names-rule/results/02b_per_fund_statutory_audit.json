@@ -1,0 +1,112 @@
+{
+  "n_primary_renamers_audited": 50,
+  "n_stratified_retained_audited": 50,
+  "n_small_lt1b_among_renamers_fye": 1,
+  "n_large_ge1b_among_renamers_fye": 49,
+  "n_small_lt1b_among_retained_stratified": 9,
+  "gv_lexical_screen_count": 35,
+  "gv_lexical_screen_aum_B": 104.54893,
+  "effective_date_audit": {
+    "pass1_parsed_total": 36,
+    "pass1_pre_june11_2026": 35,
+    "pass2_verified_total": 50,
+    "pass2_pre_june11_2026": 49,
+    "pass2_pre_fund_statutory_oncycle": 49,
+    "renamers_with_oncycle_date_after_2026_07_31": 40,
+    "renamers_with_oncycle_date_in_2027": 36,
+    "fye_month_distribution_renamers": {
+      "1": 1,
+      "3": 10,
+      "6": 3,
+      "7": 2,
+      "10": 10,
+      "11": 1,
+      "12": 23
+    }
+  },
+  "statutory_category_counts_renamers": {
+    "NAME_CHANGE_SILENT_ON_STATUTORY_BASIS": 25,
+    "MULTI_FUND_REBRAND_WITH_UNREGULATED": 8,
+    "UNCHANGED_POLICY_CONFIRMED": 7,
+    "STRATEGY_OR_ADVISER_CHANGE_NO_35D1": 5,
+    "FUND_CITES_35D1_SILENT_ON_MOTIVE": 3,
+    "BENCHMARK_INDEX_RENAME_PAIRED": 2
+  },
+  "statutory_category_aum_B_renamers": {
+    "BENCHMARK_INDEX_RENAME_PAIRED": 2.2819000000000003,
+    "FUND_CITES_35D1_SILENT_ON_MOTIVE": 12.49121,
+    "MULTI_FUND_REBRAND_WITH_UNREGULATED": 17.12509,
+    "NAME_CHANGE_SILENT_ON_STATUTORY_BASIS": 12.75292,
+    "STRATEGY_OR_ADVISER_CHANGE_NO_35D1": 6.30649,
+    "UNCHANGED_POLICY_CONFIRMED": 66.66798
+  },
+  "statutory_category_counts_retained": {
+    "RETAINED_NO_FUND_80PCT_FOUND": 37,
+    "RETAINED_FUND_80PCT_NO_35D1_CITE": 7,
+    "RETAINED_UNVERIFIED_NO_DOC": 5,
+    "RETAINED_CITES_35D1_AND_80PCT": 1
+  },
+  "dual_pass_reconciliation": {
+    "renamers_exact_agree_n": 30,
+    "renamers_disagree_n": 20,
+    "renamers_pass1_fund_35d1_n": 10,
+    "renamers_pass2_fund_scoped_35d1_n": 3,
+    "renamers_explicit_unchanged_policy_n": 7,
+    "renamers_paired_benchmark_index_rename_n": 2,
+    "renamers_same_complex_qtr_unreg_ma_corename_n": 12,
+    "retained_pass2_fund_scoped_35d1_n": 2,
+    "retained_pass2_any_80pct_n": 8
+  },
+  "gv_lexical_screen_validation": {
+    "vs_pass2_fund_scoped_35d1": {
+      "tp": 3,
+      "fp": 32,
+      "fn": 0,
+      "tn": 15,
+      "precision": 0.08571428571428572,
+      "recall": 1.0,
+      "f1": 0.15789473684210528,
+      "false_positive_rate": 0.6808510638297872
+    },
+    "vs_pass1_document_35d1": {
+      "tp": 9,
+      "fp": 26,
+      "fn": 1,
+      "tn": 14,
+      "precision": 0.2571428571428571,
+      "recall": 0.9,
+      "f1": 0.39999999999999997,
+      "false_positive_rate": 0.65
+    },
+    "vs_pass2_fund_scoped_80pct": {
+      "tp": 8,
+      "fp": 27,
+      "fn": 2,
+      "tn": 13,
+      "precision": 0.22857142857142856,
+      "recall": 0.8,
+      "f1": 0.3555555555555555,
+      "false_positive_rate": 0.675
+    },
+    "vs_non_unchanged_non_index_rename": {
+      "tp": 28,
+      "fp": 7,
+      "fn": 13,
+      "tn": 2,
+      "precision": 0.8,
+      "recall": 0.6829268292682927,
+      "f1": 0.736842105263158,
+      "false_positive_rate": 0.7777777777777778
+    }
+  },
+  "unregulated_control_group": {
+    "n_ma_substantive_unreg_renames_25_26": 164,
+    "n_complexes": 46,
+    "aum_B": 287.15929,
+    "n_cosmetic_punctuation_excluded_ma_25_26": 9
+  },
+  "edgar_client_stats": {
+    "live_fetches": 87,
+    "cache_hits": 104
+  }
+}
