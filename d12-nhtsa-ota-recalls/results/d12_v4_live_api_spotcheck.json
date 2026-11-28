@@ -1,0 +1,114 @@
+{
+  "retrieved_utc": "2026-11-28T00:18:54Z",
+  "scope": "Purposive live validation of May 8-9, 2025 public API cutoff boundary cases, post-cutoff examples, excluded 8th-report duplicates, and denominator audit cases. Counts do not estimate prevalence.",
+  "results": [
+    {
+      "campaign_id": "25V282000",
+      "audit_role": "Boundary: last public API overTheAirUpdate=True campaign (Volvo, May 8, 2025)",
+      "source_url": "https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=25V282000",
+      "http_status": 200,
+      "api_records": 36,
+      "flag_values": {
+        "true": 36
+      },
+      "ota_text_records": 36,
+      "remedy_excerpt": "The software will be updated by a dealer or through an over-the-air (OTA) update, free of charge.  Owner notification letters were mailed June 27, 2025.  Owners may contact Volvo Car customer service at 1-800-458-1552.  "
+    },
+    {
+      "campaign_id": "25V315000",
+      "audit_role": "Boundary: first next-day public API False despite verbatim OTA text (Ford, May 9, 2025)",
+      "source_url": "https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=25V315000",
+      "http_status": 200,
+      "api_records": 44,
+      "flag_values": {
+        "false": 44
+      },
+      "ota_text_records": 44,
+      "remedy_excerpt": "The accessory protocol interface module (APIM) software will be updated by a dealer or through an over-the-air update, free of charge. This will be a phased campaign, with the remedy becoming available in different phase"
+    },
+    {
+      "campaign_id": "25V409000",
+      "audit_role": "Post-cutoff verbatim Pure-OTA example (Polestar, June 2025)",
+      "source_url": "https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=25V409000",
+      "http_status": 200,
+      "api_records": 2,
+      "flag_values": {
+        "false": 2
+      },
+      "ota_text_records": 2,
+      "remedy_excerpt": "Owners are advised not to use \"One Pedal Drive\" until the repair has been completed. Polestar has released an over-the-air (OTA) software update, free of charge. Owner notification letters were mailed July 18, 2025. Owne"
+    },
+    {
+      "campaign_id": "26V104000",
+      "audit_role": "Post-cutoff 2026 verbatim Hybrid-OTA example (Ford, Feb 2026)",
+      "source_url": "https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=26V104000",
+      "http_status": 200,
+      "api_records": 51,
+      "flag_values": {
+        "false": 51
+      },
+      "ota_text_records": 51,
+      "remedy_excerpt": "The integrated trailer module software will be updated by a dealer, or through an over-the-air (OTA) update, free of charge. Owner notification letters were mailed March 25, 2026. Owners may contact Ford customer service"
+    },
+    {
+      "campaign_id": "22V315000",
+      "audit_role": "Excluded duplicate across 2024 (56.9%) & 2025 (45.6%) 8th-report lists (Mercedes-Benz)",
+      "source_url": "https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=22V315000",
+      "http_status": 200,
+      "api_records": 53,
+      "flag_values": {
+        "false": 53
+      },
+      "ota_text_records": 0,
+      "remedy_excerpt": "Owners are advised not to drive their vehicles until the remedy has been performed.  Dealers will remove the rubber sleeve, inspect the brake booster, and as necessary, replace the brake booster.  All repairs will be per"
+    },
+    {
+      "campaign_id": "22V743000",
+      "audit_role": "Excluded duplicate across 2024 (84.2%) & 2025 (79.2%) 8th-report lists (Bentley)",
+      "source_url": "https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=22V743000",
+      "http_status": 200,
+      "api_records": 2,
+      "flag_values": {
+        "false": 2
+      },
+      "ota_text_records": 0,
+      "remedy_excerpt": "Dealers will update the infotainment unit software, free of charge.  Owner notification letters were mailed November 17, 2022.  Owners may contact Bentley customer service at 1-800-877-6923.  Bentley's number for this re"
+    },
+    {
+      "campaign_id": "22V867000",
+      "audit_role": "Physical-recall denominator discrepancy audit (17,445 CSV vs 117,445 FLAT_RCL/DOT, Honda)",
+      "source_url": "https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=22V867000",
+      "http_status": 200,
+      "api_records": 3,
+      "flag_values": {
+        "false": 3
+      },
+      "ota_text_records": 0,
+      "remedy_excerpt": "Dealers will replace the rearview camera wiring harness, free of charge.  Owner notification letters were mailed August 31, 2023.  Owners may contact Honda's customer service at 1-888-234-2138.  Honda's number for this r"
+    },
+    {
+      "campaign_id": "23V413000",
+      "audit_role": "Physical-recall denominator amendment audit (331,401 CSV vs 305,282 FLAT_RCL/DOT, FCA)",
+      "source_url": "https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=23V413000",
+      "http_status": 200,
+      "api_records": 3,
+      "flag_values": {
+        "false": 3
+      },
+      "ota_text_records": 0,
+      "remedy_excerpt": "Dealers will inspect and if necessary, repair the rear coil spring assemblies, free of charge.  Owner notification letters were mailed June 29, 2023.  Owners may contact FCA US, LLC customer service at 1-800-853-1403.  F"
+    },
+    {
+      "campaign_id": "22V063000",
+      "audit_role": "Unlisted 2022 ODATE Pure-OTA campaign missing DOT completion rate (Tesla Boombox)",
+      "source_url": "https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=22V063000",
+      "http_status": 200,
+      "api_records": 15,
+      "flag_values": {
+        "true": 15
+      },
+      "ota_text_records": 15,
+      "remedy_excerpt": "Tesla will perform an over-the-air (OTA) software update that will disable the Boombox functionality when the vehicle is in Drive, Neutral and Reverse modes, free of charge.  Owner notification letters are expected to be"
+    }
+  ]
+}

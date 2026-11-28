@@ -1,0 +1,282 @@
+{
+  "generated_utc": "2026-11-25T20:24:08Z",
+  "n_total_queried": 1452,
+  "n_http_200_valid": 1452,
+  "n_http_errors": 0,
+  "candidates_valid": 1202,
+  "candidates_api_ota_true": 89,
+  "candidates_api_ota_partial_across_models": 0,
+  "physical_audit_valid": 250,
+  "physical_audit_api_ota_true_false_negatives": 0,
+  "physical_audit_fn_rate": 0.0,
+  "txt_ota_raw_total": 162,
+  "txt_ota_raw_api_true": 89,
+  "txt_ota_pure_total": 146,
+  "txt_ota_pure_api_true": 81,
+  "txt_ota_hybrid_total": 16,
+  "txt_ota_hybrid_api_true": 8,
+  "last_api_ota_true_campaign": {
+    "campno": "25V282000",
+    "mfg": "Volvo Car USA, LLC",
+    "rec_date": "2025-05-08"
+  },
+  "cutoff_2025_early_jan1_to_may8": {
+    "n_txt_ota": 7,
+    "n_api_true": 4,
+    "api_true_rate": 0.5714
+  },
+  "cutoff_post_may8_2025_through_2026": {
+    "n_txt_ota": 68,
+    "n_api_true": 0,
+    "api_true_rate": 0.0
+  },
+  "api_true_but_txt_zero_count": 0,
+  "api_true_but_txt_zero_examples": [],
+  "txt_pure_but_api_zero_count": 65,
+  "txt_pure_but_api_zero_by_year": {
+    "2024": 1,
+    "2025": 30,
+    "2026": 34
+  },
+  "txt_pure_but_api_zero_examples": [
+    {
+      "CAMPNO": "24V495000",
+      "mfg": "Lucid USA, Inc.",
+      "rec_year": 2024,
+      "corrective_action": "Lucid has released an over-the-air software update to identify a high voltage coolant heater failure and provide a warning to the driver.  High voltage coolant heaters that fail will be replaced.  Software updates and repairs will be performed free of charge.  Owner notification letters were mailed August 5, 2024.  Owners may contact Lucid customer service at 1-888-995-8243.  Lucid's number for this recall is SR-24-04-0.  This recall is an expansion of Recall 24V-011. "
+    },
+    {
+      "CAMPNO": "25V001000",
+      "mfg": "Aston Martin The Americas",
+      "rec_year": 2025,
+      "corrective_action": "The head unit software will be updated by a dealer or through an over-the-air (OTA) update, free of charge.  Owner notification letters were mailed March 12, 2025.  Owners may contact Aston Martin customer service at 1-888-923-9988.  Aston Martin's number for this recall is RA-30-2015."
+    },
+    {
+      "CAMPNO": "25V098000",
+      "mfg": "Maserati North America, Inc.",
+      "rec_year": 2025,
+      "corrective_action": "The radio software will be updated over-the-air (OTA) or by a dealer, free of charge.  Owner notification letters were mailed March 10, 2025.  Owners may contact Maserati customer service at 877-696-2737.  Maserati's number for this recall is 740."
+    },
+    {
+      "CAMPNO": "25V315000",
+      "mfg": "Ford Motor Company",
+      "rec_year": 2025,
+      "corrective_action": "The accessory protocol interface module (APIM) software will be updated by a dealer or through an over-the-air update, free of charge. This will be a phased campaign, with the remedy becoming available in different phases based on model and model years. Interim letters notifying owners of the safety risk were mailed on June 26, 2025. Additional letters will be mailed once the final remedy is available on each phase. Owner notification letters were sent on October 8, 2025. Owners may contact Ford customer service at 1-866-436-7332. Ford's number for this recall is 25S49.    "
+    },
+    {
+      "CAMPNO": "25V337000",
+      "mfg": "Ford Motor Company",
+      "rec_year": 2025,
+      "corrective_action": "The multimedia  module system software will be updated by a dealer, or through an over-the-air (OTA) update, free of charge. Owner notification letters were mailed July 24, 2025. Owners may contact Ford customer service at 1-866-436-7332. Ford's number for this recall is 25C21.  "
+    },
+    {
+      "CAMPNO": "25V351000",
+      "mfg": "Kia America, Inc.",
+      "rec_year": 2025,
+      "corrective_action": "The PDC software will be updated by a dealer or through an over-the-air (OTA) update, free of charge. Owner notification letters were mailed June 24, 2025. Owners may contact Kia customer service at 1-800-333-4542. Kia's number for this recall is SC341."
+    },
+    {
+      "CAMPNO": "25V356000",
+      "mfg": "General Motors, LLC",
+      "rec_year": 2025,
+      "corrective_action": "The video display control module software will be updated by a dealer, or through an over-the-air (OTA) update, free of charge. Owner notification letters are expected to be mailed July 14, 2025. Owners may contact Cadillac customer service at 1-800-333-4223. GM's number for this recall is N252500680."
+    },
+    {
+      "CAMPNO": "25V392000",
+      "mfg": "Volvo Car USA, LLC",
+      "rec_year": 2025,
+      "corrective_action": "Owners are advised not to use \"B\" Mode (for plug-in hybrid vehicles) or \"One Pedal Drive\" (for pure electric vehicles) until the repair has been completed. The brake module software will be updated over-the-air (OTA) or by a dealer, free of charge. Owner notification letters were mailed July 15, 2025. Owners may contact Volvo Car's customer service at 1-800-458-1552. Volvo Car's number for this recall is R10329."
+    },
+    {
+      "CAMPNO": "25V395000",
+      "mfg": "BMW of North America, LLC",
+      "rec_year": 2025,
+      "corrective_action": "The electric drive motor software will be updated over-the-air (OTA) or by a dealer, free of charge. Owner notification letters are expected to be mailed August 5, 2025. Owners may contact BMW customer service at 1-800-525-7417."
+    },
+    {
+      "CAMPNO": "25V409000",
+      "mfg": "Polestar Automotive USA, Inc.",
+      "rec_year": 2025,
+      "corrective_action": "Owners are advised not to use \"One Pedal Drive\" until the repair has been completed. Polestar has released an over-the-air (OTA) software update, free of charge. Owner notification letters were mailed July 18, 2025. Owners may contact Polestar's customer service at 1-800-806-2504. Polestar's number for this recall is RP1061. "
+    },
+    {
+      "CAMPNO": "25V474000",
+      "mfg": "Hyundai Motor America",
+      "rec_year": 2025,
+      "corrective_action": "The instrument panel display software will be updated over-the-air (OTA) or by a dealer, free of charge. Owner notification letters were mailed August 22, 2025. Owners may contact Genesis customer service at 844-340-9741. Hyundai's number for this recall is 027G."
+    },
+    {
+      "CAMPNO": "25V480000",
+      "mfg": "BMW of North America, LLC",
+      "rec_year": 2025,
+      "corrective_action": "The electronic control unit software will be updated over-the-air (OTA) or by a dealer, free of charge. Owner notification letters are scheduled to be mailed September 12, 2025.  Owners may contact BMW customer service at 1-800-525-7417.  "
+    }
+  ],
+  "txt_hybrid_but_api_zero_count": 8,
+  "txt_hybrid_but_api_zero_by_year": {
+    "2024": 1,
+    "2025": 4,
+    "2026": 3
+  },
+  "txt_ota_reconciliation_by_year": [
+    {
+      "rec_year": 2019,
+      "n_txt_ota": 1,
+      "n_api_true": 1,
+      "api_true_rate": 1.0,
+      "n_pure_txt": 0,
+      "n_hybrid_txt": 1
+    },
+    {
+      "rec_year": 2020,
+      "n_txt_ota": 5,
+      "n_api_true": 5,
+      "api_true_rate": 1.0,
+      "n_pure_txt": 2,
+      "n_hybrid_txt": 3
+    },
+    {
+      "rec_year": 2021,
+      "n_txt_ota": 9,
+      "n_api_true": 9,
+      "api_true_rate": 1.0,
+      "n_pure_txt": 9,
+      "n_hybrid_txt": 0
+    },
+    {
+      "rec_year": 2022,
+      "n_txt_ota": 22,
+      "n_api_true": 22,
+      "api_true_rate": 1.0,
+      "n_pure_txt": 21,
+      "n_hybrid_txt": 1
+    },
+    {
+      "rec_year": 2023,
+      "n_txt_ota": 17,
+      "n_api_true": 17,
+      "api_true_rate": 1.0,
+      "n_pure_txt": 16,
+      "n_hybrid_txt": 1
+    },
+    {
+      "rec_year": 2024,
+      "n_txt_ota": 33,
+      "n_api_true": 31,
+      "api_true_rate": 0.9393939393939394,
+      "n_pure_txt": 30,
+      "n_hybrid_txt": 3
+    },
+    {
+      "rec_year": 2025,
+      "n_txt_ota": 38,
+      "n_api_true": 4,
+      "api_true_rate": 0.10526315789473684,
+      "n_pure_txt": 34,
+      "n_hybrid_txt": 4
+    },
+    {
+      "rec_year": 2026,
+      "n_txt_ota": 37,
+      "n_api_true": 0,
+      "api_true_rate": 0.0,
+      "n_pure_txt": 34,
+      "n_hybrid_txt": 3
+    }
+  ],
+  "txt_ota_reconciliation_by_top_oem": [
+    {
+      "mfg": "Tesla, Inc.",
+      "n_txt_ota": 32,
+      "n_api_true": 29,
+      "api_true_rate": 0.90625
+    },
+    {
+      "mfg": "Ford Motor Company",
+      "n_txt_ota": 24,
+      "n_api_true": 7,
+      "api_true_rate": 0.2916666666666667
+    },
+    {
+      "mfg": "General Motors, LLC",
+      "n_txt_ota": 17,
+      "n_api_true": 8,
+      "api_true_rate": 0.47058823529411764
+    },
+    {
+      "mfg": "Lucid USA, Inc.",
+      "n_txt_ota": 11,
+      "n_api_true": 5,
+      "api_true_rate": 0.45454545454545453
+    },
+    {
+      "mfg": "Hyundai Motor America",
+      "n_txt_ota": 10,
+      "n_api_true": 3,
+      "api_true_rate": 0.3
+    },
+    {
+      "mfg": "Rivian Automotive, LLC",
+      "n_txt_ota": 6,
+      "n_api_true": 3,
+      "api_true_rate": 0.5
+    },
+    {
+      "mfg": "Volvo Car USA, LLC",
+      "n_txt_ota": 5,
+      "n_api_true": 3,
+      "api_true_rate": 0.6
+    },
+    {
+      "mfg": "Kia America, Inc.",
+      "n_txt_ota": 4,
+      "n_api_true": 1,
+      "api_true_rate": 0.25
+    },
+    {
+      "mfg": "Nissan North America, Inc.",
+      "n_txt_ota": 4,
+      "n_api_true": 3,
+      "api_true_rate": 0.75
+    },
+    {
+      "mfg": "Mercedes-Benz USA, LLC",
+      "n_txt_ota": 4,
+      "n_api_true": 4,
+      "api_true_rate": 1.0
+    },
+    {
+      "mfg": "Fisker Group Inc",
+      "n_txt_ota": 4,
+      "n_api_true": 4,
+      "api_true_rate": 1.0
+    },
+    {
+      "mfg": "Polestar Automotive USA, Inc.",
+      "n_txt_ota": 4,
+      "n_api_true": 3,
+      "api_true_rate": 0.75
+    },
+    {
+      "mfg": "Chrysler (FCA US, LLC)",
+      "n_txt_ota": 3,
+      "n_api_true": 1,
+      "api_true_rate": 0.3333333333333333
+    },
+    {
+      "mfg": "BMW of North America, LLC",
+      "n_txt_ota": 3,
+      "n_api_true": 0,
+      "api_true_rate": 0.0
+    },
+    {
+      "mfg": "Jaguar Land Rover North America, LLC",
+      "n_txt_ota": 3,
+      "n_api_true": 2,
+      "api_true_rate": 0.6666666666666666
+    }
+  ],
+  "n_with_odi_action_number": 53,
+  "n_api_park_it": 14,
+  "n_api_park_outside": 22
+}

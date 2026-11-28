@@ -1,0 +1,81 @@
+Panel,Specification,Outcome,Term,N,G_OEM_Clusters,Coef_pp,SE_CR1,t_CR1,p_t_G1,p_WCB_999,CI95_Lo,CI95_Hi,R2
+A_Mature_18m_Completion,Mature >=18m SW OTA-OEMs (4-Way),completion_rate,is_ota_pure,533,28,3.3208,3.57,0.93,0.360509,0.472,-4.0042,10.6458,0.5726
+A_Mature_18m_Completion,Mature >=18m SW OTA-OEMs (4-Way),completion_rate,is_ota_hybrid,533,28,6.252,1.4022,4.459,0.00013,0.002,3.3748,9.1291,0.5726
+A_Mature_18m_Completion,Mature >=18m SW OTA-OEMs (Any Audited OTA),completion_rate,is_ota_audited,533,28,5.9236,1.2845,4.611,8.7e-05,0.002,3.288,8.5593,0.5721
+A_Mature_18m_Completion,Mature >=18m SW OTA-OEMs (Official API OTA),completion_rate,is_ota_api_full,533,28,3.7301,1.2881,2.896,0.007405,0.006,1.0871,6.373,0.5658
+A_Mature_18m_Completion,Mature >=18m SW + log(PotAff) Control,completion_rate,is_ota_pure,533,28,2.4593,3.4868,0.705,0.486655,0.562,-4.6951,9.6137,0.579
+A_Mature_18m_Completion,Mature >=18m SW + log(PotAff) Control,completion_rate,is_ota_hybrid,533,28,5.1946,1.3989,3.713,0.00094,0.003,2.3243,8.065,0.579
+A_Mature_18m_Completion,Mature >=18m SW + log(PotAff) Control,completion_rate,log_potaff,533,28,0.5119,0.2863,1.788,0.084964,0.199,-0.0755,1.0993,0.579
+A_Mature_18m_Completion,Mature >=18m All Vehicles vs Physical,completion_rate,is_ota_pure,6412,452,13.7435,3.2764,4.195,3.3e-05,0.057,7.3045,20.1824,0.5282
+A_Mature_18m_Completion,Mature >=18m All Vehicles vs Physical,completion_rate,is_ota_hybrid,6412,452,9.0591,1.1575,7.827,0.0,0.001,6.7844,11.3337,0.5282
+A_Mature_18m_Completion,Mature >=18m All Vehicles vs Physical,completion_rate,is_dealer_sw,6412,452,2.6516,0.6142,4.317,1.9e-05,0.001,1.4446,3.8586,0.5282
+A_Mature_18m_Completion,Mature >=18m All Vehicles API OTA vs Physical,completion_rate,is_ota_api_full,6412,452,10.429,2.2903,4.554,7e-06,0.001,5.9281,14.9299,0.5278
+A_Mature_18m_Completion,Mature >=18m All Vehicles API OTA vs Physical,completion_rate,is_dealer_sw,6412,452,2.5995,0.6056,4.293,2.2e-05,0.001,1.4094,3.7895,0.5278
+A_Mature_18m_Completion,Strict Drop CR>100% All Vehicles,completion_rate_strict,is_ota_pure,6409,452,13.7444,3.2777,4.193,3.3e-05,0.057,7.3029,20.1858,0.528
+A_Mature_18m_Completion,Strict Drop CR>100% All Vehicles,completion_rate_strict,is_ota_hybrid,6409,452,9.0585,1.1575,7.826,0.0,0.001,6.7838,11.3333,0.528
+A_Mature_18m_Completion,Strict Drop CR>100% All Vehicles,completion_rate_strict,is_dealer_sw,6409,452,2.6545,0.6142,4.322,1.9e-05,0.001,1.4475,3.8616,0.528
+A_Mature_18m_Completion,Mature >=18m SW Excl. Tesla,completion_rate,is_ota_pure,503,27,0.3539,2.1852,0.162,0.87261,0.896,-4.138,4.8457,0.5781
+A_Mature_18m_Completion,Mature >=18m SW Excl. Tesla,completion_rate,is_ota_hybrid,503,27,5.7195,1.302,4.393,0.000167,0.003,3.0433,8.3957,0.5781
+A_Mature_18m_Completion,Mature >=18m SW Excl. Tesla & Ford,completion_rate,is_ota_pure,401,26,1.962,2.6035,0.754,0.458133,0.406,-3.4,7.324,0.67
+A_Mature_18m_Completion,Mature >=18m SW Excl. Tesla & Ford,completion_rate,is_ota_hybrid,401,26,4.8423,1.6621,2.913,0.007427,0.003,1.4192,8.2654,0.67
+A_Mature_18m_Completion,Mature >=18m SW Saturated OEM x Year FE,completion_rate,is_ota_pure,533,28,1.9779,2.644,0.748,0.46088,0.528,-3.4471,7.4029,0.6334
+A_Mature_18m_Completion,Mature >=18m SW Saturated OEM x Year FE,completion_rate,is_ota_hybrid,533,28,4.3413,1.1283,3.848,0.000662,0.001,2.0262,6.6565,0.6334
+A_Mature_18m_Completion,Mature >=18m SW Hybrid Split (SW-Choice vs HW-Mixed),completion_rate,is_ota_pure,533,28,3.5569,4.1423,0.859,0.398077,0.484,-4.9424,12.0562,0.5726
+A_Mature_18m_Completion,Mature >=18m SW Hybrid Split (SW-Choice vs HW-Mixed),completion_rate,is_ota_hybrid_swchoice,533,28,6.1422,1.4672,4.186,0.00027,0.005,3.1318,9.1526,0.5726
+A_Mature_18m_Completion,Mature >=18m SW Hybrid Split (SW-Choice vs HW-Mixed),completion_rate,is_ota_hybrid_hwmixed,533,28,7.0466,2.7744,2.54,0.017154,0.067,1.3541,12.7391,0.5726
+A_Mature_18m_Completion,Mature >=18m SW Light-Duty Passenger OEMs Only,completion_rate,is_ota_pure,488,20,2.4455,3.5601,0.687,0.500435,0.618,-5.0059,9.8969,0.5626
+A_Mature_18m_Completion,Mature >=18m SW Light-Duty Passenger OEMs Only,completion_rate,is_ota_hybrid,488,20,6.2053,1.3327,4.656,0.000172,0.001,3.4158,8.9947,0.5626
+A_Mature_18m_Completion,Mature >=18m SW Singleton-FE Dropped,completion_rate,is_ota_pure,528,23,3.3208,3.5676,0.931,0.362042,0.519,-4.0779,10.7195,0.5682
+A_Mature_18m_Completion,Mature >=18m SW Singleton-FE Dropped,completion_rate,is_ota_hybrid,528,23,6.252,1.4013,4.462,0.000195,0.002,3.3459,9.158,0.5682
+A_Mature_18m_Completion,Mature >=18m All Vehicles Singleton-FE Dropped,completion_rate,is_ota_pure,6237,277,13.7435,3.2337,4.25,2.9e-05,0.081,7.3777,20.1092,0.5
+A_Mature_18m_Completion,Mature >=18m All Vehicles Singleton-FE Dropped,completion_rate,is_ota_hybrid,6237,277,9.0591,1.1423,7.93,0.0,0.001,6.8102,11.3079,0.5
+A_Mature_18m_Completion,Mature >=18m All Vehicles Singleton-FE Dropped,completion_rate,is_dealer_sw,6237,277,2.6516,0.6062,4.374,1.7e-05,0.001,1.4583,3.8449,0.5
+B_Full_Age_Controlled,Full 2018-26 SW + Cubic Age + Quarter FE,completion_rate,is_ota_pure,679,29,6.8035,2.0984,3.242,0.00306,0.039,2.505,11.1019,0.6635
+B_Full_Age_Controlled,Full 2018-26 SW + Cubic Age + Quarter FE,completion_rate,is_ota_hybrid,679,29,8.8964,1.7599,5.055,2.4e-05,0.003,5.2914,12.5013,0.6635
+B_Full_Age_Controlled,Full 2018-26 All Vehicles + Cubic Age,completion_rate,is_ota_pure,7385,485,18.3611,4.2182,4.353,1.6e-05,0.034,10.0728,26.6494,0.5442
+B_Full_Age_Controlled,Full 2018-26 All Vehicles + Cubic Age,completion_rate,is_ota_hybrid,7385,485,13.7241,1.4259,9.625,0.0,0.001,10.9224,16.5258,0.5442
+B_Full_Age_Controlled,Full 2018-26 All Vehicles + Cubic Age,completion_rate,is_dealer_sw,7385,485,3.2722,0.5781,5.66,0.0,0.001,2.1363,4.4082,0.5442
+C_Execution_Gap_Tiers,Tesla vs Non-Tesla Pure vs Legacy Hybrid (No OEM FE),completion_rate,is_tesla_pure,855,119,19.1977,1.5383,12.48,0.0,0.082,16.1515,22.2439,0.3278
+C_Execution_Gap_Tiers,Tesla vs Non-Tesla Pure vs Legacy Hybrid (No OEM FE),completion_rate,is_nontesla_pure,855,119,16.2675,2.9076,5.595,0.0,0.002,10.5096,22.0254,0.3278
+C_Execution_Gap_Tiers,Tesla vs Non-Tesla Pure vs Legacy Hybrid (No OEM FE),completion_rate,is_legacy_hybrid,855,119,7.7549,1.2198,6.358,0.0,0.002,5.3395,10.1704,0.3278
+C_Execution_Gap_Tiers,Execution Tiers: Light-Duty Passenger OEMs Only,completion_rate,is_tesla_pure,645,70,17.4619,1.7206,10.149,0.0,0.056,14.0294,20.8944,0.4054
+C_Execution_Gap_Tiers,Execution Tiers: Light-Duty Passenger OEMs Only,completion_rate,is_nontesla_pure,645,70,10.943,2.259,4.844,8e-06,0.013,6.4365,15.4496,0.4054
+C_Execution_Gap_Tiers,Execution Tiers: Light-Duty Passenger OEMs Only,completion_rate,is_legacy_hybrid,645,70,7.0021,1.4566,4.807,9e-06,0.001,4.0963,9.9079,0.4054
+C_Execution_Gap_Tiers,Direct Pure-OTA vs Hybrid-OTA (OTA Campaigns Only),completion_rate,is_ota_pure,95,22,3.0186,0.7292,4.139,0.000466,0.005,1.5021,4.535,0.5322
+D_Vehicle_Age_Decay,SW OTA-OEMs: Any OTA x Vehicle Age,completion_rate,is_ota_audited,533,28,1.9929,1.567,1.272,0.21428,0.269,-1.2223,5.2081,0.5834
+D_Vehicle_Age_Decay,SW OTA-OEMs: Any OTA x Vehicle Age,completion_rate,veh_age,533,28,-3.5665,0.2997,-11.901,0.0,0.001,-4.1814,-2.9516,0.5834
+D_Vehicle_Age_Decay,SW OTA-OEMs: Any OTA x Vehicle Age,completion_rate,ota_any_x_age,533,28,2.8093,0.4469,6.287,1e-06,0.009,1.8924,3.7262,0.5834
+D_Vehicle_Age_Decay,SW OTA-OEMs: 4-Way OTA x Vehicle Age,completion_rate,is_ota_pure,533,28,-2.9919,1.9773,-1.513,0.141869,0.163,-7.0491,1.0652,0.5853
+D_Vehicle_Age_Decay,SW OTA-OEMs: 4-Way OTA x Vehicle Age,completion_rate,is_ota_hybrid,533,28,3.3121,1.3292,2.492,0.019146,0.065,0.5849,6.0392,0.5853
+D_Vehicle_Age_Decay,SW OTA-OEMs: 4-Way OTA x Vehicle Age,completion_rate,veh_age,533,28,-3.5689,0.2985,-11.956,0.0,0.001,-4.1814,-2.9565,0.5853
+D_Vehicle_Age_Decay,SW OTA-OEMs: 4-Way OTA x Vehicle Age,completion_rate,pure_x_age,533,28,3.0807,0.3618,8.515,0.0,0.039,2.3384,3.8231,0.5853
+D_Vehicle_Age_Decay,SW OTA-OEMs: 4-Way OTA x Vehicle Age,completion_rate,hybrid_x_age,533,28,2.2486,1.2103,1.858,0.074123,0.044,-0.2347,4.7319,0.5853
+D_Vehicle_Age_Decay,SW OTA-OEMs: Official API OTA x Vehicle Age,completion_rate,is_ota_api_full,533,28,0.2323,1.3492,0.172,0.864601,0.85,-2.5361,3.0006,0.5747
+D_Vehicle_Age_Decay,SW OTA-OEMs: Official API OTA x Vehicle Age,completion_rate,veh_age,533,28,-3.5599,0.3016,-11.804,0.0,0.001,-4.1787,-2.9411,0.5747
+D_Vehicle_Age_Decay,SW OTA-OEMs: Official API OTA x Vehicle Age,completion_rate,api_ota_x_age,533,28,2.7417,0.4984,5.501,8e-06,0.002,1.719,3.7644,0.5747
+D_Vehicle_Age_Decay,SW Excl. Tesla: Any OTA x Vehicle Age,completion_rate,is_ota_audited,503,27,2.8546,1.3582,2.102,0.045418,0.076,0.0627,5.6465,0.5746
+D_Vehicle_Age_Decay,SW Excl. Tesla: Any OTA x Vehicle Age,completion_rate,veh_age,503,27,-3.6028,0.2967,-12.142,0.0,0.001,-4.2127,-2.9929,0.5746
+D_Vehicle_Age_Decay,SW Excl. Tesla: Any OTA x Vehicle Age,completion_rate,ota_any_x_age,503,27,2.3736,1.1412,2.08,0.047542,0.03,0.0277,4.7195,0.5746
+D_Vehicle_Age_Decay,SW Excl. Tesla: Official API OTA x Vehicle Age,completion_rate,is_ota_api_full,503,27,1.6122,1.2783,1.261,0.218453,0.206,-1.0155,4.2399,0.5661
+D_Vehicle_Age_Decay,SW Excl. Tesla: Official API OTA x Vehicle Age,completion_rate,veh_age,503,27,-3.5863,0.3007,-11.925,0.0,0.001,-4.2045,-2.9681,0.5661
+D_Vehicle_Age_Decay,SW Excl. Tesla: Official API OTA x Vehicle Age,completion_rate,api_ota_x_age,503,27,1.9602,0.9215,2.127,0.043047,0.023,0.0661,3.8543,0.5661
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,is_ota_pure,503,27,-2.6313,3.5054,-0.751,0.45961,0.508,-9.8367,4.5741,0.5756
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,is_ota_hybrid,503,27,3.4236,1.3372,2.56,0.016612,0.052,0.6751,6.1722,0.5756
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,veh_age,503,27,-3.6029,0.2971,-12.125,0.0,0.001,-4.2136,-2.9921,0.5756
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,pure_x_age,503,27,3.4419,2.0258,1.699,0.10125,0.168,-0.7222,7.606,0.5756
+D_Vehicle_Age_Decay,SW Excl. Tesla: 4-Way OTA x Vehicle Age,completion_rate,hybrid_x_age,503,27,2.2321,1.2237,1.824,0.079668,0.057,-0.2833,4.7475,0.5756
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,is_ota_pure,488,20,-4.2663,1.7749,-2.404,0.0266,0.084,-7.9812,-0.5514,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,is_ota_hybrid,488,20,2.9511,1.2011,2.457,0.0238,0.061,0.4371,5.4651,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,veh_age,488,20,-3.6882,0.2995,-12.313,0.0,0.001,-4.3151,-3.0613,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,pure_x_age,488,20,3.2166,0.3712,8.665,0.0,0.032,2.4396,3.9936,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: 4-Way OTA x Vehicle Age,completion_rate,hybrid_x_age,488,20,2.3593,1.1401,2.069,0.052397,0.007,-0.027,4.7457,0.5793
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: Official API OTA x Vehicle Age,completion_rate,is_ota_api_full,488,20,-0.2314,1.3384,-0.173,0.864577,0.865,-3.0328,2.57,0.5671
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: Official API OTA x Vehicle Age,completion_rate,veh_age,488,20,-3.6742,0.304,-12.086,0.0,0.001,-4.3105,-3.0379,0.5671
+D_Vehicle_Age_Decay,SW Light-Duty Passenger: Official API OTA x Vehicle Age,completion_rate,api_ota_x_age,488,20,2.8386,0.511,5.555,2.3e-05,0.005,1.7691,3.9082,0.5671
+D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,is_ota_pure,6412,452,5.4172,2.1339,2.539,0.011463,0.15,1.2236,9.6109,0.5248
+D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,is_ota_hybrid,6412,452,7.1798,1.0003,7.178,0.0,0.002,5.2139,9.1456,0.5248
+D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,is_dealer_sw,6412,452,1.7447,0.8067,2.163,0.031083,0.028,0.1594,3.33,0.5248
+D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,veh_age,6412,452,-3.4118,0.1743,-19.577,0.0,0.001,-3.7543,-3.0693,0.5248
+D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,pure_x_age,6412,452,2.9079,0.3481,8.353,0.0,0.253,2.2237,3.592,0.5248
+D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,hybrid_x_age,6412,452,1.5301,0.8195,1.867,0.062517,0.044,-0.0803,3.1406,0.5248
+D_Vehicle_Age_Decay,All Vehicles: 4-Way OTA x Vehicle Age,completion_rate,dealer_sw_x_age,6412,452,0.1972,0.2814,0.701,0.483855,0.478,-0.3558,0.7502,0.5248

@@ -1,0 +1,40 @@
+Profile,Bin,Modality,N,Mean_CR_Pct,Median_CR_Pct
+Campaign_Age_Maturation,0-3m,Hybrid_OTA,1,38.61,38.61
+Campaign_Age_Maturation,0-3m,Dealer_Software,1,15.05,15.05
+Campaign_Age_Maturation,0-3m,Physical_Hardware,9,44.89,40.0
+Campaign_Age_Maturation,3-6m,Pure_OTA,2,48.7,48.7
+Campaign_Age_Maturation,3-6m,Hybrid_OTA,3,69.29,90.62
+Campaign_Age_Maturation,3-6m,Dealer_Software,23,27.48,24.55
+Campaign_Age_Maturation,3-6m,Physical_Hardware,110,30.02,22.55
+Campaign_Age_Maturation,6-12m,Pure_OTA,4,79.18,97.05
+Campaign_Age_Maturation,6-12m,Hybrid_OTA,22,85.71,90.06
+Campaign_Age_Maturation,6-12m,Dealer_Software,63,61.69,65.52
+Campaign_Age_Maturation,6-12m,Physical_Hardware,314,53.81,54.01
+Campaign_Age_Maturation,12-18m,Pure_OTA,6,92.53,98.01
+Campaign_Age_Maturation,12-18m,Hybrid_OTA,14,92.51,95.67
+Campaign_Age_Maturation,12-18m,Dealer_Software,55,67.82,73.27
+Campaign_Age_Maturation,12-18m,Physical_Hardware,350,63.71,68.41
+Campaign_Age_Maturation,18-24m,Pure_OTA,3,99.95,99.95
+Campaign_Age_Maturation,18-24m,Hybrid_OTA,10,96.68,96.28
+Campaign_Age_Maturation,18-24m,Dealer_Software,89,75.43,81.64
+Campaign_Age_Maturation,18-24m,Physical_Hardware,315,73.75,81.98
+Campaign_Age_Maturation,>24m,Pure_OTA,43,99.12,99.99
+Campaign_Age_Maturation,>24m,Hybrid_OTA,39,95.39,97.43
+Campaign_Age_Maturation,>24m,Dealer_Software,671,84.18,91.06
+Campaign_Age_Maturation,>24m,Physical_Hardware,5238,74.41,84.0
+Vehicle_Age_Decay_Mature18m,0-1 yr,Pure_OTA,22,99.26,100.0
+Vehicle_Age_Decay_Mature18m,0-1 yr,Hybrid_OTA,33,96.18,97.49
+Vehicle_Age_Decay_Mature18m,0-1 yr,Dealer_Software,383,90.26,96.13
+Vehicle_Age_Decay_Mature18m,0-1 yr,Physical_Hardware,3371,80.88,90.0
+Vehicle_Age_Decay_Mature18m,2-3 yr,Pure_OTA,8,99.73,99.94
+Vehicle_Age_Decay_Mature18m,2-3 yr,Hybrid_OTA,9,96.23,96.54
+Vehicle_Age_Decay_Mature18m,2-3 yr,Dealer_Software,190,81.8,87.75
+Vehicle_Age_Decay_Mature18m,2-3 yr,Physical_Hardware,989,71.04,81.23
+Vehicle_Age_Decay_Mature18m,4-5 yr,Pure_OTA,10,99.61,100.0
+Vehicle_Age_Decay_Mature18m,4-5 yr,Hybrid_OTA,6,94.77,94.6
+Vehicle_Age_Decay_Mature18m,4-5 yr,Dealer_Software,124,73.2,79.08
+Vehicle_Age_Decay_Mature18m,4-5 yr,Physical_Hardware,471,67.23,73.71
+Vehicle_Age_Decay_Mature18m,6+ yr,Pure_OTA,6,97.41,99.06
+Vehicle_Age_Decay_Mature18m,6+ yr,Hybrid_OTA,1,78.4,78.4
+Vehicle_Age_Decay_Mature18m,6+ yr,Dealer_Software,63,63.63,69.94
+Vehicle_Age_Decay_Mature18m,6+ yr,Physical_Hardware,726,53.38,55.2

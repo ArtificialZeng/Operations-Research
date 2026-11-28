@@ -1,0 +1,276 @@
+{
+  "generated_utc": "2026-11-28T00:31:43Z",
+  "project": "d12_boost_nhtsa_ota_recalls_20261125",
+  "revision": "v4",
+  "n_files_hashed": 67,
+  "files": {
+    "data_processed/campaigns_2015_2026.csv": {
+      "bytes": 5445502,
+      "sha256": "147bdf47332de741bcd952d7f8f91d867ac2145e3af27572f94de9a5425a37a6"
+    },
+    "data_processed/campaigns_text_audit.csv": {
+      "bytes": 15069365,
+      "sha256": "4391a646cae950bdc71d8d109ef69b2fea0503b5b35a099b1d2566c38535b3f2"
+    },
+    "data_processed/complaint_event_study_panel.csv": {
+      "bytes": 15467798,
+      "sha256": "4715e2d87c1572df711cffa837c49da16f92b06ee67fc09056122f7a78a51505"
+    },
+    "data_processed/d12_v4_eighth_report_analysis_panel.csv": {
+      "bytes": 303084,
+      "sha256": "c6d46ef262a21adad7fa5e49127a29e647d12159f18c449da83dae1404f5b8b7"
+    },
+    "data_processed/nhtsa_api_campaign_groundtruth.csv": {
+      "bytes": 538448,
+      "sha256": "cbab5fcfd8f4efdffca2b7c95d1e1f0731b3c9f94661832faa477a28c629362f"
+    },
+    "data_processed/verified_references.json": {
+      "bytes": 13925,
+      "sha256": "d400ea022f04cf332c29457499ddad4c5d2da58ed34a8bbbad34b1b66f0baf80"
+    },
+    "data_raw/dot_79374_DS1.pdf": {
+      "bytes": 1711440,
+      "sha256": "8ed143715331731bf7eac149b5cea65efb5402b40da96add9c4a6975dbf276d5"
+    },
+    "data_raw/nhtsa_annual_eighth_report_2024_2025.csv": {
+      "bytes": 33104,
+      "sha256": "7c19005d8880e8b1534e779d53288606640f41acc4c1470ecdd0eac44c91e596"
+    },
+    "data_raw/raw_download_receipts.json": {
+      "bytes": 2900,
+      "sha256": "15f7d26485a169453d56001e2cb8ae8ee325668ec20cde1578a1bd39f13ce7b2"
+    },
+    "figures/fig1_api_audit_and_blast_radius.pdf": {
+      "bytes": 61529,
+      "sha256": "9393734dc0e4fe4bdd726ad80ab644cf6ef84eace55b9cfad87e6b51ed7d034b"
+    },
+    "figures/fig1_api_audit_and_blast_radius.png": {
+      "bytes": 524931,
+      "sha256": "a6f4022d7104edd5bb5adff66547d2663236de7187c0efd437ec56c7f6645a80"
+    },
+    "figures/fig1_v4_sample_flow_and_completion.pdf": {
+      "bytes": 47785,
+      "sha256": "e3b59f93d596c5fbd542dbfb6050ff9cf953ff3218fe95dc6a7cb6620f442170"
+    },
+    "figures/fig1_v4_sample_flow_and_completion.png": {
+      "bytes": 350151,
+      "sha256": "a7e4339fc2d6f76d82e907de6d57b10783419ab190aa4793288f54e4c5fdab4a"
+    },
+    "figures/fig2_itt_event_study_and_fleet_selection.pdf": {
+      "bytes": 77568,
+      "sha256": "6c9d3db39f1c1d84db46ff9306fdd2ef1858a727d14e3a4ac98ce96c0d4906c8"
+    },
+    "figures/fig2_itt_event_study_and_fleet_selection.png": {
+      "bytes": 498254,
+      "sha256": "d0dc1c5bff9a1bf33433dc5784419a58b9352492be4421f96c6f6dcb769ad950"
+    },
+    "figures/fig2_v4_channel_oem_age_support.pdf": {
+      "bytes": 58366,
+      "sha256": "e775257f09c87639363523fee426bd7f763127df0a9486f37781d26133e8e8ee"
+    },
+    "figures/fig2_v4_channel_oem_age_support.png": {
+      "bytes": 412956,
+      "sha256": "02bd31267275324136c27d1af37bd6bf93c70b177821552e350e656640de1487"
+    },
+    "figures/fig3_maturation_and_age_decay_cliff.pdf": {
+      "bytes": 59246,
+      "sha256": "bace9a77778e6813c7287f918bf085ff0c64cad3a551c0deec3b264bf502eae4"
+    },
+    "figures/fig3_maturation_and_age_decay_cliff.png": {
+      "bytes": 545630,
+      "sha256": "f78a2966cf2ee33f8423d097c4d9a0ea640c69bd1511176f75b6d72b2d374fda"
+    },
+    "figures/fig3_v4_age_gradients_and_looo.pdf": {
+      "bytes": 63795,
+      "sha256": "c4da69db5bc013601e5ea37bd9769f980ea00b48fbbe686b6991d444e990c24d"
+    },
+    "figures/fig3_v4_age_gradients_and_looo.png": {
+      "bytes": 516401,
+      "sha256": "9e7194528f5b9683bae46acd9d9ed05b1cb17e6baa05d81f9a9737c5910bcfa1"
+    },
+    "figures/fig4_breakeven_frontier_and_net_exposure.pdf": {
+      "bytes": 72984,
+      "sha256": "07de06d8dbe827708b8ccb1b5c8d1ac19fbd7b82b5aa05d11207ec57c0adaf81"
+    },
+    "figures/fig4_breakeven_frontier_and_net_exposure.png": {
+      "bytes": 556776,
+      "sha256": "654d5bfd70a7d0d802c019093f410ab9e583db544d3178f11aa596e6070542d1"
+    },
+    "figures/fig4_v4_api_audit_and_hybrid_scale.pdf": {
+      "bytes": 54107,
+      "sha256": "3334cc6ca5d5074bb5f57f49136c7a5a05371bbf76153d5bf540dffa0298026c"
+    },
+    "figures/fig4_v4_api_audit_and_hybrid_scale.png": {
+      "bytes": 489170,
+      "sha256": "e2b0a2cc4f71d76bba8baa67b38850ad90d2f2bb31b316998895498e28813b22"
+    },
+    "figures/fig5_safety_oversight_and_complaint_did.pdf": {
+      "bytes": 61983,
+      "sha256": "a560441dfd80fb016afe67dfed9584c516aed7e424b58788755b48052de72ff7"
+    },
+    "figures/fig5_safety_oversight_and_complaint_did.png": {
+      "bytes": 437504,
+      "sha256": "954b6392e0003cc002ca64129c1bcb9402d2f976706568eb515318b9252c7642"
+    },
+    "manuscript_d12_boost.md": {
+      "bytes": 61934,
+      "sha256": "f6d0ab5fc310f75a4e61bc10a2200cdb77b59c63129f78041c4911056c133e4c"
+    },
+    "manuscript_d12_boost.pdf": {
+      "bytes": 2500264,
+      "sha256": "b80285d814a35767d862db7303e70e56bc056764bbd3e5ca9ab194ab219a1119"
+    },
+    "README.md": {
+      "bytes": 6483,
+      "sha256": "4d0b150042676b9a4b90cd1603dd510a9b6a0388aa09ca7aed7150764898be16"
+    },
+    "REFEREE_RESPONSE_v2.md": {
+      "bytes": 9081,
+      "sha256": "a4c651d252992963e711145a6b616402657c9f936bc9391f2f2e75a26e89efa9"
+    },
+    "REFEREE_RESPONSE_v4.md": {
+      "bytes": 11740,
+      "sha256": "3fe0d5812e347005145203410c04f5aed8a3db3ffa3edab333d427d28e1a2159"
+    },
+    "results/api_reconciliation_audit.json": {
+      "bytes": 10454,
+      "sha256": "1f165ab272813eccefb0999f2037bfb956b2754dcc762b0235e59e1463f178ef"
+    },
+    "results/d12_econometric_results.json": {
+      "bytes": 241356,
+      "sha256": "f4404920f57543835f84d11a9ffb5a5382d2523d688622c78a6ef85987eed0b3"
+    },
+    "results/d12_v4_fixed_report_audit.json": {
+      "bytes": 59321,
+      "sha256": "0b91c75f49c0ce580981d79712fe6f58d82ff9dbb3f6ad27dbf5dfe98d82652e"
+    },
+    "results/d12_v4_live_api_spotcheck.json": {
+      "bytes": 5975,
+      "sha256": "7525d8fe40af47301a050ea21f6347915f88dfcefd80efab7a9d78189de822e0"
+    },
+    "results/step3_panel_build_summary.json": {
+      "bytes": 1058,
+      "sha256": "1ac5d4db16e6ff36b3795555fef154a96badfb6c04fa3562ba253fee2afa3467"
+    },
+    "scripts/01_download_official_sources.py": {
+      "bytes": 7855,
+      "sha256": "09723f36f0790af5ac73fa3991bd5d81a4a2c8047122c4ce6b34da2d253b6cee"
+    },
+    "scripts/02_audit_nhtsa_campaign_api.py": {
+      "bytes": 19508,
+      "sha256": "65b8bc2f0cc46b028d5368d842f22dbc4c237f75f48c27c3cc83fe9554f7e7ed"
+    },
+    "scripts/03_build_harmonized_panels.py": {
+      "bytes": 31665,
+      "sha256": "2147808386752f2026706d3903d6a65d4d09244415088964afb8dca8e09218a9"
+    },
+    "scripts/04_econometric_core_analysis.py": {
+      "bytes": 91004,
+      "sha256": "2b5a74ec54285f2867f618a65e94156f46797a216ee841e2c49ac05707cae3d2"
+    },
+    "scripts/05_verify_crossref_references.py": {
+      "bytes": 11780,
+      "sha256": "0dc522bc50356122566b6d0867a59b52d0665d1c7b21b4d6ebcbb216b5ae30ab"
+    },
+    "scripts/06_generate_figures_tables.py": {
+      "bytes": 61904,
+      "sha256": "c18b83d6483cc71e11f96b050e97cd33a441e847b519a18adc7742cb13f58b34"
+    },
+    "scripts/07_build_manifest.py": {
+      "bytes": 2992,
+      "sha256": "c81959803d67d200b10939430d7815dc9d1db4452f628aace53233aa7dfa1929"
+    },
+    "scripts/08_compile_manuscript_pdf.py": {
+      "bytes": 898,
+      "sha256": "e869df0777ce1c9b14ae4c194ee15aa2191fc7445b5478839385ead00fba3e1c"
+    },
+    "scripts/09_v4_fixed_report_and_support.py": {
+      "bytes": 45146,
+      "sha256": "7d1204386aea75e4e6748204a81779db1e9e9d4a46152e638a7609a9d0958032"
+    },
+    "scripts/10_generate_v4_figures.py": {
+      "bytes": 30655,
+      "sha256": "49657eb6e76c76bb02466a327bd3101f7910cab2f2852ed827e9314ba4335560"
+    },
+    "scripts/11_build_v4_manuscripts_and_pdfs.py": {
+      "bytes": 119302,
+      "sha256": "dc58469a4405965ee7a05f91aa5e8933024a1f9e49036661a8462ce0b9e57672"
+    },
+    "STATUS.md": {
+      "bytes": 3094,
+      "sha256": "02eefd07f37eeec2ad916fc26bbdb6b0322a3ab798cd7d1f663e375306592c79"
+    },
+    "supplementary_d12_jsr.md": {
+      "bytes": 14820,
+      "sha256": "107a9d849da919e6ed2d1637be8cc28f7919b01738529456dd42293b4bcc83d4"
+    },
+    "supplementary_d12_jsr.pdf": {
+      "bytes": 437764,
+      "sha256": "d2b10d48d1347cd5d8cfdb512637780649f7bf9a1ab8f7c7c9f026e2d060e11d"
+    },
+    "tables/table1_api_measurement_audit.csv": {
+      "bytes": 652,
+      "sha256": "63faa44f69ac7e22a31d3066543f6093b68af7c1b6cb52e899d2fb684a814e09"
+    },
+    "tables/table2_blast_radius_and_selection.csv": {
+      "bytes": 7138,
+      "sha256": "cf57504a70882e305eeb5aab3b98d30d6eb1fa9e1403913ca33582084e73b907"
+    },
+    "tables/table3_remediation_velocity_and_age_decay.csv": {
+      "bytes": 12624,
+      "sha256": "4e61d75bd97d016dd5387c1939f05514b19e9e0c22c0c003ddb68acbe9d838b4"
+    },
+    "tables/table4_net_unremedied_exposure.csv": {
+      "bytes": 4653,
+      "sha256": "b98deec5c4ab12e13d3a0c5135263bd2fd332f29fafd32ced9d89580f3d7948c"
+    },
+    "tables/table4b_aggregate_fleet_accounting.csv": {
+      "bytes": 832,
+      "sha256": "309a8231f221d83401b0a2baef2f56fcc05d3a43e263e6504ae66870d13ac583"
+    },
+    "tables/table4c_mature_ota_oem_composition.csv": {
+      "bytes": 3402,
+      "sha256": "823821aa49ce15c8a6ba4f51cb5a20256168f5423ec47f874f428f15953e3f47"
+    },
+    "tables/table5_safety_cascades_and_complaints_did.csv": {
+      "bytes": 6002,
+      "sha256": "2f5502220162560d1567339c7f9e3ea1e4067d62323b8ff6dff7a189a6d93503"
+    },
+    "tables/table5b_prerecall_complaints_and_hazards.csv": {
+      "bytes": 590,
+      "sha256": "b23c2decb573dbebe859cbb13f7f4c475984d85f7be48ad164889682bdb18cfb"
+    },
+    "tables/table6_maturation_and_age_profiles.csv": {
+      "bytes": 2439,
+      "sha256": "c28f505043aef0c2307887e650cb4698fe2550a702a0b42b0ee39e6aac22955d"
+    },
+    "tables/table_channel_oem_age_support.csv": {
+      "bytes": 8553,
+      "sha256": "188596e20db6efabab1516407b05e921343f6a19661ff3c437f69a2fa15e9457"
+    },
+    "tables/table_v4_eighth_report_completion.csv": {
+      "bytes": 1101,
+      "sha256": "1415171e6ec6f57ec16044fcebfcd776723640696b3da7ddbe9563b99bc0a96f"
+    },
+    "tables/table_v4_looo_sensitivity.csv": {
+      "bytes": 1940,
+      "sha256": "0d9d793968dc132313af812b3160ea2c5a528eacc3c0b7a2e9ddc83593ef0245"
+    },
+    "tables/table_v4_sample_flow.csv": {
+      "bytes": 1034,
+      "sha256": "10db5d7ffcd05c4d30ab65c60ed184ab502fd4c0c8d7780d112a4fcb40644fac"
+    },
+    "tables/table_v4_text_coding_vs_api.csv": {
+      "bytes": 848,
+      "sha256": "894f865a54a3f19cc3c9bc1d33a9f4e4930679ca69cbacfa8ceba0da5cf6f068"
+    },
+    "tables/table_v4_vehicle_age_sensitivity.csv": {
+      "bytes": 8315,
+      "sha256": "dc9529a455b2cfea9a27c194b0e8fbc86c42d56932ac4721579ab99285875721"
+    },
+    "tests/test_d12_boost.py": {
+      "bytes": 18017,
+      "sha256": "42929d4fbcfbb870bb7173f7295b59749076c6652d24ffab679aeea031fe03aa"
+    }
+  }
+}

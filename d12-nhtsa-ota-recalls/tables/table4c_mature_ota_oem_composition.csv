@@ -1,0 +1,32 @@
+Group,OEM_or_Slice,N_Campaigns,Share_Modality_Campaigns_Pct,Affected_Vehicle_Instances,Share_Modality_Affected_Pct,Unremedied_Instance_Proxy,Share_Modality_Unremedied_Pct,Mean_CR_Pct,Median_CR_Pct,Median_Affected_Instances,Median_Unremedied_Proxy,Max_Vehicle_Age_Yr,N_Age_6Plus_Yr
+Pure_OTA_Subsample_Summary,Summary: Tesla Pure-OTA,27,58.7,9023718,98.73,91157,99.51,99.23,99.98,54676.0,26.0,12.0,6
+Pure_OTA_Subsample_Summary,Summary: Non-Tesla Pure-OTA (All),19,41.3,115648,1.27,447,0.49,99.11,100.0,1463.0,0.0,5.0,0
+Pure_OTA_Subsample_Summary,Summary: Non-Tesla Pure-OTA (Light-Duty),15,32.61,114884,1.26,432,0.47,99.06,100.0,5251.0,0.0,3.0,0
+Pure_OTA_OEM,"Tesla, Inc.",27,58.7,9023718,98.735,91157,99.512,99.23,99.98,54676.0,26.0,12.0,6
+Pure_OTA_OEM,Fisker Group Inc,4,8.7,29218,0.32,0,0.0,100.0,100.0,7304.5,0.0,1.0,0
+Pure_OTA_OEM,"Volvo Car USA, LLC",1,2.17,27457,0.3,38,0.042,99.86,99.86,27457.0,38.4,0.0,0
+Pure_OTA_OEM,"Polestar Automotive USA, Inc.",1,2.17,25825,0.283,0,0.0,100.0,100.0,25825.0,0.0,3.0,0
+Pure_OTA_OEM,Hyundai Motor America,1,2.17,18206,0.199,271,0.296,98.51,98.51,18206.0,271.3,0.0,0
+Pure_OTA_OEM,"Lucid USA, Inc.",5,10.87,7576,0.083,122,0.133,97.51,98.58,778.0,7.1,2.0,0
+Pure_OTA_OEM,"Rivian Automotive, LLC",2,4.35,6591,0.072,0,0.0,100.0,100.0,3295.5,0.0,1.0,0
+Pure_OTA_OEM,"LIVEWIRE EV, LLC",1,2.17,523,0.006,15,0.016,97.13,97.13,523.0,15.0,0.0,0
+Pure_OTA_OEM,Motiv Power Systems,2,4.35,228,0.002,0,0.0,100.0,100.0,114.0,0.0,5.0,0
+Pure_OTA_OEM,Lonestar Specialty Vehicles,1,2.17,13,0.0,0,0.0,100.0,100.0,13.0,0.0,2.0,0
+Pure_OTA_OEM,Faraday Future Eco Sales Co. LLC,1,2.17,11,0.0,0,0.0,100.0,100.0,11.0,0.0,1.0,0
+Hybrid_OTA_OEM,"General Motors, LLC",11,22.45,1979397,26.435,72083,20.685,97.32,97.86,41376.0,1726.4,2.0,0
+Hybrid_OTA_OEM,"Mercedes-Benz USA, LLC",5,10.2,1903636,25.423,100474,28.832,90.59,92.09,242722.0,11874.4,6.0,1
+Hybrid_OTA_OEM,"Chrysler (FCA US, LLC)",2,4.08,1353043,18.07,84287,24.186,95.62,95.62,676521.5,42143.3,3.0,0
+Hybrid_OTA_OEM,Ford Motor Company,9,18.37,1242529,16.594,79783,22.894,91.52,93.22,5118.0,138.1,4.0,0
+Hybrid_OTA_OEM,"Volvo Car USA, LLC",2,4.08,430560,5.75,78,0.022,99.78,99.78,215280.0,39.2,4.0,0
+Hybrid_OTA_OEM,"Tesla, Inc.",1,2.04,239382,3.197,598,0.172,99.75,99.75,239382.0,598.5,2.0,0
+Hybrid_OTA_OEM,"Kia America, Inc.",2,4.08,96444,1.288,4462,1.28,96.22,96.22,48222.0,2230.8,0.0,0
+Hybrid_OTA_OEM,"Nissan North America, Inc.",3,6.12,75101,1.003,853,0.245,98.91,99.56,27388.0,119.2,1.0,0
+Hybrid_OTA_OEM,"Daimler Vans USA, LLC",2,4.08,53374,0.713,2476,0.71,95.85,95.85,26687.0,1237.8,3.0,0
+Hybrid_OTA_OEM,Hyundai Motor America,3,6.12,52269,0.698,736,0.211,98.02,98.65,12349.0,166.7,0.0,0
+Hybrid_OTA_OEM,"Maserati North America, Inc.",1,2.04,27354,0.365,1674,0.48,93.88,93.88,27354.0,1674.1,4.0,0
+Hybrid_OTA_OEM,"Rivian Automotive, LLC",1,2.04,7873,0.105,426,0.122,94.59,94.59,7873.0,425.9,1.0,0
+Hybrid_OTA_OEM,"Lucid USA, Inc.",1,2.04,7506,0.1,65,0.019,99.14,99.14,7506.0,64.6,2.0,0
+Hybrid_OTA_OEM,"Polestar Automotive USA, Inc.",2,4.08,7121,0.095,170,0.049,97.68,97.68,3560.5,85.0,0.0,0
+Hybrid_OTA_OEM,"Jaguar Land Rover North America, LLC",2,4.08,6585,0.088,290,0.083,96.25,96.25,3292.5,145.1,4.0,0
+Hybrid_OTA_OEM,Honda (American Honda Motor Co.),1,2.04,4174,0.056,31,0.009,99.26,99.26,4174.0,30.9,0.0,0
+Hybrid_OTA_OEM,Aston Martin The Americas,1,2.04,1452,0.019,3,0.001,99.79,99.79,1452.0,3.0,1.0,0

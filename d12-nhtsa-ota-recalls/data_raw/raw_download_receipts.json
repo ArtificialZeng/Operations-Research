@@ -1,0 +1,91 @@
+{
+  "generated_utc": "2026-11-25T20:23:45Z",
+  "sources": {
+    "FLAT_RCL_POST_2010.zip": {
+      "url": "https://static.nhtsa.gov/odi/ffdd/rcl/FLAT_RCL_POST_2010.zip",
+      "file": "FLAT_RCL_POST_2010.zip",
+      "bytes": 15064058,
+      "sha256": "b4114610ef169b58306aa3c21d828f53318c9c349f5f4170a930bdac4c1f7e7e",
+      "cached": true,
+      "zip_inspection": {
+        "members": [
+          {
+            "name": "FLAT_RCL_POST_2010.txt",
+            "uncompressed_bytes": 314331650
+          }
+        ],
+        "txt_file": "FLAT_RCL_POST_2010.txt",
+        "n_lines": 248685,
+        "first_line_tab_cols": 29
+      }
+    },
+    "COMPLAINTS_RECEIVED_2020-2024.zip": {
+      "url": "https://static.nhtsa.gov/odi/ffdd/cmpl/COMPLAINTS_RECEIVED_2020-2024.zip",
+      "file": "COMPLAINTS_RECEIVED_2020-2024.zip",
+      "bytes": 75874965,
+      "sha256": "15e56958495a182961be11722a142d1a35628151257bb91e992ff8d84ad3c031",
+      "cached": true,
+      "zip_inspection": {
+        "members": [
+          {
+            "name": "COMPLAINTS_RECEIVED_2020-2024.txt",
+            "uncompressed_bytes": 326692877
+          }
+        ],
+        "txt_file": "COMPLAINTS_RECEIVED_2020-2024.txt",
+        "n_lines": 418884,
+        "first_line_tab_cols": 51
+      }
+    },
+    "COMPLAINTS_RECEIVED_2025-2026.zip": {
+      "url": "https://static.nhtsa.gov/odi/ffdd/cmpl/COMPLAINTS_RECEIVED_2025-2026.zip",
+      "file": "COMPLAINTS_RECEIVED_2025-2026.zip",
+      "bytes": 45005543,
+      "sha256": "8f99fbd28af0479392029db371953f54113ce0da2ca1536d1e6a9c16e90f9327",
+      "cached": true,
+      "zip_inspection": {
+        "members": [
+          {
+            "name": "COMPLAINTS_RECEIVED_2025-2026.txt",
+            "uncompressed_bytes": 200183660
+          }
+        ],
+        "txt_file": "COMPLAINTS_RECEIVED_2025-2026.txt",
+        "n_lines": 217991,
+        "first_line_tab_cols": 51
+      }
+    },
+    "dot_6axg_epim_recalls.csv": {
+      "url": "https://datahub.transportation.gov/resource/6axg-epim.csv",
+      "file": "dot_6axg_epim_recalls.csv",
+      "rows": 30484,
+      "columns": [
+        "report_received_date",
+        "nhtsa_id",
+        "recall_link",
+        "manufacturer",
+        "subject",
+        "component",
+        "mfr_campaign_number",
+        "recall_type",
+        "potentially_affected",
+        "defect_summary",
+        "consequence_summary",
+        "corrective_action",
+        "fire_risk_when_parked",
+        "do_not_drive",
+        "completion_rate"
+      ],
+      "bytes": 24727439,
+      "sha256": "821c754af2662f173d5ced50e205c60c4180020fef36f7ad45b0f7c2d1b5c12c",
+      "cached": true,
+      "non_null_completion_rate": 11798,
+      "recall_type_counts": {
+        "Vehicle": 26561,
+        "Equipment": 2881,
+        "Tire": 791,
+        "Child Seat": 251
+      }
+    }
+  }
+}

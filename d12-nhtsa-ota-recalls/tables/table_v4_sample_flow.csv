@@ -1,0 +1,14 @@
+Cohort_Panel,Modality,Total_Campaigns,In_8th_Report_Unique,Share_In_8th_Pct,Excluded_Conflicting_Duplicate,Unlisted_Early_Completed_100pct,Unlisted_Missing_DOT_Report,Unlisted_Delayed_or_Unreached
+A_Statutory_ODATE_2022_2023,Pure_OTA,21,15,71.4,0,5,1,0
+A_Statutory_ODATE_2022_2023,Hybrid_OTA,15,15,100.0,0,0,0,0
+A_Statutory_ODATE_2022_2023,Dealer_Software,229,196,85.6,1,18,12,2
+A_Statutory_ODATE_2022_2023,Physical_Hardware,1549,1293,83.5,1,187,59,9
+A_Statutory_ODATE_2022_2023,All_Vehicles,1814,1519,83.7,2,210,72,11
+B_Filing_RCDATE_2022_2023,Pure_OTA,24,15,62.5,0,6,1,2
+B_Filing_RCDATE_2022_2023,Hybrid_OTA,15,14,93.3,0,0,0,1
+B_Filing_RCDATE_2022_2023,Dealer_Software,236,179,75.8,1,19,13,24
+B_Filing_RCDATE_2022_2023,Physical_Hardware,1552,1163,74.9,1,192,61,135
+C_Full_Universe_2018_2026,Pure_OTA,61,15,24.6,0,5,1,40
+C_Full_Universe_2018_2026,Hybrid_OTA,101,15,14.9,0,0,0,86
+C_Full_Universe_2018_2026,Dealer_Software,984,197,20.0,1,18,12,756
+C_Full_Universe_2018_2026,Physical_Hardware,6821,1306,19.1,1,187,59,5268

@@ -1,0 +1,8 @@
+Modality,N_Mature_Campaigns,Summed_Affected_Vehicle_Instances,Share_Affected_Pct,Summed_Unremedied_Instance_Proxy,Share_Unremedied_Proxy_Pct,Mean_CR_Pct,Instance_Weighted_Completion_Pct,Median_Affected_Instances,Median_Unremedied_Proxy,Mean_Log_Unremedied_Proxy
+Pure_OTA,46,9139366,4.001,91604,0.143,99.18,98.998,14967.0,3.9,2.815
+Hybrid_OTA,49,7487800,3.278,348488,0.544,95.66,95.346,24226.0,364.0,6.079
+Hybrid_SW_Choice,43,7212679,3.158,346896,0.542,95.41,95.19,27354.0,442.6,6.198
+Official_API_OTA,86,15108649,6.614,357928,0.559,97.41,97.631,19071.5,76.5,4.292
+Dealer_Software,760,46406383,20.316,8720992,13.626,83.16,81.207,2937.5,222.9,5.292
+OTA_OEMs_Dealer_Software,438,39672552,17.368,7525976,11.759,85.71,81.03,8556.5,465.1,6.034
+Physical_Hardware,5557,165392117,72.405,54840522,85.686,74.38,66.842,310.0,51.9,4.196

@@ -1,0 +1,58 @@
+# Referee Response — D12 Revision `v4`
+
+**Manuscript:** *Vehicle Recall Completion at a Fixed Reporting Horizon: Software Remedy Channels, Manufacturer Common Support, and Public API Measurement Integrity*
+**Author:** Zijian Zeng (Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA; `zijianzeng@foxmail.com`; `1002266693@ucsiuniversity.edu.my`)
+**Date:** November 28, 2026
+
+We thank the reviewer for an exceptionally thorough, data-verified peer review (`D12.md`). Every substantive methodological critique—manufacturer × channel × vehicle-age common support, verifiable fixed-horizon sample reconciliation and cross-sectional framing, public API measurement audit scope, operational mechanism boundaries, and restructuring for *Journal of Safety Research* with machine-readable dataset files suitable for *M&SOM Data Set* reuse—has been addressed completely in code, tables, figures, manuscript, online appendix, and automated tests.
+
+---
+
+## Point-by-Point Response to Major Critiques
+
+### Critique 1 (P0 #1): Manufacturer × Channel × Vehicle-Age Common Support & Withdrawal of Universal OTA Age-Buffering Claim
+
+> *Reviewer critique:* In the fixed eighth-report sample, Pure-OTA × Age is `+3.69 pp/yr (p_WCB = 0.030)`, attenuating to `+3.49 (p_WCB = 0.226)` in ages `0–5`. Among 15 Pure-OTA recalls, Tesla accounts for `11/15` recalls and `99.17%` of affected vehicles, while the other `4` (Lucid, Volvo) are strictly at oldest-MY ages `0–1` years. Dropping Tesla yields `+1.59 pp/yr (p_WCB = 0.553)`. Publish the Channel × OEM × Age support matrix and figure, re-estimate on genuine same-OEM / same-platform common-support subsamples and complete Leave-One-OEM-Out (`LOOO`), and—given insufficient coverage—retain fixed-horizon descriptive proportions and the dealer-channel gradient while withdrawing the universal OTA age-buffering claim.
+
+**Actions Implemented (`v4`):**
+1. **Explicit Common-Support Matrix Table & Figure:** Created `tables/table_channel_oem_age_support.csv`, Main Manuscript **Table 3**, and **Figure 2** (`figures/fig2_v4_channel_oem_age_support.png/pdf`) auditing every OEM × Channel × Oldest-MY Age cell across *both* the fixed eighth-report sample (`N = 1,533`; 148 OTA-OEM software recalls) and the mature $\ge 18$-month DOT archive (`N = 6,412`). We transparently report that:
+   - In the fixed eighth-report sample, **Tesla accounts for `11/15` Pure-OTA recalls and `99.17%` of vehicles** (3,522,202 / 3,551,795) while contributing **`0` Dealer-Software recalls**;
+   - The remaining **`4` Pure-OTA recalls** (`Lucid` 3 recalls at age `1` yr; `Volvo Car` 1 recall at age `0` yr) have zero within-OEM Pure-OTA age spread;
+   - In the mature archive (Online Appendix Table S3 & Figure 2B), Tesla accounts for `27/46` Pure-OTA recalls, `98.73%` of vehicles, and **`6/6` (100.0%) of Pure-OTA recalls aged $\ge 6$ years** (non-Tesla light-duty Pure-OTA max age is `3` years).
+2. **Exact Reproduction of All Benchmarks, Same-OEM Common-Support Subsamples, and Full 18-OEM LOOO (`scripts/09_v4_fixed_report_and_support.py`, Table 4, Figure 3, Appendix Table S1):**
+   - Baseline fixed 8th report (oldest MY, `N = 148`, `18` OEMs): Dealer `-3.52 pp/yr (p_WCB = 0.001)`, Pure × Age `+3.69 (p_WCB = 0.030)`, Hybrid × Age `+0.75 (p_WCB = 0.718)`.
+   - Restricted `0–5` yr window (`N = 138`, `18` OEMs): Dealer `-3.83 (p_WCB = 0.001)`, Pure × Age **`+3.49 (p_WCB = 0.226)`**, Hybrid × Age `+1.18 (p_WCB = 0.509)`.
+   - **Excluding Tesla (4-way, `N = 137`, `17` OEMs):** Dealer `-3.56 (p_WCB = 0.001)`, **Pure × Age `+1.59 (p_WCB = 0.553)`**, Hybrid × Age `+0.72 (p_WCB = 0.709)` (exact match to reviewer benchmark!).
+   - **Same-OEM Common-Support (`8` OEMs observing both Dealer-SW and OTA, `N = 70`, excluding Tesla):** Pooled OTA × Age `+0.49 (p_WCB = 0.703)`; 4-way Pure `+6.52 (p_WCB = 0.201)`, Hybrid `+0.26 (p_WCB = 0.835)`.
+   - **Strict Same-OEM × Overlapping-Age Support (`N = 53`, `8` OEMs):** Pooled OTA × Age `-3.51 (p_WCB = 0.289)`.
+   - **Same-Model Overlap in 8th Report:** Only `6` individual make-model lines (`N = 20` campaigns total), each with a single OTA campaign age (zero within-model OTA age variation).
+   - **Complete 18-OEM Leave-One-OEM-Out (`tables/table_v4_looo_sensitivity.csv`, Figure 3B, Appendix Table S1):** Dealer age decay remains tightly bounded in `[-3.60, -3.04]` and significant in **`18/18` drops** (`max p_WCB = 0.003`), whereas Pure × Age loses 5% WCB significance in **`8/18` drops** and Hybrid × Age is significant in **`0/18` drops**.
+3. **Explicit Claim Withdrawal:** Main Manuscript Abstract, Section 1, Section 4.3, and Section 7 **explicitly withdraw any universal claim that OTA neutralizes vehicle-age compliance decay**. We retain strictly what is well-identified: (a) fixed-horizon descriptive completion proportions by channel and OEM, (b) the rock-solid dealer-channel vehicle-age decay gradient (`-3.52` to `-4.03 pp/yr`, `p_WCB = 0.001`; Physical Hardware `-3.27 pp/yr`, `p_WCB = 0.001`), and (c) the within-OEM conditional **Hybrid-OTA `7.01×` batch-scale contrast** (`+1.947`, `p_WCB = 0.006`). All prior `85–90%` and `-85.3%` claims remain permanently eliminated and guarded by `tests/test_d12_boost.py`.
+
+---
+
+### Critique 2 (P0 #2): Verifiable Fixed-Report Sample Reconciliation & Cross-Sectional Proportion Framing
+
+> *Reviewer critique:* Lock source files with cryptographic verification, independently reconcile extracted rows against recall year, campaign ID, and vehicle denominator, account channel-by-channel for unlisted, missing-report, duplicate, and early-completed campaigns, and frame cross-sectional snapshots strictly as completion proportions without inferring repair velocity.
+
+**Actions Implemented (`v4`):**
+1. **Cryptographic Source Freezing & Honest Provenance Disclosure:** Locked `data_raw/nhtsa_annual_eighth_report_2024_2025.csv` (SHA-256 `7c19005d8880e8b1534e779d53288606640f41acc4c1470ecdd0eac44c91e596`) and downloaded NHTSA's official ROSA P report `data_raw/dot_79374_DS1.pdf` (`DOT HS 813 687`, HTTP 200, SHA-256 `8ed143715331731bf7eac149b5cea65efb5402b40da96add9c4a6975dbf276d5`). Transparently documented in Section 2.2 and `results/d12_v4_fixed_report_audit.json` that automated HTTP requests to `www.nhtsa.gov` PDF URLs returned HTTP 403 Akamai CDN access control (strictly non-bypassed), and performed 100% row-level programmatic reconciliation of all `1,537` rows (`809` in 2024, `728` in 2025) against `FLAT_RCL_POST_2010.zip`, `6axg-epim`, and live `api.nhtsa.gov`.
+2. **Row-Level Reconciliation Receipts:**
+   - **100.0% campaign linkage** (`1,537/1,537`; zero unlinked);
+   - **Exact duplicate exclusion:** `22V315` (Mercedes-Benz: `56.9%` vs. `45.6%`) and `22V743` (Bentley: `84.2%` vs. `79.2%`) cleanly excluded → **`1,533` uniquely dated campaigns**;
+   - **Vehicle-denominator audit:** **`1,531/1,533` (`99.87%`) exact single-vehicle match** (`log r = 0.99987`) and **`227/227` (`100.0%`) exact match across all software recalls**; the only 2 physical-hardware discrepancies (`22V867` Honda `17,445` vs. `117,445` missing leading digit; `23V413` FCA `331,401` vs. `305,282` denominator amendment) are explicitly flagged in Section 2.2 and Appendix Table S4;
+   - **Statutory `ODATE` clock validation:** `793/807` (`98.3%`) of 2024 list had `ODATE` in 2022 and `722/726` (`99.4%`) of 2025 list had `ODATE` in 2023 (`1,515/1,533 = 98.8%` overall), directly verifying 49 CFR § 573.7(a).
+3. **Complete Channel-by-Channel Sample Flow Accounting (`tables/table_v4_sample_flow.csv`, Table 1, Figure 1A):** Accounts for 100% of the statutory 2022–2023 `ODATE` cohort (`N = 1,814`) plus the 2022–2023 `RCDATE` filing cohort (`N = 1,827`) and 2018–2026 universe (`N = 7,967`). Among `21` Pure-OTA recalls in the 2022–2023 `ODATE` cohort, `15` (`71.4%`) enter uniquely, **`5` (`23.8%`) completed 100.0% early** prior to the 8th quarter (`22V037`, `22V169`, `23V244`, `23V422`, `23V783`), and `1` (`22V063`) lacks a DOT completion report (`0` unexplained); `15/15` (`100.0%`) of Hybrid-OTA enter cleanly.
+4. **Strict Cross-Sectional Proportion Framing:** All main-text completion comparisons are framed strictly as **fixed-horizon completion proportions** (zero repair-velocity or hazard-curve inference from cross-sectional snapshots), and all mature latest-snapshot cross-sections are moved to Online Appendix Section S2.
+
+---
+
+### Critique 3 (P0 #3): Public API Measurement Audit, Operational Mechanism Boundary & Restructuring for *Journal of Safety Research* / *M&SOM Data Set*
+
+> *Reviewer critique:* Separate verbatim Part 573 coding (`OTA-capable`, `actual OTA`, `hardware required`) from the public Campaign API flag (treating the API strictly as a measurement validation audit), articulate the operational data and quasi-experimental boundaries required for causal mechanism identification (citing NHTSA's Completion Rate Study `dot/79374` and Pagiavlas et al. `10.1177/00222429211023016`), and restructure the manuscript cleanly in sequence: fixed reporting horizon → sample flow → channel/OEM completion proportions → common support & sensitivity → API validation audit.
+
+**Actions Implemented (`v4`):**
+1. **Text Coding Separated from Public API Flag (`tables/table_v4_text_coding_vs_api.csv`, Table 5, Figure 4A):** Disaggregated verbatim Part 573 coding into `Pure-OTA (Wireless-Only)` (`48/48 = 100.0%` pre-cutoff API agreement → `0/13` post), `Hybrid SW-Choice (OTA-Capable or Dealer)` (`38/40 = 95.0%` → `0/46`), `Hybrid HW-Mixed (OTA + Hardware Required)` (`3/6 = 50.0%` → `0/9`), `Dealer Software` (`0/984`), and `Physical Hardware` (`0/250`). Re-verified boundary cases live (`25V282000` `36/36 True` vs. May 9 `25V315000` `44/44 False`, `results/d12_v4_live_api_spotcheck.json`) and contrasted against NHTSA's *2025 Annual Recalls Report* (33 OTA recalls internally) strictly as a **public-API measurement validation audit** without alleging internal agency errors.
+2. **Explicit Operational Mechanism Boundary & Causal Identification Roadmap (Section 6.1):** Articulated the exact operational microdata required for causal delivery-channel identification in operations journals (*M&SOM/POM/Management Science*): dual independent human coding of Part 573 and Part 577 notices ($\kappa$), longitudinal Q1–Q8 trajectories with phased remedy-availability dates, and within-defect quasi-experiments exploiting pre-specified hardware-eligibility cutoffs or risk-orthogonal rollout waves with covariate balance verification on actual installs, dealer bay visits, and unremedied vehicle-days (abandoning causal attribution wherever a cutoff alters the defect or remedy content).
+3. **Verified Citations & Literature Anchoring:** Live-verified all **23 peer-reviewed Crossref DOIs** (including **Pagiavlas et al., 2022 [online 2021], *Journal of Marketing*, `10.1177/00222429211023016`**) plus **6 federal/NHTSA sources** (including **NHTSA `DOT HS 813 687`** at `https://rosap.ntl.bts.gov/view/dot/79374`, `49 CFR § 573.7`, and NHTSA's `2024` and `2025` annual lists and *2025 Annual Recalls Report*).
+4. **Restructured Main Manuscript & Clean Online Appendix + Machine-Readable Replication Dataset:** Rebuilt `manuscript_d12_boost.md` / `manuscript_d12_boost.pdf` programmatically (zero hardcoded numbers, exact authorship block, zero leaked tokens) strictly in the reviewer's recommended narrative order, moved supplementary mature-archive and legacy diagnostics into `supplementary_d12_jsr.md` / `supplementary_d12_jsr.pdf`, and exported `data_processed/d12_v4_eighth_report_analysis_panel.csv` (`N = 1,533` rows, 31 fields, documented in Appendix Table S5) for *M&SOM Data Set* reuse.

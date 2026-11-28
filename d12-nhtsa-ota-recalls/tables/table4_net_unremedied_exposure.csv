@@ -1,0 +1,38 @@
+Specification,Term,N,G_OEM_Clusters,Coef_log_unrem,SE_CR1,t_CR1,p_t_G1,p_WCB_999,CI95_Lo,CI95_Hi,R2
+Mature >=18m SW OTA-OEMs (Unconditional Net Exposure),is_ota_pure,533,28,-0.5987,0.7095,-0.844,0.406192,0.401,-2.0545,0.8571,0.4892
+Mature >=18m SW OTA-OEMs (Unconditional Net Exposure),is_ota_hybrid,533,28,1.1299,0.553,2.043,0.050909,0.097,-0.0048,2.2645,0.4892
+Mature >=18m SW OTA-OEMs (Any Audited OTA),is_ota_audited,533,28,0.9362,0.5285,1.771,0.087777,0.153,-0.1482,2.0207,0.486
+Mature >=18m SW OTA-OEMs (Official API OTA),is_ota_api_full,533,28,0.5779,0.7266,0.795,0.433375,0.442,-0.913,2.0688,0.4828
+Mature >=18m SW Holding Fleet Size Fixed,is_ota_pure,533,28,-2.0617,0.8869,-2.325,0.027859,0.035,-3.8816,-0.2419,0.8522
+Mature >=18m SW Holding Fleet Size Fixed,is_ota_hybrid,533,28,-0.6657,0.2241,-2.971,0.006165,0.012,-1.1255,-0.206,0.8522
+Mature >=18m SW Holding Fleet Size Fixed,log_potaff,533,28,0.8694,0.0307,28.314,0.0,0.001,0.8064,0.9324,0.8522
+Mature >=18m SW Excl. Tesla,is_ota_pure,503,27,-0.8027,1.0812,-0.742,0.464491,0.49,-3.0252,1.4198,0.498
+Mature >=18m SW Excl. Tesla,is_ota_hybrid,503,27,0.9942,0.55,1.808,0.082255,0.143,-0.1364,2.1248,0.498
+Mature >=18m SW Excl. Tesla & Ford,is_ota_pure,401,26,-0.1998,0.7477,-0.267,0.791453,0.793,-1.7397,1.3401,0.5768
+Mature >=18m SW Excl. Tesla & Ford,is_ota_hybrid,401,26,1.2603,0.5148,2.448,0.021724,0.092,0.2,2.3205,0.5768
+Mature >=18m SW Hybrid Split (SW-Choice vs HW-Mixed),is_ota_pure,533,28,-0.6367,0.7163,-0.889,0.381922,0.381,-2.1064,0.833,0.4892
+Mature >=18m SW Hybrid Split (SW-Choice vs HW-Mixed),is_ota_hybrid_swchoice,533,28,1.1475,0.6154,1.865,0.073114,0.165,-0.1151,2.4102,0.4892
+Mature >=18m SW Hybrid Split (SW-Choice vs HW-Mixed),is_ota_hybrid_hwmixed,533,28,1.0019,1.1451,0.875,0.389299,0.419,-1.3476,3.3514,0.4892
+Mature >=18m All Vehicles vs Physical,is_ota_pure,6412,452,-1.9181,0.4438,-4.322,1.9e-05,0.065,-2.7904,-1.0459,0.4853
+Mature >=18m All Vehicles vs Physical,is_ota_hybrid,6412,452,1.4154,0.5977,2.368,0.018293,0.055,0.2409,2.59,0.4853
+Mature >=18m All Vehicles vs Physical,is_dealer_sw,6412,452,0.5731,0.2114,2.711,0.006962,0.012,0.1577,0.9885,0.4853
+Mature >=18m All Vehicles API OTA vs Physical,is_ota_api_full,6412,452,-0.0953,0.8182,-0.116,0.907374,0.92,-1.7032,1.5127,0.4825
+Mature >=18m All Vehicles API OTA vs Physical,is_dealer_sw,6412,452,0.547,0.211,2.592,0.009851,0.014,0.1323,0.9617,0.4825
+Mature >=18m All Veh Hybrid Split vs Physical,is_ota_pure,6412,452,-1.9271,0.4401,-4.379,1.5e-05,0.059,-2.7919,-1.0623,0.4853
+Mature >=18m All Veh Hybrid Split vs Physical,is_ota_hybrid_swchoice,6412,452,1.4561,0.6703,2.172,0.030353,0.115,0.1388,2.7734,0.4853
+Mature >=18m All Veh Hybrid Split vs Physical,is_ota_hybrid_hwmixed,6412,452,1.1285,0.4434,2.545,0.011256,0.04,0.2571,1.9999,0.4853
+Mature >=18m All Veh Hybrid Split vs Physical,is_dealer_sw,6412,452,0.5733,0.2116,2.709,0.006995,0.012,0.1575,0.9891,0.4853
+Strict Drop CR>100% All Vehicles,is_ota_pure,6409,452,-1.9181,0.4439,-4.321,1.9e-05,0.065,-2.7906,-1.0457,0.4849
+Strict Drop CR>100% All Vehicles,is_ota_hybrid,6409,452,1.4156,0.5977,2.369,0.018279,0.055,0.241,2.5902,0.4849
+Strict Drop CR>100% All Vehicles,is_dealer_sw,6409,452,0.5737,0.2115,2.712,0.006941,0.012,0.158,0.9894,0.4849
+Mature >=18m All Vehicles Singleton-FE Dropped,is_ota_pure,6237,277,-1.9181,0.438,-4.379,1.7e-05,0.08,-2.7805,-1.0558,0.4713
+Mature >=18m All Vehicles Singleton-FE Dropped,is_ota_hybrid,6237,277,1.4154,0.5899,2.4,0.017077,0.061,0.2542,2.5767,0.4713
+Mature >=18m All Vehicles Singleton-FE Dropped,is_dealer_sw,6237,277,0.5731,0.2086,2.747,0.006411,0.013,0.1624,0.9838,0.4713
+Full 2018-26 SW + Cubic Age Control,is_ota_pure,679,29,-0.7589,0.8612,-0.881,0.385678,0.446,-2.523,1.0051,0.4757
+Full 2018-26 SW + Cubic Age Control,is_ota_hybrid,679,29,1.1559,0.4289,2.695,0.01177,0.077,0.2773,2.0346,0.4757
+Mature >=18m Execution Tiers (No OEM FE),is_tesla_pure,855,119,-2.383,0.3766,-6.328,0.0,0.138,-3.1288,-1.6372,0.2727
+Mature >=18m Execution Tiers (No OEM FE),is_nontesla_pure,855,119,-3.3589,0.7282,-4.612,1e-05,0.007,-4.801,-1.9168,0.2727
+Mature >=18m Execution Tiers (No OEM FE),is_legacy_hybrid,855,119,1.3347,0.5874,2.272,0.024889,0.07,0.1715,2.498,0.2727
+Mature >=18m Execution Tiers (Light-Duty Passenger Only),is_tesla_pure,645,70,-2.6316,0.4357,-6.04,0.0,0.098,-3.5009,-1.7624,0.3242
+Mature >=18m Execution Tiers (Light-Duty Passenger Only),is_nontesla_pure,645,70,-3.3949,0.8009,-4.239,6.8e-05,0.029,-4.9925,-1.7972,0.3242
+Mature >=18m Execution Tiers (Light-Duty Passenger Only),is_legacy_hybrid,645,70,0.9416,0.6283,1.498,0.138567,0.297,-0.3119,2.1951,0.3242
