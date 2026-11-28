@@ -1,0 +1,5 @@
+v1_strength_tier,n_mature_2023_2024,n_vor,vor_conversion_pct,n_vor_upgraded_any,all_upgrade_any_pct,vor_upgrade_any_pct,n_vor_upgraded_to_solid,all_upgrade_to_solid_pct,vor_upgrade_to_solid_pct,mean_rev_lag_up_days,mean_rev_lag_unch_days,mean_oa_post_up,mean_oa_post_unch,mean_pv_up,mean_pv_unch,mean_dl_up,mean_dl_unch
+v1_Incomp_Inad,964,793,82.26,644,66.8,81.21,621,64.42,78.31,325.4,317.6,12.06,11.18,2482.1,2109.4,186.5,165.6
+v1_Solid,825,731,88.61,390,47.27,53.35,0,0.0,0.0,265.0,267.7,13.95,14.73,2470.4,2348.9,201.5,192.9
+v1_Convincing,594,548,92.26,112,18.86,20.44,0,0.0,0.0,253.9,232.0,13.13,16.28,2712.7,2596.2,198.7,213.7
+v1_Compel_Excep,270,243,90.0,8,2.96,3.29,0,0.0,0.0,194.2,222.1,13.12,18.58,2281.5,2753.7,173.6,228.1

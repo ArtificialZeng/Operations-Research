@@ -1,0 +1,29 @@
+sample_group,outcome,outcome_label,n_obs,n_clusters,mean_outcome,beta,pct,pct_ci95_lo,pct_ci95_hi,se,t_stat,p_value
+All_Mature_v1_Preprints,oa_post_v1_cites,Post-v1 OA Citations (eLife DOI max),2648,18,12.949,-0.1928,-17.53,-24.33,-10.13,0.0408,-4.73,0.00019364474412502915
+All_Mature_v1_Preprints,oa_next_full_year,Next Full-Calendar-Year OA Citations (eLife DOI max),2635,18,3.877,-0.256,-22.59,-29.14,-15.43,0.0419,-6.105,1.1675665262288218e-05
+All_Mature_v1_Preprints,oa_post_v1_all,Post-v1 OA Citations (eLife + Preprint max),2648,18,13.014,-0.1908,-17.37,-24.12,-10.02,0.0404,-4.723,0.0001963804192946057
+All_Mature_v1_Preprints,oa_next_full_year_all,Next Full-Calendar-Year OA Citations (eLife + Preprint max),2636,18,3.91,-0.2499,-22.11,-28.64,-14.99,0.0415,-6.022,1.3725534529905662e-05
+All_Mature_v1_Preprints,cr_cites,Crossref Citations (Max Across eLife DOIs),2648,18,8.24,-0.1768,-16.2,-24.17,-7.4,0.0473,-3.734,0.0016507295461851597
+All_Mature_v1_Preprints,pv_total,Cumulative eLife Page-Views,2648,18,2369.774,-0.0129,-1.28,-9.9,8.16,0.0433,-0.298,0.7691471783396332
+All_Mature_v1_Preprints,dl_total,Cumulative eLife Downloads,2648,18,183.743,-0.1073,-10.18,-16.97,-2.83,0.0373,-2.879,0.010411598137700694
+VoR_Subsample_Only,oa_post_v1_cites,Post-v1 OA Citations (eLife DOI max),2310,18,14.226,-0.1396,-13.03,-18.16,-7.58,0.0288,-4.844,0.00015216887884883138
+VoR_Subsample_Only,oa_next_full_year,Next Full-Calendar-Year OA Citations (eLife DOI max),2309,18,4.202,-0.2012,-18.22,-23.65,-12.41,0.0326,-6.179,1.0105136409313992e-05
+VoR_Subsample_Only,oa_post_v1_all,Post-v1 OA Citations (eLife + Preprint max),2310,18,14.228,-0.1396,-13.03,-18.14,-7.6,0.0287,-4.864,0.00014574024167228426
+VoR_Subsample_Only,oa_next_full_year_all,Next Full-Calendar-Year OA Citations (eLife + Preprint max),2309,18,4.204,-0.2011,-18.22,-23.62,-12.43,0.0324,-6.21,9.513606670880714e-06
+VoR_Subsample_Only,cr_cites,Crossref Citations (Max Across eLife DOIs),2310,18,9.099,-0.1243,-11.69,-17.94,-4.96,0.0348,-3.571,0.002352222837787819
+VoR_Subsample_Only,pv_total,Cumulative eLife Page-Views,2310,18,2496.034,0.0208,2.1,-7.7,12.95,0.0479,0.435,0.6689095370158291
+VoR_Subsample_Only,dl_total,Cumulative eLife Downloads,2310,18,198.499,-0.0531,-5.17,-12.6,2.89,0.0387,-1.374,0.1872880264459163
+NonVoR_Subsample_SubjQuarterFE,oa_post_v1_cites,Post-v1 OA Citations (eLife DOI max),306,17,4.201,-0.3583,-30.12,-51.12,-0.09,0.1686,-2.125,0.04949941074495857
+NonVoR_Subsample_SubjQuarterFE,oa_next_full_year,Next Full-Calendar-Year OA Citations (eLife DOI max),284,17,1.564,-0.4825,-38.28,-64.58,7.56,0.262,-1.842,0.08410781470086977
+NonVoR_Subsample_SubjQuarterFE,oa_post_v1_all,Post-v1 OA Citations (eLife + Preprint max),306,17,4.704,-0.3583,-30.11,-47.74,-6.54,0.1371,-2.613,0.018821698465634393
+NonVoR_Subsample_SubjQuarterFE,oa_next_full_year_all,Next Full-Calendar-Year OA Citations (eLife + Preprint max),287,17,1.832,-0.4096,-33.61,-57.5,3.71,0.2104,-1.947,0.06935568720935716
+NonVoR_Subsample_SubjQuarterFE,cr_cites,Crossref Citations (Max Across eLife DOIs),300,17,2.358,-0.332,-28.25,-49.71,2.36,0.1676,-1.98,0.06511293170813465
+NonVoR_Subsample_SubjQuarterFE,pv_total,Cumulative eLife Page-Views,306,17,1505.006,-0.1213,-11.42,-35.58,21.8,0.1502,-0.807,0.43135387308167583
+NonVoR_Subsample_SubjQuarterFE,dl_total,Cumulative eLife Downloads,306,17,82.678,-0.3149,-27.02,-44.87,-3.38,0.1324,-2.379,0.030135503293317385
+NonVoR_Subsample_SubjYearFE,oa_post_v1_cites,Post-v1 OA Citations (eLife DOI max),337,18,4.201,-0.3527,-29.72,-52.09,3.1,0.1816,-1.942,0.0689361887810396
+NonVoR_Subsample_SubjYearFE,oa_next_full_year,Next Full-Calendar-Year OA Citations (eLife DOI max),321,17,1.564,-0.4589,-36.8,-61.3,3.19,0.2313,-1.984,0.0646518129146209
+NonVoR_Subsample_SubjYearFE,oa_post_v1_all,Post-v1 OA Citations (eLife + Preprint max),337,18,4.704,-0.3532,-29.75,-49.51,-2.27,0.1565,-2.257,0.037471517884358777
+NonVoR_Subsample_SubjYearFE,oa_next_full_year_all,Next Full-Calendar-Year OA Citations (eLife + Preprint max),325,17,1.832,-0.4126,-33.81,-56.15,-0.07,0.1943,-2.123,0.049668783375606367
+NonVoR_Subsample_SubjYearFE,cr_cites,Crossref Citations (Max Across eLife DOIs),335,17,2.358,-0.3251,-27.75,-49.99,4.36,0.1735,-1.874,0.07934621995652003
+NonVoR_Subsample_SubjYearFE,pv_total,Cumulative eLife Page-Views,337,18,1505.006,0.058,5.97,-36.42,76.6,0.2421,0.239,0.8136833241362198
+NonVoR_Subsample_SubjYearFE,dl_total,Cumulative eLife Downloads,337,18,82.678,-0.2774,-24.22,-38.76,-6.24,0.101,-2.748,0.013734668247382788

@@ -1,0 +1,5 @@
+v1_strength_tier,n_total,n_posted_revision,pct_posted_revision,n_vor,pct_vor,n_vor_upgraded_any,pct_all_upgraded_any,pct_vor_upgraded_any,n_vor_upgraded_to_solid,pct_all_upgraded_to_solid,pct_vor_upgraded_to_solid,n_vor_unchanged,n_vor_unchanged_with_revision,n_rp_only,n_rp_only_with_revision,mean_rev_lag_up_days,med_rev_lag_up_days,mean_rev_lag_unch_days
+v1_Incomp_Inad,964,842,87.34,793,82.26,644,66.8,81.21,621,64.42,78.31,149,133,171,66,325.4,275.5,317.6
+v1_Solid,825,745,90.3,731,88.61,390,47.27,53.35,0,0.0,0.0,341,320,94,35,265.0,220.0,267.7
+v1_Convincing,594,545,91.75,548,92.26,112,18.86,20.44,0,0.0,0.0,436,413,46,20,253.9,203.5,232.0
+v1_Compel_Excep,270,237,87.78,243,90.0,8,2.96,3.29,0,0.0,0.0,235,223,27,6,194.2,179.5,222.1

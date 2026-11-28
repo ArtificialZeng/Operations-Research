@@ -1,0 +1,229 @@
+{
+  "id": "7da92a51",
+  "title": "The eLife Model: Three-year update",
+  "published": "2026-03-17T10:50:00Z",
+  "impactStatement": "New funding, awards for metadata and UX excellence, and outstanding research articles are among the highlights of the past year at eLife.",
+  "content": [
+    {
+      "text": "By Peter Rodgers, Chief Magazine Editor, and Damian Pattinson, Executive Director",
+      "type": "paragraph"
+    },
+    {
+      "text": "Last week, <a href=\"http://elifesciences.org/for-the-press/60edaa10\">Wellcome announced a £2.4m investment in eLife Pathways</a>, our initiative to build open publishing infrastructure for the global research community. This significant vote of confidence builds on three years of demonstrated innovation through eLife's publish-review-curate (PRC) model – a period that tested whether a journal could move beyond impact factors while maintaining rigorous peer review and financial sustainability. The data show the answer is yes, although it is clear that some parts of the world are moving faster than others in moving away from unreliable journal metrics.",
+      "type": "paragraph"
+    },
+    {
+      "text": "This article reviews the past year of PRC at eLife, including data on submissions and the impact of losing our impact factor. An accompanying <a href=\"https://elifesciences.org/articles/110392\">Editorial</a> also assesses the past three years and outlines some of the changes that will be made over the course of 2026.",
+      "type": "paragraph"
+    },
+    {
+      "text": "The main headline is that while we saw a decline in submissions at the end of 2024, following the announcement of our change in indexing status at Web of Science, the number of submissions we receive per month – and the number of articles we send for peer review per month – remained fairly stable over the course of 2025.",
+      "type": "paragraph"
+    },
+    {
+      "text": "We continued to deliver fast turnaround of our Reviewed Preprints – allowing researchers to share their peer-reviewed articles far quicker than with traditional journals – and the distribution of quality of our output remained the same as previous years.",
+      "type": "paragraph"
+    },
+    {
+      "text": "Other highlights of the past 15 months include the appointment of <a href=\"https://elifesciences.org/for-the-press/25f827d5\">Tim Behrens as Editor-in-Chief</a> in January, eLife being named among the winners of the inaugural <a href=\"https://elifesciences.org/for-the-press/69ceec2f/elife-named-among-winners-of-inaugural-crossref-metadata-excellence-awards\">Crossref Metadata Excellence Awards</a>, and eLife winning the <a href=\"https://elifesciences.org/for-the-press/399f06d4/elife-wins-industry-renowned-ux-award-2025\">2025 OpenAthens UX Award</a> for “its user-driven approach to Reviewed Preprints”. eLife staff also published a number of articles and blog posts on the need to reform scientific publishing – please see ‘Further reading’ below.",
+      "type": "paragraph"
+    },
+    {
+      "text": [
+        {
+          "text": "eLife has demonstrated something many thought impossible: that a journal can move beyond impact factors while maintaining quality and financial sustainability.",
+          "type": "paragraph"
+        }
+      ],
+      "type": "quote"
+    },
+    {
+      "text": "<strong>Impact on submissions</strong>",
+      "type": "paragraph"
+    },
+    {
+      "text": "Impact factors are still the dominant way in which researchers are evaluated in some parts of the world, and so we knew that our decision to forgo the impact factor, rather than bow to the wishes of the Clarivate-owned Web of Science to change our model, would make it harder for researchers in some countries to submit to eLife. This indeed turned out to be the case, and our submission data provide insight into where research evaluation is most in need of reform.",
+      "type": "paragraph"
+    },
+    {
+      "text": "We received a total of 2,853 submissions in 2025 (compared with 6,396 in 2024 and 5,590 for Feb–Dec 2023), and sent 1,013 of these for review (compared with 1,719 in 2024 and 1,513 in 2023). Although submissions declined by 55% between 2024 and 2025, and the number of articles sent for peer review fell by 41%, the proportion of articles selected for peer review by our editors increased from 27% to 35%, showing that the decline was more pronounced for lower quality submissions.",
+      "type": "paragraph"
+    },
+    {
+      "text": "The impact on the volume of submissions varied from country to country, highlighting where research assessment is still dependent on corporate metrics over evaluation of the science itself. In Europe they fell least in the UK (down by 18%) and France (23%), with larger drops for the Netherlands (47%), Germany (52%) and Spain (54%), and a substantial drop for Italy (75%). Submissions from the US fell by 40%. Elsewhere in the world, the pattern was similarly varied – from around 25% for India to 80% for China (even though eLife remains on the “top journals” list maintained by the Chinese Academy of Sciences). In terms of the number of articles published, the decline was 25% for Europe, 33% for the US, and 70% for China.",
+      "type": "paragraph"
+    },
+    {
+      "text": "Working closely with our funders, we adjusted our operating budget and staffing levels in 2024/2025 to allow us to focus on changing the system rather than chasing volume. This has enabled us to remain financially stable while maintaining editorial quality, and now expanding our infrastructure contributions through eLife Pathways.",
+      "type": "paragraph"
+    },
+    {
+      "text": "The data also provide insight into the pervasive nature of journal metrics in research evaluation. It is striking that some countries have tied their R&amp;D assessment so closely to commercial products like the impact factor, creating barriers that prevent researchers from choosing journals with innovative and transparent publishing models.",
+      "type": "paragraph"
+    },
+    {
+      "text": "Our data reveal an important challenge: many researchers report that institutional evaluation practices haven't kept pace with DORA commitments. This implementation gap – between institutional policy and departmental practice – is where eLife's work increasingly focuses. Through direct publishing agreements with universities, we're working with research offices to ensure that DORA commitments translate into actual support for researchers choosing journals based on values rather than metrics.",
+      "type": "paragraph"
+    },
+    {
+      "text": [
+        {
+          "text": "Making such article-level assessments available to all readers – including those on committees making decisions about jobs, tenure and promotion – eliminates the need for journal-level metrics (such as the impact factor) when assessing individual researchers.",
+          "type": "paragraph"
+        }
+      ],
+      "type": "quote"
+    },
+    {
+      "text": "<strong>Speed of publication</strong>",
+      "type": "paragraph"
+    },
+    {
+      "text": "Speed is built into the eLife publication process because all articles selected for peer review must be available as a preprint. The model also has the advantage that feedback from the reviewers is available to readers much faster than it is at traditional journals, including those that use open peer review.",
+      "type": "paragraph"
+    },
+    {
+      "text": "In 2025 the median number of days between submission to the journal and publication as a Reviewed Preprint (including an eLife Assessment and Public Reviews) was 96 days. This compares favourably with the time it takes for a preprint to be published in a traditional peer-reviewed journal: about 80% of the preprints posted on bioRxiv and medRxiv go on to be published in peer-reviewed journals, with the average delay between the preprint and the journal article being <a href=\"https://openrxiv.org/2025-year-in-review/\">250 days</a>.",
+      "type": "paragraph"
+    },
+    {
+      "text": "For articles not selected for peer review, the median number of days between submission and sending a decision to the author was eight days.",
+      "type": "paragraph"
+    },
+    {
+      "text": [
+        {
+          "text": "Already, as part of their commitment to open science, a number of universities and funding agencies have cancelled their subscriptions to the Web of Science (the platform that is used to calculate impact factors).",
+          "type": "paragraph"
+        }
+      ],
+      "type": "quote"
+    },
+    {
+      "text": "<strong>Consistent quality</strong>",
+      "type": "paragraph"
+    },
+    {
+      "text": "Every article published in eLife includes an eLife Assessment written by the referees who reviewed the article and the editor who oversaw the review process. This Assessment uses a standard vocabulary to summarise the significance of the findings reported in the article (on a scale ranging from landmark to useful) and the strength of the evidence (on a scale ranging from exceptional to inadequate). Definitions of all the terms used in eLife Assessments can be found <a href=\"https://elifesciences.org/about/elife-assessments\">here</a>, and a list of all the articles deemed to be <a href=\"https://elifesciences.org/browse?minimumSignificance=landmark&amp;minimumStrength=\">landmark</a> and/or <a href=\"https://elifesciences.org/browse?minimumSignificance=&amp;minimumStrength=exceptional\">exceptional</a> appears under 'Further reading' below.",
+      "type": "paragraph"
+    },
+    {
+      "text": "Importantly, an analysis of articles published over the past three years shows that the quality of the work published in eLife, as measured by the terms used for significance in eLife Assessments, has remained consistent during this period of transition, demonstrating that the journals continues to attract high quality science (see figure).",
+      "type": "paragraph"
+    },
+    {
+      "type": "image",
+      "image": {
+        "alt": "",
+        "uri": "https://iiif.elifesciences.org/journal-cms/blog-article-preview%2F2026-03%2Fimage-20260311170013-1.png",
+        "size": {
+          "width": 1200,
+          "height": 741
+        },
+        "source": {
+          "uri": "https://iiif.elifesciences.org/journal-cms/blog-article-preview%2F2026-03%2Fimage-20260311170013-1.png/full/full/0/default.jpg",
+          "filename": "image-20260311170013-1.jpg",
+          "mediaType": "image/jpeg"
+        },
+        "focalPoint": {
+          "x": 50,
+          "y": 50
+        }
+      },
+      "title": "The term most frequently used to describe the significance of articles published in 2023, 2024 and 2025 was important. Data shown for the final Version of Record (VOR).",
+      "inline": true
+    },
+    {
+      "text": "In September, at a conference on peer review in Chicago, eLife staff presented data on how the <a href=\"https://peerreviewcongress.org/abstract/investigating-changes-in-common-vocabulary-terms-in-elife-assessments-across-versions-in-a-publish-review-curate-model/\">terms used in eLife Assessments </a>change as articles are revised; an <a href=\"https://elifesciences.org/inside-elife/e9d530fc\">updated version of this analysis</a> has just been released. What is notable is how selective our editors are being in assigning the terms landmark and exceptional to articles – these terms are kept for only the most groundbreaking research, and are becoming a real badge of honour for researchers.",
+      "type": "paragraph"
+    },
+    {
+      "text": "Making such article-level assessments available to all readers – including those on committees making decisions about jobs, tenure and promotion – eliminates the need for journal-level metrics (such as the impact factor) when assessing individual researchers.",
+      "type": "paragraph"
+    },
+    {
+      "text": "<strong>Alliances and advocacy</strong>",
+      "type": "paragraph"
+    },
+    {
+      "text": "Another feature of 2025 has been working with other organisations – such as <a href=\"https://asapbio.org/\">ASAPbio</a>, the <a href=\"https://barcelona-declaration.org/\">Barcelona Declaration</a>, <a href=\"https://www.coara.org/\">CoARA</a> and <a href=\"https://sfdora.org/\">DORA</a> – who are committed to improving the publication process and reforming research assessment.",
+      "type": "paragraph"
+    },
+    {
+      "text": "In November, for example, one of us (DP) attended a <a href=\"https://asapbio.org/international-community-convenes-in-pisa-to-advance-coordinated-reform-in-publishing-and-research-assessment/\">workshop in Pisa</a> that brought together groups interested in reforming how researchers are assessed and organisations working to drive change in scientific publishing.",
+      "type": "paragraph"
+    },
+    {
+      "text": "eLife staff also took part in a meeting of researchers, publishers, librarians, research funders and infrastructure providers in Cambridge in December to showcase the <a href=\"https://asapbio.org/reimagining-scholarly-publishing-outcomes-from-a-public-forum-to-discuss-the-publish-review-curate-prc-publishing-model/\">benefits of the PRC approach to peer review and publishing</a>. Representatives from two PRC journals we work closely with – <a href=\"https://metaror.org/\">MetaROR</a> and <a href=\"https://biophysicscolab.org/\">Biophysics Colab</a> – also attended this meeting.",
+      "type": "paragraph"
+    },
+    {
+      "text": "We have also concluded <a href=\"https://elifesciences.org/about/institutional-publishing-agreements\">publishing agreements</a> with a number of leading universities and institutions, and more are under discussion. These agreements allow authors at these universities and institutions to publish in eLife without having to pay any fees. We have also started to develop new business models to make publishing more equitable and sustainable.",
+      "type": "paragraph"
+    },
+    {
+      "text": "<strong>What’s next?</strong>",
+      "type": "paragraph"
+    },
+    {
+      "text": "Our data show that our model is faster, more efficient and popular with researchers who are given the academic freedom to publish in innovative ways. By doing so, eLife has demonstrated something many thought impossible: that a journal can move beyond impact factors while maintaining quality and financial sustainability.",
+      "type": "paragraph"
+    },
+    {
+      "text": "The support for our innovation is clearly demonstrated by our new funding, which aims to expand infrastructure that supports the very open science practices we are highlighting in eLife.",
+      "type": "paragraph"
+    },
+    {
+      "text": "Already, as part of their commitment to open science, a number of universities and funding agencies have cancelled their subscriptions to the Web of Science (the platform that is used to calculate impact factors), and we believe that this movement will gain pace in the coming years. This is exactly what eLife was set up to do, and we will continue to break the mould in order to fight for a better publishing reality for researchers.",
+      "type": "paragraph"
+    },
+    {
+      "text": "<strong>Further reading: Reforming scientific publishing</strong>",
+      "type": "paragraph"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href=\"https://onlinelibrary.wiley.com/doi/10.1002/leap.2012\">Toward Science-Led Publishing</a>",
+        "<a href=\"https://www.labnews.co.uk/article/2098115/putting-knowledge-before-prestige\">Putting knowledge before prestige</a>",
+        "<a href=\"https://sfdora.org/2025/07/30/scientific-indexes-citation-databases-innovation/\">Why are indexers unable to see that peer review can be more than a thumbs up or a thumbs down?</a>",
+        "<a href=\"https://www.crossref.org/blog/an-elife-filled-with-possibility-thanks-to-great-metadata/\">An eLife filled with possibility thanks to great metadata</a>"
+      ],
+      "prefix": "bullet"
+    },
+    {
+      "text": "<strong>Further reading: eLife articles published in 2025 that are landmark and/or exceptional</strong>",
+      "type": "paragraph"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href=\"https://elifesciences.org/articles/105065\">The general version of Hamilton’s rule</a>",
+        "<a href=\"https://elifesciences.org/articles/107114\">Structural mechanism of strand exchange by the RAD51 filament</a>",
+        "<a href=\"https://elifesciences.org/articles/89106\">Evidence for deliberate burial of the dead by <em>Homo naledi</em></a>",
+        "<a href=\"https://elifesciences.org/articles/105209\">Applying 3D correlative structured illumination microscopy and X-ray tomography to characterise herpes simplex virus-1 morphogenesis</a>",
+        "<a href=\"https://elifesciences.org/reviewed-preprints/108036\">Morphology and ultrastructure of pharyngeal sense organs of <em>Drosophila</em> larvae</a>",
+        "<a href=\"https://elifesciences.org/articles/105815\">Longitudinal assessment of DREADD expression and efficacy in the monkey brain</a>",
+        "<a href=\"https://elifesciences.org/articles/95273\">Unbiased identification of cell identity in dense mixed neural cultures</a>",
+        "<a href=\"https://elifesciences.org/reviewed-preprints/108224\">Arrayed single-gene perturbations identify drivers of human anterior neural tube closure</a>",
+        "<a href=\"https://elifesciences.org/articles/97964\">Whole-body connectome of a segmented annelid larva</a>",
+        "<a href=\"https://elifesciences.org/articles/102434\">Oncogenic and teratogenic effects of <em>Trp53</em><sup>Y217C</sup>, an inflammation-prone mouse model of the human hotspot mutant <em>TP53</em><sup>Y220C</sup></a>",
+        "<a href=\"https://elifesciences.org/articles/102900\">Microglia replacement by ER-Hoxb8 conditionally immortalized macrophages provides insight into Aicardi-Goutières Syndrome neuropathology</a>"
+      ],
+      "prefix": "bullet"
+    },
+    {
+      "text": "<strong>Further reading: Previous updates</strong>",
+      "type": "paragraph"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href=\"https://elifesciences.org/inside-elife/8947f033\">The eLife Model: Two-year update</a>",
+        "<a href=\"https://elifesciences.org/inside-elife/66d43597\">eLife's New Model: One year on</a>",
+        "<a href=\"https://elifesciences.org/articles/96413\">Scientific Publishing: The first year of a new era</a>"
+      ],
+      "prefix": "bullet"
+    }
+  ]
+}
