@@ -1,0 +1,7 @@
+stratum,t640_n,t640_overlap_pct,t640_diff_pp,bam_n,bam_overlap_pct,bam_diff_pp,diff_t640_minus_bam_pp,ci95_block_lo,ci95_block_hi
+Full matched Heavy smoke,468,100.0,7.26,197,100.0,0.0,7.26,3.13,11.4
+"Overlapping EPA Regions (R1-5, R7-8)",468,100.0,7.26,150,76.1,-0.67,7.93,3.5,12.36
+Overlapping Smoke Dates (27 dates),417,89.1,7.91,112,56.9,-2.68,10.59,4.55,16.63
+Overlapping Dates & EPA Regions,417,89.1,7.91,95,48.2,-3.16,11.07,4.48,17.66
+"Overlapping Dates, Regions & FRM <= 50 ug/m3",412,88.0,8.01,93,47.2,-3.23,11.24,4.43,18.04
+"Overlap-Weighted (EPA Region x FRM Bin, 29 cells)",468,100.0,9.22,130,66.0,-1.21,10.42,1.43,18.8

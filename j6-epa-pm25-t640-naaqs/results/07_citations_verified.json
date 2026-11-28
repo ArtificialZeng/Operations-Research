@@ -1,0 +1,378 @@
+{
+  "n_academic_dois": 15,
+  "n_verified": 15,
+  "verification_rate_pct": 100.0,
+  "all_verified": true,
+  "academic_refs": [
+    {
+      "key": "Long2023",
+      "doi": "10.1080/10962247.2023.2171156",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Long",
+        "Urbanski",
+        "Lincoln",
+        "Col\u00f3n",
+        "Kaushik",
+        "Krug",
+        "Vanderpool",
+        "Landis"
+      ],
+      "author_first": "Long",
+      "year": 2023,
+      "title": "Summary of PM<sub>2.5</sub> measurement artifacts associated with the Teledyne T640 PM Mass Monitor under controlled chamber experimental conditions using polydisperse ammonium sulfate aerosols and biomass smoke",
+      "journal": "Journal of the Air &amp; Waste Management Association",
+      "volume": "73",
+      "issue": "4",
+      "page": "295-312",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "McClure2026",
+      "doi": "10.1080/10962247.2026.2639376",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "McClure",
+        "Anderson",
+        "Gostic",
+        "King",
+        "Pavlovic"
+      ],
+      "author_first": "McClure",
+      "year": 2026,
+      "title": "Automated screening method identifies recent probable wildland fire exceptional events for ozone and PM\n                    <sub>2.5</sub>\n                    across CONUS \u2013 Part 1",
+      "journal": "Journal of the Air &amp; Waste Management Association",
+      "volume": "76",
+      "issue": "7",
+      "page": "548-560",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Krupnick2025",
+      "doi": "10.1021/acs.est.4c08946",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Krupnick",
+        "Richardson",
+        "Wibbenmeyer",
+        "Zhu"
+      ],
+      "author_first": "Krupnick",
+      "year": 2025,
+      "title": "Wildfire Smoke, the Clean Air Act, and the Exceptional Events Rule: Implications and Policy Alternatives",
+      "journal": "Environmental Science &amp; Technology",
+      "volume": "59",
+      "issue": "6",
+      "page": "2917-2927",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Jaffe2026",
+      "doi": "10.1029/2025GH001576",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Jaffe",
+        "Lee",
+        "Magzamen",
+        "Goldberg",
+        "O\u2019Dell"
+      ],
+      "author_first": "Jaffe",
+      "year": 2026,
+      "title": "Health and Regulatory Impacts of PM\n                    <sub>2.5</sub>\n                    From Wildland Fires for 2019\u20132024 in the US",
+      "journal": "GeoHealth",
+      "volume": "10",
+      "issue": "5",
+      "page": "",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Burke2023",
+      "doi": "10.1038/s41586-023-06522-6",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Burke",
+        "Childs",
+        "de la Cuesta",
+        "Qiu",
+        "Li",
+        "Gould",
+        "Heft-Neal",
+        "Wara"
+      ],
+      "author_first": "Burke",
+      "year": 2023,
+      "title": "The contribution of wildfire to PM2.5 trends in the USA",
+      "journal": "Nature",
+      "volume": "622",
+      "issue": "7984",
+      "page": "761-766",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Childs2022",
+      "doi": "10.1021/acs.est.2c02934",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Childs",
+        "Li",
+        "Wen",
+        "Heft-Neal",
+        "Driscoll",
+        "Wang",
+        "Gould",
+        "Qiu",
+        "Burney",
+        "Burke"
+      ],
+      "author_first": "Childs",
+      "year": 2022,
+      "title": "Daily Local-Level Estimates of Ambient Wildfire Smoke PM\n                    <sub>2.5</sub>\n                    for the Contiguous US",
+      "journal": "Environmental Science &amp; Technology",
+      "volume": "56",
+      "issue": "19",
+      "page": "13607-13621",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Di2017",
+      "doi": "10.1056/NEJMoa1702747",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Di",
+        "Wang",
+        "Zanobetti",
+        "Wang",
+        "Koutrakis",
+        "Choirat",
+        "Dominici",
+        "Schwartz"
+      ],
+      "author_first": "Di",
+      "year": 2017,
+      "title": "Air Pollution and Mortality in the Medicare Population",
+      "journal": "New England Journal of Medicine",
+      "volume": "376",
+      "issue": "26",
+      "page": "2513-2522",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Bland1986",
+      "doi": "10.1016/S0140-6736(86)90837-8",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Martin Bland",
+        "Altman"
+      ],
+      "author_first": "Martin Bland",
+      "year": 1986,
+      "title": "STATISTICAL METHODS FOR ASSESSING AGREEMENT BETWEEN TWO METHODS OF CLINICAL MEASUREMENT",
+      "journal": "The Lancet",
+      "volume": "327",
+      "issue": "8476",
+      "page": "307-310",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Cameron2011",
+      "doi": "10.1198/jbes.2010.07136",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Cameron",
+        "Gelbach",
+        "Miller"
+      ],
+      "author_first": "Cameron",
+      "year": 2011,
+      "title": "Robust Inference With Multiway Clustering",
+      "journal": "Journal of Business &amp; Economic Statistics",
+      "volume": "29",
+      "issue": "2",
+      "page": "238-249",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Cameron2008",
+      "doi": "10.1162/rest.90.3.414",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Cameron",
+        "Gelbach",
+        "Miller"
+      ],
+      "author_first": "Cameron",
+      "year": 2008,
+      "title": "Bootstrap-Based Improvements for Inference with Clustered Errors",
+      "journal": "Review of Economics and Statistics",
+      "volume": "90",
+      "issue": "3",
+      "page": "414-427",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Roodman2019",
+      "doi": "10.1177/1536867X19830877",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Roodman",
+        "Nielsen",
+        "MacKinnon",
+        "Webb"
+      ],
+      "author_first": "Roodman",
+      "year": 2019,
+      "title": "Fast and wild: Bootstrap inference in Stata using boottest",
+      "journal": "The Stata Journal: Promoting communications on statistics and Stata",
+      "volume": "19",
+      "issue": "1",
+      "page": "4-60",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Fowlie2019",
+      "doi": "10.1257/pandp.20191064",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Fowlie",
+        "Rubin",
+        "Walker"
+      ],
+      "author_first": "Fowlie",
+      "year": 2019,
+      "title": "Bringing Satellite-Based Air Quality Estimates Down to Earth",
+      "journal": "AEA Papers and Proceedings",
+      "volume": "109",
+      "issue": "",
+      "page": "283-288",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Zou2021",
+      "doi": "10.1257/aer.20181346",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Zou"
+      ],
+      "author_first": "Zou",
+      "year": 2021,
+      "title": "Unwatched Pollution: The Effect of Intermittent Monitoring on Air Quality",
+      "journal": "American Economic Review",
+      "volume": "111",
+      "issue": "7",
+      "page": "2101-2126",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Grainger2019",
+      "doi": "10.1257/pandp.20191063",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Grainger",
+        "Schreiber"
+      ],
+      "author_first": "Grainger",
+      "year": 2019,
+      "title": "Discrimination in Ambient Air Pollution Monitoring?",
+      "journal": "AEA Papers and Proceedings",
+      "volume": "109",
+      "issue": "",
+      "page": "277-282",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Abadie2023",
+      "doi": "10.1093/qje/qjac038",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Abadie",
+        "Athey",
+        "Imbens",
+        "Wooldridge"
+      ],
+      "author_first": "Abadie",
+      "year": 2022,
+      "title": "When Should You Adjust Standard Errors for Clustering?",
+      "journal": "The Quarterly Journal of Economics",
+      "volume": "138",
+      "issue": "1",
+      "page": "1-35",
+      "author_ok": true,
+      "year_ok": true
+    }
+  ],
+  "institutional_refs": [
+    {
+      "key": "EPA2024NAAQS",
+      "cite_pattern": "89 FR 16202|U\\.S\\. EPA \\(2024a\\)|U\\.S\\. EPA, 2024a",
+      "tok": "89 FR 16202",
+      "citation": "U.S. Environmental Protection Agency (2024a). Reconsideration of the National Ambient Air Quality Standards for Particulate Matter. Final Rule, 89 FR 16202 (February 7, 2024; effective May 6, 2024)."
+    },
+    {
+      "key": "EPA2024Tiering",
+      "cite_pattern": "EPA-457/R-24-001|U\\.S\\. EPA \\(2024b\\)|U\\.S\\. EPA, 2024b",
+      "tok": "EPA-457/R-24-001",
+      "citation": "U.S. Environmental Protection Agency (2024b). PM2.5 Wildland Fire Exceptional Events Tiering Document. EPA-457/R-24-001, Office of Air Quality Planning and Standards (April 30, 2024)."
+    },
+    {
+      "key": "EPA2024T640",
+      "cite_pattern": "U\\.S\\. EPA \\(2024c\\)|U\\.S\\. EPA, 2024c|Quick Reference Guide to T640",
+      "tok": "T640",
+      "citation": "U.S. Environmental Protection Agency (2024c). Quick Reference Guide to T640/T640x Data and Network Alignment Memorandum (AQS Method Codes 636/638 and 736/738). Office of Air Quality Planning and Standards (May 13, 2024)."
+    },
+    {
+      "key": "EPA2026TierTable",
+      "cite_pattern": "U\\.S\\. EPA \\(2026\\)|U\\.S\\. EPA, 2026|2026-09-14",
+      "tok": "2026-09-14",
+      "citation": "U.S. Environmental Protection Agency (2026). PM2.5 Tiering Tool for Exceptional Events Analysis: Site-Month Threshold Table (for_posting.csv), Certified Years 2021-2025, AQS Query Date 2026-09-14."
+    },
+    {
+      "key": "CFRAppN",
+      "cite_pattern": "40 CFR Part 50,?\\s*Appendix N|Appendix N",
+      "tok": "Appendix N",
+      "citation": "U.S. Code of Federal Regulations (40 CFR Part 50, Appendix N). Interpretation of the National Ambient Air Quality Standards for PM2.5."
+    },
+    {
+      "key": "CFR5014",
+      "cite_pattern": "40 CFR \u00a7\\s*50\\.14|40 CFR 50\\.14",
+      "tok": "50.14",
+      "citation": "U.S. Code of Federal Regulations (40 CFR \u00a7 50.14; 81 FR 68216). Treatment of Air Quality Monitoring Data Influenced by Exceptional Events."
+    }
+  ],
+  "two_way_sync": {
+    "manuscript_exists": true,
+    "total_refs_checked": 21,
+    "missing_in_body": [],
+    "missing_in_refs": [],
+    "two_way_sync_ok": true
+  }
+}

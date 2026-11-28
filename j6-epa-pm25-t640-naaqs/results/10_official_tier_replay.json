@@ -1,0 +1,241 @@
+{
+  "threshold_url": "https://www.epa.gov/system/files/other-files/2025-10/for_posting.csv",
+  "aqs_query_date": "2026-09-14",
+  "threshold_baseline": [
+    2021,
+    2025
+  ],
+  "threshold_sha256": "ac314789d31b89fd93f044e01d71affd9af3bf0454dae1c685adfc5348cf40e4",
+  "threshold_rows": 13138,
+  "support": "2023-2025 paired observations on NOAA HMS Heavy site-days",
+  "episode_block": "Runs of consecutive days with Heavy smoke in either paired sample nationwide",
+  "retrospective": true,
+  "results": {
+    "t640_fw": {
+      "fixed_35_full": {
+        "n_site_days": 472,
+        "n_sites": 167,
+        "n_dates": 45,
+        "n_episode_blocks": 27,
+        "instrument_exceed": 52,
+        "reference_exceed": 26,
+        "instrument_only": 26,
+        "reference_only": 0,
+        "difference_pp": 5.508474576271186,
+        "ci95_site_pp": [
+          3.3851226704228563,
+          7.631826482119516
+        ],
+        "ci95_date_pp": [
+          0.2136245500485079,
+          10.803324602493865
+        ],
+        "ci95_episode_pp": [
+          -0.7622585260358617,
+          11.779207678578235
+        ],
+        "leave_one_episode_out_range_pp": [
+          3.225806451612903,
+          8.150470219435737
+        ]
+      },
+      "matched": {
+        "fixed_35": {
+          "n_site_days": 468,
+          "n_sites": 165,
+          "n_dates": 45,
+          "n_episode_blocks": 27,
+          "instrument_exceed": 51,
+          "reference_exceed": 26,
+          "instrument_only": 25,
+          "reference_only": 0,
+          "difference_pp": 5.3418803418803416,
+          "ci95_site_pp": [
+            3.2310504176286767,
+            7.452710266132007
+          ],
+          "ci95_date_pp": [
+            0.33602879417981224,
+            10.347731889580873
+          ],
+          "ci95_episode_pp": [
+            -0.6310056670122535,
+            11.314766350772937
+          ],
+          "leave_one_episode_out_range_pp": [
+            3.25,
+            7.886435331230284
+          ]
+        },
+        "tier_1": {
+          "n_site_days": 468,
+          "n_sites": 165,
+          "n_dates": 45,
+          "n_episode_blocks": 27,
+          "instrument_exceed": 123,
+          "reference_exceed": 89,
+          "instrument_only": 36,
+          "reference_only": 2,
+          "difference_pp": 7.264957264957266,
+          "ci95_site_pp": [
+            4.824123821303464,
+            9.705790708611067
+          ],
+          "ci95_date_pp": [
+            2.9865740105229515,
+            11.54334051939158
+          ],
+          "ci95_episode_pp": [
+            4.148008258119079,
+            10.381906271795453
+          ],
+          "leave_one_episode_out_range_pp": [
+            6.473214285714286,
+            7.8341013824884795
+          ]
+        },
+        "tier_2_threshold": {
+          "n_site_days": 468,
+          "n_sites": 165,
+          "n_dates": 45,
+          "n_episode_blocks": 27,
+          "instrument_exceed": 232,
+          "reference_exceed": 193,
+          "instrument_only": 43,
+          "reference_only": 4,
+          "difference_pp": 8.333333333333332,
+          "ci95_site_pp": [
+            5.577155686522908,
+            11.089510980143757
+          ],
+          "ci95_date_pp": [
+            2.62503143260759,
+            14.041635234059074
+          ],
+          "ci95_episode_pp": [
+            2.987267368930463,
+            13.679399297736202
+          ],
+          "leave_one_episode_out_range_pp": [
+            6.024096385542169,
+            9.25
+          ]
+        }
+      },
+      "unmatched_site_days": 4
+    },
+    "bam": {
+      "fixed_35_full": {
+        "n_site_days": 201,
+        "n_sites": 54,
+        "n_dates": 65,
+        "n_episode_blocks": 36,
+        "instrument_exceed": 40,
+        "reference_exceed": 38,
+        "instrument_only": 4,
+        "reference_only": 2,
+        "difference_pp": 0.9950248756218906,
+        "ci95_site_pp": [
+          -0.9299589612611809,
+          2.920008712504962
+        ],
+        "ci95_date_pp": [
+          -1.8206743933855911,
+          3.8107241446293725
+        ],
+        "ci95_episode_pp": [
+          -1.874894865145956,
+          3.864944616389737
+        ],
+        "leave_one_episode_out_range_pp": [
+          0.0,
+          1.5228426395939085
+        ]
+      },
+      "matched": {
+        "fixed_35": {
+          "n_site_days": 197,
+          "n_sites": 53,
+          "n_dates": 65,
+          "n_episode_blocks": 36,
+          "instrument_exceed": 40,
+          "reference_exceed": 38,
+          "instrument_only": 4,
+          "reference_only": 2,
+          "difference_pp": 1.015228426395939,
+          "ci95_site_pp": [
+            -0.94845458586384,
+            2.978911438655718
+          ],
+          "ci95_date_pp": [
+            -1.8564645977233447,
+            3.8869214505152225
+          ],
+          "ci95_episode_pp": [
+            -1.9113528383843597,
+            3.9418096911762373
+          ],
+          "leave_one_episode_out_range_pp": [
+            0.0,
+            1.5544041450777202
+          ]
+        },
+        "tier_1": {
+          "n_site_days": 197,
+          "n_sites": 53,
+          "n_dates": 65,
+          "n_episode_blocks": 36,
+          "instrument_exceed": 84,
+          "reference_exceed": 84,
+          "instrument_only": 5,
+          "reference_only": 5,
+          "difference_pp": 0.0,
+          "ci95_site_pp": [
+            -3.251928399360378,
+            3.251928399360378
+          ],
+          "ci95_date_pp": [
+            -3.2317457139114483,
+            3.2317457139114483
+          ],
+          "ci95_episode_pp": [
+            -2.5600341253402616,
+            2.5600341253402616
+          ],
+          "leave_one_episode_out_range_pp": [
+            -0.5291005291005291,
+            0.6060606060606061
+          ]
+        },
+        "tier_2_threshold": {
+          "n_site_days": 197,
+          "n_sites": 53,
+          "n_dates": 65,
+          "n_episode_blocks": 36,
+          "instrument_exceed": 123,
+          "reference_exceed": 120,
+          "instrument_only": 10,
+          "reference_only": 7,
+          "difference_pp": 1.5228426395939088,
+          "ci95_site_pp": [
+            -4.037847194167685,
+            7.083532473355501
+          ],
+          "ci95_date_pp": [
+            -3.2594592092843975,
+            6.305144488472214
+          ],
+          "ci95_episode_pp": [
+            -3.2732520035101063,
+            6.318937282697925
+          ],
+          "leave_one_episode_out_range_pp": [
+            0.0,
+            2.7777777777777777
+          ]
+        }
+      },
+      "unmatched_site_days": 4
+    }
+  }
+}

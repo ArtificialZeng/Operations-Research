@@ -1,0 +1,15 @@
+instrument,benchmark,n_pairs,fem_exceed,frm_exceed,fem_only,frm_only,diff_pp,ci95_nat_block_lo,ci95_nat_block_hi,ci95_2way_site_reg_ep_lo,ci95_2way_site_reg_ep_hi
+T640_FW-FRM,Official EPA 2021-2025 Tier 1,468,123,89,36,2,7.26,4.15,10.38,3.43,11.1
+T640_FW-FRM,Official EPA 2021-2025 Tier 2 Lower,468,232,193,43,4,8.33,2.99,13.68,3.31,13.36
+T640_FW-FRM,Fixed Daily >35 ug/m3 (Matched),468,51,26,25,0,5.34,-0.63,11.31,1.04,9.64
+T640_FW-FRM,OOT-A Rolling 5-Yr Tier 1 (R-Excl AQS),467,116,90,26,0,5.57,1.63,9.5,2.77,8.37
+T640_FW-FRM,OOT-B Rolling 5-Yr Tier 1 (Excl HMS Heavy),467,119,90,29,0,6.21,1.35,11.07,3.08,9.34
+T640_FW-FRM,OOT-B2 Rolling 5-Yr Tier 1 (Excl HMS Med+Heavy),467,124,91,33,0,7.07,1.94,12.19,3.57,10.56
+T640_FW-FRM,OOT-C Rolling 5-Yr Tier 1 (Pure FRM),456,116,90,26,0,5.7,0.43,10.97,2.17,9.23
+BAM-FRM (Ref.),Official EPA 2021-2025 Tier 1,197,84,84,5,5,0.0,-2.56,2.56,-2.92,2.92
+BAM-FRM (Ref.),Official EPA 2021-2025 Tier 2 Lower,197,123,120,10,7,1.52,-3.27,6.32,-4.89,7.93
+BAM-FRM (Ref.),Fixed Daily >35 ug/m3 (Matched),197,40,38,4,2,1.02,-1.91,3.94,-1.41,3.44
+BAM-FRM (Ref.),OOT-A Rolling 5-Yr Tier 1 (R-Excl AQS),193,72,72,4,4,0.0,-2.61,2.61,-2.58,2.58
+BAM-FRM (Ref.),OOT-B Rolling 5-Yr Tier 1 (Excl HMS Heavy),193,73,73,4,4,0.0,-2.61,2.61,-2.58,2.58
+BAM-FRM (Ref.),OOT-B2 Rolling 5-Yr Tier 1 (Excl HMS Med+Heavy),193,80,79,4,3,0.52,-1.87,2.91,-1.86,2.89
+BAM-FRM (Ref.),OOT-C Rolling 5-Yr Tier 1 (Pure FRM),192,64,64,4,4,0.0,-3.03,3.03,-2.99,2.99
