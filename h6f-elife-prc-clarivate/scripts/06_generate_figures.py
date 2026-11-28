@@ -1,6 +1,6 @@
-"""Step 6: Generate 5 publication-grade 300-DPI PNG + vector PDF figures for
-manuscript_h6f_boost.md, reading 100% of data and annotations dynamically from
-saved JSON/CSV receipts (zero hardcoded estimates).
+"""Step 6 (v4): Generate 4 Main Manuscript figures (Scientometrics Original Research)
+and 3 Supplementary Information figures (300-DPI PNG + vector PDF), reading 100% of
+data, intervals, and annotations dynamically from saved JSON receipts (zero hardcoded estimates).
 """
 from __future__ import annotations
 
@@ -11,18 +11,19 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.patches import Patch
 
-BASE_DIR = Path(r"D:\AI_Science\antigravity\h6f_boost_elife_prc_clarivate_20261126")
+BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
 RES_DIR = BASE_DIR / "results"
 FIG_DIR = BASE_DIR / "figures"
 
-# Colorblind-safe Nature / PNAS palette
+# Colorblind-safe academic palette
 NAVY = "#0B2545"
-CRIMSON = "#C1292E"
-TEAL = "#1B7F79"
-AMBER = "#D97706"
-SLATE = "#64748B"
+CRIMSON = "#B91C1C"
+TEAL = "#0F766E"
+AMBER = "#B45309"
+SLATE = "#475569"
 LIGHT_GRAY = "#CBD5E1"
 BG_TINT = "#F8FAFC"
 
@@ -30,15 +31,15 @@ BG_TINT = "#F8FAFC"
 def set_pub_style() -> None:
     mpl.rcParams.update({
         "font.family": "DejaVu Sans",
-        "font.size": 9.0,
-        "axes.titlesize": 10.2,
+        "font.size": 8.8,
+        "axes.titlesize": 10.0,
         "axes.titleweight": "bold",
-        "axes.labelsize": 9.2,
+        "axes.labelsize": 9.0,
         "axes.edgecolor": "#334155",
         "axes.linewidth": 0.8,
-        "xtick.labelsize": 8.3,
-        "ytick.labelsize": 8.3,
-        "legend.fontsize": 8.0,
+        "xtick.labelsize": 8.1,
+        "ytick.labelsize": 8.1,
+        "legend.fontsize": 7.6,
         "legend.frameon": True,
         "legend.facecolor": "white",
         "legend.edgecolor": "#CBD5E1",
@@ -58,484 +59,548 @@ def save_both(fig: plt.Figure, stem: str) -> None:
     print(f"  [Saved Figure] {stem}.png + {stem}.pdf", flush=True)
 
 
-def make_fig1(p4: dict) -> None:
-    """Figure 1: True v1 -> VoR Revision Architecture & Post-ESCI (Dec 19, 2024) Unconditional CIF/ITT."""
-    trans = p4["pillar1_transition_mature"]
-    esci = p4["pillar1_esci_solid_cliff"]
-    km = esci["km_competing_risks"]
-    pre_c = km["cohorts"]["pre_esci_lt_2024_10_01"]
-    post_c = km["cohorts"]["post_esci_ge_2024_12_19"]
-    c_aj = km["contrast_dec19_vs_pre_donut"]["contrasts"]
-    w365 = esci["fixed_windows"]["win_365d"]["primary_dec19_donut"]
-    w450 = esci["fixed_windows"]["win_450d"]["primary_dec19_donut"]
+def make_fig1_measurement_audit(p3b: dict, audit_raw: list[dict], p9: dict) -> None:
+    """Main Figure 1: Multi-DOI OpenAlex Splitting by VoR Status & Exact Citing-ID Union vs Yearly-Max."""
+    bs = p3b["by_stratum"]
+    am = p3b["all_manifestations_post_v1"]
+    eo = p3b["elife_only_post_v1"]
+    reg = p3b["regression_impact_audit_sample"]
+    bp = p9["covariate_audit_and_crossed_clock"]["reviewer_2285_exact_parity"]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.2, 4.8), gridspec_kw={"width_ratios": [1.08, 1.12]})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.2, 4.7), gridspec_kw={"width_ratios": [1.05, 1.1]})
 
-    # Panel A: 100% stacked bar breakdown of v1 strength cohorts (N=2,653 mature)
-    order = [
-        ("v1_Incomp_Inad", "Incomplete /\nInadequate"),
-        ("v1_Solid", "Solid"),
-        ("v1_Convincing", "Convincing"),
-        ("v1_Compel_Excep", "Compelling /\nExceptional"),
+    # Panel A: OpenAlex Work-ID Splitting Rate & Aggregate Proxy Ratio by Stratum
+    strata = [
+        ("VoR_v1Low", f"VoR\nv1 < Solid\n(n={bs['VoR_v1Low']['n']})"),
+        ("VoR_v1SolidPlus", f"VoR\nv1 Solid+\n(n={bs['VoR_v1SolidPlus']['n']})"),
+        ("NonVoR_v1Low", f"Non-VoR RP\nv1 < Solid\n(n={bs['NonVoR_v1Low']['n']})"),
+        ("NonVoR_v1SolidPlus", f"Non-VoR RP\nv1 Solid+\n(n={bs['NonVoR_v1SolidPlus']['n']})"),
     ]
-    y_pos = np.arange(len(order))
-    up_pcts, unch_pcts, rp_pcts = [], [], []
-    for k, _ in order:
-        r = trans[k]
-        tot = max(r["n_total"], 1)
-        up_pcts.append(100.0 * r["n_vor_upgraded"] / tot)
-        unch_pcts.append(100.0 * r["n_vor_unchanged"] / tot)
-        rp_pcts.append(100.0 * r["n_rp_only"] / tot)
+    x = np.arange(len(strata))
+    split_pcts = [bs[k]["pct_split_oa_works"] for k, _ in strata]
+    ratios_pct = [100.0 * bs[k]["agg_ymax_to_union_ratio"] for k, _ in strata]
 
-    up_a, un_a, rp_a = np.array(up_pcts), np.array(unch_pcts), np.array(rp_pcts)
-    h = 0.56
-    ax1.barh(y_pos, up_a, height=h, color=TEAL, label="VoR — Strength Upgraded")
-    ax1.barh(y_pos, un_a, left=up_a, height=h, color=NAVY, label="VoR — Strength Unchanged")
-    ax1.barh(y_pos, rp_a, left=up_a + un_a, height=h, color=LIGHT_GRAY, edgecolor="#94A3B8", label="Reviewed Preprint Only (No VoR)")
+    w = 0.36
+    b1 = ax1.bar(x - w / 2, split_pcts, width=w, color=CRIMSON, alpha=0.88, edgecolor="#1E293B", lw=0.5, label="Split Across ≥2 OpenAlex Work IDs (%)")
+    b2 = ax1.bar(x + w / 2, ratios_pct, width=w, color=NAVY, alpha=0.88, edgecolor="#1E293B", lw=0.5, label="Yearly-Max / Exact Citing-ID Union (%)")
 
-    for i, (k, _) in enumerate(order):
-        r = trans[k]
-        if up_a[i] >= 12:
-            ax1.text(up_a[i] / 2, y_pos[i], f"{up_a[i]:.1f}%", ha="center", va="center", color="white", fontweight="bold", fontsize=8.1)
-        if un_a[i] >= 12:
-            ax1.text(up_a[i] + un_a[i] / 2, y_pos[i], f"{un_a[i]:.1f}%", ha="center", va="center", color="white", fontweight="bold", fontsize=8.1)
-        if rp_a[i] >= 9:
-            ax1.text(up_a[i] + un_a[i] + rp_a[i] / 2, y_pos[i], f"{rp_a[i]:.1f}%", ha="center", va="center", color="#1E293B", fontsize=7.6)
-        ax1.text(
-            101.5, y_pos[i],
-            f"n={r['n_total']} | Up/All: {r['pct_all_upgraded_vor']:.1f}%\nUp/VoR: {r['pct_vor_upgraded']:.1f}% | Δt: {r['mean_rev_lag_up']:.0f}d",
-            va="center", ha="left", fontsize=7.2, color="#1E293B",
-        )
+    for rect, val in zip(b1, split_pcts, strict=True):
+        ax1.text(rect.get_x() + rect.get_width() / 2, val + 1.8, f"{val:.1f}%", ha="center", va="bottom", fontsize=7.5, fontweight="bold", color=CRIMSON)
+    for rect, val in zip(b2, ratios_pct, strict=True):
+        ax1.text(rect.get_x() + rect.get_width() / 2, val + 1.8, f"{val:.1f}%", ha="center", va="bottom", fontsize=7.5, fontweight="bold", color=NAVY)
 
-    ax1.set_yticks(y_pos)
-    ax1.set_yticklabels([lbl for _, lbl in order], fontweight="bold")
-    ax1.invert_yaxis()
-    ax1.set_xlim(0, 140)
-    ax1.set_xticks([0, 20, 40, 60, 80, 100])
-    ax1.set_xlabel("Share of Mature 2023–2024 v1 Cohort (%)")
-    ax1.set_title("A. Longitudinal v1 → VoR Outcomes (N = 2,653)")
+    ax1.axhline(100.0, color="#64748B", ls=":", lw=0.9)
+    ax1.set_xticks(x)
+    ax1.set_xticklabels([lbl for _, lbl in strata], fontsize=8.0, fontweight="bold")
+    ax1.set_ylim(0, 118)
+    ax1.set_ylabel("Percentage (%)")
+    ax1.set_title(f"A. OpenAlex Multi-DOI Merging Audit (N = {p3b['n_audited_articles']}; Mean {p3b['mean_queried_dois_per_article']} DOIs)")
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
-    ax1.legend(loc="upper center", bbox_to_anchor=(0.45, -0.17), ncol=2, frameon=True, fontsize=7.5)
+    ax1.legend(loc="upper center", bbox_to_anchor=(0.5, -0.19), ncol=1, fontsize=7.5)
 
-    # Panel B: Unconditional Competing-Risks Cumulative Incidence (KM VoR, AJ Solid+, AJ Unrevised <Solid)
-    # Aligned strictly to v1 >= Dec 19, 2024 vs Pre < Oct 1, 2024 (Oct-Dec 18 transition donut excluded)
-    days = [pt["days"] for pt in pre_c["curve"]]
-    ax2.plot(days, [pt["km_vor_pct"] for pt in pre_c["curve"]], color=NAVY, lw=2.2, ls="-", label=f"Pre (<Oct 2024, n={pre_c['n']}): Any VoR (KM)")
-    ax2.plot(days, [pt["km_vor_pct"] for pt in post_c["curve"]], color=NAVY, lw=2.2, ls="--", label=f"Post (≥Dec 19, n={post_c['n']}): Any VoR (KM)")
-    ax2.plot(days, [pt["cif_solid_pct"] for pt in pre_c["curve"]], color=TEAL, lw=2.1, ls="-", label="Pre: Upgraded Solid+ VoR (AJ CIF)")
-    ax2.plot(days, [pt["cif_solid_pct"] for pt in post_c["curve"]], color=TEAL, lw=2.1, ls="--", label="Post: Upgraded Solid+ VoR (AJ CIF)")
-    ax2.plot(days, [pt["cif_unrev_pct"] for pt in pre_c["curve"]], color=CRIMSON, lw=2.0, ls="-", label="Pre: Unrevised <Solid VoR (AJ CIF)")
-    ax2.plot(days, [pt["cif_unrev_pct"] for pt in post_c["curve"]], color=CRIMSON, lw=2.0, ls="--", label="Post: Unrevised <Solid VoR (AJ CIF)")
+    # Panel B: Exact Citing-Work ID Union vs Yearly-Max Scatter (log1p scale) + Audit Callout
+    vor_u = [np.log1p(r["all_manifestations"]["union_post_v1"]) for r in audit_raw if r["is_vor"] == 1]
+    vor_y = [np.log1p(r["all_manifestations"]["ymax_post_v1"]) for r in audit_raw if r["is_vor"] == 1]
+    nv_u = [np.log1p(r["all_manifestations"]["union_post_v1"]) for r in audit_raw if r["is_vor"] == 0]
+    nv_y = [np.log1p(r["all_manifestations"]["ymax_post_v1"]) for r in audit_raw if r["is_vor"] == 0]
 
-    ax2.axvline(365, color="#94A3B8", ls=":", lw=1.0)
-    ax2.axvline(450, color="#94A3B8", ls=":", lw=1.0)
-    ax2.text(369, 24.5, "365d", fontsize=7.3, color="#475569", fontweight="bold")
-    ax2.text(454, 24.5, "450d", fontsize=7.3, color="#475569", fontweight="bold")
-
-    p365_vor = w365["itt_vor_win"]["params"]["post_esci"]
-    p365_up = w365["itt_up_solid_win"]["params"]["post_esci"]
-    p450_vor = w450["itt_vor_win"]["params"]["post_esci"]
-    p450_up = w450["itt_up_solid_win"]["params"]["post_esci"]
-    aj450_unr = c_aj["t450"]["cif_unrev_pct"]
+    lim = max(max(vor_u + nv_u), max(vor_y + nv_y)) + 0.25
+    ax2.plot([0, lim], [0, lim], color="#64748B", ls="--", lw=1.0, label="Exact Identity (Yearly-Max = Union)")
+    vor_n = bs["VoR_v1Low"]["n"] + bs["VoR_v1SolidPlus"]["n"]
+    vor_merged_pct = 100.0 * (vor_n - bs["VoR_v1Low"]["n_split_oa_works"] - bs["VoR_v1SolidPlus"]["n_split_oa_works"]) / vor_n
+    nv_n = bs["NonVoR_v1Low"]["n"] + bs["NonVoR_v1SolidPlus"]["n"]
+    nv_split_pct = 100.0 * (bs["NonVoR_v1Low"]["n_split_oa_works"] + bs["NonVoR_v1SolidPlus"]["n_split_oa_works"]) / nv_n
+    ax2.scatter(vor_u, vor_y, s=28, color=NAVY, alpha=0.65, edgecolors="white", lw=0.4, label=f"VoR (n = {vor_n}; {vor_merged_pct:.1f}% single OA work)")
+    ax2.scatter(nv_u, nv_y, s=34, color=CRIMSON, marker="^", alpha=0.80, edgecolors="white", lw=0.4, label=f"Non-VoR RP (n = {nv_n}; {nv_split_pct:.1f}% split OA works)")
 
     ax2.text(
-        0.02, 0.98,
-        f"Unconditional ITT (≥Dec 19 vs. Pre; Oct–Dec 18 Donut Excl.):\n"
-        f"• 365d (n={w365['itt_vor_win']['n']:,}): VoR {100*p365_vor['beta']:+.2f} pp ($p_{{\\mathrm{{WCB}}}}$={p365_vor['p_wcb']:.3f}) | Solid+ {100*p365_up['beta']:+.2f} pp ($p_{{\\mathrm{{WCB}}}}$={p365_up['p_wcb']:.3f})\n"
-        f"• 450d (n={w450['itt_vor_win']['n']:,}): VoR {100*p450_vor['beta']:+.2f} pp ($p_{{\\mathrm{{WCB}}}}$={p450_vor['p_wcb']:.3f}) | Solid+ {100*p450_up['beta']:+.2f} pp ($p_{{\\mathrm{{WCB}}}}$={p450_up['p_wcb']:.3f})\n"
-        f"• 450d AJ Unrev. <Solid CIF: {aj450_unr['pre_pct']:.1f}% → {aj450_unr['post_pct']:.1f}% ({aj450_unr['diff_pp']:+.2f} pp, p={aj450_unr['p']:.4f})",
-        transform=ax2.transAxes, ha="left", va="top", fontsize=6.5, color="#0F172A", zorder=10,
-        bbox={"boxstyle": "round,pad=0.28", "facecolor": BG_TINT, "edgecolor": "#94A3B8", "lw": 0.75, "alpha": 0.97},
+        0.03, 0.97,
+        f"Exact Citing-ID Union vs. Yearly-Max (Post-v1):\n"
+        f"• All DOIs: r = {am['pearson_r']:.4f}, ρ = {am['spearman_rho']:.4f} | Agg Ratio = {am['agg_ymax_to_union_ratio']:.3f}\n"
+        f"• eLife DOIs only: r = {eo['pearson_r']:.5f} | Exact Match = {eo['exact_match_pct']:.1f}%\n"
+        f"• Audit PPML: Union {reg['all_audit_all_manifest_union_post']['pct']:+.1f}% vs. YMax {reg['all_audit_all_manifest_ymax_post']['pct']:+.1f}%\n"
+        f"Covariate Freeze Audit (N = {bp['n']:,} VoRs):\n"
+        f"• max_authors > v1_authors in {bp['n_max_authors_gt_v1']}/{bp['n']:,} ({100.0*bp['n_max_authors_gt_v1']/bp['n']:.1f}%)\n"
+        f"• Shift: {bp['leaked_max_authors']['pct']:+.2f}% → {bp['frozen_v1_authors']['pct']:+.2f}%",
+        transform=ax2.transAxes, va="top", ha="left", fontsize=6.9, color="#0F172A",
+        bbox={"boxstyle": "round,pad=0.30", "facecolor": BG_TINT, "edgecolor": "#94A3B8", "alpha": 0.96},
     )
 
-    ax2.set_xlim(0, 545)
-    ax2.set_ylim(0, 90)
-    ax2.set_xticks([0, 90, 180, 270, 365, 450, 540])
-    ax2.set_xlabel("Calendar Days Since v1 Reviewed Preprint Posting")
-    ax2.set_ylabel("Cumulative Incidence Across All v1 Incomplete (%)")
-    ax2.set_title("B. Post-ESCI (≥Dec 19, 2024) Unconditional CIF & ITT")
+    ax2.set_xlim(-0.1, lim)
+    ax2.set_ylim(-0.1, lim)
+    ax2.set_xlabel("Exact Deduplicated Citing-Work ID Union, log(1 + count)")
+    ax2.set_ylabel("Yearly-Max Proxy Across DOIs, log(1 + count)")
+    ax2.set_title("B. Exact Deduplicated Union vs. Yearly-Max Proxy")
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
-    ax2.legend(loc="upper center", bbox_to_anchor=(0.48, -0.17), ncol=2, frameon=True, fontsize=6.9)
+    ax2.legend(loc="lower right", fontsize=7.2)
 
     fig.tight_layout()
-    save_both(fig, "fig1_transition_and_esci_norms")
+    save_both(fig, "fig1_v4_measurement_and_dedup_audit")
 
 
-def make_fig2(p4: dict) -> None:
-    """Figure 2: Evaluation-Market Paradox — v1 Gradient, VoR-Date Autopsy & Untruncated Revision Payoff."""
-    grad = p4["pillar2_v1_gradient_and_autopsy"]
-    up_inc = p4["pillar2_upgrade_payoff"]["v1_Incomp_VoRs"]
-    up_sol = p4["pillar2_upgrade_payoff"]["v1_Solid_VoRs"]
-    ev_raw = up_inc["ev_raw_summary"]
+def make_fig2_equal_window_validation(p9: dict) -> None:
+    """Main Figure 2: Crossed 2x2 Date-Clock / Assessment-Timing Sensitivity & All-v1 vs VoR vs Non-VoR."""
+    sc = p9["covariate_audit_and_crossed_clock"]["strict_v1_frozen"]
+    ev = p9["equal_window_validation"]["by_sample"]
+    inc_p = p9["equal_window_validation"]["incremental_predictive_power"]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.4, 5.4), gridspec_kw={"width_ratios": [1.0, 1.22]})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.4, 4.9), gridspec_kw={"width_ratios": [1.0, 1.18]})
 
-    # Panel A: First-impression v1 gradient & VoR-date autopsy (Subject-clustered G=18 PPML!)
+    # Panel A: Crossed 2x2 Sensitivity (Strictly Frozen v1 Authors & Subject)
     rows_a = [
-        ("v1 Incomplete → OA Post-v1 Cites\n(TRUE v1-date alignment)", grad["vor_true_v1_oa_post_ppml"]["params"]["v1_incomp_d"], CRIMSON, "o"),
-        ("Fin Incomplete → OA Post-v1 Cites\n(FLAWED VoR-date autopsy)", grad["vor_flawed_vor_oa_post_ppml"]["params"]["fin_incomp_d"], SLATE, "s"),
-        ("v1 Compelling → OA Post-v1 Cites\n(TRUE v1-date alignment)", grad["vor_true_v1_oa_post_ppml"]["params"]["v1_comp_d"], NAVY, "o"),
-        ("v1 Incomplete → eLife Page-Views\n(TRUE v1-date alignment)", grad["vor_true_v1_pv_ppml"]["params"]["v1_incomp_d"], TEAL, "D"),
-        ("v1 Incomplete → eLife Downloads\n(TRUE v1-date alignment)", grad["vor_true_v1_dl_ppml"]["params"]["v1_incomp_d"], TEAL, "^"),
-        ("v1 Sig: Important → eLife Views\n(Headline salience drives clicks)", grad["vor_true_v1_pv_ppml"]["params"]["v1_sig_imp"], AMBER, "D"),
-        ("v1 Sig: Important → eLife Downloads\n(Headline salience drives downloads)", grad["vor_true_v1_dl_ppml"]["params"]["v1_sig_imp"], AMBER, "^"),
+        ("v1 Label / v1 Quarter\n(Post-v1 OA cites)", sc["oa_post_v1_cites"]["v1_v1q"], NAVY, "o"),
+        ("v1 Label / VoR Quarter\n(Post-v1 OA cites)", sc["oa_post_v1_cites"]["v1_finq"], TEAL, "s"),
+        ("Final Label / v1 Quarter\n(Post-v1 OA cites)", sc["oa_post_v1_cites"]["fin_v1q"], AMBER, "D"),
+        ("Final Label / VoR Quarter\n(Post-v1 OA cites)", sc["oa_post_v1_cites"]["fin_finq"], SLATE, "^"),
+        ("v1 Label / v1 Quarter\n(Next full calendar year)", sc["oa_next_full_year"]["v1_v1q"], NAVY, "o"),
+        ("v1 Label / VoR Quarter\n(Next full calendar year)", sc["oa_next_full_year"]["v1_finq"], TEAL, "s"),
+        ("Final Label / v1 Quarter\n(Next full calendar year)", sc["oa_next_full_year"]["fin_v1q"], AMBER, "D"),
+        ("Final Label / VoR Quarter\n(Next full calendar year)", sc["oa_next_full_year"]["fin_finq"], SLATE, "^"),
     ]
     y_a = np.arange(len(rows_a))
     ax1.axvline(0.0, color="#334155", ls="--", lw=0.9)
-    for i, (_, p, col, mk) in enumerate(rows_a):
-        b = p["beta"]
-        ci = 1.96 * p["se"]
-        ax1.errorbar(b, y_a[i], xerr=ci, fmt=mk, color=col, markersize=6.5, elinewidth=1.8, capsize=3.5)
-        pct = p.get("pct", 100.0 * (np.exp(b) - 1.0))
-        p_txt = f"p={p['p']:.1e}" if p["p"] < 0.001 else f"p={p['p']:.3f}"
-        ax1.text(b + ci + 0.015, y_a[i], f"{pct:+.1f}% ({p_txt})", va="center", ha="left", fontsize=7.5, color=col, fontweight="bold")
+    ax1.axhline(3.5, color="#CBD5E1", ls=":", lw=1.0)
+    for i, (_, m, col, mk) in enumerate(rows_a):
+        pt, lo, hi = m["pct"], m["pct_ci95_lo"], m["pct_ci95_hi"]
+        ax1.errorbar(pt, y_a[i], xerr=[[pt - lo], [hi - pt]], fmt=mk, color=col, markersize=5.8, elinewidth=1.6, capsize=3.0)
+        ax1.text(
+            hi + 1.2, y_a[i], f"{pt:+.1f}%", va="center", ha="left", fontsize=7.5, fontweight="bold", color=col,
+            bbox={"facecolor": "white", "edgecolor": "none", "pad": 0.4, "alpha": 0.88},
+        )
 
     ax1.set_yticks(y_a)
-    ax1.set_yticklabels([r[0] for r in rows_a], fontsize=7.9)
+    ax1.set_yticklabels([r[0] for r in rows_a], fontsize=7.6)
     ax1.invert_yaxis()
-    ax1.set_xlim(-0.30, 0.72)
-    ax1.set_xlabel("PPML Log-Point Effect vs. Solid / Valuable Baseline (95% CI, G = 18)")
-    ax1.set_title("A. First-Impression v1 Gradient & VoR-Date Autopsy")
+    ax1.set_xlim(-32, 28)
+    ax1.set_xlabel("PPML Citation Association: Below-Solid vs. Solid (%, 95% CI)")
+    ax1.set_title("A. Crossed 2×2 Clock & Label Timing (Strict v1 Covariates)")
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
 
-    # Panel B: Untruncated Revision-Upgrade Payoff (Citations + Clean Monthly Attention) vs. Release-Event Effect
+    # Panel B: All-v1 vs VoR-only vs Non-VoR-only Equal-Window Validation
     rows_b = [
-        ("OA Post-v1 Citations (PPML)\n[v1 Incomp → Solid+]", up_inc["ppml_oa_post_v1"]["params"]["str_upgraded_to_solid"], NAVY, "o"),
-        ("Crossref Citations (PPML)\n[v1 Incomp → Solid+]", up_inc["ppml_cr_max"]["params"]["str_upgraded_to_solid"], NAVY, "s"),
-        ("eLife Page-Views Total (log1p OLS)\n[All mature, N=766]", up_inc["ols_log1p_pv_total"]["params"]["str_upgraded_to_solid"], TEAL, "D"),
-        ("Clean Monthly Rate DiD (Views)\n[Untruncated v1 ≥ 2023-11, N=544]", up_inc["ols_did_log_pv_rate_clean"]["params"]["str_upgraded_to_solid"], TEAL, "D"),
-        ("Local VoR Month t=0 Diff (Views)\n[Uniform spike: +1.11 vs +1.11]", up_inc["ev_pv_m0"]["params"]["str_upgraded_to_solid"], SLATE, "s"),
-        ("Local VoR Post t=+1..+6 (Views)\n[Clean event study, N=619]", up_inc["ev_pv_p16"]["params"]["str_upgraded_to_solid"], SLATE, "D"),
-        ("Local VoR Post t=+1..+6 (Downloads)\n[Clean event study, N=619]", up_inc["ev_dl_p16"]["params"]["str_upgraded_to_solid"], SLATE, "^"),
-        ("22m Post-v1 M12–21 Views (Ctrl Ver)\n[Residual badge effect, N=546]", up_inc["traj_dlog_pv_12_21_ctrl_ver"]["params"]["str_upgraded_to_solid"], SLATE, "o"),
-        ("Per Extra Version Posted (Incomp)\n[Release-event traffic bump]", up_inc["traj_dlog_pv_12_21_ctrl_ver"]["params"]["cr_n_versions"], CRIMSON, "D"),
-        ("Per Extra Version Posted (Solid)\n[Release-event traffic bump]", up_sol["traj_dlog_pv_12_21_ctrl_ver"]["params"]["cr_n_versions"], CRIMSON, "D"),
+        (f"ALL Mature v1 (N={ev['all_v1']['oa_next_full_year']['v1_low']['n']:,})\nNext full calendar yr (eLife)", ev["all_v1"]["oa_next_full_year"]["v1_low"], NAVY, "o"),
+        (f"ALL Mature v1 (N={ev['all_v1']['oa_next_full_year_all']['v1_low']['n']:,})\nNext full calendar yr (All DOIs)", ev["all_v1"]["oa_next_full_year_all"]["v1_low"], NAVY, "s"),
+        (f"ALL Mature v1 (N={ev['all_v1']['oa_post_v1_cites']['v1_low']['n']:,})\nAll post-v1 years (eLife)", ev["all_v1"]["oa_post_v1_cites"]["v1_low"], NAVY, "D"),
+        (f"VoR-Only Subsample (N={ev['vor_only']['oa_next_full_year']['v1_low']['n']:,})\nNext full calendar yr (eLife)", ev["vor_only"]["oa_next_full_year"]["v1_low"], TEAL, "o"),
+        (f"VoR-Only Subsample (N={ev['vor_only']['oa_post_v1_cites']['v1_low']['n']:,})\nAll post-v1 years (eLife)", ev["vor_only"]["oa_post_v1_cites"]["v1_low"], TEAL, "D"),
+        (f"Non-VoR RP Subsample (N={ev['non_vor_only_subj_q']['oa_post_v1_cites']['v1_low']['n']:,})\nAll post-v1 yrs (Subj×Qtr FE)", ev["non_vor_only_subj_q"]["oa_post_v1_cites"]["v1_low"], CRIMSON, "^"),
+        (f"Non-VoR RP Subsample (N={ev['non_vor_only_subj_q']['oa_next_full_year']['v1_low']['n']:,})\nNext full yr (Subj×Qtr FE)", ev["non_vor_only_subj_q"]["oa_next_full_year"]["v1_low"], CRIMSON, "v"),
+        (f"Non-VoR RP Subsample (N={ev['non_vor_only_subj_yr']['oa_next_full_year_all']['v1_low']['n']:,})\nNext full yr All DOIs (Subj×Yr)", ev["non_vor_only_subj_yr"]["oa_next_full_year_all"]["v1_low"], CRIMSON, "s"),
+        (f"Non-VoR RP Subsample (N={ev['non_vor_only_subj_q']['dl_total']['v1_low']['n']:,})\nCumulative eLife Downloads", ev["non_vor_only_subj_q"]["dl_total"]["v1_low"], AMBER, "P"),
     ]
     y_b = np.arange(len(rows_b))
-    ax2.axvspan(-0.15, 0.15, color="#F1F5F9", alpha=0.85, zorder=0, label="±0.15 Log-Point Band (All G = 18 Subject-Clustered)")
-    ax2.axvline(0.0, color="#334155", ls="--", lw=0.9, zorder=1)
-    ax2.axhline(1.5, color="#CBD5E1", ls=":", lw=0.9)
-    ax2.axhline(7.5, color="#CBD5E1", ls=":", lw=0.9)
+    ax2.axvline(0.0, color="#334155", ls="--", lw=0.9)
+    ax2.axhline(2.5, color="#CBD5E1", ls=":", lw=0.9)
+    ax2.axhline(4.5, color="#CBD5E1", ls=":", lw=0.9)
+    for i, (_, m, col, mk) in enumerate(rows_b):
+        pt, lo, hi = m["pct"], m["pct_ci95_lo"], m["pct_ci95_hi"]
+        ax2.errorbar(pt, y_b[i], xerr=[[pt - lo], [hi - pt]], fmt=mk, color=col, markersize=5.8, elinewidth=1.6, capsize=3.0)
+        p_txt = f"p={m['p']:.1e}" if m["p"] < 0.001 else f"p={m['p']:.3f}"
+        ax2.text(hi + 1.5, y_b[i], f"{pt:+.1f}% ({p_txt})", va="center", ha="left", fontsize=7.3, fontweight="bold", color=col)
 
-    for i, (_, p, col, mk) in enumerate(rows_b):
-        b = p["beta"]
-        ci = 1.96 * p["se"]
-        ax2.errorbar(b, y_b[i], xerr=ci, fmt=mk, color=col, markersize=6.2, elinewidth=1.7, capsize=3.2, zorder=3)
-        p_val = p.get("p_wcb", p["p"])
-        p_lbl = "$p_{\\mathrm{WCB}}$" if "p_wcb" in p else "$p$"
-        p_txt = f"{p_lbl}={p_val:.4f}" if p_val < 0.01 else f"{p_lbl}={p_val:.3f}"
-        ax2.text(b + ci + 0.015, y_b[i], f"{b:+.3f} ({p_txt})", va="center", ha="left", fontsize=7.2, color=col, fontweight="bold")
-
+    ax2.text(
+        0.48, -0.18,
+        f"Incremental Deviance Gain (All-v1 Next-Yr): ΔDeviance = {inc_p['all_v1_oa_next_yr']['deviance_reduction']:.1f} "
+        f"(LR p < 1e-10; ΔPseudo-R² = +{inc_p['all_v1_oa_next_yr']['delta_pseudo_r2_pp']:.2f} pp)",
+        transform=ax2.transAxes, ha="center", va="top", fontsize=7.1, color=NAVY, fontweight="bold",
+        bbox={"boxstyle": "round,pad=0.28", "facecolor": BG_TINT, "edgecolor": "#CBD5E1"},
+    )
     ax2.set_yticks(y_b)
     ax2.set_yticklabels([r[0] for r in rows_b], fontsize=7.4)
     ax2.invert_yaxis()
-    ax2.set_xlim(-0.30, 0.78)
-    ax2.set_xlabel("Log-Point Effect (95% CI, Subject-Clustered G = 17–18)")
-    ax2.set_title("B. Modest/Null Badge Upgrade Payoff vs. Version-Release Traffic")
+    ax2.set_xlim(-70, 46)
+    ax2.set_xlabel("PPML Association: v1 Below-Solid vs. Solid (%, 95% CI, Subject-Clustered)")
+    ax2.set_title("B. Equal-Window Validation: All-v1 vs. VoR vs. Non-VoR")
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
+
+    fig.tight_layout(w_pad=1.6)
+    save_both(fig, "fig2_v4_equal_window_predictive_value")
+
+
+def make_fig3_readership_and_funnel(p9: dict) -> None:
+    """Main Figure 3: Onsite Readership Predictive Associations (N=1,852) & 4-Stage Revision/VoR Funnel."""
+    att = p9["onsite_readership"]["complete_monthly_cohort_n1852"]
+    fun = p9["revision_and_upgrade"]["funnel_by_v1_tier"]
+    si = p9["supplementary_indexing_cohort"]
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.4, 4.9), gridspec_kw={"width_ratios": [1.05, 1.15]})
+
+    # Panel A: Onsite Readership Predictive Associations (Strictly Frozen v1 Covariates + Posting Day)
+    outcomes = [
+        ("pv_first_3m", "First 3 Bins:\nPage-Views"),
+        ("dl_first_3m", "First 3 Bins:\nDownloads"),
+        ("pv_total", "Cumulative:\nPage-Views"),
+        ("dl_total", "Cumulative:\nDownloads"),
+    ]
+    y_pos = np.arange(len(outcomes))
+    offsets = [-0.22, 0.0, 0.22]
+    terms = [
+        ("v1_low", "Evidence: Below Solid vs. Solid", CRIMSON, "o"),
+        ("v1_imp", "Significance: Important vs. Lower", TEAL, "s"),
+        ("v1_fund", "Significance: Fundamental+ vs. Lower", NAVY, "D"),
+    ]
+    ax1.axvline(0.0, color="#334155", ls="--", lw=0.9)
+    for (tkey, tlbl, col, mk), off in zip(terms, offsets, strict=True):
+        pts = [att[ok][tkey]["pct"] for ok, _ in outcomes]
+        los = [att[ok][tkey]["pct_ci95_lo"] for ok, _ in outcomes]
+        his = [att[ok][tkey]["pct_ci95_hi"] for ok, _ in outcomes]
+        ax1.errorbar(
+            pts, y_pos + off,
+            xerr=[np.array(pts) - np.array(los), np.array(his) - np.array(pts)],
+            fmt=mk, color=col, markersize=5.6, elinewidth=1.5, capsize=2.8, label=tlbl,
+        )
+        for idx, (pt, hi) in enumerate(zip(pts, his, strict=True)):
+            ax1.text(hi + 1.0, y_pos[idx] + off, f"{pt:+.1f}%", va="center", ha="left", fontsize=7.0, color=col, fontweight="bold")
+
+    ax1.set_yticks(y_pos)
+    ax1.set_yticklabels([lbl for _, lbl in outcomes], fontsize=8.0, fontweight="bold")
+    ax1.invert_yaxis()
+    ax1.set_xlim(-32, 130)
+    ax1.set_xlabel(f"Observational PPML Association (%, 95% CI, N = {att['pv_first_3m']['v1_low']['n']:,})")
+    ax1.set_title("A. Onsite Readership Associations (Untruncated v1 ≥ 2023-11)")
+    ax1.spines["top"].set_visible(False)
+    ax1.spines["right"].set_visible(False)
+    ax1.legend(loc="upper center", bbox_to_anchor=(0.48, -0.17), ncol=1, fontsize=7.2)
+
+    # Panel B: Complete 4-Stage Outcome Decomposition Across Mature v1 Tiers (Distinguishing Public Revision!)
+    order = [
+        ("v1_Incomp_Inad", f"Below Solid\n(n={fun['v1_Incomp_Inad']['n_total']})"),
+        ("v1_Solid", f"Solid\n(n={fun['v1_Solid']['n_total']})"),
+        ("v1_Convincing", f"Convincing\n(n={fun['v1_Convincing']['n_total']})"),
+        ("v1_Compel_Excep", f"Compelling+\n(n={fun['v1_Compel_Excep']['n_total']})"),
+    ]
+    y2 = np.arange(len(order))
+    pub_rev = [fun[k]["pct_posted_revision"] for k, _ in order]
+    vor_pct = [fun[k]["pct_vor"] for k, _ in order]
+    up_all = [fun[k]["pct_all_upgraded_any"] for k, _ in order]
+
+    h = 0.25
+    ax2.barh(y2 - h, pub_rev, height=h, color=AMBER, alpha=0.9, label="Posted Public Revised Preprint (Crossref v≥2)")
+    ax2.barh(y2, vor_pct, height=h, color=NAVY, alpha=0.9, label="Converted to Formal Version of Record (VoR)")
+    ax2.barh(y2 + h, up_all, height=h, color=TEAL, alpha=0.9, label="Achieved Higher Final Rating (Unconditional All-v1 %)")
+
+    for i, (k, _) in enumerate(order):
+        r = fun[k]
+        ax2.text(pub_rev[i] + 1.0, y2[i] - h, f"{pub_rev[i]:.1f}% ({r['n_posted_revision']})", va="center", ha="left", fontsize=7.0, color=AMBER, fontweight="bold")
+        ax2.text(vor_pct[i] + 1.0, y2[i], f"{vor_pct[i]:.1f}% ({r['n_vor']})", va="center", ha="left", fontsize=7.0, color=NAVY, fontweight="bold")
+        ax2.text(up_all[i] + 1.0, y2[i] + h, f"{up_all[i]:.1f}% ({r['n_vor_upgraded_any']}; {r['pct_vor_upgraded_any']:.1f}% of VoRs)", va="center", ha="left", fontsize=7.0, color=TEAL, fontweight="bold")
+
+    ax2.text(
+        0.50, -0.40,
+        f"Public Revision ≠ Rating Upgrade: v1 <Solid posted {fun['v1_Incomp_Inad']['n_posted_revision']}/{fun['v1_Incomp_Inad']['n_total']} public revisions | "
+        f"Apr 2023+ final <Solid VoRs: {si['apr2023_lower_rated_vors_with_posted_revision']}/{si['apr2023_lower_rated_vors']} "
+        f"({si['apr2023_lower_rated_vors_with_revision_pct']:.1f}%) posted revisions | Mean v1→VoR lag (upgraded): {fun['v1_Incomp_Inad']['mean_rev_lag_up_days']:.1f}d",
+        transform=ax2.transAxes, ha="center", va="top", fontsize=6.7, color="#0F172A", fontweight="bold",
+        bbox={"boxstyle": "round,pad=0.26", "facecolor": BG_TINT, "edgecolor": "#94A3B8"},
+    )
+    ax2.set_yticks(y2)
+    ax2.set_yticklabels([lbl for _, lbl in order], fontsize=8.0, fontweight="bold")
+    ax2.invert_yaxis()
+    ax2.set_xlim(0, 152)
+    ax2.set_xticks([0, 20, 40, 60, 80, 100])
+    ax2.set_xlabel("Share of Mature 2023–2024 v1 Cohort (%)")
+    ax2.set_title(f"B. Public Revision, VoR Conversion & Rating Upgrades (N = {p9['cohort_summary']['n_mature_2023_2024']:,})")
+    ax2.spines["top"].set_visible(False)
+    ax2.spines["right"].set_visible(False)
+    ax2.legend(loc="upper center", bbox_to_anchor=(0.48, -0.16), ncol=1, fontsize=7.1)
+
+    fig.tight_layout(w_pad=1.6)
+    save_both(fig, "fig3_v4_onsite_readership_and_funnel")
+
+
+def make_fig4_upgrade_precision_and_trajectories(p9: dict) -> None:
+    """Main Figure 4: Upgrade-to-Solid+ Precision / Equivalence Bounds & Version-Release Trajectories."""
+    up = p9["revision_and_upgrade"]["upgrade_models"]
+    raw_ev = up["raw_ev_m0_summary"]
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.4, 4.9), gridspec_kw={"width_ratios": [1.18, 1.0]})
+
+    # Panel A: Forest Plot of Upgrade-to-Solid+ Predictive Associations with Explicit ±15% & ±20% Equivalence Bands
+    def log_to_pct_row(m: dict) -> tuple[float, float, float]:
+        if "pct" in m:
+            return m["pct"], m["pct_ci95_lo"], m["pct_ci95_hi"]
+        return (
+            100.0 * (np.exp(m["beta"]) - 1.0),
+            100.0 * (np.exp(m["ci95_lo"]) - 1.0),
+            100.0 * (np.exp(m["ci95_hi"]) - 1.0),
+        )
+
+    u_st = up["strict_v1_oa_post_v1"]
+    u_bn = up["bench_v3_parity_oa_post_v1"]
+    rows_a = [
+        (f"Post-v1 OA Citations (Strict v1)\n[TOST ±20% p={u_st['tost_pm20']:.3f}, ±15% p={u_st['tost_pm15']:.3f}]", u_st, NAVY, "o"),
+        (f"Post-v1 OA Citations (v3 parity)\n[TOST ±20% p={u_bn['tost_pm20']:.3f}, ±15% p={u_bn['tost_pm15']:.3f}]", u_bn, SLATE, "s"),
+        (f"Next Full-Year OA Citations\n(Strict v1, N={up['strict_v1_oa_next_yr']['n']:,})", up["strict_v1_oa_next_yr"], NAVY, "D"),
+        (f"Crossref Citations (Max DOI)\n(Strict v1, N={up['strict_v1_cr_cites']['n']:,})", up["strict_v1_cr_cites"], NAVY, "^"),
+        (f"Cumulative Page-Views (log1p)\n(Strict v1, N={up['strict_v1_pv_total_ols']['n']:,})", up["strict_v1_pv_total_ols"], TEAL, "o"),
+        (f"Cumulative Downloads (log1p)\n(Strict v1, N={up['strict_v1_dl_total_ols']['n']:,})", up["strict_v1_dl_total_ols"], TEAL, "^"),
+        (f"Clean Monthly Rate DiD: Views\n(v1 ≥ 2023-11, N={up['strict_v1_rate_did_pv']['n']:,})", up["strict_v1_rate_did_pv"], TEAL, "s"),
+        (f"Local VoR Post M+1..+6: Views\n(Clean event study, N={up['strict_v1_dlog_pv_ev_p16']['n']:,})", up["strict_v1_dlog_pv_ev_p16"], AMBER, "D"),
+        (f"Local VoR Post M+1..+6: Downloads\n(Clean event study, N={up['strict_v1_dlog_dl_ev_p16']['n']:,})", up["strict_v1_dlog_dl_ev_p16"], AMBER, "^"),
+    ]
+    y_a = np.arange(len(rows_a))
+    ax1.axvspan(-20, 20, color="#F1F5F9", alpha=0.85, zorder=0, label="±20% Equivalence Margin")
+    ax1.axvspan(-15, 15, color="#E2E8F0", alpha=0.75, zorder=0, label="±15% Equivalence Margin")
+    ax1.axvline(0.0, color="#334155", ls="--", lw=0.9, zorder=1)
+
+    for i, (_, m, col, mk) in enumerate(rows_a):
+        pt, lo, hi = log_to_pct_row(m)
+        ax1.errorbar(pt, y_a[i], xerr=[[pt - lo], [hi - pt]], fmt=mk, color=col, markersize=5.6, elinewidth=1.6, capsize=3.0, zorder=3)
+        ax1.text(hi + 1.2, y_a[i], f"{pt:+.1f}% [{lo:+.1f}, {hi:+.1f}]", va="center", ha="left", fontsize=7.0, fontweight="bold", color=col)
+
+    ax1.set_yticks(y_a)
+    ax1.set_yticklabels([r[0] for r in rows_a], fontsize=7.1)
+    ax1.invert_yaxis()
+    ax1.set_xlim(-30, 68)
+    ax1.set_xlabel("Observational Association: Upgraded to Solid+ vs. Final <Solid (%)")
+    ax1.set_title("A. Precision & Equivalence Bounds for Rating Upgrades (v1 <Solid VoRs)")
+    ax1.spines["top"].set_visible(False)
+    ax1.spines["right"].set_visible(False)
+    ax1.legend(loc="upper center", bbox_to_anchor=(0.48, -0.16), ncol=2, fontsize=7.1)
+
+    # Panel B: Version-Release & VoR Event Associations (What DOES Co-Move With Onsite Traffic!)
+    rows_b = [
+        ("VoR vs. RP-Only (v1 <Solid)\nCumulative Views (log1p)", up["vor_vs_rp_incomp_pv_ols"], NAVY, "o"),
+        ("VoR vs. RP-Only (v1 <Solid)\nCumulative Downloads (log1p)", up["vor_vs_rp_incomp_dl_ols"], NAVY, "^"),
+        ("Per Posted Version (v1 <Solid)\nMonths 12–21 vs 0–2 Views", up["version_release_m12_21_incomp"]["cr_n_versions"], CRIMSON, "D"),
+        ("Per Posted Version (v1 Solid)\nMonths 12–21 vs 0–2 Views", up["version_release_m12_21_solid"]["cr_n_versions"], CRIMSON, "s"),
+        ("Residual Upgrade Term (v1 <Solid)\nMonths 12–21 (Ctrl Versions)", up["version_release_m12_21_incomp"]["upgraded_solid"], SLATE, "o"),
+        ("Local VoR Month t=0 Contrast\nUpgraded vs. Final <Solid (Views)", up["strict_v1_dlog_pv_ev_m0"], AMBER, "s"),
+        ("Local VoR Month t=0 Contrast\nUpgraded vs. Final <Solid (Downloads)", up["strict_v1_dlog_dl_ev_m0"], AMBER, "^"),
+    ]
+    y_b = np.arange(len(rows_b))
+    ax2.axvline(0.0, color="#334155", ls="--", lw=0.9)
+    ax2.axhline(3.5, color="#CBD5E1", ls=":", lw=1.0)
+
+    for i, (_, m, col, mk) in enumerate(rows_b):
+        pt, lo, hi = m["beta"], m["ci95_lo"], m["ci95_hi"]
+        ax2.errorbar(pt, y_b[i], xerr=[[pt - lo], [hi - pt]], fmt=mk, color=col, markersize=5.8, elinewidth=1.6, capsize=3.0)
+        p_val = m.get("p_wcb", m["p"])
+        p_lbl = "p_WCB" if "p_wcb" in m else "p"
+        ax2.text(hi + 0.02, y_b[i], f"{pt:+.2f} ({p_lbl}={p_val:.3f})", va="center", ha="left", fontsize=7.2, fontweight="bold", color=col)
+
     ax2.text(
         0.50, -0.18,
-        f"Uniform VoR Month-0 Spike (N={up_inc['n_clean_vor_ev']}): Views {ev_raw['dlog_pv_ev_m0']['upgraded_mean']:+.2f} (Up) vs {ev_raw['dlog_pv_ev_m0']['unchanged_mean']:+.2f} (Unch)  |  "
-        f"Downloads {ev_raw['dlog_dl_ev_m0']['upgraded_mean']:+.2f} vs {ev_raw['dlog_dl_ev_m0']['unchanged_mean']:+.2f}",
-        transform=ax2.transAxes, ha="center", va="top", fontsize=7.1, color=NAVY, fontweight="bold",
-        bbox={"boxstyle": "round,pad=0.25", "facecolor": BG_TINT, "edgecolor": "#CBD5E1"},
+        f"Uniform Raw VoR Month-0 Spike (N = {raw_ev['n_clean_ev']}): Views {raw_ev['pv_m0_upgraded_mean']:+.2f} (Upgraded) vs. "
+        f"{raw_ev['pv_m0_unchanged_mean']:+.2f} (Final <Solid)  |  Downloads {raw_ev['dl_m0_upgraded_mean']:+.2f} vs. {raw_ev['dl_m0_unchanged_mean']:+.2f}",
+        transform=ax2.transAxes, ha="center", va="top", fontsize=7.0, color=NAVY, fontweight="bold",
+        bbox={"boxstyle": "round,pad=0.26", "facecolor": BG_TINT, "edgecolor": "#CBD5E1"},
     )
+    ax2.set_yticks(y_b)
+    ax2.set_yticklabels([r[0] for r in rows_b], fontsize=7.3)
+    ax2.invert_yaxis()
+    ax2.set_xlim(-0.32, 1.52)
+    ax2.set_xlabel("Log-Point Observational Association (95% CI, Subject-Clustered)")
+    ax2.set_title("B. Version-Release Events vs. Rating-Change Terms")
+    ax2.spines["top"].set_visible(False)
+    ax2.spines["right"].set_visible(False)
 
-    fig.tight_layout(w_pad=1.8)
-    save_both(fig, "fig2_evaluation_market_paradox")
+    fig.tight_layout(w_pad=1.6)
+    save_both(fig, "fig4_v4_upgrade_precision_and_trajectories")
 
 
-def make_fig3(p5: dict) -> None:
-    """Figure 3: Clarivate Oct 2024 Shock — Sequential eid Submission Collapse & Two-Margin Editorial Cushioning."""
+def make_figs1_si_indexing_cohort(p9: dict) -> None:
+    """Supplementary Figure S1: Exploratory Dec 10, 2024 WoS & Scopus Cohort Analysis."""
+    si = p9["supplementary_indexing_cohort"]
+    curves = si["curves"]
+    fh_s = si["fixed_horizon_strict_v1_subj"]
+    fh_v3 = si["fixed_horizon_v3_parity_fin_subj"]
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.2, 4.6), gridspec_kw={"width_ratios": [1.05, 1.15]})
+
+    # Panel A: Aalen-Johansen CIF (Pre < Oct 1, 2024 vs Post >= Dec 10, 2024)
+    for key, ls, tag in (("pre", "-", f"Earlier (<Oct 1, 2024; n={si['pre_n']})"), ("post", "--", f"Later (≥Dec 10, 2024; n={si['post_n']})")):
+        pts = pd.DataFrame(curves[key]["curve"])
+        ax1.plot(pts.days, pts.cif_solid_pct, ls, color=NAVY, lw=2.0, label=f"Final Solid+ VoR · {tag}")
+        ax1.plot(pts.days, pts.cif_unrev_pct, ls, color=CRIMSON, lw=2.0, label=f"Final <Solid VoR · {tag}")
+    ax1.axvline(450, color="#64748B", ls=":", lw=1.0)
+    ax1.text(
+        0.03, 0.96,
+        f"CRITICAL OVERLAP DISCLOSURE:\n"
+        f"• {si['pre_450_vors_after_announcement']}/{si['pre_450_vors']} ({si['pct_pre_450_vors_crossing_announcement']:.1f}%) earlier-cohort 450d VoRs\n"
+        f"  finalized AFTER Dec 10, 2024!\n"
+        f"• Dec 10 notice affected BOTH WoS & Scopus",
+        transform=ax1.transAxes, va="top", ha="left", fontsize=7.0, color=CRIMSON, fontweight="bold",
+        bbox={"boxstyle": "round,pad=0.28", "facecolor": "#FEF2F2", "edgecolor": CRIMSON, "lw": 0.8},
+    )
+    ax1.set_xlim(0, 545)
+    ax1.set_ylim(0, 68)
+    ax1.set_xlabel("Calendar Days Since First Reviewed Preprint (v1)")
+    ax1.set_ylabel("Unadjusted Aalen–Johansen CIF (%)")
+    ax1.set_title("A. Exploratory Cohort CIF Around Dec 10, 2024 Notice")
+    ax1.spines["top"].set_visible(False)
+    ax1.spines["right"].set_visible(False)
+    ax1.legend(loc="upper center", bbox_to_anchor=(0.48, -0.17), ncol=1, fontsize=7.1)
+
+    # Panel B: Subject-Adjusted Complete Fixed-Horizon Contrasts (450d & 540d; zero policy proof!)
+    rows_b = [
+        ("365d · Any VoR (Strict v1 Subj)", fh_s["365"]["any_vor"], NAVY, "o"),
+        ("365d · Final <Solid VoR (Strict v1)", fh_s["365"]["lower_rated_vor"], CRIMSON, "o"),
+        ("365d · Posted Public Rev (Strict v1)", fh_s["365"]["observed_revision"], TEAL, "o"),
+        ("450d · Any VoR (Strict v1 Subj)", fh_s["450"]["any_vor"], NAVY, "s"),
+        ("450d · Final <Solid VoR (v3 Parity)", fh_v3["450"]["lower_rated_vor"], CRIMSON, "s"),
+        ("450d · Final <Solid VoR (Strict v1)", fh_s["450"]["lower_rated_vor"], CRIMSON, "D"),
+        ("450d · Posted Public Rev (v3 Parity)", fh_v3["450"]["observed_revision"], TEAL, "s"),
+        ("450d · Posted Public Rev (Strict v1)", fh_s["450"]["observed_revision"], TEAL, "D"),
+        ("540d · Final Solid+ VoR (Strict v1)", fh_s["540"]["solid_vor"], SLATE, "^"),
+        ("540d · Final <Solid VoR (Strict v1)", fh_s["540"]["lower_rated_vor"], CRIMSON, "^"),
+    ]
+    y_b = np.arange(len(rows_b))
+    ax2.axvline(0.0, color="#334155", ls="--", lw=1.0)
+    for i, (_, m, col, mk) in enumerate(rows_b):
+        pt, lo, hi = 100.0 * m["beta"], 100.0 * m["ci95_lo"], 100.0 * m["ci95_hi"]
+        ax2.errorbar(pt, y_b[i], xerr=[[pt - lo], [hi - pt]], fmt=mk, color=col, markersize=5.4, elinewidth=1.5, capsize=2.8)
+        ax2.text(hi + 0.4, y_b[i], f"{pt:+.2f} pp [{lo:+.2f}, {hi:+.2f}]", va="center", ha="left", fontsize=6.9, fontweight="bold", color=col)
+
+    ax2.set_yticks(y_b)
+    ax2.set_yticklabels([r[0] for r in rows_b], fontsize=7.2)
+    ax2.invert_yaxis()
+    ax2.set_xlim(-16, 17)
+    ax2.set_xlabel("Subject-Adjusted Cohort Difference (Percentage Points, CR1 95% CI)")
+    ax2.set_title("B. Full-Followup Fixed-Horizon Contrasts (No Policy Effect Established)")
+    ax2.spines["top"].set_visible(False)
+    ax2.spines["right"].set_visible(False)
+
+    fig.tight_layout()
+    save_both(fig, "figs1_si_indexing_cohort_cif")
+
+
+def make_figs2_si_velocity_and_sc(p5: dict) -> None:
+    """Supplementary Figure S2: Exploratory Sequential ID Velocity Proxy & Published-Output SC."""
     ed = p5["pillar3a_editorial_cushioning"]
     vel = [r for r in ed["sfr_quarterly_velocity"] if "est_subs_per_quarter" in r and r["sfr_q"] >= "2023Q1"]
-    blks = pd.DataFrame(ed["blocks_500"])
+    sc_all = p5["pillar3b_expanded_sc_and_did"]["synthetic_control"]["log_n_all"]["sc_clarivate_vs_23_24"]
+    sc_cn = p5["pillar3b_expanded_sc_and_did"]["synthetic_control"]["log_n_CN"]["sc_full_pre_clarivate"]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.8, 4.5))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.2, 4.5))
 
-    # Panel A: Quarterly Submission Velocity calibrated by sentForReview (r = 0.9988)
     qs = [r["sfr_q"] for r in vel]
     est_s = [r["est_subs_per_quarter"] for r in vel]
     x_q = np.arange(len(qs))
     clar_idx = qs.index("2024Q4") if "2024Q4" in qs else 7
-
-    ax1.axvspan(clar_idx - 0.3, len(qs) - 0.5, color="#FEE2E2", alpha=0.45, label="Post-Clarivate Delisting (Oct 24, 2024)")
-    ax1.plot(x_q, est_s, color=NAVY, lw=2.3, marker="o", markersize=5.8, label="Implied Submissions / Quarter (Δeid)")
-    ax1.axvline(clar_idx - 0.3, color=CRIMSON, ls="--", lw=1.3)
-
-    ax1.annotate(
-        f"Pre-Clarivate Avg:\n{ed['pre_vel_mean_subs_q']:,.0f} / qtr",
-        xy=(4, ed["pre_vel_mean_subs_q"]), xytext=(1.2, 2950),
-        fontsize=7.9, fontweight="bold", color=NAVY,
-        arrowprops={"arrowstyle": "->", "color": NAVY, "lw": 0.9},
-    )
-    ax1.annotate(
-        f"Post-Clarivate Avg:\n{ed['post_vel_mean_subs_q']:,.0f} / qtr ({ed['vel_drop_pct']:.1f}%)",
-        xy=(10, ed["post_vel_mean_subs_q"]), xytext=(8.6, 2050),
-        fontsize=7.9, fontweight="bold", color=CRIMSON,
-        arrowprops={"arrowstyle": "->", "color": CRIMSON, "lw": 0.9},
-    )
+    ax1.axvspan(clar_idx - 0.3, len(qs) - 0.5, color="#FEE2E2", alpha=0.45)
+    ax1.axvline(clar_idx - 0.3, color=CRIMSON, ls="--", lw=1.2)
+    ax1.plot(x_q, est_s, color=NAVY, lw=2.2, marker="o", markersize=5.4, label="Sequential eid Velocity Proxy")
     ax1.text(
-        0.03, 0.06,
-        f"sentForReview calibration: N = {ed['n_sfr_sample']}, Spearman r = {ed['spearman_eid_sfr_r']:.4f}",
-        transform=ax1.transAxes, fontsize=7.6, color="#334155",
+        0.04, 0.07,
+        f"Exploratory ID-velocity proxy: {ed['vel_drop_pct']:.1f}%\n"
+        f"(Official eLife full-year: 6,396 → 2,853, −55.4%)\n"
+        f"Acceptance jump: {ed['acc_pre_mean_pct']:.1f}% → {ed['acc_post_mean_pct']:.1f}% ({ed['acc_jump_pp']:+.2f} pp)",
+        transform=ax1.transAxes, fontsize=7.1, color="#0F172A",
         bbox={"boxstyle": "round,pad=0.25", "facecolor": BG_TINT, "edgecolor": "#CBD5E1"},
     )
     ax1.set_xticks(x_q[::2])
     ax1.set_xticklabels([qs[i] for i in range(0, len(qs), 2)], rotation=30, ha="right")
-    ax1.set_ylim(500, 3300)
-    ax1.set_ylabel("Estimated Quarterly Submissions (Sequential eid Velocity)")
-    ax1.set_title("A. Margin 1: Submission Velocity Collapse After Delisting")
+    ax1.set_ylim(450, 3250)
+    ax1.set_ylabel("Implied Quarterly ID Velocity (Proxy Only)")
+    ax1.set_title("A. Exploratory Sequential Manuscript-ID Velocity Proxy")
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
-    ax1.legend(loc="upper right", fontsize=7.6)
 
-    # Panel B: 500-eid Peer-Review Acceptance Rate Jump vs Invariant v1 Incomplete Share
-    eid_k = blks["eid_mid"].to_numpy() / 1000.0
-    acc = blks["accept_pct"].to_numpy()
-    inc = blks["v1_incomp_pct"].to_numpy()
-    bp_k = ed["clarivate_bp_eid_used"] / 1000.0
-
-    ax2.axvspan(bp_k, eid_k.max() + 0.4, color="#FEE2E2", alpha=0.38)
-    ax2.axvline(bp_k, color=CRIMSON, ls="--", lw=1.3, label=f"Clarivate Cutoff (eid ≈ {ed['interpolated_eid_at_2024_10_24']:,.0f})")
-    ax2.plot(eid_k, acc, color=NAVY, lw=2.0, marker="o", markersize=3.8, label="Peer-Review Acceptance Rate (%)")
-    ax2.hlines(ed["acc_pre_mean_pct"], eid_k.min(), bp_k, color=NAVY, ls=":", lw=1.8)
-    ax2.hlines(ed["acc_post_mean_pct"], bp_k, eid_k.max(), color=CRIMSON, ls=":", lw=1.8)
-
-    ax2_r = ax2.twinx()
-    ax2_r.plot(eid_k, inc, color=TEAL, lw=1.6, ls="-.", alpha=0.85, label="v1 Incomplete Share (%)")
-    ax2_r.set_ylabel("v1 Incomplete Assessment Share (%)", color=TEAL)
-    ax2_r.tick_params(axis="y", labelcolor=TEAL)
-    ax2_r.set_ylim(10, 74)
-    ax2_r.spines["top"].set_visible(False)
-
-    v1_inc_p = ed["v1_quality_shift"]["v1_incomp"]["base_subj_fe"]["params"]["post_clar_eid"]
-    ax2.text(
-        0.03, 0.97,
-        f"Accept Jump: {ed['acc_pre_mean_pct']:.2f}% → {ed['acc_post_mean_pct']:.2f}% ({ed['acc_jump_pp']:+.2f} pp)\n"
-        f"HAC t = {ed['acc_jump_hac_t']:+.2f}, Perm p = {ed['acc_jump_perm_p']:.4f}, Sup-Wald F = {ed['sup_wald_best_F_hac']:.1f}\n"
-        f"v1 Quality Shift: {100*v1_inc_p['beta']:+.2f} pp (p = {v1_inc_p['p']:.3f}, invariant)",
-        transform=ax2.transAxes, va="top", ha="left", fontsize=7.4, color="#0F172A", zorder=10,
-        bbox={"boxstyle": "round,pad=0.30", "facecolor": "white", "edgecolor": "#94A3B8", "alpha": 0.98},
-    )
-    ax2.set_ylim(8.5, 34.5)
-    ax2.set_xlabel("Sequential Submission Manuscript ID (eid, thousands)")
-    ax2.set_ylabel("Reviewed-Preprint Acceptance Rate (% of 500-eid Block)", color=NAVY)
-    ax2.set_title("B. Margin 2: Editorial Cushioning with Invariant v1 Quality")
-    ax2.spines["top"].set_visible(False)
-
-    # Combine legends cleanly below axis (zero overlap with data dips!)
-    h1, l1 = ax2.get_legend_handles_labels()
-    h2, l2 = ax2_r.get_legend_handles_labels()
-    ax2.legend(h1 + h2, l1 + l2, loc="upper center", bbox_to_anchor=(0.50, -0.17), ncol=2, fontsize=7.4)
-
-    fig.tight_layout()
-    save_both(fig, "fig3_clarivate_two_margin_cushioning")
-
-
-def make_fig4(p5: dict) -> None:
-    """Figure 4: Expanded N=30 Strict (& N=35) Abadie-Diamond-Hainmueller Synthetic Control & Placebo Ranks."""
-    sc_all_c = p5["pillar3b_expanded_sc_and_did"]["synthetic_control"]["log_n_all"]["sc_clarivate_vs_23_24"]
-    sc_all_35 = p5["pillar3b_expanded_sc_and_did"]["synthetic_control"]["log_n_all"]["sc_clarivate_exp35"]
-    sc_cn = p5["pillar3b_expanded_sc_and_did"]["synthetic_control"]["log_n_CN"]["sc_full_pre_clarivate"]
-    sc_cn_c = p5["pillar3b_expanded_sc_and_did"]["synthetic_control"]["log_n_CN"]["sc_clarivate_vs_23_24"]
-    sc_cn_35 = p5["pillar3b_expanded_sc_and_did"]["synthetic_control"]["log_n_CN"]["sc_full_pre_exp35"]
-    es_all = p5["pillar3b_expanded_sc_and_did"]["event_study_2021H1_2026H1"]["log_n_all"]
-    es_cn = p5["pillar3b_expanded_sc_and_did"]["event_study_2021H1_2026H1"]["log_n_CN"]
-
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.0, 4.7), gridspec_kw={"width_ratios": [1.15, 1.0]})
-
-    # Panel A: Full-Pre (2021H1-2024H2 excl. 2023H1) ADH Synthetic Control Gaps for China Output (log_n_CN) across ALL 30 strict journals!
-    pers_cn = list(sc_cn["treated"]["gap_by_period"].keys())
-    x_c = np.arange(len(pers_cn))
+    pers = list(sc_cn["treated"]["gap_by_period"].keys())
+    xc = np.arange(len(pers))
     for u, gdict in sc_cn["all_unit_gaps"].items():
-        vals = [gdict[p] for p in pers_cn]
         if u == "eLife":
             continue
-        ax1.plot(x_c, vals, color="#94A3B8", alpha=0.35, lw=1.0)
-    el_vals = [sc_cn["treated"]["gap_by_period"][p] for p in pers_cn]
-    ax1.plot(x_c, el_vals, color=CRIMSON, lw=2.8, marker="o", markersize=6.0, zorder=5, label="eLife (Actual − Synthetic eLife)")
-    ax1.plot([], [], color="#94A3B8", lw=1.2, alpha=0.7, label="29 Clean Peer-Biology Donor Placebos")
-    ax1.axhline(0.0, color="#334155", ls="--", lw=0.9)
-    ax1.axvline(6.5, color=NAVY, ls="--", lw=1.2)
-    ax1.axvspan(6.5, len(pers_cn) - 0.5, color="#FEE2E2", alpha=0.35)
-    ax1.text(
-        0.03, 0.10,
-        f"Full-Pre SC Gap (plotted, T₀=7): {sc_cn['treated']['post_mean_gap']:+.3f} (Rk {sc_cn['rmspe_ratio_rank_of_N']}/{sc_cn['n_units']}, p={sc_cn['p_rmspe_ratio']:.4f})\n"
-        f"Clarivate SC Gap (T₀=3): {sc_cn_c['treated']['post_mean_gap']:+.3f} (Rk {sc_cn_c['rmspe_ratio_rank_of_N']}/{sc_cn_c['n_units']}, p={sc_cn_c['p_rmspe_ratio']:.4f})\n"
-        f"Expanded N=35 Full-Pre Rank: {sc_cn_35['rmspe_ratio_rank_of_N']}/{sc_cn_35['n_units']} (p={sc_cn_35['p_rmspe_ratio']:.4f})",
-        transform=ax1.transAxes, fontsize=7.2, color=NAVY, fontweight="bold",
-        bbox={"boxstyle": "round,pad=0.28", "facecolor": "white", "edgecolor": CRIMSON, "lw": 0.9},
-    )
-    ax1.set_xticks(x_c)
-    ax1.set_xticklabels(pers_cn, rotation=32, ha="right")
-    ax1.set_ylim(-1.60, 0.95)
-    ax1.set_ylabel("Synthetic Control Gap: log(China Articles) − Synthetic")
-    ax1.set_title("A. Published-Output ADH SC Placebo Fan: China (N = 30)")
-    ax1.spines["top"].set_visible(False)
-    ax1.spines["right"].set_visible(False)
-    ax1.legend(loc="upper left", fontsize=7.6)
-
-    # Panel B: Half-Yearly Event Study (2021H1-2026H1, base = 2022H2) for Total Output vs China Output across N=30 clean journals
-    pers_es = ["2021H1", "2021H2", "2022H1", "2022H2", "2023H2", "2024H1", "2024H2", "2025H1", "2025H2", "2026H1"]
-    xe = np.arange(len(pers_es))
-    y_all = [es_all[p]["did_vs_2022H2"] for p in pers_es]
-    sd_all = [es_all[p]["ctrl_sd"] for p in pers_es]
-    y_cn = [es_cn[p]["did_vs_2022H2"] for p in pers_es]
-
+        ax2.plot(xc, [gdict[p] for p in pers], color="#94A3B8", alpha=0.35, lw=0.95)
+    ax2.plot(xc, [sc_cn["treated"]["gap_by_period"][p] for p in pers], color=CRIMSON, lw=2.6, marker="o", markersize=5.6, zorder=5, label="eLife (Published China Output − Synthetic)")
+    ax2.plot([], [], color="#94A3B8", lw=1.2, alpha=0.7, label="29 Clean Biology Donor Placebos")
     ax2.axhline(0.0, color="#334155", ls="--", lw=0.9)
-    ax2.axvline(3.5, color=TEAL, ls=":", lw=1.2, label="Phase 1: PRC Launch (2023)")
-    ax2.axvline(6.5, color=CRIMSON, ls="--", lw=1.2, label="Phase 2: Clarivate Delisting (Oct 2024)")
-    ax2.fill_between(xe, -1.96 * np.array(sd_all), 1.96 * np.array(sd_all), color="#E2E8F0", alpha=0.55, label="Donor Pool ±1.96 SD (Total Output)")
-    ax2.plot(xe, y_all, color=NAVY, lw=2.3, marker="s", markersize=5.5, label="eLife Total Output DiD (vs 2022H2)")
-    ax2.plot(xe, y_cn, color=CRIMSON, lw=2.4, marker="o", markersize=5.8, label="eLife China Output DiD (vs 2022H2)")
-
-    ax2.annotate(
-        f"Phase-1 China Surge\n({es_cn['2024H2']['did_vs_2022H2']:+.2f} log pts)",
-        xy=(6, es_cn["2024H2"]["did_vs_2022H2"]), xytext=(3.6, 0.62),
-        fontsize=7.6, fontweight="bold", color=CRIMSON,
-        arrowprops={"arrowstyle": "->", "color": CRIMSON, "lw": 0.9},
-    )
-    ax2.annotate(
-        f"Phase-2 Collapse\nTotal: {es_all['2026H1']['did_vs_2022H2']:+.2f}\nChina: {es_cn['2026H1']['did_vs_2022H2']:+.2f}",
-        xy=(9, es_cn["2026H1"]["did_vs_2022H2"]), xytext=(6.8, -1.36),
-        fontsize=7.5, fontweight="bold", color=NAVY,
-        arrowprops={"arrowstyle": "->", "color": CRIMSON, "lw": 0.9},
-    )
+    ax2.axvline(6.5, color=NAVY, ls="--", lw=1.1)
+    ax2.axvspan(6.5, len(pers) - 0.5, color="#FEE2E2", alpha=0.32)
     ax2.text(
-        0.02, 0.03,
-        f"Total Vol. Clarivate SC: {sc_all_c['treated']['post_mean_gap']:+.3f} (Rk {sc_all_c['rmspe_ratio_rank_of_N']}/30, p={sc_all_c['p_rmspe_ratio']:.4f}; "
-        f"Exp35 Rk {sc_all_35['rmspe_ratio_rank_of_N']}/35, p={sc_all_35['p_rmspe_ratio']:.4f})",
-        transform=ax2.transAxes, fontsize=6.9, color="#334155",
-        bbox={"boxstyle": "round,pad=0.22", "facecolor": BG_TINT, "edgecolor": "#CBD5E1"},
+        0.03, 0.08,
+        f"Published Output (NOT Submissions):\n"
+        f"• Total Vol SC (T0=3): {sc_all['treated']['post_mean_gap']:+.3f} (Rk {sc_all['rmspe_ratio_rank_of_N']}/{sc_all['n_units']}, p={sc_all['p_rmspe_ratio']:.4f})\n"
+        f"• China Vol SC (T0=7): {sc_cn['treated']['post_mean_gap']:+.3f} (Rk {sc_cn['rmspe_ratio_rank_of_N']}/{sc_cn['n_units']}, p={sc_cn['p_rmspe_ratio']:.4f})",
+        transform=ax2.transAxes, fontsize=7.0, color=NAVY, fontweight="bold",
+        bbox={"boxstyle": "round,pad=0.25", "facecolor": "white", "edgecolor": CRIMSON, "lw": 0.8},
     )
-    ax2.set_xticks(xe)
-    ax2.set_xticklabels(pers_es, rotation=32, ha="right")
+    ax2.set_xticks(xc)
+    ax2.set_xticklabels(pers, rotation=30, ha="right")
     ax2.set_ylim(-1.60, 0.95)
-    ax2.set_ylabel("Half-Yearly DiD vs. 2022H2 (Log Articles)")
-    ax2.set_title("B. Two-Phase Event Study Across 30 Clean Biology Journals")
+    ax2.set_ylabel("Published-Output SC Gap (Log Articles)")
+    ax2.set_title("B. Exploratory Published-Output ADH Synthetic Control (N = 30)")
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
-    ax2.legend(loc="lower left", bbox_to_anchor=(0.01, 0.13), fontsize=7.0)
+    ax2.legend(loc="upper left", fontsize=7.2)
 
     fig.tight_layout()
-    save_both(fig, "fig4_expanded_synthetic_control")
+    save_both(fig, "figs2_si_id_velocity_and_sc")
 
 
-def make_fig5(p5: dict) -> None:
-    """Figure 5: Two-Phase Asymmetric Global Metric Dependence (Senior-PI Shares & 12-Nation Regime Test)."""
+def make_figs3_si_geographic(p5: dict) -> None:
+    """Supplementary Figure S3: Exploratory 12-Nation Published-Output Shifts & Senior-PI Shares."""
     p4_geo = p5["pillar4_global_metric_dependence"]
     pi = p4_geo["senior_pi_last_author_shares"]
     c_df = pd.DataFrame(p4_geo["country_12_panel"]).sort_values("phase2_pct_did")
     reg = p4_geo["institutional_regime_test"]
     ext = p4_geo["external_validation_blog_9nations"]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.2, 4.9), gridspec_kw={"width_ratios": [1.0, 1.22]})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.2, 4.7), gridspec_kw={"width_ratios": [1.0, 1.2]})
 
-    # Panel A: Senior/Last-Author PI Country Shares Inside eLife PRC (2023H2-2026H1)
     pers = sorted(pi.keys())
     xp = np.arange(len(pers))
-    us_pi = [pi[p]["pi_US_pct"] for p in pers]
-    eu_pi = [pi[p]["pi_EU_pct"] for p in pers]
-    cn_pi = [pi[p]["pi_CN_pct"] for p in pers]
-    gb_pi = [pi[p]["pi_GB_pct"] for p in pers]
-
-    ax1.axvspan(2.5, len(pers) - 0.5, color="#FEE2E2", alpha=0.38, label="Post-Clarivate Delisting")
-    ax1.axvline(2.5, color=CRIMSON, ls="--", lw=1.2)
-    ax1.plot(xp, us_pi, color=NAVY, lw=2.3, marker="s", markersize=5.8, label="United States (Senior PI)")
-    ax1.plot(xp, eu_pi, color=TEAL, lw=2.1, marker="^", markersize=5.8, label="Continental Europe (Senior PI)")
-    ax1.plot(xp, cn_pi, color=CRIMSON, lw=2.6, marker="o", markersize=6.4, label="China (Senior PI)")
-    ax1.plot(xp, gb_pi, color=AMBER, lw=2.0, marker="D", markersize=5.2, label="United Kingdom (Senior PI)")
-
-    ax1.annotate(
-        f"Peak: {pi['2024H2']['pi_CN_pct']:.1f}%",
-        xy=(2, pi["2024H2"]["pi_CN_pct"]), xytext=(1.35, 25.0),
-        fontsize=7.8, fontweight="bold", color=CRIMSON,
-        arrowprops={"arrowstyle": "->", "color": CRIMSON, "lw": 0.9},
-    )
-    ax1.annotate(
-        f"Overnight Crash:\n{pi['2025H1']['pi_CN_pct']:.1f}%",
-        xy=(3, pi["2025H1"]["pi_CN_pct"]), xytext=(3.15, 2.5),
-        fontsize=7.8, fontweight="bold", color=CRIMSON,
-        arrowprops={"arrowstyle": "->", "color": CRIMSON, "lw": 0.9},
-    )
+    ax1.axvspan(2.5, len(pers) - 0.5, color="#FEE2E2", alpha=0.35)
+    ax1.axvline(2.5, color=CRIMSON, ls="--", lw=1.1)
+    ax1.plot(xp, [pi[p]["pi_US_pct"] for p in pers], color=NAVY, lw=2.2, marker="s", markersize=5.4, label="US (Senior PI)")
+    ax1.plot(xp, [pi[p]["pi_EU_pct"] for p in pers], color=TEAL, lw=2.0, marker="^", markersize=5.4, label="Continental Europe (Senior PI)")
+    ax1.plot(xp, [pi[p]["pi_CN_pct"] for p in pers], color=CRIMSON, lw=2.4, marker="o", markersize=5.8, label="China (Senior PI)")
+    ax1.plot(xp, [pi[p]["pi_GB_pct"] for p in pers], color=AMBER, lw=1.9, marker="D", markersize=5.0, label="UK (Senior PI)")
     ax1.set_xticks(xp)
     ax1.set_xticklabels(pers, fontweight="bold")
     ax1.set_ylim(0, 54)
-    ax1.set_ylabel("Share of eLife PRC Papers by Senior/Last-Author PI (%)")
-    ax1.set_title("A. Senior-PI Geography Inside eLife PRC (2023H2–2026H1)")
+    ax1.set_ylabel("Share of Published eLife PRC Papers (%)")
+    ax1.set_title("A. Exploratory Senior-PI Geography (Published Output)")
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
-    ax1.legend(loc="upper right", fontsize=7.4)
+    ax1.legend(loc="upper right", fontsize=7.2)
 
-    # Panel B: 12-Nation Phase-2 Clarivate DiD Output Shock & Institutional Regime Test
     yc = np.arange(len(c_df))
-    colors = []
-    for rg in c_df["regime"]:
-        if rg == "JIF_Codified":
-            colors.append(CRIMSON)
-        elif rg == "DORA_Reformed":
-            colors.append(NAVY)
-        else:
-            colors.append(AMBER)
-
-    ax2.barh(yc, c_df["phase2_pct_did"], height=0.62, color=colors, edgecolor="#1E293B", linewidth=0.5, zorder=3)
-    ax2.axvline(0.0, color="#334155", lw=0.9, zorder=2)
-    ax2.axvline(reg["jif_mean_p2_pct"], color=CRIMSON, ls="--", lw=1.1, alpha=0.65, zorder=1)
-    ax2.axvline(reg["dora_mean_p2_pct"], color=NAVY, ls=":", lw=1.1, alpha=0.65, zorder=1)
-
+    cols = [CRIMSON if rg == "JIF_Codified" else (NAVY if rg == "DORA_Reformed" else AMBER) for rg in c_df["regime"]]
+    ax2.barh(yc, c_df["phase2_pct_did"], height=0.62, color=cols, edgecolor="#1E293B", lw=0.5)
+    ax2.axvline(0.0, color="#334155", lw=0.9)
     for i, (_, r) in enumerate(c_df.iterrows()):
         val = r["phase2_pct_did"]
-        blg = f" | Blog: {r['blog_2026_sub_drop_pct']:.0f}%" if pd.notna(r["blog_2026_sub_drop_pct"]) else ""
-        ax2.text(
-            val - 1.4, yc[i], f"{val:+.1f}%{blg}", va="center", ha="right",
-            fontsize=7.2, fontweight="bold", color="#0F172A", zorder=5,
-            bbox={"boxstyle": "square,pad=0.14", "facecolor": "white", "edgecolor": "none", "alpha": 0.92},
-        )
-
+        ax2.text(val - 1.4, yc[i], f"{val:+.1f}%", va="center", ha="right", fontsize=7.2, fontweight="bold", color="#0F172A")
     ax2.set_yticks(yc)
-    ax2.set_yticklabels([f"{r['country_name']} ({r['country_code']})" for _, r in c_df.iterrows()], fontsize=8.0, fontweight="bold")
-    ax2.set_xlim(-110, 4)
-    ax2.set_ylim(-0.7, 13.7)
-    ax2.set_xlabel("Phase-2 Clarivate Published-Output DiD vs. Peer Journals (%)")
-    ax2.set_title("B. 12-Nation Policy-Label Groupings (3 JIF vs. 7 DORA)")
+    ax2.set_yticklabels([f"{r['country_name']} ({r['country_code']})" for _, r in c_df.iterrows()], fontsize=7.9, fontweight="bold")
+    ax2.set_xlim(-98, 4)
+    ax2.set_xlabel("Exploratory Phase-2 Published-Output DiD vs. Donors (%)")
+    ax2.set_title("B. Exploratory 12-Nation Published-Output Contrasts")
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
-
-    from matplotlib.patches import Patch
     handles = [
-        Patch(facecolor=CRIMSON, edgecolor="#1E293B", label=f"3 JIF-Codified (CN, ES, IT): mean {reg['jif_mean_p2_pct']:+.1f}%"),
-        Patch(facecolor=NAVY, edgecolor="#1E293B", label=f"7 DORA-Reformed (GB, FR, US, CH, NL, DE, CA): mean {reg['dora_mean_p2_pct']:+.1f}%"),
-        Patch(facecolor=AMBER, edgecolor="#1E293B", label="2 Mixed / Other (IN, JP)"),
+        Patch(facecolor=CRIMSON, edgecolor="#1E293B", label=f"3 JIF-Codified (CN, ES, IT): {reg['jif_mean_p2_pct']:+.1f}%"),
+        Patch(facecolor=NAVY, edgecolor="#1E293B", label=f"7 DORA-Reformed: {reg['dora_mean_p2_pct']:+.1f}% (Perm p={reg['exact_comb_perm_p_1sided']:.4f})"),
+        Patch(facecolor=AMBER, edgecolor="#1E293B", label=f"Mixed (IN, JP) | vs. eLife Blog (N={ext['n_countries']}): ρ={ext['spearman_rho']:.3f}"),
     ]
-    ax2.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.48, -0.15), ncol=1, fontsize=7.2)
-    ax2.text(
-        0.47, 0.98,
-        f"3 JIF vs. 7 DORA Perm p = {reg['exact_comb_perm_p_1sided']:.4f}  |  vs. eLife Blog Subs (N={ext['n_countries']}): Spearman ρ = {ext['spearman_rho']:.3f} (p = {ext['spearman_p']:.3f})",
-        transform=ax2.transAxes, va="top", ha="center", fontsize=6.5, color="#0F172A", fontweight="bold",
-        bbox={"boxstyle": "round,pad=0.24", "facecolor": "#FEF3C7", "edgecolor": AMBER, "lw": 0.8},
-    )
+    ax2.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.48, -0.16), ncol=1, fontsize=7.0)
 
     fig.tight_layout()
-    save_both(fig, "fig5_asymmetric_global_jif_dependence")
+    save_both(fig, "figs3_si_geographic_exploratory")
 
 
 def main() -> None:
-    print("=== STEP 6: GENERATING 5 PUBLICATION-GRADE 300-DPI FIGURES (PNG + PDF) ===", flush=True)
+    print("=== STEP 6 (v4): GENERATING 4 MAIN + 3 SUPPLEMENTARY FIGURES (300-DPI PNG + PDF) ===", flush=True)
     set_pub_style()
-    p4 = json.loads((RES_DIR / "04_pillar1_2_results.json").read_bytes().decode("utf-8"))
+    p3b = json.loads((RES_DIR / "03b_openalex_dedup_audit.json").read_bytes().decode("utf-8"))
+    audit_raw = json.loads((DATA_DIR / "openalex_citing_dedup_audit.json").read_bytes().decode("utf-8"))
+    p9 = json.loads((RES_DIR / "09_v4_scientometrics_results.json").read_bytes().decode("utf-8"))
     p5 = json.loads((RES_DIR / "05_pillar3_4_results.json").read_bytes().decode("utf-8"))
 
-    make_fig1(p4)
-    make_fig2(p4)
-    make_fig3(p5)
-    make_fig4(p5)
-    make_fig5(p5)
-    print("[DONE STEP 6] Generated all 5 PNG + PDF figures cleanly.", flush=True)
+    make_fig1_measurement_audit(p3b, audit_raw, p9)
+    make_fig2_equal_window_validation(p9)
+    make_fig3_readership_and_funnel(p9)
+    make_fig4_upgrade_precision_and_trajectories(p9)
+    make_figs1_si_indexing_cohort(p9)
+    make_figs2_si_velocity_and_sc(p5)
+    make_figs3_si_geographic(p5)
+    print("[DONE STEP 6 (v4)] Generated all 7 PNG + PDF figures cleanly.", flush=True)
 
 
 if __name__ == "__main__":

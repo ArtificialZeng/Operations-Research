@@ -1,42 +1,35 @@
-# VERIFICATION MANIFEST — H6f `/boost` Flagship Build (v2 Major Revision)
+# VERIFICATION MANIFEST — H6f Scientometrics Flagship Build (v4 Submission-Ready Revision)
 
-**Project:** Voluntary Revision and Asymmetric Impact-Factor Dependence: Evidence from the *eLife* Publish-Review-Curate Experiment and Clarivate's 2024 Delisting, 2021–2026
-**Workspace:** `D:\AI_Science\antigravity\h6f_boost_elife_prc_clarivate_20261126`
-**Build Date:** 2026-11-26 (v2 Referee Revision)
+**Manuscript:** *Version-Level Measurement, Incremental Predictive Validity, and Revision Trajectories of Public Peer-Review Assessments in eLife Reviewed Preprints*  
+**Author:** Zijian Zeng (Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA)  
+**Target Venue:** *Scientometrics* (Original Research)  
+**Workspace:** `D:\AI_Science\antigravity\h6f_boost_elife_prc_clarivate_20261126`  
+**Build Date:** 2026-11-28 (v4 Major Revision)
 
-## 1. Data Completeness & Alignment Invariants
+## 1. Data Completeness, Strict v1 Covariate Freezing & Multi-DOI Audit
 
-- **Complete *eLife* PRC Census (`2023–2026`):** `N = 4,551` unique PRC papers.
-- **True `v1` Assessment Recovery:** `4,541 / 4,551` (`99.78%`).
-- **Zero `VoR`-Date Contamination:** `0` missing `v1` dates; `0` VoR-before-`v1` anomalies across `3,264` VoRs.
-- **Live *eLife* Reader Telemetry (`page-views` & `downloads`):** `2,653 / 2,653` (`100.00%`) lifetime totals (`totalValue`, HTTP 200 verified); strictly untruncated monthly telemetry (`v1 >= 2023-11`, complete months `<= 2026-10`) = `1,852` (`801` left-truncated pre-Nov-2023 articles explicitly excluded from monthly rate models); clean local VoR event-study sample = `1,701`.
-- **Expanded Clean OpenAlex Benchmark Panel (`2021H1–2026H1`):** Strict Primary `N = 30` clean journals (`>= 90%` TRUE geo coverage every half-year; min 1-sided `p = 0.0333`); Expanded Sensitivity `N = 35` (`mean >= 90%, min >= 85%`; min 1-sided `p = 0.0286`); `20` noisy/throttled candidates excluded transparently.
-- **Live Crossref DOI Bibliography Verification:** `29 / 29` peer-reviewed DOIs verified HTTP 200 via `api.crossref.org/works/{doi}`.
+- **Complete *eLife* PRC Census (`2023–2026`):** `N = 4,551` unique PRC manuscripts; `4,541` (`99.78%`) true `v1` assessments recovered; `0` missing `v1` dates; `0` VoR-before-`v1` date anomalies.
+- **Strictly Frozen `v1`-at-Publication Covariates (P0 #1):** `0 / 4,551` missing `v1_n_authors` (Crossref `posted-content ver == 1`); `0 / 4,551` missing `v1_primary_subject` (`v1_subjects[0]`). Audit revealed `368 / 2,284` (`16.11%`) benchmark VoRs had `max_authors > v1_n_authors` and `441 / 4,551` articles changed/reordered primary subject (`301` reordered, `140` changed tags).
+- **OpenAlex Citing-Work ID Deduplication Audit (`N = 200` stratified multi-DOI manuscripts, mean `4.53` DOIs/work):** `61.0%` collapsed to 1 OpenAlex Work ID (`98.3%` among VoRs vs. `5.0%` among Non-VoRs); eLife-only exact citing-ID union vs. yearly-max Pearson `r = 0.99979` (`exact match = 99.0%`, aggregate ratio `0.9980`); all-manifestation Pearson `r = 0.99672` (aggregate `ymax/union = 0.9716`, naive-sum ratio `1.0274`).
+- **Live *eLife* Onsite Telemetry:** `2,653 / 2,653` (`100.00%`) lifetime coverage; `1,852` strictly untruncated monthly cohorts (`v1 >= 2023-11`, complete months `<= 2026-10`).
+- **Live Crossref DOI Bibliography Verification:** `31 / 31` peer-reviewed DOIs verified HTTP 200 via `api.crossref.org/works/{doi}`.
 
 ## 2. Headline Empirical Receipts (Dynamically Extracted from JSON)
 
-| Pillar | Estimator / Specification | Verified Estimate | Inference |
+| Section / Audit | Specification | Estimate [95% CI] | Inference / Precision |
 | :--- | :--- | ---: | :--- |
-| **P1: Revision Funnel** | `v1_Incomplete` (`N=964`) -> VoR (`793`) -> Upgraded (`644`) | `82.3%` VoR; `66.8%` of all `v1` (`81.2%` of VoRs; `64.4%` / `78.3%` Solid+) | Mean `v1`-to-VoR calendar interval `325.4` d |
-| **P1: ESCI Unconditional ITT (365d)** | `v1 >= 2024-12-19` vs `< 2024-10-01` (Oct–Dec 18 donut excl.) | VoR `-7.35` pp; Solid+ `-3.58` pp | `p_WCB = 0.0090` (VoR) / `0.2120` (Solid+) |
-| **P1: ESCI Unconditional ITT (450d)** | `v1 >= 2024-12-19` vs `< 2024-10-01` (Oct–Dec 18 donut excl.) | VoR `-6.17` pp; Solid+ `-3.75` pp | `p_WCB = 0.0145` (VoR) / `0.2015` (Solid+) |
-| **P1: KM/AJ Competing Risks (450d)** | All `v1_Incomplete` (`Pre n=807` vs `Post n=733`, right-censoring handled) | KM VoR `-8.17` pp; Solid+ `-3.14` pp; Unrev `<Solid` `-5.03` pp | Boot `p = 0.0066` / `0.2997` / `0.0073` |
-| **P2: First-Impression Stigma** | True `v1_Incomplete` -> Post-`v1` OA Cites (PPML, `G=18`) | `-14.45%` (`beta=-0.1561`) | `t = -5.11`, `p = 8.67e-05` |
-| **P2: VoR-Date Autopsy** | Flawed `VoR`-date `fin_Incomplete` -> OA Cites (PPML) | `+0.66%` (`beta=+0.0066`) | `t = +0.11`, `p = 0.9152` (erased!) |
-| **P2: Reader Salience (`v1`)** | True `v1_Sig_Important` -> eLife Page-Views (PPML, `G=18`) | `+10.03%` (`beta=+0.0956`) | `t = +4.09`, `p = 0.0008` |
-| **P2: Upgrade -> OA Cites** | Within `v1_Incomplete` VoRs: `Solid+` vs `Unchanged` (PPML, `G=18`) | `+3.18%` (95% CI `[-10.7%, +19.2%]`) | `p = 0.6540`, TOST `±20% p = 0.0125`, `±15% p = 0.0508` |
-| **P2: Upgrade -> Clean Views DiD** | Untruncated `v1 >= 2023-11` Monthly Rate DiD (`N=544`, `G=18`) | `+0.0577` log | `t = +1.14`, `p_WCB = 0.2555`, TOST `±15% p = 0.0426` |
-| **P2: Local VoR Event Study** | Month `t=0` / Post `t=+1..+6` Views DiD (`N=619`, `G=17`) | `+0.0013` / `-0.1028` | `p_WCB = 0.9840` / `0.1710` (uniform VoR spike `+1.11` vs `+1.11`) |
-| **P2: Version-Release Effect** | Per Extra Published Version (`cr_n_versions`, M`12–21`, `G=18`) | `+0.2341` log | `t = +2.83`, `p = 0.0116` |
-| **P3: Submission Velocity & Editorial Cushioning** | Sequential `eid` Velocity (`-56.3%`, cf. official `6,396->2,853`, `-55.4%`) & 500-`eid` Acceptance Jump | `15.44% -> 20.06%` (`+4.63` pp) | `HAC t = +3.41`, `Perm p = 0.0002`, `Sup-Wald F = 53.14` |
-| **P3: Published-Output SC (`log_n_all`)** | Unique Min-L2 ADH SC (`25H1–26H1` vs `23H2–24H2`) | `-0.5519` (`N=30`) / `-0.5407` (`N=35`) | Rank `1/30` (`p = 0.0333`); Exp35 Rank `1/35` (`p = 0.0286`) |
-| **P3: Published-Output SC (`log_n_CN`)** | Unique Min-L2 ADH SC China-Affiliated Output (`25H1–26H1`) | `-1.0913` (`N=30`) / `-1.0977` (`N=35`) | Rank `1/30` (`p = 0.0333`); Exp35 Rank `1/35` (`p = 0.0286`) |
-| **P4: Blog Cross-Validation** | OpenAlex Phase-2 Published-Output DiD vs *eLife* Mar 2026 Blog Submissions (`N=9`) | Spearman `rho = 0.6833` | `p = 0.0424` (Pearson `r = 0.4514`) |
-| **P4: Policy-Label Groupings** | `3` JIF-Codified (`CN,IT,ES`) vs `7` DORA-Reformed country groups | `-57.8%` vs `-36.6%` (`-21.2` pp) | Exact Perm 1-sided `p = 0.0167` (2-sided `p = 0.0167`) |
+| **Covariate Leakage Benchmark** | `N = 2,284` VoRs: `max_authors` vs `v1_n_authors` | `-14.05%` -> `-13.77% [-19.02%, -8.19%]` | Exact parity with reviewer benchmark (`368/2,285`) |
+| **Quarter-Clock Sensitivity** | Switching ONLY `v1` quarter -> VoR quarter (`v1` label fixed) | `-13.77%` -> `-9.45%` (Strict `v1`: `-12.94%` -> `-9.53%`) | Separate date-clock vs. label-timing shift |
+| **All-`v1` Equal Window** | ALL `2023–2024` `v1` (`N=2,635`, strict `v1` covs) | Next-yr `-22.59% [-29.14%, -15.43%]` | `p = 1.17e-05` (Post-`v1`: `-17.53%`) |
+| **VoR-Only Equal Window** | Mature VoRs (`N=2,309`, strict `v1` covs) | Next-yr `-18.22% [-23.65%, -12.41%]` | `p = 1.01e-05` (Post-`v1`: `-13.03%`) |
+| **Non-VoR-Only Validation** | Non-VoR RPs (`N=306`, strict `v1` covs) | Post-`v1` `-30.12% [-51.12%, -0.09%]` | `p = 0.0495` (Next-yr: `-38.28%`) |
+| **Revision vs. Upgrade Funnel** | `964` mature `v1 <Solid` preprints (`mean lag = 325.4d`) | `842/964` (`87.3%`) public rev; `644/964` (`66.8%`) all-`v1` / `644/793` (`81.2%`) VoR-cond | `192/216` (`88.9%`) final `<Solid` VoRs posted revisions |
+| **Upgrade to *Solid+* Contrast** | Mature `v1 <Solid` VoRs (`v3`-parity / strict `v1`) | `+3.18% [-10.72%, +19.25%]` / Strict: `+8.55% [-9.33%, +29.96%]` | TOST `±20% p = 0.1275`, `±15% p = 0.2533` (imprecise; NOT "zero return") |
+| **SI Exploratory Indexing** | Dec 10, 2024 WoS & Scopus (`166/514` pre VoRs crossed) | `450d` `<Solid`: `-2.76 pp [-7.54, +2.02]`; PubRev: `-3.47 pp [-10.84, +3.90]` | Does NOT establish a policy effect; isolated in SI PDF |
 
-## 3. Reproducibility & Gate Checklist
+## 3. Reproducibility & Quality Gates (`v4`)
 
 - `ruff check scripts tests`: **0 errors**
-- `pytest -v tests/test_h6f_boost.py`: **100% passing** (including `2024-12-19` ESCI alignment + transition donut + unconditional ITT & KM/AJ CIF parity, dual `66.8%`/`81.2%` denominators, citation TOST `±15%` & `±20%` reporting, non-nested LSDV WCB equivalence, rolling-window anti-truncation guard, SC uniqueness, GLM convergence, full Table 1–4 CSV/JSON parity, co-occurring body citation parity, zero-leak PDF, and live disk SHA-256)
-- `manuscript_h6f_boost.pdf`: **0 leaked LaTeX/Markdown tokens**, visually verified across pages
-- `SHA256SUMS.json`: **100% exact match** with live disk `Path.read_bytes()`
+- `pytest -v tests/test_h6f_boost.py`: **100% passing**
+- `manuscript_h6f_boost.pdf` & `supplementary_h6f_scientometrics.pdf`: **0 leaked LaTeX/Markdown tokens**, compiled cleanly via Edge headless with isolated `--user-data-dir`, and visually inspected across every page.
+- `SHA256SUMS.json`: **100% exact match** with live disk `Path.read_bytes()`.

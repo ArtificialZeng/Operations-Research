@@ -5,9 +5,18 @@
     "n_v1_with_strength": 4541,
     "v1_recovery_pct": 99.780268072951,
     "n_v1_date_missing": 0,
+    "n_v1_authors_missing": 0,
+    "n_authors_max_gt_v1_all": 554,
+    "n_authors_max_gt_v1_mature": 399,
+    "n_primary_subject_reordered_all": 301,
+    "n_primary_subject_changed_set_all": 140,
+    "n_primary_subject_diff_all": 441,
+    "n_primary_subject_diff_mature": 309,
     "n_vors_total": 3264,
     "n_vors_fin_lt_v1": 0,
     "n_mature_2023_2024": 2653,
+    "n_mature_vors": 2315,
+    "n_mature_non_vors": 338,
     "n_mature_with_live_metrics": 2653,
     "mature_metrics_coverage_pct": 100.0,
     "api_monthly_min_ym": "2023-11",
@@ -15,7 +24,7 @@
     "n_mature_complete_monthly_ge_2023_11": 1852,
     "n_mature_left_truncated_lt_2023_11": 801,
     "n_mature_clean_local_vor_event_study": 1701,
-    "panel_gz_sha256": "e7e08d7f6c74e44df56be6f7f28b3fc4bc17c9dd3545e58c917cc286952f2b4f"
+    "panel_gz_sha256": "33c5f130f6613837091a7822171d95e1ccf13631b58379689284125d77453001"
   },
   "journal_panel_audit": {
     "n_clean_donors": 29,
@@ -651,5 +660,5 @@
     ],
     "journal_panel_csv_sha256": "f4b3bd4012428bb5239ca6096d14839e548d630782cdad935ea46df4996fb137"
   },
-  "elapsed_sec": 1.14
+  "elapsed_sec": 1.2
 }

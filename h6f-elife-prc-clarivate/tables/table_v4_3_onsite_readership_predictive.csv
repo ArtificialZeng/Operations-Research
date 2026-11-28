@@ -1,0 +1,17 @@
+outcome,outcome_label,term,term_label,n_obs,n_clusters,pct,pct_ci95_lo,pct_ci95_hi,t_stat,p_value
+pv_first_3m,First 3 calendar bins: Page-views,v1_low,Evidence: Below Solid vs Solid,1851,18,-9.13,-19.32,2.34,-1.699,0.10755547864770591
+pv_first_3m,First 3 calendar bins: Page-views,v1_high,Evidence: Compelling+ vs Solid,1851,18,35.13,14.25,59.83,3.785,0.0014789678819773448
+pv_first_3m,First 3 calendar bins: Page-views,v1_imp,Significance: Important vs Valuable/Useful,1851,18,11.78,5.93,17.95,4.371,0.0004165596553809199
+pv_first_3m,First 3 calendar bins: Page-views,v1_fund,Significance: Fundamental+ vs Valuable/Useful,1851,18,31.07,5.61,62.68,2.643,0.01710172907548581
+dl_first_3m,First 3 calendar bins: Downloads,v1_low,Evidence: Below Solid vs Solid,1851,18,-11.41,-24.62,4.11,-1.584,0.1316668632429727
+dl_first_3m,First 3 calendar bins: Downloads,v1_high,Evidence: Compelling+ vs Solid,1851,18,51.75,22.41,88.14,4.095,0.0007554781921253939
+dl_first_3m,First 3 calendar bins: Downloads,v1_imp,Significance: Important vs Valuable/Useful,1851,18,11.49,-0.61,25.07,1.997,0.06208648056006866
+dl_first_3m,First 3 calendar bins: Downloads,v1_fund,Significance: Fundamental+ vs Valuable/Useful,1851,18,37.53,-9.24,108.39,1.618,0.12414822636914662
+pv_total,Cumulative lifetime: Page-views,v1_low,Evidence: Below Solid vs Solid,1851,18,-2.55,-9.38,4.79,-0.751,0.46300942153923524
+pv_total,Cumulative lifetime: Page-views,v1_high,Evidence: Compelling+ vs Solid,1851,18,9.49,0.28,19.55,2.178,0.043802543728431634
+pv_total,Cumulative lifetime: Page-views,v1_imp,Significance: Important vs Valuable/Useful,1851,18,10.19,3.99,16.76,3.533,0.0025565774311041077
+pv_total,Cumulative lifetime: Page-views,v1_fund,Significance: Fundamental+ vs Valuable/Useful,1851,18,13.18,1.2,26.58,2.335,0.032060010773321844
+dl_total,Cumulative lifetime: Downloads,v1_low,Evidence: Below Solid vs Solid,1851,18,-10.1,-16.66,-3.01,-2.96,0.00876601260165777
+dl_total,Cumulative lifetime: Downloads,v1_high,Evidence: Compelling+ vs Solid,1851,18,9.19,-4.52,24.87,1.383,0.18457636554265275
+dl_total,Cumulative lifetime: Downloads,v1_imp,Significance: Important vs Valuable/Useful,1851,18,12.67,4.12,21.92,3.19,0.00536267700174649
+dl_total,Cumulative lifetime: Downloads,v1_fund,Significance: Fundamental+ vs Valuable/Useful,1851,18,8.75,-5.71,25.44,1.24,0.2316576583868385

@@ -1,7 +1,8 @@
-"""Step 3: Assemble unified zero-VoR-contamination True-v1 Longitudinal Panel
-(N = 4,541 true-v1 PRC papers + live monthly eLife page-views & downloads on
-mature 2023-2024 cohorts) AND the expanded 36-45 journal clean OpenAlex
-16-country benchmark panel (2021H1-2026H1).
+"""Step 3 (v4): Assemble unified True-v1 Longitudinal Panel with STRICTLY FROZEN
+v1-at-publication covariates (zero post-v1 author/subject leakage) + live monthly
+eLife page-views & downloads + Crossref public-revision history + equal-length
+next-calendar-year citation windows, AND the expanded clean OpenAlex benchmark
+panel (2021H1-2026H1) for Supplementary Information.
 """
 from __future__ import annotations
 
@@ -14,7 +15,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-BASE_DIR = Path(r"D:\AI_Science\antigravity\h6f_boost_elife_prc_clarivate_20261126")
+BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
 RES_DIR = BASE_DIR / "results"
 
@@ -30,12 +31,19 @@ COMPLETE_PERIODS = [
     "2025H1", "2025H2", "2026H1",
 ]
 
+# Verified live API rolling window: api.elifesciences.org/metrics/article/{eid}/*?by=month
+# returns a 37-month rolling window (2023-11..2026-11). Months before 2023-11 are absent
+# from `periods` (though included in `totalValue`), and 2026-11 is a partial observation month.
+API_METRICS_MIN_YM = "2023-11"
+API_METRICS_MAX_COMPLETE_YM = "2026-10"
+FREEZE_DATE = pd.Timestamp("2026-11-25")
+
 
 def sha256_bytes(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def write_json_lf(path: Path, obj) -> str:
+def write_json_lf(path: Path, obj: object) -> str:
     txt = json.dumps(obj, indent=2, ensure_ascii=False) + "\n"
     path.write_bytes(txt.encode("utf-8"))
     return sha256_bytes(path)
@@ -60,27 +68,8 @@ def ym_to_int(ym: str) -> int | None:
     return int(y) * 12 + (int(m) - 1)
 
 
-# Verified live API rolling window: api.elifesciences.org/metrics/article/{eid}/*?by=month
-# returns a 37-month rolling window (2023-11..2026-11). Months before 2023-11 are absent
-# from `periods` (though included in `totalValue`), and 2026-11 is a partial observation month.
-API_METRICS_MIN_YM = "2023-11"
-API_METRICS_MAX_COMPLETE_YM = "2026-10"
-
-
 def summarize_monthly_metrics(rec: dict, v1_ym: str, fin_ym: str, is_vor: int) -> dict:
-    """Compute untruncated cumulative totals AND strictly untruncated monthly metrics.
-
-    CRITICAL ANTI-TRUNCATION INVARIANT:
-    - Lifetime `pv_total` and `dl_total` (`totalValue`) are untruncated for 100% of mature papers.
-    - Monthly series (`periods`) begin at `2023-11`. Any article with `v1_ym < 2023-11` is
-      left-truncated in `periods`, so `first_3m`, `pre_vor`, and `rate_pre_vor` MUST be `NaN`
-      rather than silently imputed as zero!
-    - For local VoR event-study windows `[fin_m - 3, fin_m + 6]`, we require all 10 monthly
-      observations to lie strictly inside `[2023-12, 2026-10]` AND `fin_m - v1_m >= 4` so
-      `t = -3..-1` excludes the `v1` launch month and `2026-11` partial-month truncation.
-    - For balanced 22-month post-`v1` trajectories (`tau = 0..21`), we require `v1_ym >= 2023-11`
-      and `v1_m + 21 <= 2026-10` (satisfied by 100% of `2023-11..2024-12` `v1` cohorts).
-    """
+    """Compute untruncated cumulative totals AND strictly untruncated monthly metrics."""
     if not rec or rec.get("pv_status") != 200 or rec.get("dl_status") != 200:
         return {"has_metrics": 0, "has_complete_monthly_metrics": 0, "has_clean_vor_ev": 0}
 
@@ -94,9 +83,9 @@ def summarize_monthly_metrics(rec: dict, v1_ym: str, fin_ym: str, is_vor: int) -
     clean_vor_ev = int(
         fin_m is not None
         and v1_m is not None
-        and (fin_m - 3) >= (min_api_m + 1)  # >= 2023-12 (strictly post API start month)
-        and (fin_m + 6) <= max_comp_m       # <= 2026-10 (strictly pre partial 2026-11)
-        and (fin_m - v1_m) >= 4             # >= 4m gap so t=-3..-1 is post v1 launch month
+        and (fin_m - 3) >= (min_api_m + 1)
+        and (fin_m + 6) <= max_comp_m
+        and (fin_m - v1_m) >= 4
     )
 
     out: dict = {
@@ -115,7 +104,6 @@ def summarize_monthly_metrics(rec: dict, v1_ym: str, fin_ym: str, is_vor: int) -
             if pm is not None:
                 pmap[pm] = float(item.get("v") or 0)
 
-        # 1. Balanced 22-month post-v1 horizon (ONLY for untruncated v1_ym >= 2023-11!)
         if complete_monthly == 1 and v1_m is not None and (v1_m + 21) <= max_comp_m:
             m0_2 = float(sum(pmap.get(v1_m + k, 0.0) for k in range(3)))
             m3_11 = float(sum(pmap.get(v1_m + k, 0.0) for k in range(3, 12)))
@@ -132,7 +120,6 @@ def summarize_monthly_metrics(rec: dict, v1_ym: str, fin_ym: str, is_vor: int) -
             out[f"{prefix}_m3_11"] = float("nan")
             out[f"{prefix}_m12_21"] = float("nan")
 
-        # 2. Pre-vs-Post VoR monthly rates (STRICTLY untruncated v1 >= 2023-11, complete months <= 2026-10!)
         if complete_monthly == 1 and fin_m is not None and v1_m is not None and fin_m <= max_comp_m:
             n_m_pre = max(fin_m - v1_m, 0)
             n_m_post = max(max_comp_m - fin_m + 1, 1)
@@ -162,7 +149,6 @@ def summarize_monthly_metrics(rec: dict, v1_ym: str, fin_ym: str, is_vor: int) -
             out[f"{prefix}_rate_post_vor"] = float("nan")
             out[f"{prefix}_rate_post_vor_strict"] = float("nan")
 
-        # 3. Clean untruncated local event study around VoR month (t = -3..+6)
         if clean_vor_ev == 1 and fin_m is not None:
             pre3 = float(np.mean([pmap.get(fin_m + k, 0.0) for k in (-3, -2, -1)]))
             m0 = float(pmap.get(fin_m, 0.0))
@@ -192,7 +178,7 @@ def summarize_monthly_metrics(rec: dict, v1_ym: str, fin_ym: str, is_vor: int) -
 
 
 def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
-    """Assemble the complete 4,541-paper true-v1 panel with zero VoR-date leakage."""
+    """Assemble the complete 4,551-paper true-v1 panel with STRICTLY FROZEN v1 covariates."""
     prc_items = json.loads((DATA_DIR / "elife_prc_search_census.json").read_bytes().decode("utf-8"))
     v1_map = json.loads((DATA_DIR / "elife_v1_assessments.json").read_bytes().decode("utf-8"))
     cr_rows = json.loads((DATA_DIR / "crossref_elife_2023_2026.json").read_bytes().decode("utf-8"))
@@ -209,27 +195,55 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
             metrics_map[str(rec["eid"])] = rec
 
     cr_df = pd.DataFrame(cr_rows)
+    cr_df["eid"] = cr_df["eid"].astype(str)
+
+    # STRICTLY FROZEN v1-at-publication author count from Crossref posted-content ver == 1
+    cr_v1_only = (
+        cr_df[(cr_df["type"] == "posted-content") & (cr_df["ver"] == 1)]
+        .sort_values(["eid", "pub_date"])
+        .groupby("eid")
+        .agg(
+            v1_n_authors=("n_authors", "first"),
+            cr_v1_pub_date=("pub_date", "first"),
+        )
+        .reset_index()
+    )
+
+    # Public reviewed-preprint revisions (Crossref posted-content ver >= 2)
+    cr_revs = (
+        cr_df[(cr_df["type"] == "posted-content") & (cr_df["ver"] >= 2)]
+        .groupby("eid")
+        .agg(
+            first_revision_date=("pub_date", "min"),
+            n_posted_revisions=("ver", "nunique"),
+        )
+        .reset_index()
+    )
+
+    # All-version Crossref aggregates (retaining cr_n_authors_max ONLY for leakage audit!)
     cr_agg = cr_df.groupby("eid").agg(
         cr_cites_max=("cited", "max"),
         cr_cites_sum=("cited", "sum"),
+        cr_n_dois=("doi", "nunique"),
         cr_n_versions=("ver", "nunique"),
         cr_max_ver=("ver", "max"),
         cr_has_vor=("type", lambda s: int((s == "journal-article").any())),
         cr_v1_date=("pub_date", "min"),
-        cr_n_authors=("n_authors", "max"),
+        cr_n_authors_max=("n_authors", "max"),
     ).reset_index()
 
-    # Index OpenAlex eLife works strictly by eid (merging versioned canonical DOIs!)
+    # Index OpenAlex eLife works strictly by eid (merging versioned canonical DOIs via yearly-max)
     oa_by_eid: dict[str, dict] = {}
     for src_map in (oa_elife, oa_pre):
         for k_doi, rec in src_map.items():
-            m_e = re.match(r"^10\.7554/elife\.(\d+)", k_doi)
+            m_e = re.match(r"^10\.7554/elife\.(\d+)", k_doi.lower())
             if not m_e:
                 continue
             ee = m_e.group(1)
             cur = oa_by_eid.get(ee)
             if cur is None:
                 oa_by_eid[ee] = dict(rec)
+                oa_by_eid[ee]["counts_by_year"] = {str(k): int(v) for k, v in (rec.get("counts_by_year") or {}).items()}
             else:
                 cur["cited"] = max(int(cur.get("cited", 0)), int(rec.get("cited", 0)))
                 cur["n_authors"] = max(int(cur.get("n_authors", 0)), int(rec.get("n_authors", 0)))
@@ -243,7 +257,18 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
                     cby[str(yk)] = max(int(cby.get(str(yk), 0)), int(yv))
                 cur["counts_by_year"] = cby
 
+    # Also build OpenAlex eLife-only map strictly from openalex_elife_prc_dois.json (exact v3 parity)
+    oa_elife_only_cby: dict[str, dict[str, int]] = {}
+    for k_doi, rec in oa_elife.items():
+        parts = k_doi.lower().split(".")
+        if len(parts) >= 3 and parts[2].isdigit():
+            ym = oa_elife_only_cby.setdefault(parts[2], {})
+            for yr, cnt in (rec.get("counts_by_year") or {}).items():
+                ym[str(yr)] = max(ym.get(str(yr), 0), int(cnt))
+
     rows = []
+    n_subj_reordered = 0
+    n_subj_changed_set = 0
     for it in prc_items:
         eid = str(it["id"]).strip()
         v1 = v1_map.get(eid, {})
@@ -259,10 +284,17 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
         # STRICT TRUE v1 DATE (NEVER VoR date!)
         v1_dt_str = (v1.get("v1_reviewedDate") or v1.get("v1_published") or "")[:10]
         fin_dt_str = (it.get("published") or it.get("statusDate") or "")[:10]
-        subjs = [s.get("id") for s in (it.get("subjects") or []) if isinstance(s, dict)]
-        if not subjs:
-            subjs = v1.get("v1_subjects") or ["unknown"]
-        primary_subj = subjs[0]
+
+        # STRICTLY FROZEN v1 SUBJECT vs FINAL SUBJECT (eliminating post-v1 subject leakage!)
+        v1_subjs = [str(s) for s in (v1.get("v1_subjects") or []) if s]
+        fin_subjs = [s.get("id") for s in (it.get("subjects") or []) if isinstance(s, dict) and s.get("id")]
+        v1_primary_subject = v1_subjs[0] if v1_subjs else (fin_subjs[0] if fin_subjs else "unknown")
+        fin_primary_subject = fin_subjs[0] if fin_subjs else v1_primary_subject
+        if v1_subjs and fin_subjs and v1_subjs[0] != fin_subjs[0]:
+            if set(v1_subjs) == set(fin_subjs):
+                n_subj_reordered += 1
+            else:
+                n_subj_changed_set += 1
 
         oe = oa_by_eid.get(eid, {})
         oa_elife_cites = int(oe.get("cited", 0))
@@ -282,12 +314,24 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
             cby_all[str(yk)] = max(int(cby_all.get(str(yk), 0)), int(yv))
 
         pre_cites_before_v1 = 0
+        pre_cites_before_v1_preprint_only = 0
         oa_post_v1_cites = 0
+        oa_post_v1_all = 0
         oa_ge_v1_cites = 0
+        oa_next_full_year = float("nan")
+        oa_next_full_year_all = float("nan")
         if v1_yr:
             pre_cites_before_v1 = sum(int(cnt) for ys, cnt in cby_all.items() if str(ys).isdigit() and int(ys) < v1_yr)
+            pre_cites_before_v1_preprint_only = sum(
+                int(cnt) for ys, cnt in (op.get("counts_by_year") or {}).items() if str(ys).isdigit() and int(ys) < v1_yr
+            )
             oa_post_v1_cites = sum(int(cnt) for ys, cnt in cby_elife.items() if str(ys).isdigit() and int(ys) > v1_yr)
+            oa_post_v1_all = sum(int(cnt) for ys, cnt in cby_all.items() if str(ys).isdigit() and int(ys) > v1_yr)
             oa_ge_v1_cites = sum(int(cnt) for ys, cnt in cby_elife.items() if str(ys).isdigit() and int(ys) >= v1_yr)
+            if eid in oa_elife_only_cby:
+                oa_next_full_year = float(oa_elife_only_cby[eid].get(str(v1_yr + 1), 0))
+            if eid in oa_by_eid or pdoi in oa_pre:
+                oa_next_full_year_all = float(cby_all.get(str(v1_yr + 1), 0))
 
         pre_pub_date = op.get("pub_date") or ""
         if not oa_countries and op.get("countries"):
@@ -305,7 +349,11 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
             "is_vor": is_vor,
             "v1_date": v1_dt_str,
             "fin_date": fin_dt_str,
-            "primary_subject": primary_subj,
+            # Strictly frozen v1 primary subject as primary_subject, keeping fin_primary_subject for audit!
+            "v1_primary_subject": v1_primary_subject,
+            "fin_primary_subject": fin_primary_subject,
+            "primary_subject": v1_primary_subject,
+            "v1_n_subjects": len(v1_subjs),
             "v1_sig_str": "|".join(v1_sig_list),
             "v1_str_str": "|".join(v1_str_list),
             "fin_sig_str": "|".join(fin_sig_list),
@@ -324,12 +372,16 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
             "sig_upgraded": int(fin_sig_min > v1_sig_min) if (pd.notna(fin_sig_min) and pd.notna(v1_sig_min)) else 0,
             "oa_elife_cites": float(oa_elife_cites),
             "oa_post_v1_cites": float(oa_post_v1_cites),
+            "oa_post_v1_all": float(oa_post_v1_all),
+            "oa_next_full_year": oa_next_full_year,
+            "oa_next_full_year_all": oa_next_full_year_all,
             "oa_ge_v1_cites": float(oa_ge_v1_cites),
             "preprint_doi": pdoi,
             "has_preprint_doi": int(bool(pdoi)),
             "pre_pub_date": pre_pub_date,
             "oa_pre_cites_tot": float(pre_cites_tot),
             "oa_pre_cites_before_v1": float(pre_cites_before_v1),
+            "oa_pre_cites_before_v1_preprint_only": float(pre_cites_before_v1_preprint_only),
             "oa_n_authors": oa_n_authors,
             "countries": "|".join(oa_countries),
             "first_countries": "|".join(oa_first_countries),
@@ -339,20 +391,41 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
         row.update(m_summary)
         rows.append(row)
 
-    df = pd.DataFrame(rows).merge(cr_agg, on="eid", how="left")
+    df = (
+        pd.DataFrame(rows)
+        .merge(cr_agg, on="eid", how="left")
+        .merge(cr_v1_only, on="eid", how="left")
+        .merge(cr_revs, on="eid", how="left")
+    )
     df["v1_dt"] = pd.to_datetime(df["v1_date"], errors="coerce")
     df["fin_dt"] = pd.to_datetime(df["fin_date"], errors="coerce")
     df["pre_dt"] = pd.to_datetime(df["pre_pub_date"], errors="coerce")
+    df["revision_dt"] = pd.to_datetime(df["first_revision_date"], errors="coerce")
+
+    # Verified v3 public-revision definition (Crossref posted-content ver >= 2, > v1_dt, <= freeze, <= fin_dt if VoR)
+    posted_rev = df["revision_dt"].gt(df["v1_dt"]) & df["revision_dt"].le(FREEZE_DATE)
+    posted_rev = posted_rev & ((df["is_vor"] == 0) | df["revision_dt"].le(df["fin_dt"]))
+    df["posted_revision"] = posted_rev.astype(int)
+    df["n_posted_revisions"] = df["n_posted_revisions"].fillna(0).astype(int)
 
     ref_dt = pd.Timestamp("2026-11-26")
     df["v1_age_days"] = (ref_dt - df["v1_dt"]).dt.days
+    df["v1_posting_day"] = df["v1_dt"].dt.day
     df["rev_lag_days"] = np.where(df["is_vor"] == 1, (df["fin_dt"] - df["v1_dt"]).dt.days, np.nan)
     df["v1_year"] = df["v1_dt"].dt.year
     df["v1_quarter"] = df["v1_dt"].dt.to_period("Q").astype(str)
+    df["v1_month"] = df["v1_dt"].dt.to_period("M").astype(str)
     df["fin_quarter"] = df["fin_dt"].dt.to_period("Q").astype(str)
     df["v1_half"] = df["v1_year"].astype("Int64").astype(str) + np.where(df["v1_dt"].dt.month <= 6, "H1", "H2")
-    df["subj_v1q"] = df["primary_subject"] + "__" + df["v1_quarter"]
-    df["subj_finq"] = df["primary_subject"] + "__" + df["fin_quarter"]
+
+    # Strictly v1-frozen FE cells (primary) AND final-subject FE cells (audit sensitivity)
+    df["v1_subj_v1q"] = df["v1_primary_subject"] + "__" + df["v1_quarter"]
+    df["v1_subj_v1m"] = df["v1_primary_subject"] + "__" + df["v1_month"]
+    df["v1_subj_finq"] = df["v1_primary_subject"] + "__" + df["fin_quarter"]
+    df["fin_subj_v1q"] = df["fin_primary_subject"] + "__" + df["v1_quarter"]
+    df["fin_subj_finq"] = df["fin_primary_subject"] + "__" + df["fin_quarter"]
+    df["subj_v1q"] = df["v1_subj_v1q"]
+    df["subj_finq"] = df["v1_subj_finq"]
 
     df["cr_cites"] = df["cr_cites_max"].fillna(0).astype(float)
     df["cr_cites_sum"] = df["cr_cites_sum"].fillna(0).astype(float)
@@ -365,8 +438,15 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
     df["log1p_oa"] = np.log1p(df["oa_elife_cites"].fillna(0).astype(float))
     df["log1p_oa_post_v1"] = np.log1p(df["oa_post_v1_cites"].fillna(0).astype(float))
     df["log1p_pre_before_v1"] = np.log1p(df["oa_pre_cites_before_v1"].fillna(0).astype(float))
-    df["n_authors"] = df["cr_n_authors"].fillna(df["oa_n_authors"]).fillna(5.0).astype(float)
-    df["log_authors"] = np.log1p(df["n_authors"])
+    df["log1p_pre_before_v1_preprint_only"] = np.log1p(df["oa_pre_cites_before_v1_preprint_only"].fillna(0).astype(float))
+
+    # STRICTLY FROZEN v1 author count (primary) + legacy max-across-versions (audit only!)
+    df["v1_n_authors"] = df["v1_n_authors"].astype(float)
+    df["cr_n_authors_max"] = df["cr_n_authors_max"].fillna(df["oa_n_authors"]).astype(float)
+    df["n_authors"] = df["v1_n_authors"]
+    df["log_v1_authors"] = np.log1p(df["v1_n_authors"])
+    df["log_authors"] = df["log_v1_authors"]
+    df["log_authors_max_leaked"] = np.log1p(df["cr_n_authors_max"])
 
     # Log transforms for live eLife article metrics (cumulative + untruncated monthly windows)
     for col in [
@@ -379,23 +459,25 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
         if col in df.columns:
             df[f"log1p_{col}"] = np.log1p(df[col].clip(lower=0))
 
-    # Within-paper post-vs-pre VoR monthly rate shift (STRICTLY untruncated v1 >= 2023-11!)
     df["delta_log_pv_rate"] = np.log1p(df["pv_rate_post_vor"].clip(lower=0)) - np.log1p(df["pv_rate_pre_vor"].clip(lower=0))
     df["delta_log_dl_rate"] = np.log1p(df["dl_rate_post_vor"].clip(lower=0)) - np.log1p(df["dl_rate_pre_vor"].clip(lower=0))
     df["delta_log_pv_rate_strict"] = np.log1p(df["pv_rate_post_vor_strict"].clip(lower=0)) - np.log1p(df["pv_rate_pre_vor"].clip(lower=0))
     df["delta_log_dl_rate_strict"] = np.log1p(df["dl_rate_post_vor_strict"].clip(lower=0)) - np.log1p(df["dl_rate_pre_vor"].clip(lower=0))
 
-    # Balanced 22-month post-v1 trajectory shifts (tau=3..11 & tau=12..21 vs tau=0..2, untruncated v1 >= 2023-11!)
     df["dlog_pv_3_11_vs_0_2"] = df["log1p_pv_m3_11"] - df["log1p_pv_m0_2"]
     df["dlog_pv_12_21_vs_0_2"] = df["log1p_pv_m12_21"] - df["log1p_pv_m0_2"]
     df["dlog_dl_3_11_vs_0_2"] = df["log1p_dl_m3_11"] - df["log1p_dl_m0_2"]
     df["dlog_dl_12_21_vs_0_2"] = df["log1p_dl_m12_21"] - df["log1p_dl_m0_2"]
 
-    # Strict v1-date alignment & API rolling-window telemetry audit!
+    # Strict v1-date alignment, covariate-freeze, & API rolling-window telemetry audit
     vors = df[df["is_vor"] == 1]
     n_vor_date_before_v1 = int((vors["fin_dt"] < vors["v1_dt"]).sum())
     n_v1_missing = int(df["v1_dt"].isna().sum())
+    n_v1_authors_missing = int(df["v1_n_authors"].isna().sum())
+    n_authors_max_gt_v1_all = int((df["cr_n_authors_max"] > df["v1_n_authors"]).sum())
     mat = df[(df["v1_dt"] >= "2023-01-01") & (df["v1_dt"] <= "2024-12-31") & df["v1_str_min"].notna()]
+    n_authors_max_gt_v1_mat = int((mat["cr_n_authors_max"] > mat["v1_n_authors"]).sum())
+    n_subj_diff_mat = int((mat["v1_primary_subject"] != mat["fin_primary_subject"]).sum())
     n_mat_metrics = int((mat["has_metrics"] == 1).sum())
     n_mat_complete_monthly = int((mat["has_complete_monthly_metrics"] == 1).sum())
     n_mat_left_truncated = int((mat["has_metrics"] == 1).sum() - n_mat_complete_monthly)
@@ -410,9 +492,18 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
         "n_v1_with_strength": int(df["v1_str_min"].notna().sum()),
         "v1_recovery_pct": float(100.0 * df["v1_str_min"].notna().sum() / max(len(prc_items), 1)),
         "n_v1_date_missing": n_v1_missing,
+        "n_v1_authors_missing": n_v1_authors_missing,
+        "n_authors_max_gt_v1_all": n_authors_max_gt_v1_all,
+        "n_authors_max_gt_v1_mature": n_authors_max_gt_v1_mat,
+        "n_primary_subject_reordered_all": n_subj_reordered,
+        "n_primary_subject_changed_set_all": n_subj_changed_set,
+        "n_primary_subject_diff_all": n_subj_reordered + n_subj_changed_set,
+        "n_primary_subject_diff_mature": n_subj_diff_mat,
         "n_vors_total": len(vors),
         "n_vors_fin_lt_v1": n_vor_date_before_v1,
         "n_mature_2023_2024": len(mat),
+        "n_mature_vors": int((mat["is_vor"] == 1).sum()),
+        "n_mature_non_vors": int((mat["is_vor"] == 0).sum()),
         "n_mature_with_live_metrics": n_mat_metrics,
         "mature_metrics_coverage_pct": float(100.0 * n_mat_metrics / max(len(mat), 1)),
         "api_monthly_min_ym": API_METRICS_MIN_YM,
@@ -423,10 +514,10 @@ def build_v1_longitudinal_panel() -> tuple[pd.DataFrame, dict]:
         "panel_gz_sha256": sha256_bytes(out_gz),
     }
     print(
-        f"[v1 Panel Built] N={len(df):,} | Mature 2023-2024={len(mat):,} | "
-        f"Live Totals={n_mat_metrics:,}/{len(mat):,} ({audit['mature_metrics_coverage_pct']:.2f}%) | "
-        f"Untruncated Monthly (v1>=2023-11)={n_mat_complete_monthly:,} (left-trunc={n_mat_left_truncated:,}) | "
-        f"Clean VoR Event-Study={n_mat_clean_vor_ev:,} | VoR<v1 anomalies={n_vor_date_before_v1}",
+        f"[v4 Panel Built] N={len(df):,} | Mature={len(mat):,} (VoR={audit['n_mature_vors']:,}, Non-VoR={audit['n_mature_non_vors']:,}) | "
+        f"v1_authors missing={n_v1_authors_missing} (max>v1: {n_authors_max_gt_v1_all} all / {n_authors_max_gt_v1_mat} mat) | "
+        f"v1_subj!=fin_subj: {audit['n_primary_subject_diff_all']} all ({n_subj_reordered} reord, {n_subj_changed_set} set-chg) | "
+        f"VoR<v1={n_vor_date_before_v1}",
         flush=True,
     )
     return df, audit
@@ -437,11 +528,9 @@ def build_expanded_journal_panel(v1_df: pd.DataFrame) -> tuple[pd.DataFrame, dic
     raw = json.loads((DATA_DIR / "expanded_openalex_panel_2021_2026.json").read_bytes().decode("utf-8"))
     raw_ok = [r for r in raw if not r.get("error")]
 
-    # Separate eLife 2021-2022 OpenAlex baseline from candidate donors
     elife_pre = [r for r in raw_ok if r["journal"] == "eLife" and r["year"] <= 2022]
     donor_rows = [r for r in raw_ok if r["journal"] != "eLife"]
 
-    # Build eLife 2023H1-2026H2_YTD strictly from deduplicated true-v1 PRC census (VoR + RP!)
     prc_geo = v1_df[v1_df["v1_dt"].notna() & (v1_df["v1_dt"] >= "2023-01-01") & (v1_df["v1_dt"] <= "2026-11-25")].copy()
     prc_geo["period"] = np.where(
         (prc_geo["v1_year"] == 2026) & (prc_geo["v1_dt"].dt.month >= 7),
@@ -469,11 +558,6 @@ def build_expanded_journal_panel(v1_df: pd.DataFrame) -> tuple[pd.DataFrame, dic
     comp = all_df[all_df["period"].isin(COMPLETE_PERIODS)].copy()
     comp["geo_cov_pct"] = 100.0 * comp["n_has_geo"] / np.maximum(comp["n_all"], 1)
 
-    # Strict programmatic donor quality filter:
-    # Primary strict panel (N=30): all 11 complete half-years (2021H1-2026H1),
-    #   min(geo_cov_pct) >= 90.0% in EVERY half-year, min(n_all) >= 25, min/med >= 0.30.
-    # Expanded robustness panel (N=35): all 11 half-years, mean(geo_cov_pct) >= 90.0%,
-    #   min(geo_cov_pct) >= 85.0%, min(n_all) >= 25, min/med >= 0.30.
     strict_journals = ["eLife"]
     expanded_journals = ["eLife"]
     donor_audit = []
@@ -554,19 +638,15 @@ def build_expanded_journal_panel(v1_df: pd.DataFrame) -> tuple[pd.DataFrame, dic
         "journal_panel_csv_sha256": sha256_bytes(out_csv),
     }
     print(
-        f"[Journal Panel Built] Strict (>=90% every half) N={len(strict_journals)} (p_min={audit['exact_min_perm_p_1sided']:.4f}) | "
-        f"Expanded (mean>=90%, min>=85%) N={len(expanded_journals)} (p_min={audit['expanded_min_perm_p_1sided']:.4f}) | "
-        f"Excluded={len(excluded_donors)}",
+        f"[Journal Panel Built] Strict N={len(strict_journals)} | Expanded N={len(expanded_journals)} | Excluded={len(excluded_donors)}",
         flush=True,
     )
-    for ex_r in excluded_donors:
-        print(f"  Excluded donor: {ex_r['journal']:38s} -> {ex_r['exclude_reason']}", flush=True)
     return jp_clean, audit
 
 
 def main() -> None:
     t0 = time.time()
-    print("=== STEP 3: BUILD CLEAN TRUE-v1 PANEL & EXPANDED OPENALEX BENCHMARK PANEL ===", flush=True)
+    print("=== STEP 3 (v4): BUILD STRICT-v1 PANEL & SUPPLEMENTARY OPENALEX PANEL ===", flush=True)
     v1_df, v1_audit = build_v1_longitudinal_panel()
     _, jp_audit = build_expanded_journal_panel(v1_df)
 
