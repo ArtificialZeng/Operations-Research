@@ -1,4 +1,6 @@
-"""Step 5: Verify all peer-reviewed manuscript references against the live Crossref API."""
+"""Step 5: Verify all peer-reviewed manuscript references against the live Crossref API
+and record verified official federal regulatory / NHTSA institutional sources.
+"""
 from __future__ import annotations
 
 import json
@@ -13,7 +15,7 @@ PROC_DIR = BASE_DIR / "data_processed"
 PROC_DIR.mkdir(parents=True, exist_ok=True)
 
 HEADERS = {
-    "User-Agent": "AcademicResearch-CrossrefVerify/1.0 (mailto:research@university.edu)",
+    "User-Agent": "AcademicResearch-CrossrefVerify/1.0 (mailto:zijianzeng@foxmail.com)",
     "Accept": "application/json",
 }
 
@@ -25,6 +27,7 @@ QUERIES = [
     ("haunschild_2004", "The Role of Volition in Organizational Learning: The Case of Automotive Product Recalls", "Haunschild"),
     ("kalaignanam_2013", "The Impact of Product Recalls on Future Product Reliability and Future Accidents: Evidence from the Automobile Industry", "Kalaignanam"),
     ("eilert_2017", "Does It Pay to Recall Your Product Early? An Empirical Investigation in the Automobile Industry", "Eilert"),
+    ("pagiavlas_2022", "Regulating Product Recall Compliance in the Digital Age", "Pagiavlas"),
     ("rupp_2002", "Who Initiates Recalls and Who Cares? Evidence from the Automobile Industry", "Rupp"),
     ("bae_2011", "Do Vehicle Recalls Reduce the Number of Accidents? The Case of the U.S. Car Market", "Bae"),
     ("barber_1996", "Product Reliability and Firm Value: The Experience of American and Japanese Automakers", "Barber"),
@@ -41,6 +44,55 @@ QUERIES = [
     ("callaway_2021", "Difference-in-Differences with multiple time periods", "Callaway"),
     ("roth_2023", "What's trending in difference-in-differences? A synthesis of the recent econometrics literature", "Roth"),
 ]
+
+DIRECT_DOIS = {
+    "pagiavlas_2022": "10.1177/00222429211023016",
+}
+
+
+def _parse_crossref_item(it: dict) -> dict:
+    authors = it.get("author", [])
+    pub_print = it.get("published-print") or {}
+    pub_online = it.get("published-online") or {}
+    pub_issued = it.get("issued") or {}
+    pub = pub_print or pub_online or pub_issued
+    parts = pub.get("date-parts", [[None]])[0]
+    year = parts[0] if parts else None
+    online_parts = pub_online.get("date-parts", [[None]])[0]
+    online_year = online_parts[0] if online_parts else None
+    author_str = ", ".join(
+        f"{a.get('family', '')}, {a.get('given', '')[:1]}."
+        for a in authors[:6]
+        if a.get("family")
+    )
+    return {
+        "verified": True,
+        "doi": str(it.get("DOI") or ""),
+        "title": (it.get("title") or [""])[0],
+        "authors": author_str,
+        "journal": (it.get("container-title") or [""])[0],
+        "year": year,
+        "online_year": online_year,
+        "volume": it.get("volume"),
+        "issue": it.get("issue"),
+        "page": it.get("page"),
+    }
+
+
+def query_crossref_doi(doi: str) -> dict:
+    url = f"https://api.crossref.org/works/{doi}"
+    for attempt in range(1, 4):
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=30)
+            r.raise_for_status()
+            it = r.json().get("message", {})
+            if it.get("DOI"):
+                return _parse_crossref_item(it)
+            return {"verified": False, "query_doi": doi}
+        except (requests.RequestException, ValueError, OSError) as exc:
+            print(f"[WARN] Crossref DOI retry {attempt} for {doi}: {exc}", flush=True)
+            time.sleep(2.0 * attempt)
+    return {"verified": False, "query_doi": doi}
 
 
 def query_crossref(title: str, first_author: str) -> dict:
@@ -68,30 +120,7 @@ def query_crossref(title: str, first_author: str) -> dict:
                     and not doi.lower().startswith("10.2139/ssrn")
                     and not doi.lower().startswith("10.3386/")
                 ):
-                    pub = (
-                        it.get("published-print")
-                        or it.get("published-online")
-                        or it.get("issued")
-                        or {}
-                    )
-                    parts = pub.get("date-parts", [[None]])[0]
-                    year = parts[0] if parts else None
-                    author_str = ", ".join(
-                        f"{a.get('family', '')}, {a.get('given', '')[:1]}."
-                        for a in authors[:6]
-                        if a.get("family")
-                    )
-                    return {
-                        "verified": True,
-                        "doi": doi,
-                        "title": it_title,
-                        "authors": author_str,
-                        "journal": container,
-                        "year": year,
-                        "volume": it.get("volume"),
-                        "issue": it.get("issue"),
-                        "page": it.get("page"),
-                    }
+                    return _parse_crossref_item(it)
             return {"verified": False, "query_title": title}
         except (requests.RequestException, ValueError, OSError) as exc:
             print(f"[WARN] Crossref retry {attempt} for {first_author}: {exc}", flush=True)
@@ -100,15 +129,46 @@ def query_crossref(title: str, first_author: str) -> dict:
 
 
 INSTITUTIONAL_REFERENCES = {
+    "nhtsa_completion_rates_2025": {
+        "verified": True,
+        "type": "government-report",
+        "authors": "National Highway Traffic Safety Administration (NHTSA), Office of Defects Investigation",
+        "year": 2025,
+        "title": "Vehicle Safety Recall Completion Rates (Report No. DOT HS 813 687)",
+        "publisher": "U.S. Department of Transportation, National Highway Traffic Safety Administration, January 2025",
+        "url": "https://rosap.ntl.bts.gov/view/dot/79374",
+        "pdf_url": "https://rosap.ntl.bts.gov/view/dot/79374/dot_79374_DS1.pdf",
+        "note": "Official FAST Act supplemental report analyzing fifth-quarter recall completion rates (2010-2022), documenting vehicle age (oldest affected vehicle) and remedy-availability delays as primary determinants of completion.",
+    },
+    "nhtsa_eighth_report_2024": {
+        "verified": True,
+        "type": "government-dataset",
+        "authors": "National Highway Traffic Safety Administration (NHTSA)",
+        "year": 2025,
+        "title": "2024 Annual List of Recall Completion Rates (Eighth-Quarter Completion Report)",
+        "publisher": "U.S. Department of Transportation, National Highway Traffic Safety Administration, January 2025",
+        "url": "https://www.nhtsa.gov/sites/nhtsa.gov/files/2025-01/2024-recall-completion-rates.pdf",
+        "note": "Published annual list of campaigns reaching their eighth quarterly completion report in calendar year 2024 (809 rows linked 100% to FLAT_RCL).",
+    },
+    "nhtsa_eighth_report_2025": {
+        "verified": True,
+        "type": "government-dataset",
+        "authors": "National Highway Traffic Safety Administration (NHTSA)",
+        "year": 2026,
+        "title": "2025 Annual List of Recall Completion Rates (Eighth-Quarter Completion Report)",
+        "publisher": "U.S. Department of Transportation, National Highway Traffic Safety Administration, January 2026",
+        "url": "https://www.nhtsa.gov/sites/nhtsa.gov/files/2026-01/2025-recall-completion-rates.pdf",
+        "note": "Published annual list of campaigns reaching their eighth quarterly completion report in calendar year 2025 (728 rows linked 100% to FLAT_RCL).",
+    },
     "nhtsa_2025_annual_recalls_report": {
         "verified": True,
         "type": "government-report",
         "authors": "National Highway Traffic Safety Administration (NHTSA)",
         "year": 2026,
         "title": "2025 Annual Recalls Report",
-        "publisher": "U.S. Department of Transportation, National Highway Traffic Safety Administration",
+        "publisher": "U.S. Department of Transportation, National Highway Traffic Safety Administration, March 2026",
         "url": "https://www.nhtsa.gov/sites/nhtsa.gov/files/2026-03/2025-annual-recalls-report.pdf",
-        "note": "Official annual recalls report (March 2026) tallying 33 over-the-air recalls in 2025 under internal agency reporting.",
+        "note": "Official annual recalls report (March 2026) tallying 33 partially or fully over-the-air remedied recalls in 2025 under internal agency reporting.",
     },
     "cfr_49_573_7": {
         "verified": True,
@@ -116,9 +176,19 @@ INSTITUTIONAL_REFERENCES = {
         "authors": "Office of the Federal Register (NARA) / U.S. Department of Transportation",
         "year": 2026,
         "title": "49 CFR § 573.7 — Quarterly Reports (Defect and Noncompliance Responsibility and Reports)",
-        "publisher": "Code of Federal Regulations, Title 49, Part 573",
+        "publisher": "Electronic Code of Federal Regulations, Title 49, Subtitle B, Chapter V, Part 573",
         "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-573/section-573.7",
-        "note": "Governs six consecutive quarterly completion filings starting from the remedy-available owner notification quarter (§ 573.7(a)) and unreachable-vehicle exclusions for export, theft, scrapping, or failure to receive notification (§ 573.7(b)(5)).",
+        "note": "Governs statutory quarterly completion filings starting from the remedy-available owner notification quarter (§ 573.7(a)), early termination at 100% completion, and unreachable-vehicle exclusions (§ 573.7(b)(5)).",
+    },
+    "dot_socrata_6axg_epim": {
+        "verified": True,
+        "type": "government-dataset",
+        "authors": "U.S. Department of Transportation (DOT) / NHTSA",
+        "year": 2026,
+        "title": "Recalls Data (Socrata Open Data Registry, Dataset ID 6axg-epim)",
+        "publisher": "U.S. Department of Transportation DataHub",
+        "url": "https://datahub.transportation.gov/resource/6axg-epim.csv",
+        "note": "Latest-snapshot public DOT recalls completion registry mixing heterogeneous reporting horizons across campaigns (snapshot frozen November 25, 2026).",
     },
 }
 
@@ -130,7 +200,10 @@ def main() -> None:
         "institutional_references": INSTITUTIONAL_REFERENCES,
     }
     for key, title, author in QUERIES:
-        res = query_crossref(title, author)
+        if key in DIRECT_DOIS:
+            res = query_crossref_doi(DIRECT_DOIS[key])
+        else:
+            res = query_crossref(title, author)
         out["references"][key] = res
         status = f"OK doi={res.get('doi')} ({res.get('year')}, {res.get('journal')})" if res.get("verified") else "MISS"
         print(f"[{key}] {status}", flush=True)

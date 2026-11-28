@@ -1,0 +1,6 @@
+Text_Coding_Category,Definition,Total_2018_2026,Pre_Cutoff_N,Pre_Cutoff_API_Queried,Pre_Cutoff_API_True,Pre_Cutoff_API_True_Pct,Post_Cutoff_N,Post_Cutoff_API_Queried,Post_Cutoff_API_True,Post_Cutoff_API_True_Pct
+Pure_OTA_Wireless_Only,Verbatim Part 573 wireless-only remedy (no dealer/hardware clause),61,48,48,48,100.0,13,13,0,0.0
+Hybrid_SW_Choice_OTA_Capable,Verbatim Part 573 OTA-capable or dealer software option (no hardware replacement),86,40,40,38,95.0,46,46,0,0.0
+Hybrid_HW_Mixed_Hardware_Req,Verbatim Part 573 OTA software paired with hardware inspection/replacement,15,6,6,3,50.0,9,9,0,0.0
+Dealer_Software_No_OTA,Verbatim Part 573 dealer-only software remedy (no OTA option),984,791,791,0,0.0,193,193,0,0.0
+Physical_Hardware_NonSW,Physical hardware recall (250 stratified campaigns queried in API),6821,5744,260,0,0.0,1077,46,0,0.0

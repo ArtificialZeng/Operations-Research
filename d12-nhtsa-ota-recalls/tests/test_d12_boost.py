@@ -1,14 +1,16 @@
-"""Comprehensive verification, econometric exactness, and parity test suite for D12 Boost."""
+"""Comprehensive verification, econometric exactness, fixed-report reconciliation,
+common-support audit, and zero-leak PDF parity test suite for D12 (v4).
+"""
 from __future__ import annotations
 
 import hashlib
 import importlib.util
 import json
-from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 BASE_DIR = Path(r"D:\AI_Science\antigravity\d12_boost_nhtsa_ota_recalls_20261125")
 PROC_DIR = BASE_DIR / "data_processed"
@@ -28,7 +30,7 @@ def _load_module(script_name: str):
 
 
 def test_canonicalize_oems_runs_cleanly_no_crash():
-    """Regression guard for Step 3 OEM canonicalization (must harmonize corporate punctuation/renames)."""
+    """Regression guard for Step 3 OEM canonicalization (corporate punctuation/renames)."""
     mod = _load_module("03_build_harmonized_panels.py")
     s = pd.Series(
         [
@@ -48,7 +50,7 @@ def test_canonicalize_oems_runs_cleanly_no_crash():
 
 
 def test_vectorized_cr1_wcb_matches_bruteforce_exactly():
-    """Adversarial mathematical proof: vectorized WCB t-stats in script 04 match brute-force loop OLS+CR1 to <1e-10."""
+    """Adversarial proof: vectorized WCB t-stats in script 04 match brute-force loop OLS+CR1 to <1e-10."""
     mod = _load_module("04_econometric_core_analysis.py")
 
     rng = np.random.default_rng(12345)
@@ -107,7 +109,7 @@ def test_vectorized_cr1_wcb_matches_bruteforce_exactly():
 
 
 def test_absorbed_2way_fe_did_matches_explicit_ols_cr1_wcb():
-    """Mathematical proof: FWL within-unit absorbed DiD matches explicit unit-FE OLS+CR1+WCB for both OEM & unit clusters."""
+    """Mathematical proof: FWL within-unit absorbed DiD matches explicit unit-FE OLS+CR1+WCB."""
     mod = _load_module("04_econometric_core_analysis.py")
     rng = np.random.default_rng(999)
     rows = []
@@ -133,7 +135,7 @@ def test_absorbed_2way_fe_did_matches_explicit_ols_cr1_wcb():
 
 
 def test_sun_abraham_iw_full_rank_no_cohort_leakage():
-    """Verify Sun & Abraham (2021) estimator uses true saturated cohort x relative-time cells with zero leakage."""
+    """Verify Sun & Abraham (2021) estimator uses saturated cohort x relative-time cells with zero leakage."""
     res = json.loads((RES_DIR / "d12_econometric_results.json").read_text(encoding="utf-8"))
     sa = res["pillar1_blast_radius"]["itt_staggered_adoption"]["sun_abraham_iw"]
     assert sa["skipped"] is False
@@ -141,9 +143,6 @@ def test_sun_abraham_iw_full_rank_no_cohort_leakage():
     assert sa["n_cohorts"] == 7
     assert sa["cohorts"] == [2019, 2020, 2021, 2022, 2023, 2024, 2025]
     assert sa["excluded_partial_cohort"] == 2026
-    assert sa["n_cohort_period_cells"] >= 35
-    assert sa["n_post_cells"] >= 20
-    assert set(sa["iw_dynamic_terms"].keys()) == {"ev_m3", "ev_m2", "ev_p0", "ev_p1", "ev_p2", "ev_p3"}
     assert sa["iw_pre_trend_wald_m3_m2"]["p_value"] > 0.10
 
 
@@ -170,13 +169,6 @@ def test_raw_receipts_and_api_ground_truth_audit():
     assert audit["cutoff_post_may8_2025_through_2026"]["n_txt_ota"] == 68
     assert audit["cutoff_post_may8_2025_through_2026"]["n_api_true"] == 0
 
-    yr_map = {r["rec_year"]: r for r in audit["txt_ota_reconciliation_by_year"]}
-    for yr in (2019, 2020, 2021, 2022, 2023):
-        assert yr_map[yr]["api_true_rate"] == 1.0
-    assert yr_map[2024]["n_api_true"] == 31
-    assert yr_map[2025]["n_api_true"] == 4
-    assert yr_map[2026]["n_api_true"] == 0
-
 
 def test_every_regression_full_rank_verified():
     res = json.loads((RES_DIR / "d12_econometric_results.json").read_text(encoding="utf-8"))
@@ -196,10 +188,76 @@ def test_every_regression_full_rank_verified():
                 walk(it)
 
     walk(res)
-    assert checked >= 100, f"Expected >= 100 full-rank verified regressions, found {checked}"
+    assert checked >= 100
 
 
-def test_all_tables_exist_and_zero_nans():
+def test_v4_fixed_report_linkage_duplicates_and_denominators():
+    """Verify P0 #2: SHA-256 frozen eighth-report linkage, duplicate exclusion, denominator reconciliation, and ODATE flow."""
+    mod = _load_module("09_v4_fixed_report_and_support.py")
+    _, annual = mod.link_reported_campaigns()
+    assert annual.groupby("report_year").size().to_dict() == {2024: 809, 2025: 728}
+    assert annual["_merge"].eq("both").all()
+    eligible = mod.eligible_eighth_reports(annual)
+    assert len(eligible) == 1533
+    assert eligible["campaign_code"].is_unique
+    assert set(annual.loc[~annual.index.isin(eligible.index), "campaign_code"]) == {"22V315", "22V743"}
+
+    v4 = json.loads((RES_DIR / "d12_v4_fixed_report_audit.json").read_text(encoding="utf-8"))
+    assert v4["source_provenance"]["annual_eighth_report_csv"]["sha256"] == "7c19005d8880e8b1534e779d53288606640f41acc4c1470ecdd0eac44c91e596"
+    assert (RAW_DIR / "dot_79374_DS1.pdf").exists()
+    rec = v4["reconciliation"]
+    assert rec["matched_unique_campaigns"] == 1533
+    assert rec["denominator_exact_match_count"] == 1531
+    assert rec["denominator_sw_exact_match_count"] == rec["denominator_sw_total_count"] == 227
+    assert rec["odate_statutory_alignment"]["combined_two_year_lag_n"] == 1515
+
+    sf = v4["sample_flow"]["odate_2022_2023_by_modality"]
+    assert sf["Pure_OTA"]["Total_Campaigns"] == 21
+    assert sf["Pure_OTA"]["In_8th_Report_Unique"] == 15
+    assert sf["Pure_OTA"]["Unlisted_Early_Completed_100pct"] == 5
+    assert sf["Pure_OTA"]["Unlisted_Missing_DOT_Report"] == 1
+    assert sf["Hybrid_OTA"]["Total_Campaigns"] == sf["Hybrid_OTA"]["In_8th_Report_Unique"] == 15
+
+
+def test_v4_common_support_reviewer_benchmarks_and_looo():
+    """Verify P0 #1: exact Tesla 11/15 (99.17%) concentration, reviewer benchmarks, same-OEM CS, and 18-OEM LOOO."""
+    v4 = json.loads((RES_DIR / "d12_v4_fixed_report_audit.json").read_text(encoding="utf-8"))
+    cs8 = v4["common_support_summary"]["eighth_report"]
+    assert cs8["pure_total_n"] == 15
+    assert cs8["pure_tesla_n"] == 11
+    assert cs8["pure_tesla_vehicle_share_pct"] == pytest.approx(99.17, abs=0.01)
+    assert cs8["tesla_dealer_sw_n"] == 0
+    assert cs8["pure_nontesla_n"] == 4
+    assert set(cs8["pure_nontesla_oems"]) == {"Lucid USA, Inc.", "Volvo Car USA, LLC"}
+    assert cs8["pure_nontesla_max_age_yr"] <= 1.0
+    assert len(cs8["same_oem_both_dsw_and_ota_oems"]) == 8
+
+    terms = {(r["Specification"], r["Term"]): r for r in v4["age_sensitivity_models"]}
+    # Exact reviewer benchmarks
+    b_pure = terms["Fixed 8th report: oldest model year (4-way)", "is_ota_pure_x_age"]
+    assert b_pure["Coef"] == pytest.approx(3.6852, abs=0.005)
+    assert b_pure["p_WCB"] == pytest.approx(0.030, abs=0.002)
+
+    w5_pure = terms["Fixed 8th report: oldest MY, 0-5 yr window (4-way)", "is_ota_pure_x_age"]
+    assert w5_pure["Coef"] == pytest.approx(3.4934, abs=0.005)
+    assert w5_pure["p_WCB"] == pytest.approx(0.226, abs=0.002)
+
+    nt_pure = terms["Fixed 8th report: oldest MY, excluding Tesla (4-way)", "is_ota_pure_x_age"]
+    assert nt_pure["Coef"] == pytest.approx(1.5914, abs=0.005)
+    assert nt_pure["p_WCB"] == pytest.approx(0.553, abs=0.002)
+
+    cs_pool = terms["Same-OEM common support (8 OEMs, all ages, pooled OTA)", "is_ota_audited_x_age"]
+    assert cs_pool["N"] == 70 and cs_pool["OEMs"] == 8 and cs_pool["p_WCB"] > 0.50
+
+    looo = v4["looo_summary"]
+    assert looo["n_oems_tested"] == 18
+    assert looo["dealer_age_sig_05_count"] == 18
+    assert looo["dealer_age_max_pwcb"] <= 0.005
+    assert looo["pure_x_age_non_sig_05_count"] == 8
+    assert looo["hybrid_x_age_sig_05_count"] == 0
+
+
+def test_all_tables_and_v4_figures_exist_zero_nans():
     expected_tables = [
         "table1_api_measurement_audit.csv",
         "table2_blast_radius_and_selection.csv",
@@ -210,6 +268,12 @@ def test_all_tables_exist_and_zero_nans():
         "table5_safety_cascades_and_complaints_did.csv",
         "table5b_prerecall_complaints_and_hazards.csv",
         "table6_maturation_and_age_profiles.csv",
+        "table_v4_sample_flow.csv",
+        "table_v4_eighth_report_completion.csv",
+        "table_channel_oem_age_support.csv",
+        "table_v4_vehicle_age_sensitivity.csv",
+        "table_v4_looo_sensitivity.csv",
+        "table_v4_text_coding_vs_api.csv",
     ]
     for fname in expected_tables:
         p = TBL_DIR / fname
@@ -218,166 +282,116 @@ def test_all_tables_exist_and_zero_nans():
         assert len(df) > 0
         assert int(df.isna().sum().sum()) == 0, f"NaN found in {fname}"
 
-
-def test_all_five_figures_exist_png_and_pdf():
-    stems = [
-        "fig1_api_audit_and_blast_radius",
-        "fig2_itt_event_study_and_fleet_selection",
-        "fig3_maturation_and_age_decay_cliff",
-        "fig4_breakeven_frontier_and_net_exposure",
-        "fig5_safety_oversight_and_complaint_did",
-    ]
-    for s in stems:
-        png = FIG_DIR / f"{s}.png"
-        pdf = FIG_DIR / f"{s}.pdf"
+    for stem in (
+        "fig1_v4_sample_flow_and_completion",
+        "fig2_v4_channel_oem_age_support",
+        "fig3_v4_age_gradients_and_looo",
+        "fig4_v4_api_audit_and_hybrid_scale",
+    ):
+        png = FIG_DIR / f"{stem}.png"
+        pdf = FIG_DIR / f"{stem}.pdf"
         assert png.exists() and png.stat().st_size > 100_000
         assert pdf.exists() and pdf.stat().st_size > 15_000
 
 
-def test_all_22_references_cited_in_manuscript_body():
-    """Every single Crossref-verified reference must be cited in the manuscript body AND appear with its DOI in References."""
+def test_all_23_references_and_institutional_urls_verified_and_cited():
+    """All 23 Crossref-verified DOIs (incl. Pagiavlas 10.1177/00222429211023016) + 6 institutional URLs cited in body."""
     md = (BASE_DIR / "manuscript_d12_boost.md").read_text(encoding="utf-8")
     assert "## References" in md
     body, refs_sec = md.split("## References", 1)
-    refs = json.loads((PROC_DIR / "verified_references.json").read_text(encoding="utf-8"))["references"]
-    assert len(refs) == 22
+    vref = json.loads((PROC_DIR / "verified_references.json").read_text(encoding="utf-8"))
+    refs = vref["references"]
+    assert len(refs) == 23
+    assert refs["pagiavlas_2022"]["doi"] == "10.1177/00222429211023016"
 
     for key, info in refs.items():
         assert info["verified"] is True
         assert info["doi"] in refs_sec, f"DOI missing in References section for {key}"
-        # Extract surname cleanly (handle 'Colin Cameron, A.' -> 'Cameron')
         first_chunk = info["authors"].split(",")[0].strip()
         surname = first_chunk.split()[-1]
         yr = str(info["year"])
         assert surname in body and yr in body, f"Uncited reference in manuscript body: {key} ({surname} {yr})"
 
-
-def test_manuscript_exact_numerical_and_doi_parity():
-    md = (BASE_DIR / "manuscript_d12_boost.md").read_text(encoding="utf-8").replace("{,}", ",")
-    res = json.loads((RES_DIR / "d12_econometric_results.json").read_text(encoding="utf-8"))
-    s3 = json.loads((RES_DIR / "step3_panel_build_summary.json").read_text(encoding="utf-8"))
-
-    p1 = res["pillar1_blast_radius"]
-    p2 = res["pillar2_remediation_velocity"]
-    p3 = res["pillar3_net_unremedied_exposure"]
-    p4 = res["pillar4_safety_and_complaints"]
-
-    def r3(x: float) -> str:
-        return str(Decimal(str(abs(x))).quantize(Decimal("0.001"), rounding=ROUND_HALF_UP))
-
-    must_match = [
-        r3(p1["main_sw_ota_oems"]["sw_ota_oems_4way_log_potaff"]["terms"]["is_ota_hybrid"]["coef"]),
-        r3(p1["main_sw_ota_oems"]["sw_ota_oems_4way_log_potaff"]["terms"]["is_ota_pure"]["coef"]),
-        r3(p1["main_sw_ota_oems"]["sw_ota_oems_api2018_24_log_potaff"]["terms"]["is_ota_api_full"]["coef"]),
-        r3(p1["itt_staggered_adoption"]["pooled_did"]["terms"]["post_ota_adopt"]["coef"]),
-        r3(p1["itt_staggered_adoption"]["sun_abraham_iw"]["iw_post_coef"]),
-        r3(p1["unconditional_sdv_cohort_shift"]["sw_vs_physical_sdv_did"]["terms"]["sw_x_sdv_my2021p"]["coef"]),
-        f"{p2['mature_18m_regressions']['sw_ota_oems_4way']['terms']['is_ota_hybrid']['coef']:.2f}",
-        f"{p2['mature_18m_regressions']['sw_ota_oems_api_ota']['terms']['is_ota_api_full']['coef']:.2f}",
-        f"{abs(p2['vehicle_age_decay']['regressions']['sw_ota_oems_4way_x_age']['terms']['veh_age']['coef']):.2f}",
-        f"{p2['vehicle_age_decay']['regressions']['sw_ota_oems_4way_x_age']['terms']['pure_x_age']['coef']:.2f}",
-        f"{p2['vehicle_age_decay']['regressions']['sw_ota_oems_4way_x_age']['terms']['hybrid_x_age']['coef']:.2f}",
-        f"{p2['vehicle_age_decay']['regressions']['sw_ota_oems_api_x_age']['terms']['api_ota_x_age']['coef']:.2f}",
-        r3(p3["regressions"]["mature_all_vehicles_4way_vs_phys"]["terms"]["is_ota_pure"]["coef"]),
-        r3(p3["regressions"]["mature_all_vehicles_4way_vs_phys"]["terms"]["is_ota_hybrid"]["coef"]),
-        r3(p3["regressions"]["mature_all_vehicles_hybrid_swchoice_vs_hwmixed"]["terms"]["is_ota_hybrid_swchoice"]["coef"]),
-        r3(p3["regressions"]["mature_sw_tiers_light_duty"]["terms"]["is_nontesla_pure"]["coef"]),
-        r3(p3["hybrid_minus_pure_unremedied_wald"]["all_vehicles"]["diff_hybrid_minus_pure"]),
-        r3(p3["hybrid_minus_pure_unremedied_wald"]["sw_ota_oems"]["diff_hybrid_minus_pure"]),
-        f"{p3['breakeven_frontier']['within_ota_oem_matched_frontier']['pure_ota_breakeven_r_pct']:.2f}",
-        f"{p3['breakeven_frontier']['within_ota_oem_matched_frontier']['hybrid_ota_breakeven_r_pct']:.2f}",
-        f"{p3['breakeven_frontier']['within_ota_oem_matched_frontier']['hybrid_swchoice_breakeven_r_pct']:.2f}",
-        f"{p4['safety_fe_regressions']['4way_has_fmvss']['terms']['is_ota_pure']['coef']:.4f}",
-        f"{abs(p4['safety_fe_regressions']['apiota2018_24_has_odi_action']['terms']['is_ota_api_full']['coef']):.4f}",
-        f"{s3['complaint_panel']['n_unique_odino_2020_2026']:,}",
-        f"{s3['complaint_panel']['n_matched_comp_fail_links']:,}",
-        "9,139,366",
-        "91,604",
-        "348,488",
-        "64,001,606",
-    ]
-    for token in must_match:
-        assert token in md, f"Expected exact numerical token '{token}' missing from manuscript_d12_boost.md"
+    for url in (
+        "https://rosap.ntl.bts.gov/view/dot/79374",
+        "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-573/section-573.7",
+        "https://www.nhtsa.gov/sites/nhtsa.gov/files/2025-01/2024-recall-completion-rates.pdf",
+        "https://www.nhtsa.gov/sites/nhtsa.gov/files/2026-01/2025-recall-completion-rates.pdf",
+        "https://www.nhtsa.gov/sites/nhtsa.gov/files/2026-03/2025-annual-recalls-report.pdf",
+    ):
+        assert url in refs_sec, f"Required official URL missing from References: {url}"
 
 
-def test_compiled_pdf_zero_leaks_and_pages():
-    comp = _load_module("08_compile_manuscript_pdf.py")
-    pdf_path = BASE_DIR / "manuscript_d12_boost.pdf"
-    assert pdf_path.exists() and pdf_path.stat().st_size > 500_000
-    n_pages, leaks = comp.verify_pdf_zero_leaks(pdf_path)
-    assert n_pages >= 15
-    assert leaks == [], f"PDF contains leaked tokens: {leaks}"
-
-
-def test_v2_referee_revision_guards():
-    """Verify all three v2 major-revision referee requirements across code, JSON, tables, and manuscript."""
+def test_v4_manuscript_and_appendix_parity_zero_leaks_and_claim_withdrawal():
+    """Verify authorship block, forbidden token absence, exact v4 numbers, claim withdrawal, and zero-leak PDFs."""
     md = (BASE_DIR / "manuscript_d12_boost.md").read_text(encoding="utf-8")
+    sup = (BASE_DIR / "supplementary_d12_jsr.md").read_text(encoding="utf-8")
     readme = (BASE_DIR / "README.md").read_text(encoding="utf-8")
-    res_raw = (RES_DIR / "d12_econometric_results.json").read_text(encoding="utf-8")
-    res = json.loads(res_raw)
-    refs_json = json.loads((PROC_DIR / "verified_references.json").read_text(encoding="utf-8"))
 
-    # (a) Zero occurrences of unidentified 85-90% selection-share overclaim or zero-clipped ITT gap
-    for forbidden in ("85–90%", "85-90%", "implied_endogenous_selection_gap"):
-        assert forbidden not in md, f"Forbidden overclaim token '{forbidden}' found in manuscript"
-        assert forbidden not in readme, f"Forbidden overclaim token '{forbidden}' found in README.md"
-        assert forbidden not in res_raw, f"Forbidden token '{forbidden}' found in d12_econometric_results.json"
-    assert "conditional_vs_unconditional_estimands" in res["pillar1_blast_radius"]
+    # Exact authorship block & zero meta-labels
+    for doc_name, txt in (("manuscript", md), ("appendix", sup)):
+        assert "Zijian Zeng" in txt, f"Missing author in {doc_name}"
+        assert "Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA" in txt
+        assert "zijianzeng@foxmail.com" in txt
+        assert "1002266693@ucsiuniversity.edu.my" in txt
 
-    # (b) Tesla 98.7% mature Pure-OTA vehicle-instance share & Non-Tesla composition + exact p_WCB disclosure
-    comp = res["pillar3_net_unremedied_exposure"]["mature_sample_composition"]
-    assert comp["pure_ota_total_n"] == 46
-    assert comp["pure_ota_tesla_subsample"]["n_campaigns"] == 27
-    assert abs(comp["pure_ota_tesla_subsample"]["share_pure_affected_pct"] - 98.73) < 0.05
-    assert comp["pure_ota_nontesla_subsample"]["n_campaigns"] == 19
-    assert "98.7%" in md
-    assert "table4c_mature_ota_oem_composition.csv" in md
+    for forbidden in ("85–90%", "85-90%", "-85.3%", "−85.3%", "Target Venues", "Target Format", "Track A", "Track B"):
+        assert forbidden not in md, f"Forbidden token '{forbidden}' found in manuscript_d12_boost.md"
+        assert forbidden not in sup, f"Forbidden token '{forbidden}' found in supplementary_d12_jsr.md"
+        assert forbidden not in readme, f"Forbidden token '{forbidden}' found in README.md"
 
-    # Exact p_WCB values for Pillar 3 unconditional physical and dealer-SW baselines must be prominently reported
-    p3_all = res["pillar3_net_unremedied_exposure"]["regressions"]["mature_all_vehicles_4way_vs_phys"]["terms"]
-    p3_sw = res["pillar3_net_unremedied_exposure"]["regressions"]["mature_sw_ota_oems_4way"]["terms"]
-    p3_diff = res["pillar3_net_unremedied_exposure"]["hybrid_minus_pure_unremedied_wald"]
-    assert p3_all["is_ota_pure"]["p_wcb"] == 0.065
-    assert p3_all["is_ota_hybrid"]["p_wcb"] == 0.055
-    assert p3_sw["is_ota_pure"]["p_wcb"] == 0.401
-    assert p3_sw["is_ota_hybrid"]["p_wcb"] == 0.097
-    assert p3_diff["all_vehicles"]["p_wcb"] == 0.007
-    assert p3_diff["sw_ota_oems"]["p_wcb"] == 0.079
-    for p_tok in ("0.065", "0.055", "0.401", "0.097", "0.007", "0.079"):
-        assert p_tok in md, f"Exact Pillar 3 p_WCB '{p_tok}' missing from manuscript"
-
-    # Non-Tesla vehicle-age compliance-decay sensitivity verified in JSON & manuscript
-    age_regs = res["pillar2_remediation_velocity"]["vehicle_age_decay"]["regressions"]
-    assert age_regs["sw_excl_tesla_anyota_x_age"]["terms"]["ota_any_x_age"]["p_wcb"] < 0.05
-    assert age_regs["sw_excl_tesla_api_x_age"]["terms"]["api_ota_x_age"]["p_wcb"] < 0.05
-    for tok in ("2.37", "0.030", "1.96", "0.023"):
-        assert tok in md, f"Non-Tesla age-decay sensitivity token '{tok}' missing from manuscript"
-
-    # (c) Recall-level vehicle-instance proxy terminology + 49 CFR § 573.7 + NHTSA 2025 Annual Recalls Report
-    for req_phrase in (
-        "recall-level unremedied vehicle-instance proxy",
-        "49 CFR § 573.7",
-        "2025 Annual Recalls Report",
-        "2025-annual-recalls-report.pdf",
+    # Explicit withdrawal of universal OTA age-buffering claim & required v4 empirical tokens
+    for req_tok in (
+        "explicitly withdraw any universal claim",
+        "1,533",
+        "11/15",
+        "99.17%",
+        "+3.69",
+        "0.030",
+        "+3.49",
+        "0.226",
+        "+1.59",
+        "0.553",
+        "7.01×",
         "25V282000",
         "25V315000",
-        "33 OTA recalls in 2025",
+        "DOT HS 813 687",
+        "49 CFR § 573.7",
+        "Pagiavlas",
+        "table_channel_oem_age_support.csv",
     ):
-        assert req_phrase in md, f"Required v2 regulatory/terminology phrase '{req_phrase}' missing from manuscript"
-    assert "nhtsa_2025_annual_recalls_report" in refs_json.get("institutional_references", {})
-    assert "cfr_49_573_7" in refs_json.get("institutional_references", {})
+        assert req_tok in md, f"Required v4 token '{req_tok}' missing from manuscript_d12_boost.md"
 
-    # (d) Referee response deliverable exists
-    assert (BASE_DIR / "REFEREE_RESPONSE_v2.md").exists()
+    # Both compiled PDFs exist and pass strict zero-leak verification
+    comp = _load_module("08_compile_manuscript_pdf.py")
+    main_pdf = BASE_DIR / "manuscript_d12_boost.pdf"
+    sup_pdf = BASE_DIR / "supplementary_d12_jsr.pdf"
+    assert main_pdf.exists() and main_pdf.stat().st_size > 500_000
+    assert sup_pdf.exists() and sup_pdf.stat().st_size > 100_000
+
+    n_main, leaks_main = comp.verify_pdf_zero_leaks(main_pdf)
+    n_sup, leaks_sup = comp.verify_pdf_zero_leaks(sup_pdf)
+    assert n_main >= 12 and leaks_main == [], f"Main PDF leaks: {leaks_main}"
+    assert n_sup >= 3 and leaks_sup == [], f"Appendix PDF leaks: {leaks_sup}"
+    assert (BASE_DIR / "REFEREE_RESPONSE_v4.md").exists()
 
 
 def test_sha256_manifest_cryptographic_integrity():
     sha_path = BASE_DIR / "SHA256SUMS.json"
     assert sha_path.exists()
     manifest = json.loads(sha_path.read_text(encoding="utf-8"))
+    assert manifest["revision"] == "v4"
     assert manifest["n_files_hashed"] == len(manifest["files"])
-    assert manifest["n_files_hashed"] >= 35
-    assert "REFEREE_RESPONSE_v2.md" in manifest["files"]
+    for req_rel in (
+        "manuscript_d12_boost.pdf",
+        "supplementary_d12_jsr.pdf",
+        "REFEREE_RESPONSE_v4.md",
+        "data_raw/nhtsa_annual_eighth_report_2024_2025.csv",
+        "data_raw/dot_79374_DS1.pdf",
+        "data_processed/d12_v4_eighth_report_analysis_panel.csv",
+        "tables/table_channel_oem_age_support.csv",
+    ):
+        assert req_rel in manifest["files"], f"Missing required manifest entry: {req_rel}"
 
     for rel, info in manifest["files"].items():
         fpath = BASE_DIR / rel

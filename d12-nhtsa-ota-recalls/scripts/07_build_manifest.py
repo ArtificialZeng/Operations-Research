@@ -1,4 +1,4 @@
-"""Step 7: Generate SHA256SUMS.json and VERIFICATION_MANIFEST.md for all project artifacts."""
+"""Step 7: Generate SHA256SUMS.json and VERIFICATION_MANIFEST.md for all project artifacts (v4)."""
 from __future__ import annotations
 
 import hashlib
@@ -28,11 +28,21 @@ def main() -> None:
     if proc_dir.exists():
         targets.extend(sorted(p for p in proc_dir.glob("*") if p.is_file()))
 
-    raw_receipt = BASE_DIR / "data_raw" / "raw_download_receipts.json"
-    if raw_receipt.exists():
-        targets.append(raw_receipt)
+    for raw_name in ("raw_download_receipts.json", "nhtsa_annual_eighth_report_2024_2025.csv", "dot_79374_DS1.pdf"):
+        raw_p = BASE_DIR / "data_raw" / raw_name
+        if raw_p.exists():
+            targets.append(raw_p)
 
-    for root_f in ("manuscript_d12_boost.md", "manuscript_d12_boost.pdf", "REFEREE_RESPONSE_v2.md", "README.md", "STATUS.md"):
+    for root_f in (
+        "manuscript_d12_boost.md",
+        "manuscript_d12_boost.pdf",
+        "supplementary_d12_jsr.md",
+        "supplementary_d12_jsr.pdf",
+        "REFEREE_RESPONSE_v2.md",
+        "REFEREE_RESPONSE_v4.md",
+        "README.md",
+        "STATUS.md",
+    ):
         p = BASE_DIR / root_f
         if p.exists():
             targets.append(p)
@@ -40,7 +50,8 @@ def main() -> None:
     manifest = {
         "generated_utc": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "project": "d12_boost_nhtsa_ota_recalls_20261125",
-        "n_files_hashed": len(targets),
+        "revision": "v4",
+        "n_files_hashed": len(set(targets)),
         "files": {},
     }
     for p in sorted(set(targets)):
@@ -54,13 +65,13 @@ def main() -> None:
     sha_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
     lines = [
-        "# Verification Manifest — D12 Boost (Software-Defined Vehicle OTA Recalls)",
+        "# Verification Manifest — Vehicle Recall Completion at a Fixed Reporting Horizon (v4)",
         "",
         f"- **Generated (UTC):** `{manifest['generated_utc']}`",
         f"- **Hashed Artifacts:** `{manifest['n_files_hashed']}`",
         "- **Integrity File:** `SHA256SUMS.json`",
         "",
-        "## Core Data, Results, Tables, Figures & Manuscript Checksums",
+        "## Core Data, Results, Tables, Figures, Manuscripts & Verification Checksums",
         "",
         "| Artifact | Size (bytes) | SHA-256 (prefix 16) |",
         "|---|---:|---|",
@@ -69,7 +80,7 @@ def main() -> None:
         lines.append(f"| `{rel}` | {info['bytes']:,} | `{info['sha256'][:16]}...` |")
     lines.append("")
     (BASE_DIR / "VERIFICATION_MANIFEST.md").write_text("\n".join(lines), encoding="utf-8")
-    print(f"[DONE] Hashed {len(targets)} files -> {sha_path}", flush=True)
+    print(f"[DONE] Hashed {manifest['n_files_hashed']} files -> {sha_path}", flush=True)
 
 
 if __name__ == "__main__":
