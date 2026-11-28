@@ -1,0 +1,9 @@
+network,threshold_mgL,total_hypoxic_nights,both_closed_n,both_closed_pct,left_only_n,right_only_n,doubly_censored_n,naive_closed_median_lo_hr,naive_closed_median_hi_hr,km_night_rmst_12h_hr,km_night_surv_6h_pct,full_series_median_hr,full_series_q25_hr,full_series_q75_hr,full_series_closed_pct,full_series_km_median_hr
+United States (USGS),5,8499,1246,14.7,447,3412,3394,1.0,1.75,8.83,71.3,13.5,6.5,40.0,86.6,14.0
+United States (USGS),4,4439,699,15.7,309,2001,1430,1.0,1.5,9.06,72.1,13.0,6.25,25.0,88.7,13.0
+United States (USGS),3,2465,445,18.1,189,1247,584,0.75,1.25,9.0,72.6,10.0,5.25,16.5,90.8,10.0
+United States (USGS),2,810,255,31.5,75,237,243,1.0,1.5,5.81,43.6,8.25,2.25,18.75,91.4,8.5
+England (EA),5,2472,378,15.3,199,868,1027,1.0,2.0,7.91,61.3,13.0,6.0,67.0,89.5,13.0
+England (EA),4,1465,234,16.0,139,426,666,1.0,2.5,7.53,57.8,14.5,6.0,88.38,90.2,15.0
+England (EA),3,912,143,15.7,84,268,417,1.0,2.5,7.67,60.2,14.0,6.0,93.69,89.5,14.0
+England (EA),2,572,86,15.0,46,188,252,1.0,2.5,7.97,67.4,12.5,6.0,69.25,88.6,12.5

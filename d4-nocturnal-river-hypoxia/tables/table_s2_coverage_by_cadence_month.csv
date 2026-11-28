@@ -1,0 +1,22 @@
+network,stratum_type,stratum,n_sites,candidate_nights,matched_nights,entry_rate_pct,fail_night_gap,fail_target_match
+United States (USGS),Overall,All warm-season,139,93538,87785,93.85,4523,1230
+United States (USGS),Cadence,5 min,4,2918,2416,82.8,483,19
+United States (USGS),Cadence,15 min,115,76923,72781,94.62,3164,978
+United States (USGS),Cadence,30 min,12,8286,7500,90.51,648,138
+United States (USGS),Cadence,60 min,8,5411,5088,94.03,228,95
+United States (USGS),Month,May,139,15510,14658,94.51,661,191
+United States (USGS),Month,June,139,15311,14323,93.55,781,207
+United States (USGS),Month,July,139,15721,14787,94.06,755,179
+United States (USGS),Month,August,139,15812,14836,93.83,717,259
+United States (USGS),Month,September,139,15414,14473,93.9,750,191
+United States (USGS),Month,October,139,15770,14708,93.27,859,203
+England (EA),Overall,All warm-season,65,33612,27635,82.22,5824,153
+England (EA),Cadence,15 min,7,3870,3058,79.02,780,32
+England (EA),Cadence,30 min,28,13902,9318,67.03,4537,47
+England (EA),Cadence,60 min,30,15840,15259,96.33,507,74
+England (EA),Month,May,65,5466,4426,80.97,1015,25
+England (EA),Month,June,65,5403,4490,83.1,891,22
+England (EA),Month,July,65,5726,4771,83.32,936,19
+England (EA),Month,August,65,5754,4783,83.12,942,29
+England (EA),Month,September,65,5585,4561,81.67,1001,23
+England (EA),Month,October,65,5678,4604,81.08,1039,35

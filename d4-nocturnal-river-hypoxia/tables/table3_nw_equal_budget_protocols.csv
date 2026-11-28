@@ -1,0 +1,25 @@
+network,protocol,protocol_type,unit_cost_dayeq,actionable_per_100_visits,new_per_100_vs_wqp,distinct_ep_per_100_budget_eq,actionable_nights_per_100_budget_eq,cost_usd_per_distinct_episode,impaired_sy_flagged_pct,episodic_lead_nadir_hr,episodic_lead_end_hr,loro_ref_neg_alarm_pct
+United States (USGS),14:30 afternoon grab,Grab,1.0,3.19,-2.0,1.23,1.55,16212.0,29.7,-11.0,-3.38,0.198
+United States (USGS),Empirical WQP agency clock,Grab,1.01,5.19,0.0,1.91,2.54,10460.0,43.0,-3.75,2.0,0.276
+United States (USGS),Daytime-safe rotating (07/10:30/14:30),Grab,1.0,5.01,-0.17,1.9,2.44,10541.0,43.7,-3.5,2.0,0.271
+United States (USGS),Dawn-included rotating (1/3 pre-dawn),Grab,1.25,5.24,0.05,1.74,2.13,11518.0,45.4,-2.25,3.25,0.172
+United States (USGS),50/50 alternating (pre-dawn/14:30),Grab,1.38,5.52,0.33,1.68,2.01,11912.0,46.5,-0.75,4.25,0.122
+United States (USGS),"First-light daylight (SR+30m, 1.15x)",Grab,1.15,7.8,2.62,2.56,3.43,7813.0,55.2,-1.18,3.87,0.205
+United States (USGS),"Dark pre-dawn (SR-30m, 1.75x)",Grab,1.75,7.85,2.66,1.85,2.26,10793.0,49.2,-0.25,4.75,0.047
+United States (USGS),Hybrid: top-10% sondes (Y1) + WQP,Hybrid Sonde,40.0,8.7,2.86,4.77,31.26,4189.0,43.3,4.5,10.5,0.137
+United States (USGS),Hybrid: top-20% sondes (Y1) + WQP,Hybrid Sonde,40.0,8.7,4.36,6.27,36.36,3190.0,53.8,4.5,10.5,0.112
+United States (USGS),Hybrid: top-20% sondes (Y1) + first light,Hybrid Sonde,40.0,8.7,4.8,6.71,36.9,2980.0,63.8,4.5,10.5,0.163
+United States (USGS),Hybrid: top-20% sondes (covar.) + WQP,Hybrid Sonde,40.0,8.7,3.15,5.07,17.53,3947.0,56.4,4.5,10.5,0.226
+United States (USGS),Hybrid: top-20% sondes (oracle) + WQP,Hybrid Sonde,40.0,8.7,5.99,7.9,49.6,2532.0,51.2,4.5,10.5,0.118
+England (EA),14:30 afternoon grab,Grab,1.0,3.77,-1.11,1.03,1.49,19407.0,36.8,-12.0,-5.0,0.514
+England (EA),Empirical WQP agency clock,Grab,1.01,4.88,0.0,1.51,2.06,13256.0,47.2,-4.0,2.0,1.121
+England (EA),Daytime-safe rotating (07/10:30/14:30),Grab,1.0,4.76,-0.12,1.46,1.99,13713.0,46.6,-4.0,2.0,1.027
+England (EA),Dawn-included rotating (1/3 pre-dawn),Grab,1.25,5.0,0.12,1.35,1.74,14835.0,45.5,-3.0,3.0,0.721
+England (EA),50/50 alternating (pre-dawn/14:30),Grab,1.38,5.24,0.36,1.38,1.74,14524.0,45.4,-1.0,4.0,0.479
+England (EA),"First-light daylight (SR+30m, 1.15x)",Grab,1.15,6.58,1.7,2.06,2.72,9729.0,54.2,-0.39,3.92,0.538
+England (EA),"Dark pre-dawn (SR-30m, 1.75x)",Grab,1.75,6.71,1.83,1.51,1.84,13264.0,46.2,0.5,5.0,0.443
+England (EA),Hybrid: top-10% sondes (Y1) + WQP,Hybrid Sonde,40.0,7.71,2.86,4.37,19.77,4577.0,49.0,3.5,8.5,1.368
+England (EA),Hybrid: top-20% sondes (Y1) + WQP,Hybrid Sonde,40.0,7.71,5.25,6.76,25.94,2959.0,54.5,3.5,8.5,0.358
+England (EA),Hybrid: top-20% sondes (Y1) + first light,Hybrid Sonde,40.0,7.71,5.6,7.11,26.36,2812.0,60.6,3.5,8.5,0.317
+England (EA),Hybrid: top-20% sondes (covar.) + WQP,Hybrid Sonde,40.0,7.71,2.98,4.49,10.48,4453.0,56.9,3.5,8.5,0.452
+England (EA),Hybrid: top-20% sondes (oracle) + WQP,Hybrid Sonde,40.0,7.71,9.08,10.59,40.92,1889.0,59.4,3.5,8.5,0.345

@@ -1,0 +1,263 @@
+{
+  "Zhi2023": {
+    "year": 2023,
+    "authors": [
+      "Zhi W.",
+      "Klingler C.",
+      "Liu J.",
+      "Li L."
+    ],
+    "title": "Widespread deoxygenation in warming rivers",
+    "journal": "Nature Climate Change",
+    "volume": "13",
+    "page": "1105-1113",
+    "doi": "10.1038/s41558-023-01793-3"
+  },
+  "BensonKrause1984": {
+    "year": 1984,
+    "authors": [
+      "Benson B.",
+      "Krause D."
+    ],
+    "title": "The concentration and isotopic fractionation of oxygen dissolved in freshwater and seawater in equilibrium with the atmosphere1",
+    "journal": "Limnology and Oceanography",
+    "volume": "29",
+    "page": "620-632",
+    "doi": "10.4319/lo.1984.29.3.0620"
+  },
+  "Odum1956": {
+    "year": 1956,
+    "authors": [
+      "ODUM H."
+    ],
+    "title": "Primary Production in Flowing Waters1",
+    "journal": "Limnology and Oceanography",
+    "volume": "1",
+    "page": "102-117",
+    "doi": "10.4319/lo.1956.1.2.0102"
+  },
+  "YvonDurocher2012": {
+    "year": 2012,
+    "authors": [
+      "Yvon-Durocher G.",
+      "Caffrey J.",
+      "Cescatti A.",
+      "Dossena M."
+    ],
+    "title": "Reconciling the temperature dependence of respiration across timescales and ecosystem types",
+    "journal": "Nature",
+    "volume": "487",
+    "page": "472-476",
+    "doi": "10.1038/nature11205"
+  },
+  "Jane2021": {
+    "year": 2021,
+    "authors": [
+      "Jane S.",
+      "Hansen G.",
+      "Kraemer B.",
+      "Leavitt P."
+    ],
+    "title": "Widespread deoxygenation of temperate lakes",
+    "journal": "Nature",
+    "volume": "594",
+    "page": "66-70",
+    "doi": "10.1038/s41586-021-03550-y"
+  },
+  "KeiserShapiro2019": {
+    "year": 2018,
+    "authors": [
+      "Keiser D.",
+      "Shapiro J."
+    ],
+    "title": "Consequences of the Clean Water Act and the Demand for Water Quality*",
+    "journal": "The Quarterly Journal of Economics",
+    "volume": "134",
+    "page": "349-396",
+    "doi": "10.1093/qje/qjy019"
+  },
+  "Brown2004": {
+    "year": 2004,
+    "authors": [
+      "Brown J.",
+      "Gillooly J.",
+      "Allen A.",
+      "Savage V."
+    ],
+    "title": "TOWARD A METABOLIC THEORY OF ECOLOGY",
+    "journal": "Ecology",
+    "volume": "85",
+    "page": "1771-1789",
+    "doi": "10.1890/03-9000"
+  },
+  "Bernhardt2018": {
+    "year": 2017,
+    "authors": [
+      "Bernhardt E.",
+      "Heffernan J.",
+      "Grimm N.",
+      "Stanley E."
+    ],
+    "title": "The metabolic regimes of flowing waters",
+    "journal": "Limnology and Oceanography",
+    "volume": "63",
+    "page": null,
+    "doi": "10.1002/lno.10726"
+  },
+  "Blaszczak2023": {
+    "year": 2022,
+    "authors": [
+      "Blaszczak J.",
+      "Koenig L.",
+      "Mejia F.",
+      "G\u00f3mez\u2010Gener L."
+    ],
+    "title": "Extent, patterns, and drivers of hypoxia in the world's streams and rivers",
+    "journal": "Limnology and Oceanography Letters",
+    "volume": "8",
+    "page": "453-463",
+    "doi": "10.1002/lol2.10297"
+  },
+  "Allen2005": {
+    "year": 2005,
+    "authors": [
+      "ALLEN A.",
+      "GILLOOLY J.",
+      "BROWN J."
+    ],
+    "title": "Linking the global carbon cycle to individual metabolism",
+    "journal": "Functional Ecology",
+    "volume": "19",
+    "page": "202-213",
+    "doi": "10.1111/j.1365-2435.2005.00952.x"
+  },
+  "Demars2011": {
+    "year": 2011,
+    "authors": [
+      "DEMARS B.",
+      "RUSSELL MANSON J.",
+      "\u00d3LAFSSON J.",
+      "G\u00cdSLASON G."
+    ],
+    "title": "Temperature and the metabolic balance of streams",
+    "journal": "Freshwater Biology",
+    "volume": "56",
+    "page": "1106-1121",
+    "doi": "10.1111/j.1365-2427.2010.02554.x"
+  },
+  "CameronMiller2015": {
+    "year": 2015,
+    "authors": [
+      "Colin Cameron A.",
+      "Miller D."
+    ],
+    "title": "A Practitioner\u2019s Guide to Cluster-Robust Inference",
+    "journal": "Journal of Human Resources",
+    "volume": "50",
+    "page": "317-372",
+    "doi": "10.3368/jhr.50.2.317"
+  },
+  "Appling2018": {
+    "year": 2018,
+    "authors": [
+      "Appling A.",
+      "Read J.",
+      "Winslow L.",
+      "Arroita M."
+    ],
+    "title": "The metabolic regimes of 356 rivers in the United States",
+    "journal": "Scientific Data",
+    "volume": "5",
+    "page": null,
+    "doi": "10.1038/sdata.2018.292"
+  },
+  "Guan2026": {
+    "year": 2026,
+    "authors": [
+      "Guan Q.",
+      "Shi K.",
+      "Pi X."
+    ],
+    "title": "Sustained deoxygenation in global flowing waters under climate warming",
+    "journal": "Science Advances",
+    "volume": "12",
+    "page": null,
+    "doi": "10.1126/sciadv.aef3132"
+  },
+  "vanVliet2023": {
+    "year": 2023,
+    "authors": [
+      "van Vliet M.",
+      "Thorslund J.",
+      "Strokal M.",
+      "Hofstra N."
+    ],
+    "title": "Global river water quality under climate change and hydroclimatic extremes",
+    "journal": "Nature Reviews Earth &amp; Environment",
+    "volume": "4",
+    "page": "687-702",
+    "doi": "10.1038/s43017-023-00472-3"
+  },
+  "Battin2023": {
+    "year": 2023,
+    "authors": [
+      "Battin T.",
+      "Lauerwald R.",
+      "Bernhardt E.",
+      "Bertuzzo E."
+    ],
+    "title": "River ecosystem metabolism and carbon biogeochemistry in a changing world",
+    "journal": "Nature",
+    "volume": "613",
+    "page": "449-459",
+    "doi": "10.1038/s41586-022-05500-8"
+  },
+  "Portner2010": {
+    "year": 2010,
+    "authors": [
+      "P\u00f6rtner H."
+    ],
+    "title": "Oxygen- and capacity-limitation of thermal tolerance: a matrix for integrating climate-related stressor effects in marine ecosystems",
+    "journal": "Journal of Experimental Biology",
+    "volume": "213",
+    "page": "881-893",
+    "doi": "10.1242/jeb.037523"
+  },
+  "Breitburg2018": {
+    "year": 2018,
+    "authors": [
+      "Breitburg D.",
+      "Levin L.",
+      "Oschlies A.",
+      "Gr\u00e9goire M."
+    ],
+    "title": "Declining oxygen in the global ocean and coastal waters",
+    "journal": "Science",
+    "volume": "359",
+    "page": null,
+    "doi": "10.1126/science.aam7240"
+  },
+  "HallHotchkiss2017": {
+    "year": 2017,
+    "authors": [
+      "Hall R.",
+      "Hotchkiss E."
+    ],
+    "title": "Stream Metabolism",
+    "journal": "Methods in Stream Ecology",
+    "volume": null,
+    "page": "219-233",
+    "doi": "10.1016/b978-0-12-813047-6.00012-7"
+  },
+  "Iqbal1983": {
+    "year": 1983,
+    "authors": [
+      "Iqbal M."
+    ],
+    "title": "An Introduction to Solar Radiation",
+    "journal": "Academic Press",
+    "volume": null,
+    "page": null,
+    "doi": "10.1016/B978-0-12-373750-2.X5001-0"
+  }
+}
