@@ -1,0 +1,52 @@
+{
+  "total_raw_studies_scanned": 22303,
+  "parsed_randomized_industry_p2_p3_allstatus": 12887,
+  "parsed_completed_total": 11265,
+  "parsed_completed_phase3": 6770,
+  "parsed_completed_phase2_only": 4495,
+  "mrct_placebo_completed_p2_p3": 2771,
+  "mrct_placebo_completed_phase3": 1842,
+  "mrct_placebo_completed_phase2_only": 929,
+  "mrct_placebo_allstatus_p2_p3": 3356,
+  "mrct_placebo_terminated_p2_p3": 483,
+  "p3_twin_mol_sponsor_n": 1282,
+  "p3_twin_mol_cond_n": 878,
+  "p23_twin_mol_sponsor_n": 1765,
+  "p23_twin_mol_cond_n": 1113,
+  "therapeutic_areas_mrct_p23": {
+    "Immune/Inflam/Derm": 762,
+    "Neuro/Psych": 417,
+    "Oncology": 348,
+    "Endocrine/Metabolic": 300,
+    "Infectious": 268,
+    "Cardiovascular": 252,
+    "Respiratory": 180,
+    "Other": 90,
+    "Hematology/Renal": 80,
+    "Ophthalmology": 35,
+    "GI/Hepatology": 31,
+    "Musculoskeletal/Pain": 8
+  },
+  "top_unmapped_other_countries": {
+    "South Africa": 7658,
+    "Turkey (T\u00fcrkiye)": 7444,
+    "Lebanon": 377,
+    "Egypt": 322,
+    "Saudi Arabia": 243,
+    "Tunisia": 243,
+    "Kenya": 118,
+    "Iran": 109,
+    "Jordan": 92,
+    "Algeria": 84,
+    "Morocco": 81,
+    "United Arab Emirates": 68,
+    "Uganda": 60,
+    "Nigeria": 53,
+    "Burkina Faso": 35
+  },
+  "artifacts_sha256": {
+    "d30_all_trials.parquet": "eff7fab79c914fadab449951be2938aba483491f2f1582336f24cf4a25c422a9",
+    "d30_mrct_placebo_panel.parquet": "63bf1393eb9fe98da5185d97c114f92cc0ebc2c8615d31313dfb978bb1d70742",
+    "d30_mrct_placebo_allstatus.parquet": "0f76c73a097d57329ea52018e1e924c01f2502b89b062363af7200a745a283cd"
+  }
+}

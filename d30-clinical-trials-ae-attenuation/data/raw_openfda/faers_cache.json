@@ -1,0 +1,4061 @@
+{
+  "asundexian": {
+    "source_key": "app_num",
+    "us_serious_n": 1,
+    "us_nonserious_n": 0,
+    "us_total_n": 1,
+    "global_queried": true,
+    "global_serious_n": 6,
+    "global_nonserious_n": 0,
+    "global_total_n": 6
+  },
+  "atacicept": {
+    "source_key": "app_num",
+    "us_serious_n": 6,
+    "us_nonserious_n": 0,
+    "us_total_n": 6,
+    "global_queried": true,
+    "global_serious_n": 8,
+    "global_nonserious_n": 0,
+    "global_total_n": 8
+  },
+  "baxdrostat": {
+    "source_key": "app_num",
+    "us_serious_n": 83,
+    "us_nonserious_n": 190,
+    "us_total_n": 273,
+    "global_queried": true,
+    "global_serious_n": 83,
+    "global_nonserious_n": 190,
+    "global_total_n": 273
+  },
+  "bepirovirsen": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "enlicitide decanoate": {
+    "source_key": "app_num",
+    "us_serious_n": 4,
+    "us_nonserious_n": 32,
+    "us_total_n": 36,
+    "global_queried": true,
+    "global_serious_n": 6,
+    "global_nonserious_n": 35,
+    "global_total_n": 41
+  },
+  "orforglipron": {
+    "source_key": "app_num",
+    "us_serious_n": 118,
+    "us_nonserious_n": 2897,
+    "us_total_n": 3015,
+    "global_queried": true,
+    "global_serious_n": 138,
+    "global_nonserious_n": 2911,
+    "global_total_n": 3049
+  },
+  "oveporexton": {
+    "source_key": "app_num",
+    "us_serious_n": 0,
+    "us_nonserious_n": 1,
+    "us_total_n": 1,
+    "global_queried": true,
+    "global_serious_n": 0,
+    "global_nonserious_n": 1,
+    "global_total_n": 1
+  },
+  "relacorilant": {
+    "source_key": "app_num",
+    "us_serious_n": 65,
+    "us_nonserious_n": 27,
+    "us_total_n": 92,
+    "global_queried": true,
+    "global_serious_n": 71,
+    "global_nonserious_n": 28,
+    "global_total_n": 99
+  },
+  "tavapadon": {
+    "source_key": "app_num",
+    "us_serious_n": 1,
+    "us_nonserious_n": 0,
+    "us_total_n": 1,
+    "global_queried": true,
+    "global_serious_n": 1,
+    "global_nonserious_n": 0,
+    "global_total_n": 1
+  },
+  "veligrotug": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "brensocatib": {
+    "source_key": "app_num",
+    "us_serious_n": 927,
+    "us_nonserious_n": 1757,
+    "us_total_n": 2684,
+    "global_queried": true,
+    "global_serious_n": 971,
+    "global_nonserious_n": 1845,
+    "global_total_n": 2816
+  },
+  "clesrovimab": {
+    "source_key": "app_num",
+    "us_serious_n": 0,
+    "us_nonserious_n": 10,
+    "us_total_n": 10,
+    "global_queried": true,
+    "global_serious_n": 2,
+    "global_nonserious_n": 11,
+    "global_total_n": 13
+  },
+  "delgocitinib": {
+    "source_key": "app_num",
+    "us_serious_n": 6,
+    "us_nonserious_n": 169,
+    "us_total_n": 175,
+    "global_queried": true,
+    "global_serious_n": 85,
+    "global_nonserious_n": 184,
+    "global_total_n": 269
+  },
+  "depemokimab": {
+    "source_key": "app_num",
+    "us_serious_n": 9,
+    "us_nonserious_n": 48,
+    "us_total_n": 57,
+    "global_queried": true,
+    "global_serious_n": 31,
+    "global_nonserious_n": 48,
+    "global_total_n": 79
+  },
+  "elinzanetant": {
+    "source_key": "app_num",
+    "us_serious_n": 67,
+    "us_nonserious_n": 163,
+    "us_total_n": 230,
+    "global_queried": true,
+    "global_serious_n": 102,
+    "global_nonserious_n": 300,
+    "global_total_n": 402
+  },
+  "rilzabrutinib": {
+    "source_key": "app_num",
+    "us_serious_n": 107,
+    "us_nonserious_n": 450,
+    "us_total_n": 557,
+    "global_queried": true,
+    "global_serious_n": 113,
+    "global_nonserious_n": 451,
+    "global_total_n": 564
+  },
+  "acoramidis": {
+    "source_key": "app_num",
+    "us_serious_n": 70,
+    "us_nonserious_n": 269,
+    "us_total_n": 339,
+    "global_queried": true,
+    "global_serious_n": 86,
+    "global_nonserious_n": 281,
+    "global_total_n": 367
+  },
+  "aprocitentan": {
+    "source_key": "app_num",
+    "us_serious_n": 11,
+    "us_nonserious_n": 7,
+    "us_total_n": 18,
+    "global_queried": true,
+    "global_serious_n": 13,
+    "global_nonserious_n": 9,
+    "global_total_n": 22
+  },
+  "arimoclomol": {
+    "source_key": "app_num",
+    "us_serious_n": 15,
+    "us_nonserious_n": 21,
+    "us_total_n": 36,
+    "global_queried": true,
+    "global_serious_n": 16,
+    "global_nonserious_n": 22,
+    "global_total_n": 38
+  },
+  "ensifentrine": {
+    "source_key": "app_num",
+    "us_serious_n": 569,
+    "us_nonserious_n": 1095,
+    "us_total_n": 1664,
+    "global_queried": true,
+    "global_serious_n": 635,
+    "global_nonserious_n": 1192,
+    "global_total_n": 1827
+  },
+  "givinostat": {
+    "source_key": "app_num",
+    "us_serious_n": 123,
+    "us_nonserious_n": 405,
+    "us_total_n": 528,
+    "global_queried": true,
+    "global_serious_n": 172,
+    "global_nonserious_n": 461,
+    "global_total_n": 633
+  },
+  "seladelpar": {
+    "source_key": "app_num",
+    "us_serious_n": 60,
+    "us_nonserious_n": 172,
+    "us_total_n": 232,
+    "global_queried": true,
+    "global_serious_n": 101,
+    "global_nonserious_n": 175,
+    "global_total_n": 276
+  },
+  "avacincaptad pegol": {
+    "source_key": "app_num",
+    "us_serious_n": 130,
+    "us_nonserious_n": 211,
+    "us_total_n": 341,
+    "global_queried": true,
+    "global_serious_n": 141,
+    "global_nonserious_n": 211,
+    "global_total_n": 352
+  },
+  "bexagliflozin": {
+    "source_key": "app_num",
+    "us_serious_n": 12,
+    "us_nonserious_n": 18,
+    "us_total_n": 30,
+    "global_queried": true,
+    "global_serious_n": 12,
+    "global_nonserious_n": 19,
+    "global_total_n": 31
+  },
+  "bimekizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 3536,
+    "us_nonserious_n": 5846,
+    "us_total_n": 9382,
+    "global_queried": true,
+    "global_serious_n": 8329,
+    "global_nonserious_n": 15810,
+    "global_total_n": 24139
+  },
+  "daprodustat": {
+    "source_key": "app_num",
+    "us_serious_n": 8,
+    "us_nonserious_n": 2,
+    "us_total_n": 10,
+    "global_queried": true,
+    "global_serious_n": 1884,
+    "global_nonserious_n": 104,
+    "global_total_n": 1988
+  },
+  "etrasimod": {
+    "source_key": "app_num",
+    "us_serious_n": 498,
+    "us_nonserious_n": 988,
+    "us_total_n": 1486,
+    "global_queried": true,
+    "global_serious_n": 665,
+    "global_nonserious_n": 996,
+    "global_total_n": 1661
+  },
+  "fezolinetant": {
+    "source_key": "app_num",
+    "us_serious_n": 207,
+    "us_nonserious_n": 1466,
+    "us_total_n": 1673,
+    "global_queried": true,
+    "global_serious_n": 459,
+    "global_nonserious_n": 1822,
+    "global_total_n": 2281
+  },
+  "fruquintinib": {
+    "source_key": "app_num",
+    "us_serious_n": 1680,
+    "us_nonserious_n": 135,
+    "us_total_n": 1815,
+    "global_queried": true,
+    "global_serious_n": 3785,
+    "global_nonserious_n": 148,
+    "global_total_n": 3933
+  },
+  "rozanolixizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 416,
+    "us_nonserious_n": 162,
+    "us_total_n": 578,
+    "global_queried": true,
+    "global_serious_n": 836,
+    "global_nonserious_n": 328,
+    "global_total_n": 1164
+  },
+  "sotagliflozin": {
+    "source_key": "app_num",
+    "us_serious_n": 190,
+    "us_nonserious_n": 355,
+    "us_total_n": 545,
+    "global_queried": true,
+    "global_serious_n": 202,
+    "global_nonserious_n": 355,
+    "global_total_n": 557
+  },
+  "tofersen": {
+    "source_key": "app_num",
+    "us_serious_n": 146,
+    "us_nonserious_n": 248,
+    "us_total_n": 394,
+    "global_queried": true,
+    "global_serious_n": 309,
+    "global_nonserious_n": 252,
+    "global_total_n": 561
+  },
+  "zavegepant": {
+    "source_key": "app_num",
+    "us_serious_n": 77,
+    "us_nonserious_n": 798,
+    "us_total_n": 875,
+    "global_queried": true,
+    "global_serious_n": 82,
+    "global_nonserious_n": 808,
+    "global_total_n": 890
+  },
+  "zilucoplan": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "daridorexant": {
+    "source_key": "app_num",
+    "us_serious_n": 197,
+    "us_nonserious_n": 1726,
+    "us_total_n": 1923,
+    "global_queried": true,
+    "global_serious_n": 964,
+    "global_nonserious_n": 1775,
+    "global_total_n": 2739
+  },
+  "ganaxolone": {
+    "source_key": "app_num",
+    "us_serious_n": 340,
+    "us_nonserious_n": 310,
+    "us_total_n": 650,
+    "global_queried": true,
+    "global_serious_n": 350,
+    "global_nonserious_n": 320,
+    "global_total_n": 670
+  },
+  "mavacamten": {
+    "source_key": "app_num",
+    "us_serious_n": 1392,
+    "us_nonserious_n": 3242,
+    "us_total_n": 4634,
+    "global_queried": true,
+    "global_serious_n": 2608,
+    "global_nonserious_n": 3316,
+    "global_total_n": 5924
+  },
+  "tirzepatide": {
+    "source_key": "app_num",
+    "us_serious_n": 10074,
+    "us_nonserious_n": 72017,
+    "us_total_n": 82091,
+    "global_queried": true,
+    "global_serious_n": 27006,
+    "global_nonserious_n": 73267,
+    "global_total_n": 100273
+  },
+  "atogepant": {
+    "source_key": "app_num",
+    "us_serious_n": 1580,
+    "us_nonserious_n": 4164,
+    "us_total_n": 5744,
+    "global_queried": true,
+    "global_serious_n": 2588,
+    "global_nonserious_n": 4370,
+    "global_total_n": 6958
+  },
+  "brincidofovir": {
+    "source_key": "app_num",
+    "us_serious_n": 73,
+    "us_nonserious_n": 20,
+    "us_total_n": 93,
+    "global_queried": true,
+    "global_serious_n": 114,
+    "global_nonserious_n": 25,
+    "global_total_n": 139
+  },
+  "dasiglucagon": {
+    "source_key": "app_num",
+    "us_serious_n": 33,
+    "us_nonserious_n": 17,
+    "us_total_n": 50,
+    "global_queried": true,
+    "global_serious_n": 36,
+    "global_nonserious_n": 18,
+    "global_total_n": 54
+  },
+  "efgartigimod": {
+    "source_key": "app_num",
+    "us_serious_n": 2689,
+    "us_nonserious_n": 221,
+    "us_total_n": 2910,
+    "global_queried": true,
+    "global_serious_n": 3658,
+    "global_nonserious_n": 305,
+    "global_total_n": 3963
+  },
+  "finerenone": {
+    "source_key": "app_num",
+    "us_serious_n": 936,
+    "us_nonserious_n": 855,
+    "us_total_n": 1791,
+    "global_queried": true,
+    "global_serious_n": 2284,
+    "global_nonserious_n": 1002,
+    "global_total_n": 3286
+  },
+  "inclisiran": {
+    "source_key": "app_num",
+    "us_serious_n": 1221,
+    "us_nonserious_n": 4661,
+    "us_total_n": 5882,
+    "global_queried": true,
+    "global_serious_n": 3627,
+    "global_nonserious_n": 4801,
+    "global_total_n": 8428
+  },
+  "maribavir": {
+    "source_key": "app_num",
+    "us_serious_n": 1480,
+    "us_nonserious_n": 327,
+    "us_total_n": 1807,
+    "global_queried": true,
+    "global_serious_n": 2115,
+    "global_nonserious_n": 336,
+    "global_total_n": 2451
+  },
+  "pegcetacoplan": {
+    "source_key": "app_num",
+    "us_serious_n": 331,
+    "us_nonserious_n": 372,
+    "us_total_n": 703,
+    "global_queried": true,
+    "global_serious_n": 795,
+    "global_nonserious_n": 392,
+    "global_total_n": 1187
+  },
+  "tralokinumab": {
+    "source_key": "app_num",
+    "us_serious_n": 571,
+    "us_nonserious_n": 5447,
+    "us_total_n": 6018,
+    "global_queried": true,
+    "global_serious_n": 923,
+    "global_nonserious_n": 5781,
+    "global_total_n": 6704
+  },
+  "vericiguat": {
+    "source_key": "app_num",
+    "us_serious_n": 291,
+    "us_nonserious_n": 473,
+    "us_total_n": 764,
+    "global_queried": true,
+    "global_serious_n": 507,
+    "global_nonserious_n": 483,
+    "global_total_n": 990
+  },
+  "voclosporin": {
+    "source_key": "app_num",
+    "us_serious_n": 1817,
+    "us_nonserious_n": 7779,
+    "us_total_n": 9596,
+    "global_queried": true,
+    "global_serious_n": 1985,
+    "global_nonserious_n": 7794,
+    "global_total_n": 9779
+  },
+  "bempedoic acid": {
+    "source_key": "app_num",
+    "us_serious_n": 172,
+    "us_nonserious_n": 937,
+    "us_total_n": 1109,
+    "global_queried": true,
+    "global_serious_n": 1541,
+    "global_nonserious_n": 1133,
+    "global_total_n": 2674
+  },
+  "nifurtimox": {
+    "source_key": "app_num",
+    "us_serious_n": 0,
+    "us_nonserious_n": 4,
+    "us_total_n": 4,
+    "global_queried": true,
+    "global_serious_n": 21,
+    "global_nonserious_n": 5,
+    "global_total_n": 26
+  },
+  "osilodrostat": {
+    "source_key": "app_num",
+    "us_serious_n": 1153,
+    "us_nonserious_n": 646,
+    "us_total_n": 1799,
+    "global_queried": true,
+    "global_serious_n": 1538,
+    "global_nonserious_n": 659,
+    "global_total_n": 2197
+  },
+  "ozanimod": {
+    "source_key": "app_num",
+    "us_serious_n": 1889,
+    "us_nonserious_n": 5973,
+    "us_total_n": 7862,
+    "global_queried": true,
+    "global_serious_n": 2297,
+    "global_nonserious_n": 6142,
+    "global_total_n": 8439
+  },
+  "relugolix": {
+    "source_key": "app_num",
+    "us_serious_n": 5527,
+    "us_nonserious_n": 17963,
+    "us_total_n": 23490,
+    "global_queried": true,
+    "global_serious_n": 6039,
+    "global_nonserious_n": 18061,
+    "global_total_n": 24100
+  },
+  "satralizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 174,
+    "us_nonserious_n": 163,
+    "us_total_n": 337,
+    "global_queried": true,
+    "global_serious_n": 1398,
+    "global_nonserious_n": 388,
+    "global_total_n": 1786
+  },
+  "setmelanotide": {
+    "source_key": "app_num",
+    "us_serious_n": 84,
+    "us_nonserious_n": 96,
+    "us_total_n": 180,
+    "global_queried": true,
+    "global_serious_n": 187,
+    "global_nonserious_n": 98,
+    "global_total_n": 285
+  },
+  "tirbanibulin": {
+    "source_key": "app_num",
+    "us_serious_n": 3,
+    "us_nonserious_n": 144,
+    "us_total_n": 147,
+    "global_queried": true,
+    "global_serious_n": 49,
+    "global_nonserious_n": 200,
+    "global_total_n": 249
+  },
+  "vibegron": {
+    "source_key": "app_num",
+    "us_serious_n": 2035,
+    "us_nonserious_n": 5897,
+    "us_total_n": 7932,
+    "global_queried": true,
+    "global_serious_n": 2695,
+    "global_nonserious_n": 6025,
+    "global_total_n": 8720
+  },
+  "caplacizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 340,
+    "us_nonserious_n": 999,
+    "us_total_n": 1339,
+    "global_queried": true,
+    "global_serious_n": 749,
+    "global_nonserious_n": 1033,
+    "global_total_n": 1782
+  },
+  "cenobamate": {
+    "source_key": "app_num",
+    "us_serious_n": 1768,
+    "us_nonserious_n": 4987,
+    "us_total_n": 6755,
+    "global_queried": true,
+    "global_serious_n": 3310,
+    "global_nonserious_n": 5136,
+    "global_total_n": 8446
+  },
+  "darolutamide": {
+    "source_key": "app_num",
+    "us_serious_n": 1925,
+    "us_nonserious_n": 1621,
+    "us_total_n": 3546,
+    "global_queried": true,
+    "global_serious_n": 4086,
+    "global_nonserious_n": 1800,
+    "global_total_n": 5886
+  },
+  "esketamine": {
+    "source_key": "app_num",
+    "us_serious_n": 10995,
+    "us_nonserious_n": 5483,
+    "us_total_n": 16478,
+    "global_queried": true,
+    "global_serious_n": 13098,
+    "global_nonserious_n": 5602,
+    "global_total_n": 18700
+  },
+  "istradefylline": {
+    "source_key": "app_num",
+    "us_serious_n": 2308,
+    "us_nonserious_n": 3301,
+    "us_total_n": 5609,
+    "global_queried": true,
+    "global_serious_n": 2633,
+    "global_nonserious_n": 3343,
+    "global_total_n": 5976
+  },
+  "lasmiditan": {
+    "source_key": "app_num",
+    "us_serious_n": 146,
+    "us_nonserious_n": 948,
+    "us_total_n": 1094,
+    "global_queried": true,
+    "global_serious_n": 206,
+    "global_nonserious_n": 957,
+    "global_total_n": 1163
+  },
+  "lefamulin": {
+    "source_key": "app_num",
+    "us_serious_n": 3,
+    "us_nonserious_n": 14,
+    "us_total_n": 17,
+    "global_queried": true,
+    "global_serious_n": 3,
+    "global_nonserious_n": 14,
+    "global_total_n": 17
+  },
+  "lemborexant": {
+    "source_key": "app_num",
+    "us_serious_n": 92,
+    "us_nonserious_n": 472,
+    "us_total_n": 564,
+    "global_queried": true,
+    "global_serious_n": 2271,
+    "global_nonserious_n": 652,
+    "global_total_n": 2923
+  },
+  "lumateperone": {
+    "source_key": "app_num",
+    "us_serious_n": 2000,
+    "us_nonserious_n": 5431,
+    "us_total_n": 7431,
+    "global_queried": true,
+    "global_serious_n": 2169,
+    "global_nonserious_n": 5507,
+    "global_total_n": 7676
+  },
+  "luspatercept": {
+    "source_key": "app_num",
+    "us_serious_n": 505,
+    "us_nonserious_n": 938,
+    "us_total_n": 1443,
+    "global_queried": true,
+    "global_serious_n": 1604,
+    "global_nonserious_n": 1001,
+    "global_total_n": 2605
+  },
+  "pexidartinib": {
+    "source_key": "app_num",
+    "us_serious_n": 84,
+    "us_nonserious_n": 484,
+    "us_total_n": 568,
+    "global_queried": true,
+    "global_serious_n": 117,
+    "global_nonserious_n": 598,
+    "global_total_n": 715
+  },
+  "selinexor": {
+    "source_key": "app_num",
+    "us_serious_n": 2565,
+    "us_nonserious_n": 3450,
+    "us_total_n": 6015,
+    "global_queried": true,
+    "global_serious_n": 4819,
+    "global_nonserious_n": 3940,
+    "global_total_n": 8759
+  },
+  "tafamidis": {
+    "source_key": "app_num",
+    "us_serious_n": 863,
+    "us_nonserious_n": 538,
+    "us_total_n": 1401,
+    "global_queried": true,
+    "global_serious_n": 4200,
+    "global_nonserious_n": 610,
+    "global_total_n": 4810
+  },
+  "upadacitinib": {
+    "source_key": "app_num",
+    "us_serious_n": 34944,
+    "us_nonserious_n": 20973,
+    "us_total_n": 55917,
+    "global_queried": true,
+    "global_serious_n": 58431,
+    "global_nonserious_n": 26799,
+    "global_total_n": 85230
+  },
+  "voxelotor": {
+    "source_key": "app_num",
+    "us_serious_n": 8635,
+    "us_nonserious_n": 12494,
+    "us_total_n": 21129,
+    "global_queried": true,
+    "global_serious_n": 9621,
+    "global_nonserious_n": 12685,
+    "global_total_n": 22306
+  },
+  "amikacin": {
+    "source_key": "app_num",
+    "us_serious_n": 5343,
+    "us_nonserious_n": 2835,
+    "us_total_n": 8178,
+    "global_queried": true,
+    "global_serious_n": 14224,
+    "global_nonserious_n": 2994,
+    "global_total_n": 17218
+  },
+  "avatrombopag": {
+    "source_key": "app_num",
+    "us_serious_n": 522,
+    "us_nonserious_n": 1518,
+    "us_total_n": 2040,
+    "global_queried": true,
+    "global_serious_n": 839,
+    "global_nonserious_n": 1527,
+    "global_total_n": 2366
+  },
+  "baloxavir marboxil": {
+    "source_key": "app_num",
+    "us_serious_n": 121,
+    "us_nonserious_n": 863,
+    "us_total_n": 984,
+    "global_queried": true,
+    "global_serious_n": 1231,
+    "global_nonserious_n": 1073,
+    "global_total_n": 2304
+  },
+  "baricitinib": {
+    "source_key": "app_num",
+    "us_serious_n": 1082,
+    "us_nonserious_n": 2363,
+    "us_total_n": 3445,
+    "global_queried": true,
+    "global_serious_n": 6816,
+    "global_nonserious_n": 2950,
+    "global_total_n": 9766
+  },
+  "elagolix": {
+    "source_key": "app_num",
+    "us_serious_n": 1216,
+    "us_nonserious_n": 2373,
+    "us_total_n": 3589,
+    "global_queried": true,
+    "global_serious_n": 1319,
+    "global_nonserious_n": 2410,
+    "global_total_n": 3729
+  },
+  "fostamatinib": {
+    "source_key": "app_num",
+    "us_serious_n": 2156,
+    "us_nonserious_n": 5250,
+    "us_total_n": 7406,
+    "global_queried": true,
+    "global_serious_n": 2613,
+    "global_nonserious_n": 5276,
+    "global_total_n": 7889
+  },
+  "gilteritinib": {
+    "source_key": "app_num",
+    "us_serious_n": 779,
+    "us_nonserious_n": 180,
+    "us_total_n": 959,
+    "global_queried": true,
+    "global_serious_n": 3807,
+    "global_nonserious_n": 229,
+    "global_total_n": 4036
+  },
+  "glasdegib": {
+    "source_key": "app_num",
+    "us_serious_n": 164,
+    "us_nonserious_n": 23,
+    "us_total_n": 187,
+    "global_queried": true,
+    "global_serious_n": 442,
+    "global_nonserious_n": 31,
+    "global_total_n": 473
+  },
+  "glycopyrronium": {
+    "source_key": "app_num",
+    "us_serious_n": 194,
+    "us_nonserious_n": 743,
+    "us_total_n": 937,
+    "global_queried": true,
+    "global_serious_n": 779,
+    "global_nonserious_n": 763,
+    "global_total_n": 1542
+  },
+  "inotersen": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "omadacycline": {
+    "source_key": "app_num",
+    "us_serious_n": 658,
+    "us_nonserious_n": 706,
+    "us_total_n": 1364,
+    "global_queried": true,
+    "global_serious_n": 997,
+    "global_nonserious_n": 717,
+    "global_total_n": 1714
+  },
+  "patisiran": {
+    "source_key": "app_num",
+    "us_serious_n": 929,
+    "us_nonserious_n": 893,
+    "us_total_n": 1822,
+    "global_queried": true,
+    "global_serious_n": 1915,
+    "global_nonserious_n": 913,
+    "global_total_n": 2828
+  },
+  "prucalopride": {
+    "source_key": "app_num",
+    "us_serious_n": 635,
+    "us_nonserious_n": 1220,
+    "us_total_n": 1855,
+    "global_queried": true,
+    "global_serious_n": 1070,
+    "global_nonserious_n": 1295,
+    "global_total_n": 2365
+  },
+  "ravulizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 5177,
+    "us_nonserious_n": 5966,
+    "us_total_n": 11143,
+    "global_queried": true,
+    "global_serious_n": 8135,
+    "global_nonserious_n": 6032,
+    "global_total_n": 14167
+  },
+  "abaloparatide": {
+    "source_key": "app_num",
+    "us_serious_n": 4394,
+    "us_nonserious_n": 25303,
+    "us_total_n": 29697,
+    "global_queried": true,
+    "global_serious_n": 5492,
+    "global_nonserious_n": 25541,
+    "global_total_n": 31033
+  },
+  "benralizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 4044,
+    "us_nonserious_n": 5093,
+    "us_total_n": 9137,
+    "global_queried": true,
+    "global_serious_n": 13562,
+    "global_nonserious_n": 7388,
+    "global_total_n": 20950
+  },
+  "brodalumab": {
+    "source_key": "app_num",
+    "us_serious_n": 366,
+    "us_nonserious_n": 188,
+    "us_total_n": 554,
+    "global_queried": true,
+    "global_serious_n": 1805,
+    "global_nonserious_n": 253,
+    "global_total_n": 2058
+  },
+  "copanlisib": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "dupilumab": {
+    "source_key": "app_num",
+    "us_serious_n": 45751,
+    "us_nonserious_n": 459132,
+    "us_total_n": 504883,
+    "global_queried": true,
+    "global_serious_n": 57029,
+    "global_nonserious_n": 461377,
+    "global_total_n": 518406
+  },
+  "durvalumab": {
+    "source_key": "app_num",
+    "us_serious_n": 1943,
+    "us_nonserious_n": 551,
+    "us_total_n": 2494,
+    "global_queried": true,
+    "global_serious_n": 20604,
+    "global_nonserious_n": 951,
+    "global_total_n": 21555
+  },
+  "ertugliflozin": {
+    "source_key": "app_num",
+    "us_serious_n": 232,
+    "us_nonserious_n": 558,
+    "us_total_n": 790,
+    "global_queried": true,
+    "global_serious_n": 519,
+    "global_nonserious_n": 594,
+    "global_total_n": 1113
+  },
+  "etelcalcetide": {
+    "source_key": "app_num",
+    "us_serious_n": 336,
+    "us_nonserious_n": 1457,
+    "us_total_n": 1793,
+    "global_queried": true,
+    "global_serious_n": 1402,
+    "global_nonserious_n": 1474,
+    "global_total_n": 2876
+  },
+  "guselkumab": {
+    "source_key": "app_num",
+    "us_serious_n": 4355,
+    "us_nonserious_n": 25208,
+    "us_total_n": 29563,
+    "global_queried": true,
+    "global_serious_n": 9617,
+    "global_nonserious_n": 28238,
+    "global_total_n": 37855
+  },
+  "letermovir": {
+    "source_key": "app_num",
+    "us_serious_n": 791,
+    "us_nonserious_n": 513,
+    "us_total_n": 1304,
+    "global_queried": true,
+    "global_serious_n": 2591,
+    "global_nonserious_n": 587,
+    "global_total_n": 3178
+  },
+  "midostaurin": {
+    "source_key": "app_num",
+    "us_serious_n": 553,
+    "us_nonserious_n": 512,
+    "us_total_n": 1065,
+    "global_queried": true,
+    "global_serious_n": 1405,
+    "global_nonserious_n": 533,
+    "global_total_n": 1938
+  },
+  "naldemedine": {
+    "source_key": "app_num",
+    "us_serious_n": 99,
+    "us_nonserious_n": 406,
+    "us_total_n": 505,
+    "global_queried": true,
+    "global_serious_n": 1222,
+    "global_nonserious_n": 432,
+    "global_total_n": 1654
+  },
+  "neratinib": {
+    "source_key": "app_num",
+    "us_serious_n": 669,
+    "us_nonserious_n": 904,
+    "us_total_n": 1573,
+    "global_queried": true,
+    "global_serious_n": 1373,
+    "global_nonserious_n": 945,
+    "global_total_n": 2318
+  },
+  "niraparib": {
+    "source_key": "generic_name",
+    "us_serious_n": 9237,
+    "us_nonserious_n": 7233,
+    "us_total_n": 16470,
+    "global_queried": true,
+    "global_serious_n": 14689,
+    "global_nonserious_n": 7457,
+    "global_total_n": 22146
+  },
+  "ocrelizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 10113,
+    "us_nonserious_n": 12664,
+    "us_total_n": 22777,
+    "global_queried": true,
+    "global_serious_n": 31699,
+    "global_nonserious_n": 30932,
+    "global_total_n": 62631
+  },
+  "ribociclib": {
+    "source_key": "app_num",
+    "us_serious_n": 3776,
+    "us_nonserious_n": 5039,
+    "us_total_n": 8815,
+    "global_queried": true,
+    "global_serious_n": 26977,
+    "global_nonserious_n": 5619,
+    "global_total_n": 32596
+  },
+  "sarilumab": {
+    "source_key": "app_num",
+    "us_serious_n": 4327,
+    "us_nonserious_n": 16213,
+    "us_total_n": 20540,
+    "global_queried": true,
+    "global_serious_n": 11326,
+    "global_nonserious_n": 16417,
+    "global_total_n": 27743
+  },
+  "semaglutide": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "telotristat etiprate": {
+    "source_key": "app_num",
+    "us_serious_n": 1853,
+    "us_nonserious_n": 3593,
+    "us_total_n": 5446,
+    "global_queried": true,
+    "global_serious_n": 2025,
+    "global_nonserious_n": 3721,
+    "global_total_n": 5746
+  },
+  "atezolizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 3544,
+    "us_nonserious_n": 998,
+    "us_total_n": 4542,
+    "global_queried": true,
+    "global_serious_n": 37940,
+    "global_nonserious_n": 1760,
+    "global_total_n": 39700
+  },
+  "bezlotoxumab": {
+    "source_key": "app_num",
+    "us_serious_n": 73,
+    "us_nonserious_n": 76,
+    "us_total_n": 149,
+    "global_queried": true,
+    "global_serious_n": 271,
+    "global_nonserious_n": 79,
+    "global_total_n": 350
+  },
+  "brivaracetam": {
+    "source_key": "app_num",
+    "us_serious_n": 3071,
+    "us_nonserious_n": 1524,
+    "us_total_n": 4595,
+    "global_queried": true,
+    "global_serious_n": 7400,
+    "global_nonserious_n": 1868,
+    "global_total_n": 9268
+  },
+  "crisaborole": {
+    "source_key": "app_num",
+    "us_serious_n": 605,
+    "us_nonserious_n": 8784,
+    "us_total_n": 9389,
+    "global_queried": true,
+    "global_serious_n": 734,
+    "global_nonserious_n": 8870,
+    "global_total_n": 9604
+  },
+  "ixekizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 3454,
+    "us_nonserious_n": 25363,
+    "us_total_n": 28817,
+    "global_queried": true,
+    "global_serious_n": 8099,
+    "global_nonserious_n": 29161,
+    "global_total_n": 37260
+  },
+  "lixisenatide": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "nusinersen": {
+    "source_key": "app_num",
+    "us_serious_n": 1862,
+    "us_nonserious_n": 3923,
+    "us_total_n": 5785,
+    "global_queried": true,
+    "global_serious_n": 3871,
+    "global_nonserious_n": 3992,
+    "global_total_n": 7863
+  },
+  "obeticholic acid": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "pimavanserin": {
+    "source_key": "app_num",
+    "us_serious_n": 28796,
+    "us_nonserious_n": 27692,
+    "us_total_n": 56488,
+    "global_queried": true,
+    "global_serious_n": 29689,
+    "global_nonserious_n": 27771,
+    "global_total_n": 57460
+  },
+  "reslizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 152,
+    "us_nonserious_n": 236,
+    "us_total_n": 388,
+    "global_queried": true,
+    "global_serious_n": 443,
+    "global_nonserious_n": 245,
+    "global_total_n": 688
+  },
+  "rucaparib": {
+    "source_key": "app_num",
+    "us_serious_n": 3343,
+    "us_nonserious_n": 4969,
+    "us_total_n": 8312,
+    "global_queried": true,
+    "global_serious_n": 3819,
+    "global_nonserious_n": 4975,
+    "global_total_n": 8794
+  },
+  "venetoclax": {
+    "source_key": "app_num",
+    "us_serious_n": 29029,
+    "us_nonserious_n": 5276,
+    "us_total_n": 34305,
+    "global_queried": true,
+    "global_serious_n": 56837,
+    "global_nonserious_n": 5920,
+    "global_total_n": 62757
+  },
+  "alirocumab": {
+    "source_key": "app_num",
+    "us_serious_n": 3831,
+    "us_nonserious_n": 18529,
+    "us_total_n": 22360,
+    "global_queried": true,
+    "global_serious_n": 6946,
+    "global_nonserious_n": 18798,
+    "global_total_n": 25744
+  },
+  "brexpiprazole": {
+    "source_key": "app_num",
+    "us_serious_n": 4046,
+    "us_nonserious_n": 9496,
+    "us_total_n": 13542,
+    "global_queried": true,
+    "global_serious_n": 7093,
+    "global_nonserious_n": 9691,
+    "global_total_n": 16784
+  },
+  "cariprazine": {
+    "source_key": "app_num",
+    "us_serious_n": 2407,
+    "us_nonserious_n": 5948,
+    "us_total_n": 8355,
+    "global_queried": true,
+    "global_serious_n": 3395,
+    "global_nonserious_n": 6165,
+    "global_total_n": 9560
+  },
+  "deoxycholic acid": {
+    "source_key": "app_num",
+    "us_serious_n": 148,
+    "us_nonserious_n": 2130,
+    "us_total_n": 2278,
+    "global_queried": true,
+    "global_serious_n": 189,
+    "global_nonserious_n": 2145,
+    "global_total_n": 2334
+  },
+  "eluxadoline": {
+    "source_key": "app_num",
+    "us_serious_n": 1032,
+    "us_nonserious_n": 1803,
+    "us_total_n": 2835,
+    "global_queried": true,
+    "global_serious_n": 1137,
+    "global_nonserious_n": 1812,
+    "global_total_n": 2949
+  },
+  "evolocumab": {
+    "source_key": "app_num",
+    "us_serious_n": 19534,
+    "us_nonserious_n": 135377,
+    "us_total_n": 154911,
+    "global_queried": true,
+    "global_serious_n": 28659,
+    "global_nonserious_n": 136360,
+    "global_total_n": 165019
+  },
+  "insulin degludec": {
+    "source_key": "app_num",
+    "us_serious_n": 7006,
+    "us_nonserious_n": 9457,
+    "us_total_n": 16463,
+    "global_queried": true,
+    "global_serious_n": 14132,
+    "global_nonserious_n": 9729,
+    "global_total_n": 23861
+  },
+  "ixazomib": {
+    "source_key": "app_num",
+    "us_serious_n": 8928,
+    "us_nonserious_n": 7182,
+    "us_total_n": 16110,
+    "global_queried": true,
+    "global_serious_n": 21353,
+    "global_nonserious_n": 7366,
+    "global_total_n": 28719
+  },
+  "lenvatinib": {
+    "source_key": "app_num",
+    "us_serious_n": 7101,
+    "us_nonserious_n": 3169,
+    "us_total_n": 10270,
+    "global_queried": true,
+    "global_serious_n": 29399,
+    "global_nonserious_n": 4080,
+    "global_total_n": 33479
+  },
+  "lesinurad": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "mepolizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 5316,
+    "us_nonserious_n": 18050,
+    "us_total_n": 23366,
+    "global_queried": true,
+    "global_serious_n": 31673,
+    "global_nonserious_n": 18644,
+    "global_total_n": 50317
+  },
+  "palbociclib": {
+    "source_key": "app_num",
+    "us_serious_n": 26587,
+    "us_nonserious_n": 42196,
+    "us_total_n": 68783,
+    "global_queried": true,
+    "global_serious_n": 50731,
+    "global_nonserious_n": 44657,
+    "global_total_n": 95388
+  },
+  "patiromer": {
+    "source_key": "app_num",
+    "us_serious_n": 6133,
+    "us_nonserious_n": 7007,
+    "us_total_n": 13140,
+    "global_queried": true,
+    "global_serious_n": 6760,
+    "global_nonserious_n": 7044,
+    "global_total_n": 13804
+  },
+  "secukinumab": {
+    "source_key": "app_num",
+    "us_serious_n": 18398,
+    "us_nonserious_n": 90636,
+    "us_total_n": 109034,
+    "global_queried": true,
+    "global_serious_n": 65346,
+    "global_nonserious_n": 96479,
+    "global_total_n": 161825
+  },
+  "albiglutide": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "apremilast": {
+    "source_key": "app_num",
+    "us_serious_n": 20032,
+    "us_nonserious_n": 106771,
+    "us_total_n": 126803,
+    "global_queried": true,
+    "global_serious_n": 35027,
+    "global_nonserious_n": 111388,
+    "global_total_n": 146415
+  },
+  "dalbavancin": {
+    "source_key": "app_num",
+    "us_serious_n": 269,
+    "us_nonserious_n": 538,
+    "us_total_n": 807,
+    "global_queried": true,
+    "global_serious_n": 455,
+    "global_nonserious_n": 549,
+    "global_total_n": 1004
+  },
+  "dapagliflozin": {
+    "source_key": "app_num",
+    "us_serious_n": 14582,
+    "us_nonserious_n": 10846,
+    "us_total_n": 25428,
+    "global_queried": true,
+    "global_serious_n": 46210,
+    "global_nonserious_n": 13795,
+    "global_total_n": 60005
+  },
+  "droxidopa": {
+    "source_key": "app_num",
+    "us_serious_n": 7528,
+    "us_nonserious_n": 13056,
+    "us_total_n": 20584,
+    "global_queried": true,
+    "global_serious_n": 8354,
+    "global_nonserious_n": 13193,
+    "global_total_n": 21547
+  },
+  "dulaglutide": {
+    "source_key": "app_num",
+    "us_serious_n": 15121,
+    "us_nonserious_n": 65181,
+    "us_total_n": 80302,
+    "global_queried": true,
+    "global_serious_n": 23417,
+    "global_nonserious_n": 65810,
+    "global_total_n": 89227
+  },
+  "empagliflozin": {
+    "source_key": "app_num",
+    "us_serious_n": 16720,
+    "us_nonserious_n": 25308,
+    "us_total_n": 42028,
+    "global_queried": true,
+    "global_serious_n": 42165,
+    "global_nonserious_n": 26996,
+    "global_total_n": 69161
+  },
+  "idelalisib": {
+    "source_key": "app_num",
+    "us_serious_n": 3073,
+    "us_nonserious_n": 206,
+    "us_total_n": 3279,
+    "global_queried": true,
+    "global_serious_n": 6806,
+    "global_nonserious_n": 233,
+    "global_total_n": 7039
+  },
+  "nintedanib": {
+    "source_key": "app_num",
+    "us_serious_n": 9732,
+    "us_nonserious_n": 9815,
+    "us_total_n": 19547,
+    "global_queried": true,
+    "global_serious_n": 22020,
+    "global_nonserious_n": 10416,
+    "global_total_n": 32436
+  },
+  "nivolumab": {
+    "source_key": "app_num",
+    "us_serious_n": 26978,
+    "us_nonserious_n": 8947,
+    "us_total_n": 35925,
+    "global_queried": true,
+    "global_serious_n": 87418,
+    "global_nonserious_n": 10420,
+    "global_total_n": 97838
+  },
+  "olaparib": {
+    "source_key": "generic_name",
+    "us_serious_n": 6004,
+    "us_nonserious_n": 1341,
+    "us_total_n": 7345,
+    "global_queried": true,
+    "global_serious_n": 19461,
+    "global_nonserious_n": 1925,
+    "global_total_n": 21386
+  },
+  "olodaterol": {
+    "source_key": "app_num",
+    "us_serious_n": 59,
+    "us_nonserious_n": 180,
+    "us_total_n": 239,
+    "global_queried": true,
+    "global_serious_n": 183,
+    "global_nonserious_n": 186,
+    "global_total_n": 369
+  },
+  "pembrolizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 18584,
+    "us_nonserious_n": 12273,
+    "us_total_n": 30857,
+    "global_queried": true,
+    "global_serious_n": 94996,
+    "global_nonserious_n": 13352,
+    "global_total_n": 108348
+  },
+  "ramucirumab": {
+    "source_key": "app_num",
+    "us_serious_n": 859,
+    "us_nonserious_n": 322,
+    "us_total_n": 1181,
+    "global_queried": true,
+    "global_serious_n": 5929,
+    "global_nonserious_n": 376,
+    "global_total_n": 6305
+  },
+  "tedizolid": {
+    "source_key": "app_num",
+    "us_serious_n": 133,
+    "us_nonserious_n": 272,
+    "us_total_n": 405,
+    "global_queried": true,
+    "global_serious_n": 517,
+    "global_nonserious_n": 275,
+    "global_total_n": 792
+  },
+  "umeclidinium": {
+    "source_key": "app_num",
+    "us_serious_n": 2501,
+    "us_nonserious_n": 4143,
+    "us_total_n": 6644,
+    "global_queried": true,
+    "global_serious_n": 4817,
+    "global_nonserious_n": 4225,
+    "global_total_n": 9042
+  },
+  "vedolizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 14074,
+    "us_nonserious_n": 10649,
+    "us_total_n": 24723,
+    "global_queried": true,
+    "global_serious_n": 75192,
+    "global_nonserious_n": 11530,
+    "global_total_n": 86722
+  },
+  "alogliptin": {
+    "source_key": "app_num",
+    "us_serious_n": 290,
+    "us_nonserious_n": 280,
+    "us_total_n": 570,
+    "global_queried": true,
+    "global_serious_n": 2985,
+    "global_nonserious_n": 422,
+    "global_total_n": 3407
+  },
+  "alogliptin and metformin": {
+    "source_key": "app_num",
+    "us_serious_n": 27,
+    "us_nonserious_n": 48,
+    "us_total_n": 75,
+    "global_queried": true,
+    "global_serious_n": 62,
+    "global_nonserious_n": 78,
+    "global_total_n": 140
+  },
+  "alogliptin and pioglitazone": {
+    "source_key": "app_num",
+    "us_serious_n": 45,
+    "us_nonserious_n": 107,
+    "us_total_n": 152,
+    "global_queried": true,
+    "global_serious_n": 67,
+    "global_nonserious_n": 182,
+    "global_total_n": 249
+  },
+  "bazedoxifene": {
+    "source_key": "app_num",
+    "us_serious_n": 201,
+    "us_nonserious_n": 720,
+    "us_total_n": 921,
+    "global_queried": true,
+    "global_serious_n": 207,
+    "global_nonserious_n": 730,
+    "global_total_n": 937
+  },
+  "canagliflozin": {
+    "source_key": "app_num",
+    "us_serious_n": 13881,
+    "us_nonserious_n": 10107,
+    "us_total_n": 23988,
+    "global_queried": true,
+    "global_serious_n": 19346,
+    "global_nonserious_n": 10497,
+    "global_total_n": 29843
+  },
+  "eslicarbazepine": {
+    "source_key": "app_num",
+    "us_serious_n": 1441,
+    "us_nonserious_n": 975,
+    "us_total_n": 2416,
+    "global_queried": true,
+    "global_serious_n": 2292,
+    "global_nonserious_n": 999,
+    "global_total_n": 3291
+  },
+  "ferric carboxymaltose": {
+    "source_key": "app_num",
+    "us_serious_n": 1914,
+    "us_nonserious_n": 2149,
+    "us_total_n": 4063,
+    "global_queried": true,
+    "global_serious_n": 2505,
+    "global_nonserious_n": 2215,
+    "global_total_n": 4720
+  },
+  "ibrutinib": {
+    "source_key": "app_num",
+    "us_serious_n": 39851,
+    "us_nonserious_n": 17561,
+    "us_total_n": 57412,
+    "global_queried": true,
+    "global_serious_n": 62950,
+    "global_nonserious_n": 17969,
+    "global_total_n": 80919
+  },
+  "macitentan": {
+    "source_key": "app_num",
+    "us_serious_n": 35101,
+    "us_nonserious_n": 17872,
+    "us_total_n": 52973,
+    "global_queried": true,
+    "global_serious_n": 49500,
+    "global_nonserious_n": 20185,
+    "global_total_n": 69685
+  },
+  "mipomersen": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "pomalidomide": {
+    "source_key": "app_num",
+    "us_serious_n": 46476,
+    "us_nonserious_n": 38494,
+    "us_total_n": 84970,
+    "global_queried": true,
+    "global_serious_n": 63622,
+    "global_nonserious_n": 39741,
+    "global_total_n": 103363
+  },
+  "riociguat": {
+    "source_key": "app_num",
+    "us_serious_n": 19815,
+    "us_nonserious_n": 7245,
+    "us_total_n": 27060,
+    "global_queried": true,
+    "global_serious_n": 25152,
+    "global_nonserious_n": 7680,
+    "global_total_n": 32832
+  },
+  "treprostinil diolamine": {
+    "source_key": "app_num",
+    "us_serious_n": 12524,
+    "us_nonserious_n": 11479,
+    "us_total_n": 24003,
+    "global_queried": true,
+    "global_serious_n": 14322,
+    "global_nonserious_n": 11675,
+    "global_total_n": 25997
+  },
+  "vilanterol": {
+    "source_key": "app_num",
+    "us_serious_n": 8904,
+    "us_nonserious_n": 20759,
+    "us_total_n": 29663,
+    "global_queried": true,
+    "global_serious_n": 15050,
+    "global_nonserious_n": 21098,
+    "global_total_n": 36148
+  },
+  "vortioxetine": {
+    "source_key": "app_num",
+    "us_serious_n": 4359,
+    "us_nonserious_n": 8537,
+    "us_total_n": 12896,
+    "global_queried": true,
+    "global_serious_n": 8192,
+    "global_nonserious_n": 8893,
+    "global_total_n": 17085
+  },
+  "aclidinium": {
+    "source_key": "app_num",
+    "us_serious_n": 1496,
+    "us_nonserious_n": 2549,
+    "us_total_n": 4045,
+    "global_queried": true,
+    "global_serious_n": 3555,
+    "global_nonserious_n": 2833,
+    "global_total_n": 6388
+  },
+  "apixaban": {
+    "source_key": "app_num",
+    "us_serious_n": 122736,
+    "us_nonserious_n": 66379,
+    "us_total_n": 189115,
+    "global_queried": true,
+    "global_serious_n": 209592,
+    "global_nonserious_n": 69666,
+    "global_total_n": 279258
+  },
+  "cabozantinib": {
+    "source_key": "app_num",
+    "us_serious_n": 1717,
+    "us_nonserious_n": 1347,
+    "us_total_n": 3064,
+    "global_queried": true,
+    "global_serious_n": 3900,
+    "global_nonserious_n": 1649,
+    "global_total_n": 5549
+  },
+  "enzalutamide": {
+    "source_key": "app_num",
+    "us_serious_n": 23165,
+    "us_nonserious_n": 21698,
+    "us_total_n": 44863,
+    "global_queried": true,
+    "global_serious_n": 36176,
+    "global_nonserious_n": 22451,
+    "global_total_n": 58627
+  },
+  "ivacaftor": {
+    "source_key": "app_num",
+    "us_serious_n": 1783,
+    "us_nonserious_n": 1906,
+    "us_total_n": 3689,
+    "global_queried": true,
+    "global_serious_n": 5926,
+    "global_nonserious_n": 2025,
+    "global_total_n": 7951
+  },
+  "linaclotide": {
+    "source_key": "app_num",
+    "us_serious_n": 7940,
+    "us_nonserious_n": 15094,
+    "us_total_n": 23034,
+    "global_queried": true,
+    "global_serious_n": 9941,
+    "global_nonserious_n": 17320,
+    "global_total_n": 27261
+  },
+  "mirabegron": {
+    "source_key": "app_num",
+    "us_serious_n": 10141,
+    "us_nonserious_n": 19322,
+    "us_total_n": 29463,
+    "global_queried": true,
+    "global_serious_n": 18957,
+    "global_nonserious_n": 20103,
+    "global_total_n": 39060
+  },
+  "ocriplasmin": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "perampanel": {
+    "source_key": "app_num",
+    "us_serious_n": 1386,
+    "us_nonserious_n": 1023,
+    "us_total_n": 2409,
+    "global_queried": true,
+    "global_serious_n": 6335,
+    "global_nonserious_n": 1324,
+    "global_total_n": 7659
+  },
+  "pertuzumab": {
+    "source_key": "app_num",
+    "us_serious_n": 3290,
+    "us_nonserious_n": 2886,
+    "us_total_n": 6176,
+    "global_queried": true,
+    "global_serious_n": 23396,
+    "global_nonserious_n": 4169,
+    "global_total_n": 27565
+  },
+  "regorafenib": {
+    "source_key": "app_num",
+    "us_serious_n": 4012,
+    "us_nonserious_n": 851,
+    "us_total_n": 4863,
+    "global_queried": true,
+    "global_serious_n": 10459,
+    "global_nonserious_n": 1143,
+    "global_total_n": 11602
+  },
+  "teriflunomide": {
+    "source_key": "app_num",
+    "us_serious_n": 14126,
+    "us_nonserious_n": 24827,
+    "us_total_n": 38953,
+    "global_queried": true,
+    "global_serious_n": 19600,
+    "global_nonserious_n": 25480,
+    "global_total_n": 45080
+  },
+  "tofacitinib": {
+    "source_key": "app_num",
+    "us_serious_n": 19076,
+    "us_nonserious_n": 39868,
+    "us_total_n": 58944,
+    "global_queried": true,
+    "global_serious_n": 65456,
+    "global_nonserious_n": 41384,
+    "global_total_n": 106840
+  },
+  "abiraterone": {
+    "source_key": "app_num",
+    "us_serious_n": 10900,
+    "us_nonserious_n": 9433,
+    "us_total_n": 20333,
+    "global_queried": true,
+    "global_serious_n": 22974,
+    "global_nonserious_n": 10749,
+    "global_total_n": 33723
+  },
+  "aflibercept": {
+    "source_key": "app_num",
+    "us_serious_n": 10851,
+    "us_nonserious_n": 5112,
+    "us_total_n": 15963,
+    "global_queried": true,
+    "global_serious_n": 24779,
+    "global_nonserious_n": 5461,
+    "global_total_n": 30240
+  },
+  "belimumab": {
+    "source_key": "app_num",
+    "us_serious_n": 7821,
+    "us_nonserious_n": 16926,
+    "us_total_n": 24747,
+    "global_queried": true,
+    "global_serious_n": 13651,
+    "global_nonserious_n": 18294,
+    "global_total_n": 31945
+  },
+  "brentuximab vedotin": {
+    "source_key": "app_num",
+    "us_serious_n": 2033,
+    "us_nonserious_n": 856,
+    "us_total_n": 2889,
+    "global_queried": true,
+    "global_serious_n": 9471,
+    "global_nonserious_n": 924,
+    "global_total_n": 10395
+  },
+  "icatibant": {
+    "source_key": "app_num",
+    "us_serious_n": 2923,
+    "us_nonserious_n": 1512,
+    "us_total_n": 4435,
+    "global_queried": true,
+    "global_serious_n": 4048,
+    "global_nonserious_n": 1957,
+    "global_total_n": 6005
+  },
+  "indacaterol": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "ipilimumab": {
+    "source_key": "app_num",
+    "us_serious_n": 13661,
+    "us_nonserious_n": 4407,
+    "us_total_n": 18068,
+    "global_queried": true,
+    "global_serious_n": 38930,
+    "global_nonserious_n": 4885,
+    "global_total_n": 43815
+  },
+  "linagliptin": {
+    "source_key": "app_num",
+    "us_serious_n": 4023,
+    "us_nonserious_n": 4512,
+    "us_total_n": 8535,
+    "global_queried": true,
+    "global_serious_n": 12971,
+    "global_nonserious_n": 5426,
+    "global_total_n": 18397
+  },
+  "rivaroxaban": {
+    "source_key": "app_num",
+    "us_serious_n": 100947,
+    "us_nonserious_n": 31763,
+    "us_total_n": 132710,
+    "global_queried": true,
+    "global_serious_n": 174064,
+    "global_nonserious_n": 33640,
+    "global_total_n": 207704
+  },
+  "roflumilast": {
+    "source_key": "app_num",
+    "us_serious_n": 1974,
+    "us_nonserious_n": 1539,
+    "us_total_n": 3513,
+    "global_queried": true,
+    "global_serious_n": 4113,
+    "global_nonserious_n": 2030,
+    "global_total_n": 6143
+  },
+  "ruxolitinib": {
+    "source_key": "app_num",
+    "us_serious_n": 23658,
+    "us_nonserious_n": 29547,
+    "us_total_n": 53205,
+    "global_queried": true,
+    "global_serious_n": 34922,
+    "global_nonserious_n": 33477,
+    "global_total_n": 68399
+  },
+  "telaprevir": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "ticagrelor": {
+    "source_key": "app_num",
+    "us_serious_n": 8850,
+    "us_nonserious_n": 6777,
+    "us_total_n": 15627,
+    "global_queried": true,
+    "global_serious_n": 24229,
+    "global_nonserious_n": 7510,
+    "global_total_n": 31739
+  },
+  "vandetanib": {
+    "source_key": "app_num",
+    "us_serious_n": 445,
+    "us_nonserious_n": 473,
+    "us_total_n": 918,
+    "global_queried": true,
+    "global_serious_n": 1214,
+    "global_nonserious_n": 597,
+    "global_total_n": 1811
+  },
+  "vemurafenib": {
+    "source_key": "app_num",
+    "us_serious_n": 2313,
+    "us_nonserious_n": 2552,
+    "us_total_n": 4865,
+    "global_queried": true,
+    "global_serious_n": 8961,
+    "global_nonserious_n": 3025,
+    "global_total_n": 11986
+  },
+  "ceftaroline": {
+    "source_key": "app_num",
+    "us_serious_n": 270,
+    "us_nonserious_n": 141,
+    "us_total_n": 411,
+    "global_queried": true,
+    "global_serious_n": 662,
+    "global_nonserious_n": 160,
+    "global_total_n": 822
+  },
+  "dabigatran etexilate": {
+    "source_key": "app_num",
+    "us_serious_n": 19494,
+    "us_nonserious_n": 8797,
+    "us_total_n": 28291,
+    "global_queried": true,
+    "global_serious_n": 55185,
+    "global_nonserious_n": 17056,
+    "global_total_n": 72241
+  },
+  "denosumab": {
+    "source_key": "app_num",
+    "us_serious_n": 42867,
+    "us_nonserious_n": 87231,
+    "us_total_n": 130098,
+    "global_queried": true,
+    "global_serious_n": 111168,
+    "global_nonserious_n": 92289,
+    "global_total_n": 203457
+  },
+  "fingolimod": {
+    "source_key": "app_num",
+    "us_serious_n": 18859,
+    "us_nonserious_n": 36483,
+    "us_total_n": 55342,
+    "global_queried": true,
+    "global_serious_n": 40655,
+    "global_nonserious_n": 41089,
+    "global_total_n": 81744
+  },
+  "incobotulinumtoxina": {
+    "source_key": "app_num",
+    "us_serious_n": 281,
+    "us_nonserious_n": 4667,
+    "us_total_n": 4948,
+    "global_queried": true,
+    "global_serious_n": 786,
+    "global_nonserious_n": 5031,
+    "global_total_n": 5817
+  },
+  "liraglutide": {
+    "source_key": "app_num",
+    "us_serious_n": 9854,
+    "us_nonserious_n": 13376,
+    "us_total_n": 23230,
+    "global_queried": true,
+    "global_serious_n": 20241,
+    "global_nonserious_n": 22176,
+    "global_total_n": 42417
+  },
+  "lurasidone": {
+    "source_key": "app_num",
+    "us_serious_n": 5695,
+    "us_nonserious_n": 11218,
+    "us_total_n": 16913,
+    "global_queried": true,
+    "global_serious_n": 9352,
+    "global_nonserious_n": 11578,
+    "global_total_n": 20930
+  },
+  "pegloticase": {
+    "source_key": "app_num",
+    "us_serious_n": 1716,
+    "us_nonserious_n": 1899,
+    "us_total_n": 3615,
+    "global_queried": true,
+    "global_serious_n": 1895,
+    "global_nonserious_n": 1980,
+    "global_total_n": 3875
+  },
+  "tesamorelin": {
+    "source_key": "app_num",
+    "us_serious_n": 323,
+    "us_nonserious_n": 1338,
+    "us_total_n": 1661,
+    "global_queried": true,
+    "global_serious_n": 345,
+    "global_nonserious_n": 1347,
+    "global_total_n": 1692
+  },
+  "tocilizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 9987,
+    "us_nonserious_n": 15668,
+    "us_total_n": 25655,
+    "global_queried": true,
+    "global_serious_n": 87251,
+    "global_nonserious_n": 24228,
+    "global_total_n": 111479
+  },
+  "botulinum toxin type a": {
+    "source_key": "app_num",
+    "us_serious_n": 780,
+    "us_nonserious_n": 4907,
+    "us_total_n": 5687,
+    "global_queried": true,
+    "global_serious_n": 7113,
+    "global_nonserious_n": 5610,
+    "global_total_n": 12723
+  },
+  "canakinumab": {
+    "source_key": "app_num",
+    "us_serious_n": 1846,
+    "us_nonserious_n": 5554,
+    "us_total_n": 7400,
+    "global_queried": true,
+    "global_serious_n": 5166,
+    "global_nonserious_n": 5737,
+    "global_total_n": 10903
+  },
+  "dronedarone": {
+    "source_key": "app_num",
+    "us_serious_n": 3183,
+    "us_nonserious_n": 2474,
+    "us_total_n": 5657,
+    "global_queried": true,
+    "global_serious_n": 7197,
+    "global_nonserious_n": 3012,
+    "global_total_n": 10209
+  },
+  "everolimus": {
+    "source_key": "app_num",
+    "us_serious_n": 12005,
+    "us_nonserious_n": 8863,
+    "us_total_n": 20868,
+    "global_queried": true,
+    "global_serious_n": 38122,
+    "global_nonserious_n": 11062,
+    "global_total_n": 49184
+  },
+  "ferumoxytol": {
+    "source_key": "app_num",
+    "us_serious_n": 533,
+    "us_nonserious_n": 682,
+    "us_total_n": 1215,
+    "global_queried": true,
+    "global_serious_n": 1190,
+    "global_nonserious_n": 752,
+    "global_total_n": 1942
+  },
+  "golimumab": {
+    "source_key": "app_num",
+    "us_serious_n": 3908,
+    "us_nonserious_n": 12508,
+    "us_total_n": 16416,
+    "global_queried": true,
+    "global_serious_n": 63252,
+    "global_nonserious_n": 19256,
+    "global_total_n": 82508
+  },
+  "iloperidone": {
+    "source_key": "app_num",
+    "us_serious_n": 297,
+    "us_nonserious_n": 469,
+    "us_total_n": 766,
+    "global_queried": true,
+    "global_serious_n": 722,
+    "global_nonserious_n": 753,
+    "global_total_n": 1475
+  },
+  "pazopanib": {
+    "source_key": "app_num",
+    "us_serious_n": 6942,
+    "us_nonserious_n": 7836,
+    "us_total_n": 14778,
+    "global_queried": true,
+    "global_serious_n": 13720,
+    "global_nonserious_n": 8793,
+    "global_total_n": 22513
+  },
+  "prasugrel": {
+    "source_key": "app_num",
+    "us_serious_n": 3494,
+    "us_nonserious_n": 2264,
+    "us_total_n": 5758,
+    "global_queried": true,
+    "global_serious_n": 7599,
+    "global_nonserious_n": 2539,
+    "global_total_n": 10138
+  },
+  "saxagliptin": {
+    "source_key": "generic_name",
+    "us_serious_n": 269,
+    "us_nonserious_n": 79,
+    "us_total_n": 348,
+    "global_queried": true,
+    "global_serious_n": 1347,
+    "global_nonserious_n": 115,
+    "global_total_n": 1462
+  },
+  "tolvaptan": {
+    "source_key": "app_num",
+    "us_serious_n": 3497,
+    "us_nonserious_n": 2467,
+    "us_total_n": 5964,
+    "global_queried": true,
+    "global_serious_n": 11864,
+    "global_nonserious_n": 2937,
+    "global_total_n": 14801
+  },
+  "ustekinumab": {
+    "source_key": "app_num",
+    "us_serious_n": 14479,
+    "us_nonserious_n": 36208,
+    "us_total_n": 50687,
+    "global_queried": true,
+    "global_serious_n": 61408,
+    "global_nonserious_n": 41602,
+    "global_total_n": 103010
+  },
+  "bendamustine": {
+    "source_key": "app_num",
+    "us_serious_n": 1095,
+    "us_nonserious_n": 621,
+    "us_total_n": 1716,
+    "global_queried": true,
+    "global_serious_n": 9919,
+    "global_nonserious_n": 1507,
+    "global_total_n": 11426
+  },
+  "certolizumab pegol": {
+    "source_key": "app_num",
+    "us_serious_n": 24827,
+    "us_nonserious_n": 34577,
+    "us_total_n": 59404,
+    "global_queried": true,
+    "global_serious_n": 76408,
+    "global_nonserious_n": 42762,
+    "global_total_n": 119170
+  },
+  "desvenlafaxine": {
+    "source_key": "app_num",
+    "us_serious_n": 4210,
+    "us_nonserious_n": 7150,
+    "us_total_n": 11360,
+    "global_queried": true,
+    "global_serious_n": 9156,
+    "global_nonserious_n": 14434,
+    "global_total_n": 23590
+  },
+  "eltrombopag": {
+    "source_key": "app_num",
+    "us_serious_n": 6254,
+    "us_nonserious_n": 7240,
+    "us_total_n": 13494,
+    "global_queried": true,
+    "global_serious_n": 11652,
+    "global_nonserious_n": 7790,
+    "global_total_n": 19442
+  },
+  "fesoterodine": {
+    "source_key": "app_num",
+    "us_serious_n": 2214,
+    "us_nonserious_n": 3416,
+    "us_total_n": 5630,
+    "global_queried": true,
+    "global_serious_n": 6035,
+    "global_nonserious_n": 4734,
+    "global_total_n": 10769
+  },
+  "lacosamide": {
+    "source_key": "app_num",
+    "us_serious_n": 11908,
+    "us_nonserious_n": 6356,
+    "us_total_n": 18264,
+    "global_queried": true,
+    "global_serious_n": 29655,
+    "global_nonserious_n": 8034,
+    "global_total_n": 37689
+  },
+  "rilonacept": {
+    "source_key": "app_num",
+    "us_serious_n": 234,
+    "us_nonserious_n": 854,
+    "us_total_n": 1088,
+    "global_queried": true,
+    "global_serious_n": 282,
+    "global_nonserious_n": 872,
+    "global_total_n": 1154
+  },
+  "romiplostim": {
+    "source_key": "app_num",
+    "us_serious_n": 2239,
+    "us_nonserious_n": 3104,
+    "us_total_n": 5343,
+    "global_queried": true,
+    "global_serious_n": 11696,
+    "global_nonserious_n": 3483,
+    "global_total_n": 15179
+  },
+  "tapentadol": {
+    "source_key": "app_num",
+    "us_serious_n": 24522,
+    "us_nonserious_n": 2151,
+    "us_total_n": 26673,
+    "global_queried": true,
+    "global_serious_n": 29124,
+    "global_nonserious_n": 2376,
+    "global_total_n": 31500
+  },
+  "aliskiren": {
+    "source_key": "app_num",
+    "us_serious_n": 721,
+    "us_nonserious_n": 492,
+    "us_total_n": 1213,
+    "global_queried": true,
+    "global_serious_n": 4247,
+    "global_nonserious_n": 1770,
+    "global_total_n": 6017
+  },
+  "ambrisentan": {
+    "source_key": "app_num",
+    "us_serious_n": 63458,
+    "us_nonserious_n": 40915,
+    "us_total_n": 104373,
+    "global_queried": true,
+    "global_serious_n": 80885,
+    "global_nonserious_n": 43947,
+    "global_total_n": 124832
+  },
+  "armodafinil": {
+    "source_key": "app_num",
+    "us_serious_n": 8193,
+    "us_nonserious_n": 9039,
+    "us_total_n": 17232,
+    "global_queried": true,
+    "global_serious_n": 9695,
+    "global_nonserious_n": 11356,
+    "global_total_n": 21051
+  },
+  "eculizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 18372,
+    "us_nonserious_n": 18655,
+    "us_total_n": 37027,
+    "global_queried": true,
+    "global_serious_n": 32656,
+    "global_nonserious_n": 21721,
+    "global_total_n": 54377
+  },
+  "lanreotide": {
+    "source_key": "app_num",
+    "us_serious_n": 1426,
+    "us_nonserious_n": 3089,
+    "us_total_n": 4515,
+    "global_queried": true,
+    "global_serious_n": 4729,
+    "global_nonserious_n": 3219,
+    "global_total_n": 7948
+  },
+  "lapatinib": {
+    "source_key": "app_num",
+    "us_serious_n": 2086,
+    "us_nonserious_n": 2431,
+    "us_total_n": 4517,
+    "global_queried": true,
+    "global_serious_n": 10580,
+    "global_nonserious_n": 4872,
+    "global_total_n": 15452
+  },
+  "lisdexamfetamine dimesylate": {
+    "source_key": "app_num",
+    "us_serious_n": 6196,
+    "us_nonserious_n": 16449,
+    "us_total_n": 22645,
+    "global_queried": true,
+    "global_serious_n": 13548,
+    "global_nonserious_n": 19803,
+    "global_total_n": 33351
+  },
+  "rotigotine": {
+    "source_key": "app_num",
+    "us_serious_n": 2336,
+    "us_nonserious_n": 2848,
+    "us_total_n": 5184,
+    "global_queried": true,
+    "global_serious_n": 9280,
+    "global_nonserious_n": 5422,
+    "global_total_n": 14702
+  },
+  "ciclesonide": {
+    "source_key": "app_num",
+    "us_serious_n": 241,
+    "us_nonserious_n": 298,
+    "us_total_n": 539,
+    "global_queried": true,
+    "global_serious_n": 4574,
+    "global_nonserious_n": 422,
+    "global_total_n": 4996
+  },
+  "dasatinib": {
+    "source_key": "app_num",
+    "us_serious_n": 11484,
+    "us_nonserious_n": 13130,
+    "us_total_n": 24614,
+    "global_queried": true,
+    "global_serious_n": 22432,
+    "global_nonserious_n": 14767,
+    "global_total_n": 37199
+  },
+  "lubiprostone": {
+    "source_key": "app_num",
+    "us_serious_n": 3138,
+    "us_nonserious_n": 2396,
+    "us_total_n": 5534,
+    "global_queried": true,
+    "global_serious_n": 6368,
+    "global_nonserious_n": 3174,
+    "global_total_n": 9542
+  },
+  "paliperidone": {
+    "source_key": "app_num",
+    "us_serious_n": 3248,
+    "us_nonserious_n": 9959,
+    "us_total_n": 13207,
+    "global_queried": true,
+    "global_serious_n": 11503,
+    "global_nonserious_n": 11856,
+    "global_total_n": 23359
+  },
+  "ranibizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 5283,
+    "us_nonserious_n": 3028,
+    "us_total_n": 8311,
+    "global_queried": true,
+    "global_serious_n": 22466,
+    "global_nonserious_n": 3854,
+    "global_total_n": 26320
+  },
+  "ranolazine": {
+    "source_key": "generic_name",
+    "us_serious_n": 7324,
+    "us_nonserious_n": 823,
+    "us_total_n": 8147,
+    "global_queried": true,
+    "global_serious_n": 9513,
+    "global_nonserious_n": 955,
+    "global_total_n": 10468
+  },
+  "sunitinib": {
+    "source_key": "app_num",
+    "us_serious_n": 5941,
+    "us_nonserious_n": 7058,
+    "us_total_n": 12999,
+    "global_queried": true,
+    "global_serious_n": 30209,
+    "global_nonserious_n": 8931,
+    "global_total_n": 39140
+  },
+  "abatacept": {
+    "source_key": "app_num",
+    "us_serious_n": 16033,
+    "us_nonserious_n": 49106,
+    "us_total_n": 65139,
+    "global_queried": true,
+    "global_serious_n": 83487,
+    "global_nonserious_n": 56129,
+    "global_total_n": 139616
+  },
+  "entecavir": {
+    "source_key": "app_num",
+    "us_serious_n": 1660,
+    "us_nonserious_n": 1085,
+    "us_total_n": 2745,
+    "global_queried": true,
+    "global_serious_n": 10253,
+    "global_nonserious_n": 1521,
+    "global_total_n": 11774
+  },
+  "exenatide": {
+    "source_key": "app_num",
+    "us_serious_n": 4067,
+    "us_nonserious_n": 4940,
+    "us_total_n": 9007,
+    "global_queried": true,
+    "global_serious_n": 14637,
+    "global_nonserious_n": 37684,
+    "global_total_n": 52321
+  },
+  "lenalidomide": {
+    "source_key": "app_num",
+    "us_serious_n": 167772,
+    "us_nonserious_n": 146363,
+    "us_total_n": 314135,
+    "global_queried": true,
+    "global_serious_n": 271780,
+    "global_nonserious_n": 153560,
+    "global_total_n": 425340
+  },
+  "sorafenib": {
+    "source_key": "app_num",
+    "us_serious_n": 3085,
+    "us_nonserious_n": 693,
+    "us_total_n": 3778,
+    "global_queried": true,
+    "global_serious_n": 18364,
+    "global_nonserious_n": 2262,
+    "global_total_n": 20626
+  },
+  "apomorphine": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "azacitidine": {
+    "source_key": "app_num",
+    "us_serious_n": 5447,
+    "us_nonserious_n": 742,
+    "us_total_n": 6189,
+    "global_queried": true,
+    "global_serious_n": 28272,
+    "global_nonserious_n": 1007,
+    "global_total_n": 29279
+  },
+  "cinacalcet": {
+    "source_key": "app_num",
+    "us_serious_n": 13380,
+    "us_nonserious_n": 28463,
+    "us_total_n": 41843,
+    "global_queried": true,
+    "global_serious_n": 16975,
+    "global_nonserious_n": 29391,
+    "global_total_n": 46366
+  },
+  "clofarabine": {
+    "source_key": "generic_name",
+    "us_serious_n": 620,
+    "us_nonserious_n": 65,
+    "us_total_n": 685,
+    "global_queried": true,
+    "global_serious_n": 2181,
+    "global_nonserious_n": 105,
+    "global_total_n": 2286
+  },
+  "duloxetine": {
+    "source_key": "generic_name",
+    "us_serious_n": 22500,
+    "us_nonserious_n": 17910,
+    "us_total_n": 40410,
+    "global_queried": true,
+    "global_serious_n": 50240,
+    "global_nonserious_n": 20568,
+    "global_total_n": 70808
+  },
+  "erlotinib": {
+    "source_key": "generic_name",
+    "us_serious_n": 4343,
+    "us_nonserious_n": 134,
+    "us_total_n": 4477,
+    "global_queried": true,
+    "global_serious_n": 9403,
+    "global_nonserious_n": 238,
+    "global_total_n": 9641
+  },
+  "pemetrexed": {
+    "source_key": "app_num",
+    "us_serious_n": 2282,
+    "us_nonserious_n": 1043,
+    "us_total_n": 3325,
+    "global_queried": true,
+    "global_serious_n": 15512,
+    "global_nonserious_n": 1409,
+    "global_total_n": 16921
+  },
+  "pregabalin": {
+    "source_key": "app_num",
+    "us_serious_n": 51729,
+    "us_nonserious_n": 73307,
+    "us_total_n": 125036,
+    "global_queried": true,
+    "global_serious_n": 182573,
+    "global_nonserious_n": 90218,
+    "global_total_n": 272791
+  },
+  "solifenacin": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "tiotropium": {
+    "source_key": "app_num",
+    "us_serious_n": 23612,
+    "us_nonserious_n": 44495,
+    "us_total_n": 68107,
+    "global_queried": true,
+    "global_serious_n": 68380,
+    "global_nonserious_n": 68271,
+    "global_total_n": 136651
+  },
+  "gefitinib": {
+    "source_key": "generic_name",
+    "us_serious_n": 345,
+    "us_nonserious_n": 106,
+    "us_total_n": 451,
+    "global_queried": true,
+    "global_serious_n": 8508,
+    "global_nonserious_n": 467,
+    "global_total_n": 8975
+  },
+  "memantine": {
+    "source_key": "app_num",
+    "us_serious_n": 588,
+    "us_nonserious_n": 251,
+    "us_total_n": 839,
+    "global_queried": true,
+    "global_serious_n": 2483,
+    "global_nonserious_n": 310,
+    "global_total_n": 2793
+  },
+  "omalizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 11526,
+    "us_nonserious_n": 31136,
+    "us_total_n": 42662,
+    "global_queried": true,
+    "global_serious_n": 46169,
+    "global_nonserious_n": 40594,
+    "global_total_n": 86763
+  },
+  "palonosetron": {
+    "source_key": "app_num",
+    "us_serious_n": 200,
+    "us_nonserious_n": 36,
+    "us_total_n": 236,
+    "global_queried": true,
+    "global_serious_n": 1717,
+    "global_nonserious_n": 74,
+    "global_total_n": 1791
+  },
+  "rosuvastatin": {
+    "source_key": "app_num",
+    "us_serious_n": 41444,
+    "us_nonserious_n": 45021,
+    "us_total_n": 86465,
+    "global_queried": true,
+    "global_serious_n": 139785,
+    "global_nonserious_n": 67077,
+    "global_total_n": 206862
+  },
+  "tadalafil": {
+    "source_key": "app_num",
+    "us_serious_n": 16971,
+    "us_nonserious_n": 18755,
+    "us_total_n": 35726,
+    "global_queried": true,
+    "global_serious_n": 31345,
+    "global_nonserious_n": 23861,
+    "global_total_n": 55206
+  },
+  "adalimumab": {
+    "source_key": "app_num",
+    "us_serious_n": 146243,
+    "us_nonserious_n": 254994,
+    "us_total_n": 401237,
+    "global_queried": true,
+    "global_serious_n": 360963,
+    "global_nonserious_n": 346122,
+    "global_total_n": 707085
+  },
+  "aripiprazole": {
+    "source_key": "app_num",
+    "us_serious_n": 24092,
+    "us_nonserious_n": 25438,
+    "us_total_n": 49530,
+    "global_queried": true,
+    "global_serious_n": 78812,
+    "global_nonserious_n": 37496,
+    "global_total_n": 116308
+  },
+  "atomoxetine": {
+    "source_key": "app_num",
+    "us_serious_n": 1923,
+    "us_nonserious_n": 5852,
+    "us_total_n": 7775,
+    "global_queried": true,
+    "global_serious_n": 9442,
+    "global_nonserious_n": 14410,
+    "global_total_n": 23852
+  },
+  "fulvestrant": {
+    "source_key": "app_num",
+    "us_serious_n": 5714,
+    "us_nonserious_n": 5262,
+    "us_total_n": 10976,
+    "global_queried": true,
+    "global_serious_n": 27083,
+    "global_nonserious_n": 6373,
+    "global_total_n": 33456
+  },
+  "nitazoxanide": {
+    "source_key": "generic_name",
+    "us_serious_n": 120,
+    "us_nonserious_n": 23,
+    "us_total_n": 143,
+    "global_queried": true,
+    "global_serious_n": 315,
+    "global_nonserious_n": 30,
+    "global_total_n": 345
+  },
+  "olmesartan": {
+    "source_key": "app_num",
+    "us_serious_n": 10885,
+    "us_nonserious_n": 8273,
+    "us_total_n": 19158,
+    "global_queried": true,
+    "global_serious_n": 23556,
+    "global_nonserious_n": 12481,
+    "global_total_n": 36037
+  },
+  "olmesartan medoxomil": {
+    "source_key": "app_num",
+    "us_serious_n": 10885,
+    "us_nonserious_n": 8273,
+    "us_total_n": 19158,
+    "global_queried": true,
+    "global_serious_n": 23556,
+    "global_nonserious_n": 12481,
+    "global_total_n": 36037
+  },
+  "pegfilgrastim": {
+    "source_key": "app_num",
+    "us_serious_n": 8860,
+    "us_nonserious_n": 67710,
+    "us_total_n": 76570,
+    "global_queried": true,
+    "global_serious_n": 28768,
+    "global_nonserious_n": 69831,
+    "global_total_n": 98599
+  },
+  "teriparatide": {
+    "source_key": "app_num",
+    "us_serious_n": 7303,
+    "us_nonserious_n": 59116,
+    "us_total_n": 66419,
+    "global_queried": true,
+    "global_serious_n": 41867,
+    "global_nonserious_n": 70602,
+    "global_total_n": 112469
+  },
+  "treprostinil": {
+    "source_key": "app_num",
+    "us_serious_n": 32366,
+    "us_nonserious_n": 22740,
+    "us_total_n": 55106,
+    "global_queried": true,
+    "global_serious_n": 41966,
+    "global_nonserious_n": 23253,
+    "global_total_n": 65219
+  },
+  "voriconazole": {
+    "source_key": "app_num",
+    "us_serious_n": 7165,
+    "us_nonserious_n": 1731,
+    "us_total_n": 8896,
+    "global_queried": true,
+    "global_serious_n": 27823,
+    "global_nonserious_n": 2355,
+    "global_total_n": 30178
+  },
+  "bimatoprost": {
+    "source_key": "generic_name",
+    "us_serious_n": 3705,
+    "us_nonserious_n": 16578,
+    "us_total_n": 20283,
+    "global_queried": true,
+    "global_serious_n": 7860,
+    "global_nonserious_n": 21009,
+    "global_total_n": 28869
+  },
+  "darbepoetin alfa": {
+    "source_key": "app_num",
+    "us_serious_n": 4127,
+    "us_nonserious_n": 4238,
+    "us_total_n": 8365,
+    "global_queried": true,
+    "global_serious_n": 48321,
+    "global_nonserious_n": 5732,
+    "global_total_n": 54053
+  },
+  "dutasteride": {
+    "source_key": "generic_name",
+    "us_serious_n": 1098,
+    "us_nonserious_n": 1087,
+    "us_total_n": 2185,
+    "global_queried": true,
+    "global_serious_n": 6438,
+    "global_nonserious_n": 1764,
+    "global_total_n": 8202
+  },
+  "esomeprazole": {
+    "source_key": "app_num",
+    "us_serious_n": 63974,
+    "us_nonserious_n": 31534,
+    "us_total_n": 95508,
+    "global_queried": true,
+    "global_serious_n": 125787,
+    "global_nonserious_n": 58849,
+    "global_total_n": 184636
+  },
+  "fondaparinux": {
+    "source_key": "app_num",
+    "us_serious_n": 858,
+    "us_nonserious_n": 312,
+    "us_total_n": 1170,
+    "global_queried": true,
+    "global_serious_n": 7093,
+    "global_nonserious_n": 959,
+    "global_total_n": 8052
+  },
+  "imatinib": {
+    "source_key": "generic_name",
+    "us_serious_n": 2434,
+    "us_nonserious_n": 1369,
+    "us_total_n": 3803,
+    "global_queried": true,
+    "global_serious_n": 15841,
+    "global_nonserious_n": 1971,
+    "global_total_n": 17812
+  },
+  "nesiritide": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "tenofovir disoproxil": {
+    "source_key": "app_num",
+    "us_serious_n": 17280,
+    "us_nonserious_n": 1506,
+    "us_total_n": 18786,
+    "global_queried": true,
+    "global_serious_n": 30952,
+    "global_nonserious_n": 1962,
+    "global_total_n": 32914
+  },
+  "ziprasidone": {
+    "source_key": "app_num",
+    "us_serious_n": 3715,
+    "us_nonserious_n": 2680,
+    "us_total_n": 6395,
+    "global_queried": true,
+    "global_serious_n": 0,
+    "global_nonserious_n": 0,
+    "global_total_n": 0
+  },
+  "zoledronic acid": {
+    "source_key": "generic_name",
+    "us_serious_n": 6281,
+    "us_nonserious_n": 4400,
+    "us_total_n": 10681,
+    "global_queried": true,
+    "global_serious_n": 0,
+    "global_nonserious_n": 0,
+    "global_total_n": 0
+  },
+  "colesevelam": {
+    "source_key": "generic_name",
+    "us_serious_n": 332,
+    "us_nonserious_n": 255,
+    "us_total_n": 587,
+    "global_queried": true,
+    "global_serious_n": 312,
+    "global_nonserious_n": 114,
+    "global_total_n": 426
+  },
+  "linezolid": {
+    "source_key": "app_num",
+    "us_serious_n": 4772,
+    "us_nonserious_n": 1552,
+    "us_total_n": 6324,
+    "global_queried": true,
+    "global_serious_n": 10868,
+    "global_nonserious_n": 1078,
+    "global_total_n": 11946
+  },
+  "oxcarbazepine": {
+    "source_key": "app_num",
+    "us_serious_n": 8117,
+    "us_nonserious_n": 5863,
+    "us_total_n": 13980,
+    "global_queried": true,
+    "global_serious_n": 9682,
+    "global_nonserious_n": 3017,
+    "global_total_n": 12699
+  },
+  "zonisamide": {
+    "source_key": "app_num",
+    "us_serious_n": 4179,
+    "us_nonserious_n": 2889,
+    "us_total_n": 7068,
+    "global_queried": true,
+    "global_serious_n": 11171,
+    "global_nonserious_n": 3578,
+    "global_total_n": 14749
+  },
+  "nitric oxide": {
+    "source_key": "app_num",
+    "us_serious_n": 1020,
+    "us_nonserious_n": 87,
+    "us_total_n": 1107,
+    "global_queried": true,
+    "global_serious_n": 2768,
+    "global_nonserious_n": 140,
+    "global_total_n": 2908
+  },
+  "rabeprazole": {
+    "source_key": "app_num",
+    "us_serious_n": 8297,
+    "us_nonserious_n": 2473,
+    "us_total_n": 10770,
+    "global_queried": true,
+    "global_serious_n": 21964,
+    "global_nonserious_n": 5288,
+    "global_total_n": 27252
+  },
+  "rosiglitazone": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "temozolomide": {
+    "source_key": "app_num",
+    "us_serious_n": 5475,
+    "us_nonserious_n": 3138,
+    "us_total_n": 8613,
+    "global_queried": true,
+    "global_serious_n": 17234,
+    "global_nonserious_n": 4068,
+    "global_total_n": 21302
+  },
+  "etanercept": {
+    "source_key": "app_num",
+    "us_serious_n": 69313,
+    "us_nonserious_n": 276668,
+    "us_total_n": 345981,
+    "global_queried": true,
+    "global_serious_n": 216125,
+    "global_nonserious_n": 380958,
+    "global_total_n": 597083
+  },
+  "paricalcitol": {
+    "source_key": "app_num",
+    "us_serious_n": 866,
+    "us_nonserious_n": 471,
+    "us_total_n": 1337,
+    "global_queried": true,
+    "global_serious_n": 12724,
+    "global_nonserious_n": 1330,
+    "global_total_n": 14054
+  },
+  "risedronate": {
+    "source_key": "app_num",
+    "us_serious_n": 1954,
+    "us_nonserious_n": 2048,
+    "us_total_n": 4002,
+    "global_queried": true,
+    "global_serious_n": 25746,
+    "global_nonserious_n": 4976,
+    "global_total_n": 30722
+  },
+  "telmisartan": {
+    "source_key": "generic_name",
+    "us_serious_n": 1576,
+    "us_nonserious_n": 2012,
+    "us_total_n": 3588,
+    "global_queried": true,
+    "global_serious_n": 15609,
+    "global_nonserious_n": 2487,
+    "global_total_n": 18096
+  },
+  "tolterodine": {
+    "source_key": "app_num",
+    "us_serious_n": 1803,
+    "us_nonserious_n": 2069,
+    "us_total_n": 3872,
+    "global_queried": true,
+    "global_serious_n": 5695,
+    "global_nonserious_n": 3266,
+    "global_total_n": 8961
+  },
+  "clopidogrel": {
+    "source_key": "app_num",
+    "us_serious_n": 55099,
+    "us_nonserious_n": 25500,
+    "us_total_n": 80599,
+    "global_queried": true,
+    "global_serious_n": 160666,
+    "global_nonserious_n": 37484,
+    "global_total_n": 198150
+  },
+  "ferric": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "letrozole": {
+    "source_key": "app_num",
+    "us_serious_n": 10119,
+    "us_nonserious_n": 10308,
+    "us_total_n": 20427,
+    "global_queried": true,
+    "global_serious_n": 50409,
+    "global_nonserious_n": 11921,
+    "global_total_n": 62330
+  },
+  "quetiapine": {
+    "source_key": "app_num",
+    "us_serious_n": 29341,
+    "us_nonserious_n": 15942,
+    "us_total_n": 45283,
+    "global_queried": true,
+    "global_serious_n": 124252,
+    "global_nonserious_n": 31705,
+    "global_total_n": 155957
+  },
+  "tamsulosin": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "toremifene": {
+    "source_key": "app_num",
+    "us_serious_n": 22,
+    "us_nonserious_n": 35,
+    "us_total_n": 57,
+    "global_queried": true,
+    "global_serious_n": 374,
+    "global_nonserious_n": 57,
+    "global_total_n": 431
+  },
+  "adapalene": {
+    "source_key": "app_num",
+    "us_serious_n": 319,
+    "us_nonserious_n": 5377,
+    "us_total_n": 5696,
+    "global_queried": true,
+    "global_serious_n": 861,
+    "global_nonserious_n": 5461,
+    "global_total_n": 6322
+  },
+  "glatiramer": {
+    "source_key": "app_num",
+    "us_serious_n": 13032,
+    "us_nonserious_n": 23745,
+    "us_total_n": 36777,
+    "global_queried": true,
+    "global_serious_n": 26546,
+    "global_nonserious_n": 27023,
+    "global_total_n": 53569
+  },
+  "olanzapine": {
+    "source_key": "app_num",
+    "us_serious_n": 16393,
+    "us_nonserious_n": 9810,
+    "us_total_n": 26203,
+    "global_queried": true,
+    "global_serious_n": 92343,
+    "global_nonserious_n": 14764,
+    "global_total_n": 107107
+  },
+  "ritonavir": {
+    "source_key": "generic_name",
+    "us_serious_n": 5085,
+    "us_nonserious_n": 1576,
+    "us_total_n": 6661,
+    "global_queried": true,
+    "global_serious_n": 26130,
+    "global_nonserious_n": 2598,
+    "global_total_n": 28728
+  },
+  "losartan": {
+    "source_key": "app_num",
+    "us_serious_n": 23416,
+    "us_nonserious_n": 26400,
+    "us_total_n": 49816,
+    "global_queried": true,
+    "global_serious_n": 47663,
+    "global_nonserious_n": 32206,
+    "global_total_n": 79869
+  },
+  "nalmefene": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "riluzole": {
+    "source_key": "generic_name",
+    "us_serious_n": 423,
+    "us_nonserious_n": 719,
+    "us_total_n": 1142,
+    "global_queried": true,
+    "global_serious_n": 1382,
+    "global_nonserious_n": 841,
+    "global_total_n": 2223
+  },
+  "estradiol": {
+    "source_key": "app_num",
+    "us_serious_n": 10695,
+    "us_nonserious_n": 28733,
+    "us_total_n": 39428,
+    "global_queried": true,
+    "global_serious_n": 23974,
+    "global_nonserious_n": 33330,
+    "global_total_n": 57304
+  },
+  "cladribine": {
+    "source_key": "generic_name",
+    "us_serious_n": 2191,
+    "us_nonserious_n": 1825,
+    "us_total_n": 4016,
+    "global_queried": true,
+    "global_serious_n": 7434,
+    "global_nonserious_n": 2499,
+    "global_total_n": 9933
+  },
+  "gabapentin": {
+    "source_key": "app_num",
+    "us_serious_n": 128537,
+    "us_nonserious_n": 114583,
+    "us_total_n": 243120,
+    "global_queried": true,
+    "global_serious_n": 230755,
+    "global_nonserious_n": 132243,
+    "global_total_n": 362998
+  },
+  "itraconazole": {
+    "source_key": "app_num",
+    "us_serious_n": 1614,
+    "us_nonserious_n": 872,
+    "us_total_n": 2486,
+    "global_queried": true,
+    "global_serious_n": 10281,
+    "global_nonserious_n": 1256,
+    "global_total_n": 11537
+  },
+  "terbinafine": {
+    "source_key": "generic_name",
+    "us_serious_n": 1451,
+    "us_nonserious_n": 1219,
+    "us_total_n": 2670,
+    "global_queried": true,
+    "global_serious_n": 5754,
+    "global_nonserious_n": 1425,
+    "global_total_n": 7179
+  },
+  "onabotulinumtoxina": {
+    "source_key": "app_num",
+    "us_serious_n": 6386,
+    "us_nonserious_n": 53209,
+    "us_total_n": 59595,
+    "global_queried": true,
+    "global_serious_n": 15435,
+    "global_nonserious_n": 62511,
+    "global_total_n": 77946
+  },
+  "eflornithine": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "fluticasone": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "octreotide": {
+    "source_key": "app_num",
+    "us_serious_n": 1301,
+    "us_nonserious_n": 1492,
+    "us_total_n": 2793,
+    "global_queried": true,
+    "global_serious_n": 7953,
+    "global_nonserious_n": 1679,
+    "global_total_n": 9632
+  },
+  "ceftriaxone": {
+    "source_key": "generic_name",
+    "us_serious_n": 8140,
+    "us_nonserious_n": 1182,
+    "us_total_n": 9322,
+    "global_queried": true,
+    "global_serious_n": 31254,
+    "global_nonserious_n": 1932,
+    "global_total_n": 33186
+  },
+  "ciprofloxacin": {
+    "source_key": "app_num",
+    "us_serious_n": 8373,
+    "us_nonserious_n": 6310,
+    "us_total_n": 14683,
+    "global_queried": true,
+    "global_serious_n": 18422,
+    "global_nonserious_n": 7851,
+    "global_total_n": 26273
+  },
+  "mesalamine": {
+    "source_key": "app_num",
+    "us_serious_n": 3721,
+    "us_nonserious_n": 2246,
+    "us_total_n": 5967,
+    "global_queried": true,
+    "global_serious_n": 24869,
+    "global_nonserious_n": 3205,
+    "global_total_n": 28074
+  },
+  "mometasone": {
+    "source_key": "generic_name",
+    "us_serious_n": 3403,
+    "us_nonserious_n": 4256,
+    "us_total_n": 7659,
+    "global_queried": true,
+    "global_serious_n": 13824,
+    "global_nonserious_n": 4847,
+    "global_total_n": 18671
+  },
+  "guanfacine": {
+    "source_key": "generic_name",
+    "us_serious_n": 2217,
+    "us_nonserious_n": 2699,
+    "us_total_n": 4916,
+    "global_queried": true,
+    "global_serious_n": 4666,
+    "global_nonserious_n": 3337,
+    "global_total_n": 8003
+  },
+  "enalapril": {
+    "source_key": "app_num",
+    "us_serious_n": 2938,
+    "us_nonserious_n": 2118,
+    "us_total_n": 5056,
+    "global_queried": true,
+    "global_serious_n": 19839,
+    "global_nonserious_n": 4708,
+    "global_total_n": 24547
+  },
+  "ribavirin": {
+    "source_key": "app_num",
+    "us_serious_n": 6864,
+    "us_nonserious_n": 22080,
+    "us_total_n": 28944,
+    "global_queried": true,
+    "global_serious_n": 37951,
+    "global_nonserious_n": 25968,
+    "global_total_n": 63919
+  },
+  "glyburide": {
+    "source_key": "app_num",
+    "us_serious_n": 4493,
+    "us_nonserious_n": 3965,
+    "us_total_n": 8458,
+    "global_queried": true,
+    "global_serious_n": 15133,
+    "global_nonserious_n": 8950,
+    "global_total_n": 24083
+  },
+  "morphine": {
+    "source_key": "app_num",
+    "us_serious_n": 21800,
+    "us_nonserious_n": 13953,
+    "us_total_n": 35753,
+    "global_queried": true,
+    "global_serious_n": 52095,
+    "global_nonserious_n": 15469,
+    "global_total_n": 67564
+  },
+  "insulin": {
+    "source_key": "app_num",
+    "us_serious_n": 2994,
+    "us_nonserious_n": 6690,
+    "us_total_n": 9684,
+    "global_queried": true,
+    "global_serious_n": 13592,
+    "global_nonserious_n": 7476,
+    "global_total_n": 21068
+  },
+  "nalbuphine": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "bupivacaine": {
+    "source_key": "generic_name",
+    "us_serious_n": 3117,
+    "us_nonserious_n": 2072,
+    "us_total_n": 5189,
+    "global_queried": true,
+    "global_serious_n": 7021,
+    "global_nonserious_n": 2360,
+    "global_total_n": 9381
+  },
+  "calcitonin": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "timolol": {
+    "source_key": "app_num",
+    "us_serious_n": 1901,
+    "us_nonserious_n": 3813,
+    "us_total_n": 5714,
+    "global_queried": true,
+    "global_serious_n": 4801,
+    "global_nonserious_n": 4658,
+    "global_total_n": 9459
+  },
+  "tamoxifen": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "beclomethasone": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "dacarbazine": {
+    "source_key": "generic_name",
+    "us_serious_n": 1575,
+    "us_nonserious_n": 268,
+    "us_total_n": 1843,
+    "global_queried": true,
+    "global_serious_n": 7194,
+    "global_nonserious_n": 360,
+    "global_total_n": 7554
+  },
+  "hydroxyprogesterone caproate": {
+    "source_key": "generic_name",
+    "us_serious_n": 45,
+    "us_nonserious_n": 27,
+    "us_total_n": 72,
+    "global_queried": true,
+    "global_serious_n": 89,
+    "global_nonserious_n": 44,
+    "global_total_n": 133
+  },
+  "progesterone": {
+    "source_key": "generic_name",
+    "us_serious_n": 4337,
+    "us_nonserious_n": 8967,
+    "us_total_n": 13304,
+    "global_queried": true,
+    "global_serious_n": 13218,
+    "global_nonserious_n": 10406,
+    "global_total_n": 23624
+  },
+  "clindamycin": {
+    "source_key": "app_num",
+    "us_serious_n": 850,
+    "us_nonserious_n": 710,
+    "us_total_n": 1560,
+    "global_queried": true,
+    "global_serious_n": 2802,
+    "global_nonserious_n": 869,
+    "global_total_n": 3671
+  },
+  "propranolol": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "aspirin": {
+    "source_key": "generic_name",
+    "us_serious_n": 165323,
+    "us_nonserious_n": 109975,
+    "us_total_n": 275298,
+    "global_queried": true,
+    "global_serious_n": 384680,
+    "global_nonserious_n": 155118,
+    "global_total_n": 539798
+  },
+  "acetylcysteine": {
+    "source_key": "generic_name",
+    "us_serious_n": 1670,
+    "us_nonserious_n": 738,
+    "us_total_n": 2408,
+    "global_queried": true,
+    "global_serious_n": 8497,
+    "global_nonserious_n": 1050,
+    "global_total_n": 9547
+  },
+  "metronidazole": {
+    "source_key": "generic_name",
+    "us_serious_n": 14460,
+    "us_nonserious_n": 8179,
+    "us_total_n": 22639,
+    "global_queried": true,
+    "global_serious_n": 53917,
+    "global_nonserious_n": 10221,
+    "global_total_n": 64138
+  },
+  "vincristine": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "dexamethasone": {
+    "source_key": "generic_name",
+    "us_serious_n": 80341,
+    "us_nonserious_n": 41179,
+    "us_total_n": 121520,
+    "global_queried": true,
+    "global_serious_n": 252352,
+    "global_nonserious_n": 46252,
+    "global_total_n": 298604
+  },
+  "dextromethorphan hydrobromide": {
+    "source_key": "app_num",
+    "us_serious_n": 1,
+    "us_nonserious_n": 1,
+    "us_total_n": 2,
+    "global_queried": false
+  },
+  "triamcinolone": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "testosterone": {
+    "source_key": "generic_name",
+    "us_serious_n": 8694,
+    "us_nonserious_n": 7931,
+    "us_total_n": 16625,
+    "global_queried": true,
+    "global_serious_n": 14336,
+    "global_nonserious_n": 9306,
+    "global_total_n": 23642
+  },
+  "hydrocortisone": {
+    "source_key": "app_num",
+    "us_serious_n": 14348,
+    "us_nonserious_n": 10888,
+    "us_total_n": 25236,
+    "global_queried": true,
+    "global_serious_n": 58079,
+    "global_nonserious_n": 12488,
+    "global_total_n": 70567
+  },
+  "ensitrelvir": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "insulin icodec": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "lerodalcibep": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "remibrutinib": {
+    "source_key": "app_num",
+    "us_serious_n": 207,
+    "us_nonserious_n": 1067,
+    "us_total_n": 1274,
+    "global_queried": true,
+    "global_serious_n": 267,
+    "global_nonserious_n": 1079,
+    "global_total_n": 1346
+  },
+  "sebetralstat": {
+    "source_key": "app_num",
+    "us_serious_n": 176,
+    "us_nonserious_n": 322,
+    "us_total_n": 498,
+    "global_queried": true,
+    "global_serious_n": 191,
+    "global_nonserious_n": 347,
+    "global_total_n": 538
+  },
+  "lebrikizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 141,
+    "us_nonserious_n": 1953,
+    "us_total_n": 2094,
+    "global_queried": true,
+    "global_serious_n": 254,
+    "global_nonserious_n": 2025,
+    "global_total_n": 2279
+  },
+  "nemolizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 868,
+    "us_nonserious_n": 14823,
+    "us_total_n": 15691,
+    "global_queried": true,
+    "global_serious_n": 1068,
+    "global_nonserious_n": 14857,
+    "global_total_n": 15925
+  },
+  "sotatercept": {
+    "source_key": "app_num",
+    "us_serious_n": 1865,
+    "us_nonserious_n": 2503,
+    "us_total_n": 4368,
+    "global_queried": true,
+    "global_serious_n": 3493,
+    "global_nonserious_n": 2612,
+    "global_total_n": 6105
+  },
+  "tislelizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 3,
+    "us_nonserious_n": 4,
+    "us_total_n": 7,
+    "global_queried": true,
+    "global_serious_n": 220,
+    "global_nonserious_n": 4,
+    "global_total_n": 224
+  },
+  "xanomeline": {
+    "source_key": "app_num",
+    "us_serious_n": 626,
+    "us_nonserious_n": 1970,
+    "us_total_n": 2596,
+    "global_queried": true,
+    "global_serious_n": 665,
+    "global_nonserious_n": 2021,
+    "global_total_n": 2686
+  },
+  "iptacopan": {
+    "source_key": "app_num",
+    "us_serious_n": 179,
+    "us_nonserious_n": 397,
+    "us_total_n": 576,
+    "global_queried": true,
+    "global_serious_n": 388,
+    "global_nonserious_n": 407,
+    "global_total_n": 795
+  },
+  "mirikizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 71,
+    "us_nonserious_n": 398,
+    "us_total_n": 469,
+    "global_queried": true,
+    "global_serious_n": 489,
+    "global_nonserious_n": 414,
+    "global_total_n": 903
+  },
+  "nirogacestat": {
+    "source_key": "app_num",
+    "us_serious_n": 192,
+    "us_nonserious_n": 574,
+    "us_total_n": 766,
+    "global_queried": true,
+    "global_serious_n": 302,
+    "global_nonserious_n": 608,
+    "global_total_n": 910
+  },
+  "retifanlimab": {
+    "source_key": "app_num",
+    "us_serious_n": 19,
+    "us_nonserious_n": 22,
+    "us_total_n": 41,
+    "global_queried": true,
+    "global_serious_n": 43,
+    "global_nonserious_n": 29,
+    "global_total_n": 72
+  },
+  "zuranolone": {
+    "source_key": "app_num",
+    "us_serious_n": 165,
+    "us_nonserious_n": 1255,
+    "us_total_n": 1420,
+    "global_queried": true,
+    "global_serious_n": 305,
+    "global_nonserious_n": 1602,
+    "global_total_n": 1907
+  },
+  "abrocitinib": {
+    "source_key": "app_num",
+    "us_serious_n": 466,
+    "us_nonserious_n": 2457,
+    "us_total_n": 2923,
+    "global_queried": true,
+    "global_serious_n": 1372,
+    "global_nonserious_n": 2531,
+    "global_total_n": 3903
+  },
+  "deucravacitinib": {
+    "source_key": "app_num",
+    "us_serious_n": 278,
+    "us_nonserious_n": 2217,
+    "us_total_n": 2495,
+    "global_queried": true,
+    "global_serious_n": 618,
+    "global_nonserious_n": 2332,
+    "global_total_n": 2950
+  },
+  "teplizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 91,
+    "us_nonserious_n": 618,
+    "us_total_n": 709,
+    "global_queried": true,
+    "global_serious_n": 100,
+    "global_nonserious_n": 620,
+    "global_total_n": 720
+  },
+  "anifrolumab": {
+    "source_key": "app_num",
+    "us_serious_n": 210,
+    "us_nonserious_n": 372,
+    "us_total_n": 582,
+    "global_queried": true,
+    "global_serious_n": 1051,
+    "global_nonserious_n": 857,
+    "global_total_n": 1908
+  },
+  "difelikefalin": {
+    "source_key": "app_num",
+    "us_serious_n": 51,
+    "us_nonserious_n": 104,
+    "us_total_n": 155,
+    "global_queried": true,
+    "global_serious_n": 294,
+    "global_nonserious_n": 116,
+    "global_total_n": 410
+  },
+  "efgartigimod alfa": {
+    "source_key": "app_num",
+    "us_serious_n": 2689,
+    "us_nonserious_n": 221,
+    "us_total_n": 2910,
+    "global_queried": true,
+    "global_serious_n": 3658,
+    "global_nonserious_n": 305,
+    "global_total_n": 3963
+  },
+  "lonapegsomatropin": {
+    "source_key": "app_num",
+    "us_serious_n": 42,
+    "us_nonserious_n": 759,
+    "us_total_n": 801,
+    "global_queried": true,
+    "global_serious_n": 62,
+    "global_nonserious_n": 768,
+    "global_total_n": 830
+  },
+  "tezepelumab": {
+    "source_key": "app_num",
+    "us_serious_n": 738,
+    "us_nonserious_n": 2201,
+    "us_total_n": 2939,
+    "global_queried": true,
+    "global_serious_n": 3128,
+    "global_nonserious_n": 3777,
+    "global_total_n": 6905
+  },
+  "vosoritide": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "berotralstat": {
+    "source_key": "app_num",
+    "us_serious_n": 277,
+    "us_nonserious_n": 430,
+    "us_total_n": 707,
+    "global_queried": true,
+    "global_serious_n": 430,
+    "global_nonserious_n": 474,
+    "global_total_n": 904
+  },
+  "eptinezumab": {
+    "source_key": "app_num",
+    "us_serious_n": 899,
+    "us_nonserious_n": 7138,
+    "us_total_n": 8037,
+    "global_queried": true,
+    "global_serious_n": 2513,
+    "global_nonserious_n": 7233,
+    "global_total_n": 9746
+  },
+  "fenfluramine": {
+    "source_key": "app_num",
+    "us_serious_n": 3125,
+    "us_nonserious_n": 844,
+    "us_total_n": 3969,
+    "global_queried": true,
+    "global_serious_n": 4311,
+    "global_nonserious_n": 917,
+    "global_total_n": 5228
+  },
+  "ripretinib": {
+    "source_key": "app_num",
+    "us_serious_n": 1966,
+    "us_nonserious_n": 2921,
+    "us_total_n": 4887,
+    "global_queried": true,
+    "global_serious_n": 2275,
+    "global_nonserious_n": 2935,
+    "global_total_n": 5210
+  },
+  "somapacitan": {
+    "source_key": "app_num",
+    "us_serious_n": 20,
+    "us_nonserious_n": 60,
+    "us_total_n": 80,
+    "global_queried": true,
+    "global_serious_n": 115,
+    "global_nonserious_n": 66,
+    "global_total_n": 181
+  },
+  "brexanolone": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "risankizumab": {
+    "source_key": "app_num",
+    "us_serious_n": 41893,
+    "us_nonserious_n": 26352,
+    "us_total_n": 68245,
+    "global_queried": true,
+    "global_serious_n": 57157,
+    "global_nonserious_n": 29090,
+    "global_total_n": 86247
+  },
+  "romosozumab": {
+    "source_key": "app_num",
+    "us_serious_n": 1817,
+    "us_nonserious_n": 5584,
+    "us_total_n": 7401,
+    "global_queried": true,
+    "global_serious_n": 8360,
+    "global_nonserious_n": 5879,
+    "global_total_n": 14239
+  },
+  "siponimod": {
+    "source_key": "app_num",
+    "us_serious_n": 1790,
+    "us_nonserious_n": 4300,
+    "us_total_n": 6090,
+    "global_queried": true,
+    "global_serious_n": 4474,
+    "global_nonserious_n": 4435,
+    "global_total_n": 8909
+  },
+  "solriamfetol": {
+    "source_key": "app_num",
+    "us_serious_n": 1459,
+    "us_nonserious_n": 1666,
+    "us_total_n": 3125,
+    "global_queried": true,
+    "global_serious_n": 1605,
+    "global_nonserious_n": 2242,
+    "global_total_n": 3847
+  },
+  "trifarotene": {
+    "source_key": "app_num",
+    "us_serious_n": 20,
+    "us_nonserious_n": 133,
+    "us_total_n": 153,
+    "global_queried": true,
+    "global_serious_n": 40,
+    "global_nonserious_n": 140,
+    "global_total_n": 180
+  },
+  "baloxavir": {
+    "source_key": "app_num",
+    "us_serious_n": 121,
+    "us_nonserious_n": 863,
+    "us_total_n": 984,
+    "global_queried": true,
+    "global_serious_n": 1231,
+    "global_nonserious_n": 1073,
+    "global_total_n": 2304
+  },
+  "burosumab": {
+    "source_key": "app_num",
+    "us_serious_n": 900,
+    "us_nonserious_n": 5065,
+    "us_total_n": 5965,
+    "global_queried": true,
+    "global_serious_n": 1394,
+    "global_nonserious_n": 5093,
+    "global_total_n": 6487
+  },
+  "cannabidiol": {
+    "source_key": "app_num",
+    "us_serious_n": 11147,
+    "us_nonserious_n": 9292,
+    "us_total_n": 20439,
+    "global_queried": true,
+    "global_serious_n": 14177,
+    "global_nonserious_n": 9809,
+    "global_total_n": 23986
+  },
+  "cemiplimab": {
+    "source_key": "app_num",
+    "us_serious_n": 425,
+    "us_nonserious_n": 343,
+    "us_total_n": 768,
+    "global_queried": true,
+    "global_serious_n": 1725,
+    "global_nonserious_n": 355,
+    "global_total_n": 2080
+  },
+  "erenumab": {
+    "source_key": "app_num",
+    "us_serious_n": 5258,
+    "us_nonserious_n": 42944,
+    "us_total_n": 48202,
+    "global_queried": true,
+    "global_serious_n": 12165,
+    "global_nonserious_n": 43369,
+    "global_total_n": 55534
+  },
+  "fremanezumab": {
+    "source_key": "app_num",
+    "us_serious_n": 1424,
+    "us_nonserious_n": 7587,
+    "us_total_n": 9011,
+    "global_queried": true,
+    "global_serious_n": 3961,
+    "global_nonserious_n": 7872,
+    "global_total_n": 11833
+  },
+  "galcanezumab": {
+    "source_key": "app_num",
+    "us_serious_n": 2779,
+    "us_nonserious_n": 27983,
+    "us_total_n": 30762,
+    "global_queried": true,
+    "global_serious_n": 4004,
+    "global_nonserious_n": 28298,
+    "global_total_n": 32302
+  },
+  "lanadelumab": {
+    "source_key": "app_num",
+    "us_serious_n": 1056,
+    "us_nonserious_n": 1529,
+    "us_total_n": 2585,
+    "global_queried": true,
+    "global_serious_n": 1536,
+    "global_nonserious_n": 1688,
+    "global_total_n": 3224
+  },
+  "deutetrabenazine": {
+    "source_key": "app_num",
+    "us_serious_n": 2273,
+    "us_nonserious_n": 3072,
+    "us_total_n": 5345,
+    "global_queried": true,
+    "global_serious_n": 2704,
+    "global_nonserious_n": 3223,
+    "global_total_n": 5927
+  },
+  "telotristat": {
+    "source_key": "app_num",
+    "us_serious_n": 1853,
+    "us_nonserious_n": 3593,
+    "us_total_n": 5446,
+    "global_queried": true,
+    "global_serious_n": 2025,
+    "global_nonserious_n": 3721,
+    "global_total_n": 5746
+  },
+  "valbenazine": {
+    "source_key": "app_num",
+    "us_serious_n": 5646,
+    "us_nonserious_n": 19130,
+    "us_total_n": 24776,
+    "global_queried": true,
+    "global_serious_n": 6130,
+    "global_nonserious_n": 19203,
+    "global_total_n": 25333
+  },
+  "lumacaftor": {
+    "source_key": "app_num",
+    "us_serious_n": 4325,
+    "us_nonserious_n": 3046,
+    "us_total_n": 7371,
+    "global_queried": true,
+    "global_serious_n": 5379,
+    "global_nonserious_n": 3153,
+    "global_total_n": 8532
+  },
+  "naloxegol": {
+    "source_key": "app_num",
+    "us_serious_n": 1321,
+    "us_nonserious_n": 1956,
+    "us_total_n": 3277,
+    "global_queried": true,
+    "global_serious_n": 1866,
+    "global_nonserious_n": 2087,
+    "global_total_n": 3953
+  },
+  "peginterferon beta-1a": {
+    "source_key": "app_num",
+    "us_serious_n": 2698,
+    "us_nonserious_n": 7301,
+    "us_total_n": 9999,
+    "global_queried": true,
+    "global_serious_n": 5627,
+    "global_nonserious_n": 7452,
+    "global_total_n": 13079
+  },
+  "afatinib": {
+    "source_key": "app_num",
+    "us_serious_n": 1429,
+    "us_nonserious_n": 819,
+    "us_total_n": 2248,
+    "global_queried": true,
+    "global_serious_n": 5731,
+    "global_nonserious_n": 889,
+    "global_total_n": 6620
+  },
+  "axitinib": {
+    "source_key": "app_num",
+    "us_serious_n": 4927,
+    "us_nonserious_n": 6001,
+    "us_total_n": 10928,
+    "global_queried": true,
+    "global_serious_n": 12957,
+    "global_nonserious_n": 6571,
+    "global_total_n": 19528
+  },
+  "azilsartan": {
+    "source_key": "app_num",
+    "us_serious_n": 499,
+    "us_nonserious_n": 787,
+    "us_total_n": 1286,
+    "global_queried": true,
+    "global_serious_n": 2158,
+    "global_nonserious_n": 869,
+    "global_total_n": 3027
+  },
+  "clobazam": {
+    "source_key": "app_num",
+    "us_serious_n": 7526,
+    "us_nonserious_n": 4621,
+    "us_total_n": 12147,
+    "global_queried": true,
+    "global_serious_n": 19481,
+    "global_nonserious_n": 5202,
+    "global_total_n": 24683
+  },
+  "dabigatran": {
+    "source_key": "app_num",
+    "us_serious_n": 19494,
+    "us_nonserious_n": 8797,
+    "us_total_n": 28291,
+    "global_queried": true,
+    "global_serious_n": 55185,
+    "global_nonserious_n": 17056,
+    "global_total_n": 72241
+  },
+  "ulipristal": {
+    "source_key": "app_num",
+    "us_serious_n": 21,
+    "us_nonserious_n": 15,
+    "us_total_n": 36,
+    "global_queried": true,
+    "global_serious_n": 456,
+    "global_nonserious_n": 56,
+    "global_total_n": 512
+  },
+  "methylnaltrexone": {
+    "source_key": "app_num",
+    "us_serious_n": 653,
+    "us_nonserious_n": 560,
+    "us_total_n": 1213,
+    "global_queried": true,
+    "global_serious_n": 904,
+    "global_nonserious_n": 615,
+    "global_total_n": 1519
+  },
+  "varenicline": {
+    "source_key": "app_num",
+    "us_serious_n": 7127,
+    "us_nonserious_n": 16763,
+    "us_total_n": 23890,
+    "global_queried": true,
+    "global_serious_n": 31179,
+    "global_nonserious_n": 45398,
+    "global_total_n": 76577
+  },
+  "vardenafil": {
+    "source_key": "generic_name",
+    "us_serious_n": 147,
+    "us_nonserious_n": 54,
+    "us_total_n": 201,
+    "global_queried": true,
+    "global_serious_n": 474,
+    "global_nonserious_n": 108,
+    "global_total_n": 582
+  },
+  "formoterol": {
+    "source_key": "generic_name",
+    "us_serious_n": 0,
+    "us_nonserious_n": 0,
+    "us_total_n": 0,
+    "global_queried": false
+  },
+  "pimecrolimus": {
+    "source_key": "app_num",
+    "us_serious_n": 280,
+    "us_nonserious_n": 1159,
+    "us_total_n": 1439,
+    "global_queried": true,
+    "global_serious_n": 576,
+    "global_nonserious_n": 1219,
+    "global_total_n": 1795
+  },
+  "tenofovir": {
+    "source_key": "app_num",
+    "us_serious_n": 17280,
+    "us_nonserious_n": 1506,
+    "us_total_n": 18786,
+    "global_queried": true,
+    "global_serious_n": 30952,
+    "global_nonserious_n": 1962,
+    "global_total_n": 32914
+  },
+  "meropenem": {
+    "source_key": "generic_name",
+    "us_serious_n": 4575,
+    "us_nonserious_n": 482,
+    "us_total_n": 5057,
+    "global_queried": true,
+    "global_serious_n": 31486,
+    "global_nonserious_n": 941,
+    "global_total_n": 32427
+  },
+  "topiramate": {
+    "source_key": "app_num",
+    "us_serious_n": 24573,
+    "us_nonserious_n": 22538,
+    "us_total_n": 47111,
+    "global_queried": true,
+    "global_serious_n": 63850,
+    "global_nonserious_n": 27995,
+    "global_total_n": 91845
+  },
+  "valsartan": {
+    "source_key": "generic_name",
+    "us_serious_n": 19614,
+    "us_nonserious_n": 16991,
+    "us_total_n": 36605,
+    "global_queried": true,
+    "global_serious_n": 80136,
+    "global_nonserious_n": 25081,
+    "global_total_n": 105217
+  },
+  "dalteparin": {
+    "source_key": "app_num",
+    "us_serious_n": 318,
+    "us_nonserious_n": 100,
+    "us_total_n": 418,
+    "global_queried": true,
+    "global_serious_n": 9722,
+    "global_nonserious_n": 900,
+    "global_total_n": 10622
+  },
+  "risperidone": {
+    "source_key": "app_num",
+    "us_serious_n": 19248,
+    "us_nonserious_n": 33941,
+    "us_total_n": 53189,
+    "global_queried": true,
+    "global_serious_n": 82678,
+    "global_nonserious_n": 37974,
+    "global_total_n": 120652
+  },
+  "vancomycin": {
+    "source_key": "app_num",
+    "us_serious_n": 2311,
+    "us_nonserious_n": 618,
+    "us_total_n": 2929,
+    "global_queried": true,
+    "global_serious_n": 7373,
+    "global_nonserious_n": 803,
+    "global_total_n": 8176
+  },
+  "dextromethorphan": {
+    "source_key": "app_num",
+    "us_serious_n": 2383,
+    "us_nonserious_n": 3505,
+    "us_total_n": 5888,
+    "global_queried": true,
+    "global_serious_n": 4010,
+    "global_nonserious_n": 3624,
+    "global_total_n": 7634
+  },
+  "diltiazem": {
+    "source_key": "app_num",
+    "us_serious_n": 6165,
+    "us_nonserious_n": 3677,
+    "us_total_n": 9842,
+    "global_queried": true,
+    "global_serious_n": 17675,
+    "global_nonserious_n": 5459,
+    "global_total_n": 23134
+  },
+  "dimethyl": {
+    "source_key": "app_num",
+    "us_serious_n": 58,
+    "us_nonserious_n": 32,
+    "us_total_n": 90,
+    "global_queried": true,
+    "global_serious_n": 196,
+    "global_nonserious_n": 44,
+    "global_total_n": 240
+  },
+  "atropine": {
+    "source_key": "app_num",
+    "us_serious_n": 2021,
+    "us_nonserious_n": 418,
+    "us_total_n": 2439,
+    "global_queried": true,
+    "global_serious_n": 7718,
+    "global_nonserious_n": 681,
+    "global_total_n": 8399
+  },
+  "glycopyrrolate": {
+    "source_key": "app_num",
+    "us_serious_n": 1465,
+    "us_nonserious_n": 724,
+    "us_total_n": 2189,
+    "global_queried": true,
+    "global_serious_n": 4641,
+    "global_nonserious_n": 865,
+    "global_total_n": 5506
+  }
+}
