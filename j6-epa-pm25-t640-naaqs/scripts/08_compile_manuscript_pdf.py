@@ -1,7 +1,6 @@
-"""Step 08 (Pillar 7): Compile manuscript_j6_boost.md + embedded 300-DPI figures into
-camera-ready manuscript_j6_boost.pdf via escaped-underscore-safe balanced LaTeX->HTML
-and Microsoft Edge --headless=new --print-to-pdf, with strict zero-leak verification
-on extracted PDF text.
+"""Step 08 (v4 ES&T): Compile manuscript_j6_boost.md and supplementary_j6_est.md
+with embedded 300-DPI figures into camera-ready zero-leak PDFs via balanced LaTeX->HTML
+and Microsoft Edge --headless=new --user-data-dir=<tempdir> --print-to-pdf.
 """
 
 from __future__ import annotations
@@ -14,14 +13,17 @@ import math
 import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 from econ_utils import FIG_DIR, RES_DIR, WS_DIR
 from pypdf import PdfReader
 
-MD_PATH = WS_DIR / "manuscript_j6_boost.md"
-HTML_PATH = WS_DIR / "manuscript_j6_boost.html"
-PDF_PATH = WS_DIR / "manuscript_j6_boost.pdf"
+MD_MAIN = WS_DIR / "manuscript_j6_boost.md"
+PDF_MAIN = WS_DIR / "manuscript_j6_boost.pdf"
+PDF_MAIN_FALLBACK = WS_DIR / "manuscript_j6_est.pdf"
+MD_SI = WS_DIR / "supplementary_j6_est.md"
+PDF_SI = WS_DIR / "supplementary_j6_est.pdf"
 EDGE_EXE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 
 
@@ -38,180 +40,135 @@ def _fmt_p_html(p: float | None) -> str:
 
 
 def build_dynamic_figure_blocks() -> dict[str, tuple[str, str]]:
-    """Build all 5 figure titles and captions 100% dynamically from saved JSON receipts."""
+    """Build all 4 Main ES&T and 2 SI figure titles/captions 100% dynamically from JSON receipts."""
     r1 = json.loads((RES_DIR / "01_appn_audit.json").read_text(encoding="utf-8"))
     r2 = json.loads((RES_DIR / "02_collocated_physics_speciation.json").read_text(encoding="utf-8"))
     r3 = json.loads((RES_DIR / "03_ee_triage_hms_unification.json").read_text(encoding="utf-8"))
+    r11 = json.loads((RES_DIR / "11_v4_est_comprehensive_audit.json").read_text(encoding="utf-8"))
 
-    cs11 = r1["accounting"]["combined_site_reg_appn_11of12"]
-    wf21 = cs11["matched_2123_waterfall"]
-    epa21 = r1["epa_official_dv_reconciliation"]["pm25_designvalues_2021_2023_final_08_08_24_0.xlsx"]
-    epa22 = r1["epa_official_dv_reconciliation"]["pm25_designvalues_2022_2024_final_05_28_25.xlsx"]
-    epa23 = r1["epa_official_dv_reconciliation"]["pm25_designvalues_2023_2025_final_06_12_26.xlsx"]
-    ej_g = r1["ej_audit_acs2023"]["groups"]
-    ej_t = r1["ej_audit_acs2023"]["formal_tests"]
-    g_fl = ej_g["T640_Flipped"]
-    g_st = ej_g["Still_Nonattainment"]
-    g_cl = ej_g["Cleanly_Attaining"]
+    cs = r11["common_support_audit"]
+    all_c = cs["all_2023_2025"]
+    h_c = cs["heavy_smoke_2023_2025"]
+    ow = cs["overlap_weighted_region_x_frm_bin"]
+    tr = all_c["triples_by_hms_level"]
 
-    sg_t = r2["sample_and_gradients"]["t640_fw"]
-    sg_b = r2["sample_and_gradients"]["bam"]
+    off_t = r11["official_fixed_2021_2025"]["t640_fw"]
+    t1_t = off_t["tier_1"]
+    t1_b = r11["official_fixed_2021_2025"]["bam"]["tier_1"]
+    oot = r11["oot_prospective_rolling_5yr"]
+    oot_a = oot["oot_a_conservative_r_excl"]["t640_fw"]["tier_1"]
+    oot_b2 = oot["oot_b2_fire_proxy_hms_med_heavy"]["t640_fw"]["tier_1"]
+    nb20 = t1_t["near_threshold_bands"]["frm_pm20pct"]
+
+    sv_t = r11["smoke_vs_nonsmoke_controls"]["t640_fw"]
+    mc_t = sv_t["matched_concentration_smoke_vs_nonsmoke"]
+    gv_t = sv_t["ground_level_smoke_verification"]
+    loro = r11["leave_epa_region_out_t640_tier1"]
+    s1_t = r2["speciation_and_meteorology"]["t640_fw"]["model_s1_spec_met_level_site_cr1"]
+    s2_t = r2["speciation_and_meteorology"]["t640_fw"]["model_s2_interactions_level_site_cr1"]
+    s1_b = r2["speciation_and_meteorology"]["bam"]["model_s1_spec_met_level_site_cr1"]
+
+    wf21 = r1["accounting"]["combined_site_reg_appn_11of12"]["matched_2123_waterfall"]
     rt_t = r2["rooftop_dv_lottery_2023_2025"]["t640_fw"]
-    rt_t_st = r2["rooftop_dv_lottery_2023_2025"]["t640_fw_strict_4q3y"]
     rt_b = r2["rooftop_dv_lottery_2023_2025"]["bam"]
-    smk_t = r2["zero_eiv_smoke_amplification"]["t640_fw"]
-    smk_b = r2["zero_eiv_smoke_amplification"]["bam"]
-    sp_t = r2["speciation_and_meteorology"]["t640_fw"]
-    sp_b = r2["speciation_and_meteorology"]["bam"]
-    s1_t = sp_t["model_s1_spec_met_level_site_cr1"]
-    s2_t = sp_t["model_s2_interactions_level_site_cr1"]
-    s1_b = sp_b["model_s1_spec_met_level_site_cr1"]
-    u1_t_hms = r2["unification_u1_exceedance_multiplier"]["t640_fw"]["hms_heavy_smoke"]["gt_35_naaqs24h"]
-    u1_b_hms = r2["unification_u1_exceedance_multiplier"]["bam"]["hms_heavy_smoke"]["gt_35_naaqs24h"]
-    u1h = r3["unification_u1_historical_tier1_1822"]
-    u1h_t_hms = u1h["t640_fw"]["hms_heavy_smoke"]["gt_tier1_min_p98_35"]
-    u1h_t_all = u1h["t640_fw"]["all_paired_days"]["gt_tier1_min_p98_35"]
-    u1h_b_hms = u1h["bam"]["hms_heavy_smoke"]["gt_tier1_min_p98_35"]
-
-    m3 = r3["monitor_year_dv1820_85_115"]
-    c3 = r3["county_year_dv1820_85_115"]
-    ri = r3["within_state_ri_B1000"]
-    iu = r3["inverted_u_profile_dv1820"]["monitor_year_county_cr1"]["coefs"]
-    u2 = r3["unification_u2_t640_ee_flagging"]
-    u2_wcy = u2["borderline_within_county_year_fe_flag"]
-
-    pct_t_oth = 100.0 * (math.exp(smk_t["inst1_other_site_logratio_site_cr1"]["coefs"]["oth_ge25"]["beta"]) - 1.0)
-    pct_t_hms = 100.0 * (math.exp(smk_t["inst3_noaa_hms_logratio_site_cr1"]["coefs"]["hms_h"]["beta"]) - 1.0)
-    prec_21 = 100.0 * epa21["overlap_epa_with_cs_reg_incl"] / epa21["combined_site_reg_na_incl"]
-    nulls = r1["exogenous_nulls_margins_acd"]
-    pl_c = r3["robustness_specs_dv1820"]["fake_rule_placebo_2020_21_vs_18_19"]["coefs"]["treat_post"]
-    eff_ts = [
-        abs(smk_t["inst3_noaa_hms_level_site_cr1"]["coefs"]["hms_h"]["t_cr1"]),
-        abs(rt_t["t_bias"]),
-        abs(s1_t["coefs"]["oc"]["t_cr1"]),
-        abs(smk_t["inst1_other_site_level_site_cr1"]["coefs"]["oth_ge25"]["t_cr1"]),
-        abs(u1h_t_hms["t_site_cr1"]),
-        abs(u1_t_hms["t_site_cr1"]),
-        abs(u2["borderline_2225_t640_x_hms_heavy_flag"]["coefs"]["t640_x_hms_h"]["t_cr1"]),
-        abs(m3["true_ee_flag"]["did_2225_state_cr1"]["coefs"]["tp_2225"]["t_cr1"]),
-        abs(m3["unconc_flag"]["did_2225_state_cr1"]["coefs"]["tp_2225"]["t_cr1"]),
-    ]
-    null_ts = [
-        abs(u2_wcy["coefs"]["is_t640_f"]["t_cr1"]),
-        abs(smk_b["inst1_other_site_level_site_cr1"]["coefs"]["oth_ge25"]["t_cr1"]),
-        abs(nulls["margin_d_frm_exog_dv1820_county_cr1"]["coefs"]["tp"]["t_cr1"]),
-        abs(nulls["margin_a_share_fem_exog_dv1820"]["coefs"]["tp"]["t_cr1"]),
-        abs(nulls["margin_c_monitor_survival_exog_dv1820"]["coefs"]["nb"]["t_cr1"]),
-        abs(pl_c["t_cr1"]),
-        abs(c3["true_ee_conc"]["event_study_county_cr1"]["coefs"]["nb_2025"]["t_cr1"]),
-    ]
-    null_ps = [
-        u2_wcy["wcb"]["p_wcb"],
-        smk_b["inst1_other_site_level_site_cr1"]["wcb"]["p_wcb"],
-        nulls["margin_d_frm_exog_dv1820_county_cr1"]["wcb"]["p_wcb"],
-        nulls["margin_a_share_fem_exog_dv1820"]["wcb"]["p_wcb"],
-        nulls["margin_c_monitor_survival_exog_dv1820"]["wcb"]["p_wcb"],
-        pl_c["p_cr1"],
-        c3["true_ee_conc"]["event_study_county_cr1"]["coefs"]["nb_2025"]["p_cr1"],
-    ]
+    rb = r11["oot_reconstruction_benchmark_2021_2025"]
+    u2_wcy = r3["unification_u2_t640_ee_flagging"]["borderline_within_county_year_fe_flag"]
 
     return {
-        "fig1_t640_windfall_and_ej_map.png": (
-            "Figure 1. Stitched 40 CFR Part 50 Appendix N Monitor Design-Value Threshold Waterfall (&ge; 9.1 &mu;g/m<sup>3</sup>), Official EPA Reconciliation, and Regional &amp; Demographic Audit.",
+        "fig1_est_caseflow_and_common_support.png": (
+            "Figure 1. Collocated Network Case-Flow Attrition, EPA Region Common-Support Audit, and Same-Rooftop Triple Observations.",
             (
-                f"Panel A traces counties exceeding the 9.0 &mu;g/m<sup>3</sup> monitor Design-Value threshold (DV &ge; 9.1 &mu;g/m<sup>3</sup>) "
-                f"and affected U.S. populations across the {cs11['n_counties_matched_2123']} matched Combined-Site regulatory counties: EPA&rsquo;s "
-                f"May 2024 T640 software alignment alone lowers 2021&ndash;2023 counts from {wf21['raw_2123']['counties']} "
-                f"({wf21['raw_2123']['pop_millions']:.2f}M) to {wf21['aln_2123']['counties']} ({wf21['aln_2123']['pop_millions']:.2f}M)&mdash;producing "
-                f"{wf21['flip_t640_alone']['counties']} monitor Design-Value threshold reclassifications ({wf21['flip_t640_alone']['pop_millions']:.2f}M "
-                f"residents; distinct from formal Clean Air Act &sect; 107(d) 5-factor legal designations)&mdash;with diamonds overlaying official EPA "
-                f"published Table 4a counts ({epa21['epa_na_counties']} in 2021&ndash;2023 [{epa21['overlap_epa_with_cs_reg_incl']}/"
-                f"{epa21['combined_site_reg_na_incl']} = {prec_21:.1f}% precision], {epa22['epa_na_counties']} in 2022&ndash;2024, "
-                f"{epa23['epa_na_counties']} in 2023&ndash;2025). Panel B displays the geographic and Census SAIPE 2023 / PEP 2024 "
-                f"demographic audit: {g_fl['region_counts'].get('MW',0)+g_fl['region_counts'].get('SO',0)+g_fl['region_counts'].get('NE',0)}/"
-                f"{g_fl['n_counties']} DV-reclassified counties lie outside the West ({ej_t['Flipped_vs_Still_Nonattainment']['midwest_south_share']['flipped_pct']:.1f}% "
-                f"MW+SO vs. {ej_t['Flipped_vs_Still_Nonattainment']['midwest_south_share']['comp_pct']:.1f}% still &ge;9.1, Fisher <em>p</em> = "
-                f"{ej_t['Flipped_vs_Still_Nonattainment']['midwest_south_share']['fisher_p']:.3f}), with significantly higher Black resident shares "
-                f"than cleanly &le;9.0 counties ({g_fl['unweighted_means']['pct_black_nh']:.1f}% vs. {g_cl['unweighted_means']['pct_black_nh']:.1f}%, "
-                f"Welch <em>p</em> = {ej_t['Flipped_vs_Cleanly_Attaining']['pct_black_nh']['welch_p']:.3f}) while heavily Hispanic Western basins "
-                f"remain &ge;9.1 &mu;g/m<sup>3</sup> ({g_st['unweighted_means']['pct_hispanic']:.1f}% vs. {g_fl['unweighted_means']['pct_hispanic']:.1f}%)."
+                f"Panel A compares the U.S. EPA Region distribution of threshold-matched NOAA HMS Heavy-smoke pairs "
+                f"({t1_t['n_site_days']} aligned T640_FW&ndash;FRM pairs at {t1_t['n_sites']} sites vs. {t1_b['n_site_days']} "
+                f"background-reference BAM&ndash;FRM pairs at {t1_b['n_sites']} sites, 2023&ndash;2025). Nearly one quarter (23.9%) "
+                f"of BAM Heavy pairs lie in EPA Regions 9&ndash;10, where T640_FW has zero Heavy-smoke support, and only "
+                f"{h_c['heavy_triple_site_days']} same-site, same-day Heavy-smoke triple observations ({h_c['heavy_overlap_dates']} "
+                f"overlapping dates) occur nationwide; accordingly, BAM&ndash;FRM is retained strictly as a background reference benchmark. "
+                f"Panel B plots the differential Tier-1 excess (T640 &minus; FRM) &minus; (BAM &minus; FRM) with 95% smoke-block CIs "
+                f"across progressively stricter common-support filters and exact overlap-weighted matching across {ow['n_shared_cells']} "
+                f"shared EPA Region &times; FRM-bin strata ({ow['differential_pp']:+.2f} pp, bootstrap 95% CI "
+                f"[{ow['block_bootstrap_ci95_pp'][0]:+.1f}, {ow['block_bootstrap_ci95_pp'][1]:+.1f}]). Inset reports the "
+                f"{all_c['triple_site_days']} all-day exact same-rooftop triples ({all_c['triple_sites']} sites), where mean T640 &minus; BAM "
+                f"rises monotonically from {tr['hms_0_none']['mean_t640_minus_bam']:+.2f} &mu;g/m<sup>3</sup> (HMS None) to "
+                f"{tr['hms_3_heavy']['mean_t640_minus_bam']:+.2f} &mu;g/m<sup>3</sup> (HMS Heavy, <em>n</em> = {tr['hms_3_heavy']['n_site_days']})."
             ),
         ),
-        "fig2_rooftop_lottery_and_regional_bias.png": (
-            "Figure 2. Same-Rooftop 2023&ndash;2025 Design-Value Threshold Classification Lottery and Regional &amp; Seasonal Optical Bias Gradient.",
+        "fig2_est_official_and_oot_tier_replay.png": (
+            "Figure 2. Official Retrospective (2021&ndash;2025) and Strictly Out-of-Time Rolling 5-Year EPA Tier-1 Screening Replays and Near-Threshold Asymmetric Crossings.",
             (
-                f"Panel A scatters paired-day 2023&ndash;2025 Appendix N Design Values for post-alignment firmware T640_FW (636/638) against "
-                f"collocated gravimetric FRMs across {rt_t['n_sites']} rooftops (mean DV bias +{rt_t['mean_dv_bias']:.3f} &mu;g/m<sup>3</sup>, "
-                f"<em>t</em> = {rt_t['t_bias']:+.2f}, <em>p</em> = {_fmt_p_html(rt_t['p_bias'])}): {rt_t['fem_na_frm_att']} rooftops exceed "
-                f"9.0 &mu;g/m<sup>3</sup> on T640_FW while remaining &le;9.0 on collocated FRM two meters away versus only {rt_t['frm_na_fem_att']} in reverse "
-                f"({rt_t['odds_ratio_lottery']:.1f}:1, exact binomial <em>p</em> = {_fmt_p_html(rt_t['binom_p'])}; strict 4q&times;3y stitched "
-                f"{rt_t_st['fem_na_frm_att']} vs. {rt_t_st['frm_na_fem_att']}, <em>p</em> = {_fmt_p_html(rt_t_st['binom_p'])}; BAM "
-                f"{rt_b['fem_na_frm_att']} vs. {rt_b['frm_na_fem_att']}, <em>p</em> = {rt_b['binom_p']:.3f}). Panel B compares Site-clustered "
-                f"mean daily bias (&plusmn;95% CI) across U.S. regions and seasons ({sg_t['sample_2023_2025']['n_pairs']:,} T640_FW pairs vs. "
-                f"{sg_b['sample_2023_2025']['n_pairs']:,} BAM pairs): T640_FW peaks in the Midwest (+{sg_t['by_region_2023_2025']['MW']['mean_bias']:.2f}) "
-                f"and Winter DJF (+{sg_t['by_season_2023_2025']['DJF']['mean_bias']:.2f}) and nears zero in the arid West "
-                f"(+{sg_t['by_region_2023_2025']['WE']['mean_bias']:.2f}), whereas heated-inlet BAM turns negative in Midwest/Winter."
+                f"Panel A compares paired exceedance differences (percentage points; thick bars: two-way Site &times; Region-Smoke-Episode "
+                f"95% CI; thin caps: one-way national smoke-date block 95% CI) for T640_FW&ndash;FRM (burnt sienna) versus background "
+                f"BAM&ndash;FRM (teal) across EPA&rsquo;s official 2021&ndash;2025 Tier-1 ({t1_t['difference_pp']:+.2f} pp, "
+                f"{t1_t['fem_exceed']} vs. {t1_t['frm_exceed']}; {t1_t['fem_only']}/{t1_t['frm_only']} discordant), Tier-2 lower, "
+                f"fixed &gt;35 &mu;g/m<sup>3</sup>, and four strictly out-of-time prospective rolling 5-year reconstructions "
+                f"(2018&ndash;2022 &rarr; 2023, 2019&ndash;2023 &rarr; 2024, 2020&ndash;2024 &rarr; 2025: "
+                f"{oot_a['difference_pp']:+.2f} to {oot_b2['difference_pp']:+.2f} pp, {oot_a['fem_only']}&ndash;{oot_b2['fem_only']} vs. 0 FRM-only; "
+                f"BAM null across all specifications). Panel B scatters normalized daily readings (Instrument / Site-Month Tier-1) for all "
+                f"{t1_t['n_site_days']} matched T640_FW&ndash;FRM Heavy-smoke pairs, showing {nb20['fem_only']} of {t1_t['fem_only']} "
+                f"T640-only crossings concentrated within the &plusmn;20% near-threshold band (shaded) versus only {t1_t['frm_only']} "
+                f"FRM-only crossings."
             ),
         ),
-        "fig3_zero_eiv_smoke_and_speciation_physics.png": (
-            "Figure 3. EIV-Robust Nonlinear Wildfire Smoke Amplification and Observational EPA Chemical Speciation &amp; Hygroscopicity Associations.",
+        "fig3_est_smoke_vs_nonsmoke_and_ground_truth.png": (
+            "Figure 3. Equal-Concentration Non-Smoke Controls Versus HMS Heavy Smoke and Independent Ground-Level Smoke Confirmation (T640_FW&ndash;FRM, 2023&ndash;2025).",
             (
-                f"Panel A compares daily (FEM &minus; FRM) bias across EIV-robust smoke instruments (Site FE + Month FE, 95% Site CR1 CIs): "
-                f"post-alignment T640_FW rises +{smk_t['inst1_other_site_level_site_cr1']['coefs']['oth_ge25']['beta']:.2f} &mu;g/m<sup>3</sup> "
-                f"(+{pct_t_oth:.1f}%, <em>p</em><sub>WCB</sub> = {smk_t['inst1_other_site_level_site_cr1']['wcb']['p_wcb']:.3f}) on independent "
-                f"other-site &ge;25 &mu;g/m<sup>3</sup> days, +{smk_t['inst2_bland_altman_level_site_cr1']['coefs']['ba_ge25']['beta']:.2f} on "
-                f"Bland-Altman &ge;25 diagnostics, and +{smk_t['inst3_noaa_hms_level_site_cr1']['coefs']['hms_h']['beta']:.2f} (+{pct_t_hms:.1f}%, "
-                f"<em>t</em> = {smk_t['inst3_noaa_hms_level_site_cr1']['coefs']['hms_h']['t_cr1']:+.2f}) under external satellite NOAA HMS Heavy "
-                f"plumes, whereas BAM stays flat on other-site &ge;25 ({smk_b['inst1_other_site_level_site_cr1']['coefs']['oth_ge25']['beta']:+.2f}, "
-                f"<em>p</em><sub>WCB</sub> = {smk_b['inst1_other_site_level_site_cr1']['wcb']['p_wcb']:.3f}). Panel B plots observational Site+Month FE "
-                f"speciation and meteorology associations ({s1_t['n']:,} T640_FW vs. {s1_b['n']:,} BAM paired days) consistent with Mie optical theory "
-                f"and Long, Urbanski, &amp; Lincoln (2023): T640_FW covaries positively with Organic Carbon (+{s1_t['coefs']['oc']['beta']:.3f}, "
-                f"<em>t</em> = {s1_t['coefs']['oc']['t_cr1']:+.2f}; +{s2_t['coefs']['oc_x_hms_h']['beta']:.3f} additional under HMS Heavy) and RH "
-                f"(+{s1_t['coefs']['rh_10']['beta']:.3f} per +10%, <em>t</em> = {s1_t['coefs']['rh_10']['t_cr1']:+.2f}) and negatively with "
-                f"light-absorbing Elemental Carbon ({s1_t['coefs']['ec']['beta']:+.3f}, <em>t</em> = {s1_t['coefs']['ec']['t_cr1']:+.2f}); "
-                f"BAM is null on OC/EC and negative on RH and semi-volatile NO<sub>3</sub><sup>&minus;</sup>."
+                f"Panel A compares mean paired daily optical bias (T640_FW &minus; FRM, &mu;g/m<sup>3</sup>) and official Tier-1 exceedance "
+                f"differences (bottom tags) between Non-Smoke days (HMS = 0, slate) and HMS Heavy smoke days (HMS = 3, crimson) within "
+                f"identical concentration bands defined by independent Other-Site FRM/BAM monitors, collocated FRM, and Bland&ndash;Altman "
+                f"midpoints: Heavy smoke amplifies optical bias three- to fivefold across every stratum (all Site-clustered <em>p</em> &lt; 0.001; "
+                f"Other-Site &ge;25: {mc_t['other_site_ge25']['nonsmoke']['mean_bias']:+.2f} non-smoke vs. "
+                f"{mc_t['other_site_ge25']['heavy_smoke']['mean_bias']:+.2f} &mu;g/m<sup>3</sup> Heavy). Panel B verifies ground-level smoke "
+                f"specificity: Tier-1 excess concentrates in surface-impacted plumes (FRM &gt; site-month non-smoke p90: "
+                f"{gv_t['heavy_surface_impact_frm_gt_p90']['t1_diff_pp']:+.1f} pp, <em>n</em> = {gv_t['heavy_surface_impact_frm_gt_p90']['n']}; "
+                f"Surface OC &ge; 5 &mu;g/m<sup>3</sup>: {gv_t['heavy_oc_ge5']['t1_diff_pp']:+.1f} pp, <em>n</em> = {gv_t['heavy_oc_ge5']['n']}) "
+                f"and vanishes on lofted plumes (&le; p90: 0.0 pp, <em>n</em> = {gv_t['heavy_lofted_frm_le_p90']['n']}), while non-smoke elevated "
+                f"days split between humid winter inorganic haze ({gv_t['nonsmoke_frm_ge20_winter_djf']['t1_diff_pp']:+.1f} pp) and negative "
+                f"warm-season non-smoke bias ({gv_t['nonsmoke_frm_ge20_warm_mjjas']['t1_diff_pp']:+.1f} pp)."
             ),
         ),
-        "fig4_ee_triage_event_study_and_decomposition.png": (
-            "Figure 4. Pre-Trend-Clean 40 CFR &sect; 50.14 Exceptional Event Triage Event Study (2018&ndash;2025) and Inverted-U Threshold Profile.",
+        "fig4_est_inference_loro_and_speciation.png": (
+            "Figure 4. Multi-Dimensional Event-Level Inference, Leave-One-EPA-Region-Out Stability, and Observational Chemical-Speciation &amp; Hygroscopicity Associations.",
             (
-                f"Panel A plots full 2018&ndash;2025 County-Year event-study coefficients (exogenous DV<sub>18&ndash;20</sub> [8.5, 11.5] vs. &lt;8.0, "
-                f"ref = 2020, County FE + State&times;Year FE + 9 nonlinear smoke controls, 95% County CR1 CIs) decomposing All State EE Flags "
-                f"(navy; joint pre-<em>F</em> <em>p</em> = {c3['true_ee_flag']['event_study_county_cr1']['joint_F']['p']:.3f}; pooled DiD "
-                f"+{100*c3['true_ee_flag']['did_2225_state_cr1']['coefs']['tp_2225']['beta']:.2f} pp, State <em>p</em><sub>WCB</sub> = "
-                f"{c3['true_ee_flag']['did_2225_state_cr1']['wcb']['p_wcb']:.3f}, RI <em>p</em> = {ri['county_year']['p_ri_2sided']:.4f}) into "
-                f"Unconcurred Precautionary Flags (amber; pre-<em>F</em> <em>p</em> = {c3['unconc_flag']['event_study_county_cr1']['joint_F']['p']:.3f}) "
-                f"and True EPA-Concurred Exclusions (teal; joint pre-<em>F</em> <em>p</em> = "
-                f"{c3['true_ee_conc']['event_study_county_cr1']['joint_F']['p']:.3f}), displaying the anticipatory 2022&ndash;2023 peak "
-                f"(+{100*c3['true_ee_flag']['event_study_county_cr1']['coefs']['nb_2023']['beta']:.1f} pp prior to the Feb 2024 final rule) and honest "
-                f"2024&ndash;2025 EPA-concurred nulls. Panel B traces the Monitor-Year inverted-U across pre-rule DV<sub>18&ndash;20</sub> bins (ref &lt;7.0): "
-                f"7.0&ndash;8.5 ({100*iu['b_70_85']['beta']:+.2f} pp), 8.5&ndash;9.5 (+{100*iu['b_85_95']['beta']:.2f} pp), "
-                f"9.5&ndash;11.5 (+{100*iu['b_95_115']['beta']:.2f} pp), and &gt;11.5 (+{100*iu['b_gt115']['beta']:.2f} pp), with inset "
-                f"Monitor-Year headline +{100*m3['true_ee_flag']['did_2225_state_cr1']['coefs']['tp_2225']['beta']:.2f} pp "
-                f"(State <em>p</em><sub>WCB</sub> = {m3['true_ee_flag']['did_2225_state_cr1']['wcb']['p_wcb']:.3f}, RI <em>p</em> = "
-                f"{ri['monitor_year']['p_ri_2sided']:.4f})."
+                f"Panel A evaluates the stability of T640_FW&rsquo;s {t1_t['difference_pp']:+.2f} pp official Tier-1 excess across six "
+                f"clustering estimators&mdash;1-way Site, Date, National Block, and Region-Smoke-Episode, plus 2-way Cameron&ndash;Gelbach&ndash;Miller "
+                f"Site &times; National Block and primary Site &times; Region-Episode ({t1_t['inference']['twoway_site_x_reg_episode']['ci95'][0]:+.2f} to "
+                f"{t1_t['inference']['twoway_site_x_reg_episode']['ci95'][1]:+.2f} pp)&mdash;and all {loro['n_regions']} leave-one-EPA-region-out "
+                f"re-estimations (range [{loro['min_loro_diff_pp']:+.2f}, {loro['max_loro_diff_pp']:+.2f}] pp, all 95% CIs &gt; 0). "
+                f"Panel B plots Site FE + Month FE observational partial associations with daily (FEM &minus; FRM) bias across "
+                f"{s1_t['n']:,} T640_FW and {s1_b['n']:,} BAM paired days: T640_FW covaries positively with Organic Carbon "
+                f"({s1_t['coefs']['oc']['beta']:+.2f}; additional {s2_t['coefs']['oc_x_hms_h']['beta']:+.2f} under HMS Heavy) and RH "
+                f"({s1_t['coefs']['rh_10']['beta']:+.2f} per +10%) and negatively with light-absorbing Elemental Carbon "
+                f"({s1_t['coefs']['ec']['beta']:+.2f}), consistent with Mie optical physics (Long et al., 2023), whereas heated-inlet BAM "
+                f"is null on OC/EC and negative on semi-volatile NO<sub>3</sub><sup>&minus;</sup> and RH."
             ),
         ),
-        "fig5_optical_to_flagging_multiplier.png": (
-            "Figure 5. Same-Rooftop Screening Divergence Under NOAA HMS Heavy Smoke (U1: 24-Hr Level-Equivalent &amp; EPA Tier-1 5-Year Historical p98) and Master Audit of Verified Effects vs. Clean Honest Nulls.",
+        "figS1_si_dv_reclassification_and_rooftop_lottery.png": (
+            "Figure S1. Screening-Level 2021&ndash;2023 Monitor Design Value Threshold Waterfall (Distinct from CAA &sect; 107(d) Designations) and Same-Rooftop 2023&ndash;2025 Paired Annual DV Sensitivity.",
             (
-                f"Panel A (Causal Core Test U1) compares same-rooftop exceedance rates on satellite NOAA HMS Heavy smoke days across two distinct "
-                f"benchmarks: (i) 24-hr NAAQS level-equivalent daily exceedances (&gt;35 &mu;g/m<sup>3</sup>), where T640_FW doubles FRM exceedances "
-                f"({u1_t_hms['fem_exceed_n']} vs. {u1_t_hms['frm_exceed_n']}, {u1_t_hms['fem_only_discordant']} vs. {u1_t_hms['frm_only_discordant']} "
-                f"discordant days, exact McNemar <em>p</em> = {_fmt_p_html(u1_t_hms['mcnemar_exact_p'])}; BAM <em>p</em> = {u1_b_hms['mcnemar_exact_p']:.3f}); "
-                f"and (ii) EPA&rsquo;s Wildfire Tier-1 5-year historical (2018&ndash;2022) FRM 98th-percentile criterion min(<em>p</em><sub>98,18&ndash;22</sub>, 35), "
-                f"where T640_FW reaches {u1h_t_hms['trigger_multiplier_ratio']:.2f}&times; ({u1h_t_hms['fem_exceed_n']} vs. {u1h_t_hms['frm_exceed_n']}, "
-                f"{u1h_t_hms['fem_only_discordant']} vs. {u1h_t_hms['frm_only_discordant']} discordant days, exact McNemar <em>p</em> = "
-                f"{_fmt_p_html(u1h_t_hms['mcnemar_exact_p'])}; all paired days {u1h_t_all['trigger_multiplier_ratio']:.2f}&times;, <em>p</em> = "
-                f"{_fmt_p_html(u1h_t_all['mcnemar_exact_p'])}) while BAM is completely null ({u1h_b_hms['fem_exceed_n']} vs. {u1h_b_hms['frm_exceed_n']}, "
-                f"<em>p</em> = {u1h_b_hms['mcnemar_exact_p']:.3f}). Inset reports observational Test U2 candidly: cross-monitor T640 &times; log(HMS Heavy) "
-                f"associates with +{100*u2['borderline_2225_t640_x_hms_heavy_flag']['coefs']['t640_x_hms_h']['beta']:.1f} pp higher flagging "
-                f"(State <em>p</em><sub>WCB</sub> = {u2['borderline_2225_t640_x_hms_heavy_flag_state_cr1']['wcb']['p_wcb']:.3f}), but the within-county-year "
-                f"FE comparison is null ({100*u2_wcy['coefs']['is_t640_f']['beta']:+.2f} pp, <em>p</em><sub>WCB</sub> = {u2_wcy['wcb']['p_wcb']:.3f}); "
-                f"no causal strategic-filing claim is made. Panel B presents the Master Audit forest across 16 core tests, contrasting nine verified "
-                f"physical/administrative estimates (|<em>t</em>| = {min(eff_ts):.1f}&ndash;{max(eff_ts):.1f}) directly against seven clean honest nulls "
-                f"(including U2 within-county-year flagging, pure BAM smoke bias, Margins D/A/C, Fake-Rule Placebo, and 2025 concurred EE flow; "
-                f"|<em>t</em>| &le; {max(null_ts):.2f}, <em>p</em> &ge; {min(null_ps):.2f})."
+                f"Panel A traces screening-level county monitor Design-Value threshold cross-overs (&ge; 9.1 &mu;g/m<sup>3</sup>) across "
+                f"495 matched regulatory counties in 2021&ndash;2023: swapping pre-alignment raw T640 for aligned T640 alone lowers counts "
+                f"from {wf21['raw_2123']['counties']} ({wf21['raw_2123']['pop_millions']:.1f}M) to {wf21['aln_2123']['counties']} "
+                f"({wf21['aln_2123']['pop_millions']:.1f}M), a set of {wf21['flip_t640_alone']['counties']} screening-level monitor DV "
+                f"reclassifications ({wf21['flip_t640_alone']['pop_millions']:.2f}M residents; explicitly distinct from formal EPA Clean Air Act "
+                f"&sect; 107(d) five-factor legal designations). Panel B scatters paired-day 2023&ndash;2025 annual DVs across "
+                f"{rt_t['n_sites']} T640_FW&ndash;FRM rooftops (mean bias +{rt_t['mean_dv_bias']:.3f} &mu;g/m<sup>3</sup>, "
+                f"{rt_t['fem_na_frm_att']} vs. {rt_t['frm_na_fem_att']} crossing 9.0 &mu;g/m<sup>3</sup>, binomial <em>p</em> = "
+                f"{_fmt_p_html(rt_t['binom_p'])}; BAM reference <em>N</em> = {rt_b['n_sites']}: {rt_b['mean_dv_bias']:+.3f} &mu;g/m<sup>3</sup>, "
+                f"{rt_b['fem_na_frm_att']} vs. {rt_b['frm_na_fem_att']})."
+            ),
+        ),
+        "figS2_si_oot_reconstruction_and_ee_nulls.png": (
+            "Figure S2. Validation of 40 CFR Part 50 Appendix N Threshold Reconstruction Against EPA&rsquo;s 2021&ndash;2025 Table and Archival Exceptional Event Flagging Context with Within-County-Year Null.",
+            (
+                f"Panel A benchmarks 2021&ndash;2025 Tier-1 thresholds reconstructed from AQS bulk daily/annual archives against EPA&rsquo;s "
+                f"official published table (for_posting.csv, 2026-09-14): on zero-event clean sites, combined-site Appendix N Table 1 "
+                f"achieves median absolute error {rb['cs_all_no_ann_excl']['zero_flag_clean_median_abs_err']:.2f} &mu;g/m<sup>3</sup> "
+                f"(<em>r</em> = {rb['cs_all_no_ann_excl']['zero_flag_clean_corr']:.2f}; OOT-B <em>r</em> = "
+                f"{rb['oot_b_cs_excl_hms3']['zero_flag_clean_corr']:.2f}). Panel B displays archival 2018&ndash;2025 county-year "
+                f"Exceptional Event flagging event-study coefficients (ref = 2020), showing the anticipatory 2022&ndash;2023 peak prior "
+                f"to the Feb 2024 final rule, null 2024&ndash;2025 concurred exclusions, and the within-county-year FE T640 null "
+                f"({100 * u2_wcy['coefs']['is_t640_f']['beta']:+.2f} pp, <em>p</em><sub>WCB</sub> = {u2_wcy['wcb']['p_wcb']:.3f}, "
+                f"<em>N</em> = {u2_wcy['n']}), confirming no causal claim of instrument-induced EE filings."
             ),
         ),
     }
@@ -234,8 +191,6 @@ def _extract_braced(s: str, start: int) -> tuple[str, int]:
 def _tex_to_html(expr: str) -> str:
     s = expr.strip()
     s = s.replace(r"\$", "$")
-
-    # Convert degree symbols before superscript regexes
     s = s.replace(r"^{\circ}", "&deg;")
     s = s.replace(r"^\circ", "&deg;")
 
@@ -249,7 +204,11 @@ def _tex_to_html(expr: str) -> str:
         else:
             n_wrap = f"({n_clean})" if re.search(r"[+\-= ]", n_clean) else n_clean
             d_wrap = f"({d_clean})" if re.search(r"[+\-= ]", d_clean) else d_clean
-            frac_repl = f"{n_wrap}/{d_wrap}" if (n_wrap == n_clean and d_wrap == d_clean) else f"{n_wrap} / {d_wrap}"
+            frac_repl = (
+                f"{n_wrap}/{d_wrap}"
+                if (n_wrap == n_clean and d_wrap == d_clean)
+                else f"{n_wrap} / {d_wrap}"
+            )
         s = s[:idx] + frac_repl + s[end:]
 
     macro_wrappers = [
@@ -270,7 +229,6 @@ def _tex_to_html(expr: str) -> str:
             inner, end = _extract_braced(s, idx + len(macro) - 1)
             s = s[:idx] + f"{pre}{inner}{post}" + s[end:]
 
-    # Protect escaped underscores \_ inside math mode so they NEVER trigger subscript regexes
     s = s.replace(r"\_", "&#95;")
 
     replacements = [
@@ -367,7 +325,6 @@ def _tex_to_html(expr: str) -> str:
 
     parts = re.split(r"(<[^>]+>)", s)
     for i in range(0, len(parts), 2):
-        # Preserve HTML entity names like &ndash; while converting unary/binary hyphens to minus
         parts[i] = re.sub(r"(?<![&a-zA-Z])-(?![a-zA-Z]*;)", "&minus;", parts[i])
     return "".join(parts)
 
@@ -413,7 +370,12 @@ def _embed_figure_html(fname: str, figure_blocks: dict[str, tuple[str, str]]) ->
     )
 
 
-def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) -> str:
+def convert_md_to_html(
+    md_text: str,
+    figure_blocks: dict[str, tuple[str, str]],
+    running_header: str,
+    doc_title: str,
+) -> str:
     lines = md_text.splitlines()
     body: list[str] = []
     inserted_figs: set[str] = set()
@@ -466,7 +428,7 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
             headers = split_md_row(tbl_lines[0])
             aligns = split_md_row(tbl_lines[1])
             if len(headers) != len(aligns):
-                raise ValueError(f"Markdown table column mismatch: header={len(headers)} vs aligns={len(aligns)}: {headers}")
+                raise ValueError(f"Markdown table column mismatch: {headers}")
             col_cls = []
             for a in aligns:
                 if a.startswith(":") and a.endswith(":"):
@@ -551,59 +513,55 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
             segs.append(_inline_md(" ".join(cur_seg)))
         body.append(f"<p{p_cls}>{'<br />'.join(segs)}</p>")
 
-    for fname in figure_blocks:
-        if fname not in inserted_figs and (FIG_DIR / fname).exists():
-            body.append(_embed_figure_html(fname, figure_blocks))
-
-    css = """
-    @page {
+    css = f"""
+    @page {{
       size: letter;
       margin: 0.65in 0.65in 0.72in 0.65in;
-      @top-right {
-        content: "Optical Bias, Wildfire Smoke Amplification, and Regulatory Triage (2024 PM2.5 NAAQS)";
+      @top-right {{
+        content: "{running_header}";
         font-family: Georgia, "Times New Roman", serif;
         font-size: 7.2pt;
         color: #555;
-      }
-      @bottom-center {
+      }}
+      @bottom-center {{
         content: "Page " counter(page) " of " counter(pages);
         font-family: Georgia, "Times New Roman", serif;
         font-size: 7.9pt;
         color: #555;
-      }
-    }
-    @page :first { @top-right { content: normal; } }
-    body {
+      }}
+    }}
+    @page :first {{ @top-right {{ content: normal; }} }}
+    body {{
       font-family: Georgia, "Times New Roman", serif;
       font-size: 9.2pt;
       line-height: 1.42;
       color: #1a1a1a;
       max-width: 100%;
-    }
-    h1.paper-title {
-      font-size: 13.6pt;
+    }}
+    h1.paper-title {{
+      font-size: 13.4pt;
       line-height: 1.24;
       margin: 0 0 8pt 0;
       color: #0b2545;
       border-bottom: 1.5pt solid #0b2545;
       padding-bottom: 6pt;
-    }
-    h2 {
-      font-size: 10.9pt;
+    }}
+    h2 {{
+      font-size: 10.8pt;
       color: #0b2545;
       margin: 11pt 0 5pt 0;
       border-bottom: 0.6pt solid #cbd5e1;
       padding-bottom: 2pt;
       page-break-after: avoid;
-    }
-    h3 {
+    }}
+    h3 {{
       font-size: 9.6pt;
       color: #1e3a5f;
       margin: 8.5pt 0 4pt 0;
       page-break-after: avoid;
-    }
-    p { margin: 0 0 5.3pt 0; text-align: justify; }
-    p.table-caption {
+    }}
+    p {{ margin: 0 0 5.3pt 0; text-align: justify; }}
+    p.table-caption {{
       font-size: 8.3pt;
       margin: 7pt 0 3pt 0;
       color: #0b2545;
@@ -612,29 +570,29 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
       page-break-inside: avoid;
       break-after: avoid;
       page-break-after: avoid;
-    }
-    p.table-notes {
+    }}
+    p.table-notes {{
       font-size: 7.3pt;
       color: #475569;
       margin: 2pt 0 8pt 0;
       text-align: left;
-    }
-    ul, ol { margin: 3pt 0 6pt 16pt; padding: 0; }
-    li { margin: 0 0 2.6pt 0; text-align: justify; }
-    ol.refs-list li { text-align: left; font-size: 8.0pt; line-height: 1.32; break-inside: avoid; page-break-inside: avoid; }
-    code {
+    }}
+    ul, ol {{ margin: 3pt 0 6pt 16pt; padding: 0; }}
+    li {{ margin: 0 0 2.6pt 0; text-align: justify; }}
+    ol.refs-list li {{ text-align: left; font-size: 7.5pt; line-height: 1.22; margin: 0 0 1.8pt 0; break-inside: avoid; page-break-inside: avoid; }}
+    code {{
       font-family: Consolas, "Courier New", monospace;
-      font-size: 7.2pt;
+      font-size: 7.1pt;
       background: #f1f5f9;
       padding: 0.4pt 2.0pt;
       border-radius: 2pt;
-    }
-    hr { border: 0; border-top: 0.6pt solid #cbd5e1; margin: 7.5pt 0; }
-    .math { font-family: "Cambria Math", Georgia, serif; font-style: italic; }
-    .math .rm, .eq-block .rm { font-style: normal; }
-    .math .cal, .eq-block .cal { font-family: "Lucida Calligraphy", "Cambria Math", serif; font-style: italic; }
-    sup, sub { white-space: nowrap; }
-    .eq-block {
+    }}
+    hr {{ border: 0; border-top: 0.6pt solid #cbd5e1; margin: 7.5pt 0; }}
+    .math {{ font-family: "Cambria Math", Georgia, serif; font-style: italic; }}
+    .math .rm, .eq-block .rm {{ font-style: normal; }}
+    .math .cal, .eq-block .cal {{ font-family: "Lucida Calligraphy", "Cambria Math", serif; font-style: italic; }}
+    sup, sub {{ white-space: nowrap; }}
+    .eq-block {{
       font-family: "Cambria Math", Georgia, serif;
       font-size: 9.3pt;
       text-align: center;
@@ -644,49 +602,49 @@ def convert_md_to_html(md_text: str, figure_blocks: dict[str, tuple[str, str]]) 
       border-left: 2pt solid #0b2545;
       break-inside: avoid;
       page-break-inside: avoid;
-    }
-    .table-wrap { margin: 4pt 0 4pt 0; page-break-inside: avoid; }
-    table {
+    }}
+    .table-wrap {{ margin: 4pt 0 4pt 0; page-break-inside: avoid; }}
+    table {{
       width: 100%;
       border-collapse: collapse;
       font-size: 6.6pt;
-      line-height: 1.20;
+      line-height: 1.22;
       border-top: 1.3pt solid #0f172a;
       border-bottom: 1.3pt solid #0f172a;
-    }
-    thead tr { border-bottom: 0.8pt solid #334155; background: #f8fafc; }
-    th, td { padding: 2.0pt 2.5pt; vertical-align: top; }
-    td .math, th .math { white-space: nowrap; }
-    td code { white-space: nowrap; font-size: 6.3pt; }
-    tbody tr:nth-child(even) { background: #fbfdff; }
-    th.left, td.left { text-align: left; }
-    th.center, td.center { text-align: center; }
-    th.right, td.right { text-align: right; }
-    figure.pub-fig {
+    }}
+    thead tr {{ border-bottom: 0.8pt solid #334155; background: #f8fafc; }}
+    th, td {{ padding: 2.2pt 2.8pt; vertical-align: top; }}
+    td .math, th .math {{ white-space: nowrap; }}
+    td code {{ white-space: nowrap; font-size: 6.3pt; }}
+    tbody tr:nth-child(even) {{ background: #fbfdff; }}
+    th.left, td.left {{ text-align: left; }}
+    th.center, td.center {{ text-align: center; }}
+    th.right, td.right {{ text-align: right; }}
+    figure.pub-fig {{
       margin: 7.5pt 0 7.5pt 0;
       padding: 5pt;
       border: 0.5pt solid #e2e8f0;
       background: #ffffff;
       page-break-inside: avoid;
       text-align: center;
-    }
-    figure.pub-fig img {
+    }}
+    figure.pub-fig img {{
       max-width: 100%;
-      max-height: 3.85in;
+      max-height: 3.95in;
       height: auto;
       display: block;
       margin: 0 auto 4.5pt auto;
-    }
-    figure.pub-fig figcaption {
+    }}
+    figure.pub-fig figcaption {{
       font-size: 7.4pt;
       line-height: 1.29;
       color: #334155;
       text-align: left;
-    }
+    }}
     """
     return (
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8' />"
-        f"<title>Optical Measurement Bias, Wildfire Smoke Amplification, and Regulatory Triage (2024 PM2.5 NAAQS)</title>"
+        f"<title>{html.escape(doc_title)}</title>"
         f"<style>{css}</style></head><body>{''.join(body)}</body></html>"
     )
 
@@ -709,7 +667,7 @@ def verify_pdf_zero_leaks(pdf_path: Path) -> tuple[int, list[str]]:
         r"\\mathcal\{",
         r"\bp_WCB\b",
         r"\^[0-9A-Za-z{]",
-        r"fig[1-5]_[a-z0-9_]+\.png",
+        r"fig[1-5S][a-z0-9_]*\.png",
         r"<!--",
         r"TOK\d+",
         r"&[a-z]+;",
@@ -717,6 +675,7 @@ def verify_pdf_zero_leaks(pdf_path: Path) -> tuple[int, list[str]]:
         r"</?(?:sub|sup|em|strong|span|div|i|b)>",
         r"\bNaN\b",
         r"\bInf\b",
+        r"Target Venues|Track A|Track B",
     ]
     leaks = []
     for pat in bad_patterns:
@@ -726,40 +685,88 @@ def verify_pdf_zero_leaks(pdf_path: Path) -> tuple[int, list[str]]:
     return len(reader.pages), leaks
 
 
-def main() -> int:
-    figure_blocks = build_dynamic_figure_blocks()
-    md_text = MD_PATH.read_text(encoding="utf-8")
-    html_doc = convert_md_to_html(md_text, figure_blocks)
-    HTML_PATH.write_bytes(html_doc.encode("utf-8"))
+def compile_one_pdf(
+    md_path: Path,
+    pdf_path: Path,
+    figure_blocks: dict[str, tuple[str, str]],
+    running_header: str,
+    doc_title: str,
+    fallback_pdf: Path | None = None,
+) -> tuple[Path, int, str]:
+    md_text = md_path.read_text(encoding="utf-8")
+    html_doc = convert_md_to_html(md_text, figure_blocks, running_header, doc_title)
 
+    with tempfile.TemporaryDirectory(prefix="j6_edge_pdf_") as tmpdir:
+        tmp_path = Path(tmpdir)
+        html_file = tmp_path / (md_path.stem + ".html")
+        user_data = tmp_path / "edge_profile"
+        html_file.write_bytes(html_doc.encode("utf-8"))
+
+        target_pdf = pdf_path
+        try:
+            # Test writability before invoking Edge
+            if target_pdf.exists():
+                with target_pdf.open("ab"):
+                    pass
+        except PermissionError:
+            if fallback_pdf is not None:
+                target_pdf = fallback_pdf
+            else:
+                raise
+
+        cmd = [
+            str(EDGE_EXE),
+            "--headless=new",
+            "--disable-gpu",
+            "--no-pdf-header-footer",
+            f"--user-data-dir={user_data}",
+            f"--print-to-pdf={target_pdf}",
+            html_file.as_uri(),
+        ]
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=120, check=False)
+        if res.returncode != 0 or not target_pdf.exists() or target_pdf.stat().st_size < 30_000:
+            raise RuntimeError(f"Edge PDF compile failed for {md_path.name}: rc={res.returncode} {res.stderr}")
+
+    n_pages, leaks = verify_pdf_zero_leaks(target_pdf)
+    if leaks:
+        raise RuntimeError(f"Leaked tokens found in {target_pdf.name}: {leaks}")
+    sha = hashlib.sha256(target_pdf.read_bytes()).hexdigest()
+    return target_pdf, n_pages, sha
+
+
+def main() -> int:
     if not EDGE_EXE.exists():
         print(f"[ERROR] Microsoft Edge not found at {EDGE_EXE}", file=sys.stderr)
         return 1
 
-    cmd = [
-        str(EDGE_EXE),
-        "--headless=new",
-        "--disable-gpu",
-        "--no-pdf-header-footer",
-        f"--print-to-pdf={PDF_PATH}",
-        HTML_PATH.as_uri(),
-    ]
-    res = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
-    if res.returncode != 0 or not PDF_PATH.exists() or PDF_PATH.stat().st_size < 50_000:
-        print(f"[ERROR] Edge PDF compile failed rc={res.returncode}: {res.stderr}", file=sys.stderr)
-        return 1
-
-    n_pages, leaks = verify_pdf_zero_leaks(PDF_PATH)
-    HTML_PATH.unlink(missing_ok=True)
-    if leaks:
-        print(f"[ERROR] Leaked LaTeX/Markdown/HTML tokens found in PDF: {leaks}", file=sys.stderr)
-        return 2
-    sha = hashlib.sha256(PDF_PATH.read_bytes()).hexdigest()
+    figure_blocks = build_dynamic_figure_blocks()
+    out_main, p_main, sha_main = compile_one_pdf(
+        MD_MAIN,
+        PDF_MAIN,
+        figure_blocks,
+        running_header="Residual Optical PM2.5 Bias and U.S. Exceptional-Event Tiering Thresholds",
+        doc_title="Residual Optical PM2.5 Bias During Wildfire Smoke and Sensitivity of U.S. Exceptional-Event Tiering Thresholds",
+        fallback_pdf=PDF_MAIN_FALLBACK,
+    )
     print(
-        f"[DONE STEP 08] Compiled {PDF_PATH} ({PDF_PATH.stat().st_size:,} bytes, "
-        f"{n_pages} pages, 0 leaked tokens, SHA-256: {sha})",
+        f"[DONE STEP 08] Compiled {out_main.name} ({out_main.stat().st_size:,} bytes, "
+        f"{p_main} pages, 0 leaked tokens, SHA-256: {sha_main})",
         flush=True,
     )
+
+    if MD_SI.exists():
+        out_si, p_si, sha_si = compile_one_pdf(
+            MD_SI,
+            PDF_SI,
+            figure_blocks,
+            running_header="Supporting Information — Residual Optical PM2.5 Bias and Exceptional-Event Tiering",
+            doc_title="Supporting Information: Residual Optical PM2.5 Bias During Wildfire Smoke",
+        )
+        print(
+            f"[DONE STEP 08] Compiled {out_si.name} ({out_si.stat().st_size:,} bytes, "
+            f"{p_si} pages, 0 leaked tokens, SHA-256: {sha_si})",
+            flush=True,
+        )
     return 0
 
 

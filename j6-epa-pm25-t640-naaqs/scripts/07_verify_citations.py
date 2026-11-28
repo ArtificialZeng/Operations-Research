@@ -1,4 +1,4 @@
-"""Step 07 (Pillar 6b): Live Crossref REST API Verification of 100% of Academic DOIs
+"""Step 07 (v4 ES&T): Live Crossref REST API Verification of 100% of Academic DOIs
 and Two-Way Citation Synchronization Check with manuscript_j6_boost.md.
 """
 
@@ -14,16 +14,23 @@ import requests
 from econ_utils import RES_DIR, WS_DIR, save_json_lf
 
 HEADERS = {
-    "User-Agent": "J6BoostEPAPm25Study/1.0 (https://github.com/ai-science; mailto:epastudy@academic-audit.org)"
+    "User-Agent": "J6ESTPm25MetrologyStudy/4.0 (https://github.com/ai-science; mailto:epastudy@academic-audit.org)"
 }
 
-# Canonical bibliography registry (15 peer-reviewed DOIs + 5 official regulatory/working-paper entries)
+# Canonical ES&T v4 bibliography registry (15 peer-reviewed DOIs + 6 official regulatory entries)
 ACADEMIC_REFS: list[dict[str, Any]] = [
     {
-        "key": "Jaffe2026",
-        "cite_pattern": r"Jaffe et al\.\s*\(2026\)|Jaffe et al\.,\s*2026",
-        "doi": "10.1029/2025GH001576",
-        "expected_author": "Jaffe",
+        "key": "Long2023",
+        "cite_pattern": r"Long et al\.\s*\(2023\)|Long et al\.,\s*2023|Long, Urbanski",
+        "doi": "10.1080/10962247.2023.2171156",
+        "expected_author": "Long",
+        "expected_year": 2023,
+    },
+    {
+        "key": "McClure2026",
+        "cite_pattern": r"McClure et al\.\s*\(2026\)|McClure et al\.,\s*2026",
+        "doi": "10.1080/10962247.2026.2639376",
+        "expected_author": "McClure",
         "expected_year": 2026,
     },
     {
@@ -34,39 +41,11 @@ ACADEMIC_REFS: list[dict[str, Any]] = [
         "expected_year": 2025,
     },
     {
-        "key": "Long2023",
-        "cite_pattern": r"Long, Urbanski,?\s*(?:&|and)\s*Lincoln\s*\(2023\)|Long et al\.\s*\(2023\)|Long, Urbanski,?\s*(?:&|and)\s*Lincoln,\s*2023",
-        "doi": "10.1080/10962247.2023.2171156",
-        "expected_author": "Long",
-        "expected_year": 2023,
-    },
-    {
-        "key": "Zou2021",
-        "cite_pattern": r"Zou\s*\(2021\)|Zou,\s*2021",
-        "doi": "10.1257/aer.20181346",
-        "expected_author": "Zou",
-        "expected_year": 2021,
-    },
-    {
-        "key": "Grainger2019",
-        "cite_pattern": r"Grainger\s*(?:&|and)\s*Schreiber\s*\(2019\)|Grainger\s*(?:&|and)\s*Schreiber,\s*2019",
-        "doi": "10.1257/pandp.20191063",
-        "expected_author": "Grainger",
-        "expected_year": 2019,
-    },
-    {
-        "key": "Chay2005",
-        "cite_pattern": r"Chay\s*(?:&|and)\s*Greenstone\s*\(2005\)|Chay\s*(?:&|and)\s*Greenstone,\s*2005",
-        "doi": "10.1086/427462",
-        "expected_author": "Chay",
-        "expected_year": 2005,
-    },
-    {
-        "key": "Greenstone2002",
-        "cite_pattern": r"Greenstone\s*\(2002\)|Greenstone,\s*2002",
-        "doi": "10.1086/342808",
-        "expected_author": "Greenstone",
-        "expected_year": 2002,
+        "key": "Jaffe2026",
+        "cite_pattern": r"Jaffe et al\.\s*\(2026\)|Jaffe et al\.,\s*2026",
+        "doi": "10.1029/2025GH001576",
+        "expected_author": "Jaffe",
+        "expected_year": 2026,
     },
     {
         "key": "Burke2023",
@@ -97,22 +76,15 @@ ACADEMIC_REFS: list[dict[str, Any]] = [
         "expected_year": 1986,
     },
     {
-        "key": "Fowlie2019",
-        "cite_pattern": r"Fowlie, Rubin,?\s*(?:&|and)\s*Walker\s*\(2019\)|Fowlie et al\.\s*\(2019\)|Fowlie, Rubin,?\s*(?:&|and)\s*Walker,\s*2019",
-        "doi": "10.1257/pandp.20191064",
-        "expected_author": "Fowlie",
-        "expected_year": 2019,
-    },
-    {
-        "key": "Auffhammer2009",
-        "cite_pattern": r"Auffhammer, Bento,?\s*(?:&|and)\s*Lowe\s*\(2009\)|Auffhammer et al\.\s*\(2009\)|Auffhammer, Bento,?\s*(?:&|and)\s*Lowe,\s*2009",
-        "doi": "10.1016/j.jeem.2008.12.004",
-        "expected_author": "Auffhammer",
-        "expected_year": 2009,
+        "key": "Cameron2011",
+        "cite_pattern": r"Cameron, Gelbach,?\s*(?:&|and)\s*Miller\s*\(2011\)|Cameron, Gelbach,?\s*(?:&|and)\s*Miller,\s*2011|Cameron et al\.\s*\(2011\)|Cameron et al\.,\s*2011",
+        "doi": "10.1198/jbes.2010.07136",
+        "expected_author": "Cameron",
+        "expected_year": 2011,
     },
     {
         "key": "Cameron2008",
-        "cite_pattern": r"Cameron, Gelbach,?\s*(?:&|and)\s*Miller\s*\(2008\)|Cameron, Gelbach,?\s*(?:&|and)\s*Miller,\s*2008",
+        "cite_pattern": r"Cameron, Gelbach,?\s*(?:&|and)\s*Miller\s*\(2008\)|Cameron, Gelbach,?\s*(?:&|and)\s*Miller,\s*2008|Cameron et al\.\s*\(2008\)|Cameron et al\.,\s*2008",
         "doi": "10.1162/rest.90.3.414",
         "expected_author": "Cameron",
         "expected_year": 2008,
@@ -122,6 +94,27 @@ ACADEMIC_REFS: list[dict[str, Any]] = [
         "cite_pattern": r"Roodman et al\.\s*\(2019\)|Roodman et al\.,\s*2019",
         "doi": "10.1177/1536867X19830877",
         "expected_author": "Roodman",
+        "expected_year": 2019,
+    },
+    {
+        "key": "Fowlie2019",
+        "cite_pattern": r"Fowlie, Rubin,?\s*(?:&|and)\s*Walker\s*\(2019\)|Fowlie et al\.\s*\(2019\)|Fowlie, Rubin,?\s*(?:&|and)\s*Walker,\s*2019",
+        "doi": "10.1257/pandp.20191064",
+        "expected_author": "Fowlie",
+        "expected_year": 2019,
+    },
+    {
+        "key": "Zou2021",
+        "cite_pattern": r"Zou\s*\(2021\)|Zou,\s*2021",
+        "doi": "10.1257/aer.20181346",
+        "expected_author": "Zou",
+        "expected_year": 2021,
+    },
+    {
+        "key": "Grainger2019",
+        "cite_pattern": r"Grainger\s*(?:&|and)\s*Schreiber\s*\(2019\)|Grainger\s*(?:&|and)\s*Schreiber,\s*2019",
+        "doi": "10.1257/pandp.20191063",
+        "expected_author": "Grainger",
         "expected_year": 2019,
     },
     {
@@ -137,33 +130,44 @@ INSTITUTIONAL_REFS: list[dict[str, str]] = [
     {
         "key": "EPA2024NAAQS",
         "cite_pattern": r"89 FR 16202|U\.S\. EPA \(2024a\)|U\.S\. EPA, 2024a",
+        "tok": "89 FR 16202",
         "citation": "U.S. Environmental Protection Agency (2024a). Reconsideration of the National Ambient Air Quality Standards for Particulate Matter. Final Rule, 89 FR 16202 (February 7, 2024; effective May 6, 2024).",
     },
     {
+        "key": "EPA2024Tiering",
+        "cite_pattern": r"EPA-457/R-24-001|U\.S\. EPA \(2024b\)|U\.S\. EPA, 2024b",
+        "tok": "EPA-457/R-24-001",
+        "citation": "U.S. Environmental Protection Agency (2024b). PM2.5 Wildland Fire Exceptional Events Tiering Document. EPA-457/R-24-001, Office of Air Quality Planning and Standards (April 30, 2024).",
+    },
+    {
         "key": "EPA2024T640",
-        "cite_pattern": r"U\.S\. EPA \(2024b\)|U\.S\. EPA, 2024b|May 2024.*T640",
-        "citation": "U.S. Environmental Protection Agency (2024b). Teledyne API Model T640 and T640x PM2.5 Network Alignment Memorandum and AQS Method Code Update (Methods 636/638 and 736/738). Office of Air Quality Planning and Standards, May 2024.",
+        "cite_pattern": r"U\.S\. EPA \(2024c\)|U\.S\. EPA, 2024c|Quick Reference Guide to T640",
+        "tok": "T640",
+        "citation": "U.S. Environmental Protection Agency (2024c). Quick Reference Guide to T640/T640x Data and Network Alignment Memorandum (AQS Method Codes 636/638 and 736/738). Office of Air Quality Planning and Standards (May 13, 2024).",
+    },
+    {
+        "key": "EPA2026TierTable",
+        "cite_pattern": r"U\.S\. EPA \(2026\)|U\.S\. EPA, 2026|2026-09-14",
+        "tok": "2026-09-14",
+        "citation": "U.S. Environmental Protection Agency (2026). PM2.5 Tiering Tool for Exceptional Events Analysis: Site-Month Threshold Table (for_posting.csv), Certified Years 2021-2025, AQS Query Date 2026-09-14.",
     },
     {
         "key": "CFRAppN",
         "cite_pattern": r"40 CFR Part 50,?\s*Appendix N|Appendix N",
+        "tok": "Appendix N",
         "citation": "U.S. Code of Federal Regulations (40 CFR Part 50, Appendix N). Interpretation of the National Ambient Air Quality Standards for PM2.5.",
     },
     {
         "key": "CFR5014",
         "cite_pattern": r"40 CFR §\s*50\.14|40 CFR 50\.14",
+        "tok": "50.14",
         "citation": "U.S. Code of Federal Regulations (40 CFR § 50.14; 81 FR 68216). Treatment of Air Quality Monitoring Data Influenced by Exceptional Events.",
-    },
-    {
-        "key": "Lu2026",
-        "cite_pattern": r"Lu\s*\(2026\)|Lu,\s*2026|SSRN 6035510",
-        "citation": "Lu, Y.-P. (2026). Nonattainment under the Clean Air Act: Tracking Designations and Modeling the Timing of Attainment. Working Paper, SSRN 6035510.",
     },
 ]
 
 
 def verify_one_doi(session: requests.Session, ref: dict[str, Any]) -> dict[str, Any]:
-    """Verify a DOI live against Crossref REST API (with doi.org CSL-JSON fallback on transient 429)."""
+    """Verify a DOI live against Crossref REST API (with doi.org CSL-JSON fallback)."""
     doi = ref["doi"]
     enc = urllib.parse.quote(doi, safe="")
     cr_url = f"https://api.crossref.org/works/{enc}"
@@ -182,7 +186,6 @@ def verify_one_doi(session: requests.Session, ref: dict[str, Any]) -> dict[str, 
             last_err = f"crossref HTTP {r.status_code}"
         except (requests.RequestException, ValueError, KeyError) as exc:
             last_err = f"crossref {exc}"
-        # Fallback to doi.org CSL-JSON (backed by Crossref!)
         try:
             r2 = session.get(
                 csl_url,
@@ -207,7 +210,6 @@ def verify_one_doi(session: requests.Session, ref: dict[str, Any]) -> dict[str, 
             "error": last_err,
         }
 
-    # Parse authors, title, journal, year, volume, page
     authors_raw = data.get("author", [])
     surnames = [a.get("family", "") for a in authors_raw if a.get("family")]
     title = data.get("title", "")
@@ -267,17 +269,8 @@ def check_two_way_sync(md_path: Path, verified_acad: list[dict[str, Any]]) -> di
     for iref in INSTITUTIONAL_REFS:
         if not re.search(iref["cite_pattern"], body):
             missing_in_body.append(iref["key"])
-        # Verify institutional reference text or key token appears in References
-        key_tok = iref["key"]
-        tok_map = {
-            "EPA2024NAAQS": "89 FR 16202",
-            "EPA2024T640": "T640",
-            "CFRAppN": "Appendix N",
-            "CFR5014": "50.14",
-            "Lu2026": "6035510",
-        }
-        if tok_map[key_tok] not in refs_sec:
-            missing_in_refs.append(key_tok)
+        if iref["tok"] not in refs_sec:
+            missing_in_refs.append(iref["key"])
 
     return {
         "manuscript_exists": True,
@@ -289,7 +282,7 @@ def check_two_way_sync(md_path: Path, verified_acad: list[dict[str, Any]]) -> di
 
 
 def main() -> int:
-    print("=== STEP 07: LIVE CROSSREF DOI VERIFICATION & CITATION SYNC ===", flush=True)
+    print("=== STEP 07: LIVE CROSSREF DOI VERIFICATION & CITATION SYNC (V4 ES&T) ===", flush=True)
     cache_path = RES_DIR / "07_citations_verified.json"
     session = requests.Session()
     verified: list[dict[str, Any]] = []
@@ -298,31 +291,30 @@ def main() -> int:
         verified.append(res)
         status = "OK" if res["verified"] else "FAIL"
         print(
-            f"  [{status}] {ref['key']:15s} | {ref['doi']:32s} | {res.get('year')} | "
-            f"{res.get('author_first','')} | {str(res.get('journal',''))[:35]} ({res.get('source', res.get('error'))})",
+            f"  [{status}] {ref['key']:14s} | {ref['doi']:30s} | "
+            f"{res.get('author_first', '?')} ({res.get('year', '?')}) — {res.get('journal', '')[:38]}",
             flush=True,
         )
-        time.sleep(0.35)
 
-    n_ok = sum(1 for v in verified if v["verified"])
-    n_tot = len(verified)
-    md_path = WS_DIR / "manuscript_j6_boost.md"
-    sync = check_two_way_sync(md_path, verified)
+    n_ok = sum(1 for r in verified if r["verified"])
+    sync = check_two_way_sync(WS_DIR / "manuscript_j6_boost.md", verified)
 
-    receipt = {
-        "n_academic_dois": n_tot,
+    payload = {
+        "n_academic_dois": len(ACADEMIC_REFS),
         "n_verified": n_ok,
-        "verification_rate_pct": round(100.0 * n_ok / max(n_tot, 1), 2),
-        "all_verified": bool(n_ok == n_tot),
+        "verification_rate_pct": round(100.0 * n_ok / len(ACADEMIC_REFS), 2),
+        "all_verified": bool(n_ok == len(ACADEMIC_REFS)),
         "academic_refs": verified,
         "institutional_refs": INSTITUTIONAL_REFS,
         "two_way_sync": sync,
     }
-    sha = save_json_lf(cache_path, receipt)
-    print(f"\n[DONE STEP 07] Verified {n_ok}/{n_tot} DOIs ({receipt['verification_rate_pct']}%) | SHA-256 LF: {sha}", flush=True)
-    if n_ok != n_tot:
-        return 1
-    return 0
+    sha = save_json_lf(cache_path, payload)
+    print(
+        f"[DONE STEP 07] Verified {n_ok}/{len(ACADEMIC_REFS)} DOIs ({payload['verification_rate_pct']}%); "
+        f"two_way_sync={sync.get('two_way_sync_ok')}; SHA-256 LF: {sha}",
+        flush=True,
+    )
+    return 0 if payload["all_verified"] else 1
 
 
 if __name__ == "__main__":

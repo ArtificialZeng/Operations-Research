@@ -1,35 +1,26 @@
-# Optical Measurement Bias, Wildfire Smoke Amplification, and Regulatory Triage Under the 2024 U.S. Fine Particulate Matter Standard (`J6`)
+# Residual Optical PM₂.₅ Bias During Wildfire Smoke and Sensitivity of U.S. Exceptional-Event Tiering Thresholds (`J6`)
 
-**Status:** `v2` MAJOR REVISION COMPLETE — SUBMISSION-READY ARCHIVE (`2026-11-26`)  
-**Target Journals:** Track A (*Nature Sustainability* / *PNAS* / *Science*) & Track B (*AEJ: Economic Policy* / *JEEM* / *Management Science*)
+**Status:** `v4` SUBMISSION-READY REVISION (*Environmental Science & Technology*) — `2026-11-28`  
+**Author:** Zijian Zeng, Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA (`zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my`)
 
 ## Overview
-This archive contains the complete, reproducible physical-to-regulatory forensic pipeline, formal equilibrium model, stitched 40 CFR Part 50 Appendix N monitor histories (`2018–May 2026`), same-rooftop collocated optical (`T640_FW 636/638`) vs. gravimetric (`FRM`) and pure mass-based (`BAM 170/209`) datasets, EPA CSN/IMPROVE chemical speciation & meteorology linkages, 8 full years of satellite NOAA HMS daily wildfire smoke polygons (`2,922/2,922` calendar days, `1,471,932` site-days), official EPA PM2.5 Design Value workbook reconciliations, strictly pre-period 5-year historical (`2018–2022`) EPA Wildfire Tier-1 98th-percentile screening tests, U.S. Census SAIPE/PEP Environmental Justice accounting, 5 publication figures (`300 DPI PNG` + vector `PDF`), 16-test regression suite, point-by-point referee response (`REFEREE_RESPONSE_v2.md`), and camera-ready manuscript PDF.
+This archive contains the complete, reproducible field-metrology pipeline evaluating residual post-alignment bias of Teledyne API Model T640/T640x optical PM₂.₅ monitors (AQS method codes `636/638`) relative to collocated gravimetric Federal Reference Method (`FRM`) samplers (with pure Met One `BAM 170/209` as background reference comparator) under EPA's April 2024 *PM₂.₅ Wildland Fire Exceptional Events Tiering Document* (`EPA-457/R-24-001`).
 
-### Headline Verified Findings (`v2`)
-- **Pillar 1 — Stitched Appendix N Monitor Design-Value Threshold Reclassifications & Zero Gravimetric Improvement:** Repairing `410` mid-2023 split-year T640 monitors (`POC`/`POC+20`) and implementing Combined-Site regulatory Appendix N (`98/99 = 99.0%` exact overlap with EPA Table 4a) shows EPA's May 2024 T640 software alignment alone shifted **`47` U.S. counties (`18.39M` residents; `49` / `19.87M` incl. SPM)** across the `2021–2023` monitor Design-Value threshold (`>= 9.1 → <= 9.0 µg/m³`)—representing **monitor Design-Value threshold reclassifications** distinct from formal Clean Air Act § 107(d) 5-factor legal designations (`46/47` outside the West, `72.3%` Midwest+South `p = 0.032`; pop-weighted Black NH `17.0%` vs `12.9%` cleanly `<= 9.0`, `p = 0.016`)—while strictly exogenous `DV_18_20` gravimetric `FRM` PM2.5 (`+0.007 µg/m³, p_WCB = 0.951`), longitudinal `FEM → FRM` switching (`-0.030, p_WCB = 0.287`), and monitor survival (`+0.026, p_WCB = 0.358`) show clean nulls.
-- **Pillar 2 & `U1` (Causal Physical Core) — Same-Rooftop `9.5:1` DV Lottery, EIV-Robust Smoke Amplification, Observational Speciation, & Historical Tier-1 Screening Divergence:** Across `63,951` `2023–2025` collocated `T640_FW–FRM` pairs (`69,224` through May 2026), aligned `T640_FW` retains a `+0.468 µg/m³` Design Value bias (`t = +9.17, N = 178` rooftops), driving a **`9.5:1` Design-Value threshold classification lottery (`19` vs `2`, exact binomial `p = 0.0002`)** vs. dead-zero pure Met One `BAM (170/209)` (`-0.021 µg/m³, p = 0.787`, `1` vs `0`). Via EIV-robust independent instruments, `T640_FW` bias amplifies nonlinearly by **`+3.97 µg/m³ (+10.0%, p_WCB = 0.001)`** on independent other-site `>=25` days and **`+3.02 µg/m³ (+13.5%, t = +12.88)`** under satellite NOAA HMS Heavy plumes, while pure `BAM (170/209)` shows zero smoke bias (`+0.51 µg/m³, p_WCB = 0.694`; HMS Heavy `+1.17, p_WCB = 0.323`). Observational EPA speciation (`N = 14,992` pairs, `9,978` exact 0-km) matches Mie optical theory and Long, Urbanski, & Lincoln (2023): `T640_FW` covaries positively with organic carbon (`+0.657, t = +6.40`; `+0.287` additional under HMS Heavy `t = +2.38`) and RH (`+0.066` per `+10%`, `t = +3.13`) and negatively with elemental carbon (`-0.936, t = -3.93`)—absent in BAM—with controlled multi-site calibration experiments needed for causal correction formulas. Sitting two meters apart under NOAA HMS Heavy smoke (`U1`), `T640_FW` doubles **24-hour NAAQS level-equivalent daily exceedances (`>35 µg/m³`)** (`2.00×`: `52` vs `26`, **`26` vs `0` discordant, McNemar `p = 2.98 × 10^-8`**; BAM `p = 0.688`) and increases exceedances of **EPA's Wildfire Tier-1 5-year historical (`2018–2022`) FRM 98th-percentile threshold (`min(p98_18–22, 35)`)** by **`1.33×`** (`168` vs `126`, **`42` vs `0` discordant, McNemar `p = 4.55 × 10^-13`**, `t = +7.46, p_WCB = 0.002`; `1.66×` across all paired days, `1,043` vs `157`, `p = 7.24 × 10^-161`; BAM dead null across all strata, Heavy `p = 0.774`, all days `p = 0.195`).
-- **Pillar 3 & Observational `U2`/`U3`:** Correcting EPA AQS's `49.9%` false-positive concurrence coding and standardizing on pre-trend-clean exogenous `DV_18_20 [8.5, 11.5]`, state Exceptional Event flagging rose **`+8.17 pp`** monitor-year (`State p_WCB = 0.004, RI p = 0.0010, LOSO 51 states [+6.81, +8.83] pp`; `67.5%` unconcurred precautionary flags) and **`+9.96 pp`** county-year (`State p_WCB = 0.003`), driven primarily by **anticipatory/designation-window retroactive flagging in `2022–2023` prior to the Feb 2024 final rule** with transparent `2024–2025` EPA-concurred nulls. Cross-monitor `U2` finds positive observational associations between T640 and heavy-smoke flagging (`+15.2 pp`, `State p_WCB = 0.016`) and claimed exclusions (`+0.250 µg/m³`, `State p_WCB = 0.001`), **but the within-county-year FE flagging comparison is null (`+0.81 pp, p_WCB = 0.931`)**; accordingly, the manuscript explicitly makes **no claim** that optical bias causally drives strategic EE filing.
+### Headline Verified Findings (`v4`)
+- **Common-Support Audit (`P0 #1`):** Across `63,951` `T640_FW–FRM` pairs (`234` sites) and `22,927` `BAM–FRM` pairs (`107` sites) in `2023–2025`, the two queues share `401` all-day same-site, same-day triple observations (`5` sites) but only **`4` Heavy-smoke triples (`27` overlapping dates)**, with `23.9%` of BAM Heavy pairs in EPA Regions `9–10` where T640 has zero Heavy pairs. `BAM–FRM` is therefore demoted to a background reference comparator; restricting to common support widens the T640 − BAM Tier-1 differential (`+7.93 pp` overlapping regions, `+11.07 pp` overlapping dates & regions, `+10.42 pp` overlap-weighted `Region × FRM-bin`, bootstrap 95% CI `[+1.43, +18.80]`).
+- **Official Retrospective & Out-of-Time Prospective EPA Tier-1 Replays (`P0 #2`):**
+  - **Official EPA `2021–2025` Snapshot (`for_posting.csv`, query `2026-09-14`):** Across `468` matched `T640_FW–FRM` Heavy-smoke pairs (`165` sites), T640 triggers **`123` vs. `89`** Tier-1 crossings (`36` T640-only vs. `2` FRM-only; **`+7.26 pp`**, 95% CI `[+4.15, +10.38]` across `27` national blocks; **`[+3.43, +11.10]`, `p = 0.0004`** under two-way `Site × Region-Smoke-Episode` clustering across `55` regional episodes; yearly `+6.77`, `+6.41`, `+8.08 pp`; leave-one-EPA-region-out `[+6.33, +9.15] pp`). Within `±20%` of Tier-1 by FRM, `32` vs. `2` (`+42.25 pp`; `36/36` by midpoint). Background `BAM–FRM`: `84` vs. `84` (`5` vs. `5`, `+0.00 pp`).
+  - **Strictly Out-of-Time Prospective Rolling 5-Year Replays (`2018–2022 → 2023`, `2019–2023 → 2024`, `2020–2024 → 2025`, May 1 certification calendar):** Unidirectional excess triggering across all four flag-exclusion specifications (`OOT-A` conservative `R`-excl: **`+5.57 pp`**, `26/0`, 2-way `[+2.77, +8.37]`; `OOT-B` excl. HMS Heavy: **`+6.21 pp`**, `29/0`, `[+3.08, +9.34]`; `OOT-B2` excl. HMS Med+Heavy: **`+7.07 pp`**, `33/0`, `[+3.57, +10.56]`; `OOT-C` pure FRM-only: **`+5.70 pp`**, `26/0`, `[+2.17, +9.23]`; all `p <= 0.002`; BAM null `+0.00` to `+0.52 pp`). Appendix N reconstruction achieves `0.000 µg/m³` median error on clean sites against EPA's official `2021–2025` table.
+- **Equal-Concentration Non-Smoke Controls & Surface Smoke Confirmation (`P1 #3`):** Non-smoke elevated days (`15–25 µg/m³`, primarily winter inorganic haze) exhibit modest two-sided baseline sensitivity (`+3.09` to `+9.02 pp`), but Heavy smoke amplifies T640 bias 3–5× (`Other-Site ≥ 15`: `+0.64` vs. `+5.18 µg/m³`, `p = 3.44 × 10⁻¹³`, Tier-1 `+3.43` vs. `+16.46 pp`, `p = 0.004`; `FRM ≥ 25`: `-2.81` vs. `+7.98 µg/m³`, `p = 1.19 × 10⁻⁷`). Discordance concentrates in surface-confirmed plumes (`FRM > site-month p90`: `+10.12 pp`, `36/2`; `OC ≥ 5 µg/m³`: `+12.05 pp`, `11/1`) and vanishes on aloft plumes (`FRM ≤ p90`: `0.00 pp`, `0/0`).
+- **Supporting Information (`supplementary_j6_est.pdf`, `P1 #4`):** Documents screening-level `2021–2023` monitor DV threshold reclassifications (`47` counties, `18.39M` residents; explicitly distinct from formal CAA § 107(d) designations), same-rooftop `19` vs. `2` 3-year DV sensitivity, and archival EE flagging diagnostics including the within-county-year null (`+0.81 pp, p_WCB = 0.931`).
 
-## Verification & Reproduction Order
-1. **Verify Frozen Checksums & Automated Regression Tests First:**
-   ```powershell
-   ruff check scripts/ tests/
-   pytest -v tests/test_j6_boost.py
-   ```
-2. **Optional Full End-to-End Regeneration:**
-   ```powershell
-   python scripts/00_download_external_enrichments.py
-   python scripts/01_build_stitched_appn_panel.py
-   python scripts/02_collocated_physics_and_speciation.py
-   python scripts/03_ee_triage_and_hms_unification.py
-   python scripts/04_formal_metrology_model.py
-   python scripts/06_generate_figures.py
-   python scripts/07a_generate_manuscript_md.py
-   python scripts/07_verify_citations.py
-   python scripts/08_compile_manuscript_pdf.py
-   python scripts/09_generate_checksums.py
-   ```
-
-## Curated Archive Scope
-Heavy raw EPA/NOAA/Census downloads and processed parquets (`~160 MB` in `data/` plus `.venv`) are omitted from git and deterministically reproducible via `scripts/00..03`. All 31 core deliverables (scripts, tests, 6 JSON receipts, 5 PNG + 5 vector PDF figures, `manuscript_j6_boost.md`, `manuscript_j6_boost.pdf`, and `REFEREE_RESPONSE_v2.md`) are pinned in `SHA256SUMS.json`.
+## Key Deliverables & Reproduction
+- **Main Manuscript:** `manuscript_j6_boost.pdf` (`12` pages, `0` leaked tokens) & `manuscript_j6_boost.md`
+- **Supporting Information:** `supplementary_j6_est.pdf` (`4` pages, `0` leaked tokens) & `supplementary_j6_est.md`
+- **Referee Response:** `REFEREE_RESPONSE_v4.md`
+- **Reproducible Exports (`tables/`):** `collocated_heavy_smoke_pairs_2023_2025.csv` (`673` pairs), `aqs_and_threshold_version_manifest.csv` (`19` pinned artifacts), `table1`–`table4` CSVs
+- **Verification:**
+  ```powershell
+  ruff check scripts/ tests/
+  pytest -v tests/test_j6_boost.py
+  ```

@@ -1,52 +1,9 @@
 {
-  "n_academic_dois": 16,
-  "n_verified": 16,
+  "n_academic_dois": 15,
+  "n_verified": 15,
   "verification_rate_pct": 100.0,
   "all_verified": true,
   "academic_refs": [
-    {
-      "key": "Jaffe2026",
-      "doi": "10.1029/2025GH001576",
-      "verified": true,
-      "source": "crossref",
-      "authors": [
-        "Jaffe",
-        "Lee",
-        "Magzamen",
-        "Goldberg",
-        "O\u2019Dell"
-      ],
-      "author_first": "Jaffe",
-      "year": 2026,
-      "title": "Health and Regulatory Impacts of PM\n                    <sub>2.5</sub>\n                    From Wildland Fires for 2019\u20132024 in the US",
-      "journal": "GeoHealth",
-      "volume": "10",
-      "issue": "5",
-      "page": "",
-      "author_ok": true,
-      "year_ok": true
-    },
-    {
-      "key": "Krupnick2025",
-      "doi": "10.1021/acs.est.4c08946",
-      "verified": true,
-      "source": "crossref",
-      "authors": [
-        "Krupnick",
-        "Richardson",
-        "Wibbenmeyer",
-        "Zhu"
-      ],
-      "author_first": "Krupnick",
-      "year": 2025,
-      "title": "Wildfire Smoke, the Clean Air Act, and the Exceptional Events Rule: Implications and Policy Alternatives",
-      "journal": "Environmental Science &amp; Technology",
-      "volume": "59",
-      "issue": "6",
-      "page": "2917-2927",
-      "author_ok": true,
-      "year_ok": true
-    },
     {
       "key": "Long2023",
       "doi": "10.1080/10962247.2023.2171156",
@@ -73,76 +30,67 @@
       "year_ok": true
     },
     {
-      "key": "Zou2021",
-      "doi": "10.1257/aer.20181346",
+      "key": "McClure2026",
+      "doi": "10.1080/10962247.2026.2639376",
       "verified": true,
       "source": "crossref",
       "authors": [
-        "Zou"
+        "McClure",
+        "Anderson",
+        "Gostic",
+        "King",
+        "Pavlovic"
       ],
-      "author_first": "Zou",
-      "year": 2021,
-      "title": "Unwatched Pollution: The Effect of Intermittent Monitoring on Air Quality",
-      "journal": "American Economic Review",
-      "volume": "111",
+      "author_first": "McClure",
+      "year": 2026,
+      "title": "Automated screening method identifies recent probable wildland fire exceptional events for ozone and PM\n                    <sub>2.5</sub>\n                    across CONUS \u2013 Part 1",
+      "journal": "Journal of the Air &amp; Waste Management Association",
+      "volume": "76",
       "issue": "7",
-      "page": "2101-2126",
+      "page": "548-560",
       "author_ok": true,
       "year_ok": true
     },
     {
-      "key": "Grainger2019",
-      "doi": "10.1257/pandp.20191063",
+      "key": "Krupnick2025",
+      "doi": "10.1021/acs.est.4c08946",
       "verified": true,
       "source": "crossref",
       "authors": [
-        "Grainger",
-        "Schreiber"
+        "Krupnick",
+        "Richardson",
+        "Wibbenmeyer",
+        "Zhu"
       ],
-      "author_first": "Grainger",
-      "year": 2019,
-      "title": "Discrimination in Ambient Air Pollution Monitoring?",
-      "journal": "AEA Papers and Proceedings",
-      "volume": "109",
-      "issue": "",
-      "page": "277-282",
-      "author_ok": true,
-      "year_ok": true
-    },
-    {
-      "key": "Chay2005",
-      "doi": "10.1086/427462",
-      "verified": true,
-      "source": "crossref",
-      "authors": [
-        "Chay",
-        "Greenstone"
-      ],
-      "author_first": "Chay",
-      "year": 2005,
-      "title": "Does Air Quality Matter? Evidence from the Housing Market",
-      "journal": "Journal of Political Economy",
-      "volume": "113",
-      "issue": "2",
-      "page": "376-424",
-      "author_ok": true,
-      "year_ok": true
-    },
-    {
-      "key": "Greenstone2002",
-      "doi": "10.1086/342808",
-      "verified": true,
-      "source": "crossref",
-      "authors": [
-        "Greenstone"
-      ],
-      "author_first": "Greenstone",
-      "year": 2002,
-      "title": "The Impacts of Environmental Regulations on Industrial Activity: Evidence from the 1970 and 1977 Clean Air Act Amendments and the Census of Manufactures",
-      "journal": "Journal of Political Economy",
-      "volume": "110",
+      "author_first": "Krupnick",
+      "year": 2025,
+      "title": "Wildfire Smoke, the Clean Air Act, and the Exceptional Events Rule: Implications and Policy Alternatives",
+      "journal": "Environmental Science &amp; Technology",
+      "volume": "59",
       "issue": "6",
-      "page": "1175-1219",
+      "page": "2917-2927",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Jaffe2026",
+      "doi": "10.1029/2025GH001576",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Jaffe",
+        "Lee",
+        "Magzamen",
+        "Goldberg",
+        "O\u2019Dell"
+      ],
+      "author_first": "Jaffe",
+      "year": 2026,
+      "title": "Health and Regulatory Impacts of PM\n                    <sub>2.5</sub>\n                    From Wildland Fires for 2019\u20132024 in the US",
+      "journal": "GeoHealth",
+      "volume": "10",
+      "issue": "5",
+      "page": "",
       "author_ok": true,
       "year_ok": true
     },
@@ -243,42 +191,22 @@
       "year_ok": true
     },
     {
-      "key": "Fowlie2019",
-      "doi": "10.1257/pandp.20191064",
+      "key": "Cameron2011",
+      "doi": "10.1198/jbes.2010.07136",
       "verified": true,
       "source": "crossref",
       "authors": [
-        "Fowlie",
-        "Rubin",
-        "Walker"
+        "Cameron",
+        "Gelbach",
+        "Miller"
       ],
-      "author_first": "Fowlie",
-      "year": 2019,
-      "title": "Bringing Satellite-Based Air Quality Estimates Down to Earth",
-      "journal": "AEA Papers and Proceedings",
-      "volume": "109",
-      "issue": "",
-      "page": "283-288",
-      "author_ok": true,
-      "year_ok": true
-    },
-    {
-      "key": "Auffhammer2009",
-      "doi": "10.1016/j.jeem.2008.12.004",
-      "verified": true,
-      "source": "crossref",
-      "authors": [
-        "Auffhammer",
-        "Bento",
-        "Lowe"
-      ],
-      "author_first": "Auffhammer",
-      "year": 2009,
-      "title": "Measuring the effects of the Clean Air Act Amendments on ambient concentrations: The critical importance of a spatially disaggregated analysis",
-      "journal": "Journal of Environmental Economics and Management",
-      "volume": "58",
-      "issue": "1",
-      "page": "15-26",
+      "author_first": "Cameron",
+      "year": 2011,
+      "title": "Robust Inference With Multiway Clustering",
+      "journal": "Journal of Business &amp; Economic Statistics",
+      "volume": "29",
+      "issue": "2",
+      "page": "238-249",
       "author_ok": true,
       "year_ok": true
     },
@@ -324,6 +252,63 @@
       "year_ok": true
     },
     {
+      "key": "Fowlie2019",
+      "doi": "10.1257/pandp.20191064",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Fowlie",
+        "Rubin",
+        "Walker"
+      ],
+      "author_first": "Fowlie",
+      "year": 2019,
+      "title": "Bringing Satellite-Based Air Quality Estimates Down to Earth",
+      "journal": "AEA Papers and Proceedings",
+      "volume": "109",
+      "issue": "",
+      "page": "283-288",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Zou2021",
+      "doi": "10.1257/aer.20181346",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Zou"
+      ],
+      "author_first": "Zou",
+      "year": 2021,
+      "title": "Unwatched Pollution: The Effect of Intermittent Monitoring on Air Quality",
+      "journal": "American Economic Review",
+      "volume": "111",
+      "issue": "7",
+      "page": "2101-2126",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
+      "key": "Grainger2019",
+      "doi": "10.1257/pandp.20191063",
+      "verified": true,
+      "source": "crossref",
+      "authors": [
+        "Grainger",
+        "Schreiber"
+      ],
+      "author_first": "Grainger",
+      "year": 2019,
+      "title": "Discrimination in Ambient Air Pollution Monitoring?",
+      "journal": "AEA Papers and Proceedings",
+      "volume": "109",
+      "issue": "",
+      "page": "277-282",
+      "author_ok": true,
+      "year_ok": true
+    },
+    {
       "key": "Abadie2023",
       "doi": "10.1093/qje/qjac038",
       "verified": true,
@@ -349,27 +334,38 @@
     {
       "key": "EPA2024NAAQS",
       "cite_pattern": "89 FR 16202|U\\.S\\. EPA \\(2024a\\)|U\\.S\\. EPA, 2024a",
+      "tok": "89 FR 16202",
       "citation": "U.S. Environmental Protection Agency (2024a). Reconsideration of the National Ambient Air Quality Standards for Particulate Matter. Final Rule, 89 FR 16202 (February 7, 2024; effective May 6, 2024)."
     },
     {
+      "key": "EPA2024Tiering",
+      "cite_pattern": "EPA-457/R-24-001|U\\.S\\. EPA \\(2024b\\)|U\\.S\\. EPA, 2024b",
+      "tok": "EPA-457/R-24-001",
+      "citation": "U.S. Environmental Protection Agency (2024b). PM2.5 Wildland Fire Exceptional Events Tiering Document. EPA-457/R-24-001, Office of Air Quality Planning and Standards (April 30, 2024)."
+    },
+    {
       "key": "EPA2024T640",
-      "cite_pattern": "U\\.S\\. EPA \\(2024b\\)|U\\.S\\. EPA, 2024b|May 2024.*T640",
-      "citation": "U.S. Environmental Protection Agency (2024b). Teledyne API Model T640 and T640x PM2.5 Network Alignment Memorandum and AQS Method Code Update (Methods 636/638 and 736/738). Office of Air Quality Planning and Standards, May 2024."
+      "cite_pattern": "U\\.S\\. EPA \\(2024c\\)|U\\.S\\. EPA, 2024c|Quick Reference Guide to T640",
+      "tok": "T640",
+      "citation": "U.S. Environmental Protection Agency (2024c). Quick Reference Guide to T640/T640x Data and Network Alignment Memorandum (AQS Method Codes 636/638 and 736/738). Office of Air Quality Planning and Standards (May 13, 2024)."
+    },
+    {
+      "key": "EPA2026TierTable",
+      "cite_pattern": "U\\.S\\. EPA \\(2026\\)|U\\.S\\. EPA, 2026|2026-09-14",
+      "tok": "2026-09-14",
+      "citation": "U.S. Environmental Protection Agency (2026). PM2.5 Tiering Tool for Exceptional Events Analysis: Site-Month Threshold Table (for_posting.csv), Certified Years 2021-2025, AQS Query Date 2026-09-14."
     },
     {
       "key": "CFRAppN",
       "cite_pattern": "40 CFR Part 50,?\\s*Appendix N|Appendix N",
+      "tok": "Appendix N",
       "citation": "U.S. Code of Federal Regulations (40 CFR Part 50, Appendix N). Interpretation of the National Ambient Air Quality Standards for PM2.5."
     },
     {
       "key": "CFR5014",
       "cite_pattern": "40 CFR \u00a7\\s*50\\.14|40 CFR 50\\.14",
+      "tok": "50.14",
       "citation": "U.S. Code of Federal Regulations (40 CFR \u00a7 50.14; 81 FR 68216). Treatment of Air Quality Monitoring Data Influenced by Exceptional Events."
-    },
-    {
-      "key": "Lu2026",
-      "cite_pattern": "Lu\\s*\\(2026\\)|Lu,\\s*2026|SSRN 6035510",
-      "citation": "Lu, Y.-P. (2026). Nonattainment under the Clean Air Act: Tracking Designations and Modeling the Timing of Attainment. Working Paper, SSRN 6035510."
     }
   ],
   "two_way_sync": {
