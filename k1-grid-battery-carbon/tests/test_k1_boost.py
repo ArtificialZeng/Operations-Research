@@ -227,6 +227,7 @@ def test_all_json_receipts_exist_and_zero_nan() -> None:
         "02_panel_a_wls_results.json",
         "03_cems_carbon_curtailment_results.json",
         "03b_nature_energy_v4_extensions.json",
+        "03c_k1_v5_unconditional_audit.json",
         "04_formal_model_verification.json",
         "07_citation_verification.json",
     ]
@@ -482,8 +483,8 @@ def test_referee_v4_nature_energy_analysis_compliance() -> None:
     pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(WS_DIR / "manuscript_k1_nature_energy.pdf")).pages)
     si_pdf_txt = "\n".join((p.extract_text() or "") for p in PdfReader(str(WS_DIR / "supplementary_k1_nature_energy.pdf")).pages)
     md_lo = md_txt.lower()
-    pdf_lo = pdf_txt.lower()
-    si_pdf_lo = si_pdf_txt.lower()
+    pdf_lo = re.sub(r"\s+", " ", pdf_txt.lower())
+    si_pdf_lo = re.sub(r"\s+", " ", si_pdf_txt.lower())
 
     # 1. Exact Authorship & ZERO venue/track clutter
     for req in (
@@ -535,11 +536,13 @@ def test_referee_v4_nature_energy_analysis_compliance() -> None:
         "extraordinary",
         "master forensic audit",
         "definitively",
+        "covering 99.94% of u.s. fossil",
     ]
     for bad in forbidden_phrases:
         assert bad not in md_lo, f"Forbidden phrasing {bad!r} found in MD"
         assert bad not in pdf_lo, f"Forbidden phrasing {bad!r} found in Main PDF"
         assert bad not in si_pdf_lo, f"Forbidden phrasing {bad!r} found in SI PDF"
+    assert "99.94% plant-to-ba co2 match rate" in md_lo
     assert "reporting discrepanc" in md_lo or "reporting discrepanc" in si_md_txt.lower()
     assert "counterfactual accounting discrepancy" in md_lo and "counterfactual accounting discrepancy" in pdf_lo
     assert "direction remains undetermined" in md_lo and "direction remains undetermined" in pdf_lo
@@ -578,6 +581,94 @@ def test_referee_v4_nature_energy_analysis_compliance() -> None:
     sat1 = next(x for x in r4["proposition_2_breakeven_curtailment"]["caiso_saturation_frontier"] if x["incremental_scale_kappa"] == 1.0)
     assert abs(sat1["rho_res_total"] - r3["caiso_noncircular_curtailment"]["rho_residual_headroom_total"]) < 1e-12
     assert abs(sat1["rho_res_system_only"] - r3["caiso_noncircular_curtailment"]["rho_residual_headroom_system"]) < 1e-12
+
+
+def test_referee_v5_unconditional_oos_leadlag_ercot_and_reproducibility() -> None:
+    """Verify all v5 peer-review upgrades (P0 #1-#4): unconditional L=7/14/28d season-stratified
+    UTC-day bootstrap, Table 1-2 bridge, 14-BA LOBAO, OOS holdout + 9Q LQO CV, k=-3..+3 lead-lag,
+    CAISO upper-bound framing, ERCOT matched Season x Hour x Load stress test, and CSV tables.
+    """
+    r3c = _load_json("03c_k1_v5_unconditional_audit.json")
+
+    # P0 #1: Reconciliation bridge + unconditional season-stratified L=7/14/28d UTC-day bootstrap + LOBAO
+    brg = r3c["reconciliation_bridge_t1_vs_t2"]
+    assert brg["step0_table1_step03_exact"]["replication_abs_err_mt"] < 0.005
+    assert abs(brg["step3_v4_table2_step03b_conditional"]["total_t1_minus_v4t2_mt"] - 0.0238) < 0.001
+    assert abs(brg["step4_v5_exact_table1_plus_samewindow_trade_full"]["delta_samewindow_trade_vs_table1_mt"]) < 0.05
+
+    ub = r3c["unconditional_season_stratified_utc_bootstrap_1000"]
+    assert ub["B"] == 1000
+    assert set(ub["seasons"]) == {"DJF", "MAM", "JJA", "SON"}
+    assert set(ub["full_window_202407_202609"].keys()) == {"7d", "14d", "28d"}
+    assert set(ub["same_window_202407_202512"].keys()) == {"7d", "14d", "28d"}
+    assert ub["conditional_vs_unconditional_14d_comparison"]["width_ratio_uncond_vs_cond_full_u0"] > 1.25
+
+    for bl in ("7d", "14d", "28d"):
+        uf = ub["full_window_202407_202609"][bl]
+        us = ub["same_window_202407_202512"][bl]
+        assert uf["aef_net_mt"]["ci95_hi"] < -3.0
+        assert uf["u0_disc_mt"]["ci95_lo"] > 6.5
+        assert uf["h15_main_disc_mt"]["ci95_lo"] > 3.0
+        assert us["u0_disc_mt"]["ci95_lo"] > 3.0
+        assert us["h15_main_disc_mt"]["ci95_lo"] > 1.5
+        assert uf["ciso_emp_main"]["covers_zero"] is True
+        assert uf["ciso_emp_dload"]["covers_zero"] is True
+
+    lob = r3c["lobao_and_concentration_audit"]
+    assert 77.0 < lob["ciso_plus_erco_dis_share_pct"] < 80.0
+    assert 63.0 < lob["ciso_disc_share_pct"] < 68.0
+    assert lob["n_lobao_sign_reversed"] == 14
+    assert len(lob["leave_one_ba_out_14"]) == 14
+    assert lob["leave_ciso_uncond_14d"]["full_u0_disc_mt"]["ci95_lo"] > 2.0
+    assert lob["leave_ciso_and_erco_uncond_14d"]["full_u0_disc_mt"]["ci95_lo"] > 0.5
+
+    # P0 #2: Out-of-sample temporal holdout, 9Q LQO CV, and k=-3..+3 lead-lag diagnostic
+    oos = r3c["out_of_sample_validation"]
+    assert all(oos["prespecified_criteria"].values()), f"OOS criterion failed: {oos['prespecified_criteria']}"
+    assert oos["temporal_holdout_202407_202509_to_202510_202609"]["fleet_pooled_r2_oos"] > 0.90
+    assert oos["leave_quarter_out_cv_9q"]["n_quarters"] == 9
+    assert oos["leave_quarter_out_cv_9q"]["n_quarters_sign_preserved"] == 9
+
+    ll = r3c["lead_lag_timing_diagnostic_m3_p3"]
+    assert ll["CISO"]["co2_contemp_share_of_abs_sum"] > 0.90
+    assert ll["ERCO"]["co2_contemp_share_of_abs_sum"] > 0.90
+    assert ll["CISO"]["imp_contemp_mw_per_mw"] < -0.50
+    assert abs(ll["ERCO"]["imp_contemp_mw_per_mw"]) < 0.10
+
+    # P0 #3: Dynamic CAISO upper-bound frontier roots & ERCOT matched Season x Hour x Load stress test
+    roots = {round(r["tau_local_access"], 2): r for r in r3c["caiso_upper_bound_frontier_roots"]["roots"]}
+    assert roots[0.0]["ever_abates"] is False
+    assert 3.5 < roots[0.25]["gw_breakeven_upper_bound"] < 5.0
+    assert 7.0 < roots[0.50]["gw_breakeven_upper_bound"] < 9.0
+    assert 14.0 < roots[1.00]["gw_breakeven_upper_bound"] < 16.5
+
+    st_e = r3c["ercot_and_ciso_matched_stress_test"]["ERCO"]
+    cs_e = st_e["common_support_exact_matched_seas_hr_lq"]
+    assert cs_e["n_common_cells_total"] >= 80
+    assert cs_e["high_ren_gt60_common_support"]["total_mef"] > 500.0
+    assert cs_e["high_ren_gt60_common_support"]["coal_mef"] > 250.0
+    assert cs_e["diff_gt60_minus_lt40_coal_mef"] > 50.0
+    assert st_e["fine_cell_fe_stratification"]["seas_hr_ld"][3]["total_mef"] > 500.0
+    assert st_e["gt60_diurnal_split_seas_hr_lq_fe"]["Midday Solar"]["coal_mef"] > 250.0
+
+    # P0 #4: Machine-readable CSV tables & REPRODUCIBILITY.md & honest v5 manuscript framing
+    for fn in (
+        "tables/table1_14ba_accounting.csv",
+        "tables/table2_joint_bootstrap_curtailment.csv",
+        "tables/fig4_frontier_and_ercot.csv",
+        "tables/table_oos_and_leadlag.csv",
+        "REPRODUCIBILITY.md",
+        "REFEREE_RESPONSE_v5.md",
+    ):
+        fp = WS_DIR / fn
+        assert fp.exists() and fp.stat().st_size > 500, f"Missing reproducibility deliverable: {fn}"
+        assert "\r\n" not in fp.read_text(encoding="utf-8"), f"CRLF found in {fn}"
+
+    md_lo = (WS_DIR / "manuscript_k1_boost.md").read_text(encoding="utf-8").lower()
+    assert "fixed-profile ba-level upper-bound" in md_lo
+    assert "cross-regime renewable-penetration stress test" in md_lo
+    assert "measurement and order-of-magnitude cross-checks" in md_lo
+    assert "positive by construction" in md_lo or "positive by algebraic construction" in md_lo
 
 
 # ------------------------------------------------------------------

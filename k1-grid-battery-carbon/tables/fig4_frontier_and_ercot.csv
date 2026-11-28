@@ -1,0 +1,65 @@
+panel,ba_or_regime,kappa_or_bin,incremental_gw_or_n_obs,rho_res_or_chg_share_pct,mef_or_net_co2_kg_mwh,se_kg_mwh,coal_mef_kg_mwh,specification
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_0pct,0.10x,1.727,7.457,39.168,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_0pct,0.25x,4.316,5.344,45.818,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_0pct,0.50x,8.633,4.048,49.899,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_0pct,0.75x,12.949,3.293,52.275,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_0pct,1.00x,17.265,2.753,53.974,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_0pct,1.50x,25.898,2.025,56.265,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_0pct,2.00x,34.531,1.576,57.681,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_0pct,3.00x,51.796,1.073,59.264,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_25pct,0.10x,1.727,33.712,-43.47,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_25pct,0.25x,4.316,19.767,0.422,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_25pct,0.50x,8.633,12.173,24.325,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_25pct,0.75x,12.949,8.93,34.532,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_25pct,1.00x,17.265,7.07,40.387,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_25pct,1.50x,25.898,4.949,47.063,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_25pct,2.00x,34.531,3.785,50.725,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_25pct,3.00x,51.796,2.555,54.599,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_50pct,0.10x,1.727,45.229,-79.719,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_50pct,0.25x,4.316,28.959,-28.511,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_50pct,0.50x,8.633,18.935,3.04,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_50pct,0.75x,12.949,14.106,18.241,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_50pct,1.00x,17.265,11.182,27.445,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_50pct,1.50x,25.898,7.802,38.082,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_50pct,2.00x,34.531,5.953,43.902,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_50pct,3.00x,51.796,4.023,49.976,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_100pct,0.10x,1.727,57.499,-118.342,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_100pct,0.25x,4.316,40.309,-64.235,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_100pct,0.50x,8.633,28.302,-26.441,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_100pct,0.75x,12.949,22.168,-7.134,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_100pct,1.00x,17.265,18.181,5.413,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_100pct,1.50x,25.898,13.152,21.245,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_100pct,2.00x,34.531,10.146,30.704,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4A_CAISO_BA_Upper_Bound_Scenario,CISO_tau_100pct,3.00x,51.796,6.902,40.917,,,Fixed-profile BA-level upper-bound accounting scenario (non-nodal)
+Fig4B_Cross_Regime_Stress_Test_YMxHr,ERCO,<20%,2830.0,4.518,453.414,6.82,150.737,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,ERCO,20-40%,6381.0,21.895,501.806,3.892,213.617,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,ERCO,40-60%,5517.0,45.138,495.438,3.582,226.29,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,ERCO,>60%,1556.0,28.449,532.391,7.944,279.344,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,CISO,<20%,8695.0,3.299,138.821,4.676,0.0,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,CISO,20-40%,1082.0,1.808,104.045,13.868,0.0,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,CISO,40-60%,628.0,9.671,130.891,14.135,0.0,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,CISO,>60%,5286.0,85.223,69.865,3.352,0.0,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,MISO,<20%,10427.0,49.923,495.538,8.291,277.705,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,MISO,20-40%,7576.0,43.446,507.793,4.711,308.373,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,MISO,40-60%,458.0,6.631,453.953,17.724,271.474,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,MISO,>60%,0.0,0.0,,,,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,AZPS,<20%,11729.0,6.096,30.872,2.451,16.194,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,AZPS,20-40%,2893.0,36.113,23.864,3.807,11.494,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,AZPS,40-60%,1776.0,42.198,29.289,5.04,21.71,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Cross_Regime_Stress_Test_YMxHr,AZPS,>60%,492.0,15.594,17.426,7.466,10.067,YM x Hour FE interior renewable-penetration stratification
+Fig4B_Matched_Stress_Test_seas_hr_lq,ERCO,<20%,2802.0,,429.509,6.441,150.042,Matched seas_hr_lq FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_lq,ERCO,20-40%,6349.0,,500.723,3.79,217.683,Matched seas_hr_lq FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_lq,ERCO,40-60%,5491.0,,491.661,3.273,222.833,Matched seas_hr_lq FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_lq,ERCO,>60%,1538.0,,532.925,8.203,288.546,Matched seas_hr_lq FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_ld,ERCO,<20%,2739.0,,429.708,6.773,151.682,Matched seas_hr_ld FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_ld,ERCO,20-40%,6300.0,,501.422,3.597,219.774,Matched seas_hr_ld FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_ld,ERCO,40-60%,5437.0,,493.789,3.341,227.348,Matched seas_hr_ld FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_ld,ERCO,>60%,1505.0,,528.79,8.641,286.342,Matched seas_hr_ld FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_lq,CISO,<20%,8670.0,,130.713,4.184,0.0,Matched seas_hr_lq FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_lq,CISO,20-40%,1015.0,,100.292,10.905,0.0,Matched seas_hr_lq FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_lq,CISO,40-60%,598.0,,160.122,11.308,0.0,Matched seas_hr_lq FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_lq,CISO,>60%,5278.0,,69.296,3.036,0.0,Matched seas_hr_lq FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_ld,CISO,<20%,8641.0,,124.725,4.122,0.0,Matched seas_hr_ld FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_ld,CISO,20-40%,951.0,,93.476,11.691,0.0,Matched seas_hr_ld FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_ld,CISO,40-60%,557.0,,162.859,12.099,0.0,Matched seas_hr_ld FE interior renewable-penetration stress test
+Fig4B_Matched_Stress_Test_seas_hr_ld,CISO,>60%,5263.0,,65.649,3.095,0.0,Matched seas_hr_ld FE interior renewable-penetration stress test

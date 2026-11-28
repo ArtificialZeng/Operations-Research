@@ -1,26 +1,28 @@
-# Status & Freeze Record — Flagship `#8 K1` (Strict *Nature Energy* `Analysis` Submission Package)
+# Status & Freeze Record — Flagship `#8 K1` (`v5` Strict *Nature Energy* `Analysis` Submission Package)
 
-- **State:** `FROZEN_SUBMISSION_READY_V4` (Strict *Nature Energy* `Analysis` Format + Separate Supplementary Information)
+- **State:** `FROZEN_SUBMISSION_READY_V5` (Strict *Nature Energy* `Analysis` Format + Separate Supplementary Information + Independent Reproducibility Package)
 - **Author:** Zijian Zeng, Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA (`zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my`)
 - **Revision Timestamp:** `2026-11-28`
 - **Workspace:** `D:\AI_Science\antigravity\k1_boost_grid_battery_carbon_20261127`
-- **Main Manuscript PDF (`v4`):** `manuscript_k1_nature_energy.pdf` (`10` pages, `2,040,120` bytes, `SHA-256: 942b2df3905e5cb17b63a6c677341a0350a2ea2060dc53885eacb036fbdfd3a9`) *(Note: local `manuscript_k1_boost.pdf` remained open/locked in an external viewer during compilation; Draft PR #29 syncs these exact `v4` PDF bytes to both `manuscript_k1_nature_energy.pdf` and `manuscript_k1_boost.pdf`.)*
-- **Supplementary Information PDF (`v4`):** `supplementary_k1_nature_energy.pdf` (`4` pages, `1,516,439` bytes, `SHA-256: 4af4687df82fb48789e2cee08fc8f763222ed4255cab30093d8e3d0ebde0843b`)
-- **Referee Response Records:** `REFEREE_RESPONSE_v2.md`, `REFEREE_RESPONSE_v3.md`, `REFEREE_RESPONSE_v4.md`
-- **Official *Nature Energy* `Analysis` Compliance Audit (`v4`):**
-  - **Abstract:** `140` words (strictly `100–150` limit), strictly unreferenced
-  - **Main Body Length:** `2,438` words (strictly `<= 3,000` limit, excluding Abstract, Methods, References, Tables, Figure legends)
+- **Main Manuscript PDF (`v5`):** `manuscript_k1_nature_energy.pdf` (`11` pages, `2,201,192` bytes, `SHA-256: 6801d18420723a74acc4c46d7adcf29856be4ec5ddfce5b44104144f81ce990f`)
+- **Supplementary Information PDF (`v5`):** `supplementary_k1_nature_energy.pdf` (`5` pages, `1,629,064` bytes, `SHA-256: b0ec9171c352fe6a2ffe58be2b95a1657b122c9824fd4aed2f5ef9a8a6d005b1`)
+- **Independent Reproducibility Package:** `REPRODUCIBILITY.md` + `tables/table1_14ba_accounting.csv`, `tables/table2_joint_bootstrap_curtailment.csv`, `tables/fig4_frontier_and_ercot.csv`, `tables/table_oos_and_leadlag.csv`
+- **Referee Response Records:** `REFEREE_RESPONSE_v2.md`, `REFEREE_RESPONSE_v3.md`, `REFEREE_RESPONSE_v4.md`, `REFEREE_RESPONSE_v5.md`
+- **Official *Nature Energy* `Analysis` Compliance Audit (`v5`):**
+  - **Abstract:** `136` words (strictly `100–150` limit), strictly unreferenced
+  - **Main Body Length:** `2,612` words (strictly `<= 3,000` limit, excluding Abstract, Methods, References, Tables, Figure legends)
   - **Section Architecture:** Introduction (without heading) → 4 topical Main Text subheadings (no numbers) → Discussion (without subheadings) → Methods (topical subheadings) → Data/Code availability → References (`18` live Crossref-verified DOIs `<= 50` guideline)
-  - **Display Items:** `4` strictly sequential Main Figures (`Figure 1 → Figure 2 → Figure 3 → Figure 4`) + `2` Main Tables = `6` items (`<= 8` limit), plus separate 4-page Supplementary Information PDF (`Supplementary Box 1`, `Supplementary Tables 1–4`, `Supplementary Figures 1–3`)
-  - **Authorship & Cleanliness:** Exact `Zijian Zeng` UCSI University block; zero `Target Venues`/`Target Format`/`Data Universe`/`Track A`/`Track B` metadata
-- **Independent Verification (`v4`):**
+  - **Display Items:** `4` strictly sequential Main Figures (`Figure 1 → Figure 2 → Figure 3 → Figure 4`) + `2` Main Tables = `6` items (`<= 8` limit), plus separate 5-page Supplementary Information PDF (`Supplementary Box 1`, `Supplementary Tables 1–6`, `Supplementary Figures 1–3`)
+  - **Authorship & Cleanliness:** Exact `Zijian Zeng` UCSI University block; zero `Target Venues`/`Target Format`/`Data Universe`/`Track A`/`Track B` metadata; `"99.94% plant-to-BA CO2 match rate within the sampled EPA CEMS fossil archive"` wording verified
+- **Independent Verification (`v5`):**
   - `ruff check scripts/ tests/`: `0` errors (`All checks passed!`)
-  - `pytest -v tests/test_k1_boost.py`: `23/23` passed (`100%`, including automated *Nature Energy* word-count, structure, authorship, sequential-figure, and v4 extension tests)
-  - `SHA256SUMS.json`: `41/41` disk-verified (`0` missing, `0` mismatches)
+  - `pytest -v tests/test_k1_boost.py`: `24/24` passed (`100%`, including automated `v5` unconditional bootstrap, LOBAO, OOS CV, lead-lag, ERCOT matched stress test, reproducibility CSV, and *Nature Energy* compliance tests)
+  - `SHA256SUMS.json`: `49/49` disk-verified (`0` missing, `0` mismatches)
   - Crossref Live Citations: `18/18` academic DOIs HTTP-200 verified (`100%` two-way sync)
-  - PDF Zero-Leak & Tone Guardrail Audit: `0` formatting leaks across both Main PDF (`10` pages) and SI PDF (`4` pages)
-- **Major Scientific Upgrades (`v4`, `scripts/03b_nature_energy_v4_extensions.py`):**
-  - Fixed Proposition 2 inequality logic: `α_b* > 0` (`MEF_dis / MEF_chg < 1 / η_b`) holds in `14/14` grids; `MEF_chg >= MEF_dis` holds strictly in `4/14` grids (`CISO`, `MISO`, `IID`, `CPLE`)
-  - Full `14`-BA + neighbor + CAISO joint `14`-day contiguous block bootstrap (`B = 1,000`) on BOTH full `49.77 TWh` window (`2024H2–2026Q3`) and exact `26.05 TWh` same-window overlap (`2024H2–2025`, zero 2026 extrapolation)
-  - Three independent MEF validations without shared EIA-930 fuel slopes (direct `-∂CO2_CEMS/∂BESS`: `CISO 271`, `ERCO 499`, `AZPS 222`, `MISO 619 kg/MWh`; pure CEMS internal stack slopes; EPA eGRID 2023 rev2 Non-Baseload RTE loss floor `+89.6 kg/MWh = +4.46 Mt`)
-  - Congestion-Constrained Carbon Break-Even Frontier (`τ_local ∈ {0%, 25%, 50%, 100%}`) & ERCOT (`9.92 TWh`) cross-regional stratification showing coal entering the margin (`279 kg/MWh` coal share = `52%` of `532 kg/MWh` MEF above `60%` renewables)
+  - PDF Zero-Leak & Visual Inspection Audit: `0` formatting leaks across both Main PDF (`11` pages) and SI PDF (`5` pages); visually inspected Page 1, Page 5 (Fig 2 + Table 2), Page 8 (Fig 4 + Discussion), SI Page 1, and SI Page 5 via `pymupdf` (zero overlaps)
+- **Major Peer-Review Upgrades (`v5`, `scripts/03c_k1_v5_unconditional_audit.py`):**
+  - Full unconditional season-stratified (`DJF/MAM/JJA/SON`) joint UTC-day moving-block bootstrap (`L = 7, 14, 28` d, `B = 1,000`) simultaneously re-estimating exact hourly AEF, 24h CEMS MEFs, unfixed discharge volumes, same-window bilateral trade weights (`2024-07..2026-09` & `2024-07..2025-12`), and CAISO curtailment
+  - Exact reconciliation bridge of Table 1 (`+7.4417 Mt`) vs. conditional v4 Table 2 (`+7.4179 Mt`, diff `0.0238 Mt`) + complete 14-BA LOBAO & Leave-CISO / Leave-ERCO / Leave-CISO-&-ERCO concentration audit (`CISO+ERCO = 78.5%` discharge; ex-CISO/ERCO = `+0.93 [+0.80, +1.04] Mt`, `+87.1 kg/MWh`)
+  - Pre-specified out-of-sample temporal holdout (`Pooled R² = 0.938`, `Dis-wt R² = 0.761`, `CalSlope = 0.872`, `3.5%` counterfactual discrepancy error) + 9-quarter LQO CV (`mean R² = 0.952`, `9/9` sign preservation) + `k = -3..+3` h lead-lag diagnostic (`94.6%–96.1%` contemporaneous in `CISO/ERCO/AZPS`, `47.3%` in `MISO`, `CISO ΔImports/ΔBESS = -0.675`) + honest measurement-cross-check reframing
+  - CAISO dynamic fixed-profile BA-level upper-bound scenarios (`0.0 / 4.3 / 8.0 / 15.2 GW`, non-nodal) & ERCOT exact-matched `Season × Hour × Load-Quartile` (`120` cells: `486.3 → 533.8`, coal `206.9 → 290.2`) and `Load-Decile` FE (`528.8`, coal `286.3`) cross-regime stress test
+  - Machine-readable CSV exports in `tables/` and standalone `REPRODUCIBILITY.md`

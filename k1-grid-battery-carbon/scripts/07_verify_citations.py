@@ -285,23 +285,27 @@ def verify_all_dois() -> dict[str, Any]:
                 time.sleep(1.2 * attempt)
         if not ok:
             # Live fallback to official doi.org CSL-JSON content negotiation on transient Crossref timeout
-            try:
-                r2 = sess.get(
-                    f"https://doi.org/{doi}",
-                    headers={**HEADERS, "Accept": "application/vnd.citationstyles.csl+json"},
-                    timeout=25,
-                )
-                status = r2.status_code
-                if status == 200:
-                    msg2 = r2.json()
-                    cr_title = re.sub(r"\s+", " ", html.unescape(str(msg2.get("title", "")))).strip()
-                    cr_authors = [a.get("family", "") for a in (msg2.get("author") or [])]
-                    cr_journal = html.unescape(str(msg2.get("container-title", "")))
-                    auth_ok = any(ref["expect_author"].lower() in a.lower() for a in cr_authors)
-                    word_ok = ref["expect_word"].lower() in cr_title.lower()
-                    ok = bool(auth_ok and word_ok)
-            except (requests.RequestException, ValueError, KeyError):
-                pass
+            for fb_try in range(1, 4):
+                try:
+                    r2 = sess.get(
+                        f"https://doi.org/{doi}",
+                        headers={**HEADERS, "Accept": "application/vnd.citationstyles.csl+json"},
+                        timeout=25,
+                    )
+                    status = r2.status_code
+                    if status == 200:
+                        msg2 = r2.json()
+                        cr_title = re.sub(r"\s+", " ", html.unescape(str(msg2.get("title", "")))).strip()
+                        cr_authors = [a.get("family", "") for a in (msg2.get("author") or [])]
+                        cr_journal = html.unescape(str(msg2.get("container-title", "")))
+                        auth_ok = any(ref["expect_author"].lower() in a.lower() for a in cr_authors)
+                        word_ok = ref["expect_word"].lower() in cr_title.lower()
+                        ok = bool(auth_ok and word_ok)
+                        if ok:
+                            break
+                    time.sleep(0.8 * fb_try)
+                except (requests.RequestException, ValueError, KeyError):
+                    time.sleep(1.0 * fb_try)
         if ok:
             n_verified += 1
         results.append(
@@ -316,7 +320,7 @@ def verify_all_dois() -> dict[str, Any]:
             }
         )
         print(f"  [{'OK' if ok else 'FAIL'}] {ref['key']:15s} | {doi:28s} | {cr_title[:60]}", flush=True)
-        time.sleep(0.05)
+        time.sleep(0.20)
 
     return {
         "n_total": len(REFERENCES),

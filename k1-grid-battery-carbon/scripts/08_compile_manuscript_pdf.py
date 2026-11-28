@@ -47,6 +47,7 @@ def build_dynamic_figure_blocks() -> tuple[dict[str, tuple[str, str]], dict[str,
     r2 = json.loads((RES_DIR / "02_panel_a_wls_results.json").read_text(encoding="utf-8"))
     r3 = json.loads((RES_DIR / "03_cems_carbon_curtailment_results.json").read_text(encoding="utf-8"))
     r3b = json.loads((RES_DIR / "03b_nature_energy_v4_extensions.json").read_text(encoding="utf-8"))
+    r3c = json.loads((RES_DIR / "03c_k1_v5_unconditional_audit.json").read_text(encoding="utf-8"))
     r4 = json.loads((RES_DIR / "04_formal_model_verification.json").read_text(encoding="utf-8"))
 
     sp = r2["main_and_robustness_specs"]
@@ -84,10 +85,21 @@ def build_dynamic_figure_blocks() -> tuple[dict[str, tuple[str, str]], dict[str,
     cems_r_min = min(cems_al[b]["r_at_lag0"] for b in ["CISO", "ERCO", "MISO", "SOCO", "DUK"])
     cems_r_max = max(cems_al[b]["r_at_lag0"] for b in ["CISO", "ERCO", "MISO", "SOCO", "DUK"])
 
-    fm = r3b["full_window_joint_14d_bootstrap_1000"]["metrics"]
-    sm = r3b["same_window_joint_14d_bootstrap_1000"]["metrics"]
     db = r3b["independent_mef_validations"]["direct_cems_on_dbess_regressions"]
     strat = r3b["cross_regional_ren_penetration_stratification"]
+    ub = r3c["unconditional_season_stratified_utc_bootstrap_1000"]
+    uf14 = ub["full_window_202407_202609"]["14d"]
+    uf28 = ub["full_window_202407_202609"]["28d"]
+    us14 = ub["same_window_202407_202512"]["14d"]
+    lce = r3c["lobao_and_concentration_audit"]["leave_ciso_and_erco_uncond_14d"]
+    oos_th = r3c["out_of_sample_validation"]["temporal_holdout_202407_202509_to_202510_202609"]
+    oos_lqo = r3c["out_of_sample_validation"]["leave_quarter_out_cv_9q"]
+    ll_diag = r3c["lead_lag_timing_diagnostic_m3_p3"]
+    roots = {round(r["tau_local_access"], 2): r for r in r3c["caiso_upper_bound_frontier_roots"]["roots"]}
+    ciso_gw = float(r3c["caiso_upper_bound_frontier_roots"]["ciso_2026_nameplate_gw"])
+    cs_e = r3c["ercot_and_ciso_matched_stress_test"]["ERCO"]["common_support_exact_matched_seas_hr_lq"]
+    cs_c = r3c["ercot_and_ciso_matched_stress_test"]["CISO"]["common_support_exact_matched_seas_hr_lq"]
+    erco_ld_gt60 = r3c["ercot_and_ciso_matched_stress_test"]["ERCO"]["fine_cell_fe_stratification"]["seas_hr_ld"][3]
 
     eff_tvals = [
         c3_map["ERCO"]["net_cems_kg_mwh"] / c3_map["ERCO"]["se_net_cems_kg_mwh"],
@@ -121,11 +133,11 @@ def build_dynamic_figure_blocks() -> tuple[dict[str, tuple[str, str]], dict[str,
             ),
         ),
         "fig_ne4_joint_bootstrap_and_validation.png": (
-            "Figure 2. Multi-grid 14-day block-bootstrap curtailment sensitivity and independent MEF validations.",
+            "Figure 2. Unconditional season-stratified UTC-day block-bootstrap sensitivity and out-of-sample validation / measurement cross-checks.",
             (
-                f"<b>a</b>, Joint 14-day contiguous moving-block bootstrap estimates (<em>B</em> = 1,000, &plusmn;95% CI) of fleet CEMS-MEF net CO<sub>2</sub> (navy) and the counterfactual discrepancy relative to naive AEF (crimson, full 49.77 TWh; teal dashed, exact 18-month same-window 26.05 TWh overlap) across uniform curtailment rates (&alpha; = 0%&ndash;20%) and hybrid scenarios applying California&rsquo;s curtailment-adjusted estimate to CISO while sweeping non-California absorption (0%&ndash;15%). "
-                f"At 15% non-California absorption, fleet net CO<sub>2</sub> spans zero ({fm['h15_main_mt']['point']:+.2f} Mt, [{fm['h15_main_mt']['ci95_lo']:+.2f}, {fm['h15_main_mt']['ci95_hi']:+.2f}]), while the AEF discrepancy remains strictly positive (+{fm['h15_main_disc_mt']['point']:.2f} Mt full; +{sm['h15_main_disc_mt']['point']:.2f} Mt same-window). "
-                f"<b>b</b>, Independent validation across four major storage grids comparing main 24-hour CEMS MEFs (navy), direct hourly metered &minus;&part;CO<sub>2</sub>/&part;BESS slopes (teal, &plusmn;95% CI: CISO {-db['CISO']['d_bess_beta_kg_mwh']:.0f}, AZPS {-db['AZPS']['d_bess_beta_kg_mwh']:.0f}, ERCO {-db['ERCO']['d_bess_beta_kg_mwh']:.0f}, MISO {-db['MISO']['d_bess_beta_kg_mwh']:.0f} kg/MWh), direct &part;CO<sub>2</sub>/&part;Load (sky), and pure CEMS internal stack slopes without EIA-930 inputs (amber)."
+                f"<b>a</b>, Unconditional season-stratified (DJF/MAM/JJA/SON) joint UTC-day moving-block bootstrap estimates (<em>B</em> = 1,000; simultaneously re-estimating AEF, 24-hour CEMS MEFs, unfixed discharge volumes, same-window bilateral trade weights, and CAISO curtailment) showing fleet CEMS-MEF net CO<sub>2</sub> (navy, 14d CI) and AEF discrepancy (crimson, 14d solid &amp; 28d shaded outer CI for full 49.77 TWh; teal dashed, 14d CI for exact 18-month same-window 26.03 TWh) across uniform &alpha; = 0%&ndash;20%, hybrid CAISO scenarios, and Leave-CISO-&amp;-ERCO-Out (12 grids, +{lce['full_u0_disc_mt']['point']:.2f} [{lce['full_u0_disc_mt']['ci95_lo']:+.2f}, {lce['full_u0_disc_mt']['ci95_hi']:+.2f}] Mt). "
+                f"At 15% non-California absorption, fleet net CO<sub>2</sub> spans zero ({uf14['h15_main_mt']['point']:+.2f} [{uf14['h15_main_mt']['ci95_lo']:+.2f}, {uf14['h15_main_mt']['ci95_hi']:+.2f}] Mt), while the discrepancy remains strictly positive (+{uf14['h15_main_disc_mt']['point']:.2f} Mt full, 28d [{uf28['h15_main_disc_mt']['ci95_lo']:+.2f}, {uf28['h15_main_disc_mt']['ci95_hi']:+.2f}]; +{us14['h15_main_disc_mt']['point']:.2f} Mt same-window). "
+                f"<b>b</b>, Out-of-sample temporal holdout validation (24H2&ndash;25Q3 predicting 25Q4&ndash;26Q3: pooled <em>R</em><sup>2</sup> = {oos_th['fleet_pooled_r2_oos']:.3f}, cal. slope = {oos_th['fleet_dis_weighted_cal_slope']:.2f}, 9Q leave-quarter-out mean <em>R</em><sup>2</sup> = {oos_lqo['mean_major4_r2_oos']:.3f} with {oos_lqo['n_quarters_sign_preserved']}/9 sign preservation) alongside measurement cross-checks comparing main 24-hour CEMS MEFs (navy), direct metered &minus;&part;CO<sub>2</sub>/&part;BESS (teal, &plusmn;95% CI: CISO {-db['CISO']['d_bess_beta_kg_mwh']:.0f}, AZPS {-db['AZPS']['d_bess_beta_kg_mwh']:.0f}, ERCO {-db['ERCO']['d_bess_beta_kg_mwh']:.0f}, MISO {-db['MISO']['d_bess_beta_kg_mwh']:.0f} kg/MWh; contemporaneous <em>k</em> = 0 shares {100*ll_diag['CISO']['co2_contemp_share_of_abs_sum']:.0f}%/{100*ll_diag['AZPS']['co2_contemp_share_of_abs_sum']:.0f}%/{100*ll_diag['ERCO']['co2_contemp_share_of_abs_sum']:.0f}%/{100*ll_diag['MISO']['co2_contemp_share_of_abs_sum']:.0f}%), direct &part;CO<sub>2</sub>/&part;Load (sky), and pure CEMS internal stack slopes (amber)."
             ),
         ),
         "fig4_caiso_noncircular_curtailment_tipping.png": (
@@ -134,15 +146,15 @@ def build_dynamic_figure_blocks() -> tuple[dict[str, tuple[str, str]], dict[str,
                 f"<b>a</b>, Official CAISO hourly curtailments (2024-07 to 2025-12, {cc['window']['n_hours']:,} hours) linked to standalone CAISO battery telemetry and EPA CEMS CO<sub>2</sub> across consecutive interior regime hours (both <em>t</em> and <em>t</em>&minus;1 in bin; YM &times; Hour FE, &plusmn;95% date-clustered CI). "
                 f"Above 2,000 MW curtailment, in-state domestic MEF falls {dom_drop_pct:.0f}% ({bins[0]['mef_cems_dom_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_dom_kg_mwh']:.0f} kg/MWh), system-wide import-adjusted MEF falls {sys_drop_pct:.0f}% ({bins[0]['mef_cems_sys_kg_mwh']:.0f} &rarr; {bins[3]['mef_cems_sys_kg_mwh']:.0f} kg/MWh), and marginal un-curtailment climbs from 0.0% to {abs(-100*bins[3]['d_curt_per_d_netload']):.1f}%. "
                 f"<b>b</b>, Break-even thresholds &alpha;<sub>b</sub><sup>*</sup> across all 14 grids alongside CAISO&rsquo;s empirical absorption ({100*cc['alpha_emp_unspill_share']:.1f}%) and incremental residual headroom ({100*cc['rho_residual_headroom_total']:.1f}%; system-only {100*cc['rho_residual_headroom_system']:.1f}%). "
-                f"Joint 14-day block bootstraps (<em>B</em> = 1,000) yield {jb_ms['point_estimate']:+.2f} kg/MWh (14d 95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}]; 7d [{jb7['net_sys_main']['ci95_lo']:+.2f}, {jb7['net_sys_main']['ci95_hi']:+.2f}]; 1d [{jb1['net_sys_main']['ci95_lo']:+.2f}, {jb1['net_sys_main']['ci95_hi']:+.2f}]) under the main specification and {jb_ls['point_estimate']:+.2f} kg/MWh ([{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}]) under observed &Delta;Load (domestic-only: {jb_md['point_estimate']:+.2f} [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}]), leaving import-adjusted net direction undetermined."
+                f"Joint 14-day block bootstraps (<em>B</em> = 1,000) yield {jb_ms['point_estimate']:+.2f} kg/MWh (14d 95% CI [{jb_ms['ci95_lo']:+.2f}, {jb_ms['ci95_hi']:+.2f}]; 7d [{jb7['net_sys_main']['ci95_lo']:+.2f}, {jb7['net_sys_main']['ci95_hi']:+.2f}]; 1d [{jb1['net_sys_main']['ci95_lo']:+.2f}, {jb1['net_sys_main']['ci95_hi']:+.2f}]; season-stratified unconditional 14d/28d [{uf14['ciso_emp_main']['ci95_lo']:+.2f}, {uf14['ciso_emp_main']['ci95_hi']:+.2f}] / [{uf28['ciso_emp_main']['ci95_lo']:+.2f}, {uf28['ciso_emp_main']['ci95_hi']:+.2f}]) under the main specification and {jb_ls['point_estimate']:+.2f} kg/MWh ([{jb_ls['ci95_lo']:+.2f}, {jb_ls['ci95_hi']:+.2f}]) under observed &Delta;Load (domestic-only: {jb_md['point_estimate']:+.2f} [{jb_md['ci95_lo']:+.2f}, {jb_md['ci95_hi']:+.2f}]), leaving import-adjusted net direction undetermined."
             ),
         ),
         "fig_ne3_congestion_frontier_and_ercot.png": (
-            "Figure 4. Congestion-constrained carbon break-even frontier and cross-regional renewable-penetration validation.",
+            "Figure 4. Fixed-profile BA-level upper-bound accounting scenarios (CAISO) and cross-regime renewable-penetration stress test.",
             (
-                f"<b>a</b>, Implied incremental net CO<sub>2</sub> (kg/MWh) as storage capacity expands by scale &kappa; (0.1&times;&ndash;3.0&times;, or 1.7&ndash;52.0 GW added atop California&rsquo;s 17.3 GW fleet) against CAISO&rsquo;s observed 13,170-hour residual curtailment curve across four local-congestion access shares &tau;<sub>local</sub> (0% system-only, 25%, 50%, and 100% zero-congestion ceiling). "
-                f"<b>b</b>, Cross-regional interior stratification of domestic EPA CEMS net-load MEFs (&plusmn;95% date-clustered CI; bar labels report MEF and share of BA charging) across hourly renewable penetration ((Solar + Wind)/Load). "
-                f"Unlike zero-coal CAISO (falling to {strat['CISO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh above 60% renewables), ERCOT&rsquo;s MEF remains {strat['ERCO'][1]['mef_dom_netload_kg_mwh']:.0f}&ndash;{strat['ERCO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh as high renewables push coal units onto the margin (hatched bars rising from {strat['ERCO'][0]['coal_mef_netload_kg_mwh']:.0f} to {strat['ERCO'][3]['coal_mef_netload_kg_mwh']:.0f} kg/MWh above 60% renewables)."
+                f"<b>a</b>, Fixed-profile BA-level upper-bound accounting scenarios (non-nodal; omitting nodal LMPs, SOC re-optimization, and binding constraint shadow prices) sweeping incremental storage scale &kappa; (0.1&times;&ndash;3.0&times;, or {0.1*ciso_gw:.1f}&ndash;{3.0*ciso_gw:.1f} GW atop CAISO&rsquo;s {ciso_gw:.1f} GW fleet) against CAISO&rsquo;s observed 13,170-hour residual curtailment curve across four local-congestion access shares &tau;<sub>local</sub> (0% never abates; 25% upper bound &le;{roots[0.25]['gw_breakeven_upper_bound']:.1f} GW; 50% &le;{roots[0.50]['gw_breakeven_upper_bound']:.1f} GW; 100% frictionless ceiling &le;{roots[1.00]['gw_breakeven_upper_bound']:.1f} GW). "
+                f"<b>b</b>, Cross-regime renewable-penetration stress test (domestic EPA CEMS net-load MEFs, YM &times; Hour FE bars &plusmn;95% CI; yellow diamonds overlay matched Season &times; Hour &times; Load-Decile FE) across hourly (Solar + Wind)/Load bins (public interval-level ERCOT curtailment is absent from EIA-930). "
+                f"Unlike zero-coal CAISO (falling to {strat['CISO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh above 60% renewables), ERCOT&rsquo;s MEF remains {strat['ERCO'][1]['mef_dom_netload_kg_mwh']:.0f}&ndash;{strat['ERCO'][3]['mef_dom_netload_kg_mwh']:.0f} kg/MWh (Load-Decile FE: {erco_ld_gt60['total_mef']:.0f}, coal {erco_ld_gt60['coal_mef']:.0f}; exact-matched Season &times; Hour &times; Load-Quartile difference across {cs_e['n_common_cells_total']} common-support cells: {cs_e['diff_gt60_minus_lt40_total_mef']:+.1f} &plusmn; {cs_e['diff_gt60_minus_lt40_total_se']:.1f} kg/MWh total, {cs_e['diff_gt60_minus_lt40_coal_mef']:+.1f} &plusmn; {cs_e['diff_gt60_minus_lt40_coal_se']:.1f} coal vs. CAISO {cs_c['diff_gt60_minus_lt40_total_mef']:+.1f} &plusmn; {cs_c['diff_gt60_minus_lt40_total_se']:.1f})."
             ),
         ),
     }

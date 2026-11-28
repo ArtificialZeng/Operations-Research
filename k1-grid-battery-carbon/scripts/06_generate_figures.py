@@ -648,21 +648,25 @@ def make_fig5(r2: dict, r3: dict) -> None:
     _save_fig(fig, "fig5_hourly_dispatch_and_master_audit")
 
 
-def make_fig_ne3(r3: dict, r3b: dict) -> None:
-    """Nature Energy Main Fig 3: Congestion-Constrained Carbon Break-Even Frontier & Cross-Regional ERCOT/CISO/MISO Validation."""
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.4, 4.9), gridspec_kw={"width_ratios": [1.08, 1.05]})
+def make_fig_ne3(r3: dict, r3b: dict, r3c: dict) -> None:
+    """Nature Energy Main Fig 4: Fixed-Profile BA-Level Upper-Bound Scenarios (CAISO) &
+    Cross-Regime Renewable-Penetration Stress Test (ERCOT, MISO, CAISO + Matched Load-Cell FE).
+    """
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.6, 5.0), gridspec_kw={"width_ratios": [1.08, 1.07]})
     fig.subplots_adjust(wspace=0.30)
 
-    # Panel A: Congestion-Constrained Carbon Break-Even Frontier (CAISO incremental scale kappa vs implied net CO2)
+    # Panel A: Fixed-Profile BA-Level Upper-Bound Accounting Scenarios (CAISO)
     frontier = r3b["congestion_constrained_carbon_frontier"]
+    roots = {round(r["tau_local_access"], 2): r for r in r3c["caiso_upper_bound_frontier_roots"]["roots"]}
+    ciso_gw = float(r3c["caiso_upper_bound_frontier_roots"]["ciso_2026_nameplate_gw"])
     styles = [
-        (0.0, CRIMSON, "-o", r"System-Only ($\tau_{\mathrm{local}}=0\%$, current congestion)"),
-        (0.25, AMBER, "-s", r"25% Local Congestion Relieved ($\tau_{\mathrm{local}}=25\%$)"),
-        (0.50, SKY, "-^", r"50% Local Congestion Relieved ($\tau_{\mathrm{local}}=50\%$)"),
-        (1.00, TEAL, "-D", r"Frictionless Ceiling ($\tau_{\mathrm{local}}=100\%$, zero congestion)"),
+        (0.0, CRIMSON, "-o", r"System-Only ($\tau_{\mathrm{local}}=0\%$, never abates)"),
+        (0.25, AMBER, "-s", rf"25% Local Relief (bound $\leq${roots[0.25]['gw_breakeven_upper_bound']:.1f} GW)"),
+        (0.50, SKY, "-^", rf"50% Local Relief (bound $\leq${roots[0.50]['gw_breakeven_upper_bound']:.1f} GW)"),
+        (1.00, TEAL, "-D", rf"Zero-Congestion Ceiling (bound $\leq${roots[1.00]['gw_breakeven_upper_bound']:.1f} GW)"),
     ]
     ax1.axhspan(-140, 0, color="#dcfce7", alpha=0.40, zorder=0)
-    ax1.axhspan(0, 80, color="#fee2e2", alpha=0.30, zorder=0)
+    ax1.axhspan(0, 86, color="#fee2e2", alpha=0.30, zorder=0)
     ax1.axhline(0.0, color="#0f172a", lw=1.1, ls="--", zorder=2)
 
     for tau_target, col, sty, lbl in styles:
@@ -670,23 +674,53 @@ def make_fig_ne3(r3: dict, r3b: dict) -> None:
         ks = np.array([c["kappa"] for c in f_obj["curve"]])
         nets = np.array([c["implied_net_co2_kg_mwh"] for c in f_obj["curve"]])
         ax1.plot(ks, nets, sty, color=col, lw=1.9, ms=4.5, label=lbl, zorder=4)
+        rt = roots[tau_target]
+        if rt["ever_abates"]:
+            ax1.scatter([rt["kappa_breakeven"]], [0.0], s=42, facecolors="white", edgecolors=col, linewidths=1.5, zorder=6)
 
-    ax1.text(2.96, -54, "Net Operational\nAbatement (<0)", ha="right", va="bottom", fontsize=7.1, fontweight="bold", color="#065f46")
-    ax1.text(2.96, 78, "Net Emissions Increase (>0)", ha="right", va="top", fontsize=7.1, fontweight="bold", color="#991b1b")
+    ax1.text(2.96, -54, "Net Operational\nAbatement (<0)", ha="right", va="bottom", fontsize=7.0, fontweight="bold", color="#065f46")
+    ax1.text(2.96, 82, "Net Emissions Increase (>0)", ha="right", va="top", fontsize=7.0, fontweight="bold", color="#991b1b")
+    ax1.text(
+        0.09,
+        79,
+        "BA-level fixed-profile upper bound\n(non-nodal; omits LMPs & SOC constraints)",
+        ha="left",
+        va="top",
+        fontsize=6.2,
+        color="#334155",
+        bbox={"boxstyle": "round,pad=0.26", "fc": "#f8fafc", "ec": "#94a3b8", "alpha": 0.95},
+    )
     ax1.set_xlim(0.05, 3.08)
-    ax1.set_ylim(-130, 84)
+    ax1.set_ylim(-130, 88)
     ax1.set_xticks([0.25, 1.0, 1.5, 2.0, 2.5, 3.0])
-    ax1.set_xticklabels(["0.25×\n(4.3 GW)", "1.0×\n(17.3 GW)", "1.5×\n(26.0 GW)", "2.0×\n(34.7 GW)", "2.5×", "3.0×\n(52.0 GW)"], fontsize=7.0)
+    ax1.set_xticklabels(
+        [
+            f"0.25×\n({0.25*ciso_gw:.1f} GW)",
+            f"1.0×\n({ciso_gw:.1f} GW)",
+            f"1.5×\n({1.5*ciso_gw:.1f} GW)",
+            f"2.0×\n({2.0*ciso_gw:.1f} GW)",
+            "2.5×",
+            f"3.0×\n({3.0*ciso_gw:.1f} GW)",
+        ],
+        fontsize=6.9,
+    )
     ax1.set_xlabel(r"Incremental Storage Expansion Scale $\kappa$ (Multiple of 2026 CAISO Fleet)")
     ax1.set_ylabel(r"Implied Incremental Net $\mathrm{CO_2}$ (kg $\mathrm{CO_2}$/MWh)")
-    ax1.set_title("A. Congestion-Constrained Carbon Break-Even Frontier (CAISO)")
+    ax1.set_title("A. Fixed-Profile BA-Level Upper-Bound Scenarios (CAISO)")
     ax1.grid(True, ls=":", alpha=0.4)
-    ax1.legend(loc="lower right", fontsize=6.4, frameon=True, framealpha=0.95)
+    ax1.legend(loc="lower right", fontsize=6.2, frameon=True, framealpha=0.95)
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
 
-    # Panel B: Cross-Regional Validation — ERCOT vs CAISO vs MISO CEMS MEF across Renewable Penetration Bins
+    # Panel B: Cross-Regime Renewable-Penetration Stress Test + Matched Season x Hour x Load-Decile FE
     strat = r3b["cross_regional_ren_penetration_stratification"]
+    st_erco = r3c["ercot_and_ciso_matched_stress_test"]["ERCO"]
+    st_ciso = r3c["ercot_and_ciso_matched_stress_test"]["CISO"]
+    erco_ld = [b.get("total_mef", np.nan) for b in st_erco["fine_cell_fe_stratification"]["seas_hr_ld"]]
+    ciso_ld = [b.get("total_mef", np.nan) for b in st_ciso["fine_cell_fe_stratification"]["seas_hr_ld"]]
+    cs_e = st_erco["common_support_exact_matched_seas_hr_lq"]
+    cs_c = st_ciso["common_support_exact_matched_seas_hr_lq"]
+
     bin_lbls = ["<20%", "20–40%", "40–60%", ">60%"]
     x = np.arange(len(bin_lbls))
     w = 0.26
@@ -703,92 +737,131 @@ def make_fig_ne3(r3: dict, r3b: dict) -> None:
     miso_m = [b["mef_dom_netload_kg_mwh"] if b["mef_dom_netload_kg_mwh"] is not None else np.nan for b in strat["MISO"]]
     miso_se = [b["se_netload"] or 0.0 for b in strat["MISO"]]
 
-    ax2.bar(x - w, erco_m, width=w, color=NAVY, alpha=0.90, label="ERCOT Total CEMS MEF (9.92 TWh)")
-    ax2.bar(x - w, erco_coal, width=w, color="#475569", alpha=0.85, hatch="///", edgecolor="white", label="ERCOT Coal Stack Share of MEF")
+    ax2.bar(x - w, erco_m, width=w, color=NAVY, alpha=0.90, label="ERCOT MEF (9.9 TWh)")
+    ax2.bar(x - w, erco_coal, width=w, color="#475569", alpha=0.85, hatch="///", edgecolor="white", label="ERCOT Coal Share")
     ax2.errorbar(x - w, erco_m, yerr=1.96 * np.array(erco_se), fmt="none", ecolor="#0f172a", capsize=2.3, lw=1.0)
 
-    ax2.bar(x, miso_m, width=w, color=CRIMSON, alpha=0.82, label="MISO Total CEMS MEF (0.72 TWh)")
+    ax2.bar(x, miso_m, width=w, color=CRIMSON, alpha=0.82, label="MISO MEF (0.7 TWh)")
     for i_m in range(len(miso_m)):
         if np.isfinite(miso_m[i_m]):
             ax2.errorbar(x[i_m], miso_m[i_m], yerr=1.96 * miso_se[i_m], fmt="none", ecolor="#450a0a", capsize=2.3, lw=1.0)
 
-    ax2.bar(x + w, ciso_m, width=w, color=TEAL, alpha=0.88, label="CAISO Domestic CEMS MEF (29.16 TWh)")
+    ax2.bar(x + w, ciso_m, width=w, color=TEAL, alpha=0.88, label="CAISO Dom. MEF (29.2 TWh)")
     ax2.errorbar(x + w, ciso_m, yerr=1.96 * np.array(ciso_se), fmt="none", ecolor="#042f2e", capsize=2.3, lw=1.0)
+
+    # Overlay matched Season x Hour x Load-Decile FE check as crisp diamonds!
+    ax2.scatter(x - w, erco_ld, marker="D", s=26, facecolors="#fef08a", edgecolors="#0f172a", linewidths=1.0, zorder=6, label="Seas×Hr×LoadD FE")
+    ax2.scatter(x + w, ciso_ld, marker="D", s=26, facecolors="#fef08a", edgecolors="#0f172a", linewidths=1.0, zorder=6)
 
     for i in range(len(bin_lbls)):
         if np.isfinite(erco_m[i]):
-            ax2.text(x[i] - w, erco_m[i] + 1.96 * erco_se[i] + 10, f"{erco_m[i]:.0f}\n({erco_chg[i]:.0f}%)", ha="center", va="bottom", fontsize=6.1, color=NAVY, fontweight="bold")
+            ax2.text(x[i] - w, erco_m[i] + 1.96 * erco_se[i] + 12, f"{erco_m[i]:.0f}\n({erco_chg[i]:.0f}%)", ha="center", va="bottom", fontsize=5.9, color=NAVY, fontweight="bold")
         if np.isfinite(ciso_m[i]):
-            ax2.text(x[i] + w, ciso_m[i] + 1.96 * ciso_se[i] + 10, f"{ciso_m[i]:.0f}\n({ciso_chg[i]:.0f}%)", ha="center", va="bottom", fontsize=6.1, color=TEAL, fontweight="bold")
+            ax2.text(x[i] + w, ciso_m[i] + 1.96 * ciso_se[i] + 12, f"{ciso_m[i]:.0f}\n({ciso_chg[i]:.0f}%)", ha="center", va="bottom", fontsize=5.9, color=TEAL, fontweight="bold")
+
+    ax2.text(
+        0.02,
+        0.97,
+        f"Matched Seas×Hr×LoadQ (>60% vs <40%):\n"
+        f"ERCOT ({cs_e['n_common_cells_total']} cells): {cs_e['diff_gt60_minus_lt40_total_mef']:+.1f}±{cs_e['diff_gt60_minus_lt40_total_se']:.1f} "
+        f"(coal {cs_e['diff_gt60_minus_lt40_coal_mef']:+.1f})\n"
+        f"CAISO ({cs_c['n_common_cells_total']} cells): {cs_c['diff_gt60_minus_lt40_total_mef']:+.1f}±{cs_c['diff_gt60_minus_lt40_total_se']:.1f} kg/MWh",
+        transform=ax2.transAxes,
+        ha="left",
+        va="top",
+        fontsize=5.5,
+        color="#0f172a",
+        bbox={"boxstyle": "round,pad=0.24", "fc": "#fffbeb", "ec": AMBER, "alpha": 0.96},
+    )
 
     ax2.set_xticks(x)
     ax2.set_xticklabels(bin_lbls, fontsize=8.0)
-    ax2.set_ylim(0, 760)
-    ax2.set_xlabel("Interior Hourly Renewable Penetration ((Solar + Wind) / Load)\n[Bar labels show CEMS MEF & (% of BA battery charging)]", fontsize=7.6)
+    ax2.set_ylim(0, 865)
+    ax2.set_xlabel("Interior Hourly Renewable Penetration ((Solar + Wind) / Load)\n[Bar labels: CEMS MEF & (% BA charging); no public EIA-930 ERCOT curtailment]", fontsize=7.2)
     ax2.set_ylabel(r"Domestic EPA CEMS Net-Load MEF (kg $\mathrm{CO_2}$/MWh)")
-    ax2.set_title("B. Cross-Regional Validation: High Renewables ≠ Low MEF")
+    ax2.set_title("B. Cross-Regime Stress Test: High Renewables ≠ Low MEF")
     ax2.grid(True, axis="y", ls=":", alpha=0.35)
-    ax2.legend(loc="upper right", fontsize=6.2, frameon=True, framealpha=0.95)
+    ax2.legend(loc="upper right", fontsize=5.6, frameon=True, framealpha=0.95)
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
 
     _save_fig(fig, "fig_ne3_congestion_frontier_and_ercot")
 
 
-def make_fig_ne4(r3: dict, r3b: dict) -> None:
-    """Nature Energy Main Fig 4: 14-BA Joint 14d Block-Bootstrap Sensitivity & Independent MEF Validation."""
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.4, 4.8), gridspec_kw={"width_ratios": [1.12, 1.0]})
+def make_fig_ne4(r3: dict, r3b: dict, r3c: dict) -> None:
+    """Nature Energy Main Fig 2: Unconditional Season-Stratified Joint UTC-Day Block-Bootstrap
+    Sensitivity (L=14d & 28d, incl. Ex-CISO/ERCO) & Out-of-Sample Validation / Cross-Checks.
+    """
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.6, 5.0), gridspec_kw={"width_ratios": [1.14, 1.0]})
     fig.subplots_adjust(wspace=0.31)
 
-    # Panel A: 14-BA Joint 14d Block-Bootstrap Curtailment Sensitivity (Full 49.77 TWh & Same-Window 26.05 TWh)
-    fm = r3b["full_window_joint_14d_bootstrap_1000"]["metrics"]
-    sm = r3b["same_window_joint_14d_bootstrap_1000"]["metrics"]
+    # Panel A: Unconditional Season-Stratified UTC-Day Block-Bootstrap Curtailment & Leave-Out Sensitivity
+    u14_f = r3c["unconditional_season_stratified_utc_bootstrap_1000"]["full_window_202407_202609"]["14d"]
+    u28_f = r3c["unconditional_season_stratified_utc_bootstrap_1000"]["full_window_202407_202609"]["28d"]
+    u14_s = r3c["unconditional_season_stratified_utc_bootstrap_1000"]["same_window_202407_202512"]["14d"]
 
     sc_labels = [
-        "Baseline\n(α=0%)",
-        "Uniform\nα=10%",
-        "Uniform\nα=15%",
-        "Uniform\nα=20%",
-        "Hybrid CA\n+0% oth.",
-        "Hybrid CA\n+10% oth.",
-        "Hybrid CA\n+15% oth.",
+        "Base\nα=0%",
+        "Unif.\n10%",
+        "Unif.\n15%",
+        "Unif.\n20%",
+        "Hyb.\n+0%",
+        "Hyb.\n+10%",
+        "Hyb.\n+15%",
+        "Ex-CA\n&TX",
     ]
-    sc_keys_net = ["u0_net_mt", "u10_net_mt", "u15_net_mt", "u20_net_mt", "h0_main_mt", "h10_main_mt", "h15_main_mt"]
-    sc_keys_disc = ["u0_disc_mt", "u10_disc_mt", "u15_disc_mt", "u20_disc_mt", "h0_main_disc_mt", "h10_main_disc_mt", "h15_main_disc_mt"]
+    sc_keys_net = ["u0_net_mt", "u10_net_mt", "u15_net_mt", "u20_net_mt", "h0_main_mt", "h10_main_mt", "h15_main_mt", "leave_ciso_erco_u0_net_mt"]
+    sc_keys_disc = ["u0_disc_mt", "u10_disc_mt", "u15_disc_mt", "u20_disc_mt", "h0_main_disc_mt", "h10_main_disc_mt", "h15_main_disc_mt", "leave_ciso_erco_u0_disc_mt"]
 
     xs = np.arange(len(sc_labels))
-    f_net = np.array([fm[k]["point"] for k in sc_keys_net])
-    f_net_lo = np.array([fm[k]["point"] - fm[k]["ci95_lo"] for k in sc_keys_net])
-    f_net_hi = np.array([fm[k]["ci95_hi"] - fm[k]["point"] for k in sc_keys_net])
+    f_net = np.array([u14_f[k]["point"] for k in sc_keys_net])
+    f_net_lo = np.array([u14_f[k]["point"] - u14_f[k]["ci95_lo"] for k in sc_keys_net])
+    f_net_hi = np.array([u14_f[k]["ci95_hi"] - u14_f[k]["point"] for k in sc_keys_net])
 
-    f_disc = np.array([fm[k]["point"] for k in sc_keys_disc])
-    f_disc_lo = np.array([fm[k]["point"] - fm[k]["ci95_lo"] for k in sc_keys_disc])
-    f_disc_hi = np.array([fm[k]["ci95_hi"] - fm[k]["point"] for k in sc_keys_disc])
+    f_disc = np.array([u14_f[k]["point"] for k in sc_keys_disc])
+    f_disc_lo14 = np.array([u14_f[k]["point"] - u14_f[k]["ci95_lo"] for k in sc_keys_disc])
+    f_disc_hi14 = np.array([u14_f[k]["ci95_hi"] - u14_f[k]["point"] for k in sc_keys_disc])
+    f_disc_lo28 = np.array([u28_f[k]["point"] - u28_f[k]["ci95_lo"] for k in sc_keys_disc])
+    f_disc_hi28 = np.array([u28_f[k]["ci95_hi"] - u28_f[k]["point"] for k in sc_keys_disc])
 
-    s_disc = np.array([sm[k]["point"] for k in sc_keys_disc])
-    s_disc_lo = np.array([sm[k]["point"] - sm[k]["ci95_lo"] for k in sc_keys_disc])
-    s_disc_hi = np.array([sm[k]["ci95_hi"] - sm[k]["point"] for k in sc_keys_disc])
+    s_disc = np.array([u14_s[k]["point"] for k in sc_keys_disc])
+    s_disc_lo = np.array([u14_s[k]["point"] - u14_s[k]["ci95_lo"] for k in sc_keys_disc])
+    s_disc_hi = np.array([u14_s[k]["ci95_hi"] - u14_s[k]["point"] for k in sc_keys_disc])
 
     ax1.axhline(0.0, color="#0f172a", lw=1.0, ls="--", zorder=1)
-    ax1.axvline(3.5, color="#cbd5e1", lw=1.1, ls="-", zorder=0)
+    ax1.axvline(3.5, color="#cbd5e1", lw=1.0, ls="-", zorder=0)
+    ax1.axvline(6.5, color="#cbd5e1", lw=1.0, ls=":", zorder=0)
 
-    ax1.errorbar(xs - 0.14, f_disc, yerr=[f_disc_lo, f_disc_hi], fmt="o-", color=CRIMSON, lw=1.7, capsize=2.8, ms=4.8, label="Full 49.77 TWh: Discrepancy (CEMS-MEF − AEF, 14d CI)")
-    ax1.errorbar(xs + 0.14, f_net, yerr=[f_net_lo, f_net_hi], fmt="s-", color=NAVY, lw=1.7, capsize=2.8, ms=4.6, label="Full 49.77 TWh: CEMS-MEF Fleet Net CO2 (14d CI)")
-    ax1.errorbar(xs, s_disc, yerr=[s_disc_lo, s_disc_hi], fmt="^--", color=TEAL, lw=1.4, capsize=2.4, ms=4.2, label="Same-Window 26.05 TWh (24H2–25): Discrepancy (14d CI)")
+    # Plot 28d outer whiskers faintly behind 14d main bars for full-window discrepancy
+    ax1.errorbar(xs[:7] - 0.14, f_disc[:7], yerr=[f_disc_lo28[:7], f_disc_hi28[:7]], fmt="none", ecolor="#fca5a5", lw=3.2, capsize=0, zorder=2, label="Full 49.77 TWh: Discrepancy 28d Uncond. CI")
+    ax1.errorbar(xs[:7] - 0.14, f_disc[:7], yerr=[f_disc_lo14[:7], f_disc_hi14[:7]], fmt="o-", color=CRIMSON, lw=1.6, capsize=2.6, ms=4.5, zorder=4, label="Full 49.77 TWh: Discrepancy 14d Uncond. CI")
+    ax1.errorbar(xs[:7] + 0.14, f_net[:7], yerr=[f_net_lo[:7], f_net_hi[:7]], fmt="s-", color=NAVY, lw=1.6, capsize=2.6, ms=4.3, zorder=4, label="Full 49.77 TWh: CEMS-MEF Net CO2 (14d Uncond.)")
+    ax1.errorbar(xs[:7], s_disc[:7], yerr=[s_disc_lo[:7], s_disc_hi[:7]], fmt="^--", color=TEAL, lw=1.35, capsize=2.2, ms=4.0, zorder=3, label="Same-Win 26.03 TWh (24H2–25): Discrep. (14d Uncond.)")
+
+    # Separate marker at x=7 for Leave-CISO-&-ERCO-Out (12 grids, 21.5% of discharge)
+    ax1.errorbar([7 - 0.12], [f_disc[7]], yerr=[[f_disc_lo14[7]], [f_disc_hi14[7]]], fmt="o", color=CRIMSON, capsize=2.6, ms=5.0, zorder=5)
+    ax1.errorbar([7 + 0.12], [f_net[7]], yerr=[[f_net_lo[7]], [f_net_hi[7]]], fmt="s", color=NAVY, capsize=2.6, ms=4.6, zorder=5)
+    ax1.errorbar([7], [s_disc[7]], yerr=[[s_disc_lo[7]], [s_disc_hi[7]]], fmt="^", color=TEAL, capsize=2.2, ms=4.4, zorder=5)
+    ax1.text(7.0, f_disc[7] + f_disc_hi14[7] + 0.30, f"+{f_disc[7]:.2f}\nMt", ha="center", va="bottom", fontsize=6.3, color=CRIMSON, fontweight="bold")
 
     ax1.set_xticks(xs)
-    ax1.set_xticklabels(sc_labels, fontsize=6.9)
-    ax1.set_ylim(-1.1, 8.6)
-    ax1.set_ylabel(r"14-Grid Fleet Counterfactual $\mathrm{CO_2}$ (Mt $\mathrm{CO_2}$)")
-    ax1.set_title("A. 14-BA Joint 14-Day Block-Bootstrap Curtailment Sensitivity")
+    ax1.set_xticklabels(sc_labels, fontsize=6.8)
+    ax1.set_ylim(-1.1, 8.95)
+    ax1.set_ylabel(r"Fleet Counterfactual $\mathrm{CO_2}$ (Mt $\mathrm{CO_2}$)")
+    ax1.set_title("A. Unconditional Season-Stratified UTC-Day Bootstrap")
     ax1.grid(True, axis="y", ls=":", alpha=0.4)
-    ax1.legend(loc="upper right", fontsize=6.2, frameon=True, framealpha=0.95)
+    ax1.legend(loc="upper right", fontsize=5.7, frameon=True, framealpha=0.95)
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
 
-    # Panel B: Independent MEF Validation (Direct CEMS -dCO2/dBESS vs dCO2/dLoad vs 24h CEMS MEF vs eGRID Non-Baseload)
+    # Panel B: Out-of-Sample Validation & Measurement Cross-Checks across Major Grids
     db = r3b["independent_mef_validations"]["direct_cems_on_dbess_regressions"]
     ind_map = {r["ba"]: r for r in r3b["independent_mef_validations"]["by_ba"]}
+    oos_ba = r3c["out_of_sample_validation"]["temporal_holdout_202407_202509_to_202510_202609"]["by_ba"]
+    oos_fl = r3c["out_of_sample_validation"]["temporal_holdout_202407_202509_to_202510_202609"]
+    lqo_fl = r3c["out_of_sample_validation"]["leave_quarter_out_cv_9q"]
+    ll_ba = r3c["lead_lag_timing_diagnostic_m3_p3"]
+
     bas_v = ["CISO", "AZPS", "ERCO", "MISO"]
     xv = np.arange(len(bas_v))
     wv = 0.20
@@ -800,21 +873,47 @@ def make_fig_ne4(r3: dict, r3b: dict) -> None:
     v_stack = [ind_map[b]["cems_internal_stack_slope_kg_mwh"] for b in bas_v]
 
     ax2.bar(xv - 1.5 * wv, v_cems24, width=wv, color=NAVY, alpha=0.90, label="Main 24h CEMS System MEF")
-    ax2.bar(xv - 0.5 * wv, v_bess, width=wv, color=TEAL, alpha=0.90, label=r"Direct Metered $-\partial\mathrm{CO_2}/\partial\mathrm{BESS}$")
+    ax2.bar(xv - 0.5 * wv, v_bess, width=wv, color=TEAL, alpha=0.90, label=r"Cross-Check: Direct $-\partial\mathrm{CO_2}/\partial\mathrm{BESS}$")
     ax2.errorbar(xv - 0.5 * wv, v_bess, yerr=1.96 * np.array(v_bess_se), fmt="none", ecolor="#042f2e", capsize=2.0, lw=1.0)
-    ax2.bar(xv + 0.5 * wv, v_load, width=wv, color=SKY, alpha=0.85, label=r"Direct $\partial\mathrm{CO_2}/\partial\mathrm{Load}$")
-    ax2.bar(xv + 1.5 * wv, v_stack, width=wv, color=AMBER, alpha=0.82, label="Pure CEMS Stack Slope (No EIA-930)")
+    ax2.bar(xv + 0.5 * wv, v_load, width=wv, color=SKY, alpha=0.85, label=r"Cross-Check: Direct $\partial\mathrm{CO_2}/\partial\mathrm{Load}$")
+    ax2.bar(xv + 1.5 * wv, v_stack, width=wv, color=AMBER, alpha=0.82, label="Cross-Check: Pure CEMS Stack Slope")
 
     for i, b in enumerate(bas_v):
-        ax2.text(xv[i] - 0.5 * wv, v_bess[i] + 1.96 * v_bess_se[i] + 12, f"{v_bess[i]:.0f}", ha="center", va="bottom", fontsize=6.4, color=TEAL, fontweight="bold")
+        y_top = max(v_cems24[i], v_bess[i] + 1.96 * v_bess_se[i], v_load[i], v_stack[i])
+        ax2.text(
+            xv[i],
+            y_top + 14,
+            f"OOS R²={oos_ba[b]['r2_oos']:.2f}\nk=0: {100*ll_ba[b]['co2_contemp_share_of_abs_sum']:.0f}%",
+            ha="center",
+            va="bottom",
+            fontsize=5.8,
+            color="#0f172a",
+            fontweight="bold",
+            bbox={"fc": "white", "ec": "#cbd5e1", "pad": 1.2, "alpha": 0.90},
+        )
+
+    ax2.text(
+        0.02,
+        0.97,
+        f"Temporal Holdout (24H2–25Q3 → 25Q4–26Q3):\n"
+        f"Pooled OOS R² = {oos_fl['fleet_pooled_r2_oos']:.3f} | Cal. slope = {oos_fl['fleet_dis_weighted_cal_slope']:.2f}\n"
+        f"OOS Disc.: {oos_fl['oos_pred_disc_mt']:+.2f} vs {oos_fl['actual_test_disc_mt']:+.2f} Mt ({oos_fl['disc_rel_err_pct']:.1f}% err)\n"
+        f"9Q Leave-Q-Out CV: R² = {lqo_fl['mean_major4_r2_oos']:.3f}, sign {lqo_fl['n_quarters_sign_preserved']}/9",
+        transform=ax2.transAxes,
+        ha="left",
+        va="top",
+        fontsize=5.7,
+        color="#0f172a",
+        bbox={"boxstyle": "round,pad=0.26", "fc": "#f0fdfa", "ec": TEAL, "alpha": 0.96},
+    )
 
     ax2.set_xticks(xv)
     ax2.set_xticklabels([f"{b}\n({ind_map[b]['dis_gwh']/1000:.1f} TWh)" for b in bas_v], fontsize=7.6, fontweight="bold")
-    ax2.set_ylim(0, 880)
+    ax2.set_ylim(0, 1040)
     ax2.set_ylabel(r"Marginal Emission Intensity (kg $\mathrm{CO_2}$/MWh)")
-    ax2.set_title("B. Independent MEF Validation Across Major Storage Grids")
+    ax2.set_title("B. Out-of-Sample Validation & Measurement Cross-Checks")
     ax2.grid(True, axis="y", ls=":", alpha=0.35)
-    ax2.legend(loc="upper left", fontsize=6.2, frameon=True, framealpha=0.95)
+    ax2.legend(loc="upper center", bbox_to_anchor=(0.50, -0.14), ncol=2, fontsize=5.8, frameon=True, framealpha=0.95)
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
 
@@ -827,14 +926,15 @@ def main() -> int:
     r2 = json.loads((RES_DIR / "02_panel_a_wls_results.json").read_text(encoding="utf-8"))
     r3 = json.loads((RES_DIR / "03_cems_carbon_curtailment_results.json").read_text(encoding="utf-8"))
     r3b = json.loads((RES_DIR / "03b_nature_energy_v4_extensions.json").read_text(encoding="utf-8"))
+    r3c = json.loads((RES_DIR / "03c_k1_v5_unconditional_audit.json").read_text(encoding="utf-8"))
 
     make_fig1(r2)
     make_fig2(r1)
     make_fig3(r3)
     make_fig4(r3)
     make_fig5(r2, r3)
-    make_fig_ne3(r3, r3b)
-    make_fig_ne4(r3, r3b)
+    make_fig_ne3(r3, r3b, r3c)
+    make_fig_ne4(r3, r3b, r3c)
     print("[DONE STEP 06] All 7 300-DPI PNG + vector PDF figures generated.", flush=True)
     return 0
 

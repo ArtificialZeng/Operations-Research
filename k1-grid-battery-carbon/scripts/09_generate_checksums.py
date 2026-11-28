@@ -25,12 +25,15 @@ def main() -> int:
         WS_DIR / "manuscript_k1_nature_energy.pdf",
         WS_DIR / "supplementary_k1_nature_energy.md",
         WS_DIR / "supplementary_k1_nature_energy.pdf",
+        WS_DIR / "REPRODUCIBILITY.md",
         WS_DIR / "REFEREE_RESPONSE_v2.md",
         WS_DIR / "REFEREE_RESPONSE_v3.md",
         WS_DIR / "REFEREE_RESPONSE_v4.md",
+        WS_DIR / "REFEREE_RESPONSE_v5.md",
     ]
     targets.extend(sorted((WS_DIR / "scripts").glob("*.py")))
     targets.extend(sorted((WS_DIR / "tests").glob("*.py")))
+    targets.extend(sorted((WS_DIR / "tables").glob("*.csv")))
     targets.extend(sorted(RES_DIR.glob("*.json")))
     targets.extend(sorted(FIG_DIR.glob("*.png")))
     targets.extend(sorted(FIG_DIR.glob("*.pdf")))

@@ -1,26 +1,31 @@
 {
   "workspace": "D:\\AI_Science\\antigravity\\k1_boost_grid_battery_carbon_20261127",
-  "n_files": 41,
+  "n_files": 49,
   "files": {
     "manuscript_k1_boost.md": {
-      "sha256": "2fbd92b7aa9f1d12a5a01ff9ae195e6f157112664d19f3b03ed4432757aab02f",
-      "bytes": 40047,
+      "sha256": "38fb784ac7890a593a88fb36a063567df1650e3a34f5b536753c793ceb115a05",
+      "bytes": 44393,
       "mode": "lf_text"
     },
     "manuscript_k1_nature_energy.pdf": {
-      "sha256": "942b2df3905e5cb17b63a6c677341a0350a2ea2060dc53885eacb036fbdfd3a9",
-      "bytes": 2040120,
+      "sha256": "6801d18420723a74acc4c46d7adcf29856be4ec5ddfce5b44104144f81ce990f",
+      "bytes": 2201192,
       "mode": "raw_binary"
     },
     "supplementary_k1_nature_energy.md": {
-      "sha256": "ac9754a302322aa9fb6bec6c4708b9ded796b3ac6fae5e2c94017b12f3986665",
-      "bytes": 11307,
+      "sha256": "19619264602f0cc370341f2c44e17f412904cf76607cc481deabdc7ee14b54ed",
+      "bytes": 15601,
       "mode": "lf_text"
     },
     "supplementary_k1_nature_energy.pdf": {
-      "sha256": "4af4687df82fb48789e2cee08fc8f763222ed4255cab30093d8e3d0ebde0843b",
-      "bytes": 1516439,
+      "sha256": "b0ec9171c352fe6a2ffe58be2b95a1657b122c9824fd4aed2f5ef9a8a6d005b1",
+      "bytes": 1629064,
       "mode": "raw_binary"
+    },
+    "REPRODUCIBILITY.md": {
+      "sha256": "0e1396240037cc1d3cd50b1217ccaaec58933c72208304cd201e9452aac32e60",
+      "bytes": 8249,
+      "mode": "lf_text"
     },
     "REFEREE_RESPONSE_v2.md": {
       "sha256": "4cb92f48648510bb6d363e92b4f7b5f3f8f842777684ddd68b1d1ef7757acb69",
@@ -35,6 +40,11 @@
     "REFEREE_RESPONSE_v4.md": {
       "sha256": "dae6cd1d0886c317e9844aaade7a2650cb8ad24beed649f9d25ed85ca5a3a265",
       "bytes": 5385,
+      "mode": "lf_text"
+    },
+    "REFEREE_RESPONSE_v5.md": {
+      "sha256": "ca3db5ba0a9b6756b109e3857471b1d542a1c0e73cf68e1365209b02c87fa7ef",
+      "bytes": 9614,
       "mode": "lf_text"
     },
     "scripts/00_download_external_data.py": {
@@ -62,34 +72,39 @@
       "bytes": 45573,
       "mode": "lf_text"
     },
+    "scripts/03c_k1_v5_unconditional_audit.py": {
+      "sha256": "dea569e8700024092970d2ec1ecfce126ec495e9ad54b5c510a89645092af9e8",
+      "bytes": 103977,
+      "mode": "lf_text"
+    },
     "scripts/04_formal_carbon_model.py": {
       "sha256": "ec0217a5e9a4cb93d29b73995fb3dcf0dcb506a5a7e9d5288d9f0bb835af46dd",
       "bytes": 17686,
       "mode": "lf_text"
     },
     "scripts/06_generate_figures.py": {
-      "sha256": "9ab0ff5296c142ba33b1028e06ffb9633bbed02ae9dd1b0d23ec026cf47ed1d0",
-      "bytes": 42273,
+      "sha256": "76632a9625f823d1c52b4877abf33fe982dd004dbcadcee696c619be5efc89c3",
+      "bytes": 47733,
       "mode": "lf_text"
     },
     "scripts/07_verify_citations.py": {
-      "sha256": "f61ea9b1932f584e23ea2f01c3929c265bda9148ee8b3e1a42c5d3ccedeb4f96",
-      "bytes": 15226,
+      "sha256": "f58f7e2453cb8281ab00c3db769b619639fae6913ca2722e20e3823c835c922c",
+      "bytes": 15463,
       "mode": "lf_text"
     },
     "scripts/07a_generate_manuscript_md.py": {
-      "sha256": "7a698897b9d9bcdcf5db7f05bda04bf04e90d9b654ee87dfc102f94b52de1a10",
-      "bytes": 71582,
+      "sha256": "5f1afef242c7027b14a3562840b39364c80b80ef5514133b38e7fc6dce4f370f",
+      "bytes": 90285,
       "mode": "lf_text"
     },
     "scripts/08_compile_manuscript_pdf.py": {
-      "sha256": "20c1a51f6168509e7266fb0b616d918e68d57b251e76676e4fb6813993abffb9",
-      "bytes": 33575,
+      "sha256": "2f372f40cfacff31ae97402638ccfa41d6127e094e5b05ba404c8b8cd79165b1",
+      "bytes": 36447,
       "mode": "lf_text"
     },
     "scripts/09_generate_checksums.py": {
-      "sha256": "3cfbae7e2421a949e95d08856a8ee268bc0241be305687e279a913e4d04916e8",
-      "bytes": 2162,
+      "sha256": "c9043c72f86cd83779ca2f49fd6d1526ab64863ed83cc11dbf81e69bd477c521",
+      "bytes": 2306,
       "mode": "lf_text"
     },
     "scripts/econ_utils.py": {
@@ -98,8 +113,28 @@
       "mode": "lf_text"
     },
     "tests/test_k1_boost.py": {
-      "sha256": "1dac117a369c3adf3d657d07526f5a1ffeab50b82f3b383cbb3f4d616ffd6b66",
-      "bytes": 34246,
+      "sha256": "235b601b49c02dd8d1a9b00aa748f14b0d7f839db0d1f1869bc0ebcc64ef13cb",
+      "bytes": 39377,
+      "mode": "lf_text"
+    },
+    "tables/fig4_frontier_and_ercot.csv": {
+      "sha256": "42566ef2531f8834468903e11912550648fcc8c5175442c8484cfc244f81393a",
+      "bytes": 9300,
+      "mode": "lf_text"
+    },
+    "tables/table1_14ba_accounting.csv": {
+      "sha256": "f49d98bfec0bf69a00110a1070327d9c33bd14a8974bd8692a1406fa7800ba4d",
+      "bytes": 2113,
+      "mode": "lf_text"
+    },
+    "tables/table2_joint_bootstrap_curtailment.csv": {
+      "sha256": "a86c8d655f4f414fa72d0953c22ad22ddb85d56807665de540ac59e73a114eac",
+      "bytes": 10486,
+      "mode": "lf_text"
+    },
+    "tables/table_oos_and_leadlag.csv": {
+      "sha256": "838b8af2006e051dfcf57906e289363340b109fa6859f24531956b171e00d19e",
+      "bytes": 6043,
       "mode": "lf_text"
     },
     "results/00_external_downloads_audit.json": {
@@ -125,6 +160,11 @@
     "results/03b_nature_energy_v4_extensions.json": {
       "sha256": "274762786ccc982e396fca7fa75e464799151dcf2c5b21abf77b78b41e87bd2c",
       "bytes": 33295,
+      "mode": "lf_text"
+    },
+    "results/03c_k1_v5_unconditional_audit.json": {
+      "sha256": "9e4a8355f1e4981f54ec4630951d9c1878f2234831817dc1a6b6dfc913754e72",
+      "bytes": 150184,
       "mode": "lf_text"
     },
     "results/04_formal_model_verification.json": {
@@ -163,48 +203,48 @@
       "mode": "raw_binary"
     },
     "figures/fig_ne3_congestion_frontier_and_ercot.png": {
-      "sha256": "2b03070941669b109da30a7828172e87baf8da77b44077720a130e312ae2d832",
-      "bytes": 409257,
+      "sha256": "ee33100461d5d833a33d139619d7a7a9c55450d293fcebc98005474eb1d39232",
+      "bytes": 448202,
       "mode": "raw_binary"
     },
     "figures/fig_ne4_joint_bootstrap_and_validation.png": {
-      "sha256": "469a3448a5795fb3df120f1a3a16e40009530ecb6f9594a56e20d0570d0f86e5",
-      "bytes": 295497,
+      "sha256": "0aebdd40f8f3821121293c3f2976becbfa194eb0af5034ac5f4b7d6acc3bec39",
+      "bytes": 351393,
       "mode": "raw_binary"
     },
     "figures/fig1_diurnal_gas_displacement_and_leads.pdf": {
-      "sha256": "b98d70e1e2c815bd6fa285895eae2ca5ce83bfddd635cb4ba29818d4fdaa79d4",
+      "sha256": "5aed7ba68bf4e74aaeda3ec23201eb5dbb7b439fdcab628e2759479bc3e4442f",
       "bytes": 57341,
       "mode": "raw_binary"
     },
     "figures/fig2_telemetry_forensics_and_diurnal_charging.pdf": {
-      "sha256": "58031aed86cfb00af4ed2bf561308e6239257c64588ae388423e6f83cdde74a2",
+      "sha256": "4dfbec8f853c7387a4ba47b1f47fc01e05324f128f0301db20ab9b7e8fc53e1b",
       "bytes": 50193,
       "mode": "raw_binary"
     },
     "figures/fig3_cems_mef_vs_aef_sign_reversal.pdf": {
-      "sha256": "1c3da761c8435e6c043c12ffeb316dc5e03a3d0545aad91176bde1a381148fde",
+      "sha256": "d470e51c1166d802b0c541ee6376a746aeb2611fa5be20020aca7db8242d7863",
       "bytes": 53875,
       "mode": "raw_binary"
     },
     "figures/fig4_caiso_noncircular_curtailment_tipping.pdf": {
-      "sha256": "6522016d2574c3ff92b7b2e18cef587059956f34ae5e1b8e9ef2c8e3c99c9d37",
+      "sha256": "ef865e2812483f43767fb641c3d605b8d33eecd8673656da69d1e93e172b8b4e",
       "bytes": 55909,
       "mode": "raw_binary"
     },
     "figures/fig5_hourly_dispatch_and_master_audit.pdf": {
-      "sha256": "4e284118f65143a3ba9ee0e1922c817f2ead6c994b4bc7a2590f3085898339ca",
+      "sha256": "44b58ae7a15138441bb34cac149fd91fc2837a0fee2eb5273140bea4fe25cb72",
       "bytes": 53982,
       "mode": "raw_binary"
     },
     "figures/fig_ne3_congestion_frontier_and_ercot.pdf": {
-      "sha256": "b9ff2107f010a3fc3b66ed0565a395320f51c99169174000f9a17eba24108e58",
-      "bytes": 51615,
+      "sha256": "3afcf09dab8115a7ce49fa9f61bce4f97dc92905933077388a6672efe204e63b",
+      "bytes": 57456,
       "mode": "raw_binary"
     },
     "figures/fig_ne4_joint_bootstrap_and_validation.pdf": {
-      "sha256": "a8ecb98c8c990338da4963fa33ae221b7174620fd317b6d16685de706b31c5c9",
-      "bytes": 46482,
+      "sha256": "827a3d9f0a8037c1ed32a628987cb14a163ea0293e5bed65461ef6a355522d37",
+      "bytes": 54477,
       "mode": "raw_binary"
     }
   }

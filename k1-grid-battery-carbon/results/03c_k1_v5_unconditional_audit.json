@@ -1,0 +1,4334 @@
+{
+  "reconciliation_bridge_t1_vs_t2": {
+    "step0_table1_step03_exact": {
+      "cems_mt": 3.6945446268667874,
+      "aef_mt": -3.747139177298576,
+      "disc_mt": 7.441683804165364,
+      "engine_replication_cems_mt": 3.695467764629338,
+      "engine_replication_aef_mt": -3.7452086787434875,
+      "engine_replication_disc_mt": 7.440676443372825,
+      "replication_abs_err_mt": 0.001007360792538492
+    },
+    "delta_bess_sample_and_05mw_threshold_mt": 0.0019301591353917402,
+    "delta_sdom_dtot_untrimmed_vs_dneed_mad_mt": -0.024701045803515953,
+    "step3_v4_table2_step03b_conditional": {
+      "cems_mt": 3.670766379406127,
+      "aef_mt": -3.747139177298576,
+      "disc_mt": 7.417905556704703,
+      "engine_replication_disc_mt": 7.417905556704701,
+      "total_t1_minus_v4t2_mt": 0.02377824746066093
+    },
+    "step4_v5_exact_table1_plus_samewindow_trade_full": {
+      "window": "2024-07-01..2026-09-30",
+      "dis_twh": 49.771334916666675,
+      "cems_mt": 3.712186403629496,
+      "aef_mt": -3.7311888522924934,
+      "disc_mt": 7.443375255921989,
+      "delta_samewindow_trade_vs_table1_mt": 0.0016914517566251064
+    },
+    "step5_v5_exact_table1_plus_samewindow_trade_same18m": {
+      "window": "2024-07-01..2025-12-31",
+      "dis_twh": 26.02665366666666,
+      "cems_mt": 1.914175449928654,
+      "aef_mt": -2.036315165759594,
+      "disc_mt": 3.950490615688248
+    },
+    "bilateral_trade_weight_shifts": [
+      {
+        "ba": "CISO",
+        "n_neighbors_cems": 10,
+        "max_abs_weight_diff_27m_vs_fixed": 0.010790827016258442,
+        "max_abs_weight_diff_18m_vs_fixed": 0.039519298203306436
+      },
+      {
+        "ba": "ERCO",
+        "n_neighbors_cems": 1,
+        "max_abs_weight_diff_27m_vs_fixed": 0.0,
+        "max_abs_weight_diff_18m_vs_fixed": 0.0
+      },
+      {
+        "ba": "AZPS",
+        "n_neighbors_cems": 9,
+        "max_abs_weight_diff_27m_vs_fixed": 0.0036572339331483183,
+        "max_abs_weight_diff_18m_vs_fixed": 0.00493542651975443
+      },
+      {
+        "ba": "PNM",
+        "n_neighbors_cems": 7,
+        "max_abs_weight_diff_27m_vs_fixed": 0.017793397469867495,
+        "max_abs_weight_diff_18m_vs_fixed": 0.03728499628150196
+      },
+      {
+        "ba": "SRP",
+        "n_neighbors_cems": 7,
+        "max_abs_weight_diff_27m_vs_fixed": 0.02219810681247548,
+        "max_abs_weight_diff_18m_vs_fixed": 0.033754647263729426
+      },
+      {
+        "ba": "PGE",
+        "n_neighbors_cems": 2,
+        "max_abs_weight_diff_27m_vs_fixed": 0.0011388600882187502,
+        "max_abs_weight_diff_18m_vs_fixed": 0.0015467859511555208
+      },
+      {
+        "ba": "MISO",
+        "n_neighbors_cems": 7,
+        "max_abs_weight_diff_27m_vs_fixed": 0.004714258289639964,
+        "max_abs_weight_diff_18m_vs_fixed": 0.020164958513537834
+      },
+      {
+        "ba": "IPCO",
+        "n_neighbors_cems": 6,
+        "max_abs_weight_diff_27m_vs_fixed": 0.005970883177755737,
+        "max_abs_weight_diff_18m_vs_fixed": 0.024517278748201643
+      },
+      {
+        "ba": "TEPC",
+        "n_neighbors_cems": 5,
+        "max_abs_weight_diff_27m_vs_fixed": 0.02014588777302284,
+        "max_abs_weight_diff_18m_vs_fixed": 0.03601728887625055
+      },
+      {
+        "ba": "IID",
+        "n_neighbors_cems": 3,
+        "max_abs_weight_diff_27m_vs_fixed": 0.006948279738433705,
+        "max_abs_weight_diff_18m_vs_fixed": 0.00384470292213554
+      },
+      {
+        "ba": "SOCO",
+        "n_neighbors_cems": 8,
+        "max_abs_weight_diff_27m_vs_fixed": 0.012946958822913135,
+        "max_abs_weight_diff_18m_vs_fixed": 0.025390088683658663
+      },
+      {
+        "ba": "DUK",
+        "n_neighbors_cems": 6,
+        "max_abs_weight_diff_27m_vs_fixed": 0.016450422207651305,
+        "max_abs_weight_diff_18m_vs_fixed": 0.037640773177511355
+      },
+      {
+        "ba": "CPLE",
+        "n_neighbors_cems": 4,
+        "max_abs_weight_diff_27m_vs_fixed": 0.01406212119602751,
+        "max_abs_weight_diff_18m_vs_fixed": 0.015896935846019672
+      },
+      {
+        "ba": "FPL",
+        "n_neighbors_cems": 7,
+        "max_abs_weight_diff_27m_vs_fixed": 0.010236273930521345,
+        "max_abs_weight_diff_18m_vs_fixed": 0.011684422981531634
+      }
+    ]
+  },
+  "unconditional_season_stratified_utc_bootstrap_1000": {
+    "B": 1000,
+    "seasons": [
+      "DJF",
+      "MAM",
+      "JJA",
+      "SON"
+    ],
+    "n_utc_days_full": 822,
+    "n_utc_days_same_window": 549,
+    "full_window_202407_202609": {
+      "7d": {
+        "tot_dis_twh": {
+          "point": 49.771334916666675,
+          "boot_mean": 49.816375839,
+          "boot_se": 1.0162025470035496,
+          "ci95_lo": 47.85112514791666,
+          "ci95_hi": 51.8123149125,
+          "ci95_width": 3.961189764583338,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_net_mt": {
+          "point": -3.7311888522924934,
+          "boot_mean": -3.7207370868587812,
+          "boot_se": 0.08997530757887141,
+          "ci95_lo": -3.89988045403803,
+          "ci95_hi": -3.5464623606040866,
+          "ci95_width": 0.35341809343394326,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_kg_mwh": {
+          "point": -74.96662202329335,
+          "boot_mean": -74.69778782317897,
+          "boot_se": 1.4984481458473846,
+          "ci95_lo": -77.60612093684979,
+          "ci95_hi": -71.80326478096784,
+          "ci95_width": 5.802856155881955,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_net_mt": {
+          "point": 3.712186403629496,
+          "boot_mean": 3.7104326202335005,
+          "boot_se": 0.17586035226991154,
+          "ci95_lo": 3.365733468976468,
+          "ci95_hi": 4.078652122142374,
+          "ci95_width": 0.7129186531659064,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_kg_mwh": {
+          "point": 74.58482698615373,
+          "boot_mean": 74.47347703742116,
+          "boot_se": 2.9753046965689007,
+          "ci95_lo": 68.37671700613724,
+          "ci95_hi": 80.44378155884392,
+          "ci95_width": 12.067064552706682,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_mt": {
+          "point": 7.443375255921989,
+          "boot_mean": 7.431169707092282,
+          "boot_se": 0.21177407391321,
+          "ci95_lo": 7.017937498818493,
+          "ci95_hi": 7.875767932475928,
+          "ci95_width": 0.8578304336574352,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_kg_mwh": {
+          "point": 149.55144900944708,
+          "boot_mean": 149.17126486060013,
+          "boot_se": 2.965537431543068,
+          "ci95_lo": 143.08338147087989,
+          "ci95_hi": 155.11993752627282,
+          "ci95_width": 12.036556055392936,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_net_mt": {
+          "point": 1.7550245510033455,
+          "boot_mean": 1.7520498609773014,
+          "boot_se": 0.15077016264332155,
+          "ci95_lo": 1.4574043069125313,
+          "ci95_hi": 2.0624694296307724,
+          "ci95_width": 0.6050651227182411,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_disc_mt": {
+          "point": 5.486213403295839,
+          "boot_mean": 5.4727869478360835,
+          "boot_se": 0.1825473417148661,
+          "ci95_lo": 5.123191544665998,
+          "ci95_hi": 5.853761497964655,
+          "ci95_width": 0.7305699532986569,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_net_mt": {
+          "point": 0.7764436246902678,
+          "boot_mean": 0.7728584813492012,
+          "boot_se": 0.140329616461729,
+          "ci95_lo": 0.4886581324540963,
+          "ci95_hi": 1.0582720089760647,
+          "ci95_width": 0.5696138765219684,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_disc_mt": {
+          "point": 4.507632476982761,
+          "boot_mean": 4.493595568207983,
+          "boot_se": 0.169173103214286,
+          "ci95_lo": 4.174248284374144,
+          "ci95_hi": 4.845036832172108,
+          "ci95_width": 0.6707885477979634,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u20_net_mt": {
+          "point": -0.20213730162280769,
+          "boot_mean": -0.206332898278897,
+          "boot_se": 0.13175257352312997,
+          "ci95_lo": -0.47213645037190477,
+          "ci95_hi": 0.06538954906568503,
+          "ci95_width": 0.5375259994375898,
+          "p_2sided_vs_zero": 0.128,
+          "covers_zero": true
+        },
+        "u20_disc_mt": {
+          "point": 3.529051550669686,
+          "boot_mean": 3.5144041885798845,
+          "boot_se": 0.15691120353884333,
+          "ci95_lo": 3.2160943675367464,
+          "ci95_hi": 3.8419926941898193,
+          "ci95_width": 0.6258983266530729,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_net_mt": {
+          "point": -2.15929915424896,
+          "boot_mean": -2.1647156575350976,
+          "boot_se": 0.12168878156970674,
+          "ci95_lo": -2.399799000953136,
+          "ci95_hi": -1.9302385414894652,
+          "ci95_width": 0.46956045946367087,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_disc_mt": {
+          "point": 1.5718896980435333,
+          "boot_mean": 1.5560214293236836,
+          "boot_se": 0.13689791769172555,
+          "ci95_lo": 1.2799084741048656,
+          "ci95_hi": 1.83035558740397,
+          "ci95_width": 0.5504471132991045,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_mt": {
+          "point": 1.8550584839510529,
+          "boot_mean": 1.8019530099292502,
+          "boot_se": 0.16674493832228712,
+          "ci95_lo": 1.4661362643524092,
+          "ci95_hi": 2.128139621074251,
+          "ci95_width": 0.662003356721842,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_mt": {
+          "point": 5.586247336243546,
+          "boot_mean": 5.522690096788032,
+          "boot_se": 0.19676016584977107,
+          "ci95_lo": 5.14767754490967,
+          "ci95_hi": 5.895643035357778,
+          "ci95_width": 0.7479654904481077,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_kg_mwh": {
+          "point": 112.23824608274485,
+          "boot_mean": 110.85321340069834,
+          "boot_se": 2.9649778468045263,
+          "ci95_lo": 104.85261627396241,
+          "ci95_hi": 116.22140061262007,
+          "ci95_width": 11.368784338657662,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_mt": {
+          "point": 0.8146687926771008,
+          "boot_mean": 0.761885909336424,
+          "boot_se": 0.15155110420087065,
+          "ci95_lo": 0.46139502538914373,
+          "ci95_hi": 1.053416326152668,
+          "ci95_width": 0.5920213007635242,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_disc_mt": {
+          "point": 4.545857644969594,
+          "boot_mean": 4.482622996195206,
+          "boot_se": 0.17626953473014817,
+          "ci95_lo": 4.140147297708241,
+          "ci95_hi": 4.805726041073716,
+          "ci95_width": 0.665578743365475,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_mt": {
+          "point": 0.2944739470401254,
+          "boot_mean": 0.2418523590400104,
+          "boot_se": 0.14616799954224352,
+          "ci95_lo": -0.052021165850168985,
+          "ci95_hi": 0.5162192621923597,
+          "ci95_width": 0.5682404280425287,
+          "p_2sided_vs_zero": 0.112,
+          "covers_zero": true
+        },
+        "h15_main_disc_mt": {
+          "point": 4.025662799332618,
+          "boot_mean": 3.9625894458987925,
+          "boot_se": 0.16752479643276066,
+          "ci95_lo": 3.6325127564177517,
+          "ci95_hi": 4.266816342307185,
+          "ci95_width": 0.634303585889433,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_disc_kg_mwh": {
+          "point": 80.88315907284546,
+          "boot_mean": 79.54248037892103,
+          "boot_se": 2.9091422905891777,
+          "ci95_lo": 73.68928804557406,
+          "ci95_hi": 85.05573204914809,
+          "ci95_width": 11.366444003574031,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_mt": {
+          "point": 1.9122196550735877,
+          "boot_mean": 2.0605286451297236,
+          "boot_se": 0.3418122437551694,
+          "ci95_lo": 1.396724712427745,
+          "ci95_hi": 2.7281516197012676,
+          "ci95_width": 1.3314269072735225,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_disc_mt": {
+          "point": 5.643408507366081,
+          "boot_mean": 5.781265731988505,
+          "boot_se": 0.36038730079560266,
+          "ci95_lo": 5.112942144351039,
+          "ci95_hi": 6.489143271292017,
+          "ci95_width": 1.3762011269409777,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_dload_mt": {
+          "point": 0.3516351181626602,
+          "boot_mean": 0.5004279942404837,
+          "boot_se": 0.32636180132345904,
+          "ci95_lo": -0.14080799015777407,
+          "ci95_hi": 1.1411965827867914,
+          "ci95_width": 1.2820045729445655,
+          "p_2sided_vs_zero": 0.118,
+          "covers_zero": true
+        },
+        "h15_dload_disc_mt": {
+          "point": 4.082823970455154,
+          "boot_mean": 4.221165081099265,
+          "boot_se": 0.3396236253228275,
+          "ci95_lo": 3.6046101372954977,
+          "ci95_hi": 4.8958292875027425,
+          "ci95_width": 1.2912191502072448,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "ciso_emp_main": {
+          "point": -0.6554414744570636,
+          "boot_mean": -2.6465043596534352,
+          "boot_se": 4.597537916774922,
+          "ci95_lo": -11.795662629329062,
+          "ci95_hi": 5.944429811723367,
+          "ci95_width": 17.74009244105243,
+          "p_2sided_vs_zero": 0.582,
+          "covers_zero": true
+        },
+        "ciso_emp_dload": {
+          "point": 1.3050841471228694,
+          "boot_mean": 6.186622330960196,
+          "boot_se": 10.665141171517892,
+          "ci95_lo": -13.787027942699057,
+          "ci95_hi": 27.273663535504173,
+          "ci95_width": 41.06069147820323,
+          "p_2sided_vs_zero": 0.548,
+          "covers_zero": true
+        },
+        "leave_ciso_u0_net_mt": {
+          "point": 1.8741685643651278,
+          "boot_mean": 1.8793593680290561,
+          "boot_se": 0.08885322804557191,
+          "ci95_lo": 1.7070006219625085,
+          "ci95_hi": 2.061847615661339,
+          "ci95_width": 0.35484699369883055,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_mt": {
+          "point": 2.5655447654124846,
+          "boot_mean": 2.551442431127914,
+          "boot_se": 0.10815863744973847,
+          "ci95_lo": 2.3464754257327867,
+          "ci95_hi": 2.774240777890908,
+          "ci95_width": 0.4277653521581213,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_kg_mwh": {
+          "point": 124.44863210577455,
+          "boot_mean": 124.07866577458195,
+          "boot_se": 2.942534846322099,
+          "ci95_lo": 118.29382542190746,
+          "ci95_hi": 129.89369495639343,
+          "ci95_width": 11.599869534485975,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u15_disc_mt": {
+          "point": 1.0049602285015573,
+          "boot_mean": 0.9913417802386744,
+          "boot_se": 0.06989590592885811,
+          "ci95_lo": 0.8544340430530792,
+          "ci95_hi": 1.1325210985773018,
+          "ci95_width": 0.2780870555242225,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_net_mt": {
+          "point": 2.2981920996680243,
+          "boot_mean": 2.290632109992638,
+          "boot_se": 0.14487591607550113,
+          "ci95_lo": 2.014287648696585,
+          "ci95_hi": 2.5744285014507113,
+          "ci95_width": 0.5601408527541265,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_mt": {
+          "point": 5.809175505389753,
+          "boot_mean": 5.799968530127406,
+          "boot_se": 0.17189982385182007,
+          "ci95_lo": 5.472635565126567,
+          "ci95_hi": 6.151548637316361,
+          "ci95_width": 0.6789130721897934,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_kg_mwh": {
+          "point": 145.78529643081313,
+          "boot_mean": 145.26892657870806,
+          "boot_se": 3.5933163951120655,
+          "ci95_lo": 138.05328661085025,
+          "ci95_hi": 152.0859876021764,
+          "ci95_width": 14.032700991326152,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_h15_disc_mt": {
+          "point": 3.354208118592929,
+          "boot_mean": 3.2942027379399352,
+          "boot_se": 0.146949081038499,
+          "ci95_lo": 2.9979013904523963,
+          "ci95_hi": 3.5734920528324037,
+          "ci95_width": 0.5755906623800073,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_net_mt": {
+          "point": 0.46017426040365605,
+          "boot_mean": 0.4595588577881939,
+          "boot_se": 0.038070300843273355,
+          "ci95_lo": 0.3815532414015635,
+          "ci95_hi": 0.5381332137074699,
+          "ci95_width": 0.15657997230590642,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_mt": {
+          "point": 0.931345014880248,
+          "boot_mean": 0.9202412541630375,
+          "boot_se": 0.05056995690360466,
+          "ci95_lo": 0.8253814336298687,
+          "ci95_hi": 1.0212704451011134,
+          "ci95_width": 0.1958890114712447,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_kg_mwh": {
+          "point": 87.11137697230419,
+          "boot_mean": 86.23571214768582,
+          "boot_se": 3.722387832812852,
+          "ci95_lo": 79.30115117709654,
+          "ci95_hi": 93.32510776214143,
+          "ci95_width": 14.023956585044886,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u15_disc_mt": {
+          "point": 0.3335055477618678,
+          "boot_mean": 0.32295507227981746,
+          "boot_se": 0.0384094914939166,
+          "ci95_lo": 0.24906829416351134,
+          "ci95_hi": 0.39630302608806295,
+          "ci95_width": 0.1472347319245516,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        }
+      },
+      "14d": {
+        "tot_dis_twh": {
+          "point": 49.771334916666675,
+          "boot_mean": 49.882918285500004,
+          "boot_se": 1.4162594365548882,
+          "ci95_lo": 47.17021192083334,
+          "ci95_hi": 52.950609775,
+          "ci95_width": 5.780397854166658,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_net_mt": {
+          "point": -3.7311888522924934,
+          "boot_mean": -3.735907542322881,
+          "boot_se": 0.10474191764031986,
+          "ci95_lo": -3.9470512738161916,
+          "ci95_hi": -3.538693523572409,
+          "ci95_width": 0.40835775024378274,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_kg_mwh": {
+          "point": -74.96662202329335,
+          "boot_mean": -74.9150793744873,
+          "boot_se": 1.7667529506416406,
+          "ci95_lo": -78.45739169498111,
+          "ci95_hi": -71.4622183408293,
+          "ci95_width": 6.995173354151817,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_net_mt": {
+          "point": 3.712186403629496,
+          "boot_mean": 3.719757699514874,
+          "boot_se": 0.20289978796218044,
+          "ci95_lo": 3.3412324699351883,
+          "ci95_hi": 4.128285896653453,
+          "ci95_width": 0.7870534267182645,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_kg_mwh": {
+          "point": 74.58482698615373,
+          "boot_mean": 74.55014080962584,
+          "boot_se": 3.0202293196414276,
+          "ci95_lo": 68.95562200996315,
+          "ci95_hi": 80.52796522923697,
+          "ci95_width": 11.572343219273819,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_mt": {
+          "point": 7.443375255921989,
+          "boot_mean": 7.455665241837755,
+          "boot_se": 0.2594976494753756,
+          "ci95_lo": 6.969379865227175,
+          "ci95_hi": 7.98094583015698,
+          "ci95_width": 1.0115659649298046,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_kg_mwh": {
+          "point": 149.55144900944708,
+          "boot_mean": 149.46522018411312,
+          "boot_se": 3.1069468891521264,
+          "ci95_lo": 143.46356597435124,
+          "ci95_hi": 155.7223044058348,
+          "ci95_width": 12.25873843148355,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_net_mt": {
+          "point": 1.7550245510033455,
+          "boot_mean": 1.7623933287624045,
+          "boot_se": 0.16412069455672867,
+          "ci95_lo": 1.4615888170537643,
+          "ci95_hi": 2.093043335450319,
+          "ci95_width": 0.6314545183965545,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_disc_mt": {
+          "point": 5.486213403295839,
+          "boot_mean": 5.498300871085285,
+          "boot_se": 0.21662632145409422,
+          "ci95_lo": 5.106738104924346,
+          "ci95_hi": 5.96079379663274,
+          "ci95_width": 0.8540556917083943,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_net_mt": {
+          "point": 0.7764436246902678,
+          "boot_mean": 0.7837111433861685,
+          "boot_se": 0.14759669985402774,
+          "ci95_lo": 0.5190596123645848,
+          "ci95_hi": 1.0818790056513115,
+          "ci95_width": 0.5628193932867267,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_disc_mt": {
+          "point": 4.507632476982761,
+          "boot_mean": 4.51961868570905,
+          "boot_se": 0.19668877418691358,
+          "ci95_lo": 4.16353869200569,
+          "ci95_hi": 4.931299175067238,
+          "ci95_width": 0.7677604830615481,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u20_net_mt": {
+          "point": -0.20213730162280769,
+          "boot_mean": -0.19497104199006512,
+          "boot_se": 0.1339564557692775,
+          "ci95_lo": -0.4397503564001544,
+          "ci95_hi": 0.07210953444830184,
+          "ci95_width": 0.5118598908484563,
+          "p_2sided_vs_zero": 0.172,
+          "covers_zero": true
+        },
+        "u20_disc_mt": {
+          "point": 3.529051550669686,
+          "boot_mean": 3.540936500332816,
+          "boot_se": 0.1782031072793579,
+          "ci95_lo": 3.2192088759843784,
+          "ci95_hi": 3.8978549745356545,
+          "ci95_width": 0.6786460985512761,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_net_mt": {
+          "point": -2.15929915424896,
+          "boot_mean": -2.1523354127425365,
+          "boot_se": 0.11914072744677992,
+          "ci95_lo": -2.375313051438325,
+          "ci95_hi": -1.9115744028679746,
+          "ci95_width": 0.4637386485703503,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_disc_mt": {
+          "point": 1.5718896980435333,
+          "boot_mean": 1.5835721295803447,
+          "boot_se": 0.14774025509353308,
+          "ci95_lo": 1.3084780217926946,
+          "ci95_hi": 1.8781032038538816,
+          "ci95_width": 0.5696251820611871,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_mt": {
+          "point": 1.8550584839510529,
+          "boot_mean": 1.8150099164546505,
+          "boot_se": 0.19200327079247279,
+          "ci95_lo": 1.4457147173204488,
+          "ci95_hi": 2.192068169762055,
+          "ci95_width": 0.7463534524416062,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_mt": {
+          "point": 5.586247336243546,
+          "boot_mean": 5.550917458777532,
+          "boot_se": 0.23600883118315405,
+          "ci95_lo": 5.097609684305897,
+          "ci95_hi": 6.0029989361503535,
+          "ci95_width": 0.9053892518444568,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_kg_mwh": {
+          "point": 112.23824608274485,
+          "boot_mean": 111.26651257886851,
+          "boot_se": 3.1070104171502257,
+          "ci95_lo": 105.05200511459327,
+          "ci95_hi": 117.20987650273713,
+          "ci95_width": 12.15787138814386,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_mt": {
+          "point": 0.8146687926771008,
+          "boot_mean": 0.775128049145756,
+          "boot_se": 0.16674644715386086,
+          "ci95_lo": 0.4416191830258023,
+          "ci95_hi": 1.0996099911850739,
+          "ci95_width": 0.6579908081592716,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_disc_mt": {
+          "point": 4.545857644969594,
+          "boot_mean": 4.511035591468637,
+          "boot_se": 0.2029633213519889,
+          "ci95_lo": 4.109280076625354,
+          "ci95_hi": 4.896031759103888,
+          "ci95_width": 0.7867516824785339,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_mt": {
+          "point": 0.2944739470401254,
+          "boot_mean": 0.2551871154913082,
+          "boot_se": 0.15769168762869815,
+          "ci95_lo": -0.06377999959083076,
+          "ci95_hi": 0.5710088681254425,
+          "ci95_width": 0.6347888677162733,
+          "p_2sided_vs_zero": 0.122,
+          "covers_zero": true
+        },
+        "h15_main_disc_mt": {
+          "point": 4.025662799332618,
+          "boot_mean": 3.9910946578141893,
+          "boot_se": 0.18850413897356358,
+          "ci95_lo": 3.6215630887669006,
+          "ci95_hi": 4.353897104173049,
+          "ci95_width": 0.7323340154061482,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_disc_kg_mwh": {
+          "point": 80.88315907284546,
+          "boot_mean": 80.0096745102999,
+          "boot_se": 3.0387668604335683,
+          "ci95_lo": 74.08674304321426,
+          "ci95_hi": 85.62564677839026,
+          "ci95_width": 11.538903735176007,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_mt": {
+          "point": 1.9122196550735877,
+          "boot_mean": 2.186554407555119,
+          "boot_se": 0.3865735411413293,
+          "ci95_lo": 1.4240239407701414,
+          "ci95_hi": 2.9754983043168064,
+          "ci95_width": 1.551474363546665,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_disc_mt": {
+          "point": 5.643408507366081,
+          "boot_mean": 5.9224619498780005,
+          "boot_se": 0.4194239783534892,
+          "ci95_lo": 5.108500991173038,
+          "ci95_hi": 6.745442368623998,
+          "ci95_width": 1.6369413774509596,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_dload_mt": {
+          "point": 0.3516351181626602,
+          "boot_mean": 0.6267316065917771,
+          "boot_se": 0.3560782094179595,
+          "ci95_lo": -0.05854186690136617,
+          "ci95_hi": 1.368980118242182,
+          "ci95_width": 1.4275219851435481,
+          "p_2sided_vs_zero": 0.078,
+          "covers_zero": true
+        },
+        "h15_dload_disc_mt": {
+          "point": 4.082823970455154,
+          "boot_mean": 4.362639148914658,
+          "boot_se": 0.3809216347113513,
+          "ci95_lo": 3.609814000163307,
+          "ci95_hi": 5.119269745824441,
+          "ci95_width": 1.5094557456611346,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "ciso_emp_main": {
+          "point": -0.6554414744570636,
+          "boot_mean": -2.593899592031043,
+          "boot_se": 4.96520472111372,
+          "ci95_lo": -12.471640976675722,
+          "ci95_hi": 6.494814557490024,
+          "ci95_width": 18.966455534165746,
+          "p_2sided_vs_zero": 0.618,
+          "covers_zero": true
+        },
+        "ciso_emp_dload": {
+          "point": 1.3050841471228694,
+          "boot_mean": 10.065645484090318,
+          "boot_se": 11.464216839551003,
+          "ci95_lo": -12.376431239541052,
+          "ci95_hi": 33.60479815856965,
+          "ci95_width": 45.9812293981107,
+          "p_2sided_vs_zero": 0.406,
+          "covers_zero": true
+        },
+        "leave_ciso_u0_net_mt": {
+          "point": 1.8741685643651278,
+          "boot_mean": 1.8908032900075549,
+          "boot_se": 0.10639088118422459,
+          "ci95_lo": 1.6855478071498242,
+          "ci95_hi": 2.1016970693755774,
+          "ci95_width": 0.4161492622257532,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_mt": {
+          "point": 2.5655447654124846,
+          "boot_mean": 2.559928315315177,
+          "boot_se": 0.13786868689539894,
+          "ci95_lo": 2.2987191297634473,
+          "ci95_hi": 2.831562020053647,
+          "ci95_width": 0.5328428902901998,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_kg_mwh": {
+          "point": 124.44863210577455,
+          "boot_mean": 124.43986155031855,
+          "boot_se": 3.093682748622721,
+          "ci95_lo": 118.45642229276166,
+          "ci95_hi": 130.4762390441595,
+          "ci95_width": 12.019816751397855,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u15_disc_mt": {
+          "point": 1.0049602285015573,
+          "boot_mean": 1.0001055143518343,
+          "boot_se": 0.07990449692898177,
+          "ci95_lo": 0.8470445406799542,
+          "ci95_hi": 1.158807853734672,
+          "ci95_width": 0.3117633130547178,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_net_mt": {
+          "point": 2.2981920996680243,
+          "boot_mean": 2.2852974746456254,
+          "boot_se": 0.15291607666947474,
+          "ci95_lo": 2.0006622477651788,
+          "ci95_hi": 2.5951374857157354,
+          "ci95_width": 0.5944752379505567,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_mt": {
+          "point": 5.809175505389753,
+          "boot_mean": 5.81028597954078,
+          "boot_se": 0.1947053046856405,
+          "ci95_lo": 5.443731663400853,
+          "ci95_hi": 6.201453445453101,
+          "ci95_width": 0.7577217820522479,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_kg_mwh": {
+          "point": 145.78529643081313,
+          "boot_mean": 145.2310652852417,
+          "boot_se": 3.7620288568402502,
+          "ci95_lo": 138.1716771323253,
+          "ci95_hi": 152.8960649160385,
+          "ci95_width": 14.724387783713212,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_h15_disc_mt": {
+          "point": 3.354208118592929,
+          "boot_mean": 3.3087372998240645,
+          "boot_se": 0.15732153109635622,
+          "ci95_lo": 3.001524548470065,
+          "ci95_hi": 3.6177070353352128,
+          "ci95_width": 0.616182486865148,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_net_mt": {
+          "point": 0.46017426040365605,
+          "boot_mean": 0.4563430651383062,
+          "boot_se": 0.04213068931607573,
+          "ci95_lo": 0.3719601752111367,
+          "ci95_hi": 0.5385762413494601,
+          "ci95_width": 0.16661606613832342,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_mt": {
+          "point": 0.931345014880248,
+          "boot_mean": 0.9145490530182023,
+          "boot_se": 0.060010138447158475,
+          "ci95_lo": 0.7987446307765077,
+          "ci95_hi": 1.0357435489083617,
+          "ci95_width": 0.23699891813185403,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_kg_mwh": {
+          "point": 87.11137697230419,
+          "boot_mean": 85.52770585452504,
+          "boot_se": 4.335743055914447,
+          "ci95_lo": 77.18043332499288,
+          "ci95_hi": 93.5955442773012,
+          "ci95_width": 16.415110952308325,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u15_disc_mt": {
+          "point": 0.3335055477618678,
+          "boot_mean": 0.31774815636170917,
+          "boot_se": 0.04340067099538266,
+          "ci95_lo": 0.23697934754944797,
+          "ci95_hi": 0.3994796183808959,
+          "ci95_width": 0.16250027083144794,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        }
+      },
+      "28d": {
+        "tot_dis_twh": {
+          "point": 49.771334916666675,
+          "boot_mean": 49.63208587066667,
+          "boot_se": 1.892987581875479,
+          "ci95_lo": 46.18817588125,
+          "ci95_hi": 53.190309120833334,
+          "ci95_width": 7.002133239583337,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_net_mt": {
+          "point": -3.7311888522924934,
+          "boot_mean": -3.7603838134158822,
+          "boot_se": 0.13022276600539984,
+          "ci95_lo": -4.0000478168525655,
+          "ci95_hi": -3.5226655411309022,
+          "ci95_width": 0.47738227572166325,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_kg_mwh": {
+          "point": -74.96662202329335,
+          "boot_mean": -75.80222119839142,
+          "boot_se": 2.037092779411017,
+          "ci95_lo": -79.82872457064185,
+          "ci95_hi": -71.97651672556538,
+          "ci95_width": 7.852207845076478,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_net_mt": {
+          "point": 3.712186403629496,
+          "boot_mean": 3.7400785507565293,
+          "boot_se": 0.23643018648667627,
+          "ci95_lo": 3.293505760148948,
+          "ci95_hi": 4.197393141801478,
+          "ci95_width": 0.9038873816525301,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_kg_mwh": {
+          "point": 74.58482698615373,
+          "boot_mean": 75.31170632894043,
+          "boot_se": 2.796223601604373,
+          "ci95_lo": 69.69278753759066,
+          "ci95_hi": 80.67275679977044,
+          "ci95_width": 10.979969262179779,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_mt": {
+          "point": 7.443375255921989,
+          "boot_mean": 7.500462364172412,
+          "boot_se": 0.3279304357725393,
+          "ci95_lo": 6.903187072422885,
+          "ci95_hi": 8.13750471505965,
+          "ci95_width": 1.234317642636765,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_kg_mwh": {
+          "point": 149.55144900944708,
+          "boot_mean": 151.11392752733187,
+          "boot_se": 2.880261911845364,
+          "ci95_lo": 145.17699721230827,
+          "ci95_hi": 156.62183514967387,
+          "ci95_width": 11.444837937365605,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_net_mt": {
+          "point": 1.7550245510033455,
+          "boot_mean": 1.7928068653556466,
+          "boot_se": 0.17728222270475694,
+          "ci95_lo": 1.451006303734684,
+          "ci95_hi": 2.134008090022131,
+          "ci95_width": 0.6830017862874471,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_disc_mt": {
+          "point": 5.486213403295839,
+          "boot_mean": 5.553190678771529,
+          "boot_se": 0.26628678100308195,
+          "ci95_lo": 5.059231095087697,
+          "ci95_hi": 6.06798295578751,
+          "ci95_width": 1.008751860699813,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_net_mt": {
+          "point": 0.7764436246902678,
+          "boot_mean": 0.8191710226552043,
+          "boot_se": 0.15039618749471967,
+          "ci95_lo": 0.5323023034502976,
+          "ci95_hi": 1.1167272924601608,
+          "ci95_width": 0.5844249890098632,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_disc_mt": {
+          "point": 4.507632476982761,
+          "boot_mean": 4.579554836071087,
+          "boot_se": 0.23668320446493835,
+          "ci95_lo": 4.134420213329492,
+          "ci95_hi": 5.0426493222729505,
+          "ci95_width": 0.9082291089434582,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u20_net_mt": {
+          "point": -0.20213730162280769,
+          "boot_mean": -0.15446482004523568,
+          "boot_se": 0.12685611253550916,
+          "ci95_lo": -0.40374847084103055,
+          "ci95_hi": 0.10207048741912628,
+          "ci95_width": 0.5058189582601569,
+          "p_2sided_vs_zero": 0.22,
+          "covers_zero": true
+        },
+        "u20_disc_mt": {
+          "point": 3.529051550669686,
+          "boot_mean": 3.6059189933706466,
+          "boot_se": 0.20835705450852238,
+          "ci95_lo": 3.2106343857522788,
+          "ci95_hi": 4.014121237743101,
+          "ci95_width": 0.8034868519908223,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_net_mt": {
+          "point": -2.15929915424896,
+          "boot_mean": -2.1017365054461203,
+          "boot_se": 0.09944693803015078,
+          "ci95_lo": -2.292968923456914,
+          "ci95_hi": -1.9130541542858985,
+          "ci95_width": 0.37991476917101563,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_disc_mt": {
+          "point": 1.5718896980435333,
+          "boot_mean": 1.6586473079697621,
+          "boot_se": 0.158273206783143,
+          "ci95_lo": 1.3388292117513807,
+          "ci95_hi": 1.9664967633568602,
+          "ci95_width": 0.6276675516054795,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_mt": {
+          "point": 1.8550584839510529,
+          "boot_mean": 1.8094664605204487,
+          "boot_se": 0.19084103422496582,
+          "ci95_lo": 1.4433490359135053,
+          "ci95_hi": 2.1984190845232807,
+          "ci95_width": 0.7550700486097754,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_mt": {
+          "point": 5.586247336243546,
+          "boot_mean": 5.569850273936331,
+          "boot_se": 0.26433301786769653,
+          "ci95_lo": 5.086049039596819,
+          "ci95_hi": 6.064795357151706,
+          "ci95_width": 0.9787463175548865,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_kg_mwh": {
+          "point": 112.23824608274485,
+          "boot_mean": 112.20771438857895,
+          "boot_se": 2.58255640981861,
+          "ci95_lo": 107.00462333740087,
+          "ci95_hi": 117.00669528901517,
+          "ci95_width": 10.002071951614298,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_mt": {
+          "point": 0.8146687926771008,
+          "boot_mean": 0.7814042454685673,
+          "boot_se": 0.15221540744296658,
+          "ci95_lo": 0.48110397040326514,
+          "ci95_hi": 1.0818843269481533,
+          "ci95_width": 0.6007803565448881,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_disc_mt": {
+          "point": 4.545857644969594,
+          "boot_mean": 4.541788058884449,
+          "boot_se": 0.21373800493845452,
+          "ci95_lo": 4.145538967285707,
+          "ci95_hi": 4.953797505864138,
+          "ci95_width": 0.8082585385784311,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_mt": {
+          "point": 0.2944739470401254,
+          "boot_mean": 0.26737313794262624,
+          "boot_se": 0.13885854730113922,
+          "ci95_lo": -0.0017558116092430615,
+          "ci95_hi": 0.5408811442532324,
+          "ci95_width": 0.5426369558624755,
+          "p_2sided_vs_zero": 0.054,
+          "covers_zero": true
+        },
+        "h15_main_disc_mt": {
+          "point": 4.025662799332618,
+          "boot_mean": 4.0277569513585085,
+          "boot_se": 0.19059769385055986,
+          "ci95_lo": 3.6642730936678056,
+          "ci95_hi": 4.399091311659026,
+          "ci95_width": 0.7348182179912204,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_disc_kg_mwh": {
+          "point": 80.88315907284546,
+          "boot_mean": 81.16050574036534,
+          "boot_se": 2.5560137803859218,
+          "ci95_lo": 76.3176106364106,
+          "ci95_hi": 86.00436749054286,
+          "ci95_width": 9.686756854132256,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_mt": {
+          "point": 1.9122196550735877,
+          "boot_mean": 2.157006142490399,
+          "boot_se": 0.40808194517406027,
+          "ci95_lo": 1.4553826779110748,
+          "ci95_hi": 2.991714046625293,
+          "ci95_width": 1.5363313687142182,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_disc_mt": {
+          "point": 5.643408507366081,
+          "boot_mean": 5.917389955906281,
+          "boot_se": 0.4694719635595281,
+          "ci95_lo": 5.07694929783025,
+          "ci95_hi": 6.863310223492755,
+          "ci95_width": 1.786360925662505,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_dload_mt": {
+          "point": 0.3516351181626602,
+          "boot_mean": 0.6149128199125766,
+          "boot_se": 0.3572283845892933,
+          "ci95_lo": 0.001711568677229095,
+          "ci95_hi": 1.3776604724599726,
+          "ci95_width": 1.3759489037827435,
+          "p_2sided_vs_zero": 0.048,
+          "covers_zero": false
+        },
+        "h15_dload_disc_mt": {
+          "point": 4.082823970455154,
+          "boot_mean": 4.375296633328459,
+          "boot_se": 0.406299532487117,
+          "ci95_lo": 3.6374439720516474,
+          "ci95_hi": 5.191441462698291,
+          "ci95_width": 1.553997490646644,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "ciso_emp_main": {
+          "point": -0.6554414744570636,
+          "boot_mean": -2.5227261485104138,
+          "boot_se": 4.572414433863571,
+          "ci95_lo": -11.674286483875147,
+          "ci95_hi": 6.684613825807927,
+          "ci95_width": 18.358900309683072,
+          "p_2sided_vs_zero": 0.574,
+          "covers_zero": true
+        },
+        "ciso_emp_dload": {
+          "point": 1.3050841471228694,
+          "boot_mean": 9.287793273928425,
+          "boot_se": 11.3581429529837,
+          "ci95_lo": -10.853298540413011,
+          "ci95_hi": 33.661434844362674,
+          "ci95_width": 44.51473338477568,
+          "p_2sided_vs_zero": 0.444,
+          "covers_zero": true
+        },
+        "leave_ciso_u0_net_mt": {
+          "point": 1.8741685643651278,
+          "boot_mean": 1.882875815454251,
+          "boot_se": 0.126740712834698,
+          "ci95_lo": 1.6503679438960204,
+          "ci95_hi": 2.124714499367558,
+          "ci95_width": 0.4743465554715376,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_mt": {
+          "point": 2.5655447654124846,
+          "boot_mean": 2.5392735104249713,
+          "boot_se": 0.1668649778942909,
+          "ci95_lo": 2.2271949644883087,
+          "ci95_hi": 2.867775059055024,
+          "ci95_width": 0.6405800945667153,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_kg_mwh": {
+          "point": 124.44863210577455,
+          "boot_mean": 124.83678183803957,
+          "boot_se": 2.90528145402582,
+          "ci95_lo": 119.29127814839944,
+          "ci95_hi": 130.62341521136727,
+          "ci95_width": 11.332137062967831,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u15_disc_mt": {
+          "point": 1.0049602285015573,
+          "boot_mean": 0.9971801878471493,
+          "boot_se": 0.0862482833157863,
+          "ci95_lo": 0.8376987064388629,
+          "ci95_hi": 1.171575598567265,
+          "ci95_width": 0.333876892128402,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_net_mt": {
+          "point": 2.2981920996680243,
+          "boot_mean": 2.3119961420102526,
+          "boot_se": 0.15779059439304494,
+          "ci95_lo": 2.01649821289749,
+          "ci95_hi": 2.625069578345107,
+          "ci95_width": 0.6085713654476166,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_mt": {
+          "point": 5.809175505389753,
+          "boot_mean": 5.862057320708782,
+          "boot_se": 0.23188387422111098,
+          "ci95_lo": 5.431742251213456,
+          "ci95_hi": 6.315181142189006,
+          "ci95_width": 0.8834388909755502,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_kg_mwh": {
+          "point": 145.78529643081313,
+          "boot_mean": 147.16380100915407,
+          "boot_se": 3.4129502338676434,
+          "ci95_lo": 140.2739107709694,
+          "ci95_hi": 153.97227219937778,
+          "ci95_width": 13.69836142840839,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_h15_disc_mt": {
+          "point": 3.354208118592929,
+          "boot_mean": 3.345158709352413,
+          "boot_se": 0.14976554257815358,
+          "ci95_lo": 3.051549735734445,
+          "ci95_hi": 3.6303180431183995,
+          "ci95_width": 0.5787683073839545,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_net_mt": {
+          "point": 0.46017426040365605,
+          "boot_mean": 0.45479340670797497,
+          "boot_se": 0.041219940713819354,
+          "ci95_lo": 0.3818325959547716,
+          "ci95_hi": 0.5363219007402983,
+          "ci95_width": 0.1544893047855267,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_mt": {
+          "point": 0.931345014880248,
+          "boot_mean": 0.9008684669613412,
+          "boot_se": 0.06659264961493783,
+          "ci95_lo": 0.7765969211689512,
+          "ci95_hi": 1.0354019506182874,
+          "ci95_width": 0.25880502944933625,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_kg_mwh": {
+          "point": 87.11137697230419,
+          "boot_mean": 85.52603897651463,
+          "boot_se": 4.57548089652896,
+          "ci95_lo": 76.91824119027399,
+          "ci95_hi": 94.02007103964189,
+          "ci95_width": 17.101829849367903,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u15_disc_mt": {
+          "point": 0.3335055477618678,
+          "boot_mean": 0.31458194584105376,
+          "boot_se": 0.0436845324739083,
+          "ci95_lo": 0.22973609908431092,
+          "ci95_hi": 0.4026147133063541,
+          "ci95_width": 0.1728786142220432,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        }
+      }
+    },
+    "same_window_202407_202512": {
+      "7d": {
+        "tot_dis_twh": {
+          "point": 26.02665366666666,
+          "boot_mean": 26.04524571725,
+          "boot_se": 0.9977685976118497,
+          "ci95_lo": 24.1594887625,
+          "ci95_hi": 27.96495890208333,
+          "ci95_width": 3.8054701395833277,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_net_mt": {
+          "point": -2.036315165759594,
+          "boot_mean": -2.0373756856576826,
+          "boot_se": 0.07222128279752071,
+          "ci95_lo": -2.1906123806283135,
+          "ci95_hi": -1.8998351713009047,
+          "ci95_width": 0.2907772093274088,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_kg_mwh": {
+          "point": -78.23960743626375,
+          "boot_mean": -78.26347954892542,
+          "boot_se": 2.1841670555783703,
+          "ci95_lo": -82.42321829818587,
+          "ci95_hi": -73.82902014747788,
+          "ci95_width": 8.594198150707996,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_net_mt": {
+          "point": 1.914175449928654,
+          "boot_mean": 1.9331970741464504,
+          "boot_se": 0.12817903036976191,
+          "ci95_lo": 1.6952539287442239,
+          "ci95_hi": 2.2077579664632534,
+          "ci95_width": 0.5125040377190295,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_kg_mwh": {
+          "point": 73.54673691225285,
+          "boot_mean": 74.19404959794976,
+          "boot_se": 3.3930759557977224,
+          "ci95_lo": 67.31050849325425,
+          "ci95_hi": 80.82125264515452,
+          "ci95_width": 13.51074415190027,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_mt": {
+          "point": 3.950490615688248,
+          "boot_mean": 3.970572759804133,
+          "boot_se": 0.17580064287490593,
+          "ci95_lo": 3.648746409098427,
+          "ci95_hi": 4.334102903571346,
+          "ci95_width": 0.6853564944729191,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_kg_mwh": {
+          "point": 151.7863443485166,
+          "boot_mean": 152.45752914687517,
+          "boot_se": 3.707839815734521,
+          "ci95_lo": 144.83040169831708,
+          "ci95_hi": 159.41582626272145,
+          "ci95_width": 14.585424564404377,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_net_mt": {
+          "point": 0.8992585891351654,
+          "boot_mean": 0.9187643180878542,
+          "boot_se": 0.09908206918033173,
+          "ci95_lo": 0.7330790608778904,
+          "ci95_hi": 1.119216593181911,
+          "ci95_width": 0.3861375323040205,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_disc_mt": {
+          "point": 2.93557375489476,
+          "boot_mean": 2.9561400037455368,
+          "boot_se": 0.14378767041482549,
+          "ci95_lo": 2.691986054485451,
+          "ci95_hi": 3.25526285473581,
+          "ci95_width": 0.563276800250359,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_net_mt": {
+          "point": 0.39180015873842133,
+          "boot_mean": 0.41154794005855555,
+          "boot_se": 0.08707903020401671,
+          "ci95_lo": 0.23738823929521333,
+          "ci95_hi": 0.5899306335466615,
+          "ci95_width": 0.3525423942514482,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_disc_mt": {
+          "point": 2.4281153244980156,
+          "boot_mean": 2.4489236257162386,
+          "boot_se": 0.12896206028256046,
+          "ci95_lo": 2.2112027688865923,
+          "ci95_hi": 2.715543121841082,
+          "ci95_width": 0.5043403529544896,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u20_net_mt": {
+          "point": -0.11565827165832221,
+          "boot_mean": -0.09566843797074201,
+          "boot_se": 0.07786395237500797,
+          "ci95_lo": -0.2515342025936414,
+          "ci95_hi": 0.06257387776121096,
+          "ci95_width": 0.3141080803548524,
+          "p_2sided_vs_zero": 0.22,
+          "covers_zero": true
+        },
+        "u20_disc_mt": {
+          "point": 1.9206568941012718,
+          "boot_mean": 1.9417072476869408,
+          "boot_se": 0.11533459295151867,
+          "ci95_lo": 1.7291047355754579,
+          "ci95_hi": 2.1840632092216614,
+          "ci95_width": 0.45495847364620357,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_net_mt": {
+          "point": -1.130575132451812,
+          "boot_mean": -1.1101011940293393,
+          "boot_se": 0.0718782287326055,
+          "ci95_lo": -1.2491687194254657,
+          "ci95_hi": -0.9692756763575203,
+          "ci95_width": 0.2798930430679454,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_disc_mt": {
+          "point": 0.9057400333077821,
+          "boot_mean": 0.9272744916283432,
+          "boot_se": 0.09374107178361202,
+          "ci95_lo": 0.7532979452204741,
+          "ci95_hi": 1.1256136674178323,
+          "ci95_width": 0.3723157221973582,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_mt": {
+          "point": 0.8500193480723719,
+          "boot_mean": 0.8237549847394633,
+          "boot_se": 0.11003554937878442,
+          "ci95_lo": 0.6047418436334543,
+          "ci95_hi": 1.039827516207923,
+          "ci95_width": 0.4350856725744686,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_mt": {
+          "point": 2.886334513831966,
+          "boot_mean": 2.861130670397146,
+          "boot_se": 0.14584028761455337,
+          "ci95_lo": 2.5850296739153733,
+          "ci95_hi": 3.1467259065116204,
+          "ci95_width": 0.5616962325962471,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_kg_mwh": {
+          "point": 110.89917861890197,
+          "boot_mean": 109.84179021030528,
+          "boot_se": 3.3620711292571497,
+          "ci95_lo": 102.94145663733146,
+          "ci95_hi": 116.29299387623296,
+          "ci95_width": 13.3515372389015,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_mt": {
+          "point": 0.39238029288009607,
+          "boot_mean": 0.36722076253720637,
+          "boot_se": 0.09228310821422357,
+          "ci95_lo": 0.18296854959706257,
+          "ci95_hi": 0.5509691688058741,
+          "ci95_width": 0.36800061920881155,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_disc_mt": {
+          "point": 2.42869545863969,
+          "boot_mean": 2.4045964481948885,
+          "boot_se": 0.1215451230889403,
+          "ci95_lo": 2.17307257593446,
+          "ci95_hi": 2.649867240493703,
+          "ci95_width": 0.47679466455924313,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_mt": {
+          "point": 0.16356076528395777,
+          "boot_mean": 0.13895365143607769,
+          "boot_se": 0.08674306647701666,
+          "ci95_lo": -0.03432486308091557,
+          "ci95_hi": 0.3050227668488932,
+          "ci95_width": 0.33934762992980877,
+          "p_2sided_vs_zero": 0.114,
+          "covers_zero": true
+        },
+        "h15_main_disc_mt": {
+          "point": 2.199875931043552,
+          "boot_mean": 2.17632933709376,
+          "boot_se": 0.11103667514463446,
+          "ci95_lo": 1.9651998113615283,
+          "ci95_hi": 2.402284022287944,
+          "ci95_width": 0.4370842109264155,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_disc_kg_mwh": {
+          "point": 84.52396374955487,
+          "boot_mean": 83.58098221298502,
+          "boot_se": 3.3903151984888606,
+          "ci95_lo": 76.75233797453366,
+          "ci95_hi": 90.3467755258006,
+          "ci95_width": 13.594437551266935,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_mt": {
+          "point": 0.8845398429752689,
+          "boot_mean": 0.9764626035780464,
+          "boot_se": 0.21098019867976503,
+          "ci95_lo": 0.5730635751654005,
+          "ci95_hi": 1.39595893233726,
+          "ci95_width": 0.8228953571718596,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_disc_mt": {
+          "point": 2.920855008734863,
+          "boot_mean": 3.013838289235729,
+          "boot_se": 0.23493170823199408,
+          "ci95_lo": 2.561772274060533,
+          "ci95_hi": 3.5033635831968937,
+          "ci95_width": 0.9415913091363608,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_dload_mt": {
+          "point": 0.19808126018685474,
+          "boot_mean": 0.2916612702746607,
+          "boot_se": 0.19328229984140333,
+          "ci95_lo": -0.08356449236902365,
+          "ci95_hi": 0.6807828645663858,
+          "ci95_width": 0.7643473569354094,
+          "p_2sided_vs_zero": 0.134,
+          "covers_zero": true
+        },
+        "h15_dload_disc_mt": {
+          "point": 2.234396425946449,
+          "boot_mean": 2.329036955932343,
+          "boot_se": 0.20900126078750342,
+          "ci95_lo": 1.932581726259682,
+          "ci95_hi": 2.7442449501844037,
+          "ci95_width": 0.8116632239247217,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "ciso_emp_main": {
+          "point": 0.7610027536462098,
+          "boot_mean": -1.176942458579379,
+          "boot_se": 4.747577128865666,
+          "ci95_lo": -10.440460481424212,
+          "ci95_hi": 7.8227866370444765,
+          "ci95_width": 18.26324711846869,
+          "p_2sided_vs_zero": 0.814,
+          "covers_zero": true
+        },
+        "ciso_emp_dload": {
+          "point": 2.789769905013145,
+          "boot_mean": 7.753958488732109,
+          "boot_se": 10.823773958351342,
+          "ci95_lo": -12.410032750428007,
+          "ci95_hi": 29.097106313826423,
+          "ci95_width": 41.50713906425443,
+          "p_2sided_vs_zero": 0.466,
+          "covers_zero": true
+        },
+        "leave_ciso_u0_net_mt": {
+          "point": 0.8370705029273614,
+          "boot_mean": 0.8438554972133753,
+          "boot_se": 0.06755329103198968,
+          "ci95_lo": 0.7177250562631714,
+          "ci95_hi": 0.9770617257712616,
+          "ci95_width": 0.2593366695080902,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_mt": {
+          "point": 1.0332730399385353,
+          "boot_mean": 1.0320705109494093,
+          "boot_se": 0.08905500788698638,
+          "ci95_lo": 0.869000497010333,
+          "ci95_hi": 1.20836762216811,
+          "ci95_width": 0.3393671251577769,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_kg_mwh": {
+          "point": 114.66605704472077,
+          "boot_mean": 115.07568783016949,
+          "boot_se": 4.0198840216655665,
+          "ci95_lo": 107.28306739026938,
+          "ci95_hi": 123.35770752781698,
+          "ci95_width": 16.074640137547604,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u15_disc_mt": {
+          "point": 0.3468144571501211,
+          "boot_mean": 0.34726917764602344,
+          "boot_se": 0.047425386852387834,
+          "ci95_lo": 0.2587996014495206,
+          "ci95_hi": 0.4438860974118143,
+          "ci95_width": 0.1850864959622937,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_net_mt": {
+          "point": 1.2727391235397776,
+          "boot_mean": 1.2884698649424533,
+          "boot_se": 0.10031935660025218,
+          "ci95_lo": 1.1004626379099454,
+          "ci95_hi": 1.4874437652316632,
+          "ci95_width": 0.38698112732171785,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_mt": {
+          "point": 3.290527232615527,
+          "boot_mean": 3.3113282685604974,
+          "boot_se": 0.13984108611921495,
+          "ci95_lo": 3.0373103620443413,
+          "ci95_hi": 3.588964487825192,
+          "ci95_width": 0.5516541257808507,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_kg_mwh": {
+          "point": 151.74747415290028,
+          "boot_mean": 152.4765818920748,
+          "boot_se": 4.386630410212983,
+          "ci95_lo": 143.6256336754386,
+          "ci95_hi": 160.564697548816,
+          "ci95_width": 16.93906387337742,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_h15_disc_mt": {
+          "point": 1.967508103699035,
+          "boot_mean": 1.9445797941916112,
+          "boot_se": 0.09663479998729282,
+          "ci95_lo": 1.7649080347153658,
+          "ci95_hi": 2.130468364399923,
+          "ci95_width": 0.3655603296845573,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_net_mt": {
+          "point": 0.19563417653848492,
+          "boot_mean": 0.1991282880093782,
+          "boot_se": 0.026431558041496096,
+          "ci95_lo": 0.14839587457187434,
+          "ci95_hi": 0.2531461862796883,
+          "ci95_width": 0.10475031170781399,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_mt": {
+          "point": 0.3733096568658142,
+          "boot_mean": 0.3728260197057732,
+          "boot_se": 0.0435375172489447,
+          "ci95_lo": 0.2937518192418887,
+          "ci95_hi": 0.46404675679807494,
+          "ci95_width": 0.17029493755618624,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_kg_mwh": {
+          "point": 79.95962429711872,
+          "boot_mean": 80.29775052457815,
+          "boot_se": 5.488030293077524,
+          "ci95_lo": 69.74616222578126,
+          "ci95_hi": 90.8130785051003,
+          "ci95_width": 21.06691627931903,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u15_disc_mt": {
+          "point": 0.11444662980560456,
+          "boot_mean": 0.11551963474387437,
+          "boot_se": 0.02687159340576165,
+          "ci95_lo": 0.06578682123872388,
+          "ci95_hi": 0.17030234249282025,
+          "ci95_width": 0.10451552125409637,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        }
+      },
+      "14d": {
+        "tot_dis_twh": {
+          "point": 26.02665366666666,
+          "boot_mean": 26.09671070025,
+          "boot_se": 1.3962472516028164,
+          "ci95_lo": 23.467955962499996,
+          "ci95_hi": 29.071371979166663,
+          "ci95_width": 5.603416016666667,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_net_mt": {
+          "point": -2.036315165759594,
+          "boot_mean": -2.0500396185667906,
+          "boot_se": 0.0860645612658946,
+          "ci95_lo": -2.2249617090517226,
+          "ci95_hi": -1.885685156277653,
+          "ci95_width": 0.33927655277406954,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_kg_mwh": {
+          "point": -78.23960743626375,
+          "boot_mean": -78.64375263532199,
+          "boot_se": 2.658124626548735,
+          "ci95_lo": -83.93240755226124,
+          "ci95_hi": -73.32021793440353,
+          "ci95_width": 10.612189617857709,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_net_mt": {
+          "point": 1.914175449928654,
+          "boot_mean": 1.952363756683652,
+          "boot_se": 0.16197782837479155,
+          "ci95_lo": 1.646762194463659,
+          "ci95_hi": 2.279325122814312,
+          "ci95_width": 0.6325629283506531,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_kg_mwh": {
+          "point": 73.54673691225285,
+          "boot_mean": 74.74617627027855,
+          "boot_se": 3.5489793159759766,
+          "ci95_lo": 67.78279277179107,
+          "ci95_hi": 81.1902626867665,
+          "ci95_width": 13.407469914975437,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_mt": {
+          "point": 3.950490615688248,
+          "boot_mean": 4.002403375250443,
+          "boot_se": 0.2279703473783848,
+          "ci95_lo": 3.5736977428742978,
+          "ci95_hi": 4.467768362396234,
+          "ci95_width": 0.8940706195219366,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_kg_mwh": {
+          "point": 151.7863443485166,
+          "boot_mean": 153.3899289056005,
+          "boot_se": 3.9629703890372165,
+          "ci95_lo": 145.49152171300437,
+          "ci95_hi": 161.24981527448455,
+          "ci95_width": 15.758293561480173,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_net_mt": {
+          "point": 0.8992585891351654,
+          "boot_mean": 0.9381106726113846,
+          "boot_se": 0.11685498735977164,
+          "ci95_lo": 0.719957365953924,
+          "ci95_hi": 1.1689008791217488,
+          "ci95_width": 0.44894351316782477,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_disc_mt": {
+          "point": 2.93557375489476,
+          "boot_mean": 2.9881502911781754,
+          "boot_se": 0.18073343296120373,
+          "ci95_lo": 2.646416399170006,
+          "ci95_hi": 3.3542450689097487,
+          "ci95_width": 0.7078286697397429,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_net_mt": {
+          "point": 0.39180015873842133,
+          "boot_mean": 0.43098413057525026,
+          "boot_se": 0.09706481015893259,
+          "ci95_lo": 0.2476713932507121,
+          "ci95_hi": 0.6192190437002272,
+          "ci95_width": 0.3715476504495151,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_disc_mt": {
+          "point": 2.4281153244980156,
+          "boot_mean": 2.4810237491420413,
+          "boot_se": 0.15833185008209794,
+          "ci95_lo": 2.1795731228609463,
+          "ci95_hi": 2.800259342769815,
+          "ci95_width": 0.6206862199088685,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u20_net_mt": {
+          "point": -0.11565827165832221,
+          "boot_mean": -0.07614241146088292,
+          "boot_se": 0.08099157863509865,
+          "ci95_lo": -0.23037149846024824,
+          "ci95_hi": 0.0771086788931464,
+          "ci95_width": 0.3074801773533946,
+          "p_2sided_vs_zero": 0.374,
+          "covers_zero": true
+        },
+        "u20_disc_mt": {
+          "point": 1.9206568941012718,
+          "boot_mean": 1.973897207105908,
+          "boot_se": 0.1372768911695499,
+          "ci95_lo": 1.7086856747291523,
+          "ci95_hi": 2.247029095363886,
+          "ci95_width": 0.5383434206347337,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_net_mt": {
+          "point": -1.130575132451812,
+          "boot_mean": -1.0903954955331514,
+          "boot_se": 0.07035950612299932,
+          "ci95_lo": -1.2347254313983014,
+          "ci95_hi": -0.9595817440078914,
+          "ci95_width": 0.27514368739040995,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_disc_mt": {
+          "point": 0.9057400333077821,
+          "boot_mean": 0.9596441230336394,
+          "boot_se": 0.10252605747577044,
+          "ci95_lo": 0.7562581715734191,
+          "ci95_hi": 1.1654792671985341,
+          "ci95_width": 0.409221095625115,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_mt": {
+          "point": 0.8500193480723719,
+          "boot_mean": 0.8357464548616781,
+          "boot_se": 0.13156903512377355,
+          "ci95_lo": 0.5883214219708262,
+          "ci95_hi": 1.0960160276395137,
+          "ci95_width": 0.5076946056686875,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_mt": {
+          "point": 2.886334513831966,
+          "boot_mean": 2.885786073428469,
+          "boot_se": 0.185654147707258,
+          "ci95_lo": 2.5320499764799016,
+          "ci95_hi": 3.250695114754231,
+          "ci95_width": 0.7186451382743293,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_kg_mwh": {
+          "point": 110.89917861890197,
+          "boot_mean": 110.56636548225593,
+          "boot_se": 3.5274250873111095,
+          "ci95_lo": 103.34550856649372,
+          "ci95_hi": 117.08752015778016,
+          "ci95_width": 13.742011591286442,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_mt": {
+          "point": 0.39238029288009607,
+          "boot_mean": 0.3788913862902142,
+          "boot_se": 0.10152843921716001,
+          "ci95_lo": 0.18133371982683769,
+          "ci95_hi": 0.5777778606952839,
+          "ci95_width": 0.39644414086844626,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_disc_mt": {
+          "point": 2.42869545863969,
+          "boot_mean": 2.428931004857005,
+          "boot_se": 0.1477844987274715,
+          "ci95_lo": 2.1501791766231797,
+          "ci95_hi": 2.7110400461926,
+          "ci95_width": 0.5608608695694204,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_mt": {
+          "point": 0.16356076528395777,
+          "boot_mean": 0.1504638520044821,
+          "boot_se": 0.09167037980753857,
+          "ci95_lo": -0.032907506557407,
+          "ci95_hi": 0.32519180408930976,
+          "ci95_width": 0.35809931064671674,
+          "p_2sided_vs_zero": 0.118,
+          "covers_zero": true
+        },
+        "h15_main_disc_mt": {
+          "point": 2.199875931043552,
+          "boot_mean": 2.200503470571273,
+          "boot_se": 0.13085596622504753,
+          "ci95_lo": 1.9530121039310369,
+          "ci95_hi": 2.4433554649474822,
+          "ci95_width": 0.4903433610164454,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_disc_kg_mwh": {
+          "point": 84.52396374955487,
+          "boot_mean": 84.37159647314573,
+          "boot_se": 3.6592702417448164,
+          "ci95_lo": 77.56659670221526,
+          "ci95_hi": 91.53054677811508,
+          "ci95_width": 13.963950075899817,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_mt": {
+          "point": 0.8845398429752689,
+          "boot_mean": 1.0532663543547853,
+          "boot_se": 0.24621352465826918,
+          "ci95_lo": 0.5916197554781019,
+          "ci95_hi": 1.5587738557477555,
+          "ci95_width": 0.9671541002696536,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_disc_mt": {
+          "point": 2.920855008734863,
+          "boot_mean": 3.103305972921576,
+          "boot_se": 0.28704538890981507,
+          "ci95_lo": 2.583536818304468,
+          "ci95_hi": 3.6963187776846653,
+          "ci95_width": 1.1127819593801975,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_dload_mt": {
+          "point": 0.19808126018685474,
+          "boot_mean": 0.3679837514975894,
+          "boot_se": 0.21222960563302118,
+          "ci95_lo": -0.032854397419725595,
+          "ci95_hi": 0.8067291332056061,
+          "ci95_width": 0.8395835306253318,
+          "p_2sided_vs_zero": 0.074,
+          "covers_zero": true
+        },
+        "h15_dload_disc_mt": {
+          "point": 2.234396425946449,
+          "boot_mean": 2.4180233700643803,
+          "boot_se": 0.24161567598566808,
+          "ci95_lo": 1.9609720844460539,
+          "ci95_hi": 2.899977281034595,
+          "ci95_width": 0.9390051965885411,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "ciso_emp_main": {
+          "point": 0.7610027536462098,
+          "boot_mean": -1.0261083889505571,
+          "boot_se": 5.038166334326171,
+          "ci95_lo": -10.938860437443514,
+          "ci95_hi": 8.203778276686027,
+          "ci95_width": 19.14263871412954,
+          "p_2sided_vs_zero": 0.878,
+          "covers_zero": true
+        },
+        "ciso_emp_dload": {
+          "point": 2.789769905013145,
+          "boot_mean": 11.658583884665841,
+          "boot_se": 11.616798643777889,
+          "ci95_lo": -10.951719819220116,
+          "ci95_hi": 35.704028618200645,
+          "ci95_width": 46.65574843742076,
+          "p_2sided_vs_zero": 0.326,
+          "covers_zero": true
+        },
+        "leave_ciso_u0_net_mt": {
+          "point": 0.8370705029273614,
+          "boot_mean": 0.8530667025696443,
+          "boot_se": 0.08800949015184538,
+          "ci95_lo": 0.6879066626294199,
+          "ci95_hi": 1.0348656897644983,
+          "ci95_width": 0.3469590271350784,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_mt": {
+          "point": 1.0332730399385353,
+          "boot_mean": 1.0420110850959607,
+          "boot_se": 0.12045108293364612,
+          "ci95_lo": 0.818213000820007,
+          "ci95_hi": 1.2886183853689293,
+          "ci95_width": 0.4704053845489222,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_kg_mwh": {
+          "point": 114.66605704472077,
+          "boot_mean": 115.98238671545707,
+          "boot_se": 4.373024543072494,
+          "ci95_lo": 107.84709850825023,
+          "ci95_hi": 124.91588152849651,
+          "ci95_width": 17.068783020246286,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u15_disc_mt": {
+          "point": 0.3468144571501211,
+          "boot_mean": 0.35672848223876474,
+          "boot_se": 0.05864236342563126,
+          "ci95_lo": 0.25004336077247713,
+          "ci95_hi": 0.47728252587343034,
+          "ci95_width": 0.2272391651009532,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_net_mt": {
+          "point": 1.2727391235397776,
+          "boot_mean": 1.2980989054824905,
+          "boot_se": 0.11520165521316261,
+          "ci95_lo": 1.0630127590973666,
+          "ci95_hi": 1.5195232840155029,
+          "ci95_width": 0.45651052491813626,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_mt": {
+          "point": 3.290527232615527,
+          "boot_mean": 3.3346063833330177,
+          "boot_se": 0.17069011026914782,
+          "ci95_lo": 2.9979154885384554,
+          "ci95_hi": 3.676034209612502,
+          "ci95_width": 0.6781187210740467,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_kg_mwh": {
+          "point": 151.74747415290028,
+          "boot_mean": 153.17620163419483,
+          "boot_se": 4.76336191280868,
+          "ci95_lo": 143.71158750792503,
+          "ci95_hi": 162.41872969433447,
+          "ci95_width": 18.707142186409442,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_h15_disc_mt": {
+          "point": 1.967508103699035,
+          "boot_mean": 1.960741084889633,
+          "boot_se": 0.10745941240031541,
+          "ci95_lo": 1.7528780121835286,
+          "ci95_hi": 2.167894755358674,
+          "ci95_width": 0.41501674317514525,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_net_mt": {
+          "point": 0.19563417653848492,
+          "boot_mean": 0.19880185136848258,
+          "boot_se": 0.031033623408303283,
+          "ci95_lo": 0.14133981911852087,
+          "ci95_hi": 0.2642294931147318,
+          "ci95_width": 0.12288967399621095,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_mt": {
+          "point": 0.3733096568658142,
+          "boot_mean": 0.3742140931785355,
+          "boot_se": 0.05586626450521979,
+          "ci95_lo": 0.2659235189751331,
+          "ci95_hi": 0.4905254678062631,
+          "ci95_width": 0.22460194883113,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_kg_mwh": {
+          "point": 79.95962429711872,
+          "boot_mean": 80.27430342368532,
+          "boot_se": 6.465964876018293,
+          "ci95_lo": 68.1899450450096,
+          "ci95_hi": 93.30027328077576,
+          "ci95_width": 25.11032823576616,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u15_disc_mt": {
+          "point": 0.11444662980560456,
+          "boot_mean": 0.11696609655712481,
+          "boot_se": 0.03200852110690552,
+          "ci95_lo": 0.05857442244441517,
+          "ci95_hi": 0.18313859771233526,
+          "ci95_width": 0.12456417526792009,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        }
+      },
+      "28d": {
+        "tot_dis_twh": {
+          "point": 26.02665366666666,
+          "boot_mean": 25.84887777133333,
+          "boot_se": 1.8822483934483285,
+          "ci95_lo": 22.34644646875,
+          "ci95_hi": 29.388276829166667,
+          "ci95_width": 7.041830360416668,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_net_mt": {
+          "point": -2.036315165759594,
+          "boot_mean": -2.074291481750813,
+          "boot_se": 0.10949884478757138,
+          "ci95_lo": -2.2884586972296495,
+          "ci95_hi": -1.8762112180556985,
+          "ci95_width": 0.412247479173951,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "aef_kg_mwh": {
+          "point": -78.23960743626375,
+          "boot_mean": -80.40746192556131,
+          "boot_se": 3.060404540724582,
+          "ci95_lo": -86.16086251419695,
+          "ci95_hi": -74.80950257908074,
+          "ci95_width": 11.351359935116207,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_net_mt": {
+          "point": 1.914175449928654,
+          "boot_mean": 1.9602007871236578,
+          "boot_se": 0.2151478558917163,
+          "ci95_lo": 1.5596474639381632,
+          "ci95_hi": 2.3859351071995563,
+          "ci95_width": 0.826287643261393,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_kg_mwh": {
+          "point": 73.54673691225285,
+          "boot_mean": 75.67487545926583,
+          "boot_se": 3.904170064495357,
+          "ci95_lo": 68.18849993864762,
+          "ci95_hi": 83.14194175636729,
+          "ci95_width": 14.953441817719664,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_mt": {
+          "point": 3.950490615688248,
+          "boot_mean": 4.034492268874471,
+          "boot_se": 0.3097769085737997,
+          "ci95_lo": 3.4607358935091788,
+          "ci95_hi": 4.615502917298391,
+          "ci95_width": 1.1547670237892125,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u0_disc_kg_mwh": {
+          "point": 151.7863443485166,
+          "boot_mean": 156.08233738482716,
+          "boot_se": 3.8958697544672725,
+          "ci95_lo": 148.52845851930002,
+          "ci95_hi": 163.63461213826477,
+          "ci95_width": 15.106153618964754,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_net_mt": {
+          "point": 0.8992585891351654,
+          "boot_mean": 0.9574935611045414,
+          "boot_se": 0.14983488221544342,
+          "ci95_lo": 0.6794772169085723,
+          "ci95_hi": 1.2604450788615458,
+          "ci95_width": 0.5809678619529735,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u10_disc_mt": {
+          "point": 2.93557375489476,
+          "boot_mean": 3.0317850428553546,
+          "boot_se": 0.24250670250835796,
+          "ci95_lo": 2.5926687252145784,
+          "ci95_hi": 3.50193259574641,
+          "ci95_width": 0.9092638705318317,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_net_mt": {
+          "point": 0.39180015873842133,
+          "boot_mean": 0.45613994809498276,
+          "boot_se": 0.11950778344724931,
+          "ci95_lo": 0.2402139245950472,
+          "ci95_hi": 0.7113573444343129,
+          "ci95_width": 0.47114341983926566,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u15_disc_mt": {
+          "point": 2.4281153244980156,
+          "boot_mean": 2.5304314298457964,
+          "boot_se": 0.20972376345695307,
+          "ci95_lo": 2.151470633484739,
+          "ci95_hi": 2.9467965993133878,
+          "ci95_width": 0.7953259658286487,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u20_net_mt": {
+          "point": -0.11565827165832221,
+          "boot_mean": -0.04521366491457489,
+          "boot_se": 0.09281259030883154,
+          "ci95_lo": -0.21337818385846982,
+          "ci95_hi": 0.15748972636285086,
+          "ci95_width": 0.3708679102213207,
+          "p_2sided_vs_zero": 0.608,
+          "covers_zero": true
+        },
+        "u20_disc_mt": {
+          "point": 1.9206568941012718,
+          "boot_mean": 2.0290778168362382,
+          "boot_se": 0.17792993394878878,
+          "ci95_lo": 1.712600492866178,
+          "ci95_hi": 2.3930317112002815,
+          "ci95_width": 0.6804312183341035,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_net_mt": {
+          "point": -1.130575132451812,
+          "boot_mean": -1.0479208909336923,
+          "boot_se": 0.06913504804916477,
+          "ci95_lo": -1.191295723668997,
+          "ci95_hi": -0.9135679644869947,
+          "ci95_width": 0.2777277591820022,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "u30_disc_mt": {
+          "point": 0.9057400333077821,
+          "boot_mean": 1.026370590817121,
+          "boot_se": 0.12045918390130962,
+          "ci95_lo": 0.8100370507955685,
+          "ci95_hi": 1.2769567080901572,
+          "ci95_width": 0.4669196572945886,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_mt": {
+          "point": 0.8500193480723719,
+          "boot_mean": 0.8227427296235108,
+          "boot_se": 0.14737677620634312,
+          "ci95_lo": 0.5560389395317469,
+          "ci95_hi": 1.1063412445424468,
+          "ci95_width": 0.5503023050106999,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_mt": {
+          "point": 2.886334513831966,
+          "boot_mean": 2.897034211374324,
+          "boot_se": 0.2323305811058616,
+          "ci95_lo": 2.4790474143268435,
+          "ci95_hi": 3.3468505332234133,
+          "ci95_width": 0.8678031188965698,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_main_disc_kg_mwh": {
+          "point": 110.89917861890197,
+          "boot_mean": 112.05066072791632,
+          "boot_se": 2.9196399838731213,
+          "ci95_lo": 106.30730767301105,
+          "ci95_hi": 117.76309057691881,
+          "ci95_width": 11.45578290390776,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_mt": {
+          "point": 0.39238029288009607,
+          "boot_mean": 0.37927763431227923,
+          "boot_se": 0.10035519576255637,
+          "ci95_lo": 0.18764504879014735,
+          "ci95_hi": 0.5762242647453042,
+          "ci95_width": 0.3885792159551569,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h10_main_disc_mt": {
+          "point": 2.42869545863969,
+          "boot_mean": 2.4535691160630924,
+          "boot_se": 0.17577664024281428,
+          "ci95_lo": 2.1392029086549234,
+          "ci95_hi": 2.8005196833649224,
+          "ci95_width": 0.6613167747099991,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_mt": {
+          "point": 0.16356076528395777,
+          "boot_mean": 0.1575450866566633,
+          "boot_se": 0.08420128561764437,
+          "ci95_lo": -0.005082316379224601,
+          "ci95_hi": 0.32562393425248826,
+          "ci95_width": 0.3307062506317129,
+          "p_2sided_vs_zero": 0.06,
+          "covers_zero": true
+        },
+        "h15_main_disc_mt": {
+          "point": 2.199875931043552,
+          "boot_mean": 2.231836568407476,
+          "boot_se": 0.14899817794665757,
+          "ci95_lo": 1.9666201662746707,
+          "ci95_hi": 2.52203368074282,
+          "ci95_width": 0.5554135144681491,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_main_disc_kg_mwh": {
+          "point": 84.52396374955487,
+          "boot_mean": 86.44035274638081,
+          "boot_se": 3.2589777374017097,
+          "ci95_lo": 80.34872654373666,
+          "ci95_hi": 93.09408389663143,
+          "ci95_width": 12.745357352894771,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_mt": {
+          "point": 0.8845398429752689,
+          "boot_mean": 1.0192832645761287,
+          "boot_se": 0.2735941958807456,
+          "ci95_lo": 0.5426527159511157,
+          "ci95_hi": 1.579384471646977,
+          "ci95_width": 1.036731755695861,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h0_dload_disc_mt": {
+          "point": 2.920855008734863,
+          "boot_mean": 3.093574746326942,
+          "boot_se": 0.3454122790037866,
+          "ci95_lo": 2.457058920853796,
+          "ci95_hi": 3.7823778904144407,
+          "ci95_width": 1.3253189695606449,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "h15_dload_mt": {
+          "point": 0.19808126018685474,
+          "boot_mean": 0.35408562160928114,
+          "boot_se": 0.21622668493539302,
+          "ci95_lo": -0.01540466180761906,
+          "ci95_hi": 0.8291049733086989,
+          "ci95_width": 0.8445096351163179,
+          "p_2sided_vs_zero": 0.06,
+          "covers_zero": true
+        },
+        "h15_dload_disc_mt": {
+          "point": 2.234396425946449,
+          "boot_mean": 2.428377103360094,
+          "boot_se": 0.2721449127300648,
+          "ci95_lo": 1.9435840476286645,
+          "ci95_hi": 2.9872893227075563,
+          "ci95_width": 1.0437052750788918,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "ciso_emp_main": {
+          "point": 0.7610027536462098,
+          "boot_mean": -0.5493590700215032,
+          "boot_se": 4.663931865599351,
+          "ci95_lo": -9.907329195908947,
+          "ci95_hi": 8.820068597525399,
+          "ci95_width": 18.727397793434346,
+          "p_2sided_vs_zero": 0.894,
+          "covers_zero": true
+        },
+        "ciso_emp_dload": {
+          "point": 2.789769905013145,
+          "boot_mean": 10.842121271232553,
+          "boot_se": 11.529249995947083,
+          "ci95_lo": -9.304149915300147,
+          "ci95_hi": 35.67855092368702,
+          "ci95_width": 44.98270083898717,
+          "p_2sided_vs_zero": 0.344,
+          "covers_zero": true
+        },
+        "leave_ciso_u0_net_mt": {
+          "point": 0.8370705029273614,
+          "boot_mean": 0.8316039186581982,
+          "boot_se": 0.11487706325774431,
+          "ci95_lo": 0.6225763864741443,
+          "ci95_hi": 1.0603504866235154,
+          "ci95_width": 0.4377741001493711,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_mt": {
+          "point": 1.0332730399385353,
+          "boot_mean": 1.0087297121007384,
+          "boot_se": 0.1547437885614447,
+          "ci95_lo": 0.7169661395841244,
+          "ci95_hi": 1.3190374671269482,
+          "ci95_width": 0.6020713275428239,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u0_disc_kg_mwh": {
+          "point": 114.66605704472077,
+          "boot_mean": 115.57366384402866,
+          "boot_se": 4.695265083703229,
+          "ci95_lo": 106.85889164498036,
+          "ci95_hi": 125.24861259754915,
+          "ci95_width": 18.389720952568794,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_u15_disc_mt": {
+          "point": 0.3468144571501211,
+          "boot_mean": 0.3435320691338909,
+          "boot_se": 0.06949295640853925,
+          "ci95_lo": 0.21531262040920995,
+          "ci95_hi": 0.4901216931333868,
+          "ci95_width": 0.2748090727241769,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_net_mt": {
+          "point": 1.2727391235397776,
+          "boot_mean": 1.3208450532069305,
+          "boot_se": 0.14297894334069058,
+          "ci95_lo": 1.0598415861114683,
+          "ci95_hi": 1.6013476631328873,
+          "ci95_width": 0.5415060770214191,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_mt": {
+          "point": 3.290527232615527,
+          "boot_mean": 3.3811096715301803,
+          "boot_se": 0.22557274360787516,
+          "ci95_lo": 2.9626934364092468,
+          "ci95_hi": 3.8296674092843,
+          "ci95_width": 0.8669739728750532,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_u0_disc_kg_mwh": {
+          "point": 151.74747415290028,
+          "boot_mean": 156.43149017457176,
+          "boot_se": 4.648000650571477,
+          "ci95_lo": 147.58433302146645,
+          "ci95_hi": 165.58877908907618,
+          "ci95_width": 18.004446067609734,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_erco_h15_disc_mt": {
+          "point": 1.967508103699035,
+          "boot_mean": 1.997279658323218,
+          "boot_se": 0.11534049440621084,
+          "ci95_lo": 1.7833552387070084,
+          "ci95_hi": 2.221042213188074,
+          "ci95_width": 0.43768697448106564,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_net_mt": {
+          "point": 0.19563417653848492,
+          "boot_mean": 0.1922481847414707,
+          "boot_se": 0.03570463874138952,
+          "ci95_lo": 0.1282823637596509,
+          "ci95_hi": 0.26393098962268596,
+          "ci95_width": 0.13564862586303505,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_mt": {
+          "point": 0.3733096568658142,
+          "boot_mean": 0.35534711475644765,
+          "boot_se": 0.06661341648262062,
+          "ci95_lo": 0.23129172003988716,
+          "ci95_hi": 0.4943253961572443,
+          "ci95_width": 0.2630336761173572,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u0_disc_kg_mwh": {
+          "point": 79.95962429711872,
+          "boot_mean": 79.1040036983483,
+          "boot_se": 6.961589372246931,
+          "ci95_lo": 65.75180994610633,
+          "ci95_hi": 92.39450902711171,
+          "ci95_width": 26.642699081005375,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        },
+        "leave_ciso_erco_u15_disc_mt": {
+          "point": 0.11444662980560456,
+          "boot_mean": 0.10897515904963231,
+          "boot_se": 0.03380606921192816,
+          "ci95_lo": 0.04803099139920074,
+          "ci95_hi": 0.17865589492288023,
+          "ci95_width": 0.1306249035236795,
+          "p_2sided_vs_zero": 0.0,
+          "covers_zero": false
+        }
+      }
+    },
+    "conditional_vs_unconditional_14d_comparison": {
+      "full_u0_disc_mt_cond_14d_seas": {
+        "point": 7.440676443372825,
+        "boot_mean": 7.433033735009276,
+        "boot_se": 0.14362618544535843,
+        "ci95_lo": 7.163596438211367,
+        "ci95_hi": 7.70933113055156,
+        "ci95_width": 0.5457346923401936,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "full_h15_disc_mt_cond_14d_seas": {
+        "point": 4.032197642184603,
+        "boot_mean": 3.9801201546698644,
+        "boot_se": 0.15117137321317775,
+        "ci95_lo": 3.6754037074240338,
+        "ci95_hi": 4.273676379158305,
+        "ci95_width": 0.598272671734271,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "same_u0_disc_mt_cond_14d_seas": {
+        "point": 3.950490615688248,
+        "boot_mean": 3.97183261079835,
+        "boot_se": 0.08731671427181154,
+        "ci95_lo": 3.7960279358568876,
+        "ci95_hi": 4.13737208289748,
+        "ci95_width": 0.34134414704059246,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "same_h15_disc_mt_cond_14d_seas": {
+        "point": 2.199875931043552,
+        "boot_mean": 2.1689657875348924,
+        "boot_se": 0.08490581254546924,
+        "ci95_lo": 1.9963175694948652,
+        "ci95_hi": 2.3279184715534864,
+        "ci95_width": 0.33160090205862125,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "width_ratio_uncond_vs_cond_full_u0": 1.853585595946,
+      "width_ratio_uncond_vs_cond_full_h15": 1.2240806742572088
+    }
+  },
+  "lobao_and_concentration_audit": {
+    "ciso_dis_share_pct": 58.5799918074999,
+    "erco_dis_share_pct": 19.93891266251098,
+    "ciso_plus_erco_dis_share_pct": 78.51890447001088,
+    "ciso_disc_share_pct": 65.53250807325179,
+    "erco_disc_share_pct": 21.95509018885026,
+    "ciso_plus_erco_disc_share_pct": 87.48759826210205,
+    "n_lobao_sign_reversed": 14,
+    "min_lobao_disc_mt": 2.5655447654124846,
+    "max_lobao_disc_mt": 7.464700796341735,
+    "leave_one_ba_out_14": [
+      {
+        "dropped_ba": "CISO",
+        "ba_dis_share_pct": 58.5799918074999,
+        "ba_disc_share_pct": 65.53250807325179,
+        "remaining_dis_twh": 20.615291,
+        "remaining_aef_mt": -0.691376201047357,
+        "remaining_cems_mt": 1.8741685643651276,
+        "remaining_disc_mt": 2.5655447654124846,
+        "remaining_disc_kg_mwh": 124.44863210577455,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "ERCO",
+        "ba_dis_share_pct": 19.93891266251098,
+        "ba_disc_share_pct": 21.95509018885026,
+        "remaining_dis_twh": 39.84747191666667,
+        "remaining_aef_mt": -3.510983405721728,
+        "remaining_cems_mt": 2.2981920996680243,
+        "remaining_disc_mt": 5.809175505389753,
+        "remaining_disc_kg_mwh": 145.78529643081316,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "AZPS",
+        "ba_dis_share_pct": 8.824012872777763,
+        "ba_disc_share_pct": 7.126627184850277,
+        "remaining_dis_twh": 45.379505916666666,
+        "remaining_aef_mt": -3.394919627514402,
+        "remaining_cems_mt": 3.517994023948631,
+        "remaining_disc_mt": 6.9129136514630325,
+        "remaining_disc_kg_mwh": 152.3355865565761,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "PNM",
+        "ba_dis_share_pct": 3.485279233326571,
+        "ba_disc_share_pct": 2.975803690412191,
+        "remaining_dis_twh": 48.036664916666666,
+        "remaining_aef_mt": -3.5186205397980004,
+        "remaining_cems_mt": 3.703254480567034,
+        "remaining_disc_mt": 7.221875020365035,
+        "remaining_disc_kg_mwh": 150.34089133567957,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "SRP",
+        "ba_dis_share_pct": 2.002236833045629,
+        "ba_disc_share_pct": 0.5193820866934278,
+        "remaining_dis_twh": 48.774794916666664,
+        "remaining_aef_mt": -3.7189758061903233,
+        "remaining_cems_mt": 3.6857398920070357,
+        "remaining_disc_mt": 7.404715698197359,
+        "remaining_disc_kg_mwh": 151.81438919115004,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "PGE",
+        "ba_dis_share_pct": 1.8214500405059961,
+        "ba_disc_share_pct": -0.28650363157198433,
+        "remaining_dis_twh": 48.86477491666667,
+        "remaining_aef_mt": -3.7531197168340418,
+        "remaining_cems_mt": 3.7115810795076936,
+        "remaining_disc_mt": 7.464700796341735,
+        "remaining_disc_kg_mwh": 152.76241032670129,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "MISO",
+        "ba_dis_share_pct": 1.4524866596614407,
+        "ba_disc_share_pct": 0.881841355463817,
+        "remaining_dis_twh": 49.04841291666667,
+        "remaining_aef_mt": -3.792171817240695,
+        "remaining_cems_mt": 3.5855646774322127,
+        "remaining_disc_mt": 7.377736494672908,
+        "remaining_disc_kg_mwh": 150.4174356713171,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "IPCO",
+        "ba_dis_share_pct": 1.2863568981462201,
+        "ba_disc_share_pct": 0.3789793986539581,
+        "remaining_dis_twh": 49.13109791666667,
+        "remaining_aef_mt": -3.7418764666121,
+        "remaining_cems_mt": 3.6732899305254376,
+        "remaining_disc_mt": 7.415166397137538,
+        "remaining_disc_kg_mwh": 150.92612849227828,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "TEPC",
+        "ba_dis_share_pct": 1.113864036253438,
+        "ba_disc_share_pct": 0.4066697495081404,
+        "remaining_dis_twh": 49.21694991666667,
+        "remaining_aef_mt": -3.724283159451847,
+        "remaining_cems_mt": 3.688822140961933,
+        "remaining_disc_mt": 7.41310530041378,
+        "remaining_disc_kg_mwh": 150.6209814497958,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "IID",
+        "ba_dis_share_pct": 0.66928484148102,
+        "ba_disc_share_pct": 0.3786762641511321,
+        "remaining_dis_twh": 49.43822291666667,
+        "remaining_aef_mt": -3.7214147216165308,
+        "remaining_cems_mt": 3.6937742389595827,
+        "remaining_disc_mt": 7.415188960576113,
+        "remaining_disc_kg_mwh": 149.98898672137136,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "SOCO",
+        "ba_dis_share_pct": 0.40991667260200515,
+        "ba_disc_share_pct": 0.036668132660366226,
+        "remaining_dis_twh": 49.56731391666666,
+        "remaining_aef_mt": -3.7437596083032374,
+        "remaining_cems_mt": 3.696886300905501,
+        "remaining_disc_mt": 7.4406459092087385,
+        "remaining_disc_kg_mwh": 150.11194517657478,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "DUK",
+        "ba_dis_share_pct": 0.1472011954725901,
+        "ba_disc_share_pct": -0.030467194387433984,
+        "remaining_dis_twh": 49.69807091666667,
+        "remaining_aef_mt": -3.736747127455314,
+        "remaining_cems_mt": 3.7088959160748822,
+        "remaining_disc_mt": 7.445643043530197,
+        "remaining_disc_kg_mwh": 149.81754635939475,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "CPLE",
+        "ba_dis_share_pct": 0.0524880436575391,
+        "ba_disc_share_pct": 0.05106100909893727,
+        "remaining_dis_twh": 49.74521091666667,
+        "remaining_aef_mt": -3.7305135480087572,
+        "remaining_cems_mt": 3.709061045396537,
+        "remaining_disc_mt": 7.439574593405294,
+        "remaining_disc_kg_mwh": 149.55358428106965,
+        "remaining_sign_reversed": true
+      },
+      {
+        "dropped_ba": "FPL",
+        "ba_dis_share_pct": 0.21651820305891298,
+        "ba_disc_share_pct": 0.07366369236510918,
+        "remaining_dis_twh": 49.66357091666667,
+        "remaining_aef_mt": -3.7266933340080723,
+        "remaining_cems_mt": 3.7111988568638132,
+        "remaining_disc_mt": 7.437892190871885,
+        "remaining_disc_kg_mwh": 149.76555357552414,
+        "remaining_sign_reversed": true
+      }
+    ],
+    "leave_ciso_uncond_14d": {
+      "full_u0_disc_mt": {
+        "point": 2.5655447654124846,
+        "boot_mean": 2.559928315315177,
+        "boot_se": 0.13786868689539894,
+        "ci95_lo": 2.2987191297634473,
+        "ci95_hi": 2.831562020053647,
+        "ci95_width": 0.5328428902901998,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "full_u0_disc_kg_mwh": {
+        "point": 124.44863210577455,
+        "boot_mean": 124.43986155031855,
+        "boot_se": 3.093682748622721,
+        "ci95_lo": 118.45642229276166,
+        "ci95_hi": 130.4762390441595,
+        "ci95_width": 12.019816751397855,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "full_u15_disc_mt": {
+        "point": 1.0049602285015573,
+        "boot_mean": 1.0001055143518343,
+        "boot_se": 0.07990449692898177,
+        "ci95_lo": 0.8470445406799542,
+        "ci95_hi": 1.158807853734672,
+        "ci95_width": 0.3117633130547178,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "same_u0_disc_mt": {
+        "point": 1.0332730399385353,
+        "boot_mean": 1.0420110850959607,
+        "boot_se": 0.12045108293364612,
+        "ci95_lo": 0.818213000820007,
+        "ci95_hi": 1.2886183853689293,
+        "ci95_width": 0.4704053845489222,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "same_u15_disc_mt": {
+        "point": 0.3468144571501211,
+        "boot_mean": 0.35672848223876474,
+        "boot_se": 0.05864236342563126,
+        "ci95_lo": 0.25004336077247713,
+        "ci95_hi": 0.47728252587343034,
+        "ci95_width": 0.2272391651009532,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      }
+    },
+    "leave_erco_uncond_14d": {
+      "full_u0_disc_mt": {
+        "point": 5.809175505389753,
+        "boot_mean": 5.81028597954078,
+        "boot_se": 0.1947053046856405,
+        "ci95_lo": 5.443731663400853,
+        "ci95_hi": 6.201453445453101,
+        "ci95_width": 0.7577217820522479,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "full_u0_disc_kg_mwh": {
+        "point": 145.78529643081313,
+        "boot_mean": 145.2310652852417,
+        "boot_se": 3.7620288568402502,
+        "ci95_lo": 138.1716771323253,
+        "ci95_hi": 152.8960649160385,
+        "ci95_width": 14.724387783713212,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "full_h15_disc_mt": {
+        "point": 3.354208118592929,
+        "boot_mean": 3.3087372998240645,
+        "boot_se": 0.15732153109635622,
+        "ci95_lo": 3.001524548470065,
+        "ci95_hi": 3.6177070353352128,
+        "ci95_width": 0.616182486865148,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "same_u0_disc_mt": {
+        "point": 3.290527232615527,
+        "boot_mean": 3.3346063833330177,
+        "boot_se": 0.17069011026914782,
+        "ci95_lo": 2.9979154885384554,
+        "ci95_hi": 3.676034209612502,
+        "ci95_width": 0.6781187210740467,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "same_h15_disc_mt": {
+        "point": 1.967508103699035,
+        "boot_mean": 1.960741084889633,
+        "boot_se": 0.10745941240031541,
+        "ci95_lo": 1.7528780121835286,
+        "ci95_hi": 2.167894755358674,
+        "ci95_width": 0.41501674317514525,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      }
+    },
+    "leave_ciso_and_erco_uncond_14d": {
+      "remaining_dis_twh_full": 10.691427999999998,
+      "remaining_dis_share_pct": 21.48109552998912,
+      "full_aef_mt": -0.471170754476592,
+      "full_u0_net_mt": {
+        "point": 0.46017426040365605,
+        "boot_mean": 0.4563430651383062,
+        "boot_se": 0.04213068931607573,
+        "ci95_lo": 0.3719601752111367,
+        "ci95_hi": 0.5385762413494601,
+        "ci95_width": 0.16661606613832342,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "full_u0_disc_mt": {
+        "point": 0.931345014880248,
+        "boot_mean": 0.9145490530182023,
+        "boot_se": 0.060010138447158475,
+        "ci95_lo": 0.7987446307765077,
+        "ci95_hi": 1.0357435489083617,
+        "ci95_width": 0.23699891813185403,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "full_u0_disc_kg_mwh": {
+        "point": 87.11137697230419,
+        "boot_mean": 85.52770585452504,
+        "boot_se": 4.335743055914447,
+        "ci95_lo": 77.18043332499288,
+        "ci95_hi": 93.5955442773012,
+        "ci95_width": 16.415110952308325,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "full_u15_disc_mt": {
+        "point": 0.3335055477618678,
+        "boot_mean": 0.31774815636170917,
+        "boot_se": 0.04340067099538266,
+        "ci95_lo": 0.23697934754944797,
+        "ci95_hi": 0.3994796183808959,
+        "ci95_width": 0.16250027083144794,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "same_u0_disc_mt": {
+        "point": 0.3733096568658142,
+        "boot_mean": 0.3742140931785355,
+        "boot_se": 0.05586626450521979,
+        "ci95_lo": 0.2659235189751331,
+        "ci95_hi": 0.4905254678062631,
+        "ci95_width": 0.22460194883113,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      },
+      "same_u15_disc_mt": {
+        "point": 0.11444662980560456,
+        "boot_mean": 0.11696609655712481,
+        "boot_se": 0.03200852110690552,
+        "ci95_lo": 0.05857442244441517,
+        "ci95_hi": 0.18313859771233526,
+        "ci95_width": 0.12456417526792009,
+        "p_2sided_vs_zero": 0.0,
+        "covers_zero": false
+      }
+    }
+  },
+  "out_of_sample_validation": {
+    "prespecified_criteria": {
+      "criterion_1_fleet_oos_r2_gt_070": true,
+      "criterion_2_cal_slope_in_085_115": true,
+      "criterion_3_counterfactual_disc_err_lt_10pct": true,
+      "criterion_4_all_9_quarters_sign_preserved": true
+    },
+    "temporal_holdout_202407_202509_to_202510_202609": {
+      "train_window": "2024-07-01..2025-09-30",
+      "test_window": "2025-10-01..2026-09-30",
+      "fleet_pooled_r2_oos": 0.9384092931935143,
+      "fleet_dis_weighted_r2_oos": 0.7611096646509622,
+      "fleet_dis_weighted_cal_slope": 0.8723121191042029,
+      "test_dis_twh": 29.715314333333332,
+      "oos_pred_cems_mt": 2.0839000671604753,
+      "actual_test_cems_mt": 2.2382435448979883,
+      "actual_test_aef_mt": -2.1432203058874952,
+      "oos_pred_disc_mt": 4.2271203730479705,
+      "actual_test_disc_mt": 4.381463850785483,
+      "disc_rel_err_pct": 3.522646380155408,
+      "by_ba": {
+        "CISO": {
+          "n_test": 8742,
+          "r2_oos": 0.7588023807626881,
+          "r2_oos_within_ymh": 0.6320154717158333,
+          "cal_slope": 0.8111561517589477,
+          "corr": 0.8959720874951298,
+          "rmse_t": 106.35975115613665,
+          "mae_t": 73.8181178358322,
+          "b24_mean": 284.0578507732387
+        },
+        "ERCO": {
+          "n_test": 8733,
+          "r2_oos": 0.9674577625319815,
+          "r2_oos_within_ymh": 0.9143872643473764,
+          "cal_slope": 0.9719409251619833,
+          "corr": 0.984010256711443,
+          "rmse_t": 202.24179668366372,
+          "mae_t": 148.88187620222058,
+          "b24_mean": 510.387107220489
+        },
+        "AZPS": {
+          "n_test": 8741,
+          "r2_oos": 0.38464873763017005,
+          "r2_oos_within_ymh": 0.24044808190988443,
+          "cal_slope": 0.9272970526634444,
+          "corr": 0.6221570650381796,
+          "rmse_t": 39.70803012725345,
+          "mae_t": 24.32205198388529,
+          "b24_mean": 274.82533527142704
+        },
+        "PNM": {
+          "n_test": 8591,
+          "r2_oos": 0.7719899789518468,
+          "r2_oos_within_ymh": 0.5304050485488659,
+          "cal_slope": 1.0775005635925476,
+          "corr": 0.8809124660593635,
+          "rmse_t": 15.448410235834437,
+          "mae_t": 9.816912911105021,
+          "b24_mean": 296.72346004116133
+        },
+        "SRP": {
+          "n_test": 8760,
+          "r2_oos": 0.8359637233888496,
+          "r2_oos_within_ymh": 0.6725672098718998,
+          "cal_slope": 0.9977272898307533,
+          "corr": 0.9143134922948395,
+          "rmse_t": 45.0429831497034,
+          "mae_t": 32.512574546807514,
+          "b24_mean": 401.25495133756027
+        },
+        "PGE": {
+          "n_test": 8376,
+          "r2_oos": 0.17825915689711413,
+          "r2_oos_within_ymh": 0.09868141396299168,
+          "cal_slope": 1.356992815231395,
+          "corr": 0.4377039698133231,
+          "rmse_t": 13.62697404197207,
+          "mae_t": 6.588001479033171,
+          "b24_mean": 46.10268940198407
+        },
+        "MISO": {
+          "n_test": 8760,
+          "r2_oos": 0.9447725066582436,
+          "r2_oos_within_ymh": 0.8232097760639846,
+          "cal_slope": 0.9608750960710806,
+          "corr": 0.9728036801380062,
+          "rmse_t": 338.5865060256443,
+          "mae_t": 229.33296807302705,
+          "b24_mean": 575.058053133747
+        },
+        "IPCO": {
+          "n_test": 8740,
+          "r2_oos": 0.17786688048965016,
+          "r2_oos_within_ymh": 0.11461448374555028,
+          "cal_slope": 0.7321974324091587,
+          "corr": 0.4534164161518428,
+          "rmse_t": 13.248831440266073,
+          "mae_t": 7.769851458705365,
+          "b24_mean": 79.5221334330508
+        },
+        "TEPC": {
+          "n_test": 8726,
+          "r2_oos": 0.5410409316693803,
+          "r2_oos_within_ymh": 0.39794734610936533,
+          "cal_slope": 1.0770250675464375,
+          "corr": 0.7374533789777685,
+          "rmse_t": 49.16809242051999,
+          "mae_t": 33.9366654312334,
+          "b24_mean": 421.3391026706545
+        },
+        "IID": {
+          "n_test": 8675,
+          "r2_oos": 0.44341642099955225,
+          "r2_oos_within_ymh": 0.3958453704704177,
+          "cal_slope": 0.6960838077711294,
+          "corr": 0.7401756540716168,
+          "rmse_t": 4.152517068304968,
+          "mae_t": 1.369518703522791,
+          "b24_mean": 368.2702709123414
+        },
+        "SOCO": {
+          "n_test": 8758,
+          "r2_oos": 0.886384439477678,
+          "r2_oos_within_ymh": 0.6792570629919029,
+          "cal_slope": 0.9231771520316615,
+          "corr": 0.9447612995964584,
+          "rmse_t": 228.93229664161444,
+          "mae_t": 171.4204375542826,
+          "b24_mean": 528.6470397100894
+        },
+        "DUK": {
+          "n_test": 8758,
+          "r2_oos": 0.7377213849857471,
+          "r2_oos_within_ymh": 0.4271642446223093,
+          "cal_slope": 1.0310937022280198,
+          "corr": 0.8593111570173599,
+          "rmse_t": 123.91601471903796,
+          "mae_t": 92.21178048883937,
+          "b24_mean": 232.91657291560261
+        },
+        "CPLE": {
+          "n_test": 8758,
+          "r2_oos": 0.8744572885946371,
+          "r2_oos_within_ymh": 0.7703761124131133,
+          "cal_slope": 1.0281153432496217,
+          "corr": 0.9354744776756977,
+          "rmse_t": 64.61919684452415,
+          "mae_t": 44.437092451629326,
+          "b24_mean": 580.6026194294618
+        },
+        "FPL": {
+          "n_test": 8754,
+          "r2_oos": 0.9564243639198858,
+          "r2_oos_within_ymh": 0.8241491509429388,
+          "cal_slope": 1.02801621180175,
+          "corr": 0.978350512172487,
+          "rmse_t": 68.6378320466753,
+          "mae_t": 49.146580602489806,
+          "b24_mean": 322.6815195590695
+        }
+      }
+    },
+    "leave_quarter_out_cv_9q": {
+      "n_quarters": 9,
+      "mean_major4_r2_oos": 0.9517886950787093,
+      "min_major4_r2_oos": 0.9245770602204766,
+      "mean_ciso_r2_oos": 0.7834134266149515,
+      "mean_erco_r2_oos": 0.9683830567535894,
+      "mean_miso_r2_oos": 0.9426046193004051,
+      "mean_disc_rel_err_pct": 6.647073032333049,
+      "n_quarters_sign_preserved": 9,
+      "by_quarter": [
+        {
+          "quarter": "2024Q3",
+          "major4_pooled_r2_oos": 0.9585947036810972,
+          "ciso_r2_oos": 0.9021388839866786,
+          "erco_r2_oos": 0.9606149555191597,
+          "azps_r2_oos": 0.48955311312002525,
+          "miso_r2_oos": 0.961068979108673,
+          "ciso_cal_slope": 1.1807552870054638,
+          "erco_cal_slope": 1.1084881299062244,
+          "heldout_dis_twh": 2.2125782500000026,
+          "oos_pred_disc_mt": 0.3795082571517315,
+          "actual_disc_mt": 0.3486354120606726,
+          "disc_rel_err_pct": 8.855338276906336,
+          "sign_preserved": true
+        },
+        {
+          "quarter": "2024Q4",
+          "major4_pooled_r2_oos": 0.9500084133135315,
+          "ciso_r2_oos": 0.9171009672236357,
+          "erco_r2_oos": 0.9669740478196869,
+          "azps_r2_oos": 0.5834803411368655,
+          "miso_r2_oos": 0.9354563610681874,
+          "ciso_cal_slope": 1.1211253710149334,
+          "erco_cal_slope": 1.0414451902411244,
+          "heldout_dis_twh": 2.9795753333333352,
+          "oos_pred_disc_mt": 0.5099777374118453,
+          "actual_disc_mt": 0.4983028409455148,
+          "disc_rel_err_pct": 2.342931949610742,
+          "sign_preserved": true
+        },
+        {
+          "quarter": "2025Q1",
+          "major4_pooled_r2_oos": 0.937794862617318,
+          "ciso_r2_oos": 0.8825092528789923,
+          "erco_r2_oos": 0.9698751693826035,
+          "azps_r2_oos": 0.22372999373988622,
+          "miso_r2_oos": 0.9069383226399723,
+          "ciso_cal_slope": 1.1840497145951132,
+          "erco_cal_slope": 0.9686419467857491,
+          "heldout_dis_twh": 3.787789083333334,
+          "oos_pred_disc_mt": 0.6236857008027428,
+          "actual_disc_mt": 0.715329278490239,
+          "disc_rel_err_pct": 12.811383574417293,
+          "sign_preserved": true
+        },
+        {
+          "quarter": "2025Q2",
+          "major4_pooled_r2_oos": 0.963686661686083,
+          "ciso_r2_oos": 0.8014865098418745,
+          "erco_r2_oos": 0.9727933683631829,
+          "azps_r2_oos": 0.4861868864602389,
+          "miso_r2_oos": 0.962322960996771,
+          "ciso_cal_slope": 0.8274586024574309,
+          "erco_cal_slope": 0.9676376310892434,
+          "heldout_dis_twh": 5.074366916666667,
+          "oos_pred_disc_mt": 0.7551954643478074,
+          "actual_disc_mt": 0.6820302983673413,
+          "disc_rel_err_pct": 10.727553622707147,
+          "sign_preserved": true
+        },
+        {
+          "quarter": "2025Q3",
+          "major4_pooled_r2_oos": 0.9595197761713607,
+          "ciso_r2_oos": 0.844002634384958,
+          "erco_r2_oos": 0.9753321011569381,
+          "azps_r2_oos": -0.07176018682342122,
+          "miso_r2_oos": 0.9554163179506505,
+          "ciso_cal_slope": 0.9225267450502684,
+          "erco_cal_slope": 0.9928706819168783,
+          "heldout_dis_twh": 6.001739,
+          "oos_pred_disc_mt": 0.8005695656331543,
+          "actual_disc_mt": 0.7344874501427081,
+          "disc_rel_err_pct": 8.99703806751316,
+          "sign_preserved": true
+        },
+        {
+          "quarter": "2025Q4",
+          "major4_pooled_r2_oos": 0.958235732808792,
+          "ciso_r2_oos": 0.8198383664421738,
+          "erco_r2_oos": 0.9703305664122177,
+          "azps_r2_oos": 0.4237774013777208,
+          "miso_r2_oos": 0.9534527325082918,
+          "ciso_cal_slope": 0.847692430324082,
+          "erco_cal_slope": 0.9657387114968846,
+          "heldout_dis_twh": 5.9706330833333325,
+          "oos_pred_disc_mt": 0.8820121480081562,
+          "actual_disc_mt": 0.9513613395104912,
+          "disc_rel_err_pct": 7.289469166154847,
+          "sign_preserved": true
+        },
+        {
+          "quarter": "2026Q1",
+          "major4_pooled_r2_oos": 0.9245770602204766,
+          "ciso_r2_oos": 0.7723041237433184,
+          "erco_r2_oos": 0.9687139673852078,
+          "azps_r2_oos": 0.49070223881526454,
+          "miso_r2_oos": 0.8926659351135524,
+          "ciso_cal_slope": 0.8427141375222076,
+          "erco_cal_slope": 0.9660577362727608,
+          "heldout_dis_twh": 7.041795416666665,
+          "oos_pred_disc_mt": 1.140981129962957,
+          "actual_disc_mt": 1.1096616594427706,
+          "disc_rel_err_pct": 2.822434230620701,
+          "sign_preserved": true
+        },
+        {
+          "quarter": "2026Q2",
+          "major4_pooled_r2_oos": 0.9460975214984058,
+          "ciso_r2_oos": 0.24822615355371214,
+          "erco_r2_oos": 0.9623602562203046,
+          "azps_r2_oos": 0.5501000518692483,
+          "miso_r2_oos": 0.9456112555725844,
+          "ciso_cal_slope": 0.5677260461613853,
+          "erco_cal_slope": 0.9751935844250895,
+          "heldout_dis_twh": 7.781442666666666,
+          "oos_pred_disc_mt": 2.9448911573058063,
+          "actual_disc_mt": 2.897373331722694,
+          "disc_rel_err_pct": 1.6400311641875784,
+          "sign_preserved": true
+        },
+        {
+          "quarter": "2026Q3",
+          "major4_pooled_r2_oos": 0.9675835237113205,
+          "ciso_r2_oos": 0.86311394747922,
+          "erco_r2_oos": 0.9684530785230027,
+          "azps_r2_oos": -0.0071641380947242705,
+          "miso_r2_oos": 0.9705087087449635,
+          "ciso_cal_slope": 1.0025842229283648,
+          "erco_cal_slope": 1.0202019655940815,
+          "heldout_dis_twh": 8.921443166666668,
+          "oos_pred_disc_mt": 1.2097570670668178,
+          "actual_disc_mt": 1.2646092034262066,
+          "disc_rel_err_pct": 4.337477238879637,
+          "sign_preserved": true
+        }
+      ]
+    }
+  },
+  "lead_lag_timing_diagnostic_m3_p3": {
+    "CISO": {
+      "n_hours": 19673,
+      "dco2_on_dbess_leads_lags": {
+        "-3": {
+          "beta": -2.851751069720123,
+          "se_day": 1.045714177899837,
+          "t_day": -2.727084637455567,
+          "p_day": 0.006525997233067637,
+          "se_nw": 1.037480940999078,
+          "t_nw": -2.748726224285076,
+          "p_nw": 0.005982733403852287
+        },
+        "-2": {
+          "beta": 2.5527599394440013,
+          "se_day": 1.1357312493315739,
+          "t_day": 2.247679581720067,
+          "p_day": 0.024861348270518325,
+          "se_nw": 1.155786581676892,
+          "t_nw": 2.2086776052896266,
+          "p_nw": 0.027197073181322105
+        },
+        "-1": {
+          "beta": -6.477131588030968,
+          "se_day": 1.418651362604526,
+          "t_day": -4.565696519079566,
+          "p_day": 5.740495323535259e-06,
+          "se_nw": 1.3806582912938974,
+          "t_nw": -4.691335740982558,
+          "p_nw": 2.7142713749552263e-06
+        },
+        "0": {
+          "beta": -270.57231973191233,
+          "se_day": 4.377611872503583,
+          "t_day": -61.80820219156852,
+          "p_day": 0.0,
+          "se_nw": 4.18882446685418,
+          "t_nw": -64.5938548805109,
+          "p_nw": 0.0
+        },
+        "1": {
+          "beta": -1.5009477206079094,
+          "se_day": 1.3899711827545094,
+          "t_day": -1.07984089111364,
+          "p_day": 0.2805301574963698,
+          "se_nw": 1.3650255837596927,
+          "t_nw": -1.0995747907331128,
+          "p_nw": 0.2715174307500491
+        },
+        "2": {
+          "beta": -1.6694363143743738,
+          "se_day": 1.1585462278368865,
+          "t_day": -1.4409751413125451,
+          "p_day": 0.1499729745360054,
+          "se_nw": 1.1247743417720242,
+          "t_nw": -1.484241107193344,
+          "p_nw": 0.1377449679157169
+        },
+        "3": {
+          "beta": 0.4764818370969284,
+          "se_day": 1.240506414578027,
+          "t_day": 0.38410267895229655,
+          "p_day": 0.701001803761372,
+          "se_nw": 1.1994723250607602,
+          "t_nw": 0.39724287683985693,
+          "p_nw": 0.6911883666779801
+        }
+      },
+      "dimports_on_dbess_leads_lags": {
+        "-3": {
+          "beta": 0.010243094154472668,
+          "se_day": 0.004245991558456033,
+          "t_day": 2.41241510103175,
+          "p_day": 0.016065526941419703,
+          "se_nw": 0.004269952565395315,
+          "t_nw": 2.3988777387095763,
+          "p_nw": 0.01644540462096539
+        },
+        "-2": {
+          "beta": -0.0068849694128276726,
+          "se_day": 0.004115794458801355,
+          "t_day": -1.6728166291454665,
+          "p_day": 0.0947443732722178,
+          "se_nw": 0.0041273653429346165,
+          "t_nw": -1.6681269625461264,
+          "p_nw": 0.09529052580265775
+        },
+        "-1": {
+          "beta": -0.008000877995121898,
+          "se_day": 0.004711853790412849,
+          "t_day": -1.6980318895720377,
+          "p_day": 0.08988067445788209,
+          "se_nw": 0.004753033473489044,
+          "t_nw": -1.6833203552527727,
+          "p_nw": 0.09231309199873748
+        },
+        "0": {
+          "beta": -0.674608435700203,
+          "se_day": 0.007919916208152881,
+          "t_day": -85.17873396258295,
+          "p_day": 0.0,
+          "se_nw": 0.007763430238639324,
+          "t_nw": -86.89566531333189,
+          "p_nw": 0.0
+        },
+        "1": {
+          "beta": -0.0062669670681700235,
+          "se_day": 0.004790831813550544,
+          "t_day": -1.3081166928975319,
+          "p_day": 0.1911998544490094,
+          "se_nw": 0.0047987073849336875,
+          "t_nw": -1.3059698300934484,
+          "p_nw": 0.19156281759702265
+        },
+        "2": {
+          "beta": -0.0030861042424491277,
+          "se_day": 0.004141261286566049,
+          "t_day": -0.7452087731001726,
+          "p_day": 0.4563587971573431,
+          "se_nw": 0.0041210040358097095,
+          "t_nw": -0.7488719291784821,
+          "p_nw": 0.45393440079950553
+        },
+        "3": {
+          "beta": -0.02397934058241421,
+          "se_day": 0.00445024161468639,
+          "t_day": -5.388323299858414,
+          "p_day": 9.296984661598964e-08,
+          "se_nw": 0.004396700012157248,
+          "t_nw": -5.453940572727113,
+          "p_nw": 4.9265672256649124e-08
+        }
+      },
+      "dco2_joint_future_leads_F": {
+        "F": 10.277177987981352,
+        "dfn": 3,
+        "dfd": 821,
+        "p": 1.2020487338799715e-06
+      },
+      "dimports_joint_future_leads_F": {
+        "F": 4.838403594128154,
+        "dfn": 3,
+        "dfd": 821,
+        "p": 0.002411524505557114
+      },
+      "co2_contemp_share_of_abs_sum": 0.9457236507600928,
+      "co2_max_lead_to_contemp_ratio": 0.023938633465716747,
+      "co2_max_lag_to_contemp_ratio": 0.006170018854953381,
+      "co2_cumul_m3_to_p3_kg_mwh": -280.0423446481048,
+      "imp_contemp_mw_per_mw": -0.674608435700203,
+      "imp_contemp_se_day": 0.007919916208152881
+    },
+    "ERCO": {
+      "n_hours": 16940,
+      "dco2_on_dbess_leads_lags": {
+        "-3": {
+          "beta": -1.3166451636912209,
+          "se_day": 2.7306104872601447,
+          "t_day": -0.4821797798822357,
+          "p_day": 0.6298276876400741,
+          "se_nw": 2.7031502373805463,
+          "t_nw": -0.4870780563669666,
+          "p_nw": 0.626203016376617
+        },
+        "-2": {
+          "beta": -1.4611412824976044,
+          "se_day": 2.5775410756182713,
+          "t_day": -0.5668741019566963,
+          "p_day": 0.5709798968757925,
+          "se_nw": 2.536745605324016,
+          "t_nw": -0.5759904656702753,
+          "p_nw": 0.5646216260626707
+        },
+        "-1": {
+          "beta": -11.855554908984146,
+          "se_day": 2.902876008745297,
+          "t_day": -4.084072097212462,
+          "p_day": 4.93214951225232e-05,
+          "se_nw": 2.851387449691555,
+          "t_nw": -4.15781969941216,
+          "p_nw": 3.21299448854815e-05
+        },
+        "0": {
+          "beta": -495.62000737521305,
+          "se_day": 3.7317580039482494,
+          "t_day": -132.8114006457119,
+          "p_day": 0.0,
+          "se_nw": 3.7595150042192103,
+          "t_nw": -131.83083637623233,
+          "p_nw": 0.0
+        },
+        "1": {
+          "beta": -1.6837642369583818,
+          "se_day": 2.8291197745428263,
+          "t_day": -0.5951548082585054,
+          "p_day": 0.5519307041474867,
+          "se_nw": 2.8573420133403236,
+          "t_nw": -0.5892764076184244,
+          "p_nw": 0.5556758684666463
+        },
+        "2": {
+          "beta": 3.3722754225569815,
+          "se_day": 2.5103644874235673,
+          "t_day": 1.3433409528582079,
+          "p_day": 0.17959322913254702,
+          "se_nw": 2.473762014412645,
+          "t_nw": 1.3632174004247026,
+          "p_nw": 0.17281400491463828
+        },
+        "3": {
+          "beta": 7.042697761975248,
+          "se_day": 2.608262269310938,
+          "t_day": 2.700149384837675,
+          "p_day": 0.00709686687077619,
+          "se_nw": 2.6577542800490117,
+          "t_nw": 2.6498679034562116,
+          "p_nw": 0.008052324768826441
+        }
+      },
+      "dimports_on_dbess_leads_lags": {
+        "-3": {
+          "beta": -0.0008661775390444804,
+          "se_day": 0.0015615675021816231,
+          "t_day": -0.5546846600190946,
+          "p_day": 0.5792860455720148,
+          "se_nw": 0.0015342076636668473,
+          "t_nw": -0.5645764648145901,
+          "p_nw": 0.5723618770639376
+        },
+        "-2": {
+          "beta": -0.0070444761847281,
+          "se_day": 0.0016468657454853284,
+          "t_day": -4.277504832461073,
+          "p_day": 2.150422682232386e-05,
+          "se_nw": 0.0016269537796489493,
+          "t_nw": -4.329856368905636,
+          "p_nw": 1.4920662812549088e-05
+        },
+        "-1": {
+          "beta": 0.006229555375345139,
+          "se_day": 0.002050812134155448,
+          "t_day": 3.037604113801752,
+          "p_day": 0.0024725719193635105,
+          "se_nw": 0.0020584700473510542,
+          "t_nw": 3.026303629417223,
+          "p_nw": 0.002475635674957584
+        },
+        "0": {
+          "beta": -0.022177408864672427,
+          "se_day": 0.002237367667139738,
+          "t_day": -9.912277356284555,
+          "p_day": 8.994962275669494e-22,
+          "se_nw": 0.0022474811300667893,
+          "t_nw": -9.867672999778812,
+          "p_nw": 5.748263042791817e-23
+        },
+        "1": {
+          "beta": 0.0027628791929550575,
+          "se_day": 0.0019191125061579592,
+          "t_day": 1.439665045217338,
+          "p_day": 0.15040542958000305,
+          "se_nw": 0.0019502566219060252,
+          "t_nw": 1.4166746888185617,
+          "p_nw": 0.15657806056009566
+        },
+        "2": {
+          "beta": 0.0028089501328246395,
+          "se_day": 0.0017042796973834266,
+          "t_day": 1.648174379555896,
+          "p_day": 0.09976180873793496,
+          "se_nw": 0.0017003113111180687,
+          "t_nw": 1.6520210825260973,
+          "p_nw": 0.09853025313146531
+        },
+        "3": {
+          "beta": 0.0023559275402977703,
+          "se_day": 0.001657455323496221,
+          "t_day": 1.4214123945906418,
+          "p_day": 0.1556384664243239,
+          "se_nw": 0.0016489136257405435,
+          "t_nw": 1.428775591104537,
+          "p_nw": 0.1530687433100324
+        }
+      },
+      "dco2_joint_future_leads_F": {
+        "F": 5.812709261528457,
+        "dfn": 3,
+        "dfd": 706,
+        "p": 0.0006312631859931051
+      },
+      "dimports_joint_future_leads_F": {
+        "F": 9.400561858452363,
+        "dfn": 3,
+        "dfd": 706,
+        "p": 4.254802805141694e-06
+      },
+      "co2_contemp_share_of_abs_sum": 0.948823639293572,
+      "co2_max_lead_to_contemp_ratio": 0.02392065439765188,
+      "co2_max_lag_to_contemp_ratio": 0.014209873808914896,
+      "co2_cumul_m3_to_p3_kg_mwh": -501.5221397828122,
+      "imp_contemp_mw_per_mw": -0.022177408864672427,
+      "imp_contemp_se_day": 0.002237367667139738
+    },
+    "AZPS": {
+      "n_hours": 13457,
+      "dco2_on_dbess_leads_lags": {
+        "-3": {
+          "beta": 3.1023771077660274,
+          "se_day": 1.8037155860035234,
+          "t_day": 1.7199924044787664,
+          "p_day": 0.08598630735991844,
+          "se_nw": 1.7877210131733348,
+          "t_nw": 1.7353810157766634,
+          "p_nw": 0.08267334038245333
+        },
+        "-2": {
+          "beta": 1.2806483334987164,
+          "se_day": 1.7357497657071237,
+          "t_day": 0.7378070035210379,
+          "p_day": 0.46094078336012245,
+          "se_nw": 1.725479684736046,
+          "t_nw": 0.7421984418753806,
+          "p_nw": 0.4579671124831626
+        },
+        "-1": {
+          "beta": 0.43866963530859426,
+          "se_day": 1.8279766765582512,
+          "t_day": 0.23997551004563672,
+          "p_day": 0.8104370571629532,
+          "se_nw": 1.7882601901383832,
+          "t_nw": 0.24530526247114418,
+          "p_nw": 0.8062200773532974
+        },
+        "0": {
+          "beta": -221.7025189173231,
+          "se_day": 22.681760231794925,
+          "t_day": -9.774484724802976,
+          "p_day": 6.112385390057305e-21,
+          "se_nw": 22.833374198016145,
+          "t_nw": -9.709581991459917,
+          "p_nw": 2.74460361152367e-22
+        },
+        "1": {
+          "beta": -2.391817895407898,
+          "se_day": 1.7078446931611344,
+          "t_day": -1.400489110623264,
+          "p_day": 0.1619207258438253,
+          "se_nw": 1.7436776252131116,
+          "t_nw": -1.3717087727816493,
+          "p_nw": 0.17015411630582689
+        },
+        "2": {
+          "beta": 0.6245588935748573,
+          "se_day": 1.5985679732246847,
+          "t_day": 0.39069899061907026,
+          "p_day": 0.6961683295800785,
+          "se_nw": 1.5917404195839644,
+          "t_nw": 0.3923748407030458,
+          "p_nw": 0.6947812728540531
+        },
+        "3": {
+          "beta": 1.272653037138543,
+          "se_day": 1.5640689180473137,
+          "t_day": 0.8136809206127608,
+          "p_day": 0.41617359771961954,
+          "se_nw": 1.547336130927034,
+          "t_nw": 0.8224800104525938,
+          "p_nw": 0.410803758891803
+        }
+      },
+      "dimports_on_dbess_leads_lags": {
+        "-3": {
+          "beta": 0.0036353068417777023,
+          "se_day": 0.004905803376982332,
+          "t_day": 0.7410217170207625,
+          "p_day": 0.4589908817626784,
+          "se_nw": 0.004880263919774345,
+          "t_nw": 0.7448996409902751,
+          "p_nw": 0.4563323921920258
+        },
+        "-2": {
+          "beta": -0.0008127242374587323,
+          "se_day": 0.0045743228608823554,
+          "t_day": -0.17767093888557822,
+          "p_day": 0.8590456563473527,
+          "se_nw": 0.004672319356423794,
+          "t_nw": -0.173944496396923,
+          "p_nw": 0.8619090825644443
+        },
+        "-1": {
+          "beta": 0.00844666377691132,
+          "se_day": 0.005059637086291427,
+          "t_day": 1.6694208760143485,
+          "p_day": 0.09559287125129427,
+          "se_nw": 0.0048378148088674576,
+          "t_nw": 1.7459667454465255,
+          "p_nw": 0.08081673049703089
+        },
+        "0": {
+          "beta": -0.9187375143712725,
+          "se_day": 0.011170661466327185,
+          "t_day": -82.24557848617225,
+          "p_day": 0.0,
+          "se_nw": 0.01105181974687888,
+          "t_nw": -83.12997636708027,
+          "p_nw": 0.0
+        },
+        "1": {
+          "beta": 0.016729118899444444,
+          "se_day": 0.0044035864754825215,
+          "t_day": 3.7989759012536153,
+          "p_day": 0.00016119678103127398,
+          "se_nw": 0.0044364936825811805,
+          "t_nw": 3.7707974126340544,
+          "p_nw": 0.00016272673841515349
+        },
+        "2": {
+          "beta": 0.002068017432216792,
+          "se_day": 0.004355125081463458,
+          "t_day": 0.47484685136112637,
+          "p_day": 0.6350812641174727,
+          "se_nw": 0.004423276053559649,
+          "t_nw": 0.4675307186745776,
+          "p_nw": 0.6401202195361173
+        },
+        "3": {
+          "beta": -0.002944399636764585,
+          "se_day": 0.004550824492197753,
+          "t_day": -0.6470035576657958,
+          "p_day": 0.5178947490089022,
+          "se_nw": 0.004353200308265796,
+          "t_nw": -0.676375867927281,
+          "p_nw": 0.4988020348214055
+        }
+      },
+      "dco2_joint_future_leads_F": {
+        "F": 0.9989462496809433,
+        "dfn": 3,
+        "dfd": 560,
+        "p": 0.39293541749902383
+      },
+      "dimports_joint_future_leads_F": {
+        "F": 1.2186753223160762,
+        "dfn": 3,
+        "dfd": 560,
+        "p": 0.30214286350305086
+      },
+      "co2_contemp_share_of_abs_sum": 0.9605277203685983,
+      "co2_max_lead_to_contemp_ratio": 0.013993422911550051,
+      "co2_max_lag_to_contemp_ratio": 0.010788411007183236,
+      "co2_cumul_m3_to_p3_kg_mwh": -217.37542980544424,
+      "imp_contemp_mw_per_mw": -0.9187375143712725,
+      "imp_contemp_se_day": 0.011170661466327185
+    },
+    "MISO": {
+      "n_hours": 14969,
+      "dco2_on_dbess_leads_lags": {
+        "-3": {
+          "beta": -112.60538942918535,
+          "se_day": 51.51226834078068,
+          "t_day": -2.1859916687077656,
+          "p_day": 0.029187674890583413,
+          "se_nw": 51.708573903739314,
+          "t_nw": -2.177692806589707,
+          "p_nw": 0.029428914820869522
+        },
+        "-2": {
+          "beta": -37.36641644802944,
+          "se_day": 29.565351184861527,
+          "t_day": -1.2638583663150373,
+          "p_day": 0.2067535564150825,
+          "se_nw": 29.820284197969478,
+          "t_nw": -1.2530536664225955,
+          "p_nw": 0.21018617657350702
+        },
+        "-1": {
+          "beta": -136.81472872710168,
+          "se_day": 40.957187322156635,
+          "t_day": -3.3404327218800236,
+          "p_day": 0.0008864514299392542,
+          "se_nw": 39.063389486552275,
+          "t_nw": -3.5023773032854892,
+          "p_nw": 0.0004611261133999128
+        },
+        "0": {
+          "beta": -588.7794833146661,
+          "se_day": 83.91309161824138,
+          "t_day": -7.016539040097466,
+          "p_day": 5.951239240972503e-12,
+          "se_nw": 83.16585119308021,
+          "t_nw": -7.079582242809478,
+          "p_nw": 1.445896698025704e-12
+        },
+        "1": {
+          "beta": 141.80465296811258,
+          "se_day": 62.11226948494291,
+          "t_day": 2.283037701632984,
+          "p_day": 0.022764103963899756,
+          "se_nw": 59.18499411171177,
+          "t_nw": 2.3959561895107413,
+          "p_nw": 0.01657707156568529
+        },
+        "2": {
+          "beta": 153.13524176033206,
+          "se_day": 33.36674830465003,
+          "t_day": 4.589456556034588,
+          "p_day": 5.37636201034088e-06,
+          "se_nw": 33.67168749875065,
+          "t_nw": 4.547893293616899,
+          "p_nw": 5.418559534615127e-06
+        },
+        "3": {
+          "beta": 75.45593650076586,
+          "se_day": 29.91666822253504,
+          "t_day": 2.5222038744250233,
+          "p_day": 0.011910258270544039,
+          "se_nw": 29.903783225914985,
+          "t_nw": 2.523290646227492,
+          "p_nw": 0.011626226448325746
+        }
+      },
+      "dimports_on_dbess_leads_lags": {
+        "-3": {
+          "beta": 0.007977479661701904,
+          "se_day": 0.039804293976823536,
+          "t_day": 0.20041756465638794,
+          "p_day": 0.8412194297472838,
+          "se_nw": 0.04157524349107,
+          "t_nw": 0.19188052773317846,
+          "p_nw": 0.8478357906372482
+        },
+        "-2": {
+          "beta": 0.046583627978655735,
+          "se_day": 0.04604387869356527,
+          "t_day": 1.0117224981996553,
+          "p_day": 0.3120635181925202,
+          "se_nw": 0.0461262728118719,
+          "t_nw": 1.0099152855607731,
+          "p_nw": 0.3125358786526692
+        },
+        "-1": {
+          "beta": 0.15231952258576434,
+          "se_day": 0.04728529316330349,
+          "t_day": 3.2212874743044706,
+          "p_day": 0.0013426300801365038,
+          "se_nw": 0.047662594958525824,
+          "t_nw": 3.195787445444525,
+          "p_nw": 0.0013944980121948975
+        },
+        "0": {
+          "beta": -0.8604246268056421,
+          "se_day": 0.053126036924982266,
+          "t_day": -16.19591214794777,
+          "p_day": 1.6990983604182152e-49,
+          "se_nw": 0.05496019572899343,
+          "t_nw": -15.655414166433507,
+          "p_nw": 3.051204082078687e-55
+        },
+        "1": {
+          "beta": 0.12882265077060084,
+          "se_day": 0.04858563457331254,
+          "t_day": 2.651455556811055,
+          "p_day": 0.008218448235836902,
+          "se_nw": 0.04913591458714208,
+          "t_nw": 2.621761533351233,
+          "p_nw": 0.008747661549551937
+        },
+        "2": {
+          "beta": 0.14939390577234207,
+          "se_day": 0.046235419691070936,
+          "t_day": 3.231157125220024,
+          "p_day": 0.001297860885026339,
+          "se_nw": 0.0467118419187014,
+          "t_nw": 3.1982019898155896,
+          "p_nw": 0.0013828738119028314
+        },
+        "3": {
+          "beta": -0.015867802929587824,
+          "se_day": 0.0388179561252687,
+          "t_day": -0.4087748174680072,
+          "p_day": 0.6828453968213345,
+          "se_nw": 0.04002243209785496,
+          "t_nw": -0.3964727303625877,
+          "p_nw": 0.69175632116974
+        }
+      },
+      "dco2_joint_future_leads_F": {
+        "F": 4.055744472146325,
+        "dfn": 3,
+        "dfd": 623,
+        "p": 0.007181781635190209
+      },
+      "dimports_joint_future_leads_F": {
+        "F": 3.8031928290067594,
+        "dfn": 3,
+        "dfd": 623,
+        "p": 0.010137039957295488
+      },
+      "co2_contemp_share_of_abs_sum": 0.4725501697481248,
+      "co2_max_lead_to_contemp_ratio": 0.2323700682586161,
+      "co2_max_lag_to_contemp_ratio": 0.26008929675712017,
+      "co2_cumul_m3_to_p3_kg_mwh": -505.1701866897721,
+      "imp_contemp_mw_per_mw": -0.8604246268056421,
+      "imp_contemp_se_day": 0.053126036924982266
+    }
+  },
+  "caiso_upper_bound_frontier_roots": {
+    "ciso_2026_nameplate_gw": 17.2655,
+    "roots": [
+      {
+        "tau_local_access": 0.0,
+        "ever_abates": false,
+        "kappa_breakeven": 0.0,
+        "gw_breakeven_upper_bound": 0.0,
+        "net_at_kappa_010": 39.1683806983807
+      },
+      {
+        "tau_local_access": 0.25,
+        "ever_abates": true,
+        "kappa_breakeven": 0.2473687739089543,
+        "gw_breakeven_upper_bound": 4.27094556592505,
+        "net_at_kappa_010": -43.46952380721487
+      },
+      {
+        "tau_local_access": 0.5,
+        "ever_abates": true,
+        "kappa_breakeven": 0.46389654014614956,
+        "gw_breakeven_upper_bound": 8.009405713893345,
+        "net_at_kappa_010": -79.71918281171591
+      },
+      {
+        "tau_local_access": 1.0,
+        "ever_abates": true,
+        "kappa_breakeven": 0.8795183759792342,
+        "gw_breakeven_upper_bound": 15.185324520469468,
+        "net_at_kappa_010": -118.34166943755596
+      }
+    ]
+  },
+  "ercot_and_ciso_matched_stress_test": {
+    "ERCO": {
+      "fine_cell_fe_stratification": {
+        "seas_hr": [
+          {
+            "bin": "<20%",
+            "n_obs": 2828,
+            "n_fe_cells": 72,
+            "total_mef": 426.5863534625677,
+            "total_se": 7.100388752688838,
+            "coal_mef": 146.93493236765227,
+            "coal_se": 8.001666731052843
+          },
+          {
+            "bin": "20-40%",
+            "n_obs": 6381,
+            "n_fe_cells": 96,
+            "total_mef": 499.8648059354667,
+            "total_se": 3.7068198791917677,
+            "coal_mef": 214.6231433970186,
+            "coal_se": 5.288121588075599
+          },
+          {
+            "bin": "40-60%",
+            "n_obs": 5516,
+            "n_fe_cells": 92,
+            "total_mef": 493.4792199393411,
+            "total_se": 3.309847894623851,
+            "coal_mef": 224.2012824470103,
+            "coal_se": 4.8012555091952125
+          },
+          {
+            "bin": ">60%",
+            "n_obs": 1545,
+            "n_fe_cells": 50,
+            "total_mef": 530.8412790351111,
+            "total_se": 7.442235447757089,
+            "coal_mef": 278.5527770037779,
+            "coal_se": 9.560597516114909
+          }
+        ],
+        "seas_hr_lq": [
+          {
+            "bin": "<20%",
+            "n_obs": 2802,
+            "n_fe_cells": 197,
+            "total_mef": 429.5088938765659,
+            "total_se": 6.440556055689991,
+            "coal_mef": 150.04240742782108,
+            "coal_se": 8.12133309447806
+          },
+          {
+            "bin": "20-40%",
+            "n_obs": 6349,
+            "n_fe_cells": 291,
+            "total_mef": 500.7228381428611,
+            "total_se": 3.789568149917404,
+            "coal_mef": 217.68345485758698,
+            "coal_se": 5.402091537843021
+          },
+          {
+            "bin": "40-60%",
+            "n_obs": 5491,
+            "n_fe_cells": 276,
+            "total_mef": 491.6605773697149,
+            "total_se": 3.273204651080934,
+            "coal_mef": 222.83267856648442,
+            "coal_se": 4.894032550370727
+          },
+          {
+            "bin": ">60%",
+            "n_obs": 1538,
+            "n_fe_cells": 122,
+            "total_mef": 532.9252164261723,
+            "total_se": 8.202683152207404,
+            "coal_mef": 288.5459436681819,
+            "coal_se": 10.379787745486
+          }
+        ],
+        "seas_hr_ld": [
+          {
+            "bin": "<20%",
+            "n_obs": 2739,
+            "n_fe_cells": 381,
+            "total_mef": 429.7083470683108,
+            "total_se": 6.773037518227377,
+            "coal_mef": 151.6821076611605,
+            "coal_se": 8.841776030366866
+          },
+          {
+            "bin": "20-40%",
+            "n_obs": 6300,
+            "n_fe_cells": 619,
+            "total_mef": 501.4218071144917,
+            "total_se": 3.597056425648965,
+            "coal_mef": 219.7735183508393,
+            "coal_se": 5.271214639002086
+          },
+          {
+            "bin": "40-60%",
+            "n_obs": 5437,
+            "n_fe_cells": 560,
+            "total_mef": 493.7891739025061,
+            "total_se": 3.341038660884211,
+            "coal_mef": 227.34825972951003,
+            "coal_se": 4.911013573789828
+          },
+          {
+            "bin": ">60%",
+            "n_obs": 1505,
+            "n_fe_cells": 208,
+            "total_mef": 528.7899691615645,
+            "total_se": 8.64065005319303,
+            "coal_mef": 286.3416829683751,
+            "coal_se": 11.433327641144023
+          }
+        ],
+        "ym_hr_lq": [
+          {
+            "bin": "<20%",
+            "n_obs": 2589,
+            "n_fe_cells": 553,
+            "total_mef": 459.66402319460076,
+            "total_se": 8.114745019380031,
+            "coal_mef": 158.0503180041812,
+            "coal_se": 12.020804789869139
+          },
+          {
+            "bin": "20-40%",
+            "n_obs": 6051,
+            "n_fe_cells": 997,
+            "total_mef": 503.9466000734664,
+            "total_se": 3.901156070338135,
+            "coal_mef": 218.48568277561444,
+            "coal_se": 6.196459772333356
+          },
+          {
+            "bin": "40-60%",
+            "n_obs": 5175,
+            "n_fe_cells": 871,
+            "total_mef": 494.94164494044463,
+            "total_se": 3.7432722836577055,
+            "coal_mef": 227.1610267254058,
+            "coal_se": 5.50851090103379
+          },
+          {
+            "bin": ">60%",
+            "n_obs": 1407,
+            "n_fe_cells": 318,
+            "total_mef": 532.0821177781451,
+            "total_se": 9.1358430415419,
+            "coal_mef": 286.66606724056663,
+            "coal_se": 12.47681239805792
+          }
+        ]
+      },
+      "common_support_exact_matched_seas_hr_lq": {
+        "n_common_cells_total": 120,
+        "low_ren_lt40_reweighted_to_gt60": {
+          "n_obs": 2509,
+          "n_common_cells": 108,
+          "total_mef": 486.32204932198994,
+          "total_se": 9.375027238177262,
+          "coal_mef": 206.94174607595912,
+          "coal_se": 11.96568364963096
+        },
+        "high_ren_gt60_common_support": {
+          "n_obs": 1284,
+          "n_common_cells": 102,
+          "total_mef": 533.8150261381921,
+          "total_se": 8.824351174156979,
+          "coal_mef": 290.196457645934,
+          "coal_se": 10.973655875014192
+        },
+        "diff_gt60_minus_lt40_total_mef": 47.4929768162022,
+        "diff_gt60_minus_lt40_total_se": 12.874793565778491,
+        "diff_gt60_minus_lt40_total_p": 0.00022528410153222929,
+        "diff_gt60_minus_lt40_coal_mef": 83.25471156997489,
+        "diff_gt60_minus_lt40_coal_se": 16.235723219686864,
+        "diff_gt60_minus_lt40_coal_p": 2.930354555725228e-07
+      },
+      "gt60_diurnal_split_seas_hr_lq_fe": {
+        "Midday Solar": {
+          "n_obs": 1313,
+          "n_fe_cells": 89,
+          "total_mef": 535.4965226929413,
+          "total_se": 8.389240743288662,
+          "coal_mef": 291.2366915460702,
+          "coal_se": 10.375736743230298
+        },
+        "Overnight": {
+          "n_obs": 61,
+          "n_fe_cells": 11,
+          "total_mef": 549.0462282969291,
+          "total_se": 56.4736227839085,
+          "coal_mef": 297.9285901104682,
+          "coal_se": 80.33399880073611
+        }
+      }
+    },
+    "CISO": {
+      "fine_cell_fe_stratification": {
+        "seas_hr": [
+          {
+            "bin": "<20%",
+            "n_obs": 8688,
+            "n_fe_cells": 64,
+            "total_mef": 145.76928436066294,
+            "total_se": 4.706766206924275,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": "20-40%",
+            "n_obs": 1066,
+            "n_fe_cells": 66,
+            "total_mef": 110.55472288122994,
+            "total_se": 11.074531421777774,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": "40-60%",
+            "n_obs": 624,
+            "n_fe_cells": 32,
+            "total_mef": 160.94601264806852,
+            "total_se": 10.574245581778381,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": ">60%",
+            "n_obs": 5286,
+            "n_fe_cells": 38,
+            "total_mef": 83.88030216848055,
+            "total_se": 3.378815262736294,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          }
+        ],
+        "seas_hr_lq": [
+          {
+            "bin": "<20%",
+            "n_obs": 8670,
+            "n_fe_cells": 173,
+            "total_mef": 130.7131717251279,
+            "total_se": 4.183970225065297,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": "20-40%",
+            "n_obs": 1015,
+            "n_fe_cells": 112,
+            "total_mef": 100.2918813167442,
+            "total_se": 10.9053099580483,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": "40-60%",
+            "n_obs": 598,
+            "n_fe_cells": 65,
+            "total_mef": 160.12242077300198,
+            "total_se": 11.30791737140736,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": ">60%",
+            "n_obs": 5278,
+            "n_fe_cells": 132,
+            "total_mef": 69.29563913142779,
+            "total_se": 3.0363814395525828,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          }
+        ],
+        "seas_hr_ld": [
+          {
+            "bin": "<20%",
+            "n_obs": 8641,
+            "n_fe_cells": 354,
+            "total_mef": 124.72497887364295,
+            "total_se": 4.122455261994093,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": "20-40%",
+            "n_obs": 951,
+            "n_fe_cells": 153,
+            "total_mef": 93.47587411865058,
+            "total_se": 11.691471381354333,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": "40-60%",
+            "n_obs": 557,
+            "n_fe_cells": 92,
+            "total_mef": 162.85938998360618,
+            "total_se": 12.099428900826801,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": ">60%",
+            "n_obs": 5263,
+            "n_fe_cells": 299,
+            "total_mef": 65.64906138091898,
+            "total_se": 3.095046644992664,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          }
+        ],
+        "ym_hr_lq": [
+          {
+            "bin": "<20%",
+            "n_obs": 8580,
+            "n_fe_cells": 764,
+            "total_mef": 122.49395488122809,
+            "total_se": 4.214673285917884,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": "20-40%",
+            "n_obs": 871,
+            "n_fe_cells": 201,
+            "total_mef": 88.22432583643034,
+            "total_se": 12.16547761612956,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": "40-60%",
+            "n_obs": 500,
+            "n_fe_cells": 106,
+            "total_mef": 144.34232031583846,
+            "total_se": 14.337155732503962,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          },
+          {
+            "bin": ">60%",
+            "n_obs": 5203,
+            "n_fe_cells": 609,
+            "total_mef": 58.18511321711304,
+            "total_se": 3.216612923224798,
+            "coal_mef": 0.0,
+            "coal_se": 1e-15
+          }
+        ]
+      },
+      "common_support_exact_matched_seas_hr_lq": {
+        "n_common_cells_total": 72,
+        "low_ren_lt40_reweighted_to_gt60": {
+          "n_obs": 274,
+          "n_common_cells": 40,
+          "total_mef": 148.2889301020199,
+          "total_se": 19.416779536343753,
+          "coal_mef": 0.0,
+          "coal_se": 0.0
+        },
+        "high_ren_gt60_common_support": {
+          "n_obs": 2152,
+          "n_common_cells": 65,
+          "total_mef": 85.67903005902112,
+          "total_se": 4.882037125847482,
+          "coal_mef": 0.0,
+          "coal_se": 0.0
+        },
+        "diff_gt60_minus_lt40_total_mef": -62.609900042998774,
+        "diff_gt60_minus_lt40_total_se": 20.02112919046103,
+        "diff_gt60_minus_lt40_total_p": 0.0017648508013121157,
+        "diff_gt60_minus_lt40_coal_mef": 0.0,
+        "diff_gt60_minus_lt40_coal_se": 0.0,
+        "diff_gt60_minus_lt40_coal_p": 1.0
+      },
+      "gt60_diurnal_split_seas_hr_lq_fe": {
+        "Midday Solar": {
+          "n_obs": 4517,
+          "n_fe_cells": 101,
+          "total_mef": 63.53351832473676,
+          "total_se": 3.254183128782393,
+          "coal_mef": 0.0,
+          "coal_se": 1e-15
+        },
+        "Overnight": null
+      }
+    }
+  },
+  "elapsed_sec": 40.28412580490112
+}

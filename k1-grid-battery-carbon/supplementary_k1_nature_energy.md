@@ -11,8 +11,8 @@ Email: zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my
 | Empirical Sample | Geographic & Unit Scope | Time Window | Sample Size & Key Volume | Primary Analysis |
 | :--- | :--- | :--- | :--- | :--- |
 | **Sample 1: Operational Gas-Displacement Panel** | $G = 49$ balanced U.S. BAs (43 thermal; $d_{19} \ge 100$ MW) | `2019-01` to `2026-10` (94 months) | 3,359,080 hrs; 4,589 BA-months; 139,497 BA-days | Demand-weighted WLS conditional diurnal gas displacement, 6m leads, duration horse-race, daily `BA x YM FE` (Supp. Tables 2–3; Supp. Figs. 2–3) |
-| **Sample 2: EPA CEMS Carbon-Accounting Panel (Core)** | 14 two-way metered BESS BAs (13 clean AC + `FPL*` DC) | `2024-07-01` to `2026-09-30` (exact same-window subset `2024-07..2025-12`) | 49.77 TWh full (26.05 TWh same-window); 52,816.8 GWh telemetry | 24h CEMS MEFs (24x24 $V$), AEF vs. CEMS-MEF discrepancy (+7.44 Mt), 14-BA joint 14d bootstrap, independent MEF checks, ERCOT cross-regional check (Main Figs. 1, 2, 4; Tables 1–2; Supp. Table 4) |
-| **Sample 3: CAISO Curtailment Subsample** | Single-grid `CISO` (`fuelsource.csv` + official curtailments + CEMS) | `2024-07-01` to `2025-12-31` | 13,170 matched hours (549 days); 4,347.2 GWh curtailed | Interior curtailment MEFs (main & observed $\Delta\text{Load}$), 1d/7d/14d contiguous block bootstraps, congestion-constrained saturation frontier (Main Figs. 3–4; Table 2B) |
+| **Sample 2: EPA CEMS Carbon-Accounting Panel (Core)** | 14 two-way metered BESS BAs (13 clean AC + `FPL*` DC) | `2024-07-01` to `2026-09-30` (exact same-window `2024-07..2025-12`) | 49.77 TWh full (26.03 TWh same-window); 52,816.8 GWh telemetry | 24h CEMS MEFs (24x24 $V$), AEF vs. CEMS-MEF discrepancy (+7.44 Mt), unconditional season-stratified 7/14/28d UTC bootstrap, LOBAO, OOS CV, lead-lag, ERCOT matched stress test (Main Figs. 1, 2, 4; Tables 1–2; Supp. Tables 4–6) |
+| **Sample 3: CAISO Curtailment Subsample** | Single-grid `CISO` (`fuelsource.csv` + official curtailments + CEMS) | `2024-07-01` to `2025-12-31` | 13,170 matched hours (549 days); 4,347.2 GWh curtailed | Interior curtailment MEFs (main & observed $\Delta\text{Load}$), 1d/7d/14d/28d contiguous block bootstraps, fixed-profile BA-level upper-bound scenarios (Main Figs. 3–4; Table 2B) |
 
 ---
 
@@ -93,9 +93,9 @@ Email: zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my
 
 ---
 
-**Supplementary Table 4. Independent BA-level MEF validations (EPA eGRID 2023 rev2 Non-Baseload CO2 rates, pure CEMS stack slopes, and direct metered battery-dispatch CEMS regressions).**
+**Supplementary Table 4. BA-level measurement and order-of-magnitude MEF cross-checks (EPA eGRID 2023 rev2 Non-Baseload rates, pure CEMS stack slopes, and direct metered battery-dispatch regressions).**
 
-| BA | Disch. (GWh) | Main 24h CEMS MEF | Pure CEMS Stack Slope (SE) | EPA eGRID 2023 Non-Baseload | eGRID NB Loss Floor (kg/MWh) | Direct $-\partial\text{CO}_2/\partial\text{BESS}$ (SE) |
+| BA | Disch. (GWh) | Main 24h CEMS MEF | Pure CEMS Stack Slope (SE) | EPA eGRID 2023 Non-Baseload | eGRID NB $(1/\eta-1)$ Floor | Direct $-\partial\text{CO}_2/\partial\text{BESS}$ (SE) |
 | :--- | ---: | ---: | :---: | ---: | ---: | :---: |
 | **CISO** | 29,156.0 | 261.9 | 376.2 (1.4) | 398.5 | +63.0 | 271.3 (4.2) |
 | **ERCO** | 9,923.9 | 502.8 | 515.9 (1.9) | 565.4 | +163.9 | 499.3 (3.4) |
@@ -112,4 +112,44 @@ Email: zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my
 | **CPLE** | 26.1 | 452.4 | 553.7 (6.4) | 548.8 | +120.3 | — |
 | **FPL** | 107.8 | 341.8 | 355.3 (1.5) | 378.4 | +14.7 | — |
 
-*Notes:* Official EPA eGRID 2023 rev2 BA Non-Baseload CO2 rates require zero EIA-930 regressions and imply a pure round-trip-loss fleet floor of **+89.6 kg/MWh (+4.46 Mt CO2)**. Pure CEMS stack slopes regress $\Delta\text{CO}_{2,\text{CEMS}}$ solely on $\Delta\text{GrossLoad}_{\text{CEMS}}$. Direct battery regressions regress hourly CEMS $\Delta\text{CO}_2$ on metered $\Delta\text{BESS}_{\text{MW}}$ controlling for $\Delta\text{Load}$, $\Delta\text{Solar}$, $\Delta\text{Wind}$, $\Delta\text{Imports}$, and `YM x Hour FE`.
+*Notes:* These three benchmarks serve strictly as measurement and order-of-magnitude cross-checks: eGRID Non-Baseload times $(1/\eta_b - 1)$ (+89.6 kg/MWh = +4.46 Mt) is positive by algebraic construction whenever $\text{eGRID} > 0$ and $\eta_b < 1$; pure CEMS stack slopes and direct $\Delta\text{BESS}$ regressions share EPA CEMS stack data, and direct $\Delta\text{BESS}$ additionally reflects dispatch simultaneity quantified in Supplementary Table 6.
+
+---
+
+**Supplementary Table 5. Complete 14-BA Leave-One-BA-Out (LOBAO) concentration audit and Table 1-to-Table 2 reconciliation bridge.**
+
+| Dropped BA / Bridge Step | BA Disch. Share | BA Discrep. Share | Remaining Disch. (TWh) | Remaining AEF (Mt) | Remaining CEMS (Mt) | Remaining Discrep. (Mt) | Remaining Discrep. (kg/MWh) |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Drop **CISO** (13 grids) | 58.6% | 65.5% | 20.62 | -0.69 | +1.87 | **+2.57** | +124.4 |
+| Drop **ERCO** (13 grids) | 19.9% | 22.0% | 39.85 | -3.51 | +2.30 | **+5.81** | +145.8 |
+| Drop **AZPS** (13 grids) | 8.8% | 7.1% | 45.38 | -3.39 | +3.52 | **+6.91** | +152.3 |
+| Drop **PNM** (13 grids) | 3.5% | 3.0% | 48.04 | -3.52 | +3.70 | **+7.22** | +150.3 |
+| Drop **SRP** (13 grids) | 2.0% | 0.5% | 48.77 | -3.72 | +3.69 | **+7.40** | +151.8 |
+| Drop **PGE** (13 grids) | 1.8% | -0.3% | 48.86 | -3.75 | +3.71 | **+7.46** | +152.8 |
+| Drop **MISO** (13 grids) | 1.5% | 0.9% | 49.05 | -3.79 | +3.59 | **+7.38** | +150.4 |
+| Drop **IPCO** (13 grids) | 1.3% | 0.4% | 49.13 | -3.74 | +3.67 | **+7.42** | +150.9 |
+| Drop **TEPC** (13 grids) | 1.1% | 0.4% | 49.22 | -3.72 | +3.69 | **+7.41** | +150.6 |
+| Drop **IID** (13 grids) | 0.7% | 0.4% | 49.44 | -3.72 | +3.69 | **+7.42** | +150.0 |
+| Drop **SOCO** (13 grids) | 0.4% | 0.0% | 49.57 | -3.74 | +3.70 | **+7.44** | +150.1 |
+| Drop **DUK** (13 grids) | 0.1% | -0.0% | 49.70 | -3.74 | +3.71 | **+7.45** | +149.8 |
+| Drop **CPLE** (13 grids) | 0.1% | 0.1% | 49.75 | -3.73 | +3.71 | **+7.44** | +149.6 |
+| Drop **FPL** (13 grids) | 0.2% | 0.1% | 49.66 | -3.73 | +3.71 | **+7.44** | +149.8 |
+| **Drop CISO & ERCO (12 grids)** | **78.5%** | **87.5%** | **10.69** | **-0.47** | **+0.46** | **+0.93** | **+87.1** |
+
+*Notes:* Table 1 (`+7.4417` Mt, Step 03) vs. v4 conditional Table 2 (`+7.4179` Mt, Step 03b) differs by `0.0238` Mt: `+0.0019` Mt from `|BESS|>0.5` MW & CEMS-matched mask and `-0.0247` Mt from untrimmed `d_disp+d_imp` vs. 8x-MAD `d_need`. Updating Table 1 to exact same-window `2024-07..2026-09` UTC bilateral trade weights yields `+7.4434` Mt (`+0.0017` Mt shift). Unconditional 14d CI width is 1.85x wider than matched conditional 14d CI at $\alpha = 0\%$ (1.22x at Hybrid 15%).
+
+---
+
+**Supplementary Table 6. Out-of-sample temporal holdout, 9-quarter leave-quarter-out CV, hourly lead-lag ($k = -3\dots+3$ h) timing diagnostic, and ERCOT matched stress test.**
+
+| Diagnostic Panel / Grid | Sample / Cells | Primary Metric | Calibration / Contemp. Share | Future Leads ($k = -3,-2,-1$) or Matched Diff. | Criterion / Implication |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| OOS Holdout: Fleet Pooled & Disch.-Wt | `25Q4–26Q3` | $R^2 = 0.938$ / $0.761$ | Cal. slope = 0.872 | Disc. +4.23 vs +4.38 Mt (3.5% err) | Pass (all 4 criteria) |
+| OOS Holdout: `CISO` / `ERCO` / `MISO` / `AZPS` | Held-out yr | 0.759 / 0.967 / 0.945 / 0.385 | Slopes 0.81 / 0.97 / 0.96 / 0.93 | 9Q LQO CV: mean $R^2 = 0.952$, sign 9/9 | High transferability; `AZPS` noisier |
+| Lead-Lag `CISO` ($\Delta\text{BESS} \to \Delta\text{CO}_2$, $\Delta\text{Imp}$) | 19,673 h | $k=0$: -270.6 (4.4) | 94.6% at $k=0$; $\Delta\text{Imp}$=-0.675 | -2.9, +2.6, -6.5 ($F=10.3$) | Contemp. + strong import offset |
+| Lead-Lag `ERCO` ($\Delta\text{BESS} \to \Delta\text{CO}_2$, $\Delta\text{Imp}$) | 16,940 h | $k=0$: -495.6 (3.7) | 94.9% at $k=0$; $\Delta\text{Imp}$=-0.022 | -1.3, -1.5, -11.9 ($F=5.8$) | Contemp. + islanded grid |
+| Lead-Lag `AZPS` & `MISO` ($\Delta\text{BESS} \to \Delta\text{CO}_2$) | 13,457 / 14,969 h | -221.7 / -588.8 | 96.1% / 47.3% at $k=0$ | `AZPS` $F=1.00$ ($p=0.393$); `MISO` $F=4.06$ | `MISO` shows dispatch simultaneity |
+| Matched Stress Test `ERCO` (`SeasxHrxLoadQ`) | 120 cells | `<40%` 486.3 vs `>60%` 533.8 | Coal 206.9 → 290.2 | Diff +47.5±12.9 (coal +83.3±16.2) | Load-Decile FE: 528.8 (coal 286.3) |
+| Matched Stress Test `CISO` (`SeasxHrxLoadQ`) | 72 cells | `<40%` 148.3 vs `>60%` 85.7 | Coal 0.0 → 0.0 | Diff -62.6±20.0 kg/MWh | Load-Decile FE: 65.6 kg/MWh |
+
+*Notes:* ERCOT midday solar hours (`10:00–16:00`, 1,313 interior obs across 89 `SeasxHrxLoadQ` cells) above 60% renewables retain total MEF = 535.5±8.4 kg/MWh and coal MEF = 291.2±10.4 kg/MWh. Machine-readable CSVs: `tables/table_oos_and_leadlag.csv` and `tables/fig4_frontier_and_ercot.csv`.
