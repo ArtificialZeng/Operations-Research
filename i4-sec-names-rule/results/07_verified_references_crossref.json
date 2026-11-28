@@ -1,0 +1,316 @@
+{
+  "n_total_references": 25,
+  "n_academic_dois_verified_live_crossref": 19,
+  "n_official_sec_releases": 6,
+  "all_bibliography_cited_in_body": true,
+  "all_body_citations_in_bibliography": true,
+  "references": [
+    {
+      "label": "Abadie et al., 2023",
+      "doi": "10.1093/qje/qjac038",
+      "http_status": 200,
+      "crossref_title": "When Should You Adjust Standard Errors for Clustering?",
+      "crossref_container": "The Quarterly Journal of Economics",
+      "crossref_authors": [
+        "Abadie",
+        "Athey",
+        "Imbens",
+        "Wooldridge"
+      ],
+      "crossref_year": 2022,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Barber, Huang, and Odean, 2016",
+      "doi": "10.1093/rfs/hhw054",
+      "http_status": 200,
+      "crossref_title": "Which Factors Matter to Investors? Evidence from Mutual Fund Flows",
+      "crossref_container": "Review of Financial Studies",
+      "crossref_authors": [
+        "Barber",
+        "Huang",
+        "Odean"
+      ],
+      "crossref_year": 2016,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Berk and Green, 2004",
+      "doi": "10.1086/424739",
+      "http_status": 200,
+      "crossref_title": "Mutual Fund Flows and Performance in Rational Markets",
+      "crossref_container": "Journal of Political Economy",
+      "crossref_authors": [
+        "Berk",
+        "Green"
+      ],
+      "crossref_year": 2004,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Callaway and Sant'Anna, 2021",
+      "doi": "10.1016/j.jeconom.2020.12.001",
+      "http_status": 200,
+      "crossref_title": "Difference-in-Differences with multiple time periods",
+      "crossref_container": "Journal of Econometrics",
+      "crossref_authors": [
+        "Callaway",
+        "Sant\u2019Anna"
+      ],
+      "crossref_year": 2021,
+      "body_citation_count": 4
+    },
+    {
+      "label": "Cameron, Gelbach, and Miller, 2008",
+      "doi": "10.1162/rest.90.3.414",
+      "http_status": 200,
+      "crossref_title": "Bootstrap-Based Improvements for Inference with Clustered Errors",
+      "crossref_container": "Review of Economics and Statistics",
+      "crossref_authors": [
+        "Cameron",
+        "Gelbach",
+        "Miller"
+      ],
+      "crossref_year": 2008,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Chevalier and Ellison, 1997",
+      "doi": "10.1086/516389",
+      "http_status": 200,
+      "crossref_title": "Risk Taking by Mutual Funds as a Response to Incentives",
+      "crossref_container": "Journal of Political Economy",
+      "crossref_authors": [
+        "Chevalier",
+        "Ellison"
+      ],
+      "crossref_year": 1997,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Cooper, Gulen, and Rau, 2005",
+      "doi": "10.1111/j.1540-6261.2005.00818.x",
+      "http_status": 200,
+      "crossref_title": "Changing Names with Style: Mutual Fund Name Changes and Their Effects on Fund Flows",
+      "crossref_container": "The Journal of Finance",
+      "crossref_authors": [
+        "COOPER",
+        "GULEN",
+        "RAU"
+      ],
+      "crossref_year": 2005,
+      "body_citation_count": 2
+    },
+    {
+      "label": "Espenlaub, ul Haq, and Khurshed, 2017",
+      "doi": "10.1016/j.jbankfin.2017.07.008",
+      "http_status": 200,
+      "crossref_title": "It's all in the name: Mutual fund name changes after SEC Rule 35d-1",
+      "crossref_container": "Journal of Banking &amp; Finance",
+      "crossref_authors": [
+        "Espenlaub",
+        "Haq",
+        "Khurshed"
+      ],
+      "crossref_year": 2017,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Fisch and Robertson, 2023",
+      "doi": "10.2139/ssrn.4398419",
+      "http_status": 200,
+      "crossref_title": "What\u2019s in a Name? ESG Mutual Funds and the SEC\u2019s Names Rule",
+      "crossref_container": "",
+      "crossref_authors": [
+        "Fisch",
+        "Robertson"
+      ],
+      "crossref_year": 2023,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Gibson Brandon et al., 2022",
+      "doi": "10.1093/rof/rfac064",
+      "http_status": 200,
+      "crossref_title": "Do Responsible Investors Invest Responsibly?",
+      "crossref_container": "Review of Finance",
+      "crossref_authors": [
+        "Gibson Brandon",
+        "Glossner",
+        "Krueger",
+        "Matos",
+        "Steffen"
+      ],
+      "crossref_year": 2022,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Hartzmark and Sussman, 2019",
+      "doi": "10.1111/jofi.12841",
+      "http_status": 200,
+      "crossref_title": "Do Investors Value Sustainability? A Natural Experiment Examining Ranking and Fund Flows",
+      "crossref_container": "The Journal of Finance",
+      "crossref_authors": [
+        "HARTZMARK",
+        "SUSSMAN"
+      ],
+      "crossref_year": 2019,
+      "body_citation_count": 1
+    },
+    {
+      "label": "He, Wang, and Ward, 2025",
+      "doi": "10.2139/ssrn.5844262",
+      "http_status": 200,
+      "crossref_title": "Theme Washing in the ETF Space",
+      "crossref_container": "",
+      "crossref_authors": [
+        "He",
+        "Wang",
+        "Ward"
+      ],
+      "crossref_year": 2025,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Imbens and Manski, 2004",
+      "doi": "10.1111/j.1468-0262.2004.00555.x",
+      "http_status": 200,
+      "crossref_title": "Confidence Intervals for Partially Identified Parameters",
+      "crossref_container": "Econometrica",
+      "crossref_authors": [
+        "Imbens",
+        "Manski"
+      ],
+      "crossref_year": 2004,
+      "body_citation_count": 2
+    },
+    {
+      "label": "Kacperczyk, Sialm, and Zheng, 2008",
+      "doi": "10.1093/rfs/hhl041",
+      "http_status": 200,
+      "crossref_title": "Unobserved Actions of Mutual Funds",
+      "crossref_container": "Review of Financial Studies",
+      "crossref_authors": [
+        "Kacperczyk",
+        "Sialm",
+        "Zheng"
+      ],
+      "crossref_year": 2008,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Kim and Yoon, 2023",
+      "doi": "10.1287/mnsc.2022.4394",
+      "http_status": 200,
+      "crossref_title": "Analyzing Active Fund Managers\u2019 Commitment to ESG: Evidence from the United Nations Principles for Responsible Investment",
+      "crossref_container": "Management Science",
+      "crossref_authors": [
+        "Kim",
+        "Yoon"
+      ],
+      "crossref_year": 2023,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Rambachan and Roth, 2023",
+      "doi": "10.1093/restud/rdad018",
+      "http_status": 200,
+      "crossref_title": "A More Credible Approach to Parallel Trends",
+      "crossref_container": "Review of Economic Studies",
+      "crossref_authors": [
+        "Rambachan",
+        "Roth"
+      ],
+      "crossref_year": 2023,
+      "body_citation_count": 4
+    },
+    {
+      "label": "Roodman et al., 2019",
+      "doi": "10.1177/1536867X19830877",
+      "http_status": 200,
+      "crossref_title": "Fast and wild: Bootstrap inference in Stata using boottest",
+      "crossref_container": "The Stata Journal: Promoting communications on statistics and Stata",
+      "crossref_authors": [
+        "Roodman",
+        "Nielsen",
+        "MacKinnon",
+        "Webb"
+      ],
+      "crossref_year": 2019,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Sensoy, 2009",
+      "doi": "10.1016/j.jfineco.2008.02.011",
+      "http_status": 200,
+      "crossref_title": "Performance evaluation and self-designated benchmark indexes in the mutual fund industry",
+      "crossref_container": "Journal of Financial Economics",
+      "crossref_authors": [
+        "Sensoy"
+      ],
+      "crossref_year": 2009,
+      "body_citation_count": 1
+    },
+    {
+      "label": "Sirri and Tufano, 1998",
+      "doi": "10.1111/0022-1082.00066",
+      "http_status": 200,
+      "crossref_title": "Costly Search and Mutual Fund Flows",
+      "crossref_container": "The Journal of Finance",
+      "crossref_authors": [
+        "Sirri",
+        "Tufano"
+      ],
+      "crossref_year": 1998,
+      "body_citation_count": 1
+    },
+    {
+      "label": "SEC IC-24828 (2001)",
+      "doi": null,
+      "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/rules/final/ic-24828.htm",
+      "http_status": 200,
+      "body_citation_count": 1
+    },
+    {
+      "label": "SEC 33-11238 / IC-35000 (2023)",
+      "doi": null,
+      "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/files/rules/final/2023/33-11238.pdf",
+      "http_status": 200,
+      "body_citation_count": 2
+    },
+    {
+      "label": "SEC 2025-26 Names Rule FAQs (2025a)",
+      "doi": null,
+      "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/2025-26-names-rule-faqs",
+      "http_status": 200,
+      "body_citation_count": 2
+    },
+    {
+      "label": "SEC 33-11368 / IC-35500 (2025b)",
+      "doi": null,
+      "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/files/rules/final/2025/33-11368.pdf",
+      "http_status": 200,
+      "body_citation_count": 5
+    },
+    {
+      "label": "SEC IC-35963 (2026a)",
+      "doi": null,
+      "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/files/rules/final/2026/ic-35963.pdf",
+      "http_status": 200,
+      "body_citation_count": 1
+    },
+    {
+      "label": "SEC Press Release 2026-19 (2026b)",
+      "doi": null,
+      "official_sec_release": true,
+      "sec_url": "https://www.sec.gov/newsroom/press-releases/2026-19-sec-proposes-amendments-reduce-burdens-reporting-fund-portfolio-holdings",
+      "http_status": 200,
+      "body_citation_count": 2
+    }
+  ]
+}

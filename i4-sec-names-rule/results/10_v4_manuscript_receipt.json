@@ -1,0 +1,34 @@
+{
+  "quarter_2026Q2_sum_net_assets_trillion": 44.312600153430964,
+  "latest_record_sum_net_assets_trillion": 46.202275473088214,
+  "full_fund_quarters": 307298,
+  "complete_fund_quarters": 303372,
+  "n_primary_ma_renamers": 50,
+  "n_verified_effective_dates_pass2": 50,
+  "n_pre_june11_pass2": 49,
+  "n_pre_june11_pass1": 35,
+  "n_pass1_parsed_total": 36,
+  "n_oncycle_2027": 36,
+  "numeric_share_all_pct": 57.66059919444398,
+  "numeric_share_ex_vanguard_pct": 4.888081763985101,
+  "vanguard_share_of_numeric_pct": 96.22628517911608,
+  "unmapped_ma_gvi_2023q2_pct": 1.5347968562719134,
+  "top100_unmapped_count": 0,
+  "repaired_largest_class_gvi_diff_pp": -7.188019368584301,
+  "repaired_largest_class_gvi_wcb_p": 0.001,
+  "repaired_largest_class_gv_diff_pp": -5.664397028295356,
+  "repaired_largest_class_gv_wcb_p": 0.039,
+  "sharp_pi_gvi_max_class": [
+    -11.328450243317013,
+    -3.2446072730252142
+  ],
+  "outer_95ci_gvi_max_class": [
+    -15.359019641336339,
+    0.13073186745028753
+  ],
+  "trajectory_2024q2_diff_pp": -4.557442577868317,
+  "faq2_joint_pre_p": 0.04303809230673689,
+  "faq4_joint_pre_p": 0.0026853641867141927,
+  "numeric_flow_pp_per_mo": 0.9217567428032413,
+  "numeric_flow_wcb_p": 0.17
+}

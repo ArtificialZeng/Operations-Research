@@ -1,0 +1,288 @@
+{
+  "workspace": "D:\\AI_Science\\antigravity\\i4_boost_sec_names_rule_20261126",
+  "revision": "v4",
+  "n_files": 70,
+  "line_endings_policy": "LF-normalized for all text files; raw disk bytes hashed",
+  "files": {
+    "scripts/01_build_clean_panel.py": {
+      "bytes": 61600,
+      "sha256": "EA08C5565CC7559B9EBEA12E3ECE7E3B049063AE522B7435C36569A04253D95A"
+    },
+    "scripts/02_edgar_prospectus_audit.py": {
+      "bytes": 37081,
+      "sha256": "6571B7C03EC7111E2C2EDFB1EFF1DD18B3E55D569B34D8E130AE32937730F77E"
+    },
+    "scripts/02b_per_fund_statutory_audit.py": {
+      "bytes": 51629,
+      "sha256": "676601F29D17CC488846464DE7AA22C55E8156B7F346B9E884D065388FF9D22D"
+    },
+    "scripts/03_holdings_lookthrough_rebalancing.py": {
+      "bytes": 79544,
+      "sha256": "70BDE27A61B9AF141D7F7875D8B517C750EDD8101FEE4B3D458FFE9B390271D4"
+    },
+    "scripts/04_econometrics_main_and_robustness.py": {
+      "bytes": 49665,
+      "sha256": "140D75BF1F13C0AB9D6239223EA339E1C8E1521BAF7B66CF626464FB5C26CE1B"
+    },
+    "scripts/04b_counterfactual_sensitivity_and_placebos.py": {
+      "bytes": 36456,
+      "sha256": "8765501C549A79972C529C82FF9DA37CD56A13A0CD6EE0483A862D3EDB9EEF0A"
+    },
+    "scripts/05_monthly_flow_event_study.py": {
+      "bytes": 25534,
+      "sha256": "43878F5A9B27B97603C2B50ACFED771543D1EAF7373F4E50ABEC3DD19AA1172C"
+    },
+    "scripts/06_generate_figures.py": {
+      "bytes": 26970,
+      "sha256": "FCB8B7DD131620CA9820FE217EC4579C3871D74BC824B92B6948C56BCB69A055"
+    },
+    "scripts/07_verify_citations.py": {
+      "bytes": 10097,
+      "sha256": "8BF57ADC786BED90198DF2D411B021D7010AE9DD1329CC069B10E81D0FB9A98D"
+    },
+    "scripts/07a_generate_manuscript_md.py": {
+      "bytes": 90392,
+      "sha256": "15C8ACD91A4B7D94A8318B394C0AF02523ED3FFB043020B77CD4382C89BD28E4"
+    },
+    "scripts/08_compile_manuscript_pdf.py": {
+      "bytes": 21697,
+      "sha256": "D99A7C9B568CD30098267848FB181AC3C161482484C8DFB0B5F8A7152EFFE2F3"
+    },
+    "scripts/09_generate_checksums.py": {
+      "bytes": 2791,
+      "sha256": "4EEA4A778F84F810F62999A1D5A2882E0CB7496D8EF7FADD87353ECF550D670D"
+    },
+    "scripts/econometrics.py": {
+      "bytes": 11297,
+      "sha256": "0760298751472263FEBD5E6DA293EC65A18F84CE7B28C34A2407F4696F5811B1"
+    },
+    "tests/test_i4_boost.py": {
+      "bytes": 12510,
+      "sha256": "DD64DC04BF54AE3DC95A33A00097E9C29B77467F7089E2CEE33CA4F6BBDF1C36"
+    },
+    "tables/table1_main_did_bifurcation.csv": {
+      "bytes": 8120,
+      "sha256": "C6D157E9E3E848955292F13EA7572073C220FE4ED54184FA66E38C6A5FB58528"
+    },
+    "tables/table1b_high_dim_fe.csv": {
+      "bytes": 2904,
+      "sha256": "4001BC7B37E99079B901CAD04A53E69A7FB65838853BC50C38BEB3F6AC017952"
+    },
+    "tables/table2_mechanisms_and_cutoff.csv": {
+      "bytes": 1454,
+      "sha256": "255E1DC49133196D1A95ABC68BD1584B6D78E3401E6CAC7144024EBF51843300"
+    },
+    "tables/table2b_mechanism_bifurcation.csv": {
+      "bytes": 3144,
+      "sha256": "B7636CAD7BEFCEEC1AEDB64D9925FB24D4AE9778FADE8BA0265545C8A264672A"
+    },
+    "tables/table3_event_study_quarterly.csv": {
+      "bytes": 25602,
+      "sha256": "04014FD8A5D1C502CF456D8544E6C318599FC1309E4D2002C5DF8BF458BB13C2"
+    },
+    "tables/table_50_renamers_statutory_audit.csv": {
+      "bytes": 28309,
+      "sha256": "8245D05A8A9B68BF236B2B8D2ED8EDA4F3CAAB535304C9F99B4BF38ECA85E387"
+    },
+    "tables/table_50_retained_statutory_audit.csv": {
+      "bytes": 26458,
+      "sha256": "BF78FA72D51BEA798F176C679474DB27FB0BCCD919E5279AF8F3A5C71FB3D7D9"
+    },
+    "tables/table_all_droppers_2025_2026_audit.csv": {
+      "bytes": 37588,
+      "sha256": "136FB3406699A61FF8225D5EAFC967F9D3E740DAD7D89C1CF75B5222D44AA33D"
+    },
+    "tables/table_edgar_prospectus_attribution.csv": {
+      "bytes": 1324,
+      "sha256": "16633F9C99DA8E7715906EA2754C107F6C2C2D47FF4B104B5FF8F2545C45B32F"
+    },
+    "tables/table_holdings_lookthrough_inertia.csv": {
+      "bytes": 15897,
+      "sha256": "9C4BB42B83D8D3E78471CA6E997C4DF6699274CAA705711AD88723F3FB274200"
+    },
+    "tables/table_honest_did_sensitivity.csv": {
+      "bytes": 2931,
+      "sha256": "1367052D78117B45C536919C3D8CC106D5565B3261664382E755B8970295E0F2"
+    },
+    "tables/table_lookthrough_100pos_audit.csv": {
+      "bytes": 21396,
+      "sha256": "78B9246F2B11D5653332E275E2081EFF7AAA5E360D1F7A9315FA313EAAEAAFED"
+    },
+    "tables/table_monthly_flow_event_study.csv": {
+      "bytes": 26331,
+      "sha256": "8ABA8816491A3F2E3EA3F7DA622CE68ACF71466B24880F5BC91D8397B6BC112A"
+    },
+    "tables/table_multiquarter_portfolio_paths.csv": {
+      "bytes": 1522,
+      "sha256": "A093FDF5D91FEB01FB920814E68391EA3A7E41766A72A94B9F5179EB68CCA79C"
+    },
+    "tables/table_partial_id_bounds.csv": {
+      "bytes": 4608,
+      "sha256": "950FFCABCE2017964BA722AF0B5D064BEB028C4A8A914B2F050B1E5DC811E69B"
+    },
+    "tables/table_placebo_audits.csv": {
+      "bytes": 3028,
+      "sha256": "C082C7330A47690A702946DE2EA1D3218945E42BC29FBAF89E687CFFEF6B9FD8"
+    },
+    "tables/table_quarterly_flow_crossval.csv": {
+      "bytes": 3713,
+      "sha256": "80C222253A4B34EE1A143813436D5D6AB3D06A796089DDC4B70669C2AC5582F4"
+    },
+    "tables/table_unregulated_renamers_control.csv": {
+      "bytes": 25133,
+      "sha256": "CF96C28B4695295391EAC6114ACA3750C3EC5AC5A3CD751F3C6F2C1A9AD0BC39"
+    },
+    "results/01_panel_audit.json": {
+      "bytes": 6426,
+      "sha256": "F641D08DAE0FAAD8A9D3BC16578D049A1E8FE50C4D71E836F6133EDB367DAC14"
+    },
+    "results/02_edgar_audit_summary.json": {
+      "bytes": 35282,
+      "sha256": "31C55374845087F546A0DD3B8A2D7E04312DAB15A810D4A7D19E4B47E6D9C6CB"
+    },
+    "results/02b_per_fund_statutory_audit.json": {
+      "bytes": 3280,
+      "sha256": "9D06B6517C861AABF8162200BC9AEAFE8B7BACE6DAA04AB5CCA487ADB1938D6F"
+    },
+    "results/03_holdings_lookthrough.json": {
+      "bytes": 81068,
+      "sha256": "63E75257B0543CBA6C989BD1A12C50F2B55A19D79CBA7FE95DCBA47642ED6854"
+    },
+    "results/04_econometrics_results.json": {
+      "bytes": 112821,
+      "sha256": "7C71B48451F46D66376AC6FC36446DF8E01805EE279CDA8110EC39C8B988836D"
+    },
+    "results/04b_counterfactual_sensitivity.json": {
+      "bytes": 75096,
+      "sha256": "70F8187441344B4F1E0BDD0F0BBF03A087727D4F71622A3246156BB79C8418FF"
+    },
+    "results/05_monthly_flow_results.json": {
+      "bytes": 44474,
+      "sha256": "F07B261F8244C4349A1C1E747C99E2F10A2E70A913563460392E3FDF285A4C0D"
+    },
+    "results/07_verified_references_crossref.json": {
+      "bytes": 9693,
+      "sha256": "647A20CCCE41F4D17DC89551E150850337635D6F49005B6A90457853A98E33F1"
+    },
+    "results/10_v4_manuscript_receipt.json": {
+      "bytes": 1212,
+      "sha256": "D3A3EF7704C9759E5694358DFFA9AE1BB3DBB7F2A7B764CEB17983D9BC229782"
+    },
+    "figures/fig1_compliance_cliffs_and_bifurcation.pdf": {
+      "bytes": 55000,
+      "sha256": "4DC7C63A51C032C9AA58DA220D153EA6FBC15AE06503C24E79DD3643C79AF84C"
+    },
+    "figures/fig1_compliance_cliffs_and_bifurcation.png": {
+      "bytes": 584185,
+      "sha256": "FBE70A19F00DC743BB0E1AB0D8D1A4E61D479FA1F3B6DD0206E45599D0B6F115"
+    },
+    "figures/fig1_statutory_timing_and_concentration.pdf": {
+      "bytes": 45639,
+      "sha256": "84F124905210AD02EA28FD996A22E3216DBC658DFB5986F5649F9343EA89E071"
+    },
+    "figures/fig1_statutory_timing_and_concentration.png": {
+      "bytes": 325574,
+      "sha256": "1632A177C4F2D7A1E035BAD4D2080C5AC6622F3CA8543BEA8BDA4AE6F9400C7B"
+    },
+    "figures/fig2_bifurcated_equilibrium_and_edgar_proof.pdf": {
+      "bytes": 52665,
+      "sha256": "0A9054D05A4093D4E3CE2420DAE981916FC7A8F0383061EFC52D93AC842D70A5"
+    },
+    "figures/fig2_bifurcated_equilibrium_and_edgar_proof.png": {
+      "bytes": 373329,
+      "sha256": "20C762F61EF486F3B6C9E0062229D04906DE1733446CA6502C6123B1EB59A466"
+    },
+    "figures/fig2_event_study_placebos_and_honest_did.pdf": {
+      "bytes": 52549,
+      "sha256": "FC7E51F37A8F509E1BFA1A72BDA5B56805A1457F62190FF784717CF7C79F5272"
+    },
+    "figures/fig2_event_study_placebos_and_honest_did.png": {
+      "bytes": 419905,
+      "sha256": "DCF4ECF280F76627F78E7D6E6DEA02D52A274F3A8259CED58E9D902D7856297A"
+    },
+    "figures/fig3_lookthrough_paths_and_partial_id_bounds.pdf": {
+      "bytes": 44897,
+      "sha256": "F3E6B4DB3FEB223753D6D0DDB74DA1E8A07B2D909B34AC05FE528383AD541859"
+    },
+    "figures/fig3_lookthrough_paths_and_partial_id_bounds.png": {
+      "bytes": 269120,
+      "sha256": "80682D7942B589EBE50590E57885BA5EF17DAEB74E3AE149EF612B9684D923E3"
+    },
+    "figures/fig3_statutory_cutoff_and_robustness_forest.pdf": {
+      "bytes": 52409,
+      "sha256": "BE7CBAED5B5A7F757699E2DA35791C328FE5ADB1896487A07C0F646C44829CD1"
+    },
+    "figures/fig3_statutory_cutoff_and_robustness_forest.png": {
+      "bytes": 443049,
+      "sha256": "18B364500FAB39D6A691137C8BBE266EC79DBAD5B1E25DD85DF8F1A7ECB07E96"
+    },
+    "figures/fig4_exploratory_monthly_flows.pdf": {
+      "bytes": 39652,
+      "sha256": "B970F6061C9EF9725F280740F2ED773FB9FAD21EF79FD9A92FF3C8FFB9DE1458"
+    },
+    "figures/fig4_exploratory_monthly_flows.png": {
+      "bytes": 380591,
+      "sha256": "7E32BC9B516FC4CCBD0A7B0CE62E9E54741D1CB28EF1594479C22040F46F5341"
+    },
+    "figures/fig4_lookthrough_holdings_inertia.pdf": {
+      "bytes": 69467,
+      "sha256": "936DB03E1870DEC9BAF67186099B30EF5844E837EC067628B3BBF28CE49F3843"
+    },
+    "figures/fig4_lookthrough_holdings_inertia.png": {
+      "bytes": 557676,
+      "sha256": "7C6F01CAD0D925D9F3FEAB8B4D037F5F89976AB06178D7B459A5D3037976FCC7"
+    },
+    "figures/fig5_monthly_investor_flows_reversal.pdf": {
+      "bytes": 49056,
+      "sha256": "F822C4CD2AE7A82C713268F813C84A035765A533A031E8B576C8A0CC2555C4F6"
+    },
+    "figures/fig5_monthly_investor_flows_reversal.png": {
+      "bytes": 587493,
+      "sha256": "D35A7EDD8E872C5D983DA8F69FFF03A99F5784B0D2D478CA1C63E222629726D0"
+    },
+    "figures/figA1_redemption_sign_audit.pdf": {
+      "bytes": 36532,
+      "sha256": "5271EE4DA0A196D59B01B7A4141EEA33A6F8B6F63BE903960FED6CA593B8E672"
+    },
+    "figures/figA1_redemption_sign_audit.png": {
+      "bytes": 167593,
+      "sha256": "55D5D3EFBE02938BDE5D8F638E6DD32D5DACB62C89168D31D548E4513C64F0BF"
+    },
+    "manuscript_i4_boost.md": {
+      "bytes": 53293,
+      "sha256": "C0E9F1387E90FB041CA82C3EE244603A0ADCDE9204342C21F386CA658C22DCF5"
+    },
+    "manuscript_i4_boost.pdf": {
+      "bytes": 2130777,
+      "sha256": "C55F67B906EA7C3490B13B719A16B3BEA48E85AE9F93DEE6D8685B7B530DFA41"
+    },
+    "supplementary_i4_jbf.md": {
+      "bytes": 18999,
+      "sha256": "93A998DEFCF5E2CD724C6F82DE1DD85A309B6D4943E150BB5A0F6A14451BE675"
+    },
+    "supplementary_i4_jbf.pdf": {
+      "bytes": 646737,
+      "sha256": "78C8E2C64788989620A4D3AD83BB181BB287CBC2AB9F6857271C78A4C30695E5"
+    },
+    "REFEREE_RESPONSE_v4.md": {
+      "bytes": 15789,
+      "sha256": "44FB6D82F945F17CE3F3D18103DC558C8B3857D71AD78E92E05936D18514BCBD"
+    },
+    "REFEREE_RESPONSE_v2.md": {
+      "bytes": 13223,
+      "sha256": "DDDACB9F69E2CD71350F27DEB5B676BBFC93047CA141C22131C60DBDE071269F"
+    },
+    "README.md": {
+      "bytes": 7252,
+      "sha256": "F949FE215C000E5E2FA0C57221D3A37965F5957F29C2F49B5C71752A6D4C2FD9"
+    },
+    "STATUS.md": {
+      "bytes": 3524,
+      "sha256": "8C479BD807106B1E9CCA23EF55D2BDCD2B87BEE28AE3B7D82DB9B864DD656C49"
+    },
+    "data/edgar_prospectus_audit.json": {
+      "bytes": 258529,
+      "sha256": "56E508EDEF56D568DDE9020504B5C55776BE45C435382E45D8FF1F08DBB97427"
+    }
+  }
+}
