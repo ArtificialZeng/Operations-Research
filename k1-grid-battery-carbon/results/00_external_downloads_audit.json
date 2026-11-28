@@ -1,0 +1,63 @@
+{
+  "sources": {
+    "egrid_2023_rev2": "https://www.epa.gov/system/files/documents/2025-06/egrid2023_data_rev2.xlsx",
+    "caiso_curtailments": {
+      "caiso_curtailments_2024.xlsx": "https://www.caiso.com/documents/production-and-curtailments-data-2024.xlsx",
+      "caiso_curtailments_2025_jan_may.xlsx": "https://www.caiso.com/documents/production-and-curtailments-data-2025.xlsx",
+      "caiso_curtailments_2025_jun_dec.xlsx": "https://www.caiso.com/documents/production-and-curtailments-data-june-december-2025.xlsx"
+    },
+    "caiso_fuelsource_template": "https://www.caiso.com/outlook/history/{YYYYMMDD}/fuelsource.csv",
+    "pudl_epacems_v2026_11_0": "https://s3.us-west-2.amazonaws.com/pudl.catalyst.coop/v2026.11.0/core_epacems__hourly_emissions.parquet"
+  },
+  "egrid_crosswalk": {
+    "n_plants_crosswalk": 16316,
+    "n_bas_crosswalk": 74,
+    "national_gen_weighted_ef_kg_mwh": {
+      "COAL": 977.4498604911408,
+      "NGCC": 386.24337909172914,
+      "NGCT": 537.6318669911441,
+      "OIL": 737.4774132915073
+    }
+  },
+  "caiso_curtailments": {
+    "n_hours": 17544,
+    "date_min": "2024-01-01",
+    "date_max": "2025-12-31",
+    "total_curt_gwh": 7189.004461763568,
+    "solar_curt_gwh": 6674.922816571759,
+    "wind_curt_gwh": 514.0816451918081,
+    "by_year_gwh": {
+      "2024": {
+        "solar_curt_mw": 3192.5999418540264,
+        "wind_curt_mw": 230.7766448246997,
+        "total_curt_mw": 3423.3765866787257
+      },
+      "2025": {
+        "solar_curt_mw": 3482.3228747177322,
+        "wind_curt_mw": 283.30500036710845,
+        "total_curt_mw": 3765.6278750848405
+      }
+    }
+  },
+  "caiso_fuelsource": {
+    "n_days_requested": 1066,
+    "n_days_fetched": 1066,
+    "n_missing_days": 0,
+    "missing_days_sample": [],
+    "n_days_2024h2_2026": 853,
+    "n_hours_total": 25569,
+    "n_hours": 20468,
+    "dis_gwh": 30580.350333333336,
+    "chg_gwh": 35419.23866666667,
+    "rte": 0.8633824860304733
+  },
+  "epa_cems": {
+    "n_ba_hours": 1043187,
+    "n_bas": 51,
+    "utc_min": "2024-06-01 00:00:00",
+    "utc_max": "2026-10-01 08:00:00",
+    "total_co2_mt": 3506.3352575769054,
+    "matched_co2_share_pct": 99.9382259343612
+  },
+  "total_elapsed_sec": 38.47183036804199
+}
