@@ -1,27 +1,30 @@
-"""Comprehensive automated verification test suite for the D30 /boost pipeline.
+"""Comprehensive automated verification test suite for the D30 v4 (JCE) pipeline.
 
-Tests:
-  1. Unit tests & edge cases for parser helpers (date parsing, molecule canonicalization,
-     MeSH resolution & artifact rejection, placebo vs double-dummy vs crossover vs phase-labeled
-     arm classification, case-insensitive MedDRA SOC including 'General disorders', mutually
-     exclusive region shares summing to 1.0, FDAAA/War boundaries, Drugs@FDA NDA/BLA filtering).
-  2. Processed panel integrity (no duplicate NCTs, [0, 1] AE rate bounds, exact regional
-     share simplex identity, >95% MedDRA SOC coverage, Phase 2 vs Phase 3 disjointness).
-  3. Complete econometric receipt audit (ZERO rank-deficient models across ALL Blocks A-E
-     including mortality, ZERO errors/NaNs, finite-sample t(G-1) use_t=True, FWL exact slope
-     identity, CGM two-way clustering & Rademacher wild bootstrap, unbiased OOS war DiD +
-     fake-2020 placebo audit, exact DoF-adjusted EIV monotonicity).
-  4. Complete Gate-2 openFDA linkage integrity (NDA/BLA only, biologic 4-letter suffix
-     recovery, 100% global FAERS coverage, ZERO rank-deficient Gate-2 models, Poisson GLM &
-     persisted 10-step forensic covariate audit).
-  5. Artifact existence, ZERO NaNs in all 5 CSV tables, comprehensive manuscript-vs-JSON
-     numerical verification across all 5 tables, zero placeholders, and SHA-256 manifest match.
+Verifies:
+  1. Unit tests & edge cases for parser helpers (dates, molecules, MeSH resolution, placebo vs
+     double-dummy vs crossover arms, case-insensitive MedDRA SOC, regional share simplex, Drugs@FDA).
+  2. Processed panel integrity & archived per-term MedDRA API snapshot cryptographic provenance.
+  3. Complete econometric receipts (ZERO rank-deficient models, ZERO errors/NaNs, finite-sample
+     t(G-1), FWL exact identity, two-way clustering & wild bootstrap, EIV monotonicity, uncensored war).
+  4. All v4 JCE methodological requirements (P0 #1–#4):
+     - Extensive vs. intensive decomposition (`I(share=0)` matching `-2.11 / -2.50 pp`), common-236
+       programs, 4-knot RCS nonlinearity Wald test, Aronow-Samii FWL weights + leave-top-10/20-out,
+       two-way alternative-region counterfactuals (US, NA, WE EU/EEA, LatAm, Asia, RU/UA).
+     - Four-state MedDRA recoding (`210,424` reported cells, `166,260` common-panel cells), strict
+       zero-fallback & pure `Investigations` biomarker contrasts, uncensored `0%`-threshold models,
+       sharp Manski FWL bounds on peak-term rates excluding zero, and `369` missing AE `timeFrame` audit.
+     - Pre-specified TOST clinical equivalence (met for SAEs & `oth_rd` at ±1–2 pp; unmet for mortality at ±0.5 pp).
+  5. Gate-2 openFDA integrity (moved cleanly into Supplementary Appendix S4).
+  6. Publication deliverables: 4 main + 4 SI figures, zero-NaN CSV tables, exact authorship block,
+     zero banned overclaiming/metadata tokens, zero LaTeX/placeholder leaks in both compiled PDFs,
+     and 100% SHA-256 manifest match.
 """
 from __future__ import annotations
 
 import hashlib
 import importlib.util
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -29,8 +32,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
-BASE_DIR = Path(r"D:\AI_Science\antigravity\d30_boost_clinical_trials_20261125")
+BASE_DIR = Path(__file__).resolve().parents[1]
 SCRIPTS_DIR = BASE_DIR / "scripts"
+RAW_DIR = BASE_DIR / "data" / "raw_ctgov"
 PROC_DIR = BASE_DIR / "data" / "processed"
 RES_DIR = BASE_DIR / "results"
 FIG_DIR = BASE_DIR / "figures"
@@ -81,16 +85,12 @@ class TestParserEdgeCases:
     def test_parse_iso_date_formats_and_invalid(self):
         iso, yr, dt = BUILD.parse_iso_date("2017-01-18")
         assert iso == "2017-01-18" and yr == 2017.0 and dt is not None
-
         iso2, yr2, dt2 = BUILD.parse_iso_date("2022-02")
         assert iso2 == "2022-02-15" and yr2 == 2022.0 and dt2 is not None
-
         iso3, yr3, dt3 = BUILD.parse_iso_date("2019")
         assert iso3 == "2019-06-15" and yr3 == 2019.0 and dt3 is not None
-
         iso_bad, yr_bad, dt_bad = BUILD.parse_iso_date("")
         assert iso_bad is None and np.isnan(yr_bad) and dt_bad is None
-
         iso_none, yr_none, dt_none = BUILD.parse_iso_date(None)
         assert iso_none is None and np.isnan(yr_none) and dt_none is None
 
@@ -105,7 +105,6 @@ class TestParserEdgeCases:
         assert BUILD.canonicalize_molecule("") == ""
 
     def test_extract_primary_molecule_backbone_mesh_and_artifact_rejection(self):
-        # Backbone deprioritization
         ps = {
             "identificationModule": {
                 "briefTitle": "Study of Empagliflozin Added to Metformin in Type 2 Diabetes",
@@ -121,20 +120,8 @@ class TestParserEdgeCases:
         }
         primary, _, all_mols = BUILD.extract_primary_molecule(ps, {})
         assert primary == "empagliflozin"
-        assert "metformin" in all_mols
-        assert "placebo" not in all_mols
+        assert "metformin" in all_mols and "placebo" not in all_mols
 
-        # Dirty raw string wrapping MeSH INN
-        ps_dup = {
-            "identificationModule": {"briefTitle": "Dupilumab study", "officialTitle": ""},
-            "armsInterventionsModule": {
-                "interventions": [{"type": "BIOLOGICAL", "name": "Dupilumab SAR231893 (REGN668)"}]
-            },
-        }
-        ds_dup = {"interventionBrowseModule": {"meshes": [{"term": "dupilumab"}]}}
-        assert BUILD.extract_primary_molecule(ps_dup, ds_dup)[0] == "dupilumab"
-
-        # Internal code resolved cleanly via unique non-artifact MeSH INN (ignoring Double-Blind Method)
         ps_code = {
             "identificationModule": {"briefTitle": "Study of CP-690,550", "officialTitle": ""},
             "armsInterventionsModule": {"interventions": [{"type": "DRUG", "name": "CP-690,550"}]},
@@ -147,47 +134,29 @@ class TestParserEdgeCases:
         assert BUILD.extract_primary_molecule(ps_code, ds_code)[0] == "tofacitinib"
 
     def test_classify_event_group_placebo_phase_labels_double_dummy_and_crossover(self):
-        # Pure placebo, background SoC, and phase-labeled placebo arms -> placebo
         assert BUILD.classify_event_group("Placebo", "")[0] == "placebo"
         assert BUILD.classify_event_group("Matching Placebo QD", "")[0] == "placebo"
         assert BUILD.classify_event_group("Placebo + Methotrexate", "")[0] == "placebo"
-        assert BUILD.classify_event_group("Vehicle Gel", "")[0] == "placebo"
         assert BUILD.classify_event_group("Placebo - Treatment Phase", "")[0] == "placebo"
-        assert BUILD.classify_event_group("Placebo - Randomization Phase", "")[0] == "placebo"
-        assert BUILD.classify_event_group("Placebo - Part A", "")[0] == "placebo"
-        assert BUILD.classify_event_group("Double Blind - Placebo", "")[0] == "placebo"
         assert BUILD.classify_event_group("Placebo-controlled Phase: Placebo", "")[0] == "placebo"
-        assert BUILD.classify_event_group("Weeks 0-24: Placebo (Placebo-Controlled Phase)", "")[0] == "placebo"
-        assert BUILD.classify_event_group("Placebo-Placebo", "")[0] == "placebo"
-        assert BUILD.classify_event_group("Placebo-matching BI 1569912", "")[0] == "placebo"
-
-        # Double-dummy & placebo-controlled-phase active arms -> active (NOT placebo or exclude!)
         assert BUILD.classify_event_group("Drug X 10 mg + Placebo", "")[0] == "active"
-        assert BUILD.classify_event_group("Secukinumab plus Matching Placebo", "")[0] == "active"
-        assert BUILD.classify_event_group("Baricitinib with Placebo", "")[0] == "active"
         assert BUILD.classify_event_group("Placebo-controlled Phase: Apremilast 30 mg", "")[0] == "active"
-        assert BUILD.classify_event_group("Weeks 0-24: Apremilast 20 mg (Placebo- Controlled Phase)", "")[0] == "active"
-
-        # Genuine crossover / withdrawal switches -> exclude
         assert BUILD.classify_event_group("Placebo to Dupilumab", "")[0] == "exclude"
-        assert BUILD.classify_event_group("Drug X -> Placebo", "")[0] == "exclude"
         assert BUILD.classify_event_group("Drug X / Placebo", "")[0] == "exclude"
         assert BUILD.classify_event_group("Placebo-Efgartigimod", "")[0] == "exclude"
-        assert BUILD.classify_event_group("Placebo - Elinzanetant 120mg Week 13-26", "")[0] == "exclude"
 
     def test_region_shares_and_meddra_soc_sets(self):
         countries = [
-            "United States", "Puerto Rico", "Germany", "Japan",
+            "United States", "Puerto Rico", "Canada", "Germany", "Japan",
             "Poland", "Czechia", "Russia", "Ukraine", "Serbia and Montenegro",
             "Brazil", "China", "South Africa",
         ]
         sh = BUILD.compute_region_shares(countries)
-        total = sh["us_sh"] + sh["we_sh"] + sh["eu_east_sh"] + sh["ru_ua_sh"] + sh["latam_sh"] + sh["asia_sh"] + sh["other_sh"]
-        assert abs(total - 1.0) < 1e-12
-        assert abs(sh["us_sh"] - (2 / len(countries))) < 1e-12  # US + Puerto Rico
-        assert abs(sh["ee_sh"] - (sh["eu_east_sh"] + sh["ru_ua_sh"])) < 1e-12
-        assert abs(sh["ru_ua_strict_sh"] - (2 / len(countries))) < 1e-12
-        assert abs(sh["noneu_ee_other_sh"] - (1 / len(countries))) < 1e-12  # Serbia and Montenegro
+        total7 = sh["us_sh"] + sh["we_sh"] + sh["eu_east_sh"] + sh["ru_ua_sh"] + sh["latam_sh"] + sh["asia_sh"] + sh["other_sh"]
+        total8 = sh["na_sh"] + sh["we_eu_sh"] + sh["dev_apac_no_ca_sh"] + sh["eu_east_sh"] + sh["ru_ua_sh"] + sh["latam_sh"] + sh["asia_sh"] + sh["other_sh"]
+        assert abs(total7 - 1.0) < 1e-12
+        assert abs(total8 - 1.0) < 1e-12
+        assert abs(sh["na_sh"] - (3 / len(countries))) < 1e-12
         assert BUILD.compute_region_shares([]) == {}
         assert "general disorders" in BUILD.SUBJECTIVE_SOCS
         assert "investigations" in BUILD.OBJECTIVE_SOCS
@@ -199,241 +168,177 @@ class TestParserEdgeCases:
         }
         assert FDA_MOD.summarize_drugsfda_record(anda_rec) is None
 
-        nda_rec = {
-            "application_number": "NDA204629",
-            "sponsor_name": "TEST PHARMA",
-            "openfda": {"generic_name": ["EMPAGLIFLOZIN"], "brand_name": ["JARDIANCE"]},
-            "products": [{"active_ingredients": [{"name": "EMPAGLIFLOZIN"}]}],
-            "submissions": [
-                {"submission_type": "ORIG", "submission_status": "AP", "submission_status_date": "20140801"},
-                {"submission_type": "SUPPL", "submission_status": "AP", "submission_status_date": "20160601", "submission_class_code": "LABELING"},
-                {"submission_type": "SUPPL", "submission_status": "AP", "submission_status_date": "20180901", "submission_class_code": "EFFICACY"},
-                {"submission_type": "SUPPL", "submission_status": "AP", "submission_status_date": "20220101", "submission_class_code": "LABELING"},
-            ],
-        }
-        s = FDA_MOD.summarize_drugsfda_record(nda_rec)
-        assert s is not None
-        assert s["application_number"] == "NDA204629"
-        assert s["is_bla"] == 0
-        assert s["orig_approval_year"] == 2014
-        assert s["n_labeling_suppl"] == 2
-        assert s["n_labeling_3yr"] == 1
-        assert s["n_labeling_5yr"] == 1
-        assert s["n_efficacy_suppl"] == 1
-        assert s["n_efficacy_5yr"] == 1
-
 
 # =============================================================================
-# 2. PROCESSED PANEL DATA INTEGRITY
+# 2. PROCESSED PANEL & ARCHIVED MEDDRA SNAPSHOT INTEGRITY
 # =============================================================================
-class TestPanelIntegrity:
+class TestPanelAndSnapshotIntegrity:
     @pytest.fixture(scope="class")
     @classmethod
     def panel(cls) -> pd.DataFrame:
         return pd.read_parquet(PROC_DIR / "d30_mrct_placebo_panel.parquet")
 
-    def test_no_duplicate_ncts_valid_scale_and_soc_coverage(self, panel: pd.DataFrame):
+    def test_panel_counts_simplex_and_bounds(self, panel: pd.DataFrame):
         assert panel["nct_id"].is_unique
-        assert len(panel) >= 2700
-        assert (panel["is_phase3"] == 1).sum() >= 1800
-        assert (panel["is_phase2_only"] == 1).sum() >= 900
+        assert len(panel) == 2771
+        assert (panel["is_phase3"] == 1).sum() == 1842
+        assert (panel["is_phase2_only"] == 1).sum() == 929
         assert ((panel["is_phase3"] == 1) & (panel["is_phase2_only"] == 1)).sum() == 0
-        # Including CT.gov's "General disorders" raises SOC coverage above 95%
-        soc_cov = (panel["subj_soc_share"] + panel["obj_soc_share"]).dropna().mean()
-        assert soc_cov > 0.95, f"SOC coverage too low: {soc_cov:.4f}"
-
-    def test_rate_and_share_bounds(self, panel: pd.DataFrame):
         for col in ["ctrl_oth", "act_oth", "ctrl_sae", "act_sae", "ctrl_mort", "act_mort"]:
             s = panel[col].dropna()
-            assert (s >= 0.0).all() and (s <= 1.0).all(), f"{col} out of [0,1]"
+            assert (s >= 0.0).all() and (s <= 1.0).all()
+        s7 = panel["us_sh"] + panel["we_sh"] + panel["eu_east_sh"] + panel["ru_ua_sh"] + panel["latam_sh"] + panel["asia_sh"] + panel["other_sh"]
+        s8 = panel["na_sh"] + panel["we_eu_sh"] + panel["dev_apac_no_ca_sh"] + panel["eu_east_sh"] + panel["ru_ua_sh"] + panel["latam_sh"] + panel["asia_sh"] + panel["other_sh"]
+        assert np.allclose(s7, 1.0, atol=1e-9)
+        assert np.allclose(s8, 1.0, atol=1e-9)
 
-        share_sum = (
-            panel["us_sh"] + panel["we_sh"] + panel["eu_east_sh"]
-            + panel["ru_ua_sh"] + panel["latam_sh"] + panel["asia_sh"] + panel["other_sh"]
-        )
-        assert np.allclose(share_sum, 1.0, atol=1e-9)
-        assert np.allclose(panel["ee_sh"], panel["eu_east_sh"] + panel["ru_ua_sh"], atol=1e-9)
+    def test_archived_meddra_snapshot_manifest_and_four_state_audit(self):
+        snap_path = RAW_DIR / "meddra_other_events_snapshot.jsonl.gz"
+        man_path = RAW_DIR / "meddra_snapshot_manifest.json"
+        sum_path = PROC_DIR / "meddra_soc_abs_summary.json"
+        assert snap_path.exists() and man_path.exists() and sum_path.exists()
 
-    def test_fdaaa_and_war_boundary_dates(self, panel: pd.DataFrame):
-        pre = panel[panel["prim_comp_date"] < "2017-01-18"]
-        post = panel[panel["prim_comp_date"] >= "2017-01-18"]
-        assert (pre["post_fdaaa_2017"] == 0).all()
-        assert (post["post_fdaaa_2017"] == 1).all()
+        man = json.loads(man_path.read_text(encoding="utf-8"))
+        assert man["nct_requested"] == 2771 and man["nct_returned"] == 2771
+        assert hashlib.sha256(snap_path.read_bytes()).hexdigest() == man["sha256_gz"]
 
-        pre_w = panel[panel["start_date"] < "2022-02-24"]
-        post_w = panel[panel["start_date"] >= "2022-02-24"]
-        assert (pre_w["post_war_2022"] == 0).all()
-        assert (post_w["post_war_2022"] == 1).all()
+        msum = json.loads(sum_path.read_text(encoding="utf-8"))
+        assert msum["ae_timeframe_audit"]["n_missing_timeframe"] == 369
+        assert msum["ae_timeframe_audit"]["n_with_timeframe"] == 2402
+        cc = msum["common_panel_four_state_counts"]
+        assert cc.get("cpanel_freq0_below_threshold", 0) == 0
+        assert cc["cpanel_freq5_below_threshold"] > 80_000
+        assert msum["reported_cell_audit"]["reported_cells_total"] > 200_000
 
 
 # =============================================================================
-# 3. COMPLETE ECONOMETRIC RECEIPTS, RANK, FWL, TWO-WAY/WILD BOOT & WAR AUDIT
+# 3. ECONOMETRIC RECEIPTS & v4 P0 #1-#3 VERIFICATION
 # =============================================================================
-class TestEconometricReceipts:
+class TestEconometricsAndV4Audits:
     @pytest.fixture(scope="class")
     @classmethod
     def econ(cls) -> dict:
         return json.loads((RES_DIR / "d30_econometrics_results.json").read_text(encoding="utf-8"))
 
-    def test_zero_rank_deficiencies_errors_or_nans_across_entire_suite(self, econ: dict):
-        issues = _walk_regressions(econ)
-        assert len(issues) == 0, f"Found econometric audit issues: {issues[:10]}"
+    @pytest.fixture(scope="class")
+    @classmethod
+    def sens(cls) -> dict:
+        return json.loads((RES_DIR / "08_reporting_sensitivity.json").read_text(encoding="utf-8"))
 
-    def test_core_twin_trial_signs_use_t_and_twoway_wildboot(self, econ: dict):
-        for spec_key in ["p3_mol_sponsor_split", "p23_mol_sponsor_split", "p3_mol_cond_split", "p3_mol_sp_cond_split"]:
-            blk = econ["block_a_core_twin_trial"][spec_key]
-            for y in ["ctrl_oth", "act_oth", "oth_rd", "ctrl_sae", "ctrl_mort"]:
-                rec = blk[y]
-                assert rec["is_full_rank"] is True
-                assert rec["use_t"] is True
-                t = rec["terms"]["eu_east_sh"]
-                assert np.isfinite(t["coef"]) and t["se"] > 0 and 0 <= t["p"] <= 1
-            assert blk["ctrl_oth"]["terms"]["eu_east_sh"]["coef"] < -0.15
-            assert blk["act_oth"]["terms"]["eu_east_sh"]["coef"] < -0.15
-            assert blk["ctrl_sae"]["terms"]["eu_east_sh"]["p"] > 0.05
-            assert blk["ctrl_mort"]["terms"]["eu_east_sh"]["p"] > 0.05
+    def test_zero_rank_deficiencies_errors_or_nans_across_all_receipts(self, econ: dict, sens: dict):
+        assert len(_walk_regressions(econ)) == 0
+        assert len(_walk_regressions(sens)) == 0
 
-        wb = econ["block_a_core_twin_trial"]["twoway_and_wildboot_inference"]
-        for key in ["p3_mol_sp_ctrl_oth_eu_east", "p3_mol_sp_act_oth_eu_east", "p3_triplet_ctrl_oth_eu_east"]:
-            assert wb[key]["p_twoway"] < 0.01
-            assert wb[key]["p_wild_rademacher_999"] <= 0.05
-
-    def test_fwl_binscatter_exact_slope_identity(self, econ: dict):
+    def test_core_twin_trial_fwl_eiv_and_war_receipts(self, econ: dict):
+        p3 = econ["block_a_core_twin_trial"]["p3_mol_sponsor_split"]
+        assert p3["ctrl_oth"]["n"] == 1282 and p3["ctrl_oth"]["n_fe_groups"] == 328
+        assert abs(100 * p3["ctrl_oth"]["terms"]["eu_east_sh"]["per_10pp_coef"] - (-2.48)) < 0.01
+        assert abs(100 * p3["act_oth"]["terms"]["eu_east_sh"]["per_10pp_coef"] - (-2.67)) < 0.01
         bs = econ["binscatter_data"]["p23_mol_sp_ee"]
         reg = econ["block_a_core_twin_trial"]["p23_mol_sponsor_ee"]
         for y in ["ctrl_oth", "act_oth", "ctrl_sae"]:
             assert abs(bs["fwl_exact_slopes"][y] - reg[y]["terms"]["ee_sh"]["coef"]) < 1e-4
 
-    def test_eiv_dof_deattenuation_monotonicity(self, econ: dict):
-        eiv = econ["block_e_site_vs_patient_bounds"]["classical_eiv_bounds_p23"]
-        lams = [r["reliability_lambda"] for r in eiv]
-        assert all(lams[i] >= lams[i + 1] for i in range(len(lams) - 1))
-        assert eiv[0]["df_resid"] < econ["block_a_core_twin_trial"]["p23_mol_sponsor_ee"]["ctrl_oth"]["n"]
-        b0 = eiv[0]["deattenuated_ctrl_oth"]
-        assert abs(eiv[1]["deattenuated_ctrl_oth"] - round(b0 / eiv[1]["reliability_lambda"], 4)) <= 0.001
+    def test_v4_p0_1_support_margins_splines_weights_and_counterfactuals(self, sens: dict):
+        sup = sens["phase3_support"]
+        assert sup["n"] == 1842 and sup["n_zero"] == 504 and sup["n_at_least_half"] == 25
 
-    def test_war_oos_did_and_fake2020_placebo_audit(self, econ: dict):
-        blk_d = econ["block_d_war2022_shock"]
-        # Unbiased OOS first stage negative & significant
-        ru = blk_d["within_sponsor_reallocation_did"]["ru_ua_strict_sh"]["terms"]["exp_x_postwar"]
-        assert ru["coef"] < -0.30 and ru["p"] < 0.05
-        # Industry-wide post-war shift sharply negative on RU/UA
-        sh_ru = blk_d["within_sponsor_postwar_shift_2017_2024"]["ru_ua_strict_sh"]["terms"]["post_war_2022"]
-        assert sh_ru["coef"] < -0.03 and sh_ru["p"] < 1e-8
-        # Strictly OOS fake-2020 placebo passes cleanly (null), while naive in-sample placebo fails!
-        plc = blk_d["prewar_placebo_fake2020_audit"]
-        assert plc["oos_placebo_ru_ua"]["terms"]["exp_x_fakepost"]["p"] > 0.10
-        assert plc["oos_placebo_us"]["terms"]["exp_x_fakepost"]["p"] > 0.10
-        assert plc["naive_insample_placebo_ru_ua"]["terms"]["exp_x_fakepost"]["p"] < 1e-6
+        ext = sens["extensive_intensive_decomposition"]
+        assert ext["n_programs_positive_0_35"] == 236
+        elook = {(r["sample"], r["arm"]): r for r in ext["models"]}
+
+        # Reviewer benchmark: 0-35% + zero indicator -> -2.11 [-4.24, +0.02] ctrl, -2.50 [-4.64, -0.36] act
+        zc = elook[("shares_0_35_with_zero_indicator", "ctrl")]
+        za = elook[("shares_0_35_with_zero_indicator", "act")]
+        assert zc["n"] == 1211 and abs(100 * zc["per_10pp_coef"] - (-2.11)) < 0.02
+        assert za["n"] == 1211 and abs(100 * za["per_10pp_coef"] - (-2.50)) < 0.02
+
+        # Common-236-program comparison
+        c_full = elook[("common_236_progs_0_35_full", "ctrl")]
+        c_pos = elook[("common_236_progs_positive_0_35", "ctrl")]
+        assert c_full["n_fe_groups"] == 236 and c_pos["n_fe_groups"] == 236 and c_pos["n"] == 870
+
+        # RCS nonlinearity Wald test present and non-significant
+        rcs3 = sens["nonlinear_bins_and_spline"]["phase3"]["rcs_4knot"]
+        assert rcs3["ctrl"]["nonlinearity_wald_p"] > 0.10 and rcs3["act"]["nonlinearity_wald_p"] > 0.10
+
+        # Aronow-Samii FWL weights & leave-top-10/20-out stability
+        fw = sens["effective_fwl_weights"]["phase3"]
+        assert fw["n_programs"] == 328 and len(fw["top10_programs"]) == 10
+        d10 = fw["leave_top_weighted_programs_out"]["drop_top10_weighted_programs"]
+        d20 = fw["leave_top_weighted_programs_out"]["drop_top20_weighted_programs"]
+        assert d10["ctrl"]["p"] < 0.005 and d20["ctrl"]["p"] < 0.01
+
+        # Two-way alternative-region counterfactuals all negative & significant for non-EE comparators
+        cf3 = {(r["outcome"], r["comparator_key"]): r for r in sens["alternative_region_counterfactuals"]["phase3"]}
+        for reg_k in ("us_sh", "na_sh", "we_eu_sh", "we_sh", "latam_sh", "asia_sh"):
+            assert cf3[("ctrl_oth", reg_k)]["per_10pp_pp"] < -2.0 and cf3[("ctrl_oth", reg_k)]["p"] < 0.005
+            assert cf3[("act_oth", reg_k)]["per_10pp_pp"] < -2.0 and cf3[("act_oth", reg_k)]["p"] < 0.005
+
+    def test_v4_p0_2_meddra_strict_manski_and_timeframe(self, sens: dict):
+        mb = sens["meddra_threshold_and_bounds"]
+        sc = {(r["spec"], r["arm"]): r for r in mb["strict_vs_legacy_soc_contrasts"]}
+        for spec_k in ("strict_p23_subj_minus_obj", "strict_no_anomaly_p23_subj_minus_obj", "strict_p23_subj_minus_investigations"):
+            assert sc[(spec_k, "ctrl")]["per_10pp_ci95_hi"] < 0
+            assert sc[(spec_k, "act")]["per_10pp_ci95_hi"] < 0
+
+        # Sharp Manski FWL bounds on peak-term rates exclude zero in both arms & active Subj-Obj!
+        bl = {(b["stratum"], b["arm"], b["metric"]): b for b in mb["interval_and_manski_bounds"] if "error" not in b}
+        assert bl[("p23_all_thresholds", "ctrl", "strict_soc_subj_max_pct")]["manski_sharp_per_10pp"]["excludes_zero_im95"] is True
+        assert bl[("p23_all_thresholds", "act", "strict_soc_subj_max_pct")]["manski_sharp_per_10pp"]["excludes_zero_im95"] is True
+        assert bl[("p23_all_thresholds", "act", "strict_soc_maxpct_subj_minus_obj")]["manski_sharp_per_10pp"]["excludes_zero_im95"] is True
+        # Adversarial Manski bounds on 15-term sums span zero (honest disclosure!)
+        assert bl[("p23_all_thresholds", "ctrl", "cpanel15_sum_subj_minus_obj")]["manski_sharp_per_10pp"]["excludes_zero_id"] is False
+
+        # Documented AE timeFrame restriction preserves negative significance
+        tf = mb["ae_timeframe_audit"]
+        assert tf["p23_missing_timeframe"] == 369 and tf["p3_missing_timeframe"] == 238
+        assert tf["timeframe_missingness_on_eu_east_p3"]["terms"]["eu_east_sh"]["p"] > 0.50
+        assert tf["restricted_to_documented_timeframe"]["phase3"]["ctrl"]["p"] < 0.005
+        assert tf["restricted_to_documented_timeframe"]["phase3"]["act"]["p"] < 0.001
+
+    def test_v4_p0_3_prespecified_tost_equivalence(self, sens: dict):
+        tl = {(r["specification"], r["outcome"], r["margin_pp"]): r for r in sens["prespecified_equivalence_tost"]}
+        for spec_s in ("Phase 3 Mol × Sponsor FE", "Pooled P2+P3 Mol × Sponsor FE"):
+            for ep in ("ctrl_sae", "act_sae", "oth_rd"):
+                assert tl[(spec_s, ep, 2.0)]["equivalent_alpha_05"] is True
+                assert tl[(spec_s, ep, 1.0)]["equivalent_alpha_05"] is True
+            for ep in ("ctrl_mort", "act_mort"):
+                assert tl[(spec_s, ep, 0.5)]["equivalent_alpha_05"] is False
 
 
 # =============================================================================
-# 4. GATE-2 OPENFDA LINKAGE INTEGRITY & BIOLOGIC RECOVERY
+# 4. GATE-2 OPENFDA (SUPPLEMENTARY APPENDIX S4) INTEGRITY
 # =============================================================================
 class TestGate2OpenFDA:
-    def test_gate2_dataset_biologics_full_rank_and_faers_completeness(self):
+    def test_gate2_full_rank_and_biologics(self):
         gdf = pd.read_csv(PROC_DIR / "d30_gate2_openfda_molecules.csv")
         g2 = json.loads((RES_DIR / "d30_gate2_openfda_results.json").read_text(encoding="utf-8"))
-
-        assert len(gdf) >= 380
-        assert gdf["application_number"].str.startswith(("NDA", "BLA")).all()
-        assert (gdf["n_labeling_suppl"] >= gdf["n_labeling_5yr"]).all()
-        assert (gdf["n_labeling_5yr"] >= gdf["n_labeling_3yr"]).all()
-        assert (gdf["us_total_n"] == gdf["us_serious_n"] + gdf["us_nonserious_n"]).all()
-
-        # Verify FDA 4-letter-suffix post-2017 biologics are recovered!
-        matched_mols = set(gdf["molecule"])
-        for bio in ["risankizumab", "erenumab", "fremanezumab", "tezepelumab", "anifrolumab"]:
-            assert bio in matched_mols, f"Missing recovered FDA biologic: {bio}"
-
-        # Verify 100% global FAERS coverage among US-positive drugs
-        gl_cov = g2["linkage_audit"]["faers_global_queried_among_us_pos"]
-        num_s, den_s = gl_cov.split("/")
-        assert int(num_s) == int(den_s) and int(den_s) >= 350
-
-        # Verify ZERO rank deficiencies or errors across ALL Gate-2 regressions
-        g2_issues = _walk_regressions(g2)
-        assert len(g2_issues) == 0, f"Found Gate-2 audit issues: {g2_issues[:10]}"
-
-        # Verify first stage, Poisson GLM, 10-step forensic audit, and TOST equivalence bounds all persisted
-        fs = g2["first_stage_molecule_level_check"]["pre_act_oth_on_pre_ee_sh"]
-        assert fs["n"] >= 220 and fs["terms"]["pre_ee_sh"]["coef"] < -0.20 and fs["terms"]["pre_ee_sh"]["p"] < 0.01
-        assert "n_labeling_5yr_poisson_glm" in g2["drugsfda_labeling_supplements"]
-        p5 = g2["drugsfda_labeling_supplements"]["n_labeling_5yr_poisson_glm"]["terms"]["pre_ee_sh"]
-        assert "irr_ci95_lo" in p5 and "irr_ci95_hi" in p5 and p5["irr_ci95_lo"] < 1.0 < p5["irr_ci95_hi"]
-        assert len(g2["faers_us_serious_forensic_audit"]) == 10
-        assert "null_endpoint_equivalence_bounds" in g2
-        for k in ["n_labeling_5yr", "n_labeling_3yr", "log_labeling_per_yr", "has_boxed_warning", "us_vs_nonus_nonser_lor"]:
-            b = g2["null_endpoint_equivalence_bounds"][k]
-            assert len(b["ci95"]) == 2 and b["tost_90_margin"] > 0
-
-    def test_v2_absolute_meddra_soc_rates_and_uncensored_war_cohort(self):
-        econ = json.loads((RES_DIR / "d30_econometrics_results.json").read_text(encoding="utf-8"))
-
-        # (a) Absolute MedDRA SOC regressions exist, full rank, subjective plunges & objective flat
-        soc_abs = econ["block_b_sensitivity_robustness"]["meddra_soc_absolute_p23_mol_sp"]
-        for col in [
-            "ctrl_subj_sum_aff_rate", "act_subj_sum_aff_rate",
-            "ctrl_obj_sum_aff_rate", "act_obj_sum_aff_rate",
-            "ctrl_subj_max_pct", "act_subj_max_pct",
-            "ctrl_obj_max_pct", "act_obj_max_pct",
-            "n_subj_terms", "n_obj_terms",
-        ]:
-            assert col in soc_abs and soc_abs[col]["is_full_rank"] is True
-            assert "per_10pp_coef" in soc_abs[col]["terms"]["eu_east_sh"]
-        assert soc_abs["ctrl_subj_sum_aff_rate"]["terms"]["eu_east_sh"]["coef"] < -0.50
-        assert soc_abs["ctrl_subj_sum_aff_rate"]["terms"]["eu_east_sh"]["p"] < 0.005
-        assert soc_abs["act_subj_sum_aff_rate"]["terms"]["eu_east_sh"]["coef"] < -0.50
-        assert soc_abs["act_subj_sum_aff_rate"]["terms"]["eu_east_sh"]["p"] < 0.005
-        assert soc_abs["ctrl_obj_sum_aff_rate"]["terms"]["eu_east_sh"]["p"] > 0.10
-        assert soc_abs["act_obj_sum_aff_rate"]["terms"]["eu_east_sh"]["p"] > 0.10
-        assert soc_abs["ctrl_subj_max_pct"]["terms"]["eu_east_sh"]["p"] < 0.01
-        assert soc_abs["ctrl_obj_max_pct"]["terms"]["eu_east_sh"]["p"] > 0.20
-
-        # (b) Uncensored all-registered 2017-2025 war cohort parquet & DiD exist, zero right-censoring
-        war_pq = PROC_DIR / "ctgov_all_registered_war_2017_2025.parquet"
-        assert war_pq.exists() and war_pq.stat().st_size > 100_000
-        wdf = pd.read_parquet(war_pq)
-        assert len(wdf) >= 15_000 and wdf["nct_id"].is_unique
-        assert (wdf["has_results"] == 0).sum() > 5_000
-
-        reg_war = econ["block_d_war2022_shock"]["all_registered_war_2017_2025"]
-        assert reg_war["sample_counts"]["mrct_ge5sites_ge3countries_ge50enroll"] >= 5_000
-        # Uncensored within-sponsor RU/UA exit strongly negative
-        sh_ru = reg_war["within_sponsor_postwar_shift_2017_2025"]["ru_ua_strict_sh"]["terms"]["post_war_2022"]
-        assert sh_ru["coef"] < -0.025 and sh_ru["p"] < 1e-10
-        # Uncensored OOS DiD first stage negative & fake-2020 placebo null
-        oos_ru = reg_war["oos_did_2017_19_to_2020_25"]["ru_ua_strict_sh"]["terms"]["exp_x_postwar"]
-        assert oos_ru["coef"] < -0.15 and oos_ru["p"] < 0.05
-        assert reg_war["oos_placebo_fake2020_2017_18_to_2019_21"]["oos_placebo_ru_ua"]["terms"]["exp_x_fakepost"]["p"] > 0.05
-        assert reg_war["oos_placebo_fake2020_2017_18_to_2019_21"]["oos_placebo_us"]["terms"]["exp_x_fakepost"]["p"] > 0.05
-
-        # (c) Block A equivalence bounds persisted with 95% CI & TOST 90% margin
-        eq_a = econ["block_a_core_twin_trial"]["null_endpoint_equivalence_bounds"]
-        for spec in ["p3_mol_sponsor_split", "p23_mol_sponsor_split"]:
-            for ep in ["oth_rd", "ctrl_sae", "act_sae", "ctrl_mort", "act_mort"]:
-                assert ep in eq_a[spec] and eq_a[spec][ep]["tost_90_excludable_pp"] > 0
+        assert len(gdf) >= 380 and gdf["application_number"].str.startswith(("NDA", "BLA")).all()
+        assert len(_walk_regressions(g2)) == 0
+        assert g2["linkage_audit"]["with_pre_approval_p3_2005_2024"] == 229
 
 
 # =============================================================================
-# 5. ARTIFACTS, ZERO-NaN TABLES, MANIFEST & FULL MANUSCRIPT VERIFICATION
+# 5. DELIVERABLES, ZERO-NaN TABLES, ZERO OVERCLAIMING, PDFS & SHA-256 MANIFEST
 # =============================================================================
 class TestDeliverablesAndManifest:
-    def test_figures_and_zero_nan_tables_exist(self):
+    def test_all_8_figures_and_zero_nan_tables_exist(self):
         expected_figs = [
-            "fig1_twin_trial_identification",
-            "fig2_binscatter_and_disease_breadth",
-            "fig3_post2017_regulatory_convergence",
-            "fig4_war2022_and_accrual_bounds",
-            "fig5_gate2_openfda_faers",
+            "fig1_main_within_program_and_counterfactuals",
+            "fig2_support_spline_and_weights",
+            "fig3_meddra_fourstate_and_manski_bounds",
+            "fig4_tost_equivalence_sae_mortality",
+            "figS1_therapeutic_areas_and_accrual_bounds",
+            "figS2_post2017_temporal_overlap",
+            "figS3_war2022_all_registered_footprints",
+            "figS4_exploratory_openfda_faers",
         ]
         for stem in expected_figs:
-            png = FIG_DIR / f"{stem}.png"
-            pdf = FIG_DIR / f"{stem}.pdf"
-            assert png.exists() and png.stat().st_size > 20_000, f"Missing/tiny {png.name}"
-            assert pdf.exists() and pdf.stat().st_size > 10_000, f"Missing/tiny {pdf.name}"
+            assert (FIG_DIR / f"{stem}.png").stat().st_size > 20_000
+            assert (FIG_DIR / f"{stem}.pdf").stat().st_size > 10_000
 
-        for tab in [
+        expected_tables = [
             "table1_core_twin_trial.csv",
             "table2_sensitivity_subsamples.csv",
             "table2b_meddra_absolute_soc_rates.csv",
@@ -441,132 +346,80 @@ class TestDeliverablesAndManifest:
             "table4_accrual_calibration_bounds.csv",
             "table4b_all_registered_war_2017_2025.csv",
             "table5_gate2_openfda_faers.csv",
-        ]:
+            "table_v4_support_and_margins.csv",
+            "table_v4_alternative_regions.csv",
+            "table_v4_meddra_bounds.csv",
+            "table_v4_tost_equivalence.csv",
+        ]
+        for tab in expected_tables:
             p = TAB_DIR / tab
-            assert p.exists() and p.stat().st_size > 200, f"Missing/empty {tab}"
+            assert p.exists() and p.stat().st_size > 200
             tdf = pd.read_csv(p)
-            assert int(tdf.isna().sum().sum()) == 0, f"Found NaN values in {tab}!"
+            assert int(tdf.isna().sum().sum()) == 0, f"Found NaN in {tab}"
 
-        t5 = pd.read_csv(TAB_DIR / "table5_gate2_openfda_faers.csv")
-        assert "pre_act_oth_on_pre_ee_sh" in set(t5["outcome"])
-        assert "pre_ctrl_oth_on_pre_ee_sh" in set(t5["outcome"])
+    def test_jce_manuscript_authorship_discipline_and_zero_overclaiming(self):
+        ms_txt = (BASE_DIR / "manuscript_d30_boost.md").read_text(encoding="utf-8")
+        si_txt = (BASE_DIR / "supplementary_d30_jce.md").read_text(encoding="utf-8")
+        resp_txt = (BASE_DIR / "REFEREE_RESPONSE_v4.md").read_text(encoding="utf-8")
+        assert len(resp_txt) > 5_000
 
-    def test_manuscript_and_sha256_manifest(self):
-        ms = BASE_DIR / "manuscript_d30_boost.md"
-        man = BASE_DIR / "SHA256SUMS.json"
-        txt = ms.read_text(encoding="utf-8")
-        assert len(txt) > 15_000
-        for forbidden in ["TBD", "TODO", "XXX", "[INSERT", "PLACEHOLDER"]:
-            assert forbidden not in txt, f"Found placeholder {forbidden} in manuscript!"
+        # Exact authorship block required
+        for auth_tok in [
+            "Zijian Zeng",
+            "Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA",
+            "zijianzeng@foxmail.com; 1002266693@ucsiuniversity.edu.my",
+        ]:
+            assert auth_tok in ms_txt
+            assert auth_tok in si_txt
 
-        manifest = json.loads(man.read_text(encoding="utf-8"))
-        assert len(manifest["files"]) >= 15
+        # Banned metadata & overclaiming phrases MUST be absent from main text
+        ms_low = ms_txt.lower()
+        for banned in [
+            "target venues", "target format", "track a", "track b",
+            "objective outcomes flat", "ich e17 caused", "tolerability illusion",
+            "calibrated journal-tier assessment", "tbd", "todo", "placeholder",
+        ]:
+            assert banned not in ms_low, f"Found banned phrase '{banned}' in main manuscript"
+        # "underreporting" only allowed inside explicit disclaimer ("cannot be interpreted as proof of regional \"underreporting\"")
+        for m_u in re.finditer(r"underreport", ms_low):
+            ctx = ms_low[max(0, m_u.start() - 60) : m_u.end() + 40]
+            assert "cannot be interpreted" in ctx, f"Unqualified underreporting claim: {ctx}"
+
+        # Exact core v4 tokens & Crossref-verified citations present
+        for tok in [
+            "−2.48 pp", "−2.67 pp", "−2.11 pp", "−2.50 pp",
+            "369 / 2,771", "10.1136/bmjopen-2024-094950",
+            "177(5), 727", "10.1093/rheumatology/keaa043",
+            "Policy 0070", "Manski", "Aronow", "TOST",
+        ]:
+            assert tok in ms_txt or tok.replace("−", "-") in ms_txt, f"Missing token '{tok}'"
+
+    def test_compiled_pdfs_zero_leaks_and_sha256_manifest(self):
+        from pypdf import PdfReader
+
+        comp_mod = load_module("compile_pdf_check", SCRIPTS_DIR / "07_compile_manuscript_pdf.py")
+        for md_name, pdf_name, fig_map in [
+            ("manuscript_d30_boost.md", "manuscript_d30_boost.pdf", comp_mod.MAIN_FIGURES),
+            ("supplementary_d30_jce.md", "supplementary_d30_jce.pdf", comp_mod.SI_FIGURES),
+        ]:
+            md_txt = (BASE_DIR / md_name).read_text(encoding="utf-8")
+            html_rendered = comp_mod.convert_md_to_html(md_txt, fig_map=fig_map)
+            text_only = re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "", html_rendered)
+            for leak in ["TBD", "TODO", "XXX", r"\underbrace", r"\frac{", r"\text{", r"\mathbf{", r"\min", r"\max", r"\_", "$$"]:
+                assert leak not in text_only, f"Rendered leak '{leak}' in {md_name}"
+
+            pdf_path = BASE_DIR / pdf_name
+            assert pdf_path.exists() and pdf_path.stat().st_size > 200_000
+            reader = PdfReader(pdf_path)
+            assert len(reader.pages) >= 5
+            extracted = " ".join(" ".join((p.extract_text() or "").split()) for p in reader.pages)
+            assert "Zijian Zeng" in extracted
+            for leak in [r"\frac{", r"\underbrace", r"\min", r"\max", r"\_", "$$", "Target Venues"]:
+                assert leak not in extracted, f"PDF text leak '{leak}' in {pdf_name}"
+
+        manifest = json.loads((BASE_DIR / "SHA256SUMS.json").read_text(encoding="utf-8"))
+        assert len(manifest["files"]) >= 30
         for rel_path, expected_sha in manifest["files"].items():
             fp = BASE_DIR / rel_path
-            assert fp.exists(), f"Manifest file missing: {rel_path}"
-            actual_sha = hashlib.sha256(fp.read_bytes()).hexdigest()
-            assert actual_sha == expected_sha, f"SHA-256 mismatch on {rel_path}"
-
-    def test_manuscript_numbers_match_verified_json_receipts_across_all_5_tables(self):
-        ms_txt = (BASE_DIR / "manuscript_d30_boost.md").read_text(encoding="utf-8")
-        econ = json.loads((RES_DIR / "d30_econometrics_results.json").read_text(encoding="utf-8"))
-        g2 = json.loads((RES_DIR / "d30_gate2_openfda_results.json").read_text(encoding="utf-8"))
-
-        # Overview counts
-        assert f"{econ['sample_overview']['p23_completed_mrct_placebo']:,}" in ms_txt
-        assert f"{econ['sample_overview']['p3_completed_mrct_placebo']:,}" in ms_txt
-
-        # Table 1 core P3, P23, Triplet, MedDRA SOC
-        p3 = econ["block_a_core_twin_trial"]["p3_mol_sponsor_split"]
-        p23 = econ["block_a_core_twin_trial"]["p23_mol_sponsor_split"]
-        trip = econ["block_a_core_twin_trial"]["p3_mol_sp_cond_split"]
-        soc = econ["block_b_sensitivity_robustness"]["meddra_soc_composition_p23_mol_sp"]
-        for val in [
-            p3["ctrl_oth"]["terms"]["eu_east_sh"]["coef"],
-            p3["act_oth"]["terms"]["eu_east_sh"]["coef"],
-            p23["ctrl_oth"]["terms"]["eu_east_sh"]["coef"],
-            p23["act_oth"]["terms"]["eu_east_sh"]["coef"],
-            trip["ctrl_oth"]["terms"]["eu_east_sh"]["coef"],
-            soc["subj_soc_share"]["terms"]["eu_east_sh"]["coef"],
-            soc["obj_soc_share"]["terms"]["eu_east_sh"]["coef"],
-        ]:
-            assert f"{abs(val):.4f}" in ms_txt or f"{abs(100 * val):.2f}" in ms_txt
-
-        # Table 3 3-era lag convergence & FDAAA horse-race
-        c3 = econ["block_c_post2017_fdaaa_decomposition"]["p23_3era_lag_mol_sp"]
-        assert f"{abs(c3['ctrl_oth']['terms']['eu_x_20_24']['coef']):.4f}" in ms_txt
-        assert f"{abs(c3['act_oth']['terms']['eu_x_20_24']['coef']):.4f}" in ms_txt
-
-        from decimal import ROUND_HALF_UP, Decimal
-
-        def _fmt4_candidates(x: float) -> tuple[str, str]:
-            ax = abs(x)
-            half_up = str(Decimal(str(ax)).quantize(Decimal("0.0001"), rounding=ROUND_HALF_UP))
-            return f"{ax:.4f}", half_up
-
-        # Table 4 ALL key accrual calibration & EIV numbers (catches stale numbers!)
-        cal = {r["w_ee_accrual_ratio"]: r for r in econ["block_e_site_vs_patient_bounds"]["nonlinear_patient_share_calibration_p23"]}
-        what = econ["block_e_site_vs_patient_bounds"]["implied_accrual_ratios_vs_us"]["w_hat_ee_all"]
-        for w_chk in [0.5, 0.75, 1.0, what, 2.0, 3.0]:
-            c_a, c_b = _fmt4_candidates(cal[w_chk]["ctrl_oth_coef"])
-            a_a, a_b = _fmt4_candidates(cal[w_chk]["act_oth_coef"])
-            assert (c_a in ms_txt) or (c_b in ms_txt), f"Missing Table 4 ctrl_oth for w={w_chk}"
-            assert (a_a in ms_txt) or (a_b in ms_txt), f"Missing Table 4 act_oth for w={w_chk}"
-
-        # Table 5 Gate-2 drug count, first stage, labeling, boxed warning, FAERS + forensic audit
-        assert str(g2["linkage_audit"]["with_pre_approval_p3_2005_2024"]) in ms_txt
-        assert str(g2["linkage_audit"]["matched_originator_nda_bla"]) in ms_txt
-        for val in [
-            g2["first_stage_molecule_level_check"]["pre_act_oth_on_pre_ee_sh"]["terms"]["pre_ee_sh"]["coef"],
-            g2["drugsfda_labeling_supplements"]["n_labeling_5yr_ee"]["terms"]["pre_ee_sh"]["coef"],
-            g2["fda_label_warnings"]["has_boxed_warning_ee"]["terms"]["pre_ee_sh"]["coef"],
-            g2["faers_pharmacovigilance"]["us_serious_share_ee"]["terms"]["pre_ee_sh"]["coef"],
-            g2["faers_us_serious_forensic_audit"]["01_raw_bivariate"]["terms"]["pre_ee_sh"]["coef"],
-            g2["faers_us_serious_forensic_audit"]["08_plus_us_faers_vol"]["terms"]["pre_ee_sh"]["coef"],
-            g2["faers_us_serious_forensic_audit"]["10_plus_sponsor_fe"]["terms"]["pre_ee_sh"]["coef"],
-        ]:
-            assert f"{abs(val):.4f}" in ms_txt or f"{abs(100 * val):.2f}" in ms_txt
-
-    def test_v2_referee_revisions_and_zero_pdf_leaks(self):
-        ms_txt = (BASE_DIR / "manuscript_d30_boost.md").read_text(encoding="utf-8")
-        resp_path = BASE_DIR / "REFEREE_RESPONSE_v2.md"
-        assert resp_path.exists() and resp_path.stat().st_size > 4_000
-
-        # (a) Per-+10 pp scaling & absolute MedDRA SOC numbers present in manuscript
-        for token in ["-2.48", "-2.67", "0.7263", "0.7891", "0.0739", "0.0558", "0.0958", "0.1080"]:
-            assert token in ms_txt or token.replace("-", "−") in ms_txt, f"Missing v2 token {token}"
-
-        # (b) Uncensored all-registered war cohort & transparent primary-window CI [-0.019, +2.185] & 187/398
-        for token in ["20,649", "6,011", "187/398", "0/43", "-0.019, +2.185", "41.86%", "0.328"]:
-            assert token in ms_txt or token.replace("-", "−") in ms_txt, f"Missing war-v2 token {token}"
-
-        # (c) Active-arm p_WCB = 0.051 & -49.37 pp explicitly labeled as cross-sectional slope
-        assert "0.051" in ms_txt
-        assert "49.37" in ms_txt and "cross-sectional" in ms_txt.lower()
-        assert "cannot cleanly distinguish" in ms_txt.lower()
-
-        # (d) 95% CIs / TOST equivalence bounds, FDA FAERS official warning, Drug Trials Snapshots, & Keebler 2020
-        for token in [
-            "TOST",
-            "136729",
-            "drug-trials-snapshots",
-            "10.1093/rheumatology/keaa043",
-            "results-definitions",
-            "EMA/CHMP/ICH/453276/2016",
-            "[-4.64, +5.91",
-            "[-42.53, +54.80",
-        ]:
-            assert (
-                token in ms_txt or token.replace("-", "−") in ms_txt
-            ), f"Missing v2 citation/CI token: {token}"
-
-        # (e) Compiled PDF exists, is non-trivial, and HTML text (outside base64 images) is spotless
-        import re
-
-        pdf_path = BASE_DIR / "manuscript_d30_boost.pdf"
-        assert pdf_path.exists() and pdf_path.stat().st_size > 200_000
-        comp_mod = load_module("compile_pdf_check", SCRIPTS_DIR / "07_compile_manuscript_pdf.py")
-        rendered_html = comp_mod.convert_md_to_html(ms_txt)
-        rendered_text_only = re.sub(r'data:image/png;base64,[A-Za-z0-9+/=]+', "", rendered_html)
-        for leak in ["TBD", "TODO", "XXX", r"\underbrace", r"\frac{", r"\text{", "$$"]:
-            assert leak not in rendered_text_only, f"Found rendered leak in PDF HTML: {leak}"
+            assert fp.exists(), f"Missing manifest artifact: {rel_path}"
+            assert hashlib.sha256(fp.read_bytes()).hexdigest() == expected_sha

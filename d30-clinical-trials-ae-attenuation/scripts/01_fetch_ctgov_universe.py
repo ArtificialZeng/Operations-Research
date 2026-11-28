@@ -17,7 +17,7 @@ from pathlib import Path
 
 import requests
 
-BASE_DIR = Path(r"D:\AI_Science\antigravity\d30_boost_clinical_trials_20261125")
+BASE_DIR = Path(__file__).resolve().parents[1]
 RAW_DIR = BASE_DIR / "data" / "raw_ctgov"
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 

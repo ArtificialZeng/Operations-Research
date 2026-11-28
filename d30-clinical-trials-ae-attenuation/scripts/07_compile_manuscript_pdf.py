@@ -1,63 +1,102 @@
-"""Compile manuscript_d30_boost.md + embedded 300-DPI figures into a journal-grade PDF."""
+"""Compile manuscript_d30_boost.md and supplementary_d30_jce.md with 300-DPI figures into PDFs.
+
+Uses Microsoft Edge headless with an isolated temporary user-data-dir so compilation is
+reproducible and never collides with an active browser profile.
+"""
 from __future__ import annotations
 
 import base64
 import html
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
-BASE_DIR = Path(r"D:\AI_Science\antigravity\d30_boost_clinical_trials_20261125")
-MD_PATH = BASE_DIR / "manuscript_d30_boost.md"
-HTML_PATH = BASE_DIR / "manuscript_d30_boost.html"
-PDF_PATH = BASE_DIR / "manuscript_d30_boost.pdf"
+BASE_DIR = Path(__file__).resolve().parents[1]
 EDGE_EXE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 
-FIGURE_BLOCKS: dict[str, tuple[str, str]] = {
-    "fig1_twin_trial_identification.png": (
-        "Figure 1. Exact Twin-Trial Identification, Absolute MedDRA Objectivity Gradient, and Out-of-Sample Replication.",
+MAIN_FIGURES: dict[str, tuple[str, str]] = {
+    "fig1_main_within_program_and_counterfactuals.png": (
+        "Figure 1. Two-Way Alternative-Region Counterfactuals and Within-Program Replication (Per +10 pp EU-East Site Share).",
         (
-            "Panel A shows Phase-3 Same-Molecule × Same-Sponsor FE regional gradients (N = 1,282; 0→100% site-share contrast, divide by 10 for per-+10 pp effect). "
-            "Panel B contrasts registered non-serious AE proportions and non-compositional absolute MedDRA SOC peak-term rates (Subjective −9.6/−10.8 pp vs. Objective −1.2/−1.0 pp) against statistically null SAEs, mortality, and within-trial risk differences (N = 1,764). "
-            "Panel C verifies replication across triplet FE, Phase-2 OOS, protocol controls, terminated trials, and non-placebo MRCTs. Finite-sample t(G−1) 95% CIs."
+            "Panel A shows exact Phase 3 Drug × Sponsor FE two-way counterfactuals (N = 1,282, 328 programs) "
+            "contrasting +10 pp Eastern European EU site share replacing −10 pp of each comparator region "
+            "(United States, North America, Western Europe EU/EEA, Western Europe & Dev., Latin America, Emerging Asia, "
+            "Developed APAC/Israel, and Non-EU EE/RU-UA). Panel B verifies consistency across alternative fixed effects, "
+            "documented AE time frames, dropping the top-10 weighted programs, strict 5% threshold, systematic assessment "
+            "controls, terminated trials, Phase 2 OOS, and non-placebo active-comparator MRCTs. Finite-sample t(G−1) 95% CIs."
         ),
     ),
-    "fig2_binscatter_and_disease_breadth.png": (
-        "Figure 2. Exact FWL Residualized Dose-Response Binscatter and Pan-Disease Generality.",
+    "fig2_support_spline_and_weights.png": (
+        "Figure 2. Observed [0%, 35%] Support Curve, Extensive vs. Intensive Margin Decomposition, and Effective FWL Weights.",
         (
-            "Panel A plots exact Frisch–Waugh–Lovell decile binscatters of registered arm AE proportions (N = 1,764, 457 programs; binscatter slopes match full-model OLS to 1e−5). "
-            "Panel B reports therapeutic-area-specific EE-share slopes across all 9 major MeSH disease domains (9/9 negative, 7/9 p < 0.05)."
+            "Panel A plots Phase 3 Drug × Sponsor FE categorical bin contrasts and 4-knot Harrell restricted cubic splines "
+            "strictly over observed [0%, 35%] support (95th percentile = 35.3%; Wald nonlinearity p = 0.548 placebo, p = 0.681 active) "
+            "with background density histogram. Panel B compares support truncations, explicit zero-share indicator specifications, "
+            "and exact common-236-program contrasts per +10 pp EU-East share. Panel C displays the top-10 Aronow–Samii effective FWL "
+            "program weights (N_eff = 43.7 of 328 programs; top-10 = 32.0%) and leave-top-20-program-out stability."
         ),
     ),
-    "fig3_post2017_regulatory_convergence.png": (
-        "Figure 3. Post-2017 EU-East Convergence Lag vs. Non-EU Cross-Sectional Persistence and FDAAA 42 CFR Part 11.",
+    "fig3_meddra_fourstate_and_manski_bounds.png": (
+        "Figure 3. Four-State MedDRA Cell Audit, Strict Zero-Fallback Paired Contrasts, and Sharp Manski FWL Bounds.",
         (
-            "Panel A plots era-specific cross-sectional slopes (2020–2024 Non-EU cross-sectional slope −49.37 pp, p = 0.000113). "
-            "Panel B reports Twin-Trial FE implementation-lag shifts (2020–2024 EU-East +35.68 pp placebo p_WCB = 0.030; +40.10 pp active borderline p_WCB = 0.051) and joint ICH/FDAAA horse-race interactions (overlapping 2017 timelines not individually separable). "
-            "Panel C documents the post-FDAAA 1.59x rise in 0%-threshold reporting (eu × freq0 p = 0.909)."
+            "Panel A decomposes 166,260 trial-arm-term cells in the pre-defined 15+15 common MedDRA panel across reporting thresholds "
+            "(0.0% left-censored in 0%-threshold trials vs. 69.0% left-censored in 5%-threshold trials). Panel B compares paired "
+            "Subjective minus Objective / pure Investigations contrasts across legacy fallback, strict zero-fallback, zero-anomaly trials, "
+            "fixed 5%, and uncensored 0% threshold strata. Panel C shows exact sharp Manski FWL identification intervals (thick bars) "
+            "and Imbens–Manski 95% CIs (thin bars) for peak single-term SOC rates (72%–88% of trials point-identified)."
         ),
     ),
-    "fig4_war2022_and_accrual_bounds.png": (
-        "Figure 4. Uncensored All-Registered Russia–Ukraine War Reallocation (2017–2025) and Simplex-Valid Accrual Bounds.",
+    "fig4_tost_equivalence_sae_mortality.png": (
+        "Figure 4. Pre-Specified Clinical Equivalence (TOST) and Unified +10 pp Scale Comparison Across Registry Endpoints.",
         (
-            "Panel A compares uncensored all-registered MRCT participation (2017–2025, N = 6,011; Russia 34.1%→0.0% in 2025; Ukraine 22.3%→2.95%→6.10%) against the right-censored results-posted subsample (187/398→0/43). "
-            "Panel B plots uncensored within-sponsor post-war site-share shifts (N = 5,362: RU/UA −3.58 pp, LatAm +1.48 pp, Asia +1.37 pp, U.S. +0.36 pp; uncensored OOS U.S. DiD +0.33, 95% CI [−0.08, +0.74], p = 0.117). "
-            "Panel C bounds patient-level attenuation across accrual ratios w in [0.5, 3.0] preserving regional simplex sum = 1.0."
+            "Panel A displays 90% TOST CIs (thick bars) and 95% CIs (thin bars) per +10 pp EU-East share against pre-specified "
+            "clinical equivalence margins (±2.0 pp primary and ±1.0 pp strict for SAEs and within-trial RD; ±0.5 pp primary for "
+            "all-cause mortality). SAEs and within-trial RD achieve equivalence at ±1.0–2.0 pp (all p_TOST <= 0.0032), whereas mortality "
+            "fails equivalence at ±0.5 pp (p_TOST = 0.249–0.404). Panel B aligns all primary registry endpoints on a single +10 pp scale."
         ),
     ),
-    "fig5_gate2_openfda_faers.png": (
-        "Figure 5. Gate-2 Post-Approval FDA Labeling Supplements, Boxed Warnings, and Exploratory FAERS Audit (N = 229 Drugs).",
+}
+
+SI_FIGURES: dict[str, tuple[str, str]] = {
+    "figS1_therapeutic_areas_and_accrual_bounds.png": (
+        "Figure S1. Subgroup Consistency Across Therapeutic Areas and Simplex-Valid Site-to-Patient Accrual Calibration.",
         (
-            "Panel A shows raw pre-approval registered AE proportions vs. post-approval FDA/FAERS profiles across EE-share bins. "
-            "Panel B reports full-rank adjusted t-statistics (finite-sample t_0.975(G−1) null band shaded): pre-approval registered active AEs fall −36.0 pp, while post-approval labeling supplements and boxed warnings are statistically null (exact 95% CIs and TOST bounds in Table 5); FAERS outcomes reflect exploratory spontaneous-reporting profiles only and cannot estimate true incidence rates."
+            "Panel A shows pooled P2+P3 Eastern European site-share slopes per +10 pp across all 9 major MeSH therapeutic areas "
+            "(9/9 negative, 7/9 p < 0.05). Panel B plots simplex-preserving patient-share calibration across per-site accrual velocity "
+            "ratios w in [0.5, 3.0] with empirical within-program velocity w_hat = 1.35x U.S. marked."
+        ),
+    ),
+    "figS2_post2017_temporal_overlap.png": (
+        "Figure S2. Descriptive Post-2017 Temporal Patterns and Overlapping Regulatory Regimes (Per +10 pp Site Share).",
+        (
+            "Panel A plots era-specific cross-sectional slopes (2005–2024). Panel B displays within-program 3-era shifts "
+            "(2020–2024 EU-East p_WCB = 0.030 placebo, borderline 0.051 active) alongside joint FDAAA/ICH overlap terms "
+            "(individually inseparable). Panel C tracks the post-2017 shift in 0% vs. 5% reporting thresholds."
+        ),
+    ),
+    "figS3_war2022_all_registered_footprints.png": (
+        "Figure S3. Uncensored All-Registered MRCT Footprints (2017–2025, N = 6,011) and Within-Sponsor Period Shifts.",
+        (
+            "Panel A compares all-registered Russia/Ukraine site participation (41.86% in 2019 to 6.10% in 2025; Russia 0.00%) "
+            "against the right-censored results-posted subsample. Panel B displays uncensored within-sponsor post-2022 period shifts "
+            "(out-of-sample exposure U.S. DiD = +0.33, p = 0.117, null)."
+        ),
+    ),
+    "figS4_exploratory_openfda_faers.png": (
+        "Figure S4. Exploratory Post-Approval FDA Labeling Supplements and FAERS Spontaneous-Reporting Audit (N = 229 Drugs).",
+        (
+            "Panel A shows descriptive pre-approval and post-approval percentages across pivotal EE-share bins. Panel B plots "
+            "adjusted t-statistics (null band shaded). Hypothesis-generating only; FAERS lacks exposed-patient denominators "
+            "and cannot estimate incidence rates or comparative risks."
         ),
     ),
 }
 
 
 def _extract_braced(s: str, start: int) -> tuple[str, int]:
-    """Extract balanced {...} group starting at index `start` (pointing to '{')."""
     depth = 0
     i = start
     while i < len(s):
@@ -72,10 +111,8 @@ def _extract_braced(s: str, start: int) -> tuple[str, int]:
 
 
 def _tex_to_html(expr: str) -> str:
-    """Convert inline/display LaTeX expressions used in the manuscript to clean HTML typography."""
     s = expr.strip()
 
-    # Expand balanced \underbrace{A}_{B} -> [A] (B)
     while r"\underbrace{" in s:
         idx = s.index(r"\underbrace{")
         body, nxt = _extract_braced(s, idx + len(r"\underbrace"))
@@ -88,14 +125,12 @@ def _tex_to_html(expr: str) -> str:
         repl = f"[{body}]<sub>{sub_txt}</sub>" if sub_txt else f"[{body}]"
         s = s[:idx] + repl + s[nxt:]
 
-    # Expand balanced \frac{A}{B} -> (A) / (B)
     while r"\frac{" in s:
         idx = s.index(r"\frac{")
         num, nxt = _extract_braced(s, idx + len(r"\frac"))
         den, end = _extract_braced(s, nxt) if nxt < len(s) and s[nxt] == "{" else ("", nxt)
         s = s[:idx] + f"({num}) / ({den})" + s[end:]
 
-    # Expand balanced \text{...}, \hat{...}, \bar{...}, \overline{...}, \tilde{...}, \mathbf{...}, \boldsymbol{...}
     macro_wrappers = [
         (r"\text{", '<span class="rm">', "</span>"),
         (r"\mathbf{", "<b>", "</b>"),
@@ -116,6 +151,9 @@ def _tex_to_html(expr: str) -> str:
         (r"\neq", "&ne;"),
         (r"\approx", "&approx;"),
         (r"\equiv", "&equiv;"),
+        (r"\le", "&le;"),
+        (r"\ge", "&ge;"),
+        (r"\times", "&times;"),
         (r"\to", "&rarr;"),
         (r"\in", "&isin;"),
         (r"\theta", "&theta;"),
@@ -130,6 +168,12 @@ def _tex_to_html(expr: str) -> str:
         (r"\sigma", "&sigma;"),
         (r"\eta", "&eta;"),
         (r"\lambda", "&lambda;"),
+        (r"\omega", "&omega;"),
+        (r"\tau", "&tau;"),
+        (r"\Phi", "&Phi;"),
+        (r"\min", "min"),
+        (r"\max", "max"),
+        (r"\_", "_"),
         (r"\%", "%"),
         (r"\{", "{"),
         (r"\}", "}"),
@@ -139,7 +183,6 @@ def _tex_to_html(expr: str) -> str:
     for old, new in replacements:
         s = s.replace(old, new)
 
-    # Balanced _{...} and ^{...}
     for sym, tag in [("_", "sub"), ("^", "sup")]:
         while f"{sym}{{" in s:
             idx = s.index(f"{sym}{{")
@@ -151,7 +194,6 @@ def _tex_to_html(expr: str) -> str:
 
 
 def _inline_md(text: str) -> str:
-    """Render inline markdown (code spans, inline math, bold+italic, bold, italic)."""
     tokens: list[str] = []
 
     def stash(html_frag: str) -> str:
@@ -159,20 +201,17 @@ def _inline_md(text: str) -> str:
         tokens.append(html_frag)
         return f"\x00TOK{idx}\x00"
 
-    # Inline code first so backticks protect raw characters
     text = re.sub(
         r"`([^`]+)`",
         lambda m: stash(f"<code>{html.escape(m.group(1))}</code>"),
         text,
     )
-    # Inline math $...$
     text = re.sub(
         r"\$([^$\n]+)\$",
         lambda m: stash(f'<span class="math">{_tex_to_html(m.group(1))}</span>'),
         text,
     )
     escaped = html.escape(text)
-    # Bold+italic ***...*** first, then **...** (allowing inner single *italics*), then *...*
     escaped = re.sub(r"\*\*\*([^*]+?)\*\*\*", r"<strong><em>\1</em></strong>", escaped)
     escaped = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped)
     escaped = re.sub(r"(?<!\*)\*([^*]+?)\*(?!\*)", r"<em>\1</em>", escaped)
@@ -181,10 +220,10 @@ def _inline_md(text: str) -> str:
     return escaped
 
 
-def _embed_figure_html(fname: str) -> str:
+def _embed_figure_html(fname: str, fig_map: dict[str, tuple[str, str]]) -> str:
     img_path = BASE_DIR / "figures" / fname
     b64 = base64.b64encode(img_path.read_bytes()).decode("ascii")
-    title, caption = FIGURE_BLOCKS[fname]
+    title, caption = fig_map[fname]
     return (
         f'<figure class="pub-fig">'
         f'<img src="data:image/png;base64,{b64}" alt="{html.escape(title)}" />'
@@ -193,7 +232,14 @@ def _embed_figure_html(fname: str) -> str:
     )
 
 
-def convert_md_to_html(md_text: str) -> str:
+def convert_md_to_html(
+    md_text: str,
+    fig_map: dict[str, tuple[str, str]] | None = None,
+    running_header: str = "Geographic Site Mix and Registered Non-Serious Adverse Events (JCE v4)",
+    doc_title: str = "D30 Manuscript (JCE v4)",
+) -> str:
+    if fig_map is None:
+        fig_map = MAIN_FIGURES
     lines = md_text.splitlines()
     body: list[str] = []
     inserted_figs: set[str] = set()
@@ -213,14 +259,12 @@ def convert_md_to_html(md_text: str) -> str:
             i += 1
             continue
 
-        # Display math $$...$$
         if stripped.startswith("$$") and stripped.endswith("$$") and len(stripped) > 4:
             expr = stripped[2:-2].strip()
             body.append(f'<div class="eq-block">{_tex_to_html(expr)}</div>')
             i += 1
             continue
 
-        # Headings
         m_h = re.match(r"^(#{1,3})\s+(.*)$", stripped)
         if m_h:
             lvl = len(m_h.group(1))
@@ -229,10 +273,7 @@ def convert_md_to_html(md_text: str) -> str:
             i += 1
             continue
 
-        # Pipe table
-        if stripped.startswith("|") and i + 1 < n and lines[i + 1].strip().startswith("|---") or (
-            stripped.startswith("|") and i + 1 < n and re.match(r"^\|\s*:?---", lines[i + 1].strip())
-        ):
+        if stripped.startswith("|") and i + 1 < n and re.match(r"^\|\s*:?---", lines[i + 1].strip()):
             tbl_lines = [stripped]
             i += 1
             while i < n and lines[i].strip().startswith("|"):
@@ -266,7 +307,6 @@ def convert_md_to_html(md_text: str) -> str:
             )
             continue
 
-        # Unordered list
         if stripped.startswith("- "):
             items = []
             while i < n and lines[i].strip().startswith("- "):
@@ -275,7 +315,6 @@ def convert_md_to_html(md_text: str) -> str:
             body.append(f"<ul>{''.join(items)}</ul>")
             continue
 
-        # Ordered list (preserve explicit start number & nested sub-bullets!)
         m_ol = re.match(r"^(\d+)\.\s+", stripped)
         if m_ol:
             start_num = int(m_ol.group(1))
@@ -293,8 +332,7 @@ def convert_md_to_html(md_text: str) -> str:
             body.append(f"<ol{start_attr}>{''.join(items)}</ol>")
             continue
 
-        # Paragraph (group consecutive plain lines)
-        para_lines = [stripped]
+        para_lines = [ln.rstrip("\r\n")]
         i += 1
         while i < n:
             nxt = lines[i].strip()
@@ -305,177 +343,209 @@ def convert_md_to_html(md_text: str) -> str:
                 or re.match(r"^\d+\.\s+", nxt)
             ):
                 break
-            para_lines.append(nxt)
+            para_lines.append(lines[i].rstrip("\r\n"))
             i += 1
-        para_raw = " ".join(para_lines)
+        # Preserve markdown hard line breaks (trailing two spaces), e.g., authorship block
+        rendered_parts: list[str] = []
+        for idx_p, pln in enumerate(para_lines):
+            has_br = pln.endswith("  ")
+            frag = _inline_md(pln.strip())
+            if idx_p < len(para_lines) - 1:
+                rendered_parts.append(frag + ("<br />" if has_br else " "))
+            else:
+                rendered_parts.append(frag)
+        para_raw = " ".join(p.strip() for p in para_lines)
         p_cls = ' class="table-caption"' if para_raw.startswith("**Table ") else (
-            ' class="table-notes"' if para_raw.startswith(("*Notes:*", "*Source:*")) else ""
+            ' class="table-notes"' if para_raw.startswith(("*Notes:*", "*Source:*", "*Sources:*")) else (
+                ' class="author-block"' if any(p.endswith("  ") for p in para_lines[:-1]) else ""
+            )
         )
-        body.append(f"<p{p_cls}>{_inline_md(para_raw)}</p>")
+        body.append(f"<p{p_cls}>{''.join(rendered_parts)}</p>")
 
-        # Auto-embed any figure referenced for the first time in this paragraph
-        for fname in FIGURE_BLOCKS:
+        for fname in fig_map:
             if fname in para_raw and fname not in inserted_figs:
-                body.append(_embed_figure_html(fname))
+                body.append(_embed_figure_html(fname, fig_map))
                 inserted_figs.add(fname)
 
-    # Append any remaining figures not triggered inline
-    for fname in FIGURE_BLOCKS:
+    for fname in fig_map:
         if fname not in inserted_figs:
-            body.append(_embed_figure_html(fname))
+            body.append(_embed_figure_html(fname, fig_map))
 
-    css = """
-    @page {
+    css = f"""
+    @page {{
       size: letter;
-      margin: 0.72in 0.72in 0.78in 0.72in;
-      @top-right {
-        content: "Geographic Non-Serious AE Reporting & Regulatory Dynamics (D30 v2)";
+      margin: 0.70in 0.70in 0.76in 0.70in;
+      @top-right {{
+        content: "{running_header}";
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 7.5pt;
+        font-size: 7.4pt;
         color: #555;
-      }
-      @bottom-center {
+      }}
+      @bottom-center {{
         content: "Page " counter(page) " of " counter(pages);
         font-family: Georgia, "Times New Roman", serif;
         font-size: 8pt;
         color: #555;
-      }
-    }
-    @page :first { @top-right { content: normal; } }
-    body {
+      }}
+    }}
+    @page :first {{ @top-right {{ content: normal; }} }}
+    body {{
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 9.6pt;
-      line-height: 1.44;
+      font-size: 9.5pt;
+      line-height: 1.43;
       color: #1a1a1a;
       max-width: 100%;
-    }
-    h1.paper-title {
-      font-size: 16.5pt;
+    }}
+    h1.paper-title {{
+      font-size: 15.8pt;
       line-height: 1.24;
       margin: 0 0 8pt 0;
       color: #0b2545;
       border-bottom: 1.5pt solid #0b2545;
       padding-bottom: 6pt;
-    }
-    h2 {
-      font-size: 12pt;
+    }}
+    h2 {{
+      font-size: 11.8pt;
       color: #0b2545;
-      margin: 14pt 0 5pt 0;
+      margin: 13pt 0 5pt 0;
       border-bottom: 0.6pt solid #cbd5e1;
       padding-bottom: 2pt;
       page-break-after: avoid;
-    }
-    h3 {
-      font-size: 10.2pt;
+    }}
+    h3 {{
+      font-size: 10.1pt;
       color: #1e3a5f;
       margin: 10pt 0 4pt 0;
       page-break-after: avoid;
-    }
-    p { margin: 0 0 6pt 0; text-align: justify; }
-    p.table-caption {
-      font-size: 9pt;
+    }}
+    p {{ margin: 0 0 5.5pt 0; text-align: justify; }}
+    p.author-block {{ text-align: left; margin: 0 0 6pt 0; line-height: 1.38; }}
+    p.table-caption {{
+      font-size: 8.9pt;
       margin: 10pt 0 4pt 0;
       color: #0b2545;
       text-align: left;
       page-break-after: avoid;
-    }
-    p.table-notes {
-      font-size: 7.8pt;
+    }}
+    p.table-notes {{
+      font-size: 7.7pt;
       color: #475569;
       margin: 2pt 0 8pt 0;
       text-align: left;
-    }
-    ul, ol { margin: 3pt 0 7pt 16pt; padding: 0; }
-    li { margin: 0 0 3.5pt 0; text-align: justify; }
-    code {
+    }}
+    ul, ol {{ margin: 3pt 0 7pt 16pt; padding: 0; }}
+    li {{ margin: 0 0 3.2pt 0; text-align: justify; }}
+    code {{
       font-family: Consolas, "Courier New", monospace;
-      font-size: 8.3pt;
+      font-size: 8.1pt;
       background: #f1f5f9;
-      padding: 0.5pt 2.5pt;
+      padding: 0.5pt 2.4pt;
       border-radius: 2pt;
-    }
-    hr { border: 0; border-top: 0.6pt solid #cbd5e1; margin: 10pt 0; }
-    .math { font-family: "Cambria Math", Georgia, serif; font-style: italic; }
-    .math .rm, .eq-block .rm { font-style: normal; }
-    .eq-block {
+    }}
+    hr {{ border: 0; border-top: 0.6pt solid #cbd5e1; margin: 9pt 0; }}
+    .math {{ font-family: "Cambria Math", Georgia, serif; font-style: italic; }}
+    .math .rm, .eq-block .rm {{ font-style: normal; }}
+    .eq-block {{
       font-family: "Cambria Math", Georgia, serif;
-      font-size: 9.8pt;
+      font-size: 9.6pt;
       text-align: center;
       margin: 8pt 0;
       padding: 6pt 10pt;
       background: #f8fafc;
       border-left: 2pt solid #0b2545;
-    }
-    .table-wrap { margin: 4pt 0 4pt 0; page-break-inside: avoid; }
-    table {
+    }}
+    .table-wrap {{ margin: 4pt 0 4pt 0; }}
+    thead {{ display: table-header-group; }}
+    tr {{ page-break-inside: avoid; }}
+    table {{
       width: 100%;
       border-collapse: collapse;
-      font-size: 7.7pt;
-      line-height: 1.28;
+      font-size: 7.5pt;
+      line-height: 1.26;
       border-top: 1.3pt solid #0f172a;
       border-bottom: 1.3pt solid #0f172a;
-    }
-    thead tr { border-bottom: 0.8pt solid #334155; background: #f8fafc; }
-    th, td { padding: 3.2pt 4pt; vertical-align: top; }
-    td code { white-space: nowrap; }
-    tbody tr:nth-child(even) { background: #fbfdff; }
-    th.left, td.left { text-align: left; }
-    th.center, td.center { text-align: center; }
-    th.right, td.right { text-align: right; }
-    figure.pub-fig {
-      margin: 10pt 0 10pt 0;
-      padding: 6pt;
+    }}
+    thead tr {{ border-bottom: 0.8pt solid #334155; background: #f8fafc; }}
+    th, td {{ padding: 3.0pt 3.8pt; vertical-align: top; }}
+    td code {{ white-space: nowrap; }}
+    tbody tr:nth-child(even) {{ background: #fbfdff; }}
+    th.left, td.left {{ text-align: left; }}
+    th.center, td.center {{ text-align: center; }}
+    th.right, td.right {{ text-align: right; }}
+    figure.pub-fig {{
+      margin: 9pt 0 9pt 0;
+      padding: 5.5pt;
       border: 0.5pt solid #e2e8f0;
       background: #ffffff;
       page-break-inside: avoid;
       text-align: center;
-    }
-    figure.pub-fig img {
+    }}
+    figure.pub-fig img {{
       max-width: 100%;
-      max-height: 4.3in;
+      max-height: 4.15in;
       height: auto;
       display: block;
-      margin: 0 auto 5pt auto;
-    }
-    figure.pub-fig figcaption {
-      font-size: 8pt;
-      line-height: 1.32;
+      margin: 0 auto 4.5pt auto;
+    }}
+    figure.pub-fig figcaption {{
+      font-size: 7.9pt;
+      line-height: 1.31;
       color: #334155;
       text-align: left;
-    }
+    }}
     """
     return (
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8' />"
-        f"<title>D30 Boost Manuscript</title><style>{css}</style></head>"
+        f"<title>{html.escape(doc_title)}</title><style>{css}</style></head>"
         f"<body>{''.join(body)}</body></html>"
     )
 
 
-def main() -> int:
-    md_text = MD_PATH.read_text(encoding="utf-8")
-    html_doc = convert_md_to_html(md_text)
-    HTML_PATH.write_text(html_doc, encoding="utf-8")
-
+def compile_one(md_path: Path, pdf_path: Path, fig_map: dict[str, tuple[str, str]], header: str, title: str) -> None:
     if not EDGE_EXE.exists():
-        print(f"[ERROR] Microsoft Edge not found at {EDGE_EXE}", file=sys.stderr)
-        return 1
+        raise FileNotFoundError(f"Microsoft Edge not found at {EDGE_EXE}")
+    md_text = md_path.read_text(encoding="utf-8")
+    html_doc = convert_md_to_html(md_text, fig_map=fig_map, running_header=header, doc_title=title)
 
-    cmd = [
-        str(EDGE_EXE),
-        "--headless=new",
-        "--disable-gpu",
-        "--no-pdf-header-footer",
-        f"--print-to-pdf={PDF_PATH}",
-        HTML_PATH.as_uri(),
-    ]
-    res = subprocess.run(cmd, capture_output=True, text=True, timeout=60, check=False)
-    if res.returncode != 0 or not PDF_PATH.exists() or PDF_PATH.stat().st_size < 50_000:
-        print(f"[ERROR] Edge PDF compile failed rc={res.returncode}: {res.stderr}", file=sys.stderr)
-        return 1
+    tmp_dir = Path(tempfile.mkdtemp(prefix="d30_edge_pdf_"))
+    try:
+        html_path = tmp_dir / f"{md_path.stem}.html"
+        user_data_dir = tmp_dir / "edge_profile"
+        html_path.write_text(html_doc, encoding="utf-8")
+        cmd = [
+            str(EDGE_EXE),
+            "--headless=new",
+            "--disable-gpu",
+            "--no-pdf-header-footer",
+            f"--user-data-dir={user_data_dir}",
+            f"--print-to-pdf={pdf_path}",
+            html_path.as_uri(),
+        ]
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
+        if res.returncode != 0 or not pdf_path.exists() or pdf_path.stat().st_size < 50_000:
+            raise RuntimeError(f"Edge PDF compile failed for {pdf_path.name} rc={res.returncode}: {res.stderr}")
+        print(f"[DONE] Compiled {pdf_path.name} ({pdf_path.stat().st_size:,} bytes)", flush=True)
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
 
-    # Remove intermediate HTML to keep root directory spotless
-    HTML_PATH.unlink(missing_ok=True)
-    print(f"[DONE] Compiled {PDF_PATH} ({PDF_PATH.stat().st_size:,} bytes)", flush=True)
+
+def main() -> int:
+    compile_one(
+        BASE_DIR / "manuscript_d30_boost.md",
+        BASE_DIR / "manuscript_d30_boost.pdf",
+        MAIN_FIGURES,
+        "Geographic Site Mix and Registered Non-Serious Adverse Events (JCE v4)",
+        "Geographic Site Mix and Registered Non-Serious Adverse Events (JCE v4)",
+    )
+    si_md = BASE_DIR / "supplementary_d30_jce.md"
+    if si_md.exists():
+        compile_one(
+            si_md,
+            BASE_DIR / "supplementary_d30_jce.pdf",
+            SI_FIGURES,
+            "Supplementary Appendix — Geographic Site Mix and Registered AEs (JCE v4)",
+            "Supplementary Appendix — D30 (JCE v4)",
+        )
     return 0
 
 

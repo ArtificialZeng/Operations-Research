@@ -1,35 +1,39 @@
-# D30 `/boost` Cryptographic Verification Manifest
+# D30 (`v4` — *Journal of Clinical Epidemiology*) Cryptographic Verification Manifest
 
-- **Generated (UTC):** `2026-11-26T21:53:49.997696+00:00`
-- **Verified Artifacts:** `47` files
+- **Generated (UTC):** `2026-11-28T00:01:18.350653+00:00`
+- **Verified Artifacts:** `63` files
 
 | Relative Path | Size (Bytes) | SHA-256 Digest |
 | :--- | ---: | :--- |
 | `scripts/00_api_probe.py` | 5,727 | `5fae945fb6ef87dcdebf2409c182baeb0ff3bb7fc8dde4ee3d51033070b5fba6` |
-| `scripts/01_fetch_ctgov_universe.py` | 8,910 | `c8613f0229625d7ff1986939ac55e1fa42bb9068f21e7fd9c139f2a2f374abb0` |
-| `scripts/01b_fetch_war_all_registered.py` | 9,814 | `945f00108cd601e4415f856125c2832018021909f1bc88cad8927afe794992e4` |
-| `scripts/02_build_panel.py` | 40,540 | `b8e073ddfe800b5a136d6ba2b4f8214dd78b72ab9ab37768ce895e77f1bc7d06` |
-| `scripts/02b_fetch_meddra_soc_stats.py` | 11,178 | `792e5da501daa26fdeef21816e7fbd5277c6af556b8ea385615bcd8d3ab248c8` |
-| `scripts/03_econometrics_suite.py` | 86,075 | `e20915068ace3c108bb8d3a1e8730d1c05ad6586ca6263d652d04ed8fcc9cab2` |
-| `scripts/04_gate2_openfda_linkage.py` | 48,176 | `7061a649da11f670d91de154a33d8e60c9d0bbbf6e81575d2709e4f5ca7d02ff` |
-| `scripts/05_generate_figures_tables.py` | 28,628 | `39cccbb2ad1fc5f327bd4d30315781db0cba8ff65d248d103fdc2dfabf6f6d5e` |
-| `scripts/06_build_manifest.py` | 2,574 | `b9e226340ae3167a1b655dbf92f0de09e1c2c724f80878505b8c8d324b93122f` |
-| `scripts/07_compile_manuscript_pdf.py` | 18,673 | `a263ba3f9cca8dc7c8f69076ed9fba6a4dae660fc46c43c5ae0a7e3c5c269d75` |
-| `tests/test_d30_pipeline.py` | 32,463 | `1dfffd04d9cfb43da4b2e47004d3757e6e90a0113f38d96aa002dc1132bd28c1` |
+| `scripts/01_fetch_ctgov_universe.py` | 8,876 | `14fc48f6b2f72a69562fa02640ac410da07e99a24e6719bc4ca0fd7beb8371ca` |
+| `scripts/01b_fetch_war_all_registered.py` | 9,780 | `fca664305c035135d0a29f2645efaee064a297ffd2d264d969ce7b038dcdea93` |
+| `scripts/02_build_panel.py` | 40,999 | `f28ffc40a6d899b0accab4e20ced9ee24660396c5eeecc7e17a4d107904d5419` |
+| `scripts/02b_fetch_meddra_soc_stats.py` | 36,361 | `5e73e732e64b72273a3d3dbe1f6fae1d26588e4dc7d93f95bcae7925b48715ca` |
+| `scripts/03_econometrics_suite.py` | 86,041 | `177079724cbd5e4ee6c6767c83c2cab1badce0ae35ea5ddb0ba93a2003f7a022` |
+| `scripts/04_gate2_openfda_linkage.py` | 48,142 | `c2020e72ae8bc950c196c01ffd65c892adcd8fd6659c3b4761b8e4a0c5b160e5` |
+| `scripts/05_generate_figures_tables.py` | 48,420 | `5fe343c5a9a9f3e1902e9636cbd50ed5cd8deee596356eb89cb10086039df4d5` |
+| `scripts/06_build_manifest.py` | 2,714 | `12b83d9b867d1ec0a9a9af1310e5a672711b8b71c9859a1c3f55e8890832bf43` |
+| `scripts/07_compile_manuscript_pdf.py` | 21,981 | `b243c22c415056f1f18dd4a9bbbd5087697b04f73eaa27ec84e45fdf6f232764` |
+| `scripts/08_reporting_sensitivity.py` | 50,555 | `f1d65b135fb0b7cd5dbc55d424ea3da5b31385960392537d5569992eda55ec68` |
+| `tests/test_d30_pipeline.py` | 23,945 | `c00f3e2a5b5b9e42298d92786c7d6eb1fe50d0ccf1bbb74144d31d8220ede563` |
 | `data/raw_ctgov/ctgov_fetch_manifest.json` | 6,488 | `c4a649b82f07aef2bba53628684eec0566be748adcd703b14b4b072a0e144f72` |
+| `data/raw_ctgov/meddra_snapshot_manifest.json` | 1,089 | `ec4cd7af256a8002c3a3ca50a300fc960b2aaba96afea55785b57fd0737c3eb5` |
+| `data/raw_ctgov/meddra_other_events_snapshot.jsonl.gz` | 5,856,781 | `7eb1eefdeae3b188f262bd180b04dc568d808e6eee74b09883b94a27a4ee9b1e` |
 | `data/processed/ctgov_all_registered_war_2017_2025.parquet` | 815,757 | `fb2dca4f688986ed3b19b1ecc7df95c025c2e364fc564f8b7421dd0f4063c0bc` |
-| `data/processed/d30_all_trials.parquet` | 3,579,266 | `eff7fab79c914fadab449951be2938aba483491f2f1582336f24cf4a25c422a9` |
-| `data/processed/d30_meddra_soc_abs_rates.parquet` | 380,861 | `8fc394677448f5af975eb1b52e0104de5ed65023fbc3e4d3cbaa262bf1d4401d` |
-| `data/processed/d30_mrct_placebo_allstatus.parquet` | 1,364,503 | `0f76c73a097d57329ea52018e1e924c01f2502b89b062363af7200a745a283cd` |
-| `data/processed/d30_mrct_placebo_panel.parquet` | 1,146,237 | `63bf1393eb9fe98da5185d97c114f92cc0ebc2c8615d31313dfb978bb1d70742` |
+| `data/processed/d30_all_trials.parquet` | 4,112,238 | `af0782225335dfb9b94983136b3d831d0589663a3fee1378ce434a89b0bba841` |
+| `data/processed/d30_meddra_soc_abs_rates.parquet` | 1,808,687 | `3ae9805fd51f1dfa6d8c9ceabda848c78d0ec7263b416c5cffd925dc684f9b04` |
+| `data/processed/d30_mrct_placebo_allstatus.parquet` | 1,530,741 | `efc511978ed496da983bd4c38af906bad20a160372faf4bf4a719f4a1ab2bef7` |
+| `data/processed/d30_mrct_placebo_panel.parquet` | 1,280,235 | `b9486c1779eb818ab2c6f922b3cf896331cea04086f2a597b561995a48d92c68` |
 | `data/processed/d30_gate2_openfda_molecules.csv` | 255,198 | `930546947d0290909f461c9edf9cc9c17e1aa87f15481efb9c395e0291e2d313` |
-| `data/processed/d30_mrct_placebo_panel.csv` | 3,278,925 | `cc23d387fa57c01de5370e2351dbaf10f9bd38368be12385055ef7e1a46861b7` |
-| `data/processed/meddra_soc_abs_summary.json` | 688 | `5774d8eabda0a6de235542ca1cb3d9d47e05d0d09f8c38340cd53f771bf95d2c` |
-| `data/processed/panel_build_summary.json` | 1,645 | `3096102ef3c5cdbfde7ff1b9cd5f89c344c4f230ab4a2bb2c175ab131827e6bf` |
+| `data/processed/d30_mrct_placebo_panel.csv` | 3,648,000 | `54f2140bd705e47a145fe7c9cf2d894bbd97bfda5679a7ebbf36b313a7fec301` |
+| `data/processed/meddra_soc_abs_summary.json` | 11,422 | `0d589c745e4291950e5883a42fa2ccffc846928a38bb491751c3b12ccb80e804` |
+| `data/processed/panel_build_summary.json` | 1,645 | `9f7bb004f48fdf2a71d7a8d114fe5d4d6bc81e0d11e06a63d6c6e82135a5f7f5` |
 | `data/processed/war_all_registered_summary.json` | 3,041 | `e1502b52eceb16e47e36e8118c84645c7917f46fc611308f3c493c73b868718a` |
 | `data/raw_openfda/drugsfda_cache.json` | 237,871 | `d1edb09e9aa891b88d908518d6b570a6cd97ae3dc628f738e8ccc41e47408935` |
 | `data/raw_openfda/faers_cache.json` | 105,109 | `d9f50a4fac7d4aa6a407e8afcb637a735976d2f0d212c70deea75eb2eb3ed9dd` |
 | `data/raw_openfda/label_cache.json` | 64,296 | `9c9d5e0d208e0a45db693799c101021d44a471b81c65cbbb22dbb2384ec4f57f` |
+| `results/08_reporting_sensitivity.json` | 266,010 | `454b1a1dd71f6636458de3b60b9c2e25fe395585b3764ff4e52d7c7ac26058ff` |
 | `results/d30_econometrics_results.json` | 2,188,513 | `3afea4ec0f56264b5a014c2ae46e534beb99c8a56a8e1b9e66f2321a05af9340` |
 | `results/d30_gate2_openfda_results.json` | 75,446 | `9f55106820a7a9f22bf8fc7ecb03436785b133960800790cc68084f99983a11c` |
 | `tables/table1_core_twin_trial.csv` | 15,126 | `f8bff3daed31b37f278cd58288fc4b1ef141221d884b6e2957fd38f2d714e9d4` |
@@ -39,16 +43,28 @@
 | `tables/table4_accrual_calibration_bounds.csv` | 826 | `c791f1cb2223a07c236c9149442fdb6460a30ed811683bbd2d111e8574beea04` |
 | `tables/table4b_all_registered_war_2017_2025.csv` | 2,481 | `db71e115bf5de07bf57586220e5761431c081e8032d43cb2de716d08dcd12bda` |
 | `tables/table5_gate2_openfda_faers.csv` | 2,967 | `e6c62c8a603a1a069e459d480561e7e4a93b934166eb724de9c11dacc59a53e4` |
-| `figures/fig1_twin_trial_identification.png` | 498,719 | `2a521b484f1b9bef2f2281244c5f32d342b7e65f69fbe23b287944180a554d22` |
-| `figures/fig2_binscatter_and_disease_breadth.png` | 325,684 | `c030d19a9bfd9bf658677dd32670610dcb483d4eb874d6f0e65eda9909a61418` |
-| `figures/fig3_post2017_regulatory_convergence.png` | 514,358 | `df1e0d8f7d70e1a47d2dd12b864fbe82a355730aa1c7137b0ed97f28bd82ca78` |
-| `figures/fig4_war2022_and_accrual_bounds.png` | 531,652 | `052f9164af7b41b18a4fdeee9895c4c6b3e3d18efbb58490186b6025fb9a2683` |
-| `figures/fig5_gate2_openfda_faers.png` | 416,028 | `a66ad94ca2dae87c2de69a9bdc95bd1632827c6138c2dc97d242a851f886181c` |
-| `figures/fig1_twin_trial_identification.pdf` | 54,907 | `ee3c9f49ff3cd169d417d4ee3874eaaaff293f904676c6f7e6a4aab53bb85bc2` |
-| `figures/fig2_binscatter_and_disease_breadth.pdf` | 51,355 | `c39649f1655005f7d25c7745f3c6ed59c6298ce80d09ca38f4ad47229a67c696` |
-| `figures/fig3_post2017_regulatory_convergence.pdf` | 52,843 | `ff989dcd1c7f129ca80323f899cd2ef59e9d5e48fbc15d079bf7001a6c4a4a0f` |
-| `figures/fig4_war2022_and_accrual_bounds.pdf` | 50,428 | `601bd7efc0c238065d257c2682296c6b6b1bd6cbfc304d836d66a0b1f83d8f5a` |
-| `figures/fig5_gate2_openfda_faers.pdf` | 48,270 | `8dbbaeacc5d3ab87511b43ada96df58e533057720720c435e4e4d09fae2a45d2` |
-| `manuscript_d30_boost.md` | 85,034 | `1ecfbf0737f2c5eb050c57fb6329e74d0854518b7dda93ac5a75618ae06974c5` |
-| `manuscript_d30_boost.pdf` | 3,903,311 | `ff2fddbf42a1c1000391a0380f1238c3ea0d8660e9526158e8c07c1c6be67f9d` |
-| `REFEREE_RESPONSE_v2.md` | 14,159 | `731c06bb41c3f4f423809d24d0696cbefeca3377ccf84f4b1bdb64c21d86b248` |
+| `tables/table_v4_alternative_regions.csv` | 12,051 | `dda471bbdf641f44c2553443b7e978606f817b0a49a3cd3165f2456ea2dd0474` |
+| `tables/table_v4_meddra_bounds.csv` | 5,062 | `7d556518bd9c031bfe976be22cbe89deb053da08c0ee29e679e9aac454c92c31` |
+| `tables/table_v4_support_and_margins.csv` | 3,231 | `130bd879faef124b6e0d68cacae9fe9c37f5c934adf438cec9797b20096f3f1f` |
+| `tables/table_v4_tost_equivalence.csv` | 5,677 | `6c10d61f37d49f1609374c46ae47d9a8ae33cae6b49c1b28f66cd41ac4ee0c51` |
+| `figures/fig1_main_within_program_and_counterfactuals.png` | 388,454 | `55d29956132390862395c7889de5aebb8b8fb3103e534f2132d41bc7aaf982e2` |
+| `figures/fig2_support_spline_and_weights.png` | 632,363 | `c0b22eebfd8e2b5a058ad6a0d3bbdba3ff23dd9e1a6e5b5581f7ce280893103e` |
+| `figures/fig3_meddra_fourstate_and_manski_bounds.png` | 450,292 | `50f211f199e695cd1fc470ffdb639ff704268e016ff1fa64cc1d60784844eb9e` |
+| `figures/fig4_tost_equivalence_sae_mortality.png` | 454,911 | `f7b83e615f36b02fc91d8a240491a46ce4b0fb8fc845b24dd3d61d8968151d6a` |
+| `figures/figS1_therapeutic_areas_and_accrual_bounds.png` | 365,185 | `a867d2ca9d6f9a9567affe8bcc19a404b19e50c80dcefd08f3cd741f3665c37f` |
+| `figures/figS2_post2017_temporal_overlap.png` | 518,754 | `1e0dd4e5edc608b2c8515226a339d71045c829938e68f809e7455b300a7e65f6` |
+| `figures/figS3_war2022_all_registered_footprints.png` | 348,650 | `9217cd9a95e36c8b3c0706856dab495e50752f9157745974163c9a5c24c96b33` |
+| `figures/figS4_exploratory_openfda_faers.png` | 384,801 | `a6a421a55bbdac6bd5072d7ed6d81bbc83142dafd5898ce3d5ac77ad4a3ecbd0` |
+| `figures/fig1_main_within_program_and_counterfactuals.pdf` | 49,602 | `2ceb2bf6d162ffb19f080d5d986fb238e366d7021cb1ef0d26ca77c349a7e2e1` |
+| `figures/fig2_support_spline_and_weights.pdf` | 54,993 | `fc1bf579498a86a37b4b791230ad08815aa72fe8f942315d3db66289306e1d19` |
+| `figures/fig3_meddra_fourstate_and_manski_bounds.pdf` | 51,142 | `e76b45a255c039210d4b044428d5b7be6e8f0ad2983284409637d37ece4a03f0` |
+| `figures/fig4_tost_equivalence_sae_mortality.pdf` | 48,619 | `aeaa289dbde056ac7732d0b3da30540ee791e341482c9c520625310d7a08548a` |
+| `figures/figS1_therapeutic_areas_and_accrual_bounds.pdf` | 47,213 | `86bc48308492c5f7b996662a422838a0030be3f91a11f4c3e8e13a67cf4e6bc9` |
+| `figures/figS2_post2017_temporal_overlap.pdf` | 51,512 | `5236b2ca19158f178911667ec1c45958887ebfef58d6ebe94026d198add5e5c9` |
+| `figures/figS3_war2022_all_registered_footprints.pdf` | 44,822 | `672d72d52a3923361edf8410c1ddfed34b5689e19cb14e82b3e48b97447ed0e9` |
+| `figures/figS4_exploratory_openfda_faers.pdf` | 46,545 | `d00c5272d9c4c6977a2009ccfb88ce359a15ec527bbfa158fd2c5a215139ca2a` |
+| `manuscript_d30_boost.md` | 67,802 | `fed4ff20442b323e8e95ca45b2ae74f80a3ccf7f103d622b34459497096a6444` |
+| `manuscript_d30_boost.pdf` | 3,239,089 | `b35efbb8413b88728bf33147832d0c8cdf4211c3d91e64fb212d60c6c28501ec` |
+| `supplementary_d30_jce.md` | 20,790 | `f62cc7d6b098ebb35dac586f8f030e961f64a597a16e772d8e7959b17c264d7f` |
+| `supplementary_d30_jce.pdf` | 2,180,026 | `e80b1be2ba6fe4b3a777e6e732a2ce9021c83b8d2291be4526bb637e07cd40b9` |
+| `REFEREE_RESPONSE_v4.md` | 14,785 | `b3e6bfbab25b65ce64f0a4f7e8f2b7f60cc204c5bf1442bb674890682f84c2f1` |

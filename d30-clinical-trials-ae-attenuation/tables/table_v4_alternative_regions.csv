@@ -1,0 +1,81 @@
+sample,simplex,outcome,comparator_region,comparator_key,n,n_fe_groups,n_clusters,t_df,per_10pp_pp,per_10pp_se_pp,per_10pp_ci95_lo_pp,per_10pp_ci95_hi_pp,t,p
+phase3,7-region (US omitted),ctrl_oth,United States (baseline),us_sh,1282,328,129,128,-2.48,0.572,-3.611,-1.349,-4.339,2.8760946095616735e-05
+phase3,7-region (US omitted),ctrl_oth,Western Europe & Dev. APAC/CA,we_sh,1282,328,129,128,-2.807,0.517,-3.83,-1.784,-5.43,2.726180822250748e-07
+phase3,7-region (US omitted),ctrl_oth,Latin America,latam_sh,1282,328,129,128,-3.017,0.89,-4.778,-1.256,-3.39,0.0009290232069250732
+phase3,7-region (US omitted),ctrl_oth,Emerging Asia,asia_sh,1282,328,129,128,-2.693,0.727,-4.131,-1.254,-3.703,0.00031600388320761347
+phase3,7-region (US omitted),ctrl_oth,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1282,328,129,128,-1.975,0.98,-3.914,-0.035,-2.015,0.046048509312936275
+phase3,8-region (North America omitted),ctrl_oth,North America (U.S. + Canada),na_sh,1282,328,129,128,-2.68,0.532,-3.733,-1.627,-5.036,1.5776025970428526e-06
+phase3,8-region (North America omitted),ctrl_oth,Western Europe (EU/EEA only),we_eu_sh,1282,328,129,128,-2.393,0.551,-3.482,-1.304,-4.346,2.7938442832885828e-05
+phase3,8-region (North America omitted),ctrl_oth,Developed APAC / Israel,dev_apac_no_ca_sh,1282,328,129,128,-3.08,0.77,-4.604,-1.557,-4.001,0.00010627688306524534
+phase3,7-region (US omitted),act_oth,United States (baseline),us_sh,1282,328,129,128,-2.672,0.572,-3.804,-1.54,-4.671,7.4745996958884705e-06
+phase3,7-region (US omitted),act_oth,Western Europe & Dev. APAC/CA,we_sh,1282,328,129,128,-3.277,0.536,-4.338,-2.215,-6.109,1.1157603076087981e-08
+phase3,7-region (US omitted),act_oth,Latin America,latam_sh,1282,328,129,128,-3.414,0.72,-4.839,-1.988,-4.739,5.627254857512415e-06
+phase3,7-region (US omitted),act_oth,Emerging Asia,asia_sh,1282,328,129,128,-2.708,0.695,-4.084,-1.333,-3.896,0.00015704769260393487
+phase3,7-region (US omitted),act_oth,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1282,328,129,128,-1.542,0.988,-3.497,0.413,-1.561,0.12102164601731041
+phase3,8-region (North America omitted),act_oth,North America (U.S. + Canada),na_sh,1282,328,129,128,-2.917,0.518,-3.942,-1.892,-5.631,1.0851339765271655e-07
+phase3,8-region (North America omitted),act_oth,Western Europe (EU/EEA only),we_eu_sh,1282,328,129,128,-2.833,0.611,-4.042,-1.625,-4.638,8.565748620467019e-06
+phase3,8-region (North America omitted),act_oth,Developed APAC / Israel,dev_apac_no_ca_sh,1282,328,129,128,-3.623,0.686,-4.981,-2.266,-5.282,5.329006222872124e-07
+phase3,7-region (US omitted),oth_rd,United States (baseline),us_sh,1282,328,129,128,-0.192,0.292,-0.769,0.385,-0.658,0.5120221559846471
+phase3,7-region (US omitted),oth_rd,Western Europe & Dev. APAC/CA,we_sh,1282,328,129,128,-0.469,0.329,-1.12,0.181,-1.427,0.1558992793941185
+phase3,7-region (US omitted),oth_rd,Latin America,latam_sh,1282,328,129,128,-0.396,0.56,-1.505,0.712,-0.708,0.48040672458474076
+phase3,7-region (US omitted),oth_rd,Emerging Asia,asia_sh,1282,328,129,128,-0.016,0.282,-0.574,0.543,-0.055,0.9558671913084426
+phase3,7-region (US omitted),oth_rd,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1282,328,129,128,0.432,0.609,-0.772,1.637,0.71,0.478962290773674
+phase3,8-region (North America omitted),oth_rd,North America (U.S. + Canada),na_sh,1282,328,129,128,-0.237,0.291,-0.812,0.338,-0.816,0.4162097026044444
+phase3,8-region (North America omitted),oth_rd,Western Europe (EU/EEA only),we_eu_sh,1282,328,129,128,-0.44,0.347,-1.128,0.247,-1.268,0.2071251430588745
+phase3,8-region (North America omitted),oth_rd,Developed APAC / Israel,dev_apac_no_ca_sh,1282,328,129,128,-0.543,0.38,-1.295,0.209,-1.429,0.1554724098219442
+phase3,7-region (US omitted),ctrl_sae,United States (baseline),us_sh,1282,328,129,128,0.063,0.267,-0.464,0.591,0.237,0.8127422973125116
+phase3,7-region (US omitted),ctrl_sae,Western Europe & Dev. APAC/CA,we_sh,1282,328,129,128,-0.397,0.369,-1.127,0.333,-1.075,0.28417972743528586
+phase3,7-region (US omitted),ctrl_sae,Latin America,latam_sh,1282,328,129,128,-0.415,0.404,-1.216,0.385,-1.027,0.3063267380360341
+phase3,7-region (US omitted),ctrl_sae,Emerging Asia,asia_sh,1282,328,129,128,-0.165,0.354,-0.865,0.535,-0.466,0.6418589034210833
+phase3,7-region (US omitted),ctrl_sae,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1282,328,129,128,-0.055,0.475,-0.995,0.886,-0.115,0.9086079486272802
+phase3,8-region (North America omitted),ctrl_sae,North America (U.S. + Canada),na_sh,1282,328,129,128,0.042,0.284,-0.52,0.604,0.149,0.8816555583115634
+phase3,8-region (North America omitted),ctrl_sae,Western Europe (EU/EEA only),we_eu_sh,1282,328,129,128,-0.257,0.458,-1.163,0.649,-0.561,0.5757339326957361
+phase3,8-region (North America omitted),ctrl_sae,Developed APAC / Israel,dev_apac_no_ca_sh,1282,328,129,128,-0.998,0.465,-1.917,-0.079,-2.148,0.0335988219825741
+phase3,7-region (US omitted),act_sae,United States (baseline),us_sh,1282,328,129,128,0.154,0.286,-0.413,0.72,0.536,0.5925809985114231
+phase3,7-region (US omitted),act_sae,Western Europe & Dev. APAC/CA,we_sh,1282,328,129,128,-0.248,0.397,-1.034,0.538,-0.624,0.5337137540261403
+phase3,7-region (US omitted),act_sae,Latin America,latam_sh,1282,328,129,128,-0.301,0.353,-1.0,0.397,-0.854,0.3946031476148344
+phase3,7-region (US omitted),act_sae,Emerging Asia,asia_sh,1282,328,129,128,0.086,0.294,-0.494,0.667,0.294,0.7689874093399227
+phase3,7-region (US omitted),act_sae,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1282,328,129,128,0.076,0.51,-0.933,1.085,0.15,0.8811075018658213
+phase3,8-region (North America omitted),act_sae,North America (U.S. + Canada),na_sh,1282,328,129,128,0.143,0.299,-0.448,0.735,0.479,0.6327985652600928
+phase3,8-region (North America omitted),act_sae,Western Europe (EU/EEA only),we_eu_sh,1282,328,129,128,-0.088,0.477,-1.032,0.857,-0.184,0.8544141051098125
+phase3,8-region (North America omitted),act_sae,Developed APAC / Israel,dev_apac_no_ca_sh,1282,328,129,128,-0.899,0.393,-1.678,-0.121,-2.286,0.023917294857891448
+phase2_and_3,7-region (US omitted),ctrl_oth,United States (baseline),us_sh,1764,457,169,168,-2.554,0.59,-3.719,-1.389,-4.327,2.584130883966229e-05
+phase2_and_3,7-region (US omitted),ctrl_oth,Western Europe & Dev. APAC/CA,we_sh,1764,457,169,168,-3.019,0.472,-3.952,-2.086,-6.39,1.5683158586978709e-09
+phase2_and_3,7-region (US omitted),ctrl_oth,Latin America,latam_sh,1764,457,169,168,-3.571,0.75,-5.052,-2.089,-4.759,4.174366561975696e-06
+phase2_and_3,7-region (US omitted),ctrl_oth,Emerging Asia,asia_sh,1764,457,169,168,-2.845,0.659,-4.147,-1.544,-4.315,2.7144474493909024e-05
+phase2_and_3,7-region (US omitted),ctrl_oth,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1764,457,169,168,-1.406,0.785,-2.956,0.145,-1.79,0.07524621561525166
+phase2_and_3,8-region (North America omitted),ctrl_oth,North America (U.S. + Canada),na_sh,1764,457,169,168,-2.702,0.537,-3.762,-1.642,-5.032,1.2376405503036492e-06
+phase2_and_3,8-region (North America omitted),ctrl_oth,Western Europe (EU/EEA only),we_eu_sh,1764,457,169,168,-2.845,0.506,-3.844,-1.846,-5.624,7.625816336372604e-08
+phase2_and_3,8-region (North America omitted),ctrl_oth,Developed APAC / Israel,dev_apac_no_ca_sh,1764,457,169,168,-3.175,0.689,-4.535,-1.816,-4.612,7.880165196051985e-06
+phase2_and_3,7-region (US omitted),act_oth,United States (baseline),us_sh,1764,457,169,168,-2.683,0.544,-3.757,-1.61,-4.935,1.9207123926950767e-06
+phase2_and_3,7-region (US omitted),act_oth,Western Europe & Dev. APAC/CA,we_sh,1764,457,169,168,-3.269,0.453,-4.163,-2.376,-7.222,1.698249361800694e-11
+phase2_and_3,7-region (US omitted),act_oth,Latin America,latam_sh,1764,457,169,168,-3.551,0.672,-4.877,-2.225,-5.288,3.8112410830045957e-07
+phase2_and_3,7-region (US omitted),act_oth,Emerging Asia,asia_sh,1764,457,169,168,-2.735,0.608,-3.936,-1.534,-4.496,1.284499628355888e-05
+phase2_and_3,7-region (US omitted),act_oth,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1764,457,169,168,-0.665,0.684,-2.016,0.686,-0.972,0.3324892676493592
+phase2_and_3,8-region (North America omitted),act_oth,North America (U.S. + Canada),na_sh,1764,457,169,168,-2.872,0.485,-3.828,-1.915,-5.925,1.7230412173469752e-08
+phase2_and_3,8-region (North America omitted),act_oth,Western Europe (EU/EEA only),we_eu_sh,1764,457,169,168,-3.087,0.532,-4.138,-2.036,-5.8,3.207021430352953e-08
+phase2_and_3,8-region (North America omitted),act_oth,Developed APAC / Israel,dev_apac_no_ca_sh,1764,457,169,168,-3.374,0.657,-4.672,-2.076,-5.133,7.799768981179126e-07
+phase2_and_3,7-region (US omitted),oth_rd,United States (baseline),us_sh,1764,457,169,168,-0.129,0.271,-0.664,0.406,-0.477,0.633972259485499
+phase2_and_3,7-region (US omitted),oth_rd,Western Europe & Dev. APAC/CA,we_sh,1764,457,169,168,-0.25,0.328,-0.897,0.397,-0.764,0.44621351610028254
+phase2_and_3,7-region (US omitted),oth_rd,Latin America,latam_sh,1764,457,169,168,0.02,0.43,-0.828,0.868,0.046,0.9633279619898545
+phase2_and_3,7-region (US omitted),oth_rd,Emerging Asia,asia_sh,1764,457,169,168,0.11,0.303,-0.487,0.707,0.364,0.7166520293241514
+phase2_and_3,7-region (US omitted),oth_rd,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1764,457,169,168,0.741,0.529,-0.303,1.784,1.401,0.16299510299236092
+phase2_and_3,8-region (North America omitted),oth_rd,North America (U.S. + Canada),na_sh,1764,457,169,168,-0.17,0.28,-0.723,0.384,-0.606,0.5455746121940513
+phase2_and_3,8-region (North America omitted),oth_rd,Western Europe (EU/EEA only),we_eu_sh,1764,457,169,168,-0.242,0.355,-0.942,0.458,-0.682,0.4960065113606951
+phase2_and_3,8-region (North America omitted),oth_rd,Developed APAC / Israel,dev_apac_no_ca_sh,1764,457,169,168,-0.199,0.359,-0.907,0.509,-0.554,0.5803627955595947
+phase2_and_3,7-region (US omitted),ctrl_sae,United States (baseline),us_sh,1764,457,169,168,-0.01,0.245,-0.494,0.475,-0.041,0.9676912619266774
+phase2_and_3,7-region (US omitted),ctrl_sae,Western Europe & Dev. APAC/CA,we_sh,1764,457,169,168,-0.535,0.275,-1.079,0.009,-1.943,0.05372086385436305
+phase2_and_3,7-region (US omitted),ctrl_sae,Latin America,latam_sh,1764,457,169,168,-0.473,0.421,-1.305,0.358,-1.124,0.2625992480712021
+phase2_and_3,7-region (US omitted),ctrl_sae,Emerging Asia,asia_sh,1764,457,169,168,-0.232,0.316,-0.856,0.392,-0.733,0.4645343054930939
+phase2_and_3,7-region (US omitted),ctrl_sae,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1764,457,169,168,0.141,0.359,-0.567,0.85,0.394,0.6941146405349208
+phase2_and_3,8-region (North America omitted),ctrl_sae,North America (U.S. + Canada),na_sh,1764,457,169,168,-0.054,0.243,-0.533,0.426,-0.221,0.82555328867163
+phase2_and_3,8-region (North America omitted),ctrl_sae,Western Europe (EU/EEA only),we_eu_sh,1764,457,169,168,-0.521,0.346,-1.203,0.162,-1.506,0.13385025273050652
+phase2_and_3,8-region (North America omitted),ctrl_sae,Developed APAC / Israel,dev_apac_no_ca_sh,1764,457,169,168,-0.758,0.352,-1.454,-0.062,-2.15,0.032993254078805614
+phase2_and_3,7-region (US omitted),act_sae,United States (baseline),us_sh,1764,457,169,168,-0.048,0.268,-0.578,0.481,-0.18,0.8573563025445635
+phase2_and_3,7-region (US omitted),act_sae,Western Europe & Dev. APAC/CA,we_sh,1764,457,169,168,-0.528,0.3,-1.12,0.065,-1.757,0.08081075987903488
+phase2_and_3,7-region (US omitted),act_sae,Latin America,latam_sh,1764,457,169,168,-0.436,0.392,-1.21,0.338,-1.111,0.2679650328725707
+phase2_and_3,7-region (US omitted),act_sae,Emerging Asia,asia_sh,1764,457,169,168,-0.095,0.278,-0.644,0.455,-0.341,0.7338967911717299
+phase2_and_3,7-region (US omitted),act_sae,Non-EU Eastern Europe / RU-UA,ru_ua_sh,1764,457,169,168,0.069,0.385,-0.691,0.828,0.178,0.8586668921513353
+phase2_and_3,8-region (North America omitted),act_sae,North America (U.S. + Canada),na_sh,1764,457,169,168,-0.067,0.265,-0.59,0.456,-0.252,0.8011278572401208
+phase2_and_3,8-region (North America omitted),act_sae,Western Europe (EU/EEA only),we_eu_sh,1764,457,169,168,-0.503,0.365,-1.223,0.217,-1.379,0.16983980310597935
+phase2_and_3,8-region (North America omitted),act_sae,Developed APAC / Israel,dev_apac_no_ca_sh,1764,457,169,168,-0.836,0.349,-1.524,-0.147,-2.396,0.01768609443110732

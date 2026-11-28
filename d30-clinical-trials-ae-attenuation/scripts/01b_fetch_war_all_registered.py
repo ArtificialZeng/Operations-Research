@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-BASE_DIR = Path(r"D:\AI_Science\antigravity\d30_boost_clinical_trials_20261125")
+BASE_DIR = Path(__file__).resolve().parents[1]
 SCRIPTS_DIR = BASE_DIR / "scripts"
 PROC_DIR = BASE_DIR / "data" / "processed"
 PROC_DIR.mkdir(parents=True, exist_ok=True)

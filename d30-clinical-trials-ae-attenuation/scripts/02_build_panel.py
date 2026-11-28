@@ -20,7 +20,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-BASE_DIR = Path(r"D:\AI_Science\antigravity\d30_boost_clinical_trials_20261125")
+BASE_DIR = Path(__file__).resolve().parents[1]
 RAW_DIR = BASE_DIR / "data" / "raw_ctgov"
 PROC_DIR = BASE_DIR / "data" / "processed"
 PROC_DIR.mkdir(parents=True, exist_ok=True)
@@ -445,8 +445,10 @@ def compute_region_shares(countries: list[str]) -> dict[str, float]:
     if n == 0:
         return {}
     c_us = sum(1 for c in countries if c in US_SET)
+    c_ca = sum(1 for c in countries if c == "Canada")
     c_we_eu = sum(1 for c in countries if c in WE_EU_SET)
     c_dev_apac = sum(1 for c in countries if c in DEV_APAC_CA_SET)
+    c_dev_apac_no_ca = c_dev_apac - c_ca
     c_eu_east = sum(1 for c in countries if c in EU_EAST_SET)
     c_ru_ua_only = sum(1 for c in countries if c in RU_UA_ONLY_SET)
     c_noneu_ee_oth = sum(1 for c in countries if c in NONEU_EE_OTHER_SET)
@@ -460,9 +462,12 @@ def compute_region_shares(countries: list[str]) -> dict[str, float]:
 
     return {
         "us_sh": c_us / n,
+        "ca_sh": c_ca / n,
+        "na_sh": (c_us + c_ca) / n,
         "we_sh": c_we / n,
         "we_eu_sh": c_we_eu / n,
         "dev_apac_ca_sh": c_dev_apac / n,
+        "dev_apac_no_ca_sh": c_dev_apac_no_ca / n,
         "eu_east_sh": c_eu_east / n,
         "ru_ua_sh": c_ru_ua / n,
         "ru_ua_strict_sh": c_ru_ua_only / n,
@@ -558,6 +563,10 @@ def parse_study_record(st: dict) -> dict | None:
         freq_thr = float(freq_raw) if freq_raw is not None else np.nan
     except (ValueError, TypeError):
         freq_thr = np.nan
+
+    ae_tf_raw = ae_mod.get("timeFrame")
+    ae_time_frame = ae_tf_raw.strip() if (isinstance(ae_tf_raw, str) and ae_tf_raw.strip()) else ""
+    has_ae_timeframe = int(len(ae_time_frame) > 0)
 
     other_events = ae_mod.get("otherEvents") or []
     serious_events = ae_mod.get("seriousEvents") or []
@@ -685,6 +694,8 @@ def parse_study_record(st: dict) -> dict | None:
         "n_countries": int(n_countries),
         "patients_per_site": float(enrollment / n_sites) if (not np.isnan(enrollment) and n_sites > 0) else np.nan,
         "freq_thr": freq_thr,
+        "has_ae_timeframe": has_ae_timeframe,
+        "ae_time_frame": ae_time_frame[:200],
         "n_other_terms": int(n_other_terms),
         "n_serious_terms": int(n_serious_terms),
         "sys_assess_share": sys_assess_share,

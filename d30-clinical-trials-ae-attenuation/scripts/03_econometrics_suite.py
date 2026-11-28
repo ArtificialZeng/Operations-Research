@@ -35,7 +35,7 @@ from scipy import stats
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
-BASE_DIR = Path(r"D:\AI_Science\antigravity\d30_boost_clinical_trials_20261125")
+BASE_DIR = Path(__file__).resolve().parents[1]
 PROC_DIR = BASE_DIR / "data" / "processed"
 RES_DIR = BASE_DIR / "results"
 TAB_DIR = BASE_DIR / "tables"

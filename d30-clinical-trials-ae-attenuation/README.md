@@ -1,31 +1,32 @@
-# Geographic Ascertainment Bias, Regulatory Harmonization, and Geopolitical Reallocation in Globalized Clinical Trials (`D30`)
+# Geographic Site Mix and Registered Non-Serious Adverse Events in Multiregional Drug Trials (`D30`, `v4`)
 
-Complete, frozen, submission-ready empirical research package examining geographic under-ascertainment of non-serious adverse events across the full universe of `22,303` industry-sponsored Phase 2 and Phase 3 clinical trials with posted results on ClinicalTrials.gov v2, linked to live FDA `Drugs@FDA`, `drug/label`, and `FAERS` pharmacovigilance databases (`openFDA`).
+**Author:** Zijian Zeng — Institute of Computer Science and Digital Innovation, UCSI University, Kuala Lumpur, 56000, MALAYSIA (`zijianzeng@foxmail.com`; `1002266693@ucsiuniversity.edu.my`)
 
-## Headline Findings (100% Receipt-Verified)
-- **Exact Twin-Trial Identification (`100%` full rank):** Within Phase-3 `Same-Molecule × Same-Sponsor` FE (`N = 1,282`, `328` programs, `129` sponsors), EU Eastern European site share reduces reported non-serious AEs by **`-24.80 pp` (`p = 2.88e-5`; two-way `p = 2.63e-5`; wild bootstrap `p = 0.001`)** in placebo arms and **`-26.72 pp` (`p = 7.47e-6`; wild bootstrap `p = 0.001`)** in active arms. Replicates in exact `Same-Molecule × Same-Sponsor × Same-Primary-Condition` triplets (`N = 838`: `-21.21 / -19.96 pp`, `p = 0.0030 / 0.0085`), standalone Phase-2 OOS (`N = 320`: `-32.73 / -39.06 pp`), non-placebo active-comparator MRCTs (`N = 1,276`: `-25.01 pp`, `p = 5.09e-4`), and 9/9 therapeutic areas (`7/9 p < 0.05`).
-- **3-Tier Objectivity Gradient & MedDRA Mirror-Image Mechanism (`96.3%` SOC coverage):** Western Europe (`p = 0.475`), LatAm (`p = 0.553`), Asia (`p = 0.699`), SAEs (`p = 0.813`), all-cause mortality (`p = 0.709`), and within-trial risk differences (`p = 0.512`) are all null. Subjective symptom MedDRA SOC share drops **`-22.03 pp` (`p = 0.000194`)** while objective laboratory/organ SOC share rises symmetrically **`+23.67 pp` (`p = 3.87e-5`)**.
-- **Post-2017 Regulatory Convergence vs. FDAAA `42 CFR Part 11`:** EU Eastern Europe achieved complete symmetric convergence after a 2–3 year ICH E6(R2)/E17 implementation lag (`2020–2024`: `+35.68 pp, p = 0.0157` placebo; `+40.10 pp, p = 0.0185` active), while Non-EU Russia/Ukraine/Balkans showed zero convergence (`-49.37 pp, p = 0.000113`). FDAAA `freq_thr == 0%` expansion (`1.59x`) does not drive convergence (`eu × freq0 p = 0.909`).
-- **Feb 24, 2022 Russia–Ukraine War Shock & Simplex-Valid Accrual Bounds:** Russia/Ukraine MRCT participation plunged from `47.0%` (2019) to `0.0%` (2024); strictly out-of-sample pre-war exposure DiDs (passing a pre-war fake-2020 placebo check) show heavily exposed sponsors reshored displaced site share to the United States (`+0.924, p = 0.000763`). Direct Twin-Trial accrual estimation (`ŵ_EE = 1.354x US, p = 0.0067`) bounds simplex-valid patient-level attenuation at `-19.03 / -22.42 pp` (`-15.27 to -26.22 pp` across `w ∈ [0.5, 3.0]`).
-- **Gate-2 `openFDA` Audit (`N = 229` FDA-Approved Originator NDA/BLAs, incl. 21 Biologics, 100% Global FAERS):** Strong `-36.02 pp` (`p = 4.57e-4`) pre-approval tolerability illusion enters U.S.-approved profiles, while post-approval FDA labeling supplements (`p = 0.302` OLS; Poisson `p = 0.167`) and boxed warnings (`p = 0.803`) are cleanly null (coherent with SAE invariance), and U.S. FAERS serious share is fragile (`p = 0.0462` main → `p = 0.061` with FAERS volume; `p = 0.236` Sponsor FE; U.S./Non-U.S. LOR `p = 0.960`).
+Reproducible clinical-trials methodology archive evaluating within-program associations between regional site composition and registered non-serious adverse-event (AE) proportions across `2,771` completed placebo-controlled multiregional clinical trials (`1,842` Phase 3) from ClinicalTrials.gov v2, alongside extensive/intensive support diagnostics, four-state MedDRA threshold-censoring Manski bounds, AE time-frame audits, and pre-specified clinical equivalence (TOST) tests.
 
-## Verification First (Before Any Rerun)
-1. Verify archived artifacts and receipts against `SHA256SUMS.json` and run the 18-test verification suite on archived outputs:
-   ```powershell
-   pytest -v tests/test_d30_pipeline.py
-   ruff check --select E,F,I,W,B --ignore E501 scripts tests
-   ```
-2. Read the compiled submission-ready manuscript PDF: `manuscript_d30_boost.pdf` (source: `manuscript_d30_boost.md`), tables (`tables/*.csv`), and publication figures (`figures/*.png`, `figures/*.pdf`).
+## Core Empirical Summary (Scaled Strictly per `+10 pp` Eastern European EU Site Share)
 
-## Optional Full From-Scratch Reproduction
-Raw ClinicalTrials.gov bulk pages (`data/raw_ctgov/page_0001.json.gz..page_0023.json.gz`, ~69 MB total) are omitted from the git archive to keep the repository lightweight; their exact fetch parameters and SHA-256 digests are preserved in `data/raw_ctgov/ctgov_fetch_manifest.json`. To re-harvest live from ClinicalTrials.gov v2 and openFDA:
+- **Within-Program Association & Two-Way Counterfactuals:** In Phase 3 `drug × sponsor` fixed-effects models (`N = 1,282`, `328` programs, `129` sponsor clusters), each `+10 pp` higher Eastern European EU site share (replacing U.S. sites) is associated with **`-2.48 pp`** (`95% CI [-3.61, -1.35]`, `p = 2.88e-5`) in placebo arms and **`-2.67 pp`** (`95% CI [-3.80, -1.54]`, `p = 7.47e-6`) in active arms (`p_WCB = 0.001 / 0.001`). Two-way counterfactual contrasts replacing North America (`-2.68 / -2.92 pp`), Western Europe EU/EEA (`-2.39 / -2.83 pp`), Latin America (`-3.02 / -3.41 pp`), and Emerging Asia (`-2.69 / -2.71 pp`) are consistent (`all p < 0.001`).
+- **Support, Extensive vs. Intensive Margin, Splines & Effective Weights:** Among `1,842` Phase 3 trials, `504` (`27.36%`) have `0%` EU-East sites and `25` (`1.36%`) have `>= 50%` (median `8.45%`, 95th percentile `35.29%`). Across `[0%, 35%]` (`N = 1,211`, `310` programs), adding `I(share = 0)` yields positive-share slopes of `-2.11 pp [-4.24, +0.02]` (placebo, `p = 0.052`) and `-2.50 pp [-4.64, -0.36]` (active, `p = 0.022`) with non-significant zero-share intercepts (`p >= 0.495`); restricting strictly to positive `(0, 35%]` (`N = 870`, `236` programs) attenuates slopes to `-1.14 / -1.84 pp` (95% CIs crossing zero). Restricted cubic splines show no nonlinearity (`Wald p = 0.548 / 0.681`), and dropping the top-10 (`32.0%` FWL weight) or top-20 (`47.5%` weight) weighted programs yields `-2.51 / -2.67 pp` and `-2.67 / -2.84 pp`.
+- **MedDRA Four-State Audit, Sharp Manski Bounds & AE Time Frames:** Verbatim per-term `otherEvents.stats` snapshot archived for `2,771/2,771` trials (`data/raw_ctgov/meddra_other_events_snapshot.jsonl.gz`, `SHA-256` `7eb1eefdeae3b188...`). Removing silent denominator fallbacks (`278` anomalous denominator cells, `69` missing-count cells across `210,424` reported cells) preserves paired `Subj − Obj` (`-0.0660 / -0.0743`, `p <= 5.10e-4`) and `Subj − Investigations` (`-0.0774 / -0.0847`, `p <= 8.69e-4`) contrasts. Sharp Manski FWL bounds on peak single-term rates (`72%–88%` point-identified) exclude zero (`Imbens–Manski 95% CI [-1.69, -0.17] pp` placebo, `[-1.79, -0.39] pp` active), whereas 15-term sums lose point identification under `5%` left-censoring (`69.04%` of cells). Documenting the `369/2,771` (`13.32%`) trials missing structured AE `timeFrame` and restricting to documented-`timeFrame` trials preserves `-2.33 / -2.50 pp` in Phase 3 (`N = 1,110`).
+- **Pre-Specified TOST Equivalence:** SAEs (`+0.06 / +0.15 pp`) and within-trial RD (`-0.19 pp`) establish formal TOST equivalence at `±2.0 pp` and `±1.0 pp` (`all p_TOST <= 0.0032`), whereas all-cause mortality (`N = 679`, `+0.18 / +0.36 pp`) fails equivalence at `±0.5 pp` (`p_TOST = 0.249 / 0.370`).
+- **Supplementary Appendix (`supplementary_d30_jce.pdf`):** Extended sensitivities & accrual bounds (`S1`), overlapping 2017 temporal patterns (`S2`), uncensored `2017–2025` all-registered war footprints (`N = 20,649` / `6,011` MRCTs; `S3`), exploratory openFDA/FAERS audit (`N = 229` drugs; `S4`), and EMA Policy 0070 CSR validation schema & snapshot provenance (`S5`).
+
+## Verification & Reproduction
+
 ```powershell
-python scripts/01_fetch_ctgov_universe.py
-python scripts/02_build_panel.py
-python scripts/03_econometrics_suite.py
-python scripts/04_gate2_openfda_linkage.py --max-requests 500
-python scripts/05_generate_figures_tables.py
-python scripts/07_compile_manuscript_pdf.py
-python scripts/06_build_manifest.py
+# Verify all receipts, tests, code style, and SHA-256 manifest
+.venv\Scripts\pytest.exe -v tests\test_d30_pipeline.py
+.venv\Scripts\ruff.exe check --select E,F,I,W,B --ignore E501 scripts tests
 ```
-*(Note: Re-running live API harvesters on a later date will reflect newly posted trials/supplements and will change hashes relative to the frozen `2026-11-25` receipts.)*
+
+Full deterministic replay from archived raw snapshots:
+```powershell
+.venv\Scripts\python.exe scripts\02_build_panel.py
+.venv\Scripts\python.exe scripts\02b_fetch_meddra_soc_stats.py
+.venv\Scripts\python.exe scripts\03_econometrics_suite.py
+.venv\Scripts\python.exe scripts\08_reporting_sensitivity.py
+.venv\Scripts\python.exe scripts\05_generate_figures_tables.py
+.venv\Scripts\python.exe scripts\07_compile_manuscript_pdf.py
+.venv\Scripts\python.exe scripts\06_build_manifest.py
+```

@@ -1,4 +1,4 @@
-"""Generate cryptographic SHA-256 verification manifest for all D30 /boost deliverables."""
+"""Generate cryptographic SHA-256 verification manifest for all D30 v4 deliverables."""
 from __future__ import annotations
 
 import hashlib
@@ -7,7 +7,7 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
-BASE_DIR = Path(r"D:\AI_Science\antigravity\d30_boost_clinical_trials_20261125")
+BASE_DIR = Path(__file__).resolve().parents[1]
 
 
 def sha256_file(path: Path) -> str:
@@ -23,6 +23,8 @@ def main() -> int:
         "scripts/*.py",
         "tests/*.py",
         "data/raw_ctgov/ctgov_fetch_manifest.json",
+        "data/raw_ctgov/meddra_snapshot_manifest.json",
+        "data/raw_ctgov/meddra_other_events_snapshot.jsonl.gz",
         "data/processed/*.parquet",
         "data/processed/*.csv",
         "data/processed/*.json",
@@ -33,7 +35,9 @@ def main() -> int:
         "figures/*.pdf",
         "manuscript_d30_boost.md",
         "manuscript_d30_boost.pdf",
-        "REFEREE_RESPONSE_v2.md",
+        "supplementary_d30_jce.md",
+        "supplementary_d30_jce.pdf",
+        "REFEREE_RESPONSE_v4.md",
     ]
     files_map: dict[str, str] = {}
     meta_rows: list[dict] = []
@@ -57,11 +61,10 @@ def main() -> int:
         "details": meta_rows,
     }
     out_json = BASE_DIR / "SHA256SUMS.json"
-    out_json.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    out_json.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
-    # Also write a human-readable VERIFICATION_MANIFEST.md
     lines = [
-        "# D30 `/boost` Cryptographic Verification Manifest",
+        "# D30 (`v4` — *Journal of Clinical Epidemiology*) Cryptographic Verification Manifest",
         "",
         f"- **Generated (UTC):** `{manifest['generated_utc']}`",
         f"- **Verified Artifacts:** `{len(meta_rows)}` files",
