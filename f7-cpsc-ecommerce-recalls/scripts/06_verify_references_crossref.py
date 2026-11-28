@@ -42,6 +42,8 @@ CANONICAL_DOIS: list[tuple[str, str, str]] = [
     ("tian2018", "10.1111/poms.12885", "Tian"),
     ("cameron2008", "10.1162/rest.90.3.414", "Cameron"),
     ("newey1987", "10.2307/1913610", "Newey"),
+    ("raithel2024", "10.1007/s11747-023-00967-x", "Raithel"),
+    ("fang2026", "10.1287/mksc.2025.0618", "Fang"),
 ]
 
 
@@ -113,8 +115,38 @@ def main() -> int:
         {
             "key": "cpsc_amazon_2025",
             "type": "administrative_order",
-            "citation": "U.S. Consumer Product Safety Commission (2025). In the Matter of Amazon.com, Inc., CPSC Docket No. 21-2, Decision and Order on Remedy (January 16, 2025).",
+            "citation": "U.S. Consumer Product Safety Commission (2025). In the Matter of Amazon.com, Inc., CPSC Docket No. 21-2, Decision and Order Approving Notification and Action Plan (January 16, 2025). https://www.cpsc.gov/s3fs-public/pdfs/recall/lawsuits/abc/154-Decision-and-Order-Approving-Notification-and-Action-Plan.pdf",
             "verified_source": "Official CPSC Docket No. 21-2 public record",
+        },
+        {
+            "key": "cpsc_jugader_2024",
+            "type": "cpsc_recall_notice",
+            "citation": "U.S. Consumer Product Safety Commission (2024). Zipline Kits Recalled Due to Fall Hazard; Sold Exclusively on Amazon.com by Jugader (Recall No. 24-199, RecallID 9924, April 11, 2024). https://www.cpsc.gov/Recalls/2024/Zipline-Kits-Recalled-Due-to-Fall-Hazard-Sold-Exclusively-on-Amazon-com-by-Jugader",
+            "verified_source": "Frozen CPSC Open API Census (RecallID 9924)",
+        },
+        {
+            "key": "cpsc_uvipc_2025",
+            "type": "cpsc_recall_notice",
+            "citation": "U.S. Consumer Product Safety Commission (2025). UVIPC Baby Gates Recalled Due to Entrapment Hazard; Sold Exclusively on Amazon.com by Xianshengyouli (Recall No. 25-122, RecallID 10148, February 6, 2025). https://www.cpsc.gov/Recalls/2025/UVIPC-Baby-Gates-Recalled-Due-to-Entrapment-Hazard-Violation-of-Federal-Regulations-for-Gates-and-Enclosures-Sold-Exclusively-on-Amazon-com-by-Xianshengyouli",
+            "verified_source": "Frozen CPSC Open API Census (RecallID 10148)",
+        },
+        {
+            "key": "cpsc_anker_2025",
+            "type": "cpsc_recall_notice",
+            "citation": "U.S. Consumer Product Safety Commission (2025). More than One Million Anker Power Banks Recalled Due to Fire and Burn Hazards; Manufactured by Anker Innovations (Recall No. 25-338, RecallID 10311, June 12, 2025). https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+            "verified_source": "Frozen CPSC Open API Census (RecallID 10311)",
+        },
+        {
+            "key": "cpsc_tadakazu_2025",
+            "type": "cpsc_recall_notice",
+            "citation": "U.S. Consumer Product Safety Commission (2025). TADAKAZU Baby Loungers Recalled Due to Risk of Serious Injury or Death from Suffocation, Fall and Entrapment Hazards; Sold on Amazon (Recall No. 25-345, RecallID 10317, June 18, 2025). https://www.cpsc.gov/Recalls/2025/TADAKAZU-Baby-Loungers-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Suffocation-Fall-and-Entrapment-Hazards-Violations-of-Federal-Standard-for-Infant-Sleep-Products-Sold-on-Amazon",
+            "verified_source": "Frozen CPSC Open API Census (RecallID 10317)",
+        },
+        {
+            "key": "cpsc_ocoopa_2026",
+            "type": "cpsc_recall_notice",
+            "citation": "U.S. Consumer Product Safety Commission (2026). OCOOPA Direct Recalls 1.5 Million Rechargeable Hand Warmers Due to Risk of Serious Injury or Death from Fire and Burn Hazards; Imported by Shenzhen Street Cat Technology (Recall No. 26-659, RecallID 10895, July 30, 2026). https://www.cpsc.gov/Recalls/2026/OCOOPA-Direct-Recalls-1-5-Million-Rechargeable-Hand-Warmers-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-and-Burn-Hazards-One-Death-Reported-Imported-by-Shenzhen-Street-Cat-Technology",
+            "verified_source": "Frozen CPSC Open API Census (RecallID 10895)",
         },
         {
             "key": "amazon_v_cpsc_2026",

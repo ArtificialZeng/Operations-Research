@@ -516,6 +516,107 @@ EXPLICIT_HHW_PAT = re.compile(
 )
 
 # ---------------------------------------------------------------------------
+# 3b. v4 Verbatim 3-Tier Amazon Channel & 5-Dimensional Remedy-Duty Patterns
+# ---------------------------------------------------------------------------
+ANY_RETAIL_URL_PAT = re.compile(
+    r"(?:https?://)?(?:www\.)?[a-z0-9][a-z0-9\-]*(?:\.[a-z0-9\-]+)*\.(?:com|net|org|us|shop|io|co|biz|store|events|tv|ca|uk|me)(?:/[^\s,.;)]*)?",
+    re.IGNORECASE,
+)
+AMZ_DOMAIN_EXACT_PAT = re.compile(r"^(?:https?://)?(?:www\.)?amazon\.com(?:/|$)", re.IGNORECASE)
+AMZ_WORD_PAT = re.compile(r"(?:(?:https?://)?(?:www\.)?amazon\.com\b|\bamazon\b)", re.IGNORECASE)
+AMZ_FIRE_TV_PAT = re.compile(r"\bamazon\s+fire(?:\s+tv)?\b", re.IGNORECASE)
+OTHER_NAMED_RETAILER_PAT = re.compile(
+    r"\b(?:walmart|ebay|etsy|temu|shein|aliexpress|alibaba|banggood|wayfair|overstock|newegg|dhgate|"
+    r"rakuten|mercari|poshmark|target|homedepot|home\s+depot|lowes|lowe'?s|costco|samsclub|sam'?s\s+club|"
+    r"bestbuy|best\s+buy|bjs|bj'?s|bedbathandbeyond|kohls|kohl'?s|macys|macy'?s|nordstrom|qvc|hsn|"
+    r"woot|zulily|houzz|chewy|iherb|whatnot|cymax|sears|kmart|wish|tiktok\s*shop|shopify|"
+    r"shop\s+lc|groupon|staples|office\s+depot|walgreens|cvs|rei|dicks|dick'?s|academy|"
+    r"tractor\s+supply|ace\s+hardware|harbor\s+freight|menards|grainger|fastenal|anker)\b",
+    re.IGNORECASE,
+)
+MULTI_ONLINE_PHRASE_PAT = re.compile(
+    r"\b(?:other\s+(?:online\s+)?(?:retailers?|websites?|sites?|stores?|platforms?|marketplaces?|sellers?|e-?commerce)|"
+    r"various\s+(?:online\s+)?(?:retailers?|websites?|sites?|platforms?|marketplaces?)|"
+    r"multiple\s+(?:online\s+)?(?:retailers?|websites?|platforms?)|"
+    r"online\s+retailers?\s+including|websites?\s+including|including\s+(?:on\s+|at\s+)?amazon|"
+    r"and\s+other\s+(?:online|websites?|sites?|retailers?|platforms?)|"
+    r"(?:firm'?s|company'?s|manufacturer'?s|importer'?s|brand'?s|its|their)\s+(?:own\s+)?website)\b",
+    re.IGNORECASE,
+)
+EXPLICIT_EXCL_AMZ_PAT = re.compile(
+    r"(?:"
+    r"\bexclusively\s+(?:online\s+)?(?:at|on|through|via)\s+(?:https?://)?(?:www\.)?amazon(?:\.com)?\b|"
+    r"\bonly\s+(?:online\s+)?(?:at|on|through|via)\s+(?:https?://)?(?:www\.)?amazon(?:\.com)?\b|"
+    r"\bsold\s+exclusively\s+(?:by\s+[^\n,.;]{1,65}\s+)?(?:at|on)\s+(?:https?://)?(?:www\.)?amazon(?:\.com)?\b"
+    r")",
+    re.IGNORECASE,
+)
+SOLE_AMZ_RETAILER_PAT = re.compile(
+    r"^(?:(?:the\s+[^\n.;]{1,60}?\s+(?:was|were)\s+)?sold\s+)?(?:online\s+)?(?:exclusively\s+)?(?:at|on|through|via)?\s*:?\s*"
+    r"(?:(?:[A-Za-z0-9&'\-\s]{1,45}\s+(?:at|on)\s+))?"
+    r"(?:https?://)?(?:www\.)?amazon(?:\.com)?(?:/[^\s,.;)]*)?"
+    r"(?:\s+nationwide)?(?:\s+by\s+[^\n,.;]{1,80})?"
+    r"(?:,?\s+(?:from|in|between|for|through|since|during|starting|beginning)\b|\s*\.|\s*$)",
+    re.IGNORECASE,
+)
+
+# Disaggregated 5-dimensional remedy-duty patterns (v3 + v4 audit upgrades)
+LITERAL_PHOTO_PAT = re.compile(r"\b(?:photo(?:graph)?s?|images?|pictures?|photographic)\b", re.IGNORECASE)
+DESTRUCTION_PROOF_PAT = re.compile(r"\b(?:proof|evidence)\s+of\s+(?:the\s+)?(?:destruction|disablement)\b", re.IGNORECASE)
+DISPOSAL_PROOF_PAT = re.compile(r"\b(?:proof|evidence|confirmation)\s+of\s+(?:the\s+)?disposal\b", re.IGNORECASE)
+EXPLICIT_DISPOSAL_WORD_PAT = re.compile(r"\bdispos(?:e|ed|al|ing)\b", re.IGNORECASE)
+EXPLICIT_FBA_PAT = re.compile(
+    r"\bfulfill?ed[\s-]+by[\s-]+amazon\b|\bfulfill?ment[\s-]+by[\s-]+amazon\b",
+    re.IGNORECASE,
+)
+FBA_TOKEN_PAT = re.compile(r"\bFBA\b", re.IGNORECASE)
+
+REMEDY_MARKING_PAT = re.compile(
+    r"(?:permanent\s+mar?ker|indelible\s+(?:\(permanent\)\s+)?mar?ker|"
+    r"writ(?:e|ing)\s+(?:in\s+permanent\s+mar?ker\s+)?[\"\'\u201c]?recall(?:ed)?|"
+    r"\binitial\s+and\s+date\b|permanently\s+mark|"
+    r"mark(?:ing)?\s+(?:the\s+)?(?:product|unit|item|helmet|mattress|fabric|label|charger|power\s+bank|battery|container|package|plastic\s+\w+)\s+with|"
+    r"\bdeface\b)",
+    re.IGNORECASE,
+)
+REMEDY_PHYSICAL_DESTRUCT_PAT = re.compile(
+    r"(?:cut(?:ting)?\s+(?:off\s+|out\s+|through\s+|up\s+)?(?:the\s+|a\s+|an\s+)?[^\n.;]{0,55}?\b(?:cord|cords|wire|wires|plug|strap|straps|string|strings|tie|ties|drawstring|drawstrings|loop|loops|tail|pom[\s\-]poms?|fabric|cloth|padding|skirt|dress|pajamas?|nightgowns?|robes?|clothing|garment|garments|mattress|pad|cover|foam|belt|belts|tether|hose|tube|battery\s+compartment|power\s+supply|webbing|harness|handle|mesh|liner|pillow|lounger|bouncer|net|band|bands|suction\s+cups?|wick|wicks|in\s+half|into\s+(?:two|several|pieces|halves)|vertically\s+and\s+horizontally|with\s+(?:a\s+pair\s+of\s+)?scissors|large\s+[\"\'\u201c]?x[\"\'\u201d]?|an\s+[\"\'\u201c]?x[\"\'\u201d]?)\b|"
+    r"\b(?:garment|product|item|unit|mattress|cord|strap|power\s+cord|robe|nightgown|pajamas?|skirt|dress|cover)\s+cut\s+(?:in\s+half|off|into)\b|"
+    r"(?:render|make)\s+(?:it|them|the\s+[^\n.;]{1,35})\s+unusable|"
+    r"destroy(?:ing)?\s+(?:it\b|them\b|(?:the\s+)?[a-z0-9\s\-]{1,42}\b)|"
+    r"disable\s+(?:it\b|them\b|the\s+[a-z0-9\s\-]{1,35})|"
+    r"disassemble\s+(?:it\b|them\b|the\s+[^\n.;]{1,35})[^\n.;]{0,75}\b(?:dispose|discard|trash|waste|photo)\b|"
+    r"disassembled\s+[a-z0-9\s\-]{1,25}\s+in\s+(?:an\s+)?(?:outdoor\s+)?(?:waste|trash|garbage)|"
+    r"pour(?:ing)?\s+(?:out\s+)?the\s+contents[^\n.;]{0,45}\b(?:trash|garbage|drain|sink|dispos)|"
+    r"puncture|crush|smash|saw\s+(?:in\s+half|through)|dismantle\s+and\s+dispose|"
+    r"submerge\s+(?:in\s+)?(?:salt\s+)?water|"
+    r"break\s+(?:the\s+)?(?:product|item|unit|handle|prong|blade))",
+    re.IGNORECASE,
+)
+REMEDY_HHW_RECYCLE_PAT = re.compile(
+    r"(?:hazardous\s+waste|local\s+and\s+state\s+(?:regulations|laws|requirements)|"
+    r"state\s+and\s+local\s+(?:regulations|laws|requirements)|"
+    r"applicable\s+(?:local|state|federal)?\s*(?:and\s+state\s+)?(?:laws|regulations|requirements)|"
+    r"municipal\s+(?:hazardous|recycling|waste)|recycling\s+(?:facility|center|location|program)|"
+    r"household\s+hazardous\s+waste|\bhhw\b|"
+    r"do\s+not\s+(?:throw|place|dispose)[^\n.]{0,40}(?:trash|garbage|curbside))",
+    re.IGNORECASE,
+)
+# Optional / alternative verification pathway detector (e.g., Jugader 9924: "photo ... or their online purchase order number",
+# receipt/proof-of-purchase alternatives, or return-OR-photo alternatives)
+PROOF_ALTERNATIVE_PATH_PAT = re.compile(
+    r"(?:"
+    r"\b(?:photo(?:graph)?s?|images?|pictures?)\b[^\n.]{0,85}\bor\b[^\n.]{0,45}\b(?:(?:online\s+)?(?:purchase\s+)?order\s+number|(?:sales\s+|purchase\s+|amazon\s+purchase\s+|disposal\s+)?receipt|proof\s+of\s+purchase|payment\s+documentation)\b|"
+    r"\b(?:(?:online\s+)?(?:purchase\s+)?order\s+number|order\s+date|(?:sales\s+|purchase\s+|amazon\s+purchase\s+)?receipt|proof\s+of\s+purchase)\b[^\n.]{0,55}\bor\b[^\n.]{0,45}\b(?:photo(?:graph)?s?|images?|pictures?)\b|"
+    r"\bproof\s+of\s+purchase,\s+in\s+the\s+way\s+of\s+photos[^\n.]{0,65}\breceipt\b|"
+    r"\b(?:return(?:ed)?\s+(?:the\s+)?(?:product|item|unit|jacket|high\s+chair|mirror|scooter|garment)[^\n.]{0,80}\bor\b[^\n.]{0,55}\b(?:upload|provide|send|email|submit)?\s*(?:a\s+)?(?:photo(?:graph)?s?|images?|pictures?)|"
+    r"(?:photo(?:graph)?s?|images?|pictures?)[^\n.]{0,70}\bor\b[^\n.]{0,60}\b(?:arrange\s+for\s+a\s+pre-?paid|pre-?paid\s+(?:shipping|return)|return\s+(?:the|it)))\b|"
+    r"\breceipt\s+of\s+the\s+returned\s+product\s+or\s+photos\b"
+    r")",
+    re.IGNORECASE,
+)
+
+# ---------------------------------------------------------------------------
 # 4. Units, Price, Months-on-Sale, and Double-Count-Free Injury Parsers
 # ---------------------------------------------------------------------------
 UNIT_PAT = re.compile(r"(?:about\s+|approximately\s+)?([0-9][0-9,]*(?:\.[0-9]+)?)\s*(million|thousand)?", re.IGNORECASE)
@@ -995,7 +1096,216 @@ def parse_channel_and_archetype(rec: dict[str, Any], ent: dict[str, Any], free_w
         "nonamazon_mkt_only": int(channel == "Marketplace_Only" and plat_flags["plat_amazon"] == 0),
     }
     out.update(plat_flags)
+    out.update(classify_amazon_channel_3way(rec, plat_flags, channel))
     return out
+
+
+OTHER_PLAT_KEYS: tuple[str, ...] = (
+    "plat_walmart_com",
+    "plat_temu",
+    "plat_shein",
+    "plat_wayfair",
+    "plat_aliexpress",
+    "plat_ebay_etsy",
+    "plat_tiktok_wish",
+    "plat_target_com",
+)
+
+
+def classify_amazon_channel_3way(
+    rec: dict[str, Any],
+    plat_flags: dict[str, int],
+    channel: str,
+) -> dict[str, Any]:
+    """Parse verbatim Retailers / Sold-At text into mutually exclusive, auditable
+    Amazon channel definitions fixing the legacy amazon_only_mkt conflation:
+      1. strict_amazon_exclusive: verbatim text states exclusively at/on Amazon.com
+         OR lists Amazon as the sole retailer with zero other named marketplaces,
+         online portals, DTC websites, or brick-and-mortar stores.
+      2. multi_channel_with_amazon: lists Amazon alongside other online marketplaces
+         (e.g., Walmart.com, eBay, Newegg, Temu, AliExpress), brand DTC websites
+         (e.g., Anker, Ocoopa.com), other online retailers, or brick-and-mortar stores.
+      3. amazon_channel_ambiguous: Amazon mentioned only as non-retail media
+         (e.g., Amazon Fire TV), missing/partial Retailers text, or clerical conflict
+         between Title/Remedies and Retailers.
+      4. no_amazon_mention: Amazon not listed.
+    Also preserves no_other_flagged_plat_amazon (exact reviewer N=313 benchmark).
+    """
+    ret_entries = [str(x.get("Name") or "").strip() for x in (rec.get("Retailers") or []) if str(x.get("Name") or "").strip()]
+    sales_entries = [e for e in ret_entries if not _is_pure_entity_entry(e)]
+    ret_txt = " ".join(sales_entries if sales_entries else ret_entries).strip()
+    title_txt = str(rec.get("Title") or "")
+    rem_txt = " ".join(str(x.get("Name") or "") for x in (rec.get("Remedies") or []))
+
+    has_other_flagged_plat = int(any(plat_flags.get(k, 0) == 1 for k in OTHER_PLAT_KEYS))
+    no_other_flagged_plat_amazon = int(
+        channel == "Marketplace_Only" and plat_flags.get("plat_amazon", 0) == 1 and has_other_flagged_plat == 0
+    )
+
+    ret_no_fire = AMZ_FIRE_TV_PAT.sub(" ", ret_txt)
+    has_amz_in_ret = bool(AMZ_WORD_PAT.search(ret_no_fire))
+    has_amz_fire_only = bool(AMZ_FIRE_TV_PAT.search(ret_txt)) and not has_amz_in_ret
+    has_amz_elsewhere = bool(AMZ_WORD_PAT.search(f"{title_txt} {rem_txt}"))
+
+    if not has_amz_in_ret:
+        if has_amz_fire_only or has_amz_elsewhere:
+            reason = (
+                "amazon_fire_tv_only"
+                if has_amz_fire_only
+                else ("empty_retailers_field" if not ret_txt else "title_remedy_vs_retailers_conflict")
+            )
+            cat = "amazon_channel_ambiguous"
+        else:
+            reason = "no_amazon"
+            cat = "no_amazon_mention"
+    else:
+        domains = [dm.lower().rstrip(".") for dm in ANY_RETAIL_URL_PAT.findall(ret_txt)]
+        other_domains = [dm for dm in domains if not AMZ_DOMAIN_EXACT_PAT.match(dm)]
+        ret_no_amz = re.sub(r"(?:https?://)?(?:www\.)?amazon(?:\.com)?(?:/[^\s,.;)]*)?", " ", ret_txt, flags=re.IGNORECASE)
+        other_named = OTHER_NAMED_RETAILER_PAT.findall(ret_no_amz)
+        multi_phrase = MULTI_ONLINE_PHRASE_PAT.findall(ret_txt)
+
+        ret_stripped = NON_BRICK_PHRASE_STRIP_PAT.sub(
+            " [ONLINE_PHRASE] ",
+            DOMAIN_STRIP_PAT.sub(" [ONLINE_DOMAIN] ", ret_txt),
+        )
+        has_brick_ret = int(bool(BRICK_PAT.search(ret_stripped)) or bool(BRANDED_PHYSICAL_STORE_PAT.search(ret_stripped)))
+
+        if has_brick_ret == 1 or other_domains or other_named or multi_phrase or has_other_flagged_plat == 1:
+            cat = "multi_channel_with_amazon"
+            if has_brick_ret == 1:
+                reason = "amazon_plus_brick"
+            elif other_domains or other_named or has_other_flagged_plat == 1:
+                reason = "amazon_plus_other_domains_or_platforms"
+            else:
+                reason = "amazon_plus_other_online_phrase"
+        else:
+            ret_clean_ws = " ".join(ret_txt.split())
+            if EXPLICIT_EXCL_AMZ_PAT.search(ret_clean_ws):
+                cat = "strict_amazon_exclusive"
+                reason = "explicit_exclusively_amazon"
+            elif SOLE_AMZ_RETAILER_PAT.search(ret_clean_ws):
+                cat = "strict_amazon_exclusive"
+                reason = "sole_listed_retailer_amazon"
+            else:
+                cat = "amazon_channel_ambiguous"
+                reason = "unrecognized_retailer_syntax"
+
+    return {
+        "amazon_channel_3way": cat,
+        "amazon_channel_reason": reason,
+        "strict_amazon_exclusive": int(cat == "strict_amazon_exclusive"),
+        "multi_channel_with_amazon": int(cat == "multi_channel_with_amazon"),
+        "multi_channel_online_with_amazon": int(cat == "multi_channel_with_amazon" and channel == "Marketplace_Only"),
+        "amazon_channel_ambiguous": int(cat == "amazon_channel_ambiguous"),
+        "has_other_flagged_plat": has_other_flagged_plat,
+        "no_other_flagged_plat_amazon": no_other_flagged_plat_amazon,
+    }
+
+
+def _flatten_notice_text(value: object) -> str:
+    if isinstance(value, str):
+        return value
+    if isinstance(value, list):
+        return " ".join(_flatten_notice_text(item) for item in value)
+    if isinstance(value, dict):
+        return " ".join(_flatten_notice_text(item) for item in value.values())
+    return ""
+
+
+def parse_remedy_duties_v4(
+    rec: dict[str, Any],
+    rem_txt: str,
+    desc_txt: str,
+    haz_txt: str,
+    photo_verify: int,
+    direct_return: int,
+    self_dispose_instructed: int,
+) -> dict[str, Any]:
+    """Structured 5-dimensional remedy-duty parser integrating v3 literal-wording
+    guards and v4 mandatory-vs-optional proof, alternative-path, duty-bearer, and
+    physical-disablement dimensions (audited against Jugader 9924 and UVIPC 10148).
+    """
+    literal_photo = int(bool(LITERAL_PHOTO_PAT.search(rem_txt)))
+    photo_language = int(photo_verify == 1 and literal_photo == 1)
+    destruction_proof = int(bool(DESTRUCTION_PROOF_PAT.search(rem_txt)))
+    disposal_proof = int(bool(DISPOSAL_PROOF_PAT.search(rem_txt)))
+    destruction_proof_without_photo = int(destruction_proof == 1 and literal_photo == 0)
+    physical_destruction = int(bool(REMEDY_PHYSICAL_DESTRUCT_PAT.search(rem_txt)))
+    permanent_marking = int(bool(REMEDY_MARKING_PAT.search(rem_txt)))
+    photo_and_physical_action = int(photo_language == 1 and physical_destruction == 1)
+    photo_only_no_action = int(photo_language == 1 and physical_destruction == 0 and permanent_marking == 0)
+
+    # Sentence-level alternative/optional proof detection (prevents Jugader 9924 FP!)
+    has_alt_path = 0
+    for sent in re.split(r"(?<=[.!?])\s+", rem_txt):
+        if PROOF_ALTERNATIVE_PATH_PAT.search(sent):
+            has_alt_path = 1
+            break
+
+    any_proof = int(photo_language == 1 or destruction_proof == 1 or disposal_proof == 1)
+    if any_proof == 0:
+        proof_status = "no_proof_required"
+    elif has_alt_path == 1:
+        proof_status = "optional_or_alternative_proof"
+    else:
+        proof_status = "mandatory_proof"
+
+    photo_mandatory = int(photo_language == 1 and has_alt_path == 0)
+    physically_disabled = int(physical_destruction == 1 or destruction_proof == 1)
+
+    if (physically_disabled == 1 or permanent_marking == 1 or self_dispose_instructed == 1 or photo_mandatory == 1) and direct_return == 0:
+        duty_bearer = "consumer_action_required"
+    elif (
+        (photo_language == 1 or has_alt_path == 1 or physically_disabled == 1 or permanent_marking == 1)
+        and direct_return == 1
+    ) or (has_alt_path == 1 and direct_return == 0):
+        duty_bearer = "shared_consumer_and_firm"
+    else:
+        duty_bearer = "firm_or_retailer_led"
+
+    if photo_language == 1:
+        if has_alt_path == 1:
+            duty_4cat = "photo_optional_or_alternative"
+        elif physical_destruction == 1:
+            duty_4cat = "photo_plus_physical_destruction"
+        elif permanent_marking == 1:
+            duty_4cat = "photo_plus_permanent_marking_only"
+        else:
+            duty_4cat = "photo_only_mandatory"
+    elif destruction_proof == 1 or disposal_proof == 1:
+        duty_4cat = "non_photo_destruction_or_disposal_proof"
+    elif direct_return == 1:
+        duty_4cat = "direct_return_no_photo"
+    else:
+        duty_4cat = "other_remedy_no_proof"
+
+    displayed_notice = f"{rem_txt} {desc_txt} {haz_txt}"
+    full_record = _flatten_notice_text(rec)
+
+    return {
+        "literal_photo_in_remedy": literal_photo,
+        "photo_language": photo_language,
+        "destruction_proof": destruction_proof,
+        "disposal_proof": disposal_proof,
+        "destruction_proof_without_photo": destruction_proof_without_photo,
+        "physical_destruction": physical_destruction,
+        "permanent_marking": permanent_marking,
+        "photo_and_physical_action": photo_and_physical_action,
+        "photo_only_no_action": photo_only_no_action,
+        "proof_alternative_path": has_alt_path,
+        "proof_status": proof_status,
+        "photo_mandatory": photo_mandatory,
+        "physically_disabled": physically_disabled,
+        "duty_bearer": duty_bearer,
+        "remedy_duty_4cat": duty_4cat,
+        "explicit_disposal_word": int(bool(EXPLICIT_DISPOSAL_WORD_PAT.search(rem_txt))),
+        "warning_remedy": int(bool(EXPLICIT_HHW_PAT.search(rem_txt))),
+        "warning_full_notice": int(bool(EXPLICIT_HHW_PAT.search(displayed_notice))),
+        "explicit_fba": int(bool(EXPLICIT_FBA_PAT.search(full_record))),
+        "fba_token": int(bool(FBA_TOKEN_PAT.search(full_record))),
+        "source_url": str(rec.get("URL") or ""),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -1216,4 +1526,15 @@ def parse_recall_record(rec: dict[str, Any]) -> dict[str, Any] | None:
     }
     row.update(ent)
     row.update(ch)
+    row.update(
+        parse_remedy_duties_v4(
+            rec,
+            rem_txt=rem_txt,
+            desc_txt=desc_txt,
+            haz_txt=haz_txt,
+            photo_verify=photo_verify,
+            direct_return=direct_return,
+            self_dispose_instructed=self_dispose_instructed,
+        )
+    )
     return row
